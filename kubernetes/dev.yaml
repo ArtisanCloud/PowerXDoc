@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: powerx-dev
+  labels:
+    app: powerx-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: powerx-dev
+  template:
+    metadata:
+      labels:
+        app: powerx-dev
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/artisancloud/powerxdocs:develop
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: ghcr
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: powerx-dev
+spec:
+  selector:
+    app: powerx-dev
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: powerx-dev
+  namespace: default
+
+spec:
+  rules:
+    - host: powerx-dev.artisan-cloud.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: powerx-dev
+                port:
+                  number: 80
+
