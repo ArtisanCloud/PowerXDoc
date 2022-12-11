@@ -15,6 +15,7 @@ date: 2022-12-08
 
 
 ## 预安装数据库 Postgres
+
 当前版本先只支持 [Postgres](https://www.postgresql.org/download/) 数据库
 
 版本>=14
@@ -61,7 +62,7 @@ date: 2022-12-08
 ```
 
 ### 本地访问启动服务
-打开浏览器，输入 [http://localhost:8000](http://localhost:8000)
+打开浏览器，输入 localhost:8000
 
 第一次打开浏览器，系统会进入安装界面
 
@@ -73,9 +74,13 @@ date: 2022-12-08
 ::: tip
 
 * golang版本 :  >=1.16
+
 * golang官网 :  [国内镜像](https://golang.google.cn/dl/)
+
 * goproxy镜像:  [goproxy.cn](https://goproxy.cn/)
+
 * postgres:  [官方网址 版本>=14](https://www.postgresqltutorial.com)
+
 * redis:  [redis](https://github.com/ArtisanCloud/PowerLibs/blob/master/cache/redis.go)
 
 
