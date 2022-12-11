@@ -31,7 +31,7 @@ export const sidebar = {
       { text: '安装', link: '/zh/start/installation' },
       { text: '快速开始', link: '/zh/start/quick-start' },
       { text: '通用配置', link: '/zh/start/common' },
-      { text: '使用示例', link: '/zh/start/tutorial' },
+      // { text: '使用示例', link: '/zh/start/tutorial' },
       { text: 'Q&A', link: '/zh/start/qa' }
     ]
   }, {
