@@ -77,6 +77,6 @@ jobs:
           export https_proxy=http://100.91.137.50:1089
           export http_proxy=http://100.91.137.50:1089
           export all_proxy=socks5://100.91.137.50:1089
+          coscli ls cos://powerx-1307679408/
           coscli cp .vitepress/dist/ cos://powerx-1307679408/ -r --thread-num 20
-
 
