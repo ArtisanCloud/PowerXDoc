@@ -187,7 +187,7 @@ wi52wqDhh+OQbkX9LUSsu3IRG5Nsg2A0zsZWYqK2fRcpI+voRWz09uUu99AOcVSw
 
 
 ## Redis 缓存配置
-![img.png](images/config-wecom.png)
+![img.png](images/config-redis.png)
 
 ### 启动缓存服务地址
 - 类型: `字符串`
