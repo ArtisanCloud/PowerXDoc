@@ -1,6 +1,6 @@
 ---
 title: 安装
-date: 2022-12-08
+date: 2022-12-18
 ---
 
 # 安装
@@ -8,68 +8,175 @@ date: 2022-12-08
 请在安装好golang环境后，进入到你到项目目录下
 
 ``` bash
-> cd {your_project_location}
-> 
+> cd /{your_project_location}
+> pwd
+> /{your_project_location}
 
 ```
-
 
 ## 预安装数据库 Postgres
 
 当前版本先只支持 [Postgres](https://www.postgresql.org/download/) 数据库
 
-版本>=14
+版本>=14，具体安装步骤请查看官方教程
 
+``` bash
+# 在终端查看安装postgres版本
+> psql --version
+> psql (PostgreSQL) 14.6 (Homebrew)
+
+```
 
 ## 预安装缓存 Redis
+
 * [源代码编译安装](https://redis.io/docs/getting-started/installation/install-redis-from-source)
 * [在Linux上，安装Redis](https://redis.io/docs/getting-started/installation/install-redis-on-linux)
 * [在macOS上，安装Redis](https://redis.io/docs/getting-started/installation/install-redis-on-mac-os)
 * [在Windows上，安装Redis](https://redis.io/docs/getting-started/installation/install-redis-on-windows)
 
-版本>=6
+版本>=7，具体安装步骤请查看官方教程
+
+``` bash
+# 在Mac终端查看安装Redis版本
+> brew info redis
+==> redis: stable 7.0.5 (bottled), HEAD 
+
+# 在Windows终端查看安装Redis版本
+> redis-cli
+127.0.0.1:6379> info
+# Server
+redis_version:7.0.5
 
 
-## 安装 PowerX
+```
 
+## 1. 安装启动，后台服务 [PowerX](https://github.com/ArtisanCloud/PowerX)
 
+PowerX是基于Golang语言开发的后台系统服务项目
 
-如果有遇到问题，欢迎点击右上角联系我们。
-
-### 下载 [PowerX](https://github.com/ArtisanCloud/PowerX)
+### 1.1 下载 [PowerX](https://github.com/ArtisanCloud/PowerX)
 
 ``` bash
 > git clone git@github.com:ArtisanCloud/PowerX.git
+
 ```
 
-### 编译源代码
+### 1.2 编译源代码
 
 ``` bash
 # 进入clone下来的项目文件夹
 > cd PowerX
+> pwd
+/{your_project_location}/PowerX
 
-# 编译项目，确保在根目录上有powerx可执行文件
-> go build 
+# 编译项目，确保在根目录上有PowerX可执行文件
+> go build -o PowerX
+> ls PowerX
+PowerX
 
 # 检查powerx工具包的版本
 > ./PowerX version
+v1
+```
 
+### 1.3 启动后台服务
+
+``` bash
 # 启动PowerX服务
-# 系统会启动gin服务，默认端口 "0.0.0.0:8080"
 > ./PowerX serve
+"0.0.0.0:8080"
 
+```
+
+第一次启动服务后，在项目根目录下，会自动生成一个config.yml文件。
+
+系统会启动gin服务，默认端口 "0.0.0.0:8080"
+
+## 2. 安装启动，前端项目 [PowerXDashboard](https://github.com/ArtisanCloud/PowerXDashboard)
+PowerXDashboard是基于ReactJS架构的前端页面系统。
+
+### 2.0 预安装环境
+
+
+版本管理使用[yarn](https://yarnpkg.com/getting-started/install)
+
+```bash
+> yarn --verion
+yarn version v1.22.19
+
+```
+
+PowerX的前端项目是基于[Ant Design Pro](https://procomponents.ant.design)进行开发。
+
+
+PowerXDashboard使用Ant Design Pro官方推荐的脚手架[UmiJS](https://umijs.org/docs/tutorials/getting-started)进行搭建。
+(current version>=4.0)
+
+
+
+### 2.1 下载 [PowerXDashboard](https://github.com/ArtisanCloud/PowerXDashboard)
+
+``` bash
+> git clone git@github.com:ArtisanCloud/PowerXDashboard.git
+
+```
+
+### 2.2 编译源代码
+
+安装依赖库
+``` bash
+# 进入clone下来的项目文件夹
+> cd PowerXDashboard
+> pwd
+/{your_project_location}/PowerXDashboard
+
+# 安装依赖库
+> yarn -i
+
+```
+
+使用开发模式，启动项目, 默认端口8000
+```bash
+> yarn dev
+yarn run v1.22.19
+$ max dev
+info  - [你知道吗？] 如果要支持低版本浏览器，可尝试新出的 legacy 配置项，详见 https://umijs.org/docs/api/config#legacy
+info  - Umi v4.0.36
+info  - MFSU eager strategy enabled
+info  - [MFSU][eager] restored cache
+event - [MFSU][eager] start build deps
+info  - [MFSU] skip buildDeps
+        ╔════════════════════════════════════════════════════╗
+        ║ App listening at:                                  ║
+        ║  >   Local: http://localhost:8000                  ║
+ready - ║  > Network: http://192.168.71.68:8000              ║
+        ║                                                    ║
+        ║ Now you can open browser with the above addresses↑ ║
+        ╚════════════════════════════════════════════════════╝
+info  - [MFSU][eager] worker init, takes 904ms
+event - [Webpack] Compiled in 1543 ms (671 modules)
+wait  - [Webpack] Compiling...
+event - [MFSU][eager] start build deps
+info  - [MFSU] skip buildDeps
+event - [Webpack] Compiled in 129 ms (657 modules)
 
 ```
 
 ### 本地访问启动服务
+
 打开浏览器，输入 localhost:8000
 
 第一次打开浏览器，系统会进入安装界面
 
+![img.png](images/config-app.png)
 
 
+能看到当前页面，恭喜你，说明前后端的代码部署已经完成。
+
+进入下一节，开始前后端[安装配置](common.html)
 
 
+---
 
 ::: tip
 
@@ -82,6 +189,5 @@ date: 2022-12-08
 * postgres:  [官方网址 版本>=14](https://www.postgresqltutorial.com)
 
 * redis:  [redis](https://github.com/ArtisanCloud/PowerLibs/blob/master/cache/redis.go)
-
 
 :::
