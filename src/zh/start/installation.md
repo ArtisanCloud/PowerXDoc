@@ -69,23 +69,47 @@ PowerX是基于Golang语言开发的后台系统服务项目
 > pwd
 /{your_project_location}/PowerX
 
-# 编译项目，确保在根目录上有PowerX可执行文件
-> go build -o PowerX
+```
+
+编译项目，确保在根目录上有PowerX可执行文件
+
+```bash
+# Linux环境编译
+> CGO_ENABLED=0  GOOS=linux  GOARCH=amd64 go build -o PowerX
+```
+
+```bash
+# Windows环境编译
+> CGO_ENABLED=0  GOOS=windows  GOARCH=amd64 go build -o PowerX.exe
+```
+
+```bash
+# Linux环境编译
+> CGO_ENABLED=0  GOOS=darwin  GOARCH=arm64 go build -o PowerX
+```
+
+```bash
+
 > ls PowerX
 PowerX
-
-# 检查powerx工具包的版本
+# linux/mac检查powerx工具包的版本
 > ./PowerX version
+v1
+# windows检查powerx工具包的版本
+> PowerX.exe version
 v1
 ```
 
 ### 1.3 启动后台服务
 
 ``` bash
-# 启动PowerX服务
+# Linux/mac启动PowerX服务
 > ./PowerX serve
 "0.0.0.0:8080"
 
+# windows启动PowerX服务
+> PowerX.exe serve
+"0.0.0.0:8080"
 ```
 
 第一次启动服务后，在项目根目录下，会自动生成一个config.yml文件。
@@ -135,7 +159,24 @@ PowerXDashboard使用Ant Design Pro官方推荐的脚手架[UmiJS](https://umijs
 
 ```
 
-使用开发模式，启动项目, 默认端口8000
+
+配置环境变量
+
+根据.umirc.ts文件中的环境变量设置，需要在本地先添加一个.env文件
+
+```yaml
+REACT_APP_BASE_URL=http://localhost:8080
+REACT_APP_WX_OAUTH_URL=https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=ww454dfb9d6f6d432a&agentid=1000005&redirect_uri=https://michael-web.debug.artisancloud.cn/user/wx/authorized&state=code
+REACT_APP_OAUTH_URL=https://michael-web.debug.artisancloud.cn
+REACT_APP_OAUTH_STATE=code
+
+```
+REACT_APP_BASE_URL是本地请求后端的地址，和PowerX启动服务的端口呼应，默认端口：8080
+
+你也可以复制.umirc.ts成.umirc.local.ts，作为本地开发环境
+
+
+启动前端项目，使用开发模式，默认端口8000
 ```bash
 > yarn dev
 yarn run v1.22.19
