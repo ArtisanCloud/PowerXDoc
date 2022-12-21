@@ -96,7 +96,7 @@ PowerX
 > ./PowerX version
 v1
 # windows检查powerx工具包的版本
-> PowerX.exe version
+> .\PowerX.exe version
 v1
 ```
 
@@ -108,7 +108,7 @@ v1
 "0.0.0.0:8080"
 
 # windows启动PowerX服务
-> PowerX.exe serve
+> .\PowerX.exe serve
 "0.0.0.0:8080"
 ```
 
