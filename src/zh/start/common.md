@@ -139,6 +139,8 @@ wi52wqDhh+OQbkX9LUSsu3IRG5Nsg2A0zsZWYqK2fRcpI+voRWz09uUu99AOcVSw
 
 ## 数据库配置
 
+可以点击<验证配置>按钮，先为数据库的信息测试一下。
+
 ![img.png](images/config-database.png)
 ### 启动数据库服务地址
 - 类型: `字符串`
@@ -187,7 +189,11 @@ wi52wqDhh+OQbkX9LUSsu3IRG5Nsg2A0zsZWYqK2fRcpI+voRWz09uUu99AOcVSw
 
 
 ## Redis 缓存配置
+
+
 ![img.png](images/config-redis.png)
+
+可以点击<验证配置>按钮，先为Redis的信息测试一下。
 
 ### 启动缓存服务地址
 - 类型: `字符串`
