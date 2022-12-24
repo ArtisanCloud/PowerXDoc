@@ -5,6 +5,20 @@ date: 2022-12-08
 
 # 快速开始
 
+## 重启后台
+<font color=red>在安装配置完前面的参数后，后台系统会自动关闭，等待启动</font>
+
+再次启动系统，加载新的配置
+``` bash
+# Linux/mac启动PowerX服务
+> ./PowerX serve
+"0.0.0.0:8080"
+
+# windows启动PowerX服务
+> .\PowerX.exe serve
+"0.0.0.0:8080"
+```
+
 
 ## 初始化Root账号
 如果当前的环境不是正是站，或者说企业微信的回调url没有做相应的配置或者域名穿刺，
