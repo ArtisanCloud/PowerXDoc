@@ -207,6 +207,8 @@ wi52wqDhh+OQbkX9LUSsu3IRG5Nsg2A0zsZWYqK2fRcpI+voRWz09uUu99AOcVSw
 
 ## 企业微信配置
 
+企业微信后台访问地址：https://work.weixin.qq.com
+
 ![img_1.png](images/config-wecom.png)
 
 ### 企业微信账号
