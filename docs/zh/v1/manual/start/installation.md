@@ -5,7 +5,7 @@ date: 2022-12-18
 
 # 安装
 
-请在安装好golang环境后，进入到你到项目目录下
+请在安装好Golang环境后，进入到你到项目目录下
 
 ``` bash
 > cd /{your_project_location}
