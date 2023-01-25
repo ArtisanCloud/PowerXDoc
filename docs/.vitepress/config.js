@@ -85,7 +85,14 @@ export const sidebar = {
                     {text: '破坏性创新模型', link: '/zh/' + version + '/product/strategy/design/destructive'},
                 ]
             },
-            {text: '目标设定', link: '/zh/' + version + '/product/strategy/target'},
+            {text: '目标设定',
+                link: '/zh/' + version + '/product/strategy/target',
+                items: [
+                    {text: '收获', link: '/zh/' + version + '/product/strategy/target/income'},
+                    {text: '支出', link: '/zh/' + version + '/product/strategy/target/cost'},
+                    {text: '风险', link: '/zh/' + version + '/product/strategy/target/risk'},
+                ]
+            },
             {text: '战略实施', link: '/zh/' + version + '/product/strategy/implement'},
         ]
     }, {
