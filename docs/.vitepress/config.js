@@ -57,35 +57,51 @@ export const sidebar = {
     }, {
         text: '战略规划',
         collapsible: true,
+        collapsed: true,
+
         items: [
             {text: '战略概述', link: '/zh/' + version + '/product/strategy/overview'},
-            {text: '战略设计',
+            {
+                text: '战略设计',
                 link: '/zh/' + version + '/product/strategy/design',
                 items: [
-                    {text: '通用分析模型',
+                    {
+                        text: '通用分析模型',
                         link: '/zh/' + version + '/product/strategy/design/general',
                         items: [
                             {text: 'SWOT分析', link: '/zh/' + version + '/product/strategy/design/general/swot'},
                             {text: 'PEST分析', link: '/zh/' + version + '/product/strategy/design/general/pest'},
                         ]
                     },
-                    {text: '竞争性角度模型',
+                    {
+                        text: '竞争性角度模型',
                         link: '/zh/' + version + '/product/strategy/design/competitor',
                         items: [
-                            {text: '波特五力模型', link: '/zh/' + version + '/product/strategy/design/competitor/porter'},
-                            {text: '波特钻石模型', link: '/zh/' + version + '/product/strategy/design/competitor/porter-diamond'},
+                            {
+                                text: '波特五力模型',
+                                link: '/zh/' + version + '/product/strategy/design/competitor/porter'
+                            },
+                            {
+                                text: '波特钻石模型',
+                                link: '/zh/' + version + '/product/strategy/design/competitor/porter-diamond'
+                            },
                         ]
                     },
-                    {text: '差异性角度模型',
+                    {
+                        text: '差异性角度模型',
                         link: '/zh/' + version + '/product/strategy/design/differentiation',
                         items: [
-                            {text: '蓝海战略', link: '/zh/' + version + '/product/strategy/design/differentiation/blue-ocean'},
+                            {
+                                text: '蓝海战略',
+                                link: '/zh/' + version + '/product/strategy/design/differentiation/blue-ocean'
+                            },
                         ]
                     },
                     {text: '破坏性创新模型', link: '/zh/' + version + '/product/strategy/design/destructive'},
                 ]
             },
-            {text: '目标设定',
+            {
+                text: '目标设定',
                 link: '/zh/' + version + '/product/strategy/target',
                 items: [
                     {text: '收获', link: '/zh/' + version + '/product/strategy/target/income'},
@@ -93,34 +109,47 @@ export const sidebar = {
                     {text: '风险', link: '/zh/' + version + '/product/strategy/target/risk'},
                 ]
             },
+            {text: '机会的评估模型', link: '/zh/' + version + '/product/strategy/opportunity'},
             {text: '战略实施', link: '/zh/' + version + '/product/strategy/implement'},
         ]
     }, {
-        text: '产品设计',
+        text: '解决方案',
         collapsible: true,
         items: [
-            {
-                text: '用例',
-                items: [
-                    {text: '介绍', link: '/zh/' + version + '/product/scrm/user'}
-                ]
-            },
-            {
-                text: 'PRD',
-                items: [
-                    {text: '介绍', link: '/zh/' + version + '/product/scrm/user'}
-                ]
-            },
+            {text: '方案概述', link: '/zh/' + version + '/product/solution/overview'},
+            {text: '梳理涉众', link: '/zh/' + version + '/product/solution/stakeholder'},
+            {text: '涉众期望', link: '/zh/' + version + '/product/solution/expectation'},
+            {text: '产品价值', link: '/zh/' + version + '/product/solution/product-value'},
+            {text: '价值方案', link: '/zh/' + version + '/product/solution/value-solution'},
+            {text: '需求排期', link: '/zh/' + version + '/product/solution/requirement-schedule'},
+        ]
+    },
+        {
+            text: '产品设计',
+            collapsible: true,
+            items: [
+                {
+                    text: '用例',
+                    items: [
+                        {text: '介绍', link: '/zh/' + version + '/product/scrm/user'}
+                    ]
+                },
+                {
+                    text: 'PRD',
+                    items: [
+                        {text: '介绍', link: '/zh/' + version + '/product/scrm/user'}
+                    ]
+                },
 
-        ]
-    }, {
-        text: '产品管理',
-        collapsible: true,
-        items: [
-            {text: '需求管理', link: '/zh/' + version + '/product/scrm/user'},
-            {text: '目标管理', link: '/zh/' + version + '/product/scrm/user'},
-        ]
-    }
+            ]
+        }, {
+            text: '产品管理',
+            collapsible: true,
+            items: [
+                {text: '需求管理', link: '/zh/' + version + '/product/scrm/user'},
+                {text: '目标管理', link: '/zh/' + version + '/product/scrm/user'},
+            ]
+        }
     ]
 }
 

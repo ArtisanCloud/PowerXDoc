@@ -17,3 +17,15 @@ description: 关于PowerX
 
 
 如果产品能够达到一定的规范，也可以方便其他IT团队使用。虽然现在市面上，CRM已经有很多SaaS平台，但是我们是想自己体验一下作为有私有化部署的客户诉求，怎么可以完成一个比较完整的产品使用。
+
+
+
+---
+
+> 本开源产品设计文档：
+>
+> 作者： [Matrix-X](https://github.com/ArtisanCloud) 
+> 
+> 参考书籍：[《图解产品》](https://blog.csdn.net/broadview2006/article/details/120777491)
+> 
+> 感谢！
