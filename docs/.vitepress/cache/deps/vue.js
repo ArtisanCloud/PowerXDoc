@@ -181,7 +181,7 @@ var isArray = Array.isArray;
 var isMap = (val) => toTypeString(val) === "[object Map]";
 var isSet = (val) => toTypeString(val) === "[object Set]";
 var isDate = (val) => toTypeString(val) === "[object Date]";
-var isFunction = (val) => typeof val === "urd";
+var isFunction = (val) => typeof val === "function";
 var isString = (val) => typeof val === "string";
 var isSymbol = (val) => typeof val === "symbol";
 var isObject = (val) => val !== null && typeof val === "object";
@@ -1479,11 +1479,11 @@ var ErrorTypeStrings = {
   [
     0
     /* ErrorCodes.SETUP_FUNCTION */
-  ]: "setup urd",
+  ]: "setup function",
   [
     1
     /* ErrorCodes.RENDER_FUNCTION */
-  ]: "render urd",
+  ]: "render function",
   [
     2
     /* ErrorCodes.WATCH_GETTER */
@@ -1495,7 +1495,7 @@ var ErrorTypeStrings = {
   [
     4
     /* ErrorCodes.WATCH_CLEANUP */
-  ]: "watcher cleanup urd",
+  ]: "watcher cleanup function",
   [
     5
     /* ErrorCodes.NATIVE_EVENT_HANDLER */
@@ -1527,7 +1527,7 @@ var ErrorTypeStrings = {
   [
     12
     /* ErrorCodes.FUNCTION_REF */
-  ]: "ref urd",
+  ]: "ref function",
   [
     13
     /* ErrorCodes.ASYNC_COMPONENT_LOADER */
@@ -1932,7 +1932,7 @@ var _devtoolsComponentRemoved = createDevtoolsComponentHook(
   /* DevtoolsHooks.COMPONENT_REMOVED */
 );
 var devtoolsComponentRemoved = (component) => {
-  if (devtools && typeof devtools.cleanupBuffer === "urd" && // remove the component if it wasn't buffered
+  if (devtools && typeof devtools.cleanupBuffer === "function" && // remove the component if it wasn't buffered
   !devtools.cleanupBuffer(component)) {
     _devtoolsComponentRemoved(component);
   }
@@ -4403,7 +4403,7 @@ function resolveInjections(injectOptions, ctx, checkDuplicateProperties = NOOP, 
           opt.from || key,
           opt.default,
           true
-          /* treat default urd as factory */
+          /* treat default function as factory */
         );
       } else {
         injected = inject(opt.from || key);

@@ -3,10 +3,11 @@ layout: home
 
 hero:
   name: PowerX
+  text: 数字化转型的好帮手
   image:
     src: /images/r&d.jpeg
     alt: ArtisanCloud logo
-  tagline: PowerX是开源的CRM系统
+  tagline: 为企业打造的开源的CRM系统
   actions:
     - theme: brand
       text: 快速开始
