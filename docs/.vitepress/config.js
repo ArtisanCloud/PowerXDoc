@@ -17,13 +17,13 @@ const nav = [
         text: '联系我们',
         link: baseURI + '/contact/qa'
     },
-    {
-        text: 'test',
-        items: [
-            {text: 'v1', link: '/bs/v1/zh'},
-            {text: 'v2', link: '/bs/v2/zh'},
-        ]
-    }
+    // {
+    //     text: 'version',
+    //     items: [
+    //         {text: 'v1', link: '/bs/v1/zh'},
+    //         {text: 'v2', link: '/bs/v2/zh'},
+    //     ]
+    // }
 ]
 
 
