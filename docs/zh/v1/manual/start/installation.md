@@ -94,10 +94,10 @@ PowerX是基于Golang语言开发的后台系统服务项目
 PowerX
 # linux/mac检查powerx工具包的版本
 > ./PowerX version
-v1
+b2c
 # windows检查powerx工具包的版本
 > .\PowerX.exe version
-v1
+b2c
 ```
 
 ### 1.3 启动后台服务
@@ -126,7 +126,7 @@ PowerXDashboard是基于ReactJS架构的前端页面系统。
 
 ```bash
 > yarn --verion
-yarn version v1.22.19
+yarn version b2c.22.19
 
 ```
 
@@ -179,7 +179,7 @@ REACT_APP_BASE_URL是本地请求后端的地址，和PowerX启动服务的端�
 启动前端项目，使用开发模式，默认端口8000
 ```bash
 > yarn dev
-yarn run v1.22.19
+yarn run b2c.22.19
 $ max dev
 info  - [你知道吗？] 如果要支持低版本浏览器，可尝试新出的 legacy 配置项，详见 https://umijs.org/docs/api/config#legacy
 info  - Umi v4.0.36

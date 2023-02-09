@@ -7,9 +7,10 @@ description: 不为其他，只为体验一把自己的产品系统
 
 # 写作初衷
 
-PowerX是我们根据客户案例沉淀出来的开源项目，我们之前已经开源过基于Golang的[WeChat SDK PowerWeChat](https://powerwechat.artisan-cloud.com)，在这基础上我们很轻松的封装出了PowerX，未来会根据我们内部和外部的需求进行持续的更新。
 
 PowerX是一款以企业微信为基础的微信私域运营开放平台，帮助企业实现引流获客、精细运营。
+
+PowerX是我们根据客户案例沉淀出来的开源项目，我们之前已经开源过[PowerWeChat](https://powerwechat.artisan-cloud.com)(基于Golang的WeChat SDK)，在这基础上我们很轻松的封装出了PowerX，未来会根据我们内部和外部的需求进行持续的更新。
 
 <br/>
 
