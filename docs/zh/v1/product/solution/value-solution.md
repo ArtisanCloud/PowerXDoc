@@ -11,4 +11,4 @@ description:
 [solution.pdf](/public/resources/b2c/solution.pdf)
 
 ### 方案功能架构图
-![](/public/resources/b2c/functionInfo.png)
+![](./images/functionInfo.png)
