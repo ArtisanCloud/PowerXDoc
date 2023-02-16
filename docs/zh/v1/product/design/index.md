@@ -13,14 +13,14 @@ description: 产品是承载企业创造价值的容器
 
 我们会采用PRD文档和用例文档对整个产品开发需求进行描述，如果有什么缺失或者不恰当的地方，请联系我们，我们可以迭代更好的产品需求说明书。
 
-* [产品需求说明书-PRD](./prd/index.md)
-  * [系统基础功能](./prd/system/index.md)
-  * [scrm功能](./prd/scrm/index.md)
-  * [crm功能](./prd/crm/index.md)
-* [用例描述](./userCase/index.md)
-  * [系统基础功能](./useCase/system/index.md)
-  * [scrm功能](./useCase/scrm/index.md)
-  * [crm功能](./useCase/crm/index.md)
+* [产品需求说明书-PRD](./prd/index)
+  * [系统基础功能](./prd/system/index)
+  * [scrm功能](./prd/scrm/index)
+  * [crm功能](./prd/crm/index)
+* [用例描述](./useCase/index)
+  * [系统基础功能](./useCase/system/index)
+  * [scrm功能](./useCase/scrm/index)
+  * [crm功能](./useCase/crm/index)
 
 
 ### 相关文档可下载
