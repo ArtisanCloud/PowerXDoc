@@ -24,7 +24,7 @@ features:
     title: 基于Golang
     details: ArtisanCloud团队在业务基础上开源了Golang版。
   - icon: 🏛
-    title: Apache 2 开源
-    details: 在Github上开源，免费商用，欢迎Star。
+    title: 整体解决方案都开源
+    details: 产品设计，代码实现，都在Github上免费商用，欢迎Star。
 
 ---

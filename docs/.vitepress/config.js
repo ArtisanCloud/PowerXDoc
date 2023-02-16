@@ -7,23 +7,23 @@ const nav = [
         link: baseURI + '/product/start/index',
         activeMatch: '^/zh/' + version + '/(product)/'
     },
-    {
-        text: '使用手册',
-        link: baseURI + '/manual/start/index',
-        // activeMatch: `^\/zh\/(start)\/(?!qa)`
-        activeMatch: '^' + baseURI + '/(manual)/(start)/'
-    },
+    // {
+    //     text: '使用手册',
+    //     link: baseURI + '/manual/start/index',
+    //     // activeMatch: `^\/zh\/(start)\/(?!qa)`
+    //     activeMatch: '^' + baseURI + '/(manual)/(start)/'
+    // },
     {
         text: '联系我们',
         link: baseURI + '/contact/qa'
     },
-    {
-        text: 'version',
-        items: [
-            {text: 'v1', link: '/bs/v1/zh'},
-            {text: 'v2', link: '/bs/v2/zh'},
-        ]
-    }
+    // {
+    //     text: 'version',
+    //     items: [
+    //         {text: 'v1', link: '/bs/v1/zh'},
+    //         {text: 'v2', link: '/bs/v2/zh'},
+    //     ]
+    // }
 ]
 
 
@@ -123,7 +123,7 @@ export const sidebar = {
     }, {
         text: '解决方案',
         collapsible: true,
-        collapsed: false,
+        collapsed: true,
         items: [
             {text: '方案概述', link: baseURI + '/product/solution/overview'},
             {text: '梳理涉众', link: baseURI + '/product/solution/stakeholder'},
@@ -150,23 +150,76 @@ export const sidebar = {
 
             },
             {text: '价值方案', link: baseURI + '/product/solution/value-solution'},
-            {text: '需求排期', link: baseURI + '/product/solution/requirement-schedule'},
+            {text: '方案排期', link: baseURI + '/product/solution/requirement-schedule'},
         ]
     },
         {
             text: '产品设计',
             collapsible: true,
+            collapsed: false,
+            link: baseURI + '/product/design/index',
             items: [
                 {
                     text: '用例',
+                    collapsible: true,
+                    collapsed: false,
                     items: [
-                        {text: '介绍', link: baseURI + '/product/scrm/user'}
+                        {text: '介绍', link: baseURI + '/product/design/useCase/index'},
+                        {text: '梳理参与者', link: baseURI + '/product/design/useCase/stakeholder'},
+                        {
+                            text: '系统功能用例分析',
+                            link: baseURI + '/product/design/useCase/system/index',
+                            items: [
+                                {text: '角色管理', link: baseURI + '/product/design/useCase/system/role'},
+                                {text: '菜单管理', link: baseURI + '/product/design/useCase/system/menu'},
+                                {text: '组织架构', link: baseURI + '/product/design/useCase/system/organization'},
+                                {
+                                    text: '用户管理', link: baseURI + '/product/design/useCase/system/user',
+                                    items: [
+                                        {text: '创建用户', link: baseURI + '/product/design/useCase/system/user/create'},
+                                        {text: '查看用户', link: baseURI + '/product/design/useCase/system/user/view'},
+                                        {text: '编辑用户', link: baseURI + '/product/design/useCase/system/user/edit'},
+                                        {text: '删除用户', link: baseURI + '/product/design/useCase/system/user/delete'},
+                                    ]
+                                },
+                                {text: '字典管理', link: baseURI + '/product/design/useCase/system/dictionary'},
+                                {text: 'API管理', link: baseURI + '/product/design/useCase/system/api'},
+                                {text: '日志管理', link: baseURI + '/product/design/useCase/system/log'},
+                            ]
+                        },
+                        // {
+                        //     text: 'crm业务用例分析',
+                        //     link: baseURI + '/product/design/useCase/crm/index',
+                        //     items: [
+                        //         {text: '客户管理', link: baseURI + '/product/design/useCase/system/role'},
+                        //         {text: '商品管理', link: baseURI + '/product/design/useCase/system/menu'},
+                        //         {text: '营销管理', link: baseURI + '/product/design/useCase/system/organization'},
+                        //         {text: '商务管理', link: baseURI + '/product/design/useCase/system/user'},
+                        //         {text: '交易管理', link: baseURI + '/product/design/useCase/system/dictionary'},
+                        //         {text: '会籍管理', link: baseURI + '/product/design/useCase/system/api'},
+                        //     ]
+                        // }
                     ]
                 },
                 {
                     text: 'PRD',
+                    collapsible: true,
+                    collapsed: false,
                     items: [
-                        {text: '介绍', link: baseURI + '/product/scrm/user'}
+                        {text: '介绍', link: baseURI + '/product/design/prd/index'},
+                        {
+                            text: '系统功能需求描述',
+                            link: baseURI + '/product/design/prd/system/index',
+                            items: [
+                                {text: '角色管理', link: baseURI + '/product/design/prd/system/role'},
+                                {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
+                                {text: '组织架构', link: baseURI + '/product/design/prd/system/organization'},
+                                {text: '用户管理', link: baseURI + '/product/design/prd/system/user'},
+                                {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
+                                {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
+                                {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
+                            ]
+                        }
                     ]
                 },
 
