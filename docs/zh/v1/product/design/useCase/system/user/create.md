@@ -1,0 +1,24 @@
+---
+title: 创建用户
+date: 2023-01-18
+description: 产品是承载企业创造价值的容器
+
+---
+
+# 创建用户
+
+
+## 用例
+
+![](images/uc_usr_mgmt_create-____.png)
+
+## 用例描述
+
+![img.png](images/uc_des_usr_mgmt_create.png)
+
+
+## 流程图
+
+![](images/fl_usr_mgmt_create-____.png)
+
+## 原型图
