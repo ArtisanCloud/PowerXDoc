@@ -160,69 +160,51 @@ export const sidebar = {
             link: baseURI + '/product/design/index',
             items: [
                 {
-                    text: '用例',
-                    collapsible: true,
-                    collapsed: false,
-                    items: [
-                        {text: '介绍', link: baseURI + '/product/design/useCase/index'},
-                        {text: '梳理参与者', link: baseURI + '/product/design/useCase/stakeholder'},
-                        {
-                            text: '系统功能用例分析',
-                            link: baseURI + '/product/design/useCase/system/index',
-                            items: [
-                                {text: '角色管理', link: baseURI + '/product/design/useCase/system/role'},
-                                {text: '菜单管理', link: baseURI + '/product/design/useCase/system/menu'},
-                                {text: '组织架构', link: baseURI + '/product/design/useCase/system/organization'},
-                                {
-                                    text: '用户管理', link: baseURI + '/product/design/useCase/system/user',
-                                    items: [
-                                        {text: '创建用户', link: baseURI + '/product/design/useCase/system/user/create'},
-                                        {text: '查看用户', link: baseURI + '/product/design/useCase/system/user/view'},
-                                        {text: '编辑用户', link: baseURI + '/product/design/useCase/system/user/edit'},
-                                        {text: '删除用户', link: baseURI + '/product/design/useCase/system/user/delete'},
-                                    ]
-                                },
-                                {text: '字典管理', link: baseURI + '/product/design/useCase/system/dictionary'},
-                                {text: 'API管理', link: baseURI + '/product/design/useCase/system/api'},
-                                {text: '日志管理', link: baseURI + '/product/design/useCase/system/log'},
-                            ]
-                        },
-                        // {
-                        //     text: 'crm业务用例分析',
-                        //     link: baseURI + '/product/design/useCase/crm/index',
-                        //     items: [
-                        //         {text: '客户管理', link: baseURI + '/product/design/useCase/system/role'},
-                        //         {text: '商品管理', link: baseURI + '/product/design/useCase/system/menu'},
-                        //         {text: '营销管理', link: baseURI + '/product/design/useCase/system/organization'},
-                        //         {text: '商务管理', link: baseURI + '/product/design/useCase/system/user'},
-                        //         {text: '交易管理', link: baseURI + '/product/design/useCase/system/dictionary'},
-                        //         {text: '会籍管理', link: baseURI + '/product/design/useCase/system/api'},
-                        //     ]
-                        // }
-                    ]
-                },
-                {
-                    text: 'PRD',
+                    text: '产品需求说明-PRD',
                     collapsible: true,
                     collapsed: false,
                     items: [
                         {text: '介绍', link: baseURI + '/product/design/prd/index'},
+                        {text: '用例文档', link: baseURI + '/product/design/prd/useCase'},
+                        {text: '梳理参与者', link: baseURI + '/product/design/prd/stakeholder'},
                         {
-                            text: '系统功能需求描述',
+                            text: '系统功能用例分析',
                             link: baseURI + '/product/design/prd/system/index',
                             items: [
+                                {text: '系统初始化安装', link: baseURI + '/product/design/prd/system/install'},
+                                {
+                                    text: '用户管理', link: baseURI + '/product/design/prd/system/user',
+                                    items: [
+                                        {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
+                                        {text: '查看用户', link: baseURI + '/product/design/prd/system/user/view'},
+                                        {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
+                                        {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
+                                    ]
+                                },
                                 {text: '角色管理', link: baseURI + '/product/design/prd/system/role'},
-                                {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
                                 {text: '组织架构', link: baseURI + '/product/design/prd/system/organization'},
-                                {text: '用户管理', link: baseURI + '/product/design/prd/system/user'},
+                                {text: '职位管理', link: baseURI + '/product/design/prd/system/position'},
+                                {text: '职称管理', link: baseURI + '/product/design/prd/system/title'},
+                                {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
                                 {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
                                 {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
                                 {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
                             ]
-                        }
+                        },
+                        // {
+                        //     text: 'crm业务用例分析',
+                        //     link: baseURI + '/product/design/prd/crm/index',
+                        //     items: [
+                        //         {text: '客户管理', link: baseURI + '/product/design/prd/system/role'},
+                        //         {text: '商品管理', link: baseURI + '/product/design/prd/system/menu'},
+                        //         {text: '营销管理', link: baseURI + '/product/design/prd/system/organization'},
+                        //         {text: '商务管理', link: baseURI + '/product/design/prd/system/user'},
+                        //         {text: '交易管理', link: baseURI + '/product/design/prd/system/dictionary'},
+                        //         {text: '会籍管理', link: baseURI + '/product/design/prd/system/api'},
+                        //     ]
+                        // }
                     ]
                 },
-
             ]
         }, {
             text: '产品管理',

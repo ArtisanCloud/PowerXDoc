@@ -14,7 +14,7 @@ description: 产品是承载企业创造价值的容器
 
 ## 用例描述
 
-![img.png](images/uc_des_usr_mgmt_create.png)
+![img.png](images/uc_desc_usr_mgmt_create.png)
 
 
 ## 流程图
@@ -22,3 +22,5 @@ description: 产品是承载企业创造价值的容器
 ![](images/fl_usr_mgmt_create-____.png)
 
 ## 原型图
+
+![](images/pt_usr_mgmt_create-____.png)

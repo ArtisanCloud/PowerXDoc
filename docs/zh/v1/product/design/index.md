@@ -5,7 +5,7 @@ description: 产品是承载企业创造价值的容器
 
 ---
 
-# PRD导读
+# 导读
 
 产品是承载企业创造价值的容器。所以产品的设计需要非常周密和完整，不单单只是想到了功能做出来，而且还有考虑各种非显性的功能
 
@@ -17,10 +17,6 @@ description: 产品是承载企业创造价值的容器
   * [系统基础功能](./prd/system/index)
   * [scrm功能](./prd/scrm/index)
   * [crm功能](./prd/crm/index)
-* [用例描述](./useCase/index)
-  * [系统基础功能](./useCase/system/index)
-  * [scrm功能](./useCase/scrm/index)
-  * [crm功能](./useCase/crm/index)
 
 
 ### 相关文档可下载
