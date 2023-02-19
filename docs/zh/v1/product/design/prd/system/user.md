@@ -1,7 +1,7 @@
 ---
 title: 用户管理
 date: 2023-01-18
-description: 产品是承载企业创造价值的容器
+description: 用户管理功能
 
 ---
 
