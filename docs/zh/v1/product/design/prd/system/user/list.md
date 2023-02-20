@@ -15,7 +15,7 @@ description: 查看用户的功能描述
 
 ## 用例描述
 
-![](images/uc_desc_usr_mgmt_list-______.png)
+![](images/uc_desc_usr_mgmt_list.png)
 
 ## 流程图
 
