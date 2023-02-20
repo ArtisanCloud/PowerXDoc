@@ -12,7 +12,6 @@ description: 查看用户列表的功能描述
 
 ![](images/uc_usr_mgmt_list-______.png)
 
-
 ## 用例描述
 
 ![](images/uc_desc_usr_mgmt_list.png)
