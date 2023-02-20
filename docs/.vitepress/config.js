@@ -176,7 +176,8 @@ export const sidebar = {
                                     text: '用户管理', link: baseURI + '/product/design/prd/system/user',
                                     items: [
                                         {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
-                                        {text: '查看用户', link: baseURI + '/product/design/prd/system/user/view'},
+                                        {text: '查看用户列表', link: baseURI + '/product/design/prd/system/user/list'},
+                                        {text: '查看用户详情', link: baseURI + '/product/design/prd/system/user/detail'},
                                         {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
                                         {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
                                     ]

@@ -1,9 +1,12 @@
 ---
 title: 系统功能用例分析
 date: 2023-01-18
-description: 产品是承载企业创造价值的容器
+description: 系统安装功能说明
 
 ---
 
-# 系统功能用例分析
+# 系统安装
 
+## 用例
+
+![](install/images/uc_sys_install-____.png)
