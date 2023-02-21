@@ -180,6 +180,11 @@ export const sidebar = {
                                         {text: '查看用户详情', link: baseURI + '/product/design/prd/system/user/detail'},
                                         {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
                                         {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
+                                        {text: '用户登录', link: baseURI + '/product/design/prd/system/user/login'},
+                                        {text: '重新设置密码', link: baseURI + '/product/design/prd/system/user/resetPass'},
+                                        {text: '重新发送激活用户', link: baseURI + '/product/design/prd/system/user/resendActivateUserEmail'},
+                                        {text: '启动/禁用用户', link: baseURI + '/product/design/prd/system/user/enableUser'},
+                                        {text: '强制退出', link: baseURI + '/product/design/prd/system/user/forceLogout'},
                                     ]
                                 },
                                 {text: '角色管理', link: baseURI + '/product/design/prd/system/role'},
