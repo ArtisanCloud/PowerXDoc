@@ -1,7 +1,7 @@
 ---
 title: 查看用户
 date: 2023-02-20
-description: 查看用户的功能描述
+description: 编辑用户的功能描述
 
 ---
 

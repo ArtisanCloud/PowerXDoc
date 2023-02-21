@@ -1,7 +1,7 @@
 ---
 title: 重新设置密码
 date: 2023-02-20
-description: 查看用户的功能描述
+description: 重设用户密码的功能描述
 
 ---
 

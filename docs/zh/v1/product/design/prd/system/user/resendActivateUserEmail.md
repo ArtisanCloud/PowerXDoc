@@ -1,7 +1,7 @@
 ---
-title: 删除用户
+title: 重新发送激活邮件
 date: 2023-02-20
-description: 查看用户的功能描述
+description: 重新发送激活邮件的功能描述
 
 ---
 
