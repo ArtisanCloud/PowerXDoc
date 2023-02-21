@@ -174,6 +174,8 @@ export const sidebar = {
                                 {text: '系统初始化安装', link: baseURI + '/product/design/prd/system/install'},
                                 {
                                     text: '用户管理', link: baseURI + '/product/design/prd/system/user',
+                                    collapsible: true,
+                                    collapsed: false,
                                     items: [
                                         {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
                                         {text: '查看用户列表', link: baseURI + '/product/design/prd/system/user/list'},
