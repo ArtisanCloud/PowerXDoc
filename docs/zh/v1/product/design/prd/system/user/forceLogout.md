@@ -10,17 +10,17 @@ description: 强制用户退出登录的功能描述
 
 ## 用例
 
-![](images/uc_usr_mgmt_delete-____.png)
+![](images/uc_usr_mgmt_forcelogout-____.png)
 
 ## 用例描述
 
-![img.png](images/uc_desc_usr_mgmt_delete.png)
+![img.png](images/uc_desc_usr_mgmt_forceLogout.png)
 
 
 ## 流程图
 
-![](images/fl_usr_mgmt_delete-____.png)
+![](images/fl_usr_mgmt_forceLogout-____.png)
 
 ## 原型图
 
-![](images/pt_usr_mgmt_delete-____.png)
+![](images/pt_usr_mgmt_forcelogout-____.png)
