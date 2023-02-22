@@ -169,13 +169,15 @@ export const sidebar = {
                         {text: '梳理参与者', link: baseURI + '/product/design/prd/stakeholder'},
                         {
                             text: '系统功能用例分析',
+                            collapsible: true,
+                            collapsed: false,
                             link: baseURI + '/product/design/prd/system/index',
                             items: [
                                 {text: '系统初始化安装', link: baseURI + '/product/design/prd/system/install'},
                                 {
                                     text: '用户管理', link: baseURI + '/product/design/prd/system/user',
                                     collapsible: true,
-                                    collapsed: false,
+                                    collapsed: true,
                                     items: [
                                         {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
                                         {text: '查看用户列表', link: baseURI + '/product/design/prd/system/user/list'},
@@ -189,7 +191,19 @@ export const sidebar = {
                                         {text: '强制退出', link: baseURI + '/product/design/prd/system/user/forceLogout'},
                                     ]
                                 },
-                                {text: '角色管理', link: baseURI + '/product/design/prd/system/role'},
+                                {
+                                    text: '角色管理', link: baseURI + '/product/design/prd/system/role',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {text: '创建角色', link: baseURI + '/product/design/prd/system/role/create'},
+                                        {text: '查看角色列表', link: baseURI + '/product/design/prd/system/role/list'},
+                                        {text: '查看角色详情', link: baseURI + '/product/design/prd/system/role/detail'},
+                                        {text: '编辑角色', link: baseURI + '/product/design/prd/system/role/edit'},
+                                        {text: '删除角色', link: baseURI + '/product/design/prd/system/role/delete'},
+
+                                    ]
+                                },
                                 {text: '组织架构', link: baseURI + '/product/design/prd/system/organization'},
                                 {text: '职位管理', link: baseURI + '/product/design/prd/system/position'},
                                 {text: '职称管理', link: baseURI + '/product/design/prd/system/title'},

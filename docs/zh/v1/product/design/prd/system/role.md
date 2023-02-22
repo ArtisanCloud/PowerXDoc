@@ -1,13 +1,29 @@
 ---
-title: 角色管理用例分析
+title: 角色体系管理
 date: 2023-01-18
-description: 产品是承载企业创造价值的容器
+description: 角色管理的功能秒速
 
 ---
 
-# 角色管理用例分析
+# 角色体系管理
+
+角色管理是指管理系統中不同的人所扮演的不同角色。
+
+角色用于聚集用户和许可权，以简化对用户具有的资源访问权的管理工作。
+
+角色是对一类用户的抽象描述。我们支持树形结构的角色关系模型。
+
+* [创建角色](role/create.md)
+* [查看角色列表](role/list.md)
+* [查看角色详情](role/detail.md)
+* [编辑角色](role/edit.md)
+* [删除角色](role/delete.md)
 
 
 ## 角色定义
 
-![img.png](./roles/images/role.png)
+本系统会默认初始化三种角色，即超级管理员，管理员，普通员工。
+
+![img.png](role/images/role.png)
+
+
