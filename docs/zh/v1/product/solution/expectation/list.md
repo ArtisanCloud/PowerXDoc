@@ -10,7 +10,3 @@ description:
 ## 干系人工作职责简表
 
 ![](images/responsibility-list.png){width=480}
-
-
-
-下载文档资源：[solution.xlsx](/docs/public/resources/solution.xlsx)

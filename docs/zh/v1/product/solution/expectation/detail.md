@@ -30,6 +30,3 @@ description:
 ![img.png](images/deposit-detail.png){width=480}    
 ![img.png](images/platform-detail.png){width=480}  
 <br><br>
-
----
-下载文档资源：[solution.xlsx](/docs/public/resources/solution.xlsx)

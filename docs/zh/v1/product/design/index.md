@@ -18,10 +18,3 @@ description: 产品是承载企业创造价值的容器
   * [scrm功能](./prd/scrm/index)
   * [crm功能](./prd/crm/index)
 
-
-### 相关文档可下载
-
-[系统功能用例文档.docx](/docs/public/resources/system-use-case.docx)  
-[系统功能PRD.rp](/docs/public/resources/system-prd.rp)  
-[业务用例文档.docx](/docs/public/resources/b2c/use-case.docx)  
-[业务PRD.rp](/docs/public/resources/b2c/prd.rp)  

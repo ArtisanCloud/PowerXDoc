@@ -15,5 +15,3 @@ description:
 ### [干系人期望的差异](./expectation/difference)
 
 ---
-
-下载文档资源：[solution.xlsx](/docs/public/resources/solution.xlsx)
