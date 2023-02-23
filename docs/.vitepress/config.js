@@ -201,6 +201,8 @@ export const sidebar = {
                                         {text: '查看角色详情', link: baseURI + '/product/design/prd/system/role/detail'},
                                         {text: '编辑角色', link: baseURI + '/product/design/prd/system/role/edit'},
                                         {text: '删除角色', link: baseURI + '/product/design/prd/system/role/delete'},
+                                        {text: '设置角色权限', link: baseURI + '/product/design/prd/system/role/setPermissions'},
+                                        {text: '批量分配用户角色', link: baseURI + '/product/design/prd/system/role/assignRoleToUsers'},
 
                                     ]
                                 },
