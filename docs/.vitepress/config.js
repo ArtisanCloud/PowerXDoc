@@ -198,10 +198,17 @@ export const sidebar = {
                                     items: [
                                         {text: '创建角色', link: baseURI + '/product/design/prd/system/role/create'},
                                         {text: '查看角色列表', link: baseURI + '/product/design/prd/system/role/list'},
-                                        {text: '查看角色详情', link: baseURI + '/product/design/prd/system/role/detail'},
                                         {text: '编辑角色', link: baseURI + '/product/design/prd/system/role/edit'},
                                         {text: '删除角色', link: baseURI + '/product/design/prd/system/role/delete'},
-                                        {text: '设置角色权限', link: baseURI + '/product/design/prd/system/role/setPermissions'},
+                                        {
+                                            text: '设置角色权限', link: baseURI + '/product/design/prd/system/role/setPermissions',
+                                            collapsible: true,
+                                            collapsed: false,
+                                            items: [
+                                                {text: '设置角色菜单权限', link: baseURI + '/product/design/prd/system/role/setMenuPermissions'},
+                                                {text: '设置角色API权限', link: baseURI + '/product/design/prd/system/role/setAPIPermissions'},
+                                            ]
+                                        },
                                         {text: '批量分配用户角色', link: baseURI + '/product/design/prd/system/role/assignRoleToUsers'},
 
                                     ]
