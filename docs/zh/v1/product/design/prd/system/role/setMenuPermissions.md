@@ -19,7 +19,7 @@ description: 删除用户的功能描述
 
 ## 流程图
 
-![](images/fl_usr_mgmt_delete-____.png)
+![](images/fl_role_mgmt_setmenupermission-________.png)
 
 ## 原型图
 
