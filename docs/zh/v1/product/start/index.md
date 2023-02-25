@@ -21,7 +21,7 @@ description: 关于PowerX
 * 客域电商直销 - B2C模式
     * 基于CRM的电商功能模式
 
-* 分销电商(Pro) - B2B2C模式
+* 分销电商(Pro) - BCC模式 (Business to Channels to Customers)
     * 加入了分销渠道的中间关系维护
     * 提供多渠道的定价策略
     * 提供多级渠道分润的机制

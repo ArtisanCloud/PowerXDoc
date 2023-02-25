@@ -18,6 +18,9 @@ description: 角色管理的功能秒速
 * [查看角色列表](role/list.md)
 * [编辑角色](role/edit.md)
 * [删除角色](role/delete.md)
+* [设置角色菜单权限](role/setMenuPermissions.md)
+* [设置角色API权限](role/setAPIPermissions.md)
+* [批量分配用户角色](role/assignRoleToUsers.md)
 
 
 ---

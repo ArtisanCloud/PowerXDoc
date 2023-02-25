@@ -222,18 +222,20 @@ export const sidebar = {
                                 {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
                             ]
                         },
-                        // {
-                        //     text: 'crm业务用例分析',
-                        //     link: baseURI + '/product/design/prd/crm/index',
-                        //     items: [
-                        //         {text: '客户管理', link: baseURI + '/product/design/prd/system/role'},
-                        //         {text: '商品管理', link: baseURI + '/product/design/prd/system/menu'},
-                        //         {text: '营销管理', link: baseURI + '/product/design/prd/system/organization'},
-                        //         {text: '商务管理', link: baseURI + '/product/design/prd/system/user'},
-                        //         {text: '交易管理', link: baseURI + '/product/design/prd/system/dictionary'},
-                        //         {text: '会籍管理', link: baseURI + '/product/design/prd/system/api'},
-                        //     ]
-                        // }
+                        {
+                            text: '业务管理',
+                            link: baseURI + '/product/design/prd/crm/index',
+                            collapsible: true,
+                            collapsed: false,
+                            items: [
+                                {text: '客户管理', link: baseURI + '/product/design/prd/crm/customer'},
+                                {text: '商品管理', link: baseURI + '/product/design/prd/crm/product'},
+                                {text: '营销管理', link: baseURI + '/product/design/prd/crm/marketing'},
+                                {text: '商务管理', link: baseURI + '/product/design/prd/crm/business'},
+                                {text: '交易管理', link: baseURI + '/product/design/prd/crm/trade'},
+                                {text: '会籍管理', link: baseURI + '/product/design/prd/crm/membership'},
+                            ]
+                        }
                     ]
                 },
             ]
