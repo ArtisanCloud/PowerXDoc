@@ -181,14 +181,29 @@ export const sidebar = {
                                     items: [
                                         {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
                                         {text: '查看用户列表', link: baseURI + '/product/design/prd/system/user/list'},
-                                        {text: '查看用户详情', link: baseURI + '/product/design/prd/system/user/detail'},
+                                        {
+                                            text: '查看用户详情',
+                                            link: baseURI + '/product/design/prd/system/user/detail'
+                                        },
                                         {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
                                         {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
                                         {text: '用户登录', link: baseURI + '/product/design/prd/system/user/login'},
-                                        {text: '重新设置密码', link: baseURI + '/product/design/prd/system/user/resetPass'},
-                                        {text: '重新发送激活用户', link: baseURI + '/product/design/prd/system/user/resendActivateUserEmail'},
-                                        {text: '启动/禁用用户', link: baseURI + '/product/design/prd/system/user/enableUser'},
-                                        {text: '强制退出', link: baseURI + '/product/design/prd/system/user/forceLogout'},
+                                        {
+                                            text: '重新设置密码',
+                                            link: baseURI + '/product/design/prd/system/user/resetPass'
+                                        },
+                                        {
+                                            text: '重新发送激活用户',
+                                            link: baseURI + '/product/design/prd/system/user/resendActivateUserEmail'
+                                        },
+                                        {
+                                            text: '启动/禁用用户',
+                                            link: baseURI + '/product/design/prd/system/user/enableUser'
+                                        },
+                                        {
+                                            text: '强制退出',
+                                            link: baseURI + '/product/design/prd/system/user/forceLogout'
+                                        },
                                     ]
                                 },
                                 {
@@ -201,21 +216,113 @@ export const sidebar = {
                                         {text: '编辑角色', link: baseURI + '/product/design/prd/system/role/edit'},
                                         {text: '删除角色', link: baseURI + '/product/design/prd/system/role/delete'},
                                         {
-                                            text: '设置角色权限', link: baseURI + '/product/design/prd/system/role/setPermissions',
+                                            text: '设置角色权限',
+                                            link: baseURI + '/product/design/prd/system/role/setPermissions',
                                             collapsible: true,
                                             collapsed: false,
                                             items: [
-                                                {text: '设置角色菜单权限', link: baseURI + '/product/design/prd/system/role/setMenuPermissions'},
-                                                {text: '设置角色API权限', link: baseURI + '/product/design/prd/system/role/setAPIPermissions'},
+                                                {
+                                                    text: '设置角色菜单权限',
+                                                    link: baseURI + '/product/design/prd/system/role/setMenuPermissions'
+                                                },
+                                                {
+                                                    text: '设置角色API权限',
+                                                    link: baseURI + '/product/design/prd/system/role/setAPIPermissions'
+                                                },
                                             ]
                                         },
-                                        {text: '批量分配用户角色', link: baseURI + '/product/design/prd/system/role/assignRoleToUsers'},
+                                        {
+                                            text: '批量分配用户角色',
+                                            link: baseURI + '/product/design/prd/system/role/assignRoleToUsers'
+                                        },
 
                                     ]
                                 },
-                                {text: '组织架构', link: baseURI + '/product/design/prd/system/organization'},
-                                {text: '职位管理', link: baseURI + '/product/design/prd/system/position'},
-                                {text: '职称管理', link: baseURI + '/product/design/prd/system/title'},
+                                {
+                                    text: '组织架构', link: baseURI + '/product/design/prd/system/organization/index',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '部门管理', link: baseURI + '/product/design/prd/system/organization/department',
+                                            collapsible: true,
+                                            collapsed: false,
+                                            items: [
+                                                {
+                                                    text: '创建部门',
+                                                    link: baseURI + '/product/design/prd/system/organization/department/create'
+                                                },
+                                                {
+                                                    text: '查看部门列表',
+                                                    link: baseURI + '/product/design/prd/system/organization/department/list'
+                                                },
+                                                {
+                                                    text: '查看部门详情',
+                                                    link: baseURI + '/product/design/prd/system/organization/department/detail'
+                                                },
+                                                {
+                                                    text: '编辑部门',
+                                                    link: baseURI + '/product/design/prd/system/organization/department/edit'
+                                                },
+                                                {
+                                                    text: '删除部门',
+                                                    link: baseURI + '/product/design/prd/system/organization/department/delete'
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: '职位管理', link: baseURI + '/product/design/prd/system/organization/position',
+                                            collapsible: true,
+                                            collapsed: false,
+                                            items: [
+                                                {
+                                                    text: '创建职位',
+                                                    link: baseURI + '/product/design/prd/system/organization/position/create'
+                                                },
+                                                {
+                                                    text: '查看职位列表',
+                                                    link: baseURI + '/product/design/prd/system/organization/position/list'
+                                                },
+                                                {
+                                                    text: '查看职位详情',
+                                                    link: baseURI + '/product/design/prd/system/organization/position/detail'
+                                                },
+                                                {
+                                                    text: '编辑职位',
+                                                    link: baseURI + '/product/design/prd/system/organization/position/edit'
+                                                },
+                                                {
+                                                    text: '删除职位',
+                                                    link: baseURI + '/product/design/prd/system/organization/position/delete'
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: '职称管理', link: baseURI + '/product/design/prd/system/organization/title',
+                                            collapsible: true,
+                                            collapsed: false,
+                                            items: [
+                                                {
+                                                    text: '创建职称',
+                                                    link: baseURI + '/product/design/prd/system/organization/title/create'
+                                                },
+                                                {
+                                                    text: '查看职称列表',
+                                                    link: baseURI + '/product/design/prd/system/organization/title/list'
+                                                },
+                                                {
+                                                    text: '编辑职称',
+                                                    link: baseURI + '/product/design/prd/system/organization/title/edit'
+                                                },
+                                                {
+                                                    text: '删除职称',
+                                                    link: baseURI + '/product/design/prd/system/organization/title/delete'
+                                                },
+                                            ]
+                                        },
+
+                                    ]
+                                },
                                 {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
                                 {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
                                 {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
