@@ -12,6 +12,10 @@ description: 产品是承载企业创造价值的容器
 
 ![](../../../images/uc_deptmt_mgmt.png)
 
+## 用例说明
+
+![](../../../images/uc_desc_deptmt_mgmt.png)
+
 ## 原型图
 
-[//]: # (![]&#40;../../../images/pt_deptmt_mgmt.png&#41;)
+![](../../../images/pt_deptmt_mgmt.png)

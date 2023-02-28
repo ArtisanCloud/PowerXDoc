@@ -10,16 +10,16 @@ description: 创建部门的详细描述
 
 ## 用例
 
-![](../../../images/uc_deptmt_mgmt_create.png)
+![](../../../../images/uc_deptmt_mgmt_create.png)
 
 ## 用例描述
 
-![](../../../images/uc_desc_deptmt_mgmt_create.png)
+![](../../../../images/uc_desc_deptmt_mgmt_create.png)
 
 ## 流程图
 
-![](../../../images/fl_deptmt_mgmt_create.png)
+![](../../../../images/fl_deptmt_mgmt_create.png)
 
 ## 原型图
 
-![](../../../images/pt_deptmt_mgmt_create.png)
+![](../../../../images/pt_deptmt_mgmt_create.png)

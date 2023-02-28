@@ -209,7 +209,7 @@ export const sidebar = {
                                 {
                                     text: '角色管理', link: baseURI + '/product/design/prd/system/role',
                                     collapsible: true,
-                                    collapsed: false,
+                                    collapsed: true,
                                     items: [
                                         {text: '创建角色', link: baseURI + '/product/design/prd/system/role/create'},
                                         {text: '查看角色列表', link: baseURI + '/product/design/prd/system/role/list'},
@@ -273,7 +273,7 @@ export const sidebar = {
                                         {
                                             text: '职位管理', link: baseURI + '/product/design/prd/system/organization/position',
                                             collapsible: true,
-                                            collapsed: false,
+                                            collapsed: true,
                                             items: [
                                                 {
                                                     text: '创建职位',
@@ -300,7 +300,7 @@ export const sidebar = {
                                         {
                                             text: '职称管理', link: baseURI + '/product/design/prd/system/organization/title',
                                             collapsible: true,
-                                            collapsed: false,
+                                            collapsed: true,
                                             items: [
                                                 {
                                                     text: '创建职称',
