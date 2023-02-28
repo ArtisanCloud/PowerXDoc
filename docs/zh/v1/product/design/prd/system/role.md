@@ -40,17 +40,16 @@ description: 角色管理的功能秒速
 
 本系统会默认初始化三种角色，即超级管理员，管理员，普通员工。
 
-![img.png](role/images/role_intro.png)
-
+![](../../images/role_intro.png)
 
 ## 用例
 
-![](role/images/uc_role_mgmt.png)
+![](../../images/uc_role_mgmt.png)
 
 ## 用例描述
 
-![](role/images/uc_desc_role_mgmt.png)
+![](../../images/uc_desc_role_mgmt.png)
 
 ## 原型图
 
-![](role/images/pt_role_mgmt.png)
+![](../../images/pt_role_mgmt.png)

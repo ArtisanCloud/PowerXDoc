@@ -11,6 +11,7 @@ description: 创建角色的功能描述
 ## 用例
 
 ![](../../../images/uc_role_mgmt_create.png)
+
 ## 用例描述
 
 ![](../../../images/uc_desc_role_mgmt_create.png)

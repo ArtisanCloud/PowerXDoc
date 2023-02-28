@@ -14,8 +14,7 @@ description: 重新发送激活邮件的功能描述
 
 ## 用例描述
 
-![img.png](../../../images/uc_desc_usr_mgmt_resendActivateUserEmail.png)
-
+![](../../../images/uc_desc_usr_mgmt_resendactivateuseremail.png)
 
 ## 流程图
 
