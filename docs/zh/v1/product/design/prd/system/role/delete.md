@@ -1,11 +1,11 @@
 ---
-title: 删除用户
+title: 删除角色
 date: 2023-02-20
-description: 删除用户的功能描述
+description: 删除角色的功能描述
 
 ---
 
-# 删除用户
+# 删除角色
 
 
 ## 用例

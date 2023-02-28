@@ -14,8 +14,7 @@ description: 删除用户的功能描述
 
 ## 用例描述
 
-![img.png](../../../images/uc_desc_role_mgmt_setmenupermission.png)
-
+![](../../../images/uc_desc_role_mgmt_setmenupermission.png)
 
 ## 流程图
 
