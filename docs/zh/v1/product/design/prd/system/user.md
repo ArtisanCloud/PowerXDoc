@@ -29,12 +29,12 @@ description: 用户管理功能
 
 ## 用例
 
-![](user/images/uc_usr_mgmt-____.png)
+![](../../images/uc_usr_mgmt.png)
 
 ## 用例描述
 
-![img.png](user/images/uc_desc_usr_mgmt.png)
+![](../../images/uc_desc_usr_mgmt.png)
 
 ## 原型图
 
-![](user/images/pt_usr_mgmt_-____.png)
+![](../../images/pt_usr_mgmt.png)

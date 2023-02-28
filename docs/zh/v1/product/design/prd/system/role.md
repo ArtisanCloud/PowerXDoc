@@ -45,7 +45,7 @@ description: 角色管理的功能秒速
 
 ## 用例
 
-![](role/images/uc_role_mgmt-____.png)
+![](role/images/uc_role_mgmt.png)
 
 ## 用例描述
 
@@ -53,4 +53,4 @@ description: 角色管理的功能秒速
 
 ## 原型图
 
-![](role/images/pt_role_mgmt_-____.png)
+![](role/images/pt_role_mgmt.png)

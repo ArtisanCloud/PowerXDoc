@@ -16,4 +16,4 @@ description: 产品是承载企业创造价值的容器
 
 ## 本项目使用uml的规范，如下
 
-![](images/uml-define____.png)
+![](images/uml-define.png)

@@ -9,4 +9,4 @@ description: 系统安装功能说明
 
 ## 用例
 
-![](install/images/uc_sys_install-____.png)
+![](../../images/uc_sys_install.png)
