@@ -14,12 +14,11 @@ description: 重设用户密码的功能描述
 
 ## 用例描述
 
-![](../../../images/uc_desc_usr_mgmt_resetPass.png)
+![](../../../images/uc_desc_usr_mgmt-resetpass.png)
 
 ## 流程图
 
 ![](../../../images/fl_usr_mgmt_resetPass.png)
-
 ## 原型图
 
 ![](../../../images/pt_usr_mgmt_resetPass.png)
