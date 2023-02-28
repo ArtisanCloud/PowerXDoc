@@ -14,7 +14,7 @@ description: 查看用户详情的功能描述
 
 ## 用例描述
 
-![](../../../images/uc_desc_usr_mgmt_detail.png)
+![](../../../images/uc_desc_usr_mgmt-detail.png)
 
 ## 流程图
 

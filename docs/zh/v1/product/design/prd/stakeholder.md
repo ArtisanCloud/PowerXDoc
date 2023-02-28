@@ -7,15 +7,8 @@ description: 产品是承载企业创造价值的容器
 
 # 梳理参与者
 
-## 参与人
 
+![](../images/stakeholders.png)
 
-![img.png](images/stakeholder.png)
-
-
-
-## 参与系统
-
-![img.png](images/stakeholder-sys.png)
 
 

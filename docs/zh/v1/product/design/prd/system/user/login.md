@@ -14,8 +14,7 @@ description: 用户登录的功能描述
 
 ## 用例描述
 
-![img.png](../../../images/uc_desc_usr_mgmt_login.png)
-
+![](../../../images/uc_desc_usr_mgmt-login.png)
 
 ## 流程图
 
