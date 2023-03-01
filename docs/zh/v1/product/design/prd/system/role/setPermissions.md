@@ -14,8 +14,8 @@ description: 设置权限的功能描述
 
 ## 用例
 
-![](../../images/uc_role_mgmt_setpermission.png)
+![](../../../images/uc_role_mgmt_setpermission.png)
 
 ## 原型图
 
-![](../../images/pt_role_mgmt_setpermission.png)
+![](../../../images/pt_role_mgmt_setpermission.png)

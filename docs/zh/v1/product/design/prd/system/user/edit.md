@@ -14,7 +14,7 @@ description: 编辑用户的功能描述
 
 ## 用例描述
 
-![](../../../images/uc_desc_usr_mgmt-edit.png)
+![](../../../images/uc_desc_usr_mgmt_edit.png)
 
 ## 流程图
 

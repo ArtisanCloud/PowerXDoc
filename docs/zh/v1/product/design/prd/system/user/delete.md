@@ -14,7 +14,7 @@ description: 删除用户的功能描述
 
 ## 用例描述
 
-![](../../../images/uc_desc_usr_mgmt-delete.png)
+![](../../../images/uc_desc_usr_mgmt_delete.png)
 
 ## 流程图
 
