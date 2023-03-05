@@ -268,6 +268,10 @@ export const sidebar = {
                                                     text: '删除部门',
                                                     link: baseURI + '/product/design/prd/system/organization/department/delete'
                                                 },
+                                                {
+                                                    text: '部门分配员工',
+                                                    link: baseURI + '/product/design/prd/system/organization/department/assignUsers'
+                                                },
                                             ]
                                         },
                                         {
@@ -294,6 +298,10 @@ export const sidebar = {
                                                 {
                                                     text: '删除职位',
                                                     link: baseURI + '/product/design/prd/system/organization/position/delete'
+                                                },
+                                                {
+                                                    text: '职位分配员工',
+                                                    link: baseURI + '/product/design/prd/system/organization/position/assignUsers'
                                                 },
                                             ]
                                         },
