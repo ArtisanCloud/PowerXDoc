@@ -359,23 +359,23 @@ export const sidebar = {
                                             items: [
                                                 {
                                                     text: '创建线索',
-                                                    link: baseURI + '/product/design/prd/crm/lead/create'
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/create'
                                                 },
                                                 {
                                                     text: '查看线索列表',
-                                                    link: baseURI + '/product/design/crm/customer/lead/list'
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/list'
                                                 },
                                                 {
                                                     text: '查看线索详情',
-                                                    link: baseURI + '/product/design/crm/customer/lead/detail'
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/detail'
                                                 },
                                                 {
                                                     text: '编辑线索',
-                                                    link: baseURI + '/product/design/crm/customer/lead/edit'
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/edit'
                                                 },
                                                 {
                                                     text: '删除线索',
-                                                    link: baseURI + '/product/design/crm/customer/lead/delete'
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/delete'
                                                 },
                                                 {
                                                     text: '线索分配员工',
