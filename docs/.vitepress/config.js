@@ -187,6 +187,10 @@ export const sidebar = {
                                         },
                                         {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
                                         {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
+                                        {
+                                            text: '批量分配用户的部门',
+                                            link: baseURI + '/product/design/prd/system/user/assignUsersToDepartment'
+                                        },
                                         {text: '用户登录', link: baseURI + '/product/design/prd/system/user/login'},
                                         {
                                             text: '重新设置密码',
@@ -268,73 +272,73 @@ export const sidebar = {
                                                     text: '删除部门',
                                                     link: baseURI + '/product/design/prd/system/organization/department/delete'
                                                 },
-                                                {
-                                                    text: '部门分配员工',
-                                                    link: baseURI + '/product/design/prd/system/organization/department/assignUsers'
-                                                },
+                                                // {
+                                                //     text: '部门分配员工',
+                                                //     link: baseURI + '/product/design/prd/system/organization/department/assignUsers'
+                                                // },
                                             ]
                                         },
-                                        {
-                                            text: '职位管理', link: baseURI + '/product/design/prd/system/organization/position',
-                                            collapsible: true,
-                                            collapsed: true,
-                                            items: [
-                                                {
-                                                    text: '创建职位',
-                                                    link: baseURI + '/product/design/prd/system/organization/position/create'
-                                                },
-                                                {
-                                                    text: '查看职位列表',
-                                                    link: baseURI + '/product/design/prd/system/organization/position/list'
-                                                },
-                                                {
-                                                    text: '查看职位详情',
-                                                    link: baseURI + '/product/design/prd/system/organization/position/detail'
-                                                },
-                                                {
-                                                    text: '编辑职位',
-                                                    link: baseURI + '/product/design/prd/system/organization/position/edit'
-                                                },
-                                                {
-                                                    text: '删除职位',
-                                                    link: baseURI + '/product/design/prd/system/organization/position/delete'
-                                                },
-                                                {
-                                                    text: '职位分配员工',
-                                                    link: baseURI + '/product/design/prd/system/organization/position/assignUsers'
-                                                },
-                                            ]
-                                        },
-                                        {
-                                            text: '职称管理', link: baseURI + '/product/design/prd/system/organization/title',
-                                            collapsible: true,
-                                            collapsed: true,
-                                            items: [
-                                                {
-                                                    text: '创建职称',
-                                                    link: baseURI + '/product/design/prd/system/organization/title/create'
-                                                },
-                                                {
-                                                    text: '查看职称列表',
-                                                    link: baseURI + '/product/design/prd/system/organization/title/list'
-                                                },
-                                                {
-                                                    text: '编辑职称',
-                                                    link: baseURI + '/product/design/prd/system/organization/title/edit'
-                                                },
-                                                {
-                                                    text: '删除职称',
-                                                    link: baseURI + '/product/design/prd/system/organization/title/delete'
-                                                },
-                                            ]
-                                        },
+                                        // {
+                                        //     text: '职位管理', link: baseURI + '/product/design/prd/system/organization/position',
+                                        //     collapsible: true,
+                                        //     collapsed: true,
+                                        //     items: [
+                                        //         {
+                                        //             text: '创建职位',
+                                        //             link: baseURI + '/product/design/prd/system/organization/position/create'
+                                        //         },
+                                        //         {
+                                        //             text: '查看职位列表',
+                                        //             link: baseURI + '/product/design/prd/system/organization/position/list'
+                                        //         },
+                                        //         {
+                                        //             text: '查看职位详情',
+                                        //             link: baseURI + '/product/design/prd/system/organization/position/detail'
+                                        //         },
+                                        //         {
+                                        //             text: '编辑职位',
+                                        //             link: baseURI + '/product/design/prd/system/organization/position/edit'
+                                        //         },
+                                        //         {
+                                        //             text: '删除职位',
+                                        //             link: baseURI + '/product/design/prd/system/organization/position/delete'
+                                        //         },
+                                        //         {
+                                        //             text: '职位分配员工',
+                                        //             link: baseURI + '/product/design/prd/system/organization/position/assignUsers'
+                                        //         },
+                                        //     ]
+                                        // },
+                                        // {
+                                        //     text: '职称管理', link: baseURI + '/product/design/prd/system/organization/title',
+                                        //     collapsible: true,
+                                        //     collapsed: true,
+                                        //     items: [
+                                        //         {
+                                        //             text: '创建职称',
+                                        //             link: baseURI + '/product/design/prd/system/organization/title/create'
+                                        //         },
+                                        //         {
+                                        //             text: '查看职称列表',
+                                        //             link: baseURI + '/product/design/prd/system/organization/title/list'
+                                        //         },
+                                        //         {
+                                        //             text: '编辑职称',
+                                        //             link: baseURI + '/product/design/prd/system/organization/title/edit'
+                                        //         },
+                                        //         {
+                                        //             text: '删除职称',
+                                        //             link: baseURI + '/product/design/prd/system/organization/title/delete'
+                                        //         },
+                                        //     ]
+                                        // },
 
                                     ]
                                 },
-                                {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
-                                {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
-                                {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
-                                {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
+                                // {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
+                                // {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
+                                // {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
+                                // {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
                             ]
                         },
                         {

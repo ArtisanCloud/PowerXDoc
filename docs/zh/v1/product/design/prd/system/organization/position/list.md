@@ -8,6 +8,7 @@ description: 查看部门列表的功能描述
 # 查看部门列表
 
 ## 用例
+
 ![](../../../../images/uc_position_mgmt_list.png)
 
 ## 用例描述
