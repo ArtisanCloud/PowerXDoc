@@ -44,7 +44,7 @@ export const sidebar = {
             {text: '渠道活码', link: baseURI + '/manual/scrm/contact-way'},
             {text: '客户群发', link: baseURI + '/manual/scrm/send-group-message'},
             {text: '客户群群发', link: baseURI + '/manual/scrm/send-group-chat-message'},
-            {text: '客户管理', link: baseURI + '/manual/scrm/customer'},
+            {text: '客域管理', link: baseURI + '/manual/scrm/customer'},
             {text: '客户标签', link: baseURI + '/manual/scrm/customer-tag'},
             {text: '客户迁移', link: baseURI + '/manual/scrm/customer-migrate'},
             {text: '标签治理', link: baseURI + '/manual/scrm/tag'},
@@ -170,7 +170,7 @@ export const sidebar = {
                         {
                             text: '系统功能用例分析',
                             collapsible: true,
-                            collapsed: false,
+                            collapsed: true,
                             link: baseURI + '/product/design/prd/system/index',
                             items: [
                                 {text: '系统初始化安装', link: baseURI + '/product/design/prd/system/install'},
@@ -250,7 +250,7 @@ export const sidebar = {
                                         {
                                             text: '部门管理', link: baseURI + '/product/design/prd/system/organization/department',
                                             collapsible: true,
-                                            collapsed: false,
+                                            collapsed: true,
                                             items: [
                                                 {
                                                     text: '创建部门',
@@ -342,12 +342,49 @@ export const sidebar = {
                             ]
                         },
                         {
-                            text: '业务管理',
+                            text: '业务功能模块',
                             link: baseURI + '/product/design/prd/crm/index',
                             collapsible: true,
                             collapsed: false,
                             items: [
-                                {text: '客户管理', link: baseURI + '/product/design/prd/crm/customer'},
+                                {
+                                    text: '客域管理', link: baseURI + '/product/design/prd/crm/customer',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '公域线索池', link: baseURI + '/product/design/prd/crm/customer/lead',
+                                            collapsible: true,
+                                            collapsed: false,
+                                            items: [
+                                                {
+                                                    text: '创建线索',
+                                                    link: baseURI + '/product/design/prd/crm/lead/create'
+                                                },
+                                                {
+                                                    text: '查看线索列表',
+                                                    link: baseURI + '/product/design/crm/customer/lead/list'
+                                                },
+                                                {
+                                                    text: '查看线索详情',
+                                                    link: baseURI + '/product/design/crm/customer/lead/detail'
+                                                },
+                                                {
+                                                    text: '编辑线索',
+                                                    link: baseURI + '/product/design/crm/customer/lead/edit'
+                                                },
+                                                {
+                                                    text: '删除线索',
+                                                    link: baseURI + '/product/design/crm/customer/lead/delete'
+                                                },
+                                                {
+                                                    text: '线索分配员工',
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/assignUsers'
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
                                 {text: '商品管理', link: baseURI + '/product/design/prd/crm/product'},
                                 {text: '营销管理', link: baseURI + '/product/design/prd/crm/marketing'},
                                 {text: '商务管理', link: baseURI + '/product/design/prd/crm/business'},

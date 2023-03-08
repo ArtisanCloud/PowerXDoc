@@ -13,13 +13,16 @@ description: 关于PowerX
 而PowerX就是一个开放式的项目，想梳理出一套基于CRM为基础的产品结构，从而衍生出更多应用场景的业务模式，打造一个灵活的，可扩展，多业务形态的产品项目。
 
 ## PowerX主打的业务模型界定：
-* [SCRM](https://www.woshipm.com/it/4281421.html)基础模式
-    * 基于企业微信的社交私域功能。
-    * 由于是基础功能，所以基本上是扩展了企业微信的业务功能，以私域客户的触达和管理为主。
 
-
-* 客域电商直销 - B2C模式
+* 客域电商直销 - B2C模式 (Business to Customers)
     * 基于CRM的电商功能模式
+    * 支持客户裂变
+
+
+* [SCRM](https://www.woshipm.com/it/4281421.html)基础模式
+  * 基于企业微信的社交私域功能。
+  * 由于是基础功能，所以基本上是扩展了企业微信的业务功能，以私域客户的触达和管理为主。
+
 
 * 分销电商(Pro) - BCC模式 (Business to Channels to Customers)
     * 加入了分销渠道的中间关系维护
