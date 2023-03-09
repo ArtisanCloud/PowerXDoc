@@ -157,245 +157,387 @@ export const sidebar = {
             text: '产品设计',
             collapsible: true,
             collapsed: false,
-            link: baseURI + '/product/design/index',
             items: [
+                {text: '导读', link: baseURI + '/product/design/index'},
+                {text: '产品需求说明-PRD', link: baseURI + '/product/design/prd/index'},
+                {text: '用例文档', link: baseURI + '/product/design/prd/useCase'},
+                {text: '梳理参与者', link: baseURI + '/product/design/prd/stakeholder'},
                 {
-                    text: '产品需求说明-PRD',
+                    text: '系统功能用例分析',
                     collapsible: true,
-                    collapsed: false,
+                    collapsed: true,
+                    link: baseURI + '/product/design/prd/system/index',
                     items: [
-                        {text: '介绍', link: baseURI + '/product/design/prd/index'},
-                        {text: '用例文档', link: baseURI + '/product/design/prd/useCase'},
-                        {text: '梳理参与者', link: baseURI + '/product/design/prd/stakeholder'},
+                        {text: '系统初始化安装', link: baseURI + '/product/design/prd/system/install'},
                         {
-                            text: '系统功能用例分析',
+                            text: '用户管理', link: baseURI + '/product/design/prd/system/user',
                             collapsible: true,
                             collapsed: true,
-                            link: baseURI + '/product/design/prd/system/index',
                             items: [
-                                {text: '系统初始化安装', link: baseURI + '/product/design/prd/system/install'},
+                                {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
+                                {text: '查看用户列表', link: baseURI + '/product/design/prd/system/user/list'},
                                 {
-                                    text: '用户管理', link: baseURI + '/product/design/prd/system/user',
-                                    collapsible: true,
-                                    collapsed: true,
-                                    items: [
-                                        {text: '创建用户', link: baseURI + '/product/design/prd/system/user/create'},
-                                        {text: '查看用户列表', link: baseURI + '/product/design/prd/system/user/list'},
-                                        {
-                                            text: '查看用户详情',
-                                            link: baseURI + '/product/design/prd/system/user/detail'
-                                        },
-                                        {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
-                                        {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
-                                        {
-                                            text: '批量分配用户的部门',
-                                            link: baseURI + '/product/design/prd/system/user/assignUsersToDepartment'
-                                        },
-                                        {text: '用户登录', link: baseURI + '/product/design/prd/system/user/login'},
-                                        {
-                                            text: '重新设置密码',
-                                            link: baseURI + '/product/design/prd/system/user/resetPass'
-                                        },
-                                        {
-                                            text: '重新发送激活用户',
-                                            link: baseURI + '/product/design/prd/system/user/resendActivateUserEmail'
-                                        },
-                                        {
-                                            text: '启动/禁用用户',
-                                            link: baseURI + '/product/design/prd/system/user/enableUser'
-                                        },
-                                        {
-                                            text: '强制退出',
-                                            link: baseURI + '/product/design/prd/system/user/forceLogout'
-                                        },
-                                    ]
+                                    text: '查看用户详情',
+                                    link: baseURI + '/product/design/prd/system/user/detail'
+                                },
+                                {text: '编辑用户', link: baseURI + '/product/design/prd/system/user/edit'},
+                                {text: '删除用户', link: baseURI + '/product/design/prd/system/user/delete'},
+                                {
+                                    text: '批量分配用户的部门',
+                                    link: baseURI + '/product/design/prd/system/user/assignUsersToDepartment'
+                                },
+                                {text: '用户登录', link: baseURI + '/product/design/prd/system/user/login'},
+                                {
+                                    text: '重新设置密码',
+                                    link: baseURI + '/product/design/prd/system/user/resetPass'
                                 },
                                 {
-                                    text: '角色管理', link: baseURI + '/product/design/prd/system/role',
-                                    collapsible: true,
-                                    collapsed: true,
-                                    items: [
-                                        {text: '创建角色', link: baseURI + '/product/design/prd/system/role/create'},
-                                        {text: '查看角色列表', link: baseURI + '/product/design/prd/system/role/list'},
-                                        {text: '编辑角色', link: baseURI + '/product/design/prd/system/role/edit'},
-                                        {text: '删除角色', link: baseURI + '/product/design/prd/system/role/delete'},
-                                        {
-                                            text: '设置角色权限',
-                                            link: baseURI + '/product/design/prd/system/role/setPermissions',
-                                            collapsible: true,
-                                            collapsed: false,
-                                            items: [
-                                                {
-                                                    text: '设置角色菜单权限',
-                                                    link: baseURI + '/product/design/prd/system/role/setMenuPermissions'
-                                                },
-                                                {
-                                                    text: '设置角色API权限',
-                                                    link: baseURI + '/product/design/prd/system/role/setAPIPermissions'
-                                                },
-                                            ]
-                                        },
-                                        {
-                                            text: '批量分配用户角色',
-                                            link: baseURI + '/product/design/prd/system/role/assignRoleToUsers'
-                                        },
-
-                                    ]
+                                    text: '重新发送激活用户',
+                                    link: baseURI + '/product/design/prd/system/user/resendActivateUserEmail'
                                 },
                                 {
-                                    text: '组织架构', link: baseURI + '/product/design/prd/system/organization/index',
+                                    text: '启动/禁用用户',
+                                    link: baseURI + '/product/design/prd/system/user/enableUser'
+                                },
+                                {
+                                    text: '强制退出',
+                                    link: baseURI + '/product/design/prd/system/user/forceLogout'
+                                },
+                            ]
+                        },
+                        {
+                            text: '角色管理', link: baseURI + '/product/design/prd/system/role',
+                            collapsible: true,
+                            collapsed: true,
+                            items: [
+                                {text: '创建角色', link: baseURI + '/product/design/prd/system/role/create'},
+                                {text: '查看角色列表', link: baseURI + '/product/design/prd/system/role/list'},
+                                {text: '编辑角色', link: baseURI + '/product/design/prd/system/role/edit'},
+                                {text: '删除角色', link: baseURI + '/product/design/prd/system/role/delete'},
+                                {
+                                    text: '设置角色权限',
+                                    link: baseURI + '/product/design/prd/system/role/setPermissions',
                                     collapsible: true,
                                     collapsed: false,
                                     items: [
                                         {
-                                            text: '部门管理', link: baseURI + '/product/design/prd/system/organization/department',
-                                            collapsible: true,
-                                            collapsed: true,
-                                            items: [
-                                                {
-                                                    text: '创建部门',
-                                                    link: baseURI + '/product/design/prd/system/organization/department/create'
-                                                },
-                                                {
-                                                    text: '查看部门列表',
-                                                    link: baseURI + '/product/design/prd/system/organization/department/list'
-                                                },
-                                                {
-                                                    text: '查看部门详情',
-                                                    link: baseURI + '/product/design/prd/system/organization/department/detail'
-                                                },
-                                                {
-                                                    text: '编辑部门',
-                                                    link: baseURI + '/product/design/prd/system/organization/department/edit'
-                                                },
-                                                {
-                                                    text: '删除部门',
-                                                    link: baseURI + '/product/design/prd/system/organization/department/delete'
-                                                },
-                                                // {
-                                                //     text: '部门分配员工',
-                                                //     link: baseURI + '/product/design/prd/system/organization/department/assignUsers'
-                                                // },
-                                            ]
+                                            text: '设置角色菜单权限',
+                                            link: baseURI + '/product/design/prd/system/role/setMenuPermissions'
                                         },
-                                        // {
-                                        //     text: '职位管理', link: baseURI + '/product/design/prd/system/organization/position',
-                                        //     collapsible: true,
-                                        //     collapsed: true,
-                                        //     items: [
-                                        //         {
-                                        //             text: '创建职位',
-                                        //             link: baseURI + '/product/design/prd/system/organization/position/create'
-                                        //         },
-                                        //         {
-                                        //             text: '查看职位列表',
-                                        //             link: baseURI + '/product/design/prd/system/organization/position/list'
-                                        //         },
-                                        //         {
-                                        //             text: '查看职位详情',
-                                        //             link: baseURI + '/product/design/prd/system/organization/position/detail'
-                                        //         },
-                                        //         {
-                                        //             text: '编辑职位',
-                                        //             link: baseURI + '/product/design/prd/system/organization/position/edit'
-                                        //         },
-                                        //         {
-                                        //             text: '删除职位',
-                                        //             link: baseURI + '/product/design/prd/system/organization/position/delete'
-                                        //         },
-                                        //         {
-                                        //             text: '职位分配员工',
-                                        //             link: baseURI + '/product/design/prd/system/organization/position/assignUsers'
-                                        //         },
-                                        //     ]
-                                        // },
-                                        // {
-                                        //     text: '职称管理', link: baseURI + '/product/design/prd/system/organization/title',
-                                        //     collapsible: true,
-                                        //     collapsed: true,
-                                        //     items: [
-                                        //         {
-                                        //             text: '创建职称',
-                                        //             link: baseURI + '/product/design/prd/system/organization/title/create'
-                                        //         },
-                                        //         {
-                                        //             text: '查看职称列表',
-                                        //             link: baseURI + '/product/design/prd/system/organization/title/list'
-                                        //         },
-                                        //         {
-                                        //             text: '编辑职称',
-                                        //             link: baseURI + '/product/design/prd/system/organization/title/edit'
-                                        //         },
-                                        //         {
-                                        //             text: '删除职称',
-                                        //             link: baseURI + '/product/design/prd/system/organization/title/delete'
-                                        //         },
-                                        //     ]
-                                        // },
-
+                                        {
+                                            text: '设置角色API权限',
+                                            link: baseURI + '/product/design/prd/system/role/setAPIPermissions'
+                                        },
                                     ]
                                 },
-                                // {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
-                                // {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
-                                // {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
-                                // {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
+                                {
+                                    text: '批量分配用户角色',
+                                    link: baseURI + '/product/design/prd/system/role/assignRoleToUsers'
+                                },
+
                             ]
                         },
                         {
-                            text: '业务功能模块',
-                            link: baseURI + '/product/design/prd/crm/index',
+                            text: '组织架构', link: baseURI + '/product/design/prd/system/organization/index',
                             collapsible: true,
                             collapsed: false,
                             items: [
                                 {
-                                    text: '客域管理', link: baseURI + '/product/design/prd/crm/customer',
+                                    text: '部门管理',
+                                    link: baseURI + '/product/design/prd/system/organization/department',
+                                    collapsible: true,
+                                    collapsed: true,
+                                    items: [
+                                        {
+                                            text: '创建部门',
+                                            link: baseURI + '/product/design/prd/system/organization/department/create'
+                                        },
+                                        {
+                                            text: '查看部门列表',
+                                            link: baseURI + '/product/design/prd/system/organization/department/list'
+                                        },
+                                        {
+                                            text: '查看部门详情',
+                                            link: baseURI + '/product/design/prd/system/organization/department/detail'
+                                        },
+                                        {
+                                            text: '编辑部门',
+                                            link: baseURI + '/product/design/prd/system/organization/department/edit'
+                                        },
+                                        {
+                                            text: '删除部门',
+                                            link: baseURI + '/product/design/prd/system/organization/department/delete'
+                                        },
+                                        // {
+                                        //     text: '部门分配员工',
+                                        //     link: baseURI + '/product/design/prd/system/organization/department/assignUsers'
+                                        // },
+                                    ]
+                                },
+                                // {
+                                //     text: '职位管理', link: baseURI + '/product/design/prd/system/organization/position',
+                                //     collapsible: true,
+                                //     collapsed: true,
+                                //     items: [
+                                //         {
+                                //             text: '创建职位',
+                                //             link: baseURI + '/product/design/prd/system/organization/position/create'
+                                //         },
+                                //         {
+                                //             text: '查看职位列表',
+                                //             link: baseURI + '/product/design/prd/system/organization/position/list'
+                                //         },
+                                //         {
+                                //             text: '查看职位详情',
+                                //             link: baseURI + '/product/design/prd/system/organization/position/detail'
+                                //         },
+                                //         {
+                                //             text: '编辑职位',
+                                //             link: baseURI + '/product/design/prd/system/organization/position/edit'
+                                //         },
+                                //         {
+                                //             text: '删除职位',
+                                //             link: baseURI + '/product/design/prd/system/organization/position/delete'
+                                //         },
+                                //         {
+                                //             text: '职位分配员工',
+                                //             link: baseURI + '/product/design/prd/system/organization/position/assignUsers'
+                                //         },
+                                //     ]
+                                // },
+                                // {
+                                //     text: '职称管理', link: baseURI + '/product/design/prd/system/organization/title',
+                                //     collapsible: true,
+                                //     collapsed: true,
+                                //     items: [
+                                //         {
+                                //             text: '创建职称',
+                                //             link: baseURI + '/product/design/prd/system/organization/title/create'
+                                //         },
+                                //         {
+                                //             text: '查看职称列表',
+                                //             link: baseURI + '/product/design/prd/system/organization/title/list'
+                                //         },
+                                //         {
+                                //             text: '编辑职称',
+                                //             link: baseURI + '/product/design/prd/system/organization/title/edit'
+                                //         },
+                                //         {
+                                //             text: '删除职称',
+                                //             link: baseURI + '/product/design/prd/system/organization/title/delete'
+                                //         },
+                                //     ]
+                                // },
+
+                            ]
+                        },
+                        // {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
+                        // {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
+                        // {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
+                        // {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
+                    ]
+                },
+                {
+                    text: '业务功能模块',
+                    link: baseURI + '/product/design/prd/crm/index',
+                    collapsible: true,
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '客域管理', link: baseURI + '/product/design/prd/crm/customer',
+                            collapsible: true,
+                            collapsed: false,
+                            items: [
+                                {
+                                    text: '公域线索池', link: baseURI + '/product/design/prd/crm/customer/lead',
                                     collapsible: true,
                                     collapsed: false,
                                     items: [
                                         {
-                                            text: '公域线索池', link: baseURI + '/product/design/prd/crm/customer/lead',
+                                            text: '创建线索',
+                                            // link: baseURI + '/product/design/prd/crm/customer/lead/create',
                                             collapsible: true,
                                             collapsed: false,
                                             items: [
                                                 {
-                                                    text: '创建线索',
-                                                    link: baseURI + '/product/design/prd/crm/customer/lead/create'
+                                                    text: '授权信息自建线索',
+                                                    link: baseURI + '/product/design/prd/crm/customer/lead/create/createdByLogin'
                                                 },
+                                            ]
+                                        },
+                                        {
+                                            text: '查看线索列表',
+                                            link: baseURI + '/product/design/prd/crm/customer/lead/list'
+                                        },
+                                        // {
+                                        //     text: '查看线索详情',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/lead/detail'
+                                        // },
+                                        // {
+                                        //     text: '编辑线索',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/lead/edit'
+                                        // },
+                                        // {
+                                        //     text: '删除线索',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/lead/delete'
+                                        // },
+                                        // {
+                                        //     text: '线索分配员工',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/lead/assignUsers'
+                                        // },
+                                    ]
+                                },
+                                {
+                                    text: '客户管理',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        // {
+                                        //     text: '创建客户',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/create'
+                                        // },
+                                        {
+                                            text: '查看客户列表',
+                                            link: baseURI + '/product/design/prd/crm/customer/list'
+                                        },
+                                        // {
+                                        //     text: '查看客户详情',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/detail'
+                                        // },
+                                        // {
+                                        //     text: '编辑客户',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/edit'
+                                        // },
+                                        // {
+                                        //     text: '删除客户',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/delete'
+                                        // },
+                                        // {
+                                        //     text: '客户分配员工',
+                                        //     link: baseURI + '/product/design/prd/crm/customer/assignUsers'
+                                        // },
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            text: '商品管理', link: baseURI + '/product/design/prd/crm/product'
+                        },
+                        {
+                            text: '营销管理', link: baseURI + '/product/design/prd/crm/marketing',
+                            collapsible: true,
+                            collapsed: false,
+                            items: [
+                                {
+                                    text: 'MGM客户裂变',
+                                    link: baseURI + '/product/design/prd/crm/marketing/mgm',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '客户裂变树',
+                                            link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
+                                        },
+                                    ]
+                                },
+                                {
+                                    text: '媒体管理',
+                                    link: baseURI + '/product/design/prd/crm/marketing/media',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '新增媒体',
+                                            link: baseURI + '/product/design/prd/crm/marketing/media/create'
+                                        },
+                                        {
+                                            text: '列表媒体',
+                                            link: baseURI + '/product/design/prd/crm/marketing/media/list'
+                                        },
+                                        {
+                                            text: '编辑媒体',
+                                            link: baseURI + '/product/design/prd/crm/marketing/media/edit'
+                                        },
+                                        {
+                                            text: '删除媒体',
+                                            link: baseURI + '/product/design/prd/crm/marketing/media/delete'
+                                        },
+                                    ]
+                                },
+                                {
+                                    text: '品牌故事',
+                                    link: baseURI + '/product/design/prd/crm/marketing/brand',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '编辑品牌故事',
+                                            link: baseURI + '/product/design/prd/crm/marketing/brand/edit'
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            text: '商务管理', link: baseURI + '/product/design/prd/crm/business',
+                            collapsible: true,
+                            collapsed: false,
+                            items: [
+                                {
+                                    text: '商机管理',
+                                    link: baseURI + '/product/design/prd/crm/business/opportunity',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '商机列表',
+                                            link: baseURI + '/product/design/prd/crm/business/opportunity/list'
+                                        },
+                                        {
+                                            text: '创建商机',
+                                            link: baseURI + '/product/design/prd/crm/business/opportunity/create',
+                                            collapsible: true,
+                                            collapsed: false,
+                                            items: [
                                                 {
-                                                    text: '查看线索列表',
-                                                    link: baseURI + '/product/design/prd/crm/customer/lead/list'
-                                                },
-                                                {
-                                                    text: '查看线索详情',
-                                                    link: baseURI + '/product/design/prd/crm/customer/lead/detail'
-                                                },
-                                                {
-                                                    text: '编辑线索',
-                                                    link: baseURI + '/product/design/prd/crm/customer/lead/edit'
-                                                },
-                                                {
-                                                    text: '删除线索',
-                                                    link: baseURI + '/product/design/prd/crm/customer/lead/delete'
-                                                },
-                                                {
-                                                    text: '线索分配员工',
-                                                    link: baseURI + '/product/design/prd/crm/customer/lead/assignUsers'
+                                                    text: '客户主动咨询',
+                                                    link: baseURI + '/product/design/prd/crm/business/opportunity/createdByCustomer'
                                                 },
                                             ]
                                         },
                                     ]
                                 },
-                                {text: '商品管理', link: baseURI + '/product/design/prd/crm/product'},
-                                {text: '营销管理', link: baseURI + '/product/design/prd/crm/marketing'},
-                                {text: '商务管理', link: baseURI + '/product/design/prd/crm/business'},
-                                {text: '交易管理', link: baseURI + '/product/design/prd/crm/trade'},
-                                {text: '会籍管理', link: baseURI + '/product/design/prd/crm/membership'},
                             ]
-                        }
+                        },
+                        {
+                            text: '交易管理', link: baseURI + '/product/design/prd/crm/trade',
+                            collapsible: true,
+                            collapsed: false,
+                            items: [
+                                {
+                                    text: '订单管理',
+                                    link: baseURI + '/product/design/prd/crm/trade/order',
+                                    collapsible: true,
+                                    collapsed: false,
+                                    items: [
+                                        {
+                                            text: '订单列表',
+                                            link: baseURI + '/product/design/prd/crm/trade/order/list'
+                                        },
+                                        {
+                                            text: '导入订单',
+                                            link: baseURI + '/product/design/prd/crm/trade/order/import'
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                        // {text: '会籍管理', link: baseURI + '/product/design/prd/crm/membership'},
                     ]
-                },
+                }
             ]
-        }, {
+        },
+        {
             text: '产品管理',
             collapsible: true,
             items: [
