@@ -360,7 +360,7 @@ export const sidebar = {
                                             collapsed: false,
                                             items: [
                                                 {
-                                                    text: '授权信息自建线索',
+                                                    text: '授权登录自建线索',
                                                     link: baseURI + '/product/design/prd/crm/customer/lead/create/createdByLogin'
                                                 },
                                             ]
@@ -501,7 +501,7 @@ export const sidebar = {
                                             items: [
                                                 {
                                                     text: '客户主动咨询',
-                                                    link: baseURI + '/product/design/prd/crm/business/opportunity/createdByCustomer'
+                                                    link: baseURI + '/product/design/prd/crm/business/opportunity/create/createdByCustomer'
                                                 },
                                             ]
                                         },
