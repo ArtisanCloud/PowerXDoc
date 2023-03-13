@@ -659,7 +659,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-vite@^4.1.3:
+vite@^4.1.4:
   version "4.1.4"
   resolved "https://registry.npmmirror.com/vite/-/vite-4.1.4.tgz#170d93bcff97e0ebc09764c053eebe130bfe6ca0"
   integrity sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==
@@ -671,10 +671,10 @@ vite@^4.1.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress@^1.0.0-alpha.47:
-  version "1.0.0-alpha.47"
-  resolved "https://registry.npmmirror.com/vitepress/-/vitepress-1.0.0-alpha.47.tgz#3488f23d6239757208d269773eff49cf9e898b09"
-  integrity sha512-vj+LOY0WJtKSk98HV4qqG6p4MofmF+C8yrWHiiw+GCMfr6C+610U5D7oD2OruroIafsON6F4nBDWGK8ZyGIpXQ==
+vitepress@^1.0.0-alpha.52:
+  version "1.0.0-alpha.52"
+  resolved "https://registry.npmmirror.com/vitepress/-/vitepress-1.0.0-alpha.52.tgz#763a586080d1cabc6b6bce5c7e7ea7e357870a7a"
+  integrity sha512-DAaO5/yGXCVHXXwVJO/T1wS03curMgOhYnh1LVDTZAf0s1qr282id5j45IYEWthWcUZRD6ST9EAIZNsXHo4O7g==
   dependencies:
     "@docsearch/css" "^3.3.3"
     "@docsearch/js" "^3.3.3"
@@ -683,7 +683,7 @@ vitepress@^1.0.0-alpha.47:
     "@vueuse/core" "^9.13.0"
     body-scroll-lock "4.0.0-beta.0"
     shiki "^0.14.1"
-    vite "^4.1.3"
+    vite "^4.1.4"
     vue "^3.2.47"
 
 vscode-oniguruma@^1.7.0:
