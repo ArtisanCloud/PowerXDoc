@@ -15,7 +15,7 @@ description: 客户主动咨询的描述
 
 ## 用例描述
 
-![](../../../../images/uc_desc_opp_mgmt_createdbycustomer.png)
+![](../../../../../images/uc_desc_opp_mgmt_createdbycustomer.png)
 
 
 ## 流程图
