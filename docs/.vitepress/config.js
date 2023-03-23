@@ -45,9 +45,13 @@ export const sidebar = {
             text: '权限管理', link: baseURI + '/manual/scrm/setting-permission'
         }, {text: '菜单配置', link: baseURI + '/manual/scrm/setting-menu'}]
     }], '/zh/v1/product': [{
-        text: '前言', items: [{text: '写作初衷', link: baseURI + '/product/forward/intention'}, {
-            text: '背后故事', link: baseURI + '/product/forward/story'
-        }]
+        text: '前言',
+        link: baseURI + '/product/start/index',
+        items: [
+            {text: '写作初衷', link: baseURI + '/product/forward/intention'},
+            {text: '背后故事', link: baseURI + '/product/forward/story'},
+            {text: '使用声明', link: baseURI + '/product/start/statement'},
+        ]
     }, {
         text: '战略规划', collapsible: true, collapsed: true,
 
@@ -330,6 +334,9 @@ export const sidebar = {
                             text: '商品列表', link: baseURI + '/product/design/prd/crm/product/list'
                         },
                         {
+                            text: '新增商品', link: baseURI + '/product/design/prd/crm/product/create'
+                        },
+                        {
                             text: '编辑商品', link: baseURI + '/product/design/prd/crm/product/edit'
                         },
                         {
@@ -510,14 +517,24 @@ export const sidebar = {
                 }, {text: 'MGM客户裂变', link: baseURI + '/product/design/prd/infoStructure/useCase/mgm'},]
             },]
         },]
-    }, {
-        text: '产品管理', collapsible: true, items: [{text: '需求管理', link: baseURI + '/product/scrm/user'}, {
-            text: '目标管理', link: baseURI + '/product/scrm/user'
-        },]
-    }]
+    },
+        // {
+        //     text: '产品管理', collapsible: true, items: [
+        //         {
+        //             text: '需求管理', link: baseURI + '/product/scrm/user'
+        //         },
+        //         {
+        //             text: '目标管理', link: baseURI + '/product/scrm/user'
+        //         },
+        //     ]
+        // }
+    ]
 }
 
+const { BASE: base = '/' } = process.env
+
 export default {
+    base, outDir: '',
     themeConfig: {
         logo: "/images/logo-small.png", siteTitle: "PowerX",
 

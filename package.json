@@ -6,10 +6,12 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.52",
+    "vitepress": "^v1.0.0-alpha.61",
     "vue": "^3.2.45"
   }
 }

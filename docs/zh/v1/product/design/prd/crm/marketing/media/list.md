@@ -10,17 +10,17 @@ description: 查看用户列表的功能描述
 
 ## 用例
 
-![](../../../images/uc_role_mgmt_list.png)
+![](../../../../images/uc_role_mgmt_list.png)
 
 ## 用例描述
 
-![](../../../images/uc_desc_role_mgmt_list.png)
+![](../../../../images/uc_desc_role_mgmt_list.png)
 
 ## 流程图
 
-![](../../../images/fl_role_mgmt_list.png)
+![](../../../../images/fl_role_mgmt_list.png)
 
 
 ## 原型图
 
-![](../../../images/pt_role_mgmt_list.png)
+![](../../../../images/pt_role_mgmt_list.png)
