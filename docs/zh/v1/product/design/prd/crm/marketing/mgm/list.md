@@ -10,15 +10,15 @@ description: 查看客户列表的描述
 
 ## 用例
 
-![](../../../images/uc_lead_mgmt.png)
+![](../../../../images/uc_lead_mgmt.png)
 
 ## 用例描述
 
-![](../../../images/uc_desc_lead_mgmt.png)
+![](../../../../images/uc_desc_lead_mgmt.png)
 
 
 ## 流程图
 
 ## 原型图
 
-![](../../../images/pt_lead_mgmt.png)
+![](../../../../images/pt_lead_mgmt.png)

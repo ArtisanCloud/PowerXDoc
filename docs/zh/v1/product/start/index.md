@@ -24,7 +24,7 @@ description: 关于PowerX
   * 由于是基础功能，所以基本上是扩展了企业微信的业务功能，以私域客户的触达和管理为主。
 
 
-* 分销电商(PowerX Pro) - BCC模式 (Business to Channels to Customers)
+* 分销电商(PowerX-Pro) - BCC模式 (Business to Channels to Customers)
     * 加入了分销渠道的中间关系维护
     * 提供多渠道的定价策略
     * 提供多级渠道分润的机制
@@ -66,13 +66,3 @@ description: 关于PowerX
 > 提供基础功能的开源小程序，因为前端的应用比较多样性，所以我们只会开源一部分基础的功能，给予演示。
 
 
----
-
-<br><br>
-# 本开源产品设计文档：
->
-> 作者： [Matrix-X](https://github.com/ArtisanCloud) 
-> 
-> 参考书籍：[《图解产品》](https://blog.csdn.net/broadview2006/article/details/120777491)
-> 
-> 感谢！

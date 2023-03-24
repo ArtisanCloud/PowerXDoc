@@ -16,3 +16,8 @@ PowerX的基本功能是基于微信生态，搭建的一套CRM系统。
 
 
 ![](../../images/fl_b2c.png)
+
+
+## 客户转化基本路径
+
+![](../../images/fl_crm_transfer.png)
