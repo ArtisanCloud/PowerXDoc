@@ -1,7 +1,7 @@
 ---
 title: 产品需求管理
 date: 2023-01-18
-description: 需求池
+description: 需求模型设计
 
 ---
 
@@ -23,8 +23,8 @@ description: 需求池
 
 ## 优先级排序
 <font size=5 color="#ff0000">重要且紧急: 最高优先级</font><br>
-<font size=4 color="orange">不重要但紧急: 高优先级</font><br>  
-<font size=3 color="green">重要但不急: 中优先级</font><br>  
-<font size=2 color="gray">不重要不紧急: 低优先级</font><br>   
+<font size=4 color="orange">不重要但紧急: 高优先级</font><br> 
+<font size=3 color="green">重要但不急: 中优先级</font><br>
+<font size=2 color="gray">不重要不紧急: 低优先级</font><br>
 
 
