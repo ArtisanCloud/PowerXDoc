@@ -518,20 +518,26 @@ export const sidebar = {
             },]
         },]
     },
-        // {
-        //     text: '产品管理', collapsible: true, items: [
-        //         {
-        //             text: '需求管理', link: baseURI + '/product/scrm/user'
-        //         },
-        //         {
-        //             text: '目标管理', link: baseURI + '/product/scrm/user'
-        //         },
-        //     ]
-        // }
+        {
+            text: '产品管理', collapsible: true, items: [
+                {
+                    text: '需求管理',
+                    collapsible: true,
+                    collapsed: false,
+                    items: [
+                        {text: '需求排期模型', link: baseURI + '/product/manage/requirement/index'},
+                        {text: '需求池', link: baseURI + '/product/manage/requirement/pool'}
+                    ]
+                },
+                // {
+                //     text: '目标管理', link: baseURI + '/product/scrm/user'
+                // },
+            ]
+        }
     ]
 }
 
-const { BASE: base = '/' } = process.env
+const {BASE: base = '/'} = process.env
 
 export default {
     base, outDir: '',
