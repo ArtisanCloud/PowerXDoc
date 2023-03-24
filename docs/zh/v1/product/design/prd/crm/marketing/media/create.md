@@ -10,18 +10,18 @@ description: 创建角色的功能描述
 
 ## 用例
 
-![](../../../images/uc_role_mgmt_create.png)
+![](../../../../images/uc_role_mgmt_create.png)
 
 ## 用例描述
 
-![](../../../images/uc_desc_role_mgmt_create.png)
+![](../../../../images/uc_desc_role_mgmt_create.png)
 
 
 ## 流程图
 
-![](../../../images/fl_role_mgmt_create.png)
+![](../../../../images/fl_role_mgmt_create.png)
 
 
 ## 原型图
 
-![](../../../images/pt_role_mgmt_create.png)
+![](../../../../images/pt_role_mgmt_create.png)

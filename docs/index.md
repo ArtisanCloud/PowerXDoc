@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/manual/start/index
+      link: /zh/v1/product/start/index
     - theme: alt
       text: GitHub Star
       link: https://github.com/ArtisanCloud/PowerX/stargazers

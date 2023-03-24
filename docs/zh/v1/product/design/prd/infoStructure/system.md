@@ -7,7 +7,6 @@ description: 系统信息结构图的描述
 
 # 用户类图
 
-
 ![](../../images/cls_diag_usr.png)
 
 
@@ -15,6 +14,10 @@ description: 系统信息结构图的描述
 
 ![](../../images/cls_diag_role.png)
 
+
+# 数据字典类图
+
+![](../../images/cls_diag_data_dictionary.png)
 
 # 组织架构类图
 

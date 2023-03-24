@@ -9,17 +9,17 @@ description: 线索池列表的描述
 
 ## 用例
 
-![](../../../../images/uc_lead_mgmt_list.png)
+![](../../../images/uc_lead_mgmt_list.png)
 
 ## 用例描述
 
-![](../../../../images/uc_desc_lead_mgmt_list.png)
+![](../../../images/uc_desc_lead_mgmt_list.png)
 
 
 ## 流程图
 
-![](../../../../images/fl_lead_mgmt_list.png)
+![](../../../images/fl_lead_mgmt_list.png)
 
 ## 原型图
 
-![](../../../../images/pt_lead_mgmt_list.png)
+![](../../../images/pt_lead_mgmt_list.png)
