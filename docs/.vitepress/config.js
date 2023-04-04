@@ -6,12 +6,12 @@ const nav = [{
     link: baseURI + '/product/start/index',
     activeMatch: '^/zh/' + version + '/(product)/'
 }, {text: '重构中...'},
-    {
-        text: '使用手册',
-        link: baseURI + '/manual/start/index',
-        // activeMatch: `^\/zh\/(start)\/(?!qa)`
-        activeMatch: '^' + baseURI + '/(manual)/(start)/'
-    },
+    // {
+    //     text: '使用手册',
+    //     link: baseURI + '/manual/start/index',
+    //     // activeMatch: `^\/zh\/(start)\/(?!qa)`
+    //     activeMatch: '^' + baseURI + '/(manual)/(start)/'
+    // },
     {
         text: '联系我们', link: baseURI + '/contact/qa'
     }, // {
