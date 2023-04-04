@@ -1,12 +1,12 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - release/*
 #  push:
-#    tags:
-#      - v*
+#    branches:
+#      - release/*
+  push:
+    tags:
+      - v*
 
 jobs:
   build:
