@@ -9,19 +9,19 @@ description: 授权信息自建线索的描述
 
 ## 用例
 
-![](../../../../../images/uc_lead_mgmt_createdByLogin.png)
+![](../../../../../images/uc_lead_mgmt_createdbylogin.png)
 
 
 
 ## 用例描述
 
-![](../../../../../images/uc_desc_lead_mgmt_createdByLogin.png)
+![](../../../../../images/uc_desc_lead_mgmt_createdbylogin.png)
 
 
 ## 流程图
 
-![](../../../../../images/fl_lead_mgmt_createdByLogin.png)
+![](../../../../../images/fl_lead_mgmt_createdbylogin.png)
 
 ## 原型图
 
-![](../../../../../images/pt_lead_mgmt_createdByLogin.png)
+![](../../../../../images/pt_lead_mgmt_createdbylogin.png)
