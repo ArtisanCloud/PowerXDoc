@@ -20,7 +20,7 @@ jobs:
           node-version: 16
 
       - name: Build project
-        run: npm && npm run docs:build
+        run: yarn && yarn docs:build
 
       - name: Upload COS
         uses: wangchaoyi/qcloud-cos-deploy-action@main
