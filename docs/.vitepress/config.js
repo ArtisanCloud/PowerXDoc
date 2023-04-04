@@ -5,12 +5,13 @@ const nav = [{
     text: '业务设计',
     link: baseURI + '/product/start/index',
     activeMatch: '^/zh/' + version + '/(product)/'
-}, {text: '重构中...'}, // {
-    //     text: '使用手册',
-    //     link: baseURI + '/manual/start/index',
-    //     // activeMatch: `^\/zh\/(start)\/(?!qa)`
-    //     activeMatch: '^' + baseURI + '/(manual)/(start)/'
-    // },
+}, {text: '重构中...'},
+    {
+        text: '使用手册',
+        link: baseURI + '/manual/start/index',
+        // activeMatch: `^\/zh\/(start)\/(?!qa)`
+        activeMatch: '^' + baseURI + '/(manual)/(start)/'
+    },
     {
         text: '联系我们', link: baseURI + '/contact/qa'
     }, // {
@@ -44,7 +45,11 @@ export const sidebar = {
         }, {text: '员工管理', link: baseURI + '/manual/scrm/setting-employee'}, {
             text: '权限管理', link: baseURI + '/manual/scrm/setting-permission'
         }, {text: '菜单配置', link: baseURI + '/manual/scrm/setting-menu'}]
-    }], '/zh/v1/product': [{
+
+    },
+        {text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
+        {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
+    ], '/zh/v1/product': [{
         text: '前言',
         link: baseURI + '/product/start/index',
         items: [
