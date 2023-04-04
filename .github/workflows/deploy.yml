@@ -17,7 +17,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: "19"
+          node-version: 16
 
       - name: Build project
         run: npm && npm run docs:build
