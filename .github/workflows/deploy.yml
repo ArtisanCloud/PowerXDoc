@@ -17,10 +17,10 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "19"
 
       - name: Build project
-        run: yarn && yarn docs:build
+        run: npm && npm run docs:build
 
       - name: Upload COS
         uses: wangchaoyi/qcloud-cos-deploy-action@main
