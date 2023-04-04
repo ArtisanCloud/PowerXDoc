@@ -10,16 +10,16 @@ description: 部门分配用户的功能描述
 
 ## 用例
 
-![](../../../../images/uc_deptmt_mgmt_assignUsers.png)
+![](../../../../images/uc_deptmt_mgmt_assignusers.png)
 
 ## 用例描述
 
-![](../../../../images/uc_desc_deptmt_mgmt_assignUsers.png)
+![](../../../../images/uc_desc_deptmt_mgmt_assignusers.png)
 
 ## 流程图
 
-![](../../../../images/fl_deptmt_mgmt_assignUsers.png)
+![](../../../../images/fl_deptmt_mgmt_assignusers.png)
 
 ## 原型图
 
-![](../../../../images/pt_deptmt_mgmt_assignUsers.png)
+![](../../../../images/pt_deptmt_mgmt_assignusers.png)
