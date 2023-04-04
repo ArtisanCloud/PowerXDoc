@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    name: Release Tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "19.x"
+
+      - name: Build project
+        run: yarn && yarn docs:build
+
+      - name: Upload COS
+        uses: wangchaoyi/qcloud-cos-deploy-action@main
+        with:
+#          args: delete -r -f / && upload -r ./dist/ /
+          secret_id: ${{ secrets.COS_SH_APP_ID }}
+          secret_key: ${{ secrets.COS_SH_APP_KEY }}
+          token: ""
+          buckets: ${{ secrets.COS_SH_BUCKET }}
+          region: ap-shanghai
+
+      - name: Upload docs to SH
+        #        run: |
+        #          export https_proxy=http://100.91.137.50:1089
+        #          export http_proxy=http://100.91.137.50:1089
+        #          export all_proxy=socks5://100.91.137.50:1089
+        run: coscli cp docs/.vitepress/dist/ cos://powerx-1307679408/ -r --thread-num 20
+
