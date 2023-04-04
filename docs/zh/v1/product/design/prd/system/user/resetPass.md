@@ -10,7 +10,7 @@ description: 重设用户密码的功能描述
 
 ## 用例
 
-![](../../../images/uc_usr_mgmt_resetPass.png)
+![](../../../images/uc_usr_mgmt_resetpass.png)
 
 ## 用例描述
 
@@ -18,7 +18,7 @@ description: 重设用户密码的功能描述
 
 ## 流程图
 
-![](../../../images/fl_usr_mgmt_resetPass.png)
+![](../../../images/fl_usr_mgmt_resetpass.png)
 ## 原型图
 
-![](../../../images/pt_usr_mgmt_resetPass.png)
+![](../../../images/pt_usr_mgmt_resetpass.png)
