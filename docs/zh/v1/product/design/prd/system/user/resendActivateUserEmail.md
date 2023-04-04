@@ -10,7 +10,7 @@ description: 重新发送激活邮件的功能描述
 
 ## 用例
 
-![](../../../images/fl_usr_mgmt_resendActivateUserEmail.png)
+![](../../../images/fl_usr_mgmt_resendactivateuseremail.png)
 
 ## 用例描述
 
@@ -18,8 +18,8 @@ description: 重新发送激活邮件的功能描述
 
 ## 流程图
 
-![](../../../images/fl_usr_mgmt_resendActivateUserEmail.png)
+![](../../../images/fl_usr_mgmt_resendactivateuseremail.png)
 
 ## 原型图
 
-![](../../../images/pt_usr_mgmt_resendActivateUserEmail.png)
+![](../../../images/pt_usr_mgmt_resendactivateuseremail.png)

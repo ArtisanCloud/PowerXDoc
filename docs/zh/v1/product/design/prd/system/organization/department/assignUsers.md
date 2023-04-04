@@ -22,4 +22,4 @@ description: 部门分配用户的功能描述
 
 ## 原型图
 
-![](../../../../images/pt_deptmt_mgmt_assignUsers.png)
+![](../../../../images/pt_deptmt_mgmt_assignusers.png)
