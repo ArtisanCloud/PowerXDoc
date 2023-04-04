@@ -18,7 +18,7 @@ description: 强制用户退出登录的功能描述
 
 ## 流程图
 
-![](../../../images/fl_usr_mgmt_forceLogout.png)
+![](../../../images/fl_usr_mgmt_forcelogout.png)
 
 ## 原型图
 
