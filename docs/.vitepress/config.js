@@ -6,12 +6,12 @@ const nav = [{
     link: baseURI + '/product/start/index',
     activeMatch: '^/zh/' + version + '/(product)/'
 }, {text: '重构中...'},
-    // {
-    //     text: '使用手册',
-    //     link: baseURI + '/manual/start/index',
-    //     // activeMatch: `^\/zh\/(start)\/(?!qa)`
-    //     activeMatch: '^' + baseURI + '/(manual)/(start)/'
-    // },
+    {
+        text: '使用手册',
+        link: baseURI + '/manual/start/index',
+        // activeMatch: `^\/zh\/(start)\/(?!qa)`
+        activeMatch: '^' + baseURI + '/(manual)/(start)/'
+    },
     {
         text: '联系我们', link: baseURI + '/contact/qa'
     }, // {
@@ -47,6 +47,7 @@ export const sidebar = {
         }, {text: '菜单配置', link: baseURI + '/manual/scrm/setting-menu'}]
 
     },
+        {text: 'crm', items: [{text: '入门', link: baseURI + '/manual/scrm/index'}]},
         {text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
         {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
     ], '/zh/v1/product': [{
@@ -509,6 +510,9 @@ export const sidebar = {
             items: [{text: '系统', link: baseURI + '/product/design/prd/infoStructure/system'}, {
                 text: '客域',
                 link: baseURI + '/product/design/prd/infoStructure/customer'
+            }, {
+                text: '系统与微信关系',
+                link: baseURI + '/product/design/prd/infoStructure/eeToCust'
             }, {text: '市场', link: baseURI + '/product/design/prd/infoStructure/marketing'}, {
                 text: '商务',
                 link: baseURI + '/product/design/prd/infoStructure/business'
