@@ -513,7 +513,9 @@ export const sidebar = {
             }, {
                 text: '系统与微信关系',
                 link: baseURI + '/product/design/prd/infoStructure/eeToCust'
-            }, {text: '市场', link: baseURI + '/product/design/prd/infoStructure/marketing'}, {
+            }, {text: '市场', link: baseURI + '/product/design/prd/infoStructure/marketing'},
+                {text: '产品服务', link: baseURI + '/product/design/prd/infoStructure/product'},
+                {
                 text: '商务',
                 link: baseURI + '/product/design/prd/infoStructure/business'
             }, {text: '交易', link: baseURI + '/product/design/prd/infoStructure/trade'}, {
