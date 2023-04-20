@@ -6,12 +6,12 @@ const nav = [{
     link: baseURI + '/product/start/index',
     activeMatch: '^/zh/' + version + '/(product)/'
 }, {text: '重构中...'},
-    {
-        text: '使用手册',
-        link: baseURI + '/manual/start/index',
-        // activeMatch: `^\/zh\/(start)\/(?!qa)`
-        activeMatch: '^' + baseURI + '/(manual)/(start)/'
-    },
+    // {
+    //     text: '使用手册',
+    //     link: baseURI + '/manual/start/index',
+    //     // activeMatch: `^\/zh\/(start)\/(?!qa)`
+    //     activeMatch: '^' + baseURI + '/(manual)/(start)/'
+    // },
     {
         text: '联系我们', link: baseURI + '/contact/qa'
     }, // {
@@ -30,7 +30,10 @@ export const sidebar = {
             text: '安装', link: baseURI + '/manual/start/installation'
         }, {text: '安装配置', link: baseURI + '/manual/start/common'}, {
             text: '快速开始', link: baseURI + '/manual/start/quick-start'
-        }, {text: 'Q&A', link: baseURI + '/manual/start/qa'}]
+        }, {text: 'Q&A', link: baseURI + '/manual/start/qa'},
+            {text: '二开开发介绍', link: baseURI + '/manual/system/criterion'},
+            {text: 'API接口介绍', link: baseURI + '/manual/system/api'}
+        ]
     }, {
         text: 'SCRM基础功能', items: [{text: '入门', link: baseURI + '/manual/scrm/index'}, {
             text: '渠道活码', link: baseURI + '/manual/scrm/contact-way'
@@ -257,7 +260,12 @@ export const sidebar = {
 
                 ]
             }, // {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
-                // {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
+                {
+                    text: '字典管理', items: [
+                        {text: '字典列表', link: baseURI + '/product/design/prd/system/dictionary/list'},
+                        {text: '创建字典', link: baseURI + '/product/design/prd/system/dictionary/create'}
+                    ]
+                },
                 // {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
                 // {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
             ]
@@ -359,12 +367,14 @@ export const sidebar = {
                         },
                         {
                             text: '新增品类', link: baseURI + '/product/design/prd/crm/product/category/create'
+                        },
+                        {
+                            text: '编辑品类', link: baseURI + '/product/design/prd/crm/product/category/edit'
+                        },
+                        {
+                            text: '删除品类', link: baseURI + '/product/design/prd/crm/product/category/delete'
                         }
-                        //     {
-                        //     text: '价格手册实体', link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
-                        // }, {
-                        //     text: '价格手册配置表', link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
-                        // }
+
                     ]
                 }, {
                     text: '价格手册',
@@ -516,17 +526,17 @@ export const sidebar = {
             }, {text: '市场', link: baseURI + '/product/design/prd/infoStructure/marketing'},
                 {text: '产品服务', link: baseURI + '/product/design/prd/infoStructure/product'},
                 {
-                text: '商务',
-                link: baseURI + '/product/design/prd/infoStructure/business'
-            }, {text: '交易', link: baseURI + '/product/design/prd/infoStructure/trade'}, {
-                text: '用例类图', collapsible: true, collapsed: false, items: [{
-                    text: '授权登录自建线索',
-                    link: baseURI + '/product/design/prd/infoStructure/useCase/leadCreatedByLogin'
-                }, {
-                    text: '客户主动咨询',
-                    link: baseURI + '/product/design/prd/infoStructure/useCase/oppCreatedByCustomer'
-                }, {text: 'MGM客户裂变', link: baseURI + '/product/design/prd/infoStructure/useCase/mgm'},]
-            },]
+                    text: '商务',
+                    link: baseURI + '/product/design/prd/infoStructure/business'
+                }, {text: '交易', link: baseURI + '/product/design/prd/infoStructure/trade'}, {
+                    text: '用例类图', collapsible: true, collapsed: false, items: [{
+                        text: '授权登录自建线索',
+                        link: baseURI + '/product/design/prd/infoStructure/useCase/leadCreatedByLogin'
+                    }, {
+                        text: '客户主动咨询',
+                        link: baseURI + '/product/design/prd/infoStructure/useCase/oppCreatedByCustomer'
+                    }, {text: 'MGM客户裂变', link: baseURI + '/product/design/prd/infoStructure/useCase/mgm'},]
+                },]
         },]
     },
         {
