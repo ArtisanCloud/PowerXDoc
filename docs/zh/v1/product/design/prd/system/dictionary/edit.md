@@ -15,4 +15,4 @@ description: 产品是承载企业创造价值的容器
 
 ## 原型图
 
-![](../../../images/pt_dd_mgmt_edit.png)
+[//]: # (![]&#40;../../../images/pt_dd_mgmt_edit.png&#41;)

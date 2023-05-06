@@ -8,20 +8,27 @@ description: 编辑价格手册条目的描述
 # 编辑价格手册条目
 
 
-## 用例
+[//]: # (## 用例)
 
-![](../../../../images/uc_pbk_ent_mgmt_edit.png)
+[//]: # ()
+[//]: # (![]&#40;../../../../images/uc_pbk_ent_mgmt_edit.png&#41;)
 
-## 用例描述
+[//]: # ()
+[//]: # (## 用例描述)
 
-![](../../../../images/uc_desc_pbk_ent_mgmt_edit.png)
+[//]: # ()
+[//]: # (![]&#40;../../../../images/uc_desc_pbk_ent_mgmt_edit.png&#41;)
 
+[//]: # ()
+[//]: # ()
+[//]: # (## 流程图)
 
-## 流程图
+[//]: # ()
+[//]: # (![]&#40;../../../../images/fl_pbk_ent_mgmt_edit.png&#41;)
 
-![](../../../../images/fl_pbk_ent_mgmt_edit.png)
+[//]: # ()
+[//]: # ()
+[//]: # (## 原型图)
 
-
-## 原型图
-
-![](../../../../images/pt_pbk_ent_mgmt_edit.png)
+[//]: # ()
+[//]: # (![]&#40;../../../../images/pt_pbk_ent_mgmt_edit.png&#41;)
