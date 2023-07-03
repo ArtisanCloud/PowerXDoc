@@ -137,52 +137,16 @@ docker-compose.yaml
 > vi etc/powerx.yaml
 
 ```
-复制粘贴powerx.yaml的内容，然后按照自己的需求，修改
-```yaml
-Server:
-  Name: PowerX
-  Host: 0.0.0.0
-  Port: 8888
-  Timeout: 30000
-Root:
-  Account: root
-  Password: root
-  Name: 超级管理员
-JWTSecret: dev
-Casbin:
-  SelfHosted: true
-PowerXDatabase:
-  # DSN: postgresql://postgres:postgres@localhost:5432/powerx
-  DSN: host=localhost user=postgres password=powerx dbname=powerx port=5432 sslmode=disable TimeZone=UTC
+请查看PowerX项目根目录下,etc/powerx.yaml的内容，复制粘贴到docker下的powerx.yaml的内容，然后按照自己的需求，修改
 
-WechatOA:
-  AppId: wx93607xxxxxxxxxx
-  Secret: 6ZwxxxtFouxxxxxxxxxxxxxxxxxxx0tgXYw4oh7KI
-  HttpDebug: true
-WechatPay:
-  AppId: wx93607xxxxxxxxxx
-  Secret:
-  MchID:
-  MchApiV3Key:
-  Key:
-  CertPath:
-  KeyPath:
-  RSAPublicKeyPath:
-  SerialNo:
-  HttpDebug: true
-WechatMP:
-  AppId: wx93607xxxxxxxxxx
-  Secret: 188c70xxxxxxxxxx70xxxxxxxxxx56c4
-  HttpDebug: true
-WeWork:
-  CropId: wx93607xxxxxxxxxx
-  AgentId: 1000005
-  Secret: 6ZwxxxtFouxxxxxxxxxxxxxxxxxxx0tgXYw4oh7KI
-  HttpDebug: true
+
+``` bash
+# {PowerX}是你当前clone PowerX的改名的项目名称
+> cp {PowerX}/etc/powerx.yaml etc/powerx.yaml
+
 ```
 
 ``` bash
-> mkdir etc
 > vi etc/minio.env
 
 ```
@@ -210,20 +174,20 @@ MINIO_VOLUMES="/mnt/data"
 #MINIO_SERVER_URL="http://minio.example.net"
 ```
 
-### 5 查看并且使用docker-composer up -d启动
+### 5 查看并且使用 docker-compose up -d启动
 ``` bash
 > ls
 PowerX              PowerXDashboard 
 docker-compose.yaml etc
 
-> docker-composer up -d
+> docker-compose up -d
 ...
 
 ```
 
 ### 6 web浏览
 
-打开浏览器，输入 http://localhost:3000（docker-compose默认设置了3000端口）
+打开浏览器，输入 localhost:3000（docker-compose默认设置了3000端口）
 
 
 ![img.png](images/install_web_dashboard.png)

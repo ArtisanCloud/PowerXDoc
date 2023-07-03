@@ -24,4 +24,4 @@ description: 创建门店的描述
 
 ## 原型图
 
-![](../../../../images/pt_store_cat_mgmt_create.png)
+[//]: # (![]&#40;../../../../images/pt_store_cat_mgmt_create.png&#41;)
