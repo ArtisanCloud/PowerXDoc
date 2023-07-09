@@ -12,6 +12,6 @@ description: 产品是承载企业创造价值的容器
 * [角色管理](./role.md)
 * [组织架构](./organization/index.md)
 * [菜单管理](./menu.md)
-* [字典管理](./dictionary.md)
+* [字典管理](dictionary/list.md)
 * [API管理](./api.md)
 * [日志管理](./log.md)

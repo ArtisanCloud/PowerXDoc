@@ -16,7 +16,7 @@
 > PowerXDoc 开源
 
 ## 中台服务端
-[PowerX](https://github.com/ArtisanCloud/PowerX)是后台服务端，基于[Go-Zero](https://go-zero.dev/cn/)微服务框架开发的，后段所有API接口。
+[PowerX](https://github.com/ArtisanCloud/PowerX)是后台服务端，基于[Go-Zero](https://go-zero.dev/cn/)微服务框架，开发API接口，同时也用到了[PowerWechat](https://github.com/ArtisanCloud/PowerWeChat)作为scrm业务模块的驱动。
 > PowerX 开源
 
 ## 后台管理页面
@@ -32,11 +32,14 @@
 
 ## PowerX社区交流群
 
-<img src="./docs/zh/v1/manual/start/images/contact_me_qr.jpg" alt="请扫我" style="display:inline; width: 150px;"/>
-
+<img src="./resource/images/contact_me_qr.jpg" alt="请扫我" style="display:inline; width: 150px;"/>
 
 ## 企业微信主要维护者
 
 Matrix-X
 
-<img src="./docs/zh/v1/manual/start/images/contact-qr-matrix-x.png" alt="请扫我" style="display:inline; width: 150px;"/>
+<img src="./resource/images/contact-qr-matrix-x.png" alt="请扫我" style="display:inline; width: 150px;"/>
+
+North
+
+<img src="./resource/images/contact_qr_north.png" alt="请扫我" style="display:inline; width: 150px;"/>

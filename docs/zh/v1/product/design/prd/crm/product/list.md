@@ -24,3 +24,11 @@ description: 查看客户列表的描述
 ## 原型图
 
 ![](../../../images/pt_prod_mgmt_list.png)
+
+
+商品展示字段
+商品名称
+
+
+
+

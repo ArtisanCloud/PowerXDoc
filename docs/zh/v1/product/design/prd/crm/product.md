@@ -23,7 +23,7 @@ description: 产品服务功能的描述
 
 ### 价格模型
 
-![](../../images/mdl_prod_mgmt.png)
+![](../../images/cls_diag_prod_mdl.png)
 
 ## 用例
 

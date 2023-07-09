@@ -5,7 +5,8 @@ const nav = [{
     text: '业务设计',
     link: baseURI + '/product/start/index',
     activeMatch: '^/zh/' + version + '/(product)/'
-}, {text: '重构中...'},
+},
+    // {text: '重构中...'},
     {
         text: '使用手册',
         link: baseURI + '/manual/start/index',
@@ -26,30 +27,39 @@ const nav = [{
 
 export const sidebar = {
     '/zh/v1/manual': [{
-        text: '开始', items: [{text: '概述', link: baseURI + '/manual/start/index'}, {
-            text: '安装', link: baseURI + '/manual/start/installation'
-        }, {text: '安装配置', link: baseURI + '/manual/start/common'}, {
-            text: '快速开始', link: baseURI + '/manual/start/quick-start'
-        }, {text: 'Q&A', link: baseURI + '/manual/start/qa'}]
-    }, {
-        text: 'SCRM基础功能', items: [{text: '入门', link: baseURI + '/manual/scrm/index'}, {
-            text: '渠道活码', link: baseURI + '/manual/scrm/contact-way'
-        }, {text: '客户群发', link: baseURI + '/manual/scrm/send-group-message'}, {
-            text: '客户群群发', link: baseURI + '/manual/scrm/send-group-chat-message'
-        }, {text: '客域管理', link: baseURI + '/manual/scrm/customer'}, {
-            text: '客户标签', link: baseURI + '/manual/scrm/customer-tag'
-        }, {text: '客户迁移', link: baseURI + '/manual/scrm/customer-migrate'}, {
-            text: '标签治理', link: baseURI + '/manual/scrm/tag'
-        }, {text: '客户群列表', link: baseURI + '/manual/scrm/customer-group-list'}, {
-            text: '客户群标签', link: baseURI + '/manual/scrm/customer-group-tag'
-        }, {text: '员工管理', link: baseURI + '/manual/scrm/setting-employee'}, {
-            text: '权限管理', link: baseURI + '/manual/scrm/setting-permission'
-        }, {text: '菜单配置', link: baseURI + '/manual/scrm/setting-menu'}]
-
+        text: '开始', items: [{text: '概述', link: baseURI + '/manual/start/index'},
+            {text: '安装准备', link: baseURI + '/manual/start/installation'},
+            {text: '配置信息', link: baseURI + '/manual/start/common'},
+            {text: '使用IDE启动', link: baseURI + '/manual/start/installation-ide'},
+            {text: '本地命令行启动', link: baseURI + '/manual/start/installation-command'},
+            {text: 'docker-compose部署', link: baseURI + '/manual/start/installation-docker-compose'},
+            // {text: '快速开始', link: baseURI + '/manual/start/quick-start'},
+            // {text: 'Q&A', link: baseURI + '/manual/start/qa'},
+            // {text: '二开开发介绍', link: baseURI + '/manual/system/criterion'},
+            {text: 'API接口介绍', link: baseURI + '/manual/system/api'},
+            {text: 'Criterion', link: baseURI + '/manual/system/criterion'}
+        ]
     },
-        {text: 'crm', items: [{text: '入门', link: baseURI + '/manual/scrm/index'}]},
+    //     {
+    //     text: 'SCRM基础功能', items: [{text: '入门', link: baseURI + '/manual/scrm/index'}, {
+    //         text: '渠道活码', link: baseURI + '/manual/scrm/contact-way'
+    //     }, {text: '客户群发', link: baseURI + '/manual/scrm/send-group-message'}, {
+    //         text: '客户群群发', link: baseURI + '/manual/scrm/send-group-chat-message'
+    //     }, {text: '客域管理', link: baseURI + '/manual/scrm/customer'}, {
+    //         text: '客户标签', link: baseURI + '/manual/scrm/customer-tag'
+    //     }, {text: '客户迁移', link: baseURI + '/manual/scrm/customer-migrate'}, {
+    //         text: '标签治理', link: baseURI + '/manual/scrm/tag'
+    //     }, {text: '客户群列表', link: baseURI + '/manual/scrm/customer-group-list'}, {
+    //         text: '客户群标签', link: baseURI + '/manual/scrm/customer-group-tag'
+    //     }, {text: '员工管理', link: baseURI + '/manual/scrm/setting-employee'}, {
+    //         text: '权限管理', link: baseURI + '/manual/scrm/setting-permission'
+    //     }, {text: '菜单配置', link: baseURI + '/manual/scrm/setting-menu'}]
+    //
+    // },
+    //     {text: 'crm', items: [{text: '入门', link: baseURI + '/manual/scrm/index'}]},
         {text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
-        {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
+        // {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
+        {text: '重构中...'},
     ], '/zh/v1/product': [{
         text: '前言',
         link: baseURI + '/product/start/index',
@@ -257,7 +267,12 @@ export const sidebar = {
 
                 ]
             }, // {text: '菜单管理', link: baseURI + '/product/design/prd/system/menu'},
-                // {text: '字典管理', link: baseURI + '/product/design/prd/system/dictionary'},
+                {
+                    text: '字典管理', items: [
+                        {text: '字典列表', link: baseURI + '/product/design/prd/system/dictionary/list'},
+                        {text: '创建字典', link: baseURI + '/product/design/prd/system/dictionary/create'}
+                    ]
+                },
                 // {text: 'API管理', link: baseURI + '/product/design/prd/system/api'},
                 // {text: '日志管理', link: baseURI + '/product/design/prd/system/log'},
             ]
@@ -332,6 +347,24 @@ export const sidebar = {
                 collapsible: true,
                 collapsed: false,
                 items: [{
+                    text: '门店管理',
+                    collapsible: true,
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '门店列表', link: baseURI + '/product/design/prd/crm/product/store/list'
+                        },
+                        {
+                            text: '新增商品', link: baseURI + '/product/design/prd/crm/product/store/create'
+                        },
+                        // {
+                        //     text: '编辑商品', link: baseURI + '/product/design/prd/crm/product/edit'
+                        // },
+                        // {
+                        //     text: '删除商品', link: baseURI + '/product/design/prd/crm/product/delete'
+                        // },
+                    ]
+                },{
                     text: '商品管理',
                     collapsible: true,
                     collapsed: false,
@@ -359,12 +392,14 @@ export const sidebar = {
                         },
                         {
                             text: '新增品类', link: baseURI + '/product/design/prd/crm/product/category/create'
+                        },
+                        {
+                            text: '编辑品类', link: baseURI + '/product/design/prd/crm/product/category/edit'
+                        },
+                        {
+                            text: '删除品类', link: baseURI + '/product/design/prd/crm/product/category/delete'
                         }
-                        //     {
-                        //     text: '价格手册实体', link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
-                        // }, {
-                        //     text: '价格手册配置表', link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
-                        // }
+
                     ]
                 }, {
                     text: '价格手册',
@@ -382,6 +417,24 @@ export const sidebar = {
                         // }, {
                         //     text: '价格手册配置表', link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
                         // }
+                    ]
+                },{
+                    text: '元匠管理',
+                    collapsible: true,
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '元匠列表', link: baseURI + '/product/design/prd/crm/product/artisan/list'
+                        },
+                        {
+                            text: '新增元匠', link: baseURI + '/product/design/prd/crm/product/artisan/create'
+                        },
+                        // {
+                        //     text: '编辑商品', link: baseURI + '/product/design/prd/crm/product/edit'
+                        // },
+                        // {
+                        //     text: '删除商品', link: baseURI + '/product/design/prd/crm/product/delete'
+                        // },
                     ]
                 }]
             }, {
@@ -513,18 +566,20 @@ export const sidebar = {
             }, {
                 text: '系统与微信关系',
                 link: baseURI + '/product/design/prd/infoStructure/eeToCust'
-            }, {text: '市场', link: baseURI + '/product/design/prd/infoStructure/marketing'}, {
-                text: '商务',
-                link: baseURI + '/product/design/prd/infoStructure/business'
-            }, {text: '交易', link: baseURI + '/product/design/prd/infoStructure/trade'}, {
-                text: '用例类图', collapsible: true, collapsed: false, items: [{
-                    text: '授权登录自建线索',
-                    link: baseURI + '/product/design/prd/infoStructure/useCase/leadCreatedByLogin'
-                }, {
-                    text: '客户主动咨询',
-                    link: baseURI + '/product/design/prd/infoStructure/useCase/oppCreatedByCustomer'
-                }, {text: 'MGM客户裂变', link: baseURI + '/product/design/prd/infoStructure/useCase/mgm'},]
-            },]
+            }, {text: '市场', link: baseURI + '/product/design/prd/infoStructure/marketing'},
+                {text: '产品服务', link: baseURI + '/product/design/prd/infoStructure/product'},
+                {
+                    text: '商务',
+                    link: baseURI + '/product/design/prd/infoStructure/business'
+                }, {text: '交易', link: baseURI + '/product/design/prd/infoStructure/trade'}, {
+                    text: '用例类图', collapsible: true, collapsed: false, items: [{
+                        text: '授权登录自建线索',
+                        link: baseURI + '/product/design/prd/infoStructure/useCase/leadCreatedByLogin'
+                    }, {
+                        text: '客户主动咨询',
+                        link: baseURI + '/product/design/prd/infoStructure/useCase/oppCreatedByCustomer'
+                    }, {text: 'MGM客户裂变', link: baseURI + '/product/design/prd/infoStructure/useCase/mgm'},]
+                },]
         },]
     },
         {
