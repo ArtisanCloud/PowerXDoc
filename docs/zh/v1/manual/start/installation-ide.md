@@ -13,17 +13,19 @@ date: 2023-05-06
 
 ![img.png](images/install_ide.png)
 
+
 ### 1.2.2 打开右上角的编译工具配置
 ![img_1.png](images/install_ide_1.png)
 
-### 1.2.2 打开右上角的编译工具配置
+### 1.2.2 点击左上角的添加按钮
+![img.png](images/install_ide_2_0.png)
+
 ![img.png](images/install_ide_2.png)
+
 
 * 输入powerx.go的路径：{your_project_root_location}/PowerX/cmd/server/powerx.go
 * 输入项目工作的路径: {your_project_root_location}/PowerX
-* 输入 -f etc/{powerx-local}.yaml
-  * 这里需要指出，你可以到项目路径的etc下，copy一个powerx.yaml，改为powerx-local.yaml，作为你本地的项目环境配置
-  * 如果你不设置这个配置路径，启动会自动启用etc/powerx.yaml
+* 输入 -f etc/powerx.yaml
 * 可以给编译操作取名为"go build powerx.go"
 * 点击按钮"OK"
 
@@ -73,5 +75,4 @@ date: 2023-05-06
 
 请确保后台PowerX是启动状态，输入账号root，密码root登陆
 
-进入下一节，[环境配置介绍](common.html)
 

@@ -34,25 +34,28 @@ git status
 # 使用git切换你需要的版本分之，默认可以在release/xxx或者develop上
 git status
 
-```
+```   
+
 
 ---
+# 部署软件依赖包
 
-## 选择你要的启动方式：
-### [本地IDE启动](installation-ide.md)
-
-[//]: # (### [本地命令行启动]&#40;installation-command.md&#41;)
-
-[//]: # ()
-[//]: # (###  [docker部署启动]&#40;installation-docker.md&#41;)
-
-###  [docker-compose部署启动](installation-docker-compose.md)
-
+> tip:
+> * golang版本 :  >=1.19
+> * golang官网 :  [国内镜像](https://golang.google.cn/dl/)
+> * goproxy镜像:  [goproxy.cn](https://goproxy.cn/)
+> * postgres:  [官方网址 版本>=14](https://www.postgresqltutorial.com)
+> * redis:  [redis](https://github.com/ArtisanCloud/PowerLibs/blob/master/cache/redis.go)
+> * minio: [minio](https://github.com/minio/minio)
 
 
-## 预安装数据库 Postgres
+<br>
 
-当前版本先只支持 [Postgres](https://www.postgresql.org/download/) 数据库
+以下是非容器化部署方案，需要预先安装软件，如果是容器技术，可以直接跳转到容器部署方案的介绍
+
+## 数据库预安装 Postgres
+
+当前版本先首选 [Postgres](https://www.postgresql.org/download/) 数据库
 
 版本>=14，具体安装步骤请查看官方教程
 
@@ -63,7 +66,10 @@ git status
 
 ```
 
-## 预安装缓存 Redis
+### 支持MySql
+数据库驱动支持MySql，有待版本测试
+
+## 缓存预安装 Redis
 
 * [源代码编译安装](https://redis.io/docs/getting-started/installation/install-redis-from-source)
 * [在Linux上，安装Redis](https://redis.io/docs/getting-started/installation/install-redis-on-linux)
@@ -86,18 +92,10 @@ redis_version:7.0.5
 
 ```
 
-## 预安装缓存 Minio(OSS)
+## 对象存储服务OSS 预安装 - Minio(OSS)
 * [服务安装](https://github.com/minio/minio)
 
 
----
 
-> tip:
-> * golang版本 :  >=1.19
-> * golang官网 :  [国内镜像](https://golang.google.cn/dl/)
-> * goproxy镜像:  [goproxy.cn](https://goproxy.cn/)
-> * postgres:  [官方网址 版本>=14](https://www.postgresqltutorial.com)
-> * redis:  [redis](https://github.com/ArtisanCloud/PowerLibs/blob/master/cache/redis.go)
-> * minio: [minio](https://github.com/minio/minio) 
 
 
