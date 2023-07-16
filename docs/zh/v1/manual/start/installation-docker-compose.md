@@ -240,11 +240,11 @@ MINIO_VOLUMES="/mnt/data"
 ``` bash
 > cd /{your_project_root_location}/PowerXDashboard/
 
-# node版本要在v20.x以上
+#  node版本要在v20.x以上
 > node -v
 v20.4.0
 
-# 确保已经安装好npm
+#确保已经安装好npm
 > npm i
 
 > npm run build
