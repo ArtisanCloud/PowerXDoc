@@ -33,6 +33,7 @@ export const sidebar = {
             {text: '使用IDE启动', link: baseURI + '/manual/start/installation-ide'},
             {text: '本地命令行启动', link: baseURI + '/manual/start/installation-command'},
             {text: 'docker-compose部署', link: baseURI + '/manual/start/installation-docker-compose'},
+            {text: 'k8s部署', link: baseURI + '/manual/start/installation-docker-compose'},
             // {text: '快速开始', link: baseURI + '/manual/start/quick-start'},
             // {text: 'Q&A', link: baseURI + '/manual/start/qa'},
             // {text: '二开开发介绍', link: baseURI + '/manual/system/criterion'},
