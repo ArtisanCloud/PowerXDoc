@@ -10,9 +10,9 @@ description: PowerX安装完系统后，有一个初始化的配置，采用了�
 # 配置介绍
 
 ## 1. 配置powerx.yaml文件 
-下载完项目后，第一步先直接复制etc/powerx-example.yml 改名为etc/powerx.yml
+下载完项目后，第一步先直接复制etc/powerx-example.yml 改名为etc/powerx.yaml
 
-* 这里需要指出，改名为etc/powerx.yml 是你本地项目的环境配置
+* 这里需要指出，改名为etc/powerx.yaml 是你本地项目的环境配置
 * 如果你不设置这个配置路径，启动会自动启用etc/powerx.yaml
 
 最新的配置，请参阅：[powerx-example.yaml](https://github.com/ArtisanCloud/PowerX/blob/develop/etc/powerx-example.yaml)

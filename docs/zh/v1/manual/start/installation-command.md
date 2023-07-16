@@ -119,7 +119,7 @@ Starting server at 0.0.0.0:8888...
 ```
 
 ```bash
-# Linux环境编译
+# Mac环境编译
 > CGO_ENABLED=0  GOOS=darwin  GOARCH=arm64 go build -o powerx cmd/server/powerx.go
 ```
 
