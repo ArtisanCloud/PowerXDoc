@@ -34,7 +34,7 @@ date: 2023-05-06
 ![img.png](images/install_ide_4.png)
 ![img.png](images/install_ide_3.png)
 
-### 1.2.4 打开浏览器，输入访问地址 http://127.0.0.1:8000
+### 1.2.4 打开浏览器，输入访问地址 http://127.0.0.1:8888
 
 ![img.png](images/install_web.png)
 
