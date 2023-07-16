@@ -34,10 +34,11 @@ export const sidebar = {
             {text: '本地命令行启动', link: baseURI + '/manual/start/installation-command'},
             {text: 'docker-compose部署', link: baseURI + '/manual/start/installation-docker-compose'},
             // {text: '快速开始', link: baseURI + '/manual/start/quick-start'},
-            // {text: 'Q&A', link: baseURI + '/manual/start/qa'},
-            // {text: '二开开发介绍', link: baseURI + '/manual/system/criterion'},
             {text: 'API接口介绍', link: baseURI + '/manual/system/api'},
-            {text: 'Criterion', link: baseURI + '/manual/system/criterion'}
+            {text: '贡献开发介绍', link: baseURI + '/manual/system/criterion'},
+            {text: '定制项目参考', link: baseURI + '/manual/system/custom'},
+            {text: 'Q&A', link: baseURI + '/manual/start/qa'},
+
         ]
     },
     //     {
@@ -288,7 +289,7 @@ export const sidebar = {
                 collapsed: false,
                 items: [{
                     text: '公域线索池',
-                    link: baseURI + '/product/design/prd/crm/customer/lead',
+                    link: baseURI + '/product/design/prd/crm/customer/lead/index',
                     collapsible: true,
                     collapsed: false,
                     items: [{
@@ -347,24 +348,6 @@ export const sidebar = {
                 collapsible: true,
                 collapsed: false,
                 items: [{
-                    text: '门店管理',
-                    collapsible: true,
-                    collapsed: false,
-                    items: [
-                        {
-                            text: '门店列表', link: baseURI + '/product/design/prd/crm/product/store/list'
-                        },
-                        {
-                            text: '新增商品', link: baseURI + '/product/design/prd/crm/product/store/create'
-                        },
-                        // {
-                        //     text: '编辑商品', link: baseURI + '/product/design/prd/crm/product/edit'
-                        // },
-                        // {
-                        //     text: '删除商品', link: baseURI + '/product/design/prd/crm/product/delete'
-                        // },
-                    ]
-                },{
                     text: '商品管理',
                     collapsible: true,
                     collapsed: false,
@@ -443,6 +426,24 @@ export const sidebar = {
                 collapsible: true,
                 collapsed: false,
                 items: [{
+                    text: '门店管理',
+                    collapsible: true,
+                    collapsed: false,
+                    items: [
+                        {
+                            text: '门店列表', link: baseURI + '/product/design/prd/crm/marketing/store/list'
+                        },
+                        {
+                            text: '新增商品', link: baseURI + '/product/design/prd/crm/marketing/store/create'
+                        },
+                        {
+                            text: '编辑商品', link: baseURI + '/product/design/prd/crm/marketing/store/edit'
+                        },
+                        {
+                            text: '删除商品', link: baseURI + '/product/design/prd/crm/marketing/store/delete'
+                        },
+                    ]
+                },{
                     text: 'MGM客户裂变', collapsible: true, collapsed: false, items: [{
                         text: '客户裂变树', link: baseURI + '/product/design/prd/crm/marketing/mgm/list'
                     },]
