@@ -19,7 +19,7 @@ PowerX       PowerXDocker        PowerXDashboard
 ###  1、 生成Linux系统里的powerx和powerxctl可执行文件
 
 
-### 方式一：使用IDE(推荐Goland)
+### 方式一：使用IDE(推荐Goland)来编译执行文件
 
 执行Makefile里的编译命令: app-build-linux
 
@@ -46,7 +46,7 @@ PowerX       PowerXDocker        PowerXDashboard
 
 <br>
 
-### 方式二： 使用命令编译
+### 方式二： 使用命令编译执行文件
 
 使用命令执行Makefile里的编译命令: app-build-linux
 
@@ -203,7 +203,7 @@ networks:
 
 <br>
 
-最新的配置，请参阅：[powerx.yaml](https://github.com/ArtisanCloud/PowerX/blob/release/v1.0.0/etc/powerx-example.yaml)
+最新的配置，请参阅：[powerx-example.yaml](https://github.com/ArtisanCloud/PowerX/blob/release/v1.0.0/etc/powerx-example.yaml)
 
 <br>
 
@@ -268,6 +268,32 @@ v20.4.0
 > mkdir data
 ```
 
+
+## 请先使用powerx.com的域名作为本地劫持访问域名：
+PowerX默认使用两个域名来作为前后端分离机制
+
+http://api.powerx.com 作为后台api域名  
+http://dashboard.powerx.com 作为后端网页的访问入口
+
+所以我们没有使用localhost作为默认启动，也是希望让用户先熟悉一下配置域名访问的过程。
+![](images/docker_compose_host.png)
+
+```bash
+
+# mac/linux 修改的hosts路径
+> sudo vi /etc/hosts
+
+# windows下使用powershell 修改的hosts路径
+# 请使用管理员身份打开powershell
+# 请确保你能定位到hosts路径
+> vi C:\Windows\System32\drivers\etc\hosts
+
+# 在hosts文件中，添加两个劫持域名到本地127.0.0.1
+127.0.0.1 api.powerx.com
+127.0.0.1 dashboard.powerx.com
+
+```
+
 ## 启动服务
 
 
@@ -284,9 +310,8 @@ v20.4.0
 
 ###  web浏览
 
-打开浏览器，输入 localhost:80（docker-compose默认设置了80端口）
+打开浏览器，输入 dashboard.powerx.com（docker-compose默认设置了80端口）
 
-
-![img.png](images/install_web_dashboard.png)
+![](images/install_docker_dashboard.png)
 
 请确保后台PowerX是启动状态，输入账号root，密码root登陆
