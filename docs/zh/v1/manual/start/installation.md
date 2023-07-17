@@ -34,7 +34,28 @@ git status
 # 使用git切换你需要的版本分之，默认可以在release/xxx或者develop上
 git status
 
-```   
+``` 
+
+### 2.1 下载 [PowerXDocker](https://github.com/ReDeployment/PowerXDocker) (可选，如需要容器部署)
+
+``` bash
+> git clone git@github.com:ReDeployment/PowerXDocker.git
+
+# 使用git切换你需要的版本分之，默认可以在release/xxx或者develop上
+git status
+
+```  
+
+PowerX在Makefile中，默认会使用PowerXDocker的名字路径来实现编译，如果你有需要修改这个项目名称的需求，也请注意在Makefile中要对应做名称调整
+
+
+###  检查项目包之间的路径关系
+
+``` bash
+> cd /{your_project_root_location}/
+> ls
+PowerX       PowerXDocker        PowerXDashboard 
+```
 
 
 ---

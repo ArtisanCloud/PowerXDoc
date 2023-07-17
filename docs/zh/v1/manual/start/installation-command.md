@@ -114,13 +114,34 @@ Starting server at 0.0.0.0:8888...
 ```
 
 ```bash
+#以下是linux环境,将编译好的执行文件复制到根目录下
+> cp .build/linux/powerx ./powerx
+> cp .build/linux/powerxctl ./powerxctl
+```
+
+---
+
+```bash
 # Windows环境编译
 > CGO_ENABLED=0  GOOS=windows  GOARCH=amd64 go build -o powerx.exe cmd/server/powerx.go
 ```
+```bash
+#以下是Windows环境,将编译好的执行文件复制到根目录下
+> cp .build/windows/powerx ./powerx
+> cp .build/windows/powerxctl ./powerxctl
+```
+
+---
 
 ```bash
-# Linux环境编译
+# Mac环境编译
 > CGO_ENABLED=0  GOOS=darwin  GOARCH=arm64 go build -o powerx cmd/server/powerx.go
 ```
+```bash
+#以下是MacOs环境,将编译好的执行文件复制到根目录下
+> cp .build/macos/powerx ./powerx
+> cp .build/macos/powerxctl ./powerxctl
+```
+
 
 
