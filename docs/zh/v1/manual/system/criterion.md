@@ -36,6 +36,13 @@ Fork 代码!
 提交pull request
 
 
+## Tab占位符数量
+
+### 后台Golang的Tab只用space数量为4
+![](images/tab_golang.png)
+
+### 前端Vue的Tab只用space数量为2
+
 
 ## 项目设计结构介绍
 * api: 配置玩api层的模块，由GoZero的GoCtl生成，
