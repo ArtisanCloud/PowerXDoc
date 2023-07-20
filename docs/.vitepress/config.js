@@ -27,7 +27,7 @@ const nav = [{
 
 export const sidebar = {
 	'/zh/v1/manual': [
-		{text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
+
 		// {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
 		// {text: '重构中...'},
 		{
@@ -54,6 +54,7 @@ export const sidebar = {
 					text: '客域', link: baseURI + '/manual/crm/customer-domain/index', items: [
 						{text: '线索', link: baseURI + '/manual/crm/customer-domain/lead/index'},
 						{text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index'},
+						{text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
 					]
 				},
 				{text: '产品服务', link: baseURI + '/manual/crm/product-service/index', items: [
