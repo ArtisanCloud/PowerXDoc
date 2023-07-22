@@ -36,13 +36,14 @@ PowerX       PowerXDocker        PowerXDashboard
 > tree .build
 
 ```
+
 ![img.png](images/docker_compose_powerx_1.png)
 
 <br>
 
 如果使用Makefile编译的，会自动拷贝powerx和powerxctl文件到PowerXDocker目录下
 
-![img.png](images/docker_compose_powerx_2.png)
+![img.png](images/docker_compose_powerx_2.jpeg)
 
 <br>
 
