@@ -11,7 +11,19 @@ const nav = [{
 		text: '使用手册',
 		link: baseURI + '/manual/start/index',
 		// activeMatch: `^\/zh\/(start)\/(?!qa)`
-		activeMatch: '^' + baseURI + '/(manual)/(start)/'
+		activeMatch: '^' + baseURI + '/(manual)/'
+	},
+	{
+		text: '运营方案',
+		link: baseURI + '/operation/start/index',
+		// activeMatch: `^\/zh\/(start)\/(?!qa)`
+		activeMatch: '^' + baseURI + '/(operation)/'
+	},
+	{
+		text: '案例展示',
+		link: baseURI + '/case/start/index',
+		// activeMatch: `^\/zh\/(start)\/(?!qa)`
+		activeMatch: '^' + baseURI + '/(case)/'
 	},
 	{
 		text: '联系我们', link: baseURI + '/contact/qa'
@@ -27,7 +39,7 @@ const nav = [{
 
 export const sidebar = {
 	'/zh/v1/manual': [
-		{text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
+
 		// {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
 		// {text: '重构中...'},
 		{
@@ -54,36 +66,67 @@ export const sidebar = {
 					text: '客域', link: baseURI + '/manual/crm/customer-domain/index', items: [
 						{text: '线索', link: baseURI + '/manual/crm/customer-domain/lead/index'},
 						{text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index'},
+						{text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
 					]
 				},
-				{text: '产品服务', link: baseURI + '/manual/crm/product-service/index', items: [
-						{text: '产品', link: baseURI + '/manual/crm/product-service/product/index'},
+				{
+					text: '产品服务', link: baseURI + '/manual/crm/product-service/index', items: [
+						{
+							text: '产品', link: baseURI + '/manual/crm/product-service/product/index',
+							items: [
+								{text: '商品列表', link: baseURI + '/manual/crm/product-service/product/list'},
+								{text: '新增商品', link: baseURI + '/manual/crm/product-service/product/create'},
+								{text: '编辑商品', link: baseURI + '/manual/crm/product-service/product/edit'},
+								{text: '删除商品', link: baseURI + '/manual/crm/product-service/product/delete'},
+							]
+						},
 						{text: '产品分类', link: baseURI + '/manual/crm/product-service/product-category/index'},
-						{text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index'},
-						{text: '配置价格', link: baseURI + '/manual/crm/product-service/price-book-config/index'},
-					]},
-				{text: '市场营销', link: baseURI + '/manual/crm/marketing', items: [
+						{
+							text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index', items: [
+								{text: '价格手册列表', link: baseURI + '/manual/crm/product-service/product/list'},
+								{text: '新增价格手册', link: baseURI + '/manual/crm/product-service/product/create'},
+								{text: '编辑价格手册', link: baseURI + '/manual/crm/product-service/product/edit'},
+								{text: '删除价格手册', link: baseURI + '/manual/crm/product-service/product/delete'},
+							]
+						},
+						{
+							text: '配置价格', link: baseURI + '/manual/crm/product-service/price-book-config/index'
+						},
+						{text: '元匠', link: baseURI + '/manual/crm/product-service/artisan/index'},
+					]
+				},
+				{
+					text: '市场营销', link: baseURI + '/manual/crm/marketing', items: [
 						{text: '门店管理', link: baseURI + '/manual/crm/marketing/store/index'},
 						{text: '媒资', link: baseURI + '/manual/crm/marketing/media/index'},
-						{text: '营销活动', link: baseURI + '/manual/crm/marketing/campaign/index',items: [
+						{
+							text: '营销活动', link: baseURI + '/manual/crm/marketing/campaign/index', items: [
 								{text: 'MGM', link: baseURI + '/manual/crm/marketing/campaign/mgm/index'},
-							]},
+							]
+						},
 						{text: '品牌故事', link: baseURI + '/manual/crm/marketing/brand-story/index'},
-					]},
-				{text: '交易', link: baseURI + '/manual/crm/trade/index', items: [
+					]
+				},
+				{
+					text: '交易', link: baseURI + '/manual/crm/trade/index', items: [
 						{text: '订单', link: baseURI + '/manual/crm/trade/order/index'},
 						{text: '支付', link: baseURI + '/manual/crm/trade/payment/index'},
 						{text: '退款', link: baseURI + '/manual/crm/trade/refund/index'},
 						{text: '物流', link: baseURI + '/manual/crm/trade/shipping/index'},
 						{text: '仓储', link: baseURI + '/manual/crm/trade/inventory/index'},
-					]},
-				{text: '生意', link: baseURI + '/manual/crm/business/index', items: [
+					]
+				},
+				{
+					text: '生意', link: baseURI + '/manual/crm/business/index', items: [
 						{text: '商机', link: baseURI + '/manual/crm/business/opportunity/index'},
 						{text: '报价', link: baseURI + '/manual/crm/business/quotation/index'},
-					]},
-				{text: '运营', link: baseURI + '/manual/crm/operation/index', items: [
+					]
+				},
+				{
+					text: '运营', link: baseURI + '/manual/crm/operation/index', items: [
 						{text: '报表', link: baseURI + '/manual/crm/operation/report/index'},
-					]},
+					]
+				},
 			]
 		},
 
