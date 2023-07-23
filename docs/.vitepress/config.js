@@ -63,6 +63,15 @@ export const sidebar = {
 			text: 'CRM', items: [
 				{text: '概述', link: baseURI + '/manual/crm/index'},
 				{
+					text: '系统管理', link: baseURI + '/manual/crm/admin-system/index', items: [
+						{text: '员工管理', link: baseURI + '/manual/crm/admin-system/employee-management/index'},
+						{text: '组织管理', link: baseURI + '/manual/crm/admin-system/organization-management/index', items: [
+								{text: '部门管理', link: baseURI + '/manual/crm/admin-system/organization-management/department-management/index'},
+								]},
+						{text: '权限管理', link: baseURI + '/manual/crm/admin-system/permission-management/index'}
+					]
+				},
+				{
 					text: '客域', link: baseURI + '/manual/crm/customer-domain/index', items: [
 						{text: '线索', link: baseURI + '/manual/crm/customer-domain/lead/index'},
 						{text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index'},
