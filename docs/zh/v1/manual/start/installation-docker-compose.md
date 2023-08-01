@@ -53,15 +53,15 @@ PowerX       PowerXDocker        PowerXDashboard
 
 ``` bash
 # 编译Linux环境执行文件 linux环境:
-> CGO_ENABLED=0  GOOS=linux  GOARCH=amd64 go build -o .build/linux/powerx cmd/ctl/powerxctl.go
+> CGO_ENABLED=0  GOOS=linux  GOARCH=amd64 go build -o .build/linux/powerx cmd/server/powerx.go
 > CGO_ENABLED=0  GOOS=linux  GOARCH=amd64 go build -o .build/linux/powerxctl cmd/ctl/powerxctl.go
 
 # 编译Linux环境执行文件 windows环境:
-> CGO_ENABLED=0  GOOS=windows  GOARCH=amd64 go build -o .build/windows/powerx cmd/ctl/powerxctl.go
+> CGO_ENABLED=0  GOOS=windows  GOARCH=amd64 go build -o .build/windows/powerx cmd/server/powerx.go
 > CGO_ENABLED=0  GOOS=windows  GOARCH=amd64 go build -o .build/windows/powerxctl cmd/ctl/powerxctl.go
 
 # 编译Linux环境执行文件 mac环境:
-> CGO_ENABLED=0  GOOS=darwin  GOARCH=arm64 go build -o .build/darwin/powerx cmd/ctl/powerxctl.go
+> CGO_ENABLED=0  GOOS=darwin  GOARCH=arm64 go build -o .build/darwin/powerx cmd/server/powerx.go
 > CGO_ENABLED=0  GOOS=darwin  GOARCH=arm64 go build -o .build/darwin/powerxctl cmd/ctl/powerxctl.go
 
 # 编译好后，拷贝.build/${GOOS}目录下的文件到 PowerXDocker 目录下
