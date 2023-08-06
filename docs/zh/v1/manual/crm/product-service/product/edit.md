@@ -11,13 +11,13 @@ date: 2023-07-23
 
 ## 编辑商品功能入口
 
-1、导航路径： 进入【PowerX后台】>【CRM】>【产品服务】>【商品管理】。
+1. 导航路径： 进入【PowerX后台】>【CRM】>【产品服务】>【商品管理】。
 
 ![](images/product_list.png)
 
 <br>
 
-2、点击铅笔样式的【编辑按钮】
+2. 点击铅笔样式的【编辑按钮】
 
 ![](images/product_edit_button_1.png)
 
