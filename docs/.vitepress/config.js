@@ -92,10 +92,10 @@ export const sidebar = {
 						{text: '产品分类', link: baseURI + '/manual/crm/product-service/product-category/index'},
 						{
 							text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index', items: [
-								{text: '价格手册列表', link: baseURI + '/manual/crm/product-service/product/list'},
-								{text: '新增价格手册', link: baseURI + '/manual/crm/product-service/product/create'},
-								{text: '编辑价格手册', link: baseURI + '/manual/crm/product-service/product/edit'},
-								{text: '删除价格手册', link: baseURI + '/manual/crm/product-service/product/delete'},
+								{text: '价格手册列表', link: baseURI + '/manual/crm/product-service/price-book/list'},
+								{text: '新增价格手册', link: baseURI + '/manual/crm/product-service/price-book/create'},
+								{text: '编辑价格手册', link: baseURI + '/manual/crm/product-service/price-book/edit'},
+								{text: '删除价格手册', link: baseURI + '/manual/crm/product-service/price-book/index'},
 							]
 						},
 						{
