@@ -65,9 +65,16 @@ export const sidebar = {
 				{
 					text: '系统管理', link: baseURI + '/manual/crm/admin-system/index', items: [
 						{text: '员工管理', link: baseURI + '/manual/crm/admin-system/employee-management/index'},
-						{text: '组织管理', link: baseURI + '/manual/crm/admin-system/organization-management/index', items: [
-								{text: '部门管理', link: baseURI + '/manual/crm/admin-system/organization-management/department-management/index'},
-								]},
+						{
+							text: '组织管理', link: baseURI + '/manual/crm/admin-system/organization-management/index',
+							collapsible: true, collapsed: true,
+							items: [
+								{
+									text: '部门管理',
+									link: baseURI + '/manual/crm/admin-system/organization-management/department-management/index'
+								},
+							]
+						},
 						{text: '权限管理', link: baseURI + '/manual/crm/admin-system/permission-management/index'}
 					]
 				},
@@ -82,6 +89,7 @@ export const sidebar = {
 					text: '产品服务', link: baseURI + '/manual/crm/product-service/index', items: [
 						{
 							text: '产品', link: baseURI + '/manual/crm/product-service/product/index',
+							collapsible: true, collapsed: true,
 							items: [
 								{text: '商品列表', link: baseURI + '/manual/crm/product-service/product/list'},
 								{text: '新增商品', link: baseURI + '/manual/crm/product-service/product/create'},
@@ -91,7 +99,9 @@ export const sidebar = {
 						},
 						{text: '产品分类', link: baseURI + '/manual/crm/product-service/product-category/index'},
 						{
-							text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index', items: [
+							text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index',
+							collapsible: true, collapsed: true,
+							items: [
 								{text: '价格手册列表', link: baseURI + '/manual/crm/product-service/price-book/list'},
 								{text: '新增价格手册', link: baseURI + '/manual/crm/product-service/price-book/create'},
 								{text: '编辑价格手册', link: baseURI + '/manual/crm/product-service/price-book/edit'},
@@ -109,7 +119,9 @@ export const sidebar = {
 						{text: '门店管理', link: baseURI + '/manual/crm/marketing/store/index'},
 						{text: '媒资', link: baseURI + '/manual/crm/marketing/media/index'},
 						{
-							text: '营销活动', link: baseURI + '/manual/crm/marketing/campaign/index', items: [
+							text: '营销活动', link: baseURI + '/manual/crm/marketing/campaign/index',
+							collapsible: true, collapsed: true,
+							items: [
 								{text: 'MGM', link: baseURI + '/manual/crm/marketing/campaign/mgm/index'},
 							]
 						},
@@ -143,18 +155,61 @@ export const sidebar = {
 			text: 'SCRM 基础功能', items: [
 				{text: '概述', link: baseURI + '/manual/scrm/index'},
 				{
-					text: '渠道活码', link: baseURI + '/manual/scrm/contact-way'
-				}, {text: '客户群发', link: baseURI + '/manual/scrm/send-group-message'}, {
-					text: '客户群群发', link: baseURI + '/manual/scrm/send-group-chat-message'
-				}, {text: '客户管理', link: baseURI + '/manual/scrm/customer'}, {
-					text: '客户标签', link: baseURI + '/manual/scrm/customer-tag'
-				}, {text: '客户迁移', link: baseURI + '/manual/scrm/customer-migrate'}, {
-					text: '标签治理', link: baseURI + '/manual/scrm/tag'
-				}, {text: '客户群列表', link: baseURI + '/manual/scrm/customer-group-list'}, {
-					text: '客户群标签', link: baseURI + '/manual/scrm/customer-group-tag'
-				}, {text: '员工管理', link: baseURI + '/manual/scrm/setting-employee'}, {
-					text: '权限管理', link: baseURI + '/manual/scrm/setting-permission'
-				}, {text: '菜单配置', link: baseURI + '/manual/scrm/setting-menu'}]
+					text: '营销获客',
+					collapsible: true, collapsed: false,
+					items: [
+						{text: '渠道活码', link: baseURI + '/manual/scrm/marketing-acquisition/contact-way'},
+						{text: '群活码', link: baseURI + '/manual/scrm/marketing-acquisition/group-qr.md'}
+					],
+				},
+				{
+					text: '内容管理',
+					collapsible: true, collapsed: false,
+					items: [
+						{text: '话术库', link: baseURI + '/manual/scrm/cms/script-lib'},
+						{text: '媒体库', link: baseURI + '/manual/scrm/cms/media'}
+					],
+				},
+				{
+					text: '客户运营',
+					collapsible: true, collapsed: false,
+					items:[
+						{text: '客户群发', link: baseURI + '/manual/scrm/operation/group-send'},
+						{text: '入群欢迎语', link: baseURI + '/manual/scrm/operation/welcome-script'},
+						{text: '企微朋友圈', link: baseURI + '/manual/scrm/operation/moment'},
+						{text: '员工群发记录', link: baseURI + '/manual/scrm/operation/employee-group-send-history'}
+					],
+				},
+				{
+					text: '客域管理',
+					collapsible: true, collapsed: false,
+					items:[
+						{text: '客户管理', link: baseURI + '/manual/scrm/customer-domaincustomer'},
+						{text: '客户详情', link: baseURI + '/manual/scrm/customer-domaintag'},
+						{text: '客户标签', link: baseURI + '/manual/scrm/customer-domainmigrate'},
+						{text: '客户迁移', link: baseURI + '/manual/scrm/customer-domainblack-list'}
+					],
+				},
+				{
+					text: '客户群管理',
+					collapsible: true, collapsed: false,
+					items:[
+						{text: '客户群列表', link: baseURI + '/manual/scrm/customer-group/group'},
+						{text: '客户群标签', link: baseURI + '/manual/scrm/customer-group/tag'}
+					],
+				},
+				{
+					text: '企业管理',
+					collapsible: true, collapsed: false,
+					items:[
+						{text: '客户群列表', link: baseURI + '/manual/scrm/wechat/organization'},
+						{text: '客户群标签', link: baseURI + '/manual/scrm/wechat/group'}
+					],
+				},
+				{text: '应用管理',link: baseURI + '/manual/scrm/app/index'},
+				{text: '会话存档',link: baseURI + '/manual/scrm/session-archive/index'},
+				{text: '智能客服',link: baseURI + '/manual/scrm/smart-cs/index'},
+			]
 
 		},
 	], '/zh/v1/product': [{
@@ -171,7 +226,7 @@ export const sidebar = {
 		items: [{text: '战略概述', link: baseURI + '/product/strategy/overview'}, {
 			text: '战略设计', link: baseURI + '/product/strategy/design', collapsible: true, collapsed: true,
 			items: [{
-				text: '通用分析模型',collapsible: true, collapsed: true,
+				text: '通用分析模型', collapsible: true, collapsed: true,
 				link: baseURI + '/product/strategy/design/general',
 				items: [{text: 'SWOT分析', link: baseURI + '/product/strategy/design/general/swot'}, {
 					text: 'PEST分析', link: baseURI + '/product/strategy/design/general/pest'
@@ -185,13 +240,16 @@ export const sidebar = {
 					text: '波特钻石模型', link: baseURI + '/product/strategy/design/competitor/porter-diamond'
 				},]
 			}, {
-				text: '差异性角度模型', link: baseURI + '/product/strategy/design/differentiation',collapsible: true, collapsed: true,
+				text: '差异性角度模型',
+				link: baseURI + '/product/strategy/design/differentiation',
+				collapsible: true,
+				collapsed: true,
 				items: [{
 					text: '蓝海战略', link: baseURI + '/product/strategy/design/differentiation/blue-ocean'
 				},]
 			}, {text: '破坏性创新模型', link: baseURI + '/product/strategy/design/destructive'},]
 		}, {
-			text: '目标设定',collapsible: true, collapsed: true,
+			text: '目标设定', collapsible: true, collapsed: true,
 			link: baseURI + '/product/strategy/target',
 			items: [{text: '收获', link: baseURI + '/product/strategy/target/income'}, {
 				text: '支出', link: baseURI + '/product/strategy/target/cost'
@@ -660,7 +718,7 @@ export const sidebar = {
 								text: '会籍列表', link: baseURI + '/product/design/prd/crm/membership/list'
 							}, {
 								text: '代币', link: baseURI + '/product/design/prd/crm/membership/token/index'
-							},{
+							}, {
 								text: '积分管理', link: baseURI + '/product/design/prd/crm/membership/score/index'
 							}]
 						},
@@ -712,7 +770,8 @@ export const sidebar = {
 									text: '企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/index',
 								},
 								{
-									text: '员工群发记录', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/index',
+									text: '员工群发记录',
+									link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/index',
 								}
 							]
 						},
