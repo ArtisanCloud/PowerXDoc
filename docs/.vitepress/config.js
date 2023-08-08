@@ -747,6 +747,23 @@ export const sidebar = {
 							collapsed: true,
 							items: [
 								{
+									text: '内容分组', link: baseURI + '/product/design/prd/scrm/cms/group/index',
+									items: [
+										{
+											text: '分组列表', link: baseURI + '/product/design/prd/scrm/cms/group/list',
+										},
+										{
+											text: '创建分组', link: baseURI + '/product/design/prd/scrm/cms/group/create',
+										},
+										{
+											text: '修改分组', link: baseURI + '/product/design/prd/scrm/cms/group/edit',
+										},
+										{
+											text: '删除分组', link: baseURI + '/product/design/prd/scrm/cms/group/delete',
+										}
+									]
+								},
+								{
 									text: '话术库', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/index',
 									items: [
 										{
