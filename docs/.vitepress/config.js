@@ -730,15 +730,14 @@ export const sidebar = {
 					collapsed: false,
 					items: [
 						{
-							text: '营销获客', link: baseURI + '/product/design/prd/scrm/marketingAcquisition/index',
+							text: '营销获客',
 							collapsible: true,
 							collapsed: true,
 							items: [
 								{
-									text: '群活码', link: baseURI + '/product/design/prd/scrm/marketingAcquisition/group/index',
-								},
-								{
 									text: '渠道活码', link: baseURI + '/product/design/prd/scrm/marketingAcquisition/contactWay/index',
+								},{
+									text: '群活码', link: baseURI + '/product/design/prd/scrm/marketingAcquisition/group/index',
 								}
 							]
 						},
@@ -748,10 +747,38 @@ export const sidebar = {
 							collapsed: true,
 							items: [
 								{
-									text: '媒体库（企业微信）', link: baseURI + '/product/design/prd/scrm/cms/media/index',
+									text: '话术库', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/index',
+									items: [
+										{
+											text: '话术库列表', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/list',
+										},
+										{
+											text: '创建话术', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/create',
+										},
+										{
+											text: '修改话术', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/edit',
+										},
+										{
+											text: '删除话术', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/delete',
+										}
+									]
 								},
 								{
-									text: '话术库', link: baseURI + '/product/design/prd/scrm/cms/scriptLib/index',
+									text: '媒体库（企业微信）', link: baseURI + '/product/design/prd/scrm/cms/media/index',
+									items: [
+										{
+											text: '媒体库列表', link: baseURI + '/product/design/prd/scrm/cms/media/list',
+										},
+										{
+											text: '创建媒体', link: baseURI + '/product/design/prd/scrm/cms/media/create',
+										},
+										{
+											text: '修改媒体', link: baseURI + '/product/design/prd/scrm/cms/media/edit',
+										},
+										{
+											text: '删除媒体', link: baseURI + '/product/design/prd/scrm/cms/media/delete',
+										}
+									]
 								}
 							]
 						},
@@ -762,16 +789,72 @@ export const sidebar = {
 							items: [
 								{
 									text: '客户群发', link: baseURI + '/product/design/prd/scrm/customerOperation/groupSend/index',
+									items: [
+										{
+											text: '客户群发列表', link: baseURI + '/product/design/prd/scrm/customerOperation/groupSend/list',
+										},
+										{
+											text: '创建话术', link: baseURI + '/product/design/prd/scrm/customerOperation/groupSend/create',
+										},
+										{
+											text: '修改话术', link: baseURI + '/product/design/prd/scrm/customerOperation/groupSend/edit',
+										},
+										{
+											text: '删除话术', link: baseURI + '/product/design/prd/scrm/customerOperation/groupSend/delete',
+										}
+									]
 								},
 								{
 									text: '入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/index',
+									items: [
+										{
+											text: '入群欢迎语列表', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/list',
+										},
+										{
+											text: '创建入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/create',
+										},
+										{
+											text: '修改入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/edit',
+										},
+										{
+											text: '删除入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/delete',
+										}
+									]
 								},
 								{
 									text: '企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/index',
+									items: [
+										{
+											text: '企微朋友圈列表', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/list',
+										},
+										{
+											text: '创建企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/create',
+										},
+										{
+											text: '修改企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/edit',
+										},
+										{
+											text: '删除企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/delete',
+										}
+									]
 								},
 								{
 									text: '员工群发记录',
 									link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/index',
+									items: [
+										{
+											text: '员工群发记录列表', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/list',
+										},
+										{
+											text: '创建入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/create',
+										},
+										{
+											text: '修改入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/edit',
+										},
+										{
+											text: '删除入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/delete',
+										}
+									]
 								}
 							]
 						},
