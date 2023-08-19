@@ -14,7 +14,7 @@ const nav = [{
 		activeMatch: '^' + baseURI + '/(manual)/'
 	},
 	{
-		text: '运营方案',
+		text: '运营甄选',
 		link: baseURI + '/operation/start/index',
 		// activeMatch: `^\/zh\/(start)\/(?!qa)`
 		activeMatch: '^' + baseURI + '/(operation)/'
@@ -185,9 +185,9 @@ export const sidebar = {
 					collapsible: true, collapsed: false,
 					items:[
 						{text: '客户管理', link: baseURI + '/manual/scrm/customer-domaincustomer'},
-						{text: '客户详情', link: baseURI + '/manual/scrm/customer-domaintag'},
-						{text: '客户标签', link: baseURI + '/manual/scrm/customer-domainmigrate'},
-						{text: '客户迁移', link: baseURI + '/manual/scrm/customer-domainblack-list'}
+						{text: '客户标签', link: baseURI + '/manual/scrm/customer-domaintag'},
+						{text: '客户迁移', link: baseURI + '/manual/scrm/customer-domainmigrate'},
+						{text: '黑名单', link: baseURI + '/manual/scrm/customer-domainblack-list'}
 					],
 				},
 				{
@@ -884,7 +884,7 @@ export const sidebar = {
 									text: '客户管理', link: baseURI + '/product/design/prd/scrm/customerManagement/externalUser/index',
 								},
 								{
-									text: '渠道活码', link: baseURI + '/product/design/prd/scrm/customerManagement/contractWay/index',
+									text: '客户标签', link: baseURI + '/product/design/prd/scrm/customerManagement/tag/index',
 								},
 								{
 									text: '客户迁移', link: baseURI + '/product/design/prd/scrm/customerManagement/customerMigrate/index',
@@ -904,6 +904,19 @@ export const sidebar = {
 								},
 								{
 									text: '客户群标签', link: baseURI + '/product/design/prd/scrm/customerGroup/groupTag/index',
+								}
+							]
+						},
+						{
+							text: '企业管理',
+							collapsible: true,
+							collapsed: true,
+							items: [
+								{
+									text: '组织架构', link: baseURI + '/product/design/prd/scrm/wechat/organization/index',
+								},
+								{
+									text: '员工群管理', link: baseURI + '/product/design/prd/scrm/wechat/group/index',
 								}
 							]
 						},
