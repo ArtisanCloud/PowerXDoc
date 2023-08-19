@@ -75,13 +75,30 @@ export const sidebar = {
 								},
 							]
 						},
-						{text: '权限管理', link: baseURI + '/manual/crm/admin-system/permission-management/index'}
+						{text: '权限管理', link: baseURI + '/manual/crm/admin-system/permission-management/index'},
+						{text: '数据字典', link: baseURI + '/manual/crm/admin-system/digital-dictionary/index'}
 					]
 				},
 				{
-					text: '客域', link: baseURI + '/manual/crm/customer-domain/index', items: [
-						{text: '线索', link: baseURI + '/manual/crm/customer-domain/lead/index'},
-						{text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index'},
+					text: '客域管理', link: baseURI + '/manual/crm/customer-domain/index', items: [
+						{text: '公域线索池', link: baseURI + '/manual/crm/customer-domain/lead/index',
+						collapsible: true, collapsed: true,
+						items: [
+							{text: '线索列表', link: baseURI + '/manual/crm/customer-domain/lead/list'},
+							{text: '新增线索', link: baseURI + '/manual/crm/customer-domain/lead/create'},
+							{text: '编辑线索', link: baseURI + '/manual/crm/customer-domain/lead/edit'},
+							{text: '删除线索', link: baseURI + '/manual/crm/customer-domain/lead/delete'},
+						],
+					},
+						{text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index',
+						collapsible: true, collapsed: true,
+						items: [
+							{text: '客户列表', link: baseURI + '/manual/crm/customer-domain/customer/list'},
+							{text: '新增客户', link: baseURI + '/manual/crm/customer-domain/customer/create'},
+							{text: '编辑客户', link: baseURI + '/manual/crm/customer-domain/customer/edit'},
+							{text: '删除客户', link: baseURI + '/manual/crm/customer-domain/customer/delete'},
+						],
+					},
 						{text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
 					]
 				},
@@ -97,7 +114,15 @@ export const sidebar = {
 								{text: '删除商品', link: baseURI + '/manual/crm/product-service/product/delete'},
 							]
 						},
-						{text: '产品分类', link: baseURI + '/manual/crm/product-service/product-category/index'},
+						{text: '商品品类', link: baseURI + '/manual/crm/product-service/product-category/index',
+						collapsible: true, collapsed: true,
+						items: [
+							{text: '品类列表', link: baseURI + '/manual/crm/product-service/product-category/list'},
+							{text: '新增品类', link: baseURI + '/manual/crm/product-service/product-category/create'},
+							{text: '编辑品类', link: baseURI + '/manual/crm/product-service/product-category/edit'},
+							{text: '删除品类', link: baseURI + '/manual/crm/product-service/product-category/index'},
+						]
+					},
 						{
 							text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index',
 							collapsible: true, collapsed: true,
@@ -107,9 +132,6 @@ export const sidebar = {
 								{text: '编辑价格手册', link: baseURI + '/manual/crm/product-service/price-book/edit'},
 								{text: '删除价格手册', link: baseURI + '/manual/crm/product-service/price-book/index'},
 							]
-						},
-						{
-							text: '配置价格', link: baseURI + '/manual/crm/product-service/price-book-config/index'
 						},
 						{text: '元匠', link: baseURI + '/manual/crm/product-service/artisan/index'},
 					]
