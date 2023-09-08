@@ -21,7 +21,7 @@ date: 2023-05-06
 
 ```
 * 配置etc/powerx.yaml文件，主要配置数据库DSN，暂时我们默认使用Postgres DB。
-配置参数[详见介绍](common.md)
+配置参数[详见介绍](config.md)
 
 ``` bash
 # 项目中Makefile默认引用的是 etc/powerx.yaml
