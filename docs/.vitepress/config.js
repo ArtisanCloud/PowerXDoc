@@ -13,15 +13,15 @@ const nav = [{
 		// activeMatch: `^\/zh\/(start)\/(?!qa)`
 		activeMatch: '^' + baseURI + '/(manual)/'
 	},
-	{
-		text: '运营甄选',
-		link: baseURI + '/operation/start/index',
-		// activeMatch: `^\/zh\/(start)\/(?!qa)`
-		activeMatch: '^' + baseURI + '/(operation)/'
-	},
+	// {
+	// 	text: '运营甄选',
+	// 	link: baseURI + '/operation/start/index',
+	// 	// activeMatch: `^\/zh\/(start)\/(?!qa)`
+	// 	activeMatch: '^' + baseURI + '/(operation)/'
+	// },
 	{
 		text: '案例展示',
-		link: baseURI + '/case/start/index',
+		link: baseURI + '/case/index',
 		// activeMatch: `^\/zh\/(start)\/(?!qa)`
 		activeMatch: '^' + baseURI + '/(case)/'
 	},
@@ -38,6 +38,35 @@ const nav = [{
 
 
 export const sidebar = {
+	'/zh/v1/case': [
+		{
+			text: '案例介绍',
+			items:[
+				{text: '电商案例',
+					items: [
+						{text: 'LitBim', link: baseURI + '/case/ecommerce/LitBim/index'},
+						{text: '小裂匠', link: baseURI + '/case/ecommerce/ArtisanForce/index'},
+					]
+				},
+				{text: 'SCRM案例', link: baseURI + '/case/scrm/index',
+					items: [
+						{text: 'PRIM', link: baseURI + '/case/scrm/PRIM/index'}
+					]
+				},
+				{text: '服务案例', link: baseURI + '/case/service/index',
+					items: [
+						{text: '816Salon', link: baseURI + '/case/service/816Salon/index'}
+					]
+				},
+				{text: 'AI案例', link: baseURI + '/case/ai/index',
+					items: [
+						{text: 'PowerPrompt', link: baseURI + '/case/ai/PowerPrompt/index'}
+					]
+				},
+
+			]
+		}
+	],
 	'/zh/v1/manual': [
 
 		// {text: 'ChatGPT的小程序登录授权', link: baseURI + '/manual/mp/customer/chatgpt'}
@@ -67,7 +96,7 @@ export const sidebar = {
 						{text: '员工管理', link: baseURI + '/manual/crm/admin-system/employee-management/index'},
 						{
 							text: '组织管理', link: baseURI + '/manual/crm/admin-system/organization-management/index',
-							collapsible: true, collapsed: true,
+							collapsible: true, collapsed: false,
 							items: [
 								{
 									text: '部门管理',
@@ -75,13 +104,32 @@ export const sidebar = {
 								},
 							]
 						},
-						{text: '权限管理', link: baseURI + '/manual/crm/admin-system/permission-management/index'}
+						{text: '权限管理', link: baseURI + '/manual/crm/admin-system/permission-management/index'},
+						{text: '数据字典', link: baseURI + '/manual/crm/admin-system/digital-dictionary/index'}
 					]
 				},
 				{
-					text: '客域', link: baseURI + '/manual/crm/customer-domain/index', items: [
-						{text: '线索', link: baseURI + '/manual/crm/customer-domain/lead/index'},
-						{text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index'},
+					text: '客域管理', link: baseURI + '/manual/crm/customer-domain/index', items: [
+						{
+							text: '公域线索池', link: baseURI + '/manual/crm/customer-domain/lead/index',
+							collapsible: true, collapsed: true,
+							items: [
+								{text: '线索列表', link: baseURI + '/manual/crm/customer-domain/lead/list'},
+								{text: '新增线索', link: baseURI + '/manual/crm/customer-domain/lead/create'},
+								{text: '编辑线索', link: baseURI + '/manual/crm/customer-domain/lead/edit'},
+								{text: '删除线索', link: baseURI + '/manual/crm/customer-domain/lead/delete'},
+							],
+						},
+						{
+							text: '客户', link: baseURI + '/manual/crm/customer-domain/customer/index',
+							collapsible: true, collapsed: true,
+							items: [
+								{text: '客户列表', link: baseURI + '/manual/crm/customer-domain/customer/list'},
+								{text: '新增客户', link: baseURI + '/manual/crm/customer-domain/customer/create'},
+								{text: '编辑客户', link: baseURI + '/manual/crm/customer-domain/customer/edit'},
+								{text: '删除客户', link: baseURI + '/manual/crm/customer-domain/customer/delete'},
+							],
+						},
 						{text: '小程序客户登录授权', link: baseURI + '/manual/mp/customer/login'},
 					]
 				},
@@ -97,7 +145,16 @@ export const sidebar = {
 								{text: '删除商品', link: baseURI + '/manual/crm/product-service/product/delete'},
 							]
 						},
-						{text: '产品分类', link: baseURI + '/manual/crm/product-service/product-category/index'},
+						{
+							text: '商品品类', link: baseURI + '/manual/crm/product-service/product-category/index',
+							collapsible: true, collapsed: true,
+							items: [
+								{text: '品类列表', link: baseURI + '/manual/crm/product-service/product-category/list'},
+								{text: '新增品类', link: baseURI + '/manual/crm/product-service/product-category/create'},
+								{text: '编辑品类', link: baseURI + '/manual/crm/product-service/product-category/edit'},
+								{text: '删除品类', link: baseURI + '/manual/crm/product-service/product-category/index'},
+							]
+						},
 						{
 							text: '价格手册', link: baseURI + '/manual/crm/product-service/price-book/index',
 							collapsible: true, collapsed: true,
@@ -108,14 +165,13 @@ export const sidebar = {
 								{text: '删除价格手册', link: baseURI + '/manual/crm/product-service/price-book/index'},
 							]
 						},
-						{
-							text: '配置价格', link: baseURI + '/manual/crm/product-service/price-book-config/index'
-						},
 						{text: '元匠', link: baseURI + '/manual/crm/product-service/artisan/index'},
 					]
 				},
 				{
-					text: '市场营销', link: baseURI + '/manual/crm/marketing', items: [
+					text: '市场营销', link: baseURI + '/manual/crm/marketing',
+					collapsible: true, collapsed: true,
+					items: [
 						{text: '门店管理', link: baseURI + '/manual/crm/marketing/store/index'},
 						{text: '媒资', link: baseURI + '/manual/crm/marketing/media/index'},
 						{
@@ -129,7 +185,9 @@ export const sidebar = {
 					]
 				},
 				{
-					text: '交易', link: baseURI + '/manual/crm/trade/index', items: [
+					text: '交易', link: baseURI + '/manual/crm/trade/index',
+					collapsible: true, collapsed: true,
+					items: [
 						{text: '订单', link: baseURI + '/manual/crm/trade/order/index'},
 						{text: '支付', link: baseURI + '/manual/crm/trade/payment/index'},
 						{text: '退款', link: baseURI + '/manual/crm/trade/refund/index'},
@@ -138,13 +196,17 @@ export const sidebar = {
 					]
 				},
 				{
-					text: '生意', link: baseURI + '/manual/crm/business/index', items: [
+					text: '生意', link: baseURI + '/manual/crm/business/index',
+					collapsible: true, collapsed: true,
+					items: [
 						{text: '商机', link: baseURI + '/manual/crm/business/opportunity/index'},
 						{text: '报价', link: baseURI + '/manual/crm/business/quotation/index'},
 					]
 				},
 				{
-					text: '运营', link: baseURI + '/manual/crm/operation/index', items: [
+					text: '运营', link: baseURI + '/manual/crm/operation/index',
+					collapsible: true, collapsed: true,
+					items: [
 						{text: '报表', link: baseURI + '/manual/crm/operation/report/index'},
 					]
 				},
@@ -152,7 +214,9 @@ export const sidebar = {
 		},
 
 		{
-			text: 'SCRM 基础功能', items: [
+			text: 'SCRM 基础功能',
+			collapsible: true, collapsed: true,
+			items: [
 				{text: '概述', link: baseURI + '/manual/scrm/index'},
 				{
 					text: '营销获客',
@@ -173,7 +237,7 @@ export const sidebar = {
 				{
 					text: '客户运营',
 					collapsible: true, collapsed: false,
-					items:[
+					items: [
 						{text: '客户群发', link: baseURI + '/manual/scrm/operation/group-send'},
 						{text: '入群欢迎语', link: baseURI + '/manual/scrm/operation/welcome-script'},
 						{text: '企微朋友圈', link: baseURI + '/manual/scrm/operation/moment'},
@@ -183,7 +247,7 @@ export const sidebar = {
 				{
 					text: '客域管理',
 					collapsible: true, collapsed: false,
-					items:[
+					items: [
 						{text: '客户管理', link: baseURI + '/manual/scrm/customer-domaincustomer'},
 						{text: '客户标签', link: baseURI + '/manual/scrm/customer-domaintag'},
 						{text: '客户迁移', link: baseURI + '/manual/scrm/customer-domainmigrate'},
@@ -193,7 +257,7 @@ export const sidebar = {
 				{
 					text: '客户群管理',
 					collapsible: true, collapsed: false,
-					items:[
+					items: [
 						{text: '客户群列表', link: baseURI + '/manual/scrm/customer-group/group'},
 						{text: '客户群标签', link: baseURI + '/manual/scrm/customer-group/tag'}
 					],
@@ -201,18 +265,19 @@ export const sidebar = {
 				{
 					text: '企业管理',
 					collapsible: true, collapsed: false,
-					items:[
+					items: [
 						{text: '客户群列表', link: baseURI + '/manual/scrm/wechat/organization'},
 						{text: '客户群标签', link: baseURI + '/manual/scrm/wechat/group'}
 					],
 				},
-				{text: '应用管理',link: baseURI + '/manual/scrm/app/index'},
-				{text: '会话存档',link: baseURI + '/manual/scrm/session-archive/index'},
-				{text: '智能客服',link: baseURI + '/manual/scrm/smart-cs/index'},
+				{text: '应用管理', link: baseURI + '/manual/scrm/app/index'},
+				{text: '会话存档', link: baseURI + '/manual/scrm/session-archive/index'},
+				{text: '智能客服', link: baseURI + '/manual/scrm/smart-cs/index'},
 			]
 
 		},
-	], '/zh/v1/product': [{
+	],
+	'/zh/v1/product': [{
 		text: '前言',
 		link: baseURI + '/product/start/index',
 		items: [
@@ -736,7 +801,7 @@ export const sidebar = {
 							items: [
 								{
 									text: '渠道活码', link: baseURI + '/product/design/prd/scrm/marketingAcquisition/contactWay/index',
-								},{
+								}, {
 									text: '群活码', link: baseURI + '/product/design/prd/scrm/marketingAcquisition/group/index',
 								}
 							]
@@ -825,16 +890,20 @@ export const sidebar = {
 									text: '入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/index',
 									items: [
 										{
-											text: '入群欢迎语列表', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/list',
+											text: '入群欢迎语列表',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/list',
 										},
 										{
-											text: '创建入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/create',
+											text: '创建入群欢迎语',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/create',
 										},
 										{
-											text: '修改入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/edit',
+											text: '修改入群欢迎语',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/edit',
 										},
 										{
-											text: '删除入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/delete',
+											text: '删除入群欢迎语',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/welcomeScript/delete',
 										}
 									]
 								},
@@ -845,13 +914,15 @@ export const sidebar = {
 											text: '企微朋友圈列表', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/list',
 										},
 										{
-											text: '创建企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/create',
+											text: '创建企微朋友圈',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/moment/create',
 										},
 										{
 											text: '修改企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/edit',
 										},
 										{
-											text: '删除企微朋友圈', link: baseURI + '/product/design/prd/scrm/customerOperation/moment/delete',
+											text: '删除企微朋友圈',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/moment/delete',
 										}
 									]
 								},
@@ -860,16 +931,20 @@ export const sidebar = {
 									link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/index',
 									items: [
 										{
-											text: '员工群发记录列表', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/list',
+											text: '员工群发记录列表',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/list',
 										},
 										{
-											text: '创建入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/create',
+											text: '创建入群欢迎语',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/create',
 										},
 										{
-											text: '修改入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/edit',
+											text: '修改入群欢迎语',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/edit',
 										},
 										{
-											text: '删除入群欢迎语', link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/delete',
+											text: '删除入群欢迎语',
+											link: baseURI + '/product/design/prd/scrm/customerOperation/employeeGroupSendHistory/delete',
 										}
 									]
 								}
