@@ -12,13 +12,13 @@ LBEE CluB生鲜甄选 是上海立特缤网络科技有限公司的一个高端�
 ## 前端
 
 <div style="display:inline-block;width:100%;">
-    <img src="./images/login.png"  width="240"  />  <br>
     <img src="./images/home.png"  width="240"  />  <br>
     <img src="./images/category.png"  width="240"  />  <br>
     <img src="./images/product-1.png"  width="240"  />  <br>
     <img src="./images/cart.png"  width="240"  />  <br>
     <img src="./images/payment.png"  width="240"  />  <br>
     <img src="./images/payment-1.png"  width="240"  />  <br>
+    <img src="./images/login.png"  width="240"  />  <br>
     <img src="./images/me.png"  width="240"  />  <br>
     <img src="./images/order.png"  width="240"  />  <br>
 </div>
@@ -27,20 +27,11 @@ LBEE CluB生鲜甄选 是上海立特缤网络科技有限公司的一个高端�
 
 <div style="display:inline-block;width:100%;">
     <img src="./images/dashboard-home.png"   />  <br>
-    <img src="./images/home.png"  width="240"  />  <br>
+    <img src="./images/dashboard-category.png"   />  <br>
+    <img src="./images/dashboard-product.png"   />  <br>
+    <img src="./images/config-price.png"   />  <br>
+    <img src="./images/config-price-1.png"   />  <br>
+    <img src="./images/dashboard-edit-product.png"   />  <br>
+    <img src="./images/dashboard-edit-product-2.png"   />  <br>
     
 </div>
-
-![img.png](img.png)
-
-[//]: # (![login.png]&#40;images%2Flogin.png&#41;{width=240})
-
-[//]: # (![home.png]&#40;images%2Fhome.png&#41;{width=240})
-
-[//]: # (![category.png]&#40;images%2Fcategory.png&#41;{width=240})
-
-[//]: # (![product-1.png]&#40;images%2Fproduct-1.png&#41;{width=240})
-
-[//]: # (![cart.png]&#40;images%2Fcart.png&#41;{width=240})
-
-

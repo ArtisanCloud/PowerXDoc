@@ -246,7 +246,10 @@ MINIO_VOLUMES="/mnt/data"
 v20.4.0
 
 #确保已经安装好npm
+
 > npm i
+或
+> yarn install
 
 > npm run build
 

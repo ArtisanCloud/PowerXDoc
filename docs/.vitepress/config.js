@@ -42,25 +42,25 @@ export const sidebar = {
 		{
 			text: '案例介绍',
 			items:[
+				{text: 'AI案例', link: baseURI + '/case/ai/index',
+					items: [
+						{text: '图漫创新', link: baseURI + '/case/ai/PowerPrompt/index'}
+					]
+				},
 				{text: '电商案例',
 					items: [
 						{text: 'LitBim', link: baseURI + '/case/ecommerce/LitBim/index'},
 						{text: '小裂匠', link: baseURI + '/case/ecommerce/ArtisanForce/index'},
 					]
 				},
-				{text: 'SCRM案例', link: baseURI + '/case/scrm/index',
+				{text: 'SCRM案例',
 					items: [
 						{text: 'PRIM', link: baseURI + '/case/scrm/PRIM/index'}
 					]
 				},
-				{text: '服务案例', link: baseURI + '/case/service/index',
+				{text: '服务案例',
 					items: [
 						{text: '816Salon', link: baseURI + '/case/service/816Salon/index'}
-					]
-				},
-				{text: 'AI案例', link: baseURI + '/case/ai/index',
-					items: [
-						{text: 'PowerPrompt', link: baseURI + '/case/ai/PowerPrompt/index'}
 					]
 				},
 
@@ -169,14 +169,14 @@ export const sidebar = {
 					]
 				},
 				{
-					text: '市场营销', link: baseURI + '/manual/crm/marketing',
+					text: '市场营销', link: baseURI + '/manual/crm/marketing/index',
 					collapsible: true, collapsed: true,
 					items: [
 						{text: '门店管理', link: baseURI + '/manual/crm/marketing/store/index'},
 						{text: '媒资', link: baseURI + '/manual/crm/marketing/media/index'},
 						{
 							text: '营销活动', link: baseURI + '/manual/crm/marketing/campaign/index',
-							collapsible: true, collapsed: true,
+							collapsible: true, collapsed: false,
 							items: [
 								{text: 'MGM', link: baseURI + '/manual/crm/marketing/campaign/mgm/index'},
 							]
