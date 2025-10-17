@@ -4,92 +4,60 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "PowerX Documentation",
   description: "A website to introduce PowerX",
+
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'PowerX Docs', link: '/gemini/' }
+      { text: '首页', link: '/' },
+      { text: '文档', link: '/core-concepts/' }
     ],
 
-    sidebar: {
-      '/gemini/': [
-        {
-          text: 'Core Concepts',
-          items: [
-            { text: 'Introduction', link: '/gemini/core-concepts/README.md' },
-            { text: 'Integration Architecture', link: '/gemini/core-concepts/PowerX_Integration_Architecture.md' },
-            { text: 'Knowledge Base', link: '/gemini/core-concepts/00_overview.md' },
-            { text: 'Agent Lifecycle', link: '/gemini/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
-          ]
-        },
-        {
-          text: 'Developer Guides',
-          items: [
-            { text: 'Introduction', link: '/gemini/developer-guides/README.md' },
-            { text: 'Plugin SDK Guide', link: '/gemini/developer-guides/PowerX_Plugin_SDK_Guide.md' },
-            { text: 'Plugin Runtime Guide', link: '/gemini/developer-guides/Plugin_Runtime_Guide.md' },
-            { text: 'Plugin Test and Debug Guide', link: '/gemini/developer-guides/Plugin_Test_and_Debug_Guide.md' },
-            { text: 'Agent Developer Guide', link: '/gemini/developer-guides/Agent_Developer_Guide.md' }
-          ]
-        },
-        {
-          text: 'API & Specifications',
-          items: [
-            { text: 'Introduction', link: '/gemini/api-and-specifications/README.md' },
-            {
-              text: 'Capability',
-              items: [
-                { text: 'Capability Contract Spec', link: '/gemini/api-and-specifications/02_capability/Capability_Contract_Spec.md' },
-                { text: 'Transport Adapter Spec', link: '/gemini/api-and-specifications/02_capability/Transport_Adapter_Spec.md' }
-              ]
-            },
-            {
-              text: 'Registry & Router',
-              items: [
-                { text: 'Capability Registry and Router Design', link: '/gemini/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md' },
-                { text: 'Runtime Endpoint Management', link: '/gemini/api-and-specifications/03_registry_router/Runtime_Endpoint_Management.md' }
-              ]
-            },
-            {
-              text: 'Orchestration',
-              items: [
-                { text: 'Flow and State Model', link: '/gemini/api-and-specifications/04_orchestration/Flow_and_State_Model.md' },
-                { text: 'Orchestrator Service Interface', link: '/gemini/api-and-specifications/04_orchestration/Orchestrator_Service_Interface.md' },
-                { text: 'Realtime Streaming Gateway', link: '/gemini/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md' },
-                { text: 'Workflow and Agent Orchestration Spec', link: '/gemini/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec.md' }
-              ]
-            },
-            {
-              text: 'Gateway',
-              items: [
-                { text: 'EventBus and Message Fabric', link: '/gemini/api-and-specifications/06_gateway/EventBus_and_Message_Fabric.md' },
-                { text: 'Integration API and Admin Interface', link: '/gemini/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface.md' },
-                { text: 'MCP Server and Gateway Design', link: '/gemini/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design.md' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Security & Governance',
-          items: [
-            { text: 'Introduction', link: '/gemini/security-and-governance/README.md' },
-            { text: 'Security and Governance', link: '/gemini/security-and-governance/Security_and_Governance.md' },
-            { text: 'Capability and Tool Grants Spec', link: '/gemini/security-and-governance/Capability_and_Tool_Grants_Spec.md' },
-            { text: 'Agent Security and Isolation Policy', link: '/gemini/security-and-governance/Agent_Security_and_Isolation_Policy.md' }
-          ]
-        },
-        {
-          text: 'PXIP',
-          items: [
-            { text: 'Introduction', link: '/gemini/pxip/README.md' },
-            { text: 'PXIP-001', link: '/gemini/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md' }
-          ]
-        }
-      ]
-    }
+    sidebar: [
+      {
+        text: '核心概念',
+        items: [
+          { text: '介绍', link: '/core-concepts/README.md' },
+          { text: '集成架构', link: '/core-concepts/PowerX_Integration_Architecture.md' },
+          { text: '知识库', link: '/core-concepts/00_overview.md' },
+          { text: '智能体生命周期', link: '/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
+        ]
+      },
+      {
+        text: '开发者指南',
+        items: [
+          { text: '介绍', link: '/developer-guides/README.md' },
+          { text: '插件 SDK 指南', link: '/developer-guides/PowerX_Plugin_SDK_Guide.md' },
+          { text: '插件运行时指南', link: '/developer-guides/Plugin_Runtime_Guide.md' },
+          { text: '插件测试与调试', link: '/developer-guides/Plugin_Test_and_Debug_Guide.md' },
+          { text: '智能体开发指南', link: '/developer-guides/Agent_Developer_Guide.md' }
+        ]
+      },
+      {
+        text: 'API 与规范',
+        items: [
+          { text: '介绍', link: '/api-and-specifications/README.md' }
+        ]
+      },
+      {
+        text: '安全与治理',
+        items: [
+          { text: '介绍', link: '/security-and-governance/README.md' }
+        ]
+      },
+      {
+        text: 'PXIP',
+        items: [
+          { text: '介绍', link: '/pxip/README.md' },
+          { text: 'PXIP-001', link: '/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md' }
+        ]
+      }
+    ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/ArtisanCloud/PowerX' }
+    ],
+
+    footer: { message: '基于 MIT 许可发布' },
+
+    editLink: { text: '在 GitHub 上编辑此页' }
   }
 })
