@@ -12,8 +12,8 @@
 
 **Purpose**: Project initialization and basic theme structure.
 
-- [ ] T001 Create the theme directory at `docs/.vitepress/theme`
-- [ ] T002 Create the theme entry point file at `docs/.vitepress/theme/index.ts`
+- [X] T001 Create the theme directory at `docs/.vitepress/theme`
+- [X] T002 Create the theme entry point file at `docs/.vitepress/theme/index.ts`
 
 ---
 
