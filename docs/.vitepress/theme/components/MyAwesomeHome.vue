@@ -3,7 +3,8 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useData, useRouter } from 'vitepress'
 import FooterBar from './FooterBar.vue'
 import VPSwitchAppearance from 'vitepress/dist/client/theme-default/components/VPSwitchAppearance.vue'
-
+import VPNavBarTranslations from 'vitepress/dist/client/theme-default/components/VPNavBarTranslations.vue'
+import VPNavBarSocialLinks from 'vitepress/dist/client/theme-default/components/VPNavBarSocialLinks.vue'
 type FloatingElement = {
   id: number
   x: number
@@ -21,8 +22,49 @@ type ProductFeature = {
   features: string[]
 }
 
+type HomeCopy = {
+  nav: {
+    features: string
+    products: string
+    about: string
+    cta: string
+  }
+  hero: {
+    welcomePrefix: string
+    highlight: string
+    description: string
+    primaryCta: string
+    secondaryCta: string
+  }
+  features: {
+    title: string
+    lead: string
+    items: { icon: string; title: string; description: string }[]
+  }
+  products: {
+    title: string
+    lead: string
+    ctaLabel: string
+    list: ProductFeature[]
+  }
+  about: {
+    title: string
+    subtitle: string
+    missionTitle: string
+    mission: string[]
+    stats: { value: string; label: string }[]
+    pillars: { title: string; description: string }[]
+  }
+  finalCta: {
+    title: string
+    description: string
+    primary: string
+    secondary: string
+  }
+}
+
 const router = useRouter()
-const { theme } = useData()
+const { lang } = useData()
 
 const gradientOptions = [
   {
@@ -55,54 +97,196 @@ const gradientIndex = ref(0)
 const particlesVisible = ref(false)
 const floatingElements = ref<FloatingElement[]>([])
 
+const localeKey = computed<'zh' | 'en'>(() => (lang.value?.startsWith('en') ? 'en' : 'zh'))
+const dictionary: Record<'zh' | 'en', HomeCopy> = {
+  zh: {
+    nav: {
+      features: '产品特性',
+      products: '产品矩阵',
+      about: '关于我们',
+      cta: '开始探索',
+    },
+    hero: {
+      welcomePrefix: '欢迎来到',
+      highlight: 'PowerX',
+      description: 'PowerX 是一个面向企业级智能体的工程化落地平台，帮助团队构建、部署与治理复杂的 AI 工作流。',
+      primaryCta: '查看核心概念',
+      secondaryCta: '阅读开发者指南',
+    },
+    features: {
+      title: '产品特性',
+      lead: '连接模型、插件与业务系统，让智能体从探索走向生产。',
+      items: [
+        { icon: '⚡', title: '极速部署', description: '一键接入智能体运行时，敏捷上线企业级应用。' },
+        { icon: '🎨', title: '极致体验', description: '以用户为中心的界面设计，打造顺滑的工作流体验。' },
+        { icon: '🔧', title: '可视化编排', description: '拖拽式流程与动态配置，让复杂业务建模清晰可见。' },
+        { icon: '🛡️', title: '安全合规', description: '完善的审计与权限体系，保障数据安全与可信治理。' },
+      ],
+    },
+    products: {
+      title: '产品矩阵',
+      lead: '针对不同场景提供端到端的智能体工程化能力。',
+      ctaLabel: '查看详情',
+      list: [
+        {
+          name: 'PowerX Admin',
+          description: '集中化管理门户，联通企业级插件、模型与数据能力。',
+          image: 'https://dummyimage.com/640x360/0f172a/34d399&text=PowerX+Admin',
+          features: ['多租户与权限管理', '可观测的任务编排', '数据资产统一治理', '实时运行态监控'],
+        },
+        {
+          name: 'PowerX Analytics',
+          description: '数据驱动的智能分析套件，让业务洞察一目了然。',
+          image: 'https://dummyimage.com/640x360/0f172a/38bdf8&text=PowerX+Analytics',
+          features: ['实时指标大屏', '可视化报表分享', 'AI 驱动的预测模型', '自定义仪表盘'],
+        },
+        {
+          name: 'PowerX Cloud',
+          description: '云原生部署底座，提供弹性算力与统一运维通道。',
+          image: 'https://dummyimage.com/640x360/0f172a/60a5fa&text=PowerX+Cloud',
+          features: ['托管模型仓库', '跨区域多活集群', '弹性扩缩容', '7x24 专业支持'],
+        },
+      ],
+    },
+    about: {
+      title: '关于 PowerX',
+      subtitle: '我们致力于将 AI 能力落地到真实业务场景，让每个组织都能拥有属于自己的智能体生态。',
+      missionTitle: '我们的使命',
+      mission: [
+        'PowerX 聚焦智能体从设计、开发、测试到运维的全生命周期，帮助团队用低成本构建可信赖的 AI 服务。',
+        '我们通过统一的插件与能力中心，将多模型协作、工具调用与数据流动整合为一致的工作流体验。',
+        '面向企业治理与合规需求，我们提供完善的审计、监控以及多层级权限体系，确保业务连续性。',
+      ],
+      stats: [
+        { value: '1000+', label: '服务企业' },
+        { value: '50K+', label: '活跃用户' },
+        { value: '99.9%', label: '系统可用性' },
+      ],
+      pillars: [
+        {
+          title: '企业级实践',
+          description: '从权限管理、租户隔离到全链路审计，PowerX 为大型组织提供可控、可扩展的智能体落地能力。',
+        },
+        {
+          title: '持续创新',
+          description: '保持开放生态，与社区伙伴共同打造下一代智能体运行时。',
+        },
+        {
+          title: '用户至上',
+          description: '围绕用户体验不断迭代产品，让业务团队轻松驾驭 AI 能力。',
+        },
+        {
+          title: '卓越交付',
+          description: '覆盖实施、培训与运营的全流程，确保项目价值快速兑现。',
+        },
+      ],
+    },
+    finalCta: {
+      title: '立即启程，构建下一代智能体平台',
+      description: '注册试用或加入社区，了解 PowerX 如何在真实业务场景中驱动 AI 生产力。',
+      primary: '立即开始',
+      secondary: '查看示例',
+    },
+  },
+  en: {
+    nav: {
+      features: 'Features',
+      products: 'Product Suite',
+      about: 'About',
+      cta: 'Get Started',
+    },
+    hero: {
+      welcomePrefix: 'Welcome to',
+      highlight: 'PowerX',
+      description: 'PowerX is an enterprise-grade platform for designing, deploying, and governing complex AI agent workflows.',
+      primaryCta: 'Explore Core Concepts',
+      secondaryCta: 'Read the Developer Guide',
+    },
+    features: {
+      title: 'Key Capabilities',
+      lead: 'Connect models, plugins, and business systems to bring agents from pilot to production.',
+      items: [
+        { icon: '⚡', title: 'Rapid Launch', description: 'Go live quickly with a one-click runtime integration for enterprise agents.' },
+        { icon: '🎨', title: 'Delightful UX', description: 'Human-centered experiences ensure smooth journeys for every role.' },
+        { icon: '🔧', title: 'Visual Orchestration', description: 'Drag-and-drop workflows and dynamic configuration keep complex logic clear.' },
+        { icon: '🛡️', title: 'Secure & Compliant', description: 'Auditing and granular permissions safeguard data and governance.' },
+      ],
+    },
+    products: {
+      title: 'Solution Portfolio',
+      lead: 'End-to-end capabilities tailored for diverse AI agent scenarios.',
+      ctaLabel: 'View details',
+      list: [
+        {
+          name: 'PowerX Admin',
+          description: 'A central command center unifying enterprise plugins, models, and capabilities.',
+          image: 'https://dummyimage.com/640x360/0f172a/34d399&text=PowerX+Admin',
+          features: ['Multi-tenant access control', 'Observable workflow orchestration', 'Unified data governance', 'Real-time runtime monitoring'],
+        },
+        {
+          name: 'PowerX Analytics',
+          description: 'Data-driven analytics that make business insights effortless.',
+          image: 'https://dummyimage.com/640x360/0f172a/38bdf8&text=PowerX+Analytics',
+          features: ['Live KPI dashboards', 'Visual report sharing', 'AI-assisted forecasting', 'Customizable workspaces'],
+        },
+        {
+          name: 'PowerX Cloud',
+          description: 'Cloud-native foundation delivering elastic compute and unified operations.',
+          image: 'https://dummyimage.com/640x360/0f172a/60a5fa&text=PowerX+Cloud',
+          features: ['Managed model registry', 'Cross-region active-active', 'Elastic scaling', '24/7 expert support'],
+        },
+      ],
+    },
+    about: {
+      title: 'About PowerX',
+      subtitle: 'We help every organization build its own agent ecosystem with confidence.',
+      missionTitle: 'Our Mission',
+      mission: [
+        'PowerX supports the full lifecycle of enterprise agents—from design and development to testing and operations.',
+        'A unified capability hub aligns multimodel orchestration, tool usage, and data flows into one intuitive experience.',
+        'Robust auditing, monitoring, and layered permissions protect mission-critical operations and compliance needs.',
+      ],
+      stats: [
+        { value: '1000+', label: 'Enterprise customers' },
+        { value: '50K+', label: 'Active users' },
+        { value: '99.9%', label: 'Platform availability' },
+      ],
+      pillars: [
+        {
+          title: 'Enterprise Proven',
+          description: 'Permissioning, tenant isolation, and end-to-end auditing deliver trustworthy agent operations.',
+        },
+        {
+          title: 'Continuous Innovation',
+          description: 'An open ecosystem where partners co-create the next generation of agent runtime.',
+        },
+        {
+          title: 'User Obsession',
+          description: 'Relentless refinement of the product experience so business teams can wield AI confidently.',
+        },
+        {
+          title: 'Excellence Delivered',
+          description: 'Implementation, enablement, and operations services ensure measurable outcomes fast.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Launch your next-generation agent platform today',
+      description: 'Join our community or request a guided tour to see how PowerX accelerates real-world AI outcomes.',
+      primary: 'Start now',
+      secondary: 'View examples',
+    },
+  },
+}
+
 const gradientClasses = computed(() => {
   const option = gradientOptions[gradientIndex.value] || gradientOptions[0]
   return ['bg-gradient-to-br', ...option.light, ...option.dark]
 })
 
-const features = computed(() => [
-  {
-    icon: '⚡',
-    title: '极速部署',
-    description: '一键接入智能体运行时，敏捷上线企业级应用。',
-  },
-  {
-    icon: '🎨',
-    title: '极致体验',
-    description: '以用户为中心的界面设计，打造顺滑的工作流体验。',
-  },
-  {
-    icon: '🔧',
-    title: '可视化编排',
-    description: '拖拽式流程与动态配置，让复杂业务建模清晰可见。',
-  },
-  {
-    icon: '🛡️',
-    title: '安全合规',
-    description: '完善的审计与权限体系，保障数据安全与可信治理。',
-  },
-])
-
-const products = computed<ProductFeature[]>(() => [
-  {
-    name: 'PowerX Admin',
-    description: '集中化管理门户，联通企业级插件、模型与数据能力。',
-    image: 'https://dummyimage.com/640x360/0f172a/34d399&text=PowerX+Admin',
-    features: ['多租户与权限管理', '可观测的任务编排', '数据资产统一治理', '实时运行态监控'],
-  },
-  {
-    name: 'PowerX Analytics',
-    description: '数据驱动的智能分析套件，让业务洞察一目了然。',
-    image: 'https://dummyimage.com/640x360/0f172a/38bdf8&text=PowerX+Analytics',
-    features: ['实时指标大屏', '可视化报表分享', 'AI 驱动的预测模型', '自定义仪表盘'],
-  },
-  {
-    name: 'PowerX Cloud',
-    description: '云原生部署底座，提供弹性算力与统一运维通道。',
-    image: 'https://dummyimage.com/640x360/0f172a/60a5fa&text=PowerX+Cloud',
-    features: ['托管模型仓库', '跨区域多活集群', '弹性扩缩容', '7x24 专业支持'],
-  },
-])
+const copy = computed(() => dictionary[localeKey.value])
+const features = computed(() => copy.value.features.items)
+const products = computed<ProductFeature[]>(() => copy.value.products.list)
 
 const generateFloatingElements = (): FloatingElement[] => {
   const elements: FloatingElement[] = []
@@ -223,40 +407,33 @@ onUnmounted(() => {
               type="button"
               @click="scrollToSection('features')"
             >
-              产品特性
+              {{ copy.nav.features }}
             </button>
             <button
               class="rounded-md px-3 py-2 text-gray-700 transition-colors duration-300 hover:text-emerald-500 dark:text-gray-300 dark:hover:text-emerald-400"
               type="button"
               @click="scrollToSection('products')"
             >
-              产品矩阵
+              {{ copy.nav.products }}
             </button>
             <button
               class="rounded-md px-3 py-2 text-gray-700 transition-colors duration-300 hover:text-emerald-500 dark:text-gray-300 dark:hover:text-emerald-400"
               type="button"
               @click="scrollToSection('about')"
             >
-              关于我们
+              {{ copy.nav.about }}
             </button>
           </div>
           <div class="flex items-center gap-2 sm:gap-3">
+            <VPNavBarTranslations class="hidden md:flex" />
             <VPSwitchAppearance class="flex rounded-full bg-white/70 p-1 text-slate-600 shadow-sm backdrop-blur transition hover:bg-white hover:text-emerald-500 dark:bg-gray-800/70 dark:text-gray-200 dark:hover:bg-gray-800" />
-            <a
-              :href="githubLink"
-              class="items-center gap-2 rounded-lg border border-white/60 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-emerald-600 dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-200 dark:hover:border-gray-500 dark:hover:bg-gray-800"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span class="vpi-github text-base" />
-              GitHub
-            </a>
+            <VPNavBarSocialLinks class="hidden md:flex" />
             <button
               class="rounded-lg bg-gradient-to-r from-blue-600 via-teal-500 to-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-emerald-400/40 focus:outline-none focus:ring-2 focus:ring-emerald-300 dark:from-blue-500 dark:via-teal-400 dark:to-emerald-400"
               type="button"
               @click="navigateTo('/developer-guides/')"
             >
-              开始探索
+              {{ copy.nav.cta }}
             </button>
           </div>
         </div>
@@ -265,11 +442,11 @@ onUnmounted(() => {
       <section class="relative px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-4xl text-center">
           <h1 class="mb-6 text-4xl font-bold text-slate-900 dark:text-white md:text-6xl">
-            欢迎来到
-            <span class="bg-gradient-to-r from-emerald-300 to-teal-200 bg-clip-text text-transparent">PowerX</span>
+            {{ copy.hero.welcomePrefix }}
+            <span class="bg-gradient-to-r from-emerald-300 to-teal-200 bg-clip-text text-transparent">{{ copy.hero.highlight }}</span>
           </h1>
           <p class="mx-auto mb-8 max-w-2xl text-lg text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-            PowerX 是一个面向企业级智能体的工程化落地平台，帮助团队构建、部署与治理复杂的 AI 工作流。
+            {{ copy.hero.description }}
           </p>
           <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button
@@ -277,14 +454,14 @@ onUnmounted(() => {
               type="button"
               @click="navigateTo('/core-concepts/')"
             >
-              查看核心概念
+              {{ copy.hero.primaryCta }}
             </button>
             <button
               class="rounded-xl border-2 border-white/70 px-8 py-3 text-lg font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/20 dark:text-white"
               type="button"
               @click="navigateTo('/developer-guides/PowerX_Plugin_SDK_Guide')"
             >
-              阅读开发者指南
+              {{ copy.hero.secondaryCta }}
             </button>
           </div>
         </div>
@@ -293,9 +470,11 @@ onUnmounted(() => {
       <section id="features" class="px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-6xl">
           <div class="mb-16 text-center">
-            <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">产品特性</h2>
+            <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+              {{ copy.features.title }}
+            </h2>
             <p class="mx-auto max-w-2xl text-lg text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              连接模型、插件与业务系统，让智能体从探索走向生产。
+              {{ copy.features.lead }}
             </p>
           </div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -316,9 +495,11 @@ onUnmounted(() => {
       <section id="products" class="px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-6xl">
           <div class="mb-16 text-center">
-            <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">产品矩阵</h2>
+            <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+              {{ copy.products.title }}
+            </h2>
             <p class="mx-auto max-w-2xl text-lg text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              针对不同场景提供端到端的智能体工程化能力。
+              {{ copy.products.lead }}
             </p>
           </div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -356,7 +537,7 @@ onUnmounted(() => {
                   type="button"
                   @click="navigateTo('/developer-guides/')"
                 >
-                  查看详情
+                  {{ copy.products.ctaLabel }}
                 </button>
               </div>
             </article>
@@ -367,59 +548,49 @@ onUnmounted(() => {
       <section id="about" class="px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-6xl">
           <div class="mb-16 text-center">
-            <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">关于 PowerX</h2>
+            <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+              {{ copy.about.title }}
+            </h2>
             <p class="mx-auto max-w-2xl text-lg text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              我们致力于将 AI 能力落地到真实业务场景，让每个组织都能拥有属于自己的智能体生态。
+              {{ copy.about.subtitle }}
             </p>
           </div>
           <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <div class="space-y-4 text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">我们的使命</h3>
-              <p>
-                PowerX 聚焦智能体从设计、开发、测试到运维的全生命周期，帮助团队用低成本构建可信赖的 AI 服务。
-              </p>
-              <p>
-                我们通过统一的插件与能力中心，将多模型协作、工具调用与数据流动整合为一致的工作流体验。
-              </p>
-              <p>
-                面向企业治理与合规需求，我们提供完善的审计、监控以及多层级权限体系，确保业务连续性。
+              <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">{{ copy.about.missionTitle }}</h3>
+              <p v-for="paragraph in copy.about.mission" :key="paragraph">
+                {{ paragraph }}
               </p>
             </div>
             <div class="space-y-6">
               <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                <div class="rounded-xl border border-white/20 bg-white/10 p-4 text-center backdrop-blur-md dark:border-gray-700/40 dark:bg-gray-900/30">
-                  <div class="text-3xl font-bold text-emerald-500 dark:text-emerald-300">1000+</div>
-                  <div class="text-slate-600 dark:text-emerald-100">服务企业</div>
-                </div>
-                <div class="rounded-xl border border-white/20 bg-white/10 p-4 text-center backdrop-blur-md dark:border-gray-700/40 dark:bg-gray-900/30">
-                  <div class="text-3xl font-bold text-emerald-500 dark:text-emerald-300">50K+</div>
-                  <div class="text-slate-600 dark:text-emerald-100">活跃用户</div>
-                </div>
-                <div class="rounded-xl border border-white/20 bg-white/10 p-4 text-center backdrop-blur-md dark:border-gray-700/40 dark:bg-gray-900/30">
-                  <div class="text-3xl font-bold text-emerald-500 dark:text-emerald-300">99.9%</div>
-                  <div class="text-slate-600 dark:text-emerald-100">系统可用性</div>
+                <div
+                  v-for="stat in copy.about.stats"
+                  :key="stat.label"
+                  class="rounded-xl border border-white/20 bg-white/10 p-4 text-center backdrop-blur-md dark:border-gray-700/40 dark:bg-gray-900/30"
+                >
+                  <div class="text-3xl font-bold text-emerald-500 dark:text-emerald-300">{{ stat.value }}</div>
+                  <div class="text-slate-600 dark:text-emerald-100">{{ stat.label }}</div>
                 </div>
               </div>
               <div class="rounded-xl border border-white/20 bg-white/10 p-6 backdrop-blur-md dark:border-gray-700/40 dark:bg-gray-900/30">
-                <h4 class="mb-3 text-xl font-semibold text-slate-900 dark:text-white">企业级实践</h4>
+                <h4 class="mb-3 text-xl font-semibold text-slate-900 dark:text-white">
+                  {{ copy.about.pillars[0].title }}
+                </h4>
                 <p class="text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-                  从权限管理、租户隔离到全链路审计，PowerX 为大型组织提供可控、可扩展的智能体落地能力。
+                  {{ copy.about.pillars[0].description }}
                 </p>
               </div>
             </div>
           </div>
           <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div class="text-center text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              <h4 class="mb-3 text-xl font-semibold text-slate-900 dark:text-white">持续创新</h4>
-              <p>保持开放生态，与社区伙伴共同打造下一代智能体运行时。</p>
-            </div>
-            <div class="text-center text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              <h4 class="mb-3 text-xl font-semibold text-slate-900 dark:text-white">用户至上</h4>
-              <p>围绕用户体验不断迭代产品，让业务团队轻松驾驭 AI 能力。</p>
-            </div>
-            <div class="text-center text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-              <h4 class="mb-3 text-xl font-semibold text-slate-900 dark:text-white">卓越交付</h4>
-              <p>覆盖实施、培训与运营的全流程，确保项目价值快速兑现。</p>
+            <div
+              v-for="pillar in copy.about.pillars.slice(1)"
+              :key="pillar.title"
+              class="text-center text-slate-600 transition-colors duration-500 dark:text-emerald-100"
+            >
+              <h4 class="mb-3 text-xl font-semibold text-slate-900 dark:text-white">{{ pillar.title }}</h4>
+              <p>{{ pillar.description }}</p>
             </div>
           </div>
         </div>
@@ -441,9 +612,9 @@ onUnmounted(() => {
         <div class="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-emerald-500/20 blur-3xl animate-pulse"></div>
         <div class="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl animate-pulse delay-1000"></div>
         <div class="relative z-10 mx-auto max-w-4xl text-center text-slate-900 dark:text-white">
-          <h2 class="mb-6 text-3xl font-bold md:text-4xl">立即启程，构建下一代智能体平台</h2>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">{{ copy.finalCta.title }}</h2>
           <p class="mx-auto mb-10 max-w-2xl text-lg text-slate-600 transition-colors duration-500 dark:text-emerald-100">
-            注册试用或加入社区，了解 PowerX 如何在真实业务场景中驱动 AI 生产力。
+            {{ copy.finalCta.description }}
           </p>
           <div class="flex flex-col justify-center gap-4 sm:flex-row">
             <button
@@ -451,14 +622,14 @@ onUnmounted(() => {
               type="button"
               @click="navigateTo('/developer-guides/Agent_Developer_Guide')"
             >
-              立即开始
+              {{ copy.finalCta.primary }}
             </button>
             <button
               class="rounded-xl border-2 border-white/70 px-8 py-4 text-lg font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/20 dark:text-white"
               type="button"
               @click="navigateTo('/markdown-examples')"
             >
-              查看示例
+              {{ copy.finalCta.secondary }}
             </button>
           </div>
         </div>
@@ -501,8 +672,3 @@ onUnmounted(() => {
   animation: pulse-slow 4s ease-in-out infinite;
 }
 </style>
-const githubLink = computed(() => {
-  const links = theme.value?.socialLinks ?? []
-  const github = links.find((link) => link.icon === 'github')
-  return github?.link ?? 'https://github.com/ArtisanCloud/PowerX'
-})
