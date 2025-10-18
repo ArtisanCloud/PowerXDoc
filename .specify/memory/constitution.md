@@ -37,6 +37,7 @@ For any feature involving new architecture, complex data flows, or multi-step us
 - **Structural Template:**
   - Module Overviews MUST include: 'Positioning & Goals', 'Core Capabilities', 'Architecture Diagram', and 'Related Links'.
   - Technical Specifications MUST include: 'Background', 'Design', 'API/Model Definition', and 'Usage Examples'.
+- **Theme Implementation:** Shared visual systems (Tailwind utility layers, PowerXAdmin CSS, brand assets) MUST be imported locally in the docs build; external CDNs are forbidden for core styling. Light and dark themes MUST be validated for WCAG AA contrast, and navigation MUST expose the global appearance toggle.
 
 ## Governance & Maintenance
 

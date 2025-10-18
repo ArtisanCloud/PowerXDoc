@@ -25,8 +25,8 @@
 
 ### Implementation for User Story 1
 
-- [ ] T003 [US1] Create the custom stylesheet at `docs/.vitepress/theme/style.css`
-- [ ] T004 [US1] Import the stylesheet in `docs/.vitepress/theme/index.ts`
+- [X] T003 [US1] Create the custom stylesheet at `docs/.vitepress/theme/style.css`
+- [X] T004 [US1] Import the stylesheet in `docs/.vitepress/theme/index.ts`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently.
 
@@ -40,9 +40,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T005 [P] [US2] Create the custom homepage component at `docs/.vitepress/theme/MyAwesomeHome.vue`
-- [ ] T006 [US2] Register the custom homepage component in `docs/.vitepress/theme/index.ts`
-- [ ] T007 [US2] Update the frontmatter of `docs/index.md` to use the `home` layout
+- [X] T005 [P] [US2] Create the custom homepage component at `docs/.vitepress/theme/MyAwesomeHome.vue`
+- [X] T006 [US2] Register the custom homepage component in `docs/.vitepress/theme/index.ts`
+- [X] T007 [US2] Update the frontmatter of `docs/index.md` to use the `home` layout
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently.
 
@@ -56,6 +56,9 @@
 - [ ] T009 Create a `README.md` in `docs/.vitepress/theme/` to explain the theme structure and customization options.
 - [ ] T010 Create a Mermaid diagram in `design/theme-customization-strategy.md` to visualize the theme extension architecture.
 - [ ] T011 Measure and compare Lighthouse performance scores before and after theme changes to ensure impact is less than 10%.
+- [X] T012 Integrate a local Tailwind/PostCSS build that reuses the PowerXAdmin CSS stack (`tailwind.config.cjs`, `postcss.config.cjs`, `docs/.vitepress/theme/style.css`).
+- [X] T013 Expose theme appearance toggle and social link controls on the custom landing navigation (`docs/.vitepress/theme/components/MyAwesomeHome.vue`).
+- [X] T014 Align light/dark typography and gradients with PowerXAdmin palette, including shared logo assets (`docs/.vitepress/theme/components/MyAwesomeHome.vue`, `docs/public/images/`).
 
 ---
 

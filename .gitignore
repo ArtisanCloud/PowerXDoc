@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# VitePress build outputs
+.docs-temp/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+# Local environment overrides
+.env.local
+.env.*.local

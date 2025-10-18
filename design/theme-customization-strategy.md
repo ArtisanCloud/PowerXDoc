@@ -63,58 +63,63 @@ This plan leverages the "Level 2: Extending" method to replace the default ViteP
 
 - Copy your existing Vue homepage component (e.g., `MyAwesomeHome.vue`) and its related assets (CSS, images) into the `docs/.vitepress/theme/` directory.
 
-### Step 2: Create a Custom Layout Wrapper
+### Step 2: Extend `index.ts` with a Frontmatter Switch
 
-Create a new file `docs/.vitepress/theme/Layout.vue`. This component will act as a router, deciding whether to show your custom homepage or the default theme's layout for other pages.
+Instead of introducing a standalone `Layout.vue`, the current implementation wraps the default layout inside `docs/.vitepress/theme/index.ts`. We read the active page’s frontmatter via `useData()` and swap the entire layout when `layout: landing` is present (the homepage). This keeps the extension lightweight and lets VitePress keep ownership of the default layout elsewhere.
 
-**Example (`Layout.vue`):**
-```vue
-<script setup>
+```ts
+import { defineComponent, h } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import MyAwesomeHome from './MyAwesomeHome.vue'
-
-const { frontmatter } = useData()
-</script>
-
-<template>
-  <!-- If the page's frontmatter has layout: home -->
-  <div v-if="frontmatter.layout === 'home'">
-    <MyAwesomeHome />
-  </div>
-  <!-- Otherwise, for all other pages, use the default theme -->
-  <div v-else>
-    <DefaultTheme.Layout />
-  </div>
-</template>
-```
-
-### Step 3: Configure the Theme Entry File
-
-Create or edit `docs/.vitepress/theme/index.ts` to use your new `Layout.vue` wrapper.
-
-**Example (`index.ts`):**
-```typescript
-import Layout from './Layout.vue'
-import './my-awesome-home-styles.css' // Import custom homepage styles
+import MyAwesomeHome from './components/MyAwesomeHome.vue'
 
 export default {
-  Layout, // Use the custom layout wrapper
-  // other theme configurations can go here
+  extends: DefaultTheme,
+  Layout: defineComponent({
+    setup() {
+      const { page } = useData()
+      return () =>
+        page.value.frontmatter.layout === 'landing'
+          ? h(MyAwesomeHome)
+          : h(DefaultTheme.Layout)
+    },
+  }),
+}
+```
+
+### Step 3: Localize Styling with Tailwind + PowerXAdmin Assets
+
+To align the docs with the PowerXAdmin product, we import Tailwind layers locally (`tailwind.config.cjs`, `postcss.config.cjs`) and compose them with the admin CSS (`theme.css`, `workflow.css`) from the sibling repository. The build no longer depends on CDN assets and purposely shares the colour system, typography, and gradients defined for the primary application.
+
+```css
+/* docs/.vitepress/theme/style.css */
+@import './tailwind.css';
+@import '../../../../PowerXAdmin/app/assets/css/theme.css';
+@import '../../../../PowerXAdmin/app/assets/css/workflow.css';
+
+:root {
+  --vp-c-brand-1: #1d4ed8;
+  /* …mapped PowerXAdmin colours for light mode… */
+}
+.dark {
+  --vp-c-brand-1: #93c5fd;
+  /* …dark-mode token overrides… */
 }
 ```
 
 ### Step 4: Configure the Homepage Markdown
 
-Finally, edit the homepage markdown file (`docs/index.md`) to specify that it should use the custom `home` layout and to remove the default homepage features.
+The homepage simply opts into the landing layout and mounts the Vue component via the Markdown body.
 
-**Example (`docs/index.md` frontmatter):**
 ```yaml
 ---
-layout: home
+layout: landing
+title: PowerX 智能体平台
 ---
 
-# This content will be replaced by the custom layout
+<MyAwesomeHome />
 ```
 
-This setup ensures that only the homepage is replaced with your custom component, while all other documentation pages retain the standard, functional layout of the VitePress default theme.
+### Step 5: Reuse Shared Navigation Controls & Branding
+
+The custom landing component surfaces VitePress’s appearance toggle (`VPSwitchAppearance`), draws the GitHub URL from `themeConfig.socialLinks`, and loads the shared logo sprites from `docs/public/images`. This keeps feature parity with the default theme while presenting the bespoke hero/sections.

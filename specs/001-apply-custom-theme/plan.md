@@ -1,25 +1,26 @@
-# Implementation Plan: [FEATURE]
+# Implementation Plan: Apply Custom Theme
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
-
-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
+**Branch**: `001-apply-custom-theme` | **Date**: 2025-03-06 | **Spec**: `specs/001-apply-custom-theme/spec.md`
+**Input**: Feature specification and research collateral under `specs/001-apply-custom-theme/`
 
 ## Summary
 
-[Extract from feature spec: primary requirement + technical approach from research]
+Extend the VitePress default theme to deliver a bespoke PowerX-branded landing page while retaining the stock documentation experience for all other routes. The plan introduces a local Tailwind/PostCSS toolchain that reuses the existing PowerXAdmin style sheets, swaps the homepage layout based on frontmatter, and exposes shared navigation elements (appearance toggle, GitHub link, logo) so the docs site mirrors the admin product identity.
 
 ## Technical Context
 
 **Language/Version**: TypeScript
-**Primary Dependencies**: VitePress, Vue.js
+**Primary Dependencies**: VitePress, Vue.js, Tailwind CSS (local build), PostCSS/Autoprefixer
 **Storage**: N/A
-**Testing**: Vitest (Unit), Cypress/Playwright (E2E)
+**Testing**: Manual verification via `vitepress dev`; automated visual/perf tests TBD
 **Target Platform**: Web
 **Project Type**: Web Application
-**Performance Goals**: Site performance metrics (Lighthouse scores) should not be negatively impacted by more than 10%.
-**Constraints**: The build process MUST fail immediately if a custom component specified in the theme configuration cannot be found.
-**Scale/Scope**: The customization involves simple site-wide CSS overrides and the ability to replace the homepage with a custom Vue component.
+**Performance Goals**: Lighthouse regression < 10% from baseline once instrumentation is in place.
+**Constraints**:
+- Build must fail if the custom landing component is missing.
+- Docs build must succeed offline; CDN CSS links are disallowed in favour of local tooling.
+- Light/dark themes must maintain WCAG AA contrast for primary text.
+**Scale/Scope**: Introduces one custom landing component, supporting assets (logo, shared CSS), Tailwind build config, and targeted nav enhancements.
 
 ## Constitution Check
 
@@ -35,7 +36,7 @@
 ### Documentation (this feature)
 
 ```
-specs/[###-feature]/
+specs/001-apply-custom-theme/
 ├── plan.md              # This file (/speckit.plan command output)
 ├── research.md          # Phase 0 output (/speckit.plan command)
 ├── data-model.md        # Phase 1 output (/speckit.plan command)
@@ -51,9 +52,14 @@ docs/
 ├── .vitepress/
 │   ├── theme/
 │   │   ├── index.ts         # Theme extension entry point
-│   │   └── style.css        # Custom CSS overrides
+│   │   ├── style.css        # Shared Tailwind + PowerXAdmin imports
+│   │   ├── tailwind.css     # Tailwind layer directives
+│   │   └── components/
+│   │       ├── MyAwesomeHome.vue  # PowerX landing page
+│   │       └── FooterBar.vue      # Shared footer
 │   └── config.mts           # VitePress configuration
-└── index.md                 # Homepage content file, references the custom layout
+├── index.md                 # Homepage frontmatter selects landing layout
+└── public/images/           # Shared logo assets (logo-m.png, etc.)
 ```
 
 **Structure Decision**: The project is a web application built with VitePress. The source code structure is based on VitePress conventions, with theme customizations located in the `docs/.vitepress/theme` directory. This structure is chosen to align with the framework's requirements for extending the default theme.
