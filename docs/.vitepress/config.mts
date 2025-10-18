@@ -1,10 +1,14 @@
 import { defineConfig } from 'vitepress'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
+const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "PowerX Documentation",
   description: "A website to introduce PowerX",
-
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
@@ -59,5 +63,12 @@ export default defineConfig({
     footer: { message: '基于 MIT 许可发布' },
 
     editLink: { text: '在 GitHub 上编辑此页' }
-  }
+  },
+  vite: {
+    server: {
+      fs: {
+        allow: [powerXAdminDir],
+      },
+    },
+  },
 })
