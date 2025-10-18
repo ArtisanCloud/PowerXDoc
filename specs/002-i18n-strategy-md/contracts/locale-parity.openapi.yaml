@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: PowerX Documentation Localization API
+  version: 0.1.0
+  description: |
+    Internal API contract to synchronize documentation pages across locales,
+    manage translation review states, and surface parity gaps.
+servers:
+  - url: https://docs.powerx.internal/api
+    description: Internal documentation management endpoint
+paths:
+  /locales:
+    get:
+      summary: List configured locales
+      tags: [Locales]
+      responses:
+        '200':
+          description: Locales currently enabled in the documentation site
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  locales:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Locale'
+  /documentation-pages:
+    get:
+      summary: Retrieve documentation pages for a given locale
+      tags: [DocumentationPages]
+      parameters:
+        - in: query
+          name: locale
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-z]{2}-[A-Z]{2}$'
+        - in: query
+          name: reviewStatus
+          required: false
+          schema:
+            $ref: '#/components/schemas/ReviewStatus'
+      responses:
+        '200':
+          description: Localized page summaries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DocumentationPage'
+  /documentation-pages/sync:
+    post:
+      summary: Trigger structure mirroring and placeholder generation
+      tags: [DocumentationPages]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceLocale:
+                  type: string
+                  example: zh-CN
+                targetLocale:
+                  type: string
+                  example: en-US
+      responses:
+        '202':
+          description: Sync job accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobId:
+                    type: string
+  /documentation-pages/{slug}/review-status:
+    patch:
+      summary: Update the review status of a localized page
+      tags: [DocumentationPages]
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: locale
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reviewStatus]
+              properties:
+                reviewStatus:
+                  $ref: '#/components/schemas/ReviewStatus'
+                reviewer:
+                  type: string
+                notes:
+                  type: string
+      responses:
+        '200':
+          description: Review status updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentationPage'
+components:
+  schemas:
+    Locale:
+      type: object
+      required: [code, label, isDefault]
+      properties:
+        code:
+          type: string
+        label:
+          type: string
+        isDefault:
+          type: boolean
+    ReviewStatus:
+      type: string
+      enum: [Placeholder, InReview, Approved]
+    DocumentationPage:
+      type: object
+      required: [slug, locale, title, reviewStatus, partnerSlug]
+      properties:
+        slug:
+          type: string
+        locale:
+          type: string
+        title:
+          type: string
+        reviewStatus:
+          $ref: '#/components/schemas/ReviewStatus'
+        partnerSlug:
+          type: string
+        lastSyncedAt:
+          type: string
+          format: date-time
+        bannerRequired:
+          type: boolean
