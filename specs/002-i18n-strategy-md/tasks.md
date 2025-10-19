@@ -94,8 +94,8 @@
 
 **Purpose**: Final validations, clean-up, and release preparation.
 
-- [ ] T028 Run full docs build and parity crawler to confirm zero missing locales or banners (docs/)
-- [ ] T029 [P] Sweep en-US placeholders and tag outstanding human translation follow-ups (docs/en/)
+- [X] T028 Run full docs build and parity crawler to confirm zero missing locales or banners (docs/)
+- [X] T029 [P] Sweep en-US placeholders and tag outstanding human translation follow-ups (docs/en/)
 
 ---
 

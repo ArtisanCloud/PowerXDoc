@@ -184,3 +184,37 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/**
+ * Layout polish
+ * -------------------------------------------------------------------------- */
+
+.VPNavBar:not(.home),
+.VPNavBar:not(.home) .wrapper,
+.VPNavBar:not(.home) .container,
+.VPNavBar:not(.home) .title,
+.VPNavBar:not(.home) .content,
+.VPNavBar:not(.home) .content-body {
+  background-color: var(--vp-nav-bg-color) !important;
+  backdrop-filter: none !important;
+}
+
+.VPNavBar:not(.home) {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPNavBar:not(.home) .divider-line {
+  background-color: var(--vp-c-gutter) !important;
+}
+
+@media (min-width: 960px) {
+  .VPDoc.has-aside .aside-container {
+    top: var(--vp-nav-height);
+    padding-top: calc(var(--vp-layout-top-height, 0px) + var(--vp-doc-top-height, 0px) + 48px);
+    height: calc(100vh - var(--vp-nav-height));
+  }
+}
+
+.VPDoc.has-aside .aside-content {
+  padding-bottom: 32px;
+}

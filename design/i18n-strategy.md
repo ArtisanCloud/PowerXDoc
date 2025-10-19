@@ -58,7 +58,7 @@ export default defineConfig({
           { text: '文档', link: '/core-concepts/' }
         ],
         sidebar: [ /* Chinese sidebar structure */ ],
-        footer: { message: '基于 MIT 许可发布' },
+        footer: { message: '基于 Apache 2.0 许可发布' },
         editLink: { text: '在 GitHub 上编辑此页' }
       }
     },
@@ -73,7 +73,7 @@ export default defineConfig({
           { text: 'Docs', link: '/en/core-concepts/' }
         ],
         sidebar: [ /* English sidebar structure with /en/ prefixes */ ],
-        footer: { message: 'Released under the MIT License.' },
+        footer: { message: 'Released under the Apache 2.0 License.' },
         editLink: { text: 'Edit this page on GitHub' }
       }
     }

@@ -58,7 +58,7 @@ export default defineConfig({
             ]
           }
         ],
-        footer: { message: '基于 MIT 许可发布' },
+        footer: { message: '基于 Apache 2.0 许可发布' },
         editLink: { text: '在 GitHub 上编辑此页' }
       }
     },
@@ -110,12 +110,16 @@ export default defineConfig({
             ]
           }
         ],
-        footer: { message: 'Released under the MIT License.' },
+        footer: { message: 'Released under the Apache 2.0 License.' },
         editLink: { text: 'Edit this page on GitHub' }
       }
     }
   },
   themeConfig: {
+    logo: {
+      light: '/images/logo-s.png',
+      dark: '/images/logo-s.png',
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/ArtisanCloud/PowerX' }
     ]
