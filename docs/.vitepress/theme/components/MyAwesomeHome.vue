@@ -26,14 +26,14 @@ const { lang, isDark } = useData()
 const enableDebug = ref(false)
 if (typeof window !== 'undefined') {
   const u = new URL(window.location.href)
-  if (u.searchParams.get('debug') === '1') enableDebug.value = true
+  if (u.searchParams.get('angle_debug') === '1') enableDebug.value = true
 }
 const dlog = (...a:any[]) => { if (enableDebug.value) console.log('%c[PowerX]', 'color:#10B981;font-weight:bold', ...a) }
 
 /* ---------- 角度与动效：大幅摆动 + 顶部可见 ---------- */
-const gradientAngle = ref(180)     // 初始角度
-const angleBase     = 180          // 基准（水平）
-const angleAmp      = 80           // 摆动幅度（更大！建议 60~100）
+const gradientAngle = ref(120)     // 初始角度
+const angleBase     = 20          // 基准（水平）
+const angleAmp      = 60           // 摆动幅度（更大！建议 60~100）
 const autoDrift     = ref(true)
 const followPointer = ref(false)   // 需要时打开
 let rafId: number | null = null
@@ -204,14 +204,14 @@ onMounted(() => {
   dlog('mounted. debug=', enableDebug.value, 'isDark=', isDark.value, 'angle=', gradientAngle.value)
   floatingElements.value = generateFloating()
   particlesVisible.value = true
-  startAngleDrift()
-  window.addEventListener('scroll', onScroll, { passive: true })
-  window.addEventListener('pointermove', onPointerMove, { passive: true })
+  // startAngleDrift()
+  // window.addEventListener('scroll', onScroll, { passive: true })
+  // window.addEventListener('pointermove', onPointerMove, { passive: true })
 })
 onUnmounted(() => {
   if (rafId) cancelAnimationFrame(rafId)
-  window.removeEventListener('scroll', onScroll)
-  window.removeEventListener('pointermove', onPointerMove)
+  // window.removeEventListener('scroll', onScroll)
+  // window.removeEventListener('pointermove', onPointerMove)
 })
 
 /* ---------- 导航 ---------- */
