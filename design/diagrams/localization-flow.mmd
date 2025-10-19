@@ -1,0 +1,17 @@
+```mermaid
+flowchart TD
+    zh[Chinese Markdown Updated] --> mt[Machine Translation Placeholder]
+    mt --> review[Human Review & Editing]
+    review --> approved[Approved English Page]
+    approved --> deploy[Publish to Site]
+    approved --> monitor[Parity Crawler Nightly]
+    monitor -->|Missing / Outdated| backlog[Localization Backlog]
+    backlog --> mt
+    zh --> sync[Structure Mirror Script]
+    sync --> en[docs/en/** Placeholder Files]
+    en --> review
+    switch[Language Switcher Action] --> check{English Page Available?}
+    check -->|Yes| en
+    check -->|No| fallback[Fallback Redirect & Log]
+    fallback --> monitor
+```

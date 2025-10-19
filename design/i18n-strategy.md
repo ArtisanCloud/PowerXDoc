@@ -58,7 +58,7 @@ export default defineConfig({
           { text: '文档', link: '/core-concepts/' }
         ],
         sidebar: [ /* Chinese sidebar structure */ ],
-        footer: { message: '基于 MIT 许可发布' },
+        footer: { message: '基于 Apache 2.0 许可发布' },
         editLink: { text: '在 GitHub 上编辑此页' }
       }
     },
@@ -73,7 +73,7 @@ export default defineConfig({
           { text: 'Docs', link: '/en/core-concepts/' }
         ],
         sidebar: [ /* English sidebar structure with /en/ prefixes */ ],
-        footer: { message: 'Released under the MIT License.' },
+        footer: { message: 'Released under the Apache 2.0 License.' },
         editLink: { text: 'Edit this page on GitHub' }
       }
     }
@@ -107,3 +107,26 @@ Once the `locales` configuration is in place, VitePress will automatically add a
 1.  Create the `docs/en/` directory and its subdirectories to mirror the root `docs/` structure.
 2.  Update `docs/.vitepress/config.mts` with the `locales` configuration as detailed above.
 3.  Populate the `docs/en/` directory with translated Markdown files.
+
+---
+
+### Workflow Automation & Tooling
+
+- **Synchronization**: `pnpm run localization:sync` mirrors zh-CN markdown into `docs/en/**`, stamping `partnerSlug` and default `reviewStatus` metadata while updating `docs/localization/manifest.json`.
+- **Parity Auditing**: `pnpm run localization:check` walks both locale trees, reporting missing counterparts, placeholder counts, and partner slug mismatches (see `scripts/localization/check-parity.ts`).
+- **Review Guard**: `pnpm run localization:review-guard` enforces `reviewStatus: Approved` across all English pages and verifies that every `partnerSlug` resolves to a zh-CN source before release (`pnpm run docs:release` chains the guard with `vitepress build`).
+- **Default Locale Smoke Test**: `node scripts/localization/assert-zh-default.mjs` asserts that first-time visits keep zh-CN as the landing experience.
+
+---
+
+### Review Banner UX
+
+- Component: `docs/.vitepress/theme/components/ReviewBanner.vue`
+- Auto-renders for English pages whose frontmatter sets `reviewStatus` to `Placeholder` or `InReview`.
+- Surfaces status messaging and links back to the zh-CN original via `partnerSlug`, ensuring transparency during editorial cycles.
+
+---
+
+### Visualization
+
+The localization lifecycle mermaid diagram is stored at `design/diagrams/localization-flow.mmd` and referenced throughout maintainer docs to illustrate the sync → translate → review → publish loop.
