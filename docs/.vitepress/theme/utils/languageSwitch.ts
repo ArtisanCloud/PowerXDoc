@@ -1,11 +1,16 @@
 import type { Router } from 'vitepress'
 import { inBrowser } from 'vitepress'
 import manifest from '../../../localization/manifest.json'
-
-type LocaleKey = string
+import {
+  DEFAULT_LOCALE,
+  ensureLocalePreference,
+  isSupportedLocale,
+  rememberLocale,
+  syncDocumentLocale,
+  type LocaleKey,
+} from './localePreference'
 
 const MANIFEST_PAGES = manifest.pages
-export const DEFAULT_LOCALE = manifest.sourceLocale
 export const LOCALE_PREFIX_MAP: Record<LocaleKey, string> = {
   'en-US': '/en',
 }
@@ -24,6 +29,18 @@ function normalizePath(path: string): string {
     path = `${path}/`
   }
   return path
+}
+
+function detectLocaleFromPath(path: string): LocaleKey {
+  const normalized = normalizePath(path)
+  for (const [locale, prefix] of Object.entries(LOCALE_PREFIX_MAP)) {
+    if (!prefix) continue
+    const normalizedPrefix = normalizePath(prefix)
+    if (normalized.startsWith(normalizedPrefix)) {
+      return locale as LocaleKey
+    }
+  }
+  return DEFAULT_LOCALE
 }
 
 function stripLocalePrefix(path: string, locale: LocaleKey): string {
@@ -87,9 +104,38 @@ export function installLocaleSwitch(router: Router) {
   if (!inBrowser) return
   const originalGo = router.go.bind(router)
 
+  const currentPath = normalizePath(router.route.path)
+  const activeLocale = detectLocaleFromPath(currentPath)
+  const preferredLocale = ensureLocalePreference(activeLocale)
+
+  if (preferredLocale !== activeLocale) {
+    const basePath = stripLocalePrefix(currentPath, activeLocale)
+    const { path } = resolveLocaleNavigation(basePath, preferredLocale)
+    if (path !== currentPath) {
+      rememberLocale(preferredLocale)
+      syncDocumentLocale(preferredLocale)
+      void originalGo(path, true)
+    }
+  } else {
+    syncDocumentLocale(activeLocale)
+  }
+
+  router.onAfterRouteChange = async (to) => {
+    const normalized = normalizePath(to)
+    const locale = detectLocaleFromPath(normalized)
+    if (isSupportedLocale(locale)) {
+      rememberLocale(locale)
+      syncDocumentLocale(locale)
+    }
+  }
+
   router.go = async (href: string, replace?: boolean) => {
-    const normalizedTarget = normalizePath(href)
-    const targetLocale = normalizedTarget.startsWith('/en/') ? 'en-US' : DEFAULT_LOCALE
+    const normalizedTarget = normalizePath(href ?? router.route.path)
+    const targetLocale = detectLocaleFromPath(normalizedTarget)
+    if (isSupportedLocale(targetLocale)) {
+      rememberLocale(targetLocale)
+      syncDocumentLocale(targetLocale)
+    }
     const basePath = stripLocalePrefix(normalizedTarget, targetLocale)
     const { path, fallback } = resolveLocaleNavigation(basePath, targetLocale)
 

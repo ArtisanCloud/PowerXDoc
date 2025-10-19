@@ -12,7 +12,7 @@ export default {
   Layout: defineComponent({
     setup() {
       const { page } = useData()
-       const router = useRouter()
+      const router = useRouter()
 
       onMounted(() => {
         installLocaleSwitch(router)
