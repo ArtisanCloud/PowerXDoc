@@ -77,14 +77,14 @@
 
 ### Implementation for User Story 3
 
-- [ ] T020 [US3] Build review banner component to flag placeholder translations and link to Chinese originals (docs/.vitepress/theme/components/ReviewBanner.vue)
-- [ ] T021 [US3] Inject review banner into default layout using frontmatter `reviewStatus` controls (docs/.vitepress/theme/index.ts)
-- [ ] T022 [P] [US3] Extend mirroring script to stamp placeholder frontmatter metadata and review status (scripts/localization/sync-locales.ts)
-- [ ] T023 [P] [US3] Implement locale parity crawler comparing zh-CN and en-US trees with actionable output (scripts/localization/check-parity.ts)
-- [ ] T024 [US3] Wire parity crawler into package scripts and CI workflow (package.json)
-- [ ] T025 [US3] Enforce human-review gating before publishing by adding review-status verification to build/CI pipeline (scripts/localization/review-guard.ts)
-- [ ] T026 [US3] Document localization workflow, review policy, and banner usage for maintainers (powerx_source_docs/knowledge_base/localization-workflow.md)
-- [ ] T027 [P] [US3] Update localization strategy doc with finalized mermaid lifecycle diagram references (design/i18n-strategy.md)
+- [X] T020 [US3] Build review banner component to flag placeholder translations and link to Chinese originals (docs/.vitepress/theme/components/ReviewBanner.vue)
+- [X] T021 [US3] Inject review banner into default layout using frontmatter `reviewStatus` controls (docs/.vitepress/theme/index.ts)
+- [X] T022 [P] [US3] Extend mirroring script to stamp placeholder frontmatter metadata and review status (scripts/localization/sync-locales.ts)
+- [X] T023 [P] [US3] Implement locale parity crawler comparing zh-CN and en-US trees with actionable output (scripts/localization/check-parity.ts)
+- [X] T024 [US3] Wire parity crawler into package scripts and CI workflow (package.json)
+- [X] T025 [US3] Enforce human-review gating before publishing by adding review-status verification to build/CI pipeline (scripts/localization/review-guard.ts)
+- [X] T026 [US3] Document localization workflow, review policy, and banner usage for maintainers (powerx_source_docs/knowledge_base/localization-workflow.md)
+- [X] T027 [P] [US3] Update localization strategy doc with finalized mermaid lifecycle diagram references (design/i18n-strategy.md)
 
 **Checkpoint**: All user stories independently functional with maintainer tooling in place.
 

@@ -4,6 +4,7 @@ import type { Theme } from 'vitepress'
 import { useData, useRouter } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import MyAwesomeHome from './components/MyAwesomeHome.vue'
+import ReviewBanner from './components/ReviewBanner.vue'
 import './style.css'
 import { installLocaleSwitch } from './utils/languageSwitch'
 
@@ -18,10 +19,15 @@ export default {
         installLocaleSwitch(router)
       })
 
-      return () =>
-        page.value.frontmatter.layout === 'landing'
-          ? h(MyAwesomeHome)
-          : h(DefaultTheme.Layout)
+      return () => {
+        if (page.value.frontmatter.layout === 'landing') {
+          return h(MyAwesomeHome)
+        }
+
+        return h(DefaultTheme.Layout, undefined, {
+          'doc-before': () => h(ReviewBanner),
+        })
+      }
     },
   }),
 } satisfies Theme
