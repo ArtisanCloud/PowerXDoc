@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useData, useRouter } from 'vitepress'
+import type { LocaleKey } from '../utils/localePreference'
+import { toLocalePath } from '../utils/languageSwitch'
 import FooterBar from './FooterBar.vue'
 import VPSwitchAppearance from 'vitepress/dist/client/theme-default/components/VPSwitchAppearance.vue'
 import VPNavBarTranslations from 'vitepress/dist/client/theme-default/components/VPNavBarTranslations.vue'
@@ -20,7 +23,8 @@ type HomeCopy = {
 }
 
 const router = useRouter()
-const { lang, isDark } = useData()
+const { isDark } = useData()
+const { locale, tm } = useI18n({ useScope: 'global' })
 
 /* ---------- Debug ---------- */
 const enableDebug = ref(false)
@@ -84,8 +88,8 @@ const bgCanvasStyle = computed(() => {
     '--rot': `${gradientAngle.value.toFixed(1)}deg`,
     background: isDark.value ? gradDark : gradLight,
     // 画布做得非常大，旋转时保证任何角度都能盖住视口
-    width: '320vw',
-    height: '320vh',
+    width: '480vw',
+    height: '480vw',
     transform: 'translate(-50%, -50%) rotate(var(--rot))',
   } as any
 })
@@ -130,72 +134,8 @@ const generateFloating = (): FloatingElement[] => {
   return arr
 }
 
-/* ---------- 文案数据（原样） ---------- */
-const localeKey = computed<'zh' | 'en'>(() => (lang.value?.startsWith('en') ? 'en' : 'zh'))
-const dictionary: Record<'zh' | 'en', HomeCopy> = {
-  zh: {
-    nav: { features: '产品特性', products: '产品矩阵', about: '关于我们', cta: '开始探索' },
-    hero: { welcomePrefix: '欢迎来到', highlight: 'PowerX', description: 'PowerX 是一个面向企业级智能体的工程化落地平台，帮助团队构建、部署与治理复杂的 AI 工作流。', primaryCta: '查看核心概念', secondaryCta: '阅读开发者指南' },
-    features: { title: '产品特性', lead: '连接模型、插件与业务系统，让智能体从探索走向生产。', items: [
-        { icon:'⚡', title:'极速部署', description:'一键接入智能体运行时，敏捷上线企业级应用。' },
-        { icon:'🎨', title:'极致体验', description:'以用户为中心的界面设计，打造顺滑的工作流体验。' },
-        { icon:'🔧', title:'可视化编排', description:'拖拽式流程与动态配置，让复杂业务建模清晰可见。' },
-        { icon:'🛡️', title:'安全合规', description:'完善的审计与权限体系，保障数据安全与可信治理。' },
-      ]},
-    products: { title:'产品矩阵', lead:'针对不同场景提供端到端的智能体工程化能力。', ctaLabel:'查看详情', list:[
-        { name:'PowerX Admin', description:'集中化管理门户，联通企业级插件、模型与数据能力。', image:'https://dummyimage.com/640x360/0f172a/34d399&text=PowerX+Admin', features:['多租户与权限管理','可观测的任务编排','数据资产统一治理','实时运行态监控'] },
-        { name:'PowerX Analytics', description:'数据驱动的智能分析套件，让业务洞察一目了然。', image:'https://dummyimage.com/640x360/0f172a/38bdf8&text=PowerX+Analytics', features:['实时指标大屏','可视化报表分享','AI 驱动的预测模型','自定义仪表盘'] },
-        { name:'PowerX Cloud', description:'云原生部署底座，提供弹性算力与统一运维通道。', image:'https://dummyimage.com/640x360/0f172a/60a5fa&text=PowerX+Cloud', features:['托管模型仓库','跨区域多活集群','弹性扩缩容','7x24 专业支持'] },
-      ]},
-    about: { title:'关于 PowerX', subtitle:'我们致力于将 AI 能力落地到真实业务场景，让每个组织都能拥有属于自己的智能体生态。', missionTitle:'我们的使命',
-      mission:[
-        'PowerX 聚焦智能体从设计、开发、测试到运维的全生命周期，帮助团队用低成本构建可信赖的 AI 服务。',
-        '我们通过统一的插件与能力中心，将多模型协作、工具调用与数据流动整合为一致的工作流体验。',
-        '面向企业治理与合规需求，我们提供完善的审计、监控以及多层级权限体系，确保业务连续性。',
-      ],
-      stats:[ {value:'1000+',label:'服务企业'}, {value:'50K+',label:'活跃用户'}, {value:'99.9%',label:'系统可用性'} ],
-      pillars:[
-        { title:'企业级实践', description:'从权限管理、租户隔离到全链路审计，PowerX 为大型组织提供可控、可扩展的智能体落地能力。' },
-        { title:'持续创新', description:'保持开放生态，与社区伙伴共同打造下一代智能体运行时。' },
-        { title:'用户至上', description:'围绕用户体验不断迭代产品，让业务团队轻松驾驭 AI 能力。' },
-        { title:'卓越交付', description:'覆盖实施、培训与运营的全流程，确保项目价值快速兑现。' },
-      ],
-    },
-    finalCta:{ title:'立即启程，构建下一代智能体平台', description:'注册试用或加入社区，了解 PowerX 如何在真实业务场景中驱动 AI 生产力。', primary:'立即开始', secondary:'查看示例' }
-  },
-  en: {
-    nav: { features:'Features', products:'Product Suite', about:'About', cta:'Get Started' },
-    hero: { welcomePrefix:'Welcome to', highlight:'PowerX', description:'PowerX is an enterprise-grade platform for designing, deploying, and governing complex AI agent workflows.', primaryCta:'Explore Core Concepts', secondaryCta:'Read the Developer Guide' },
-    features: { title:'Key Capabilities', lead:'Connect models, plugins, and business systems to bring agents from pilot to production.', items:[
-        { icon:'⚡', title:'Rapid Launch', description:'Go live quickly with a one-click runtime integration for enterprise agents.' },
-        { icon:'🎨', title:'Delightful UX', description:'Human-centered experiences ensure smooth journeys for every role.' },
-        { icon:'🔧', title:'Visual Orchestration', description:'Drag-and-drop workflows and dynamic configuration keep complex logic clear.' },
-        { icon:'🛡️', title:'Secure & Compliant', description:'Auditing and granular permissions safeguard data and governance.' },
-      ]},
-    products: { title:'Solution Portfolio', lead:'End-to-end capabilities tailored for diverse AI agent scenarios.', ctaLabel:'View details', list:[
-        { name:'PowerX Admin', description:'A central command center unifying enterprise plugins, models, and capabilities.', image:'https://dummyimage.com/640x360/0f172a/34d399&text=PowerX+Admin', features:['Multi-tenant access control','Observable workflow orchestration','Unified data governance','Real-time runtime monitoring'] },
-        { name:'PowerX Analytics', description:'Data-driven analytics that make business insights effortless.', image:'https://dummyimage.com/640x360/0f172a/38bdf8&text=PowerX+Analytics', features:['Live KPI dashboards','Visual report sharing','AI-assisted forecasting','Customizable workspaces'] },
-        { name:'PowerX Cloud', description:'Cloud-native foundation delivering elastic compute and unified operations.', image:'https://dummyimage.com/640x360/0f172a/60a5fa&text=PowerX+Cloud', features:['Managed model registry','Cross-region active-active','Elastic scaling','24/7 expert support'] },
-      ]},
-    about: {
-      title:'About PowerX', subtitle:'We help every organization build its own agent ecosystem with confidence.', missionTitle:'Our Mission',
-      mission:[
-        'PowerX supports the full lifecycle of enterprise agents—from design and development to testing and operations.',
-        'A unified capability hub aligns multimodel orchestration, tool usage, and data flows into one intuitive experience.',
-        'Robust auditing, monitoring, and layered permissions protect mission-critical operations and compliance needs.',
-      ],
-      stats:[ {value:'1000+',label:'Enterprise customers'}, {value:'50K+',label:'Active users'}, {value:'99.9%',label:'Platform availability'} ],
-      pillars:[
-        { title:'Enterprise Proven', description:'Permissioning, tenant isolation, and end-to-end auditing deliver trustworthy agent operations.' },
-        { title:'Continuous Innovation', description:'An open ecosystem where partners co-create the next generation of agent runtime.' },
-        { title:'User Obsession', description:'Relentless refinement of the product experience so business teams can wield AI confidently.' },
-        { title:'Excellence Delivered', description:'Implementation, enablement, and operations services ensure measurable outcomes fast.' },
-      ],
-    },
-    finalCta:{ title:'Launch your next-generation agent platform today', description:'Join our community or request a guided tour to see how PowerX accelerates real-world AI outcomes.', primary:'Start now', secondary:'View examples' }
-  },
-}
-const copy = computed(() => dictionary[localeKey.value])
+/* ---------- 文案数据（来自 i18n） ---------- */
+const copy = computed<HomeCopy>(() => tm('home') as HomeCopy)
 const features = computed(() => copy.value.features.items)
 const products = computed<ProductFeature[]>(() => copy.value.products.list)
 
@@ -204,18 +144,22 @@ onMounted(() => {
   dlog('mounted. debug=', enableDebug.value, 'isDark=', isDark.value, 'angle=', gradientAngle.value)
   floatingElements.value = generateFloating()
   particlesVisible.value = true
-  // startAngleDrift()
-  // window.addEventListener('scroll', onScroll, { passive: true })
-  // window.addEventListener('pointermove', onPointerMove, { passive: true })
+  startAngleDrift()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('pointermove', onPointerMove, { passive: true })
 })
 onUnmounted(() => {
   if (rafId) cancelAnimationFrame(rafId)
-  // window.removeEventListener('scroll', onScroll)
-  // window.removeEventListener('pointermove', onPointerMove)
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('pointermove', onPointerMove)
 })
 
 /* ---------- 导航 ---------- */
-const navigateTo = (p:string) => router.go(p)
+const navigateTo = (p: string) => {
+  const currentLocale = locale.value as LocaleKey
+  const localizedPath = toLocalePath(p, currentLocale)
+  router.go(localizedPath)
+}
 </script>
 
 <template>

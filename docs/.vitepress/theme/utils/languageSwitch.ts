@@ -66,8 +66,40 @@ function buildLocalePath(basePath: string, targetLocale: LocaleKey): string {
   return normalizePath(`${prefix}${basePath === '/' ? '' : basePath}`)
 }
 
+function resolveManifestSlug(path: string): string | null {
+  const normalized = normalizePath(path)
+  const candidates = new Set<string>()
+
+  candidates.add(normalized)
+
+  const trimmed = normalized !== '/' && normalized.endsWith('/')
+    ? normalized.slice(0, -1)
+    : normalized
+  candidates.add(trimmed)
+
+  const extMatch = trimmed.match(/\.(md|html)$/)
+  const base = extMatch ? trimmed.slice(0, -extMatch[0].length) : trimmed
+  candidates.add(base)
+
+  if (base && base !== '/' && !base.endsWith('/')) {
+    candidates.add(`${base}/`)
+  }
+
+  if (base && base !== '/') {
+    candidates.add(`${base}.md`)
+    candidates.add(`${base}.html`)
+  }
+
+  for (const candidate of candidates) {
+    if (candidate && MANIFEST_PAGES[candidate]) {
+      return candidate
+    }
+  }
+  return null
+}
+
 function hasManifestEntry(slug: string): boolean {
-  return Boolean(MANIFEST_PAGES[slug])
+  return Boolean(resolveManifestSlug(slug))
 }
 
 function recordFallback(slug: string, targetLocale: LocaleKey) {
@@ -100,7 +132,10 @@ export function getBasePath(currentPath: string, currentLocale: LocaleKey) {
   return stripLocalePrefix(normalizePath(currentPath), currentLocale)
 }
 
-export function installLocaleSwitch(router: Router) {
+export function installLocaleSwitch(
+  router: Router,
+  onLocaleChange?: (locale: LocaleKey) => void,
+) {
   if (!inBrowser) return
   const originalGo = router.go.bind(router)
 
@@ -108,34 +143,35 @@ export function installLocaleSwitch(router: Router) {
   const activeLocale = detectLocaleFromPath(currentPath)
   const preferredLocale = ensureLocalePreference(activeLocale)
 
+  const applyLocale = (locale: LocaleKey) => {
+    if (isSupportedLocale(locale)) {
+      rememberLocale(locale)
+      syncDocumentLocale(locale)
+      onLocaleChange?.(locale)
+    }
+  }
+
   if (preferredLocale !== activeLocale) {
     const basePath = stripLocalePrefix(currentPath, activeLocale)
     const { path } = resolveLocaleNavigation(basePath, preferredLocale)
     if (path !== currentPath) {
-      rememberLocale(preferredLocale)
-      syncDocumentLocale(preferredLocale)
+      applyLocale(preferredLocale)
       void originalGo(path, true)
     }
   } else {
-    syncDocumentLocale(activeLocale)
+    applyLocale(activeLocale)
   }
 
   router.onAfterRouteChange = async (to) => {
     const normalized = normalizePath(to)
     const locale = detectLocaleFromPath(normalized)
-    if (isSupportedLocale(locale)) {
-      rememberLocale(locale)
-      syncDocumentLocale(locale)
-    }
+    applyLocale(locale)
   }
 
   router.go = async (href: string, replace?: boolean) => {
     const normalizedTarget = normalizePath(href ?? router.route.path)
     const targetLocale = detectLocaleFromPath(normalizedTarget)
-    if (isSupportedLocale(targetLocale)) {
-      rememberLocale(targetLocale)
-      syncDocumentLocale(targetLocale)
-    }
+    applyLocale(targetLocale)
     const basePath = stripLocalePrefix(normalizedTarget, targetLocale)
     const { path, fallback } = resolveLocaleNavigation(basePath, targetLocale)
 
@@ -145,4 +181,12 @@ export function installLocaleSwitch(router: Router) {
 
     return originalGo(path, replace)
   }
+}
+
+export function toLocalePath(rawPath: string, locale: LocaleKey) {
+  const normalizedTarget = normalizePath(rawPath)
+  const detectedLocale = detectLocaleFromPath(normalizedTarget)
+  const basePath = stripLocalePrefix(normalizedTarget, detectedLocale)
+  const { path } = resolveLocaleNavigation(basePath, locale)
+  return path
 }
