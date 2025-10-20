@@ -8,40 +8,40 @@ This task list is generated from the implementation plan and design artifacts. I
 
 These tasks initialize the project dependencies and file structure.
 
-- [ ] T001 Install `vue-i18n` library via `pnpm add vue-i18n`
-- [ ] T002 Create the locales directory at `docs/.vitepress/theme/locales`
-- [ ] T003 [P] Create the English locale file at `docs/.vitepress/theme/locales/en-US.ts`
-- [ ] T004 [P] Create the Chinese locale file at `docs/.vitepress/theme/locales/zh-CN.ts`
+- [X] T001 Install `vue-i18n` library via `pnpm add vue-i18n`
+- [X] T002 Create the locales directory at `docs/.vitepress/theme/locales`
+- [X] T003 [P] Create the English locale file at `docs/.vitepress/theme/locales/en-US.ts`
+- [X] T004 [P] Create the Chinese locale file at `docs/.vitepress/theme/locales/zh-CN.ts`
 
 ## Phase 2: Foundational
 
 This phase establishes the core `vue-i18n` integration, which is a prerequisite for all other tasks.
 
-- [ ] T005 Configure the `vue-i18n` instance and install it as a plugin in the VitePress app at `docs/.vitepress/theme/index.ts`
+- [X] T005 Configure the `vue-i18n` instance and install it as a plugin in the VitePress app at `docs/.vitepress/theme/index.ts`
 
 ## Phase 3: User Story 1 (Developer Refactor)
 
 **Goal**: Refactor an existing Vue component to use the centralized translation system.
 **Independent Test**: Verify that `MyAwesomeHome.vue` no longer contains hardcoded strings and renders the correct language based on user selection.
 
-- [ ] T006 [P] [US1] Populate the English locale file with translations for `MyAwesomeHome.vue` in `docs/.vitepress/theme/locales/en-US.ts`
-- [ ] T007 [P] [US1] Populate the Chinese locale file with translations for `MyAwesomeHome.vue` in `docs/.vitepress/theme/locales/zh-CN.ts`
-- [ ] T008 [US1] Create a placeholder component `MyAwesomeHome.vue` with hardcoded text strings in `docs/.vitepress/theme/components/MyAwesomeHome.vue`
-- [ ] T009 [US1] Refactor the `MyAwesomeHome.vue` component to use the `useI18n` composable and remove all hardcoded strings in `docs/.vitepress/theme/components/MyAwesomeHome.vue`
+- [X] T006 [P] [US1] Populate the English locale file with translations for `MyAwesomeHome.vue` in `docs/.vitepress/theme/locales/en-US.ts`
+- [X] T007 [P] [US1] Populate the Chinese locale file with translations for `MyAwesomeHome.vue` in `docs/.vitepress/theme/locales/zh-CN.ts`
+- [X] T008 [US1] Create a placeholder component `MyAwesomeHome.vue` with hardcoded text strings in `docs/.vitepress/theme/components/MyAwesomeHome.vue`
+- [X] T009 [US1] Refactor the `MyAwesomeHome.vue` component to use the `useI18n` composable and remove all hardcoded strings in `docs/.vitepress/theme/components/MyAwesomeHome.vue`
 
 ## Phase 4: User Story 2 (Content Manager Workflow)
 
 **Goal**: Enable a non-developer to update UI text by editing a locale file.
 **Independent Test**: Change a string in `locales/en-US.ts` and confirm the change is reflected on the site without any code modifications.
 
-- [ ] T010 [US2] Verify the content manager workflow by modifying a string in `docs/.vitepress/theme/locales/en-US.ts` and confirming the live site updates as expected.
-- [ ] T011 [US2] Add a section to the `quickstart.md` guide for the "Content Manager" role, explaining how to update text, in `specs/003-custom-component-ui-translation/quickstart.md`
+- [X] T010 [US2] Verify the content manager workflow by modifying a string in `docs/.vitepress/theme/locales/en-US.ts` and confirming the live site updates as expected.
+- [X] T011 [US2] Add a section to the `quickstart.md` guide for the "Content Manager" role, explaining how to update text, in `specs/003-custom-component-ui-translation/quickstart.md`
 
 ## Phase 5: Polish & Finalization
 
-- [ ] T012 Review all modified files for code quality, consistency, and formatting.
-- [ ] T013 [US1] Verify that the production JavaScript bundle size increase is less than 1% as per SC-004.
-- [ ] T014 Mark this feature as complete and merge the branch.
+- [X] T012 Review all modified files for code quality, consistency, and formatting.
+- [X] T013 [US1] Verify that the production JavaScript bundle size increase is less than 1% as per SC-004.
+- [X] T014 Mark this feature as complete and merge the branch.
 
 ---
 

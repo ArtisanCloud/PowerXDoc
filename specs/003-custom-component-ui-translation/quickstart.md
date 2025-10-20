@@ -1,7 +1,7 @@
 # Quickstart: Adding and Using UI Translations
 
 **Date**: 2025-10-20
-**Audience**: Developer
+**Audience**: Developer, Content Manager
 
 This guide provides a step-by-step walkthrough for refactoring a Vue component to use the centralized `vue-i18n` translation system.
 
@@ -99,3 +99,16 @@ Now, apply this pattern to remove existing hardcoded text from a component.
     ```
 
 By following these steps, you have successfully decoupled the component's text content from its logic, making it fully translatable.
+
+## Content Manager Workflow: Update Existing Copy
+
+Content Managers can update text without touching Vue components. Follow these steps to safely change a string and validate the result.
+
+1.  Launch the documentation site locally with `npm run docs:dev`. Leave the dev server running to benefit from hot module replacement.
+2.  Open the relevant locale file. For the home page hero call-to-action, edit `docs/.vitepress/theme/locales/en-US.ts`.
+3.  Locate the translation key you want to change. For example, update `home.hero.secondaryCta` from `'Read the Developer Guide'` to a new message such as `'Review the Content Manager Guide'`.
+4.  Save the file. The running dev server reloads automatically and shows the updated text. No additional build or review steps are required.
+5.  Repeat the change for other locales (e.g., `zh-CN.ts`) to keep translations aligned.
+6.  Commit the locale file updates or share them with a developer according to your team's workflow.
+
+If the site is already deployed, request a rebuild or follow your deployment automation to publish the updated copy.
