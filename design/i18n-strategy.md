@@ -130,3 +130,97 @@ Once the `locales` configuration is in place, VitePress will automatically add a
 ### Visualization
 
 The localization lifecycle mermaid diagram is stored at `design/diagrams/localization-flow.mmd` and referenced throughout maintainer docs to illustrate the sync → translate → review → publish loop.
+
+---
+
+### Step 5: Custom Component UI Translation
+
+While the above steps cover Markdown content and theme-level text, custom Vue components (e.g., a custom homepage) require a robust strategy for their internal UI strings. The approved approach is to use the industry-standard `vue-i18n` library, which provides a complete solution for internationalization.
+
+**1. Dependency Installation:**
+
+The `vue-i18n` library must be added as a project dependency.
+
+```bash
+# Using pnpm
+pnpm add vue-i18n
+```
+
+**2. Directory Structure for Language Packs:**
+
+Create a `locales` directory within the VitePress theme to store translation files. This structure remains the same.
+
+```text
+docs/.vitepress/theme/
+├── locales/
+│   ├── en-US.ts
+│   └── zh-CN.ts
+├── components/
+│   └── MyAwesomeHome.vue
+└── index.ts
+```
+
+**3. Language Pack Content:**
+
+Each file exports a default object containing the translations. The format is fully compatible with `vue-i18n`.
+
+**Example: `locales/en-US.ts`**
+```typescript
+export default {
+  home: {
+    nav: { features: 'Features', products: 'Product Suite', cta: 'Get Started' },
+    hero: { welcomePrefix: 'Welcome to', highlight: 'PowerX' },
+  }
+}
+```
+
+**4. Configure `vue-i18n` in VitePress:**
+
+The core of the integration happens in the theme's entry point, where we create a `vue-i18n` instance and install it as a Vue plugin using VitePress's `enhanceApp` hook.
+
+**Example: `docs/.vitepress/theme/index.ts`**
+```typescript
+import type { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import { createI18n } from 'vue-i18n'
+import zh from './locales/zh-CN'
+import en from './locales/en-US'
+
+export default {
+  ...DefaultTheme,
+  enhanceApp({ app }) {
+    const i18n = createI18n({
+      legacy: false, // Use Composition API
+      locale: 'zh-CN', // Default language
+      fallbackLocale: 'en-US', // Fallback language
+      messages: {
+        'zh-CN': zh,
+        'en-US': en
+      }
+    });
+
+    app.use(i18n);
+  }
+} satisfies Theme
+```
+
+**5. Refactor the Vue Component:**
+
+Update the custom component to use the `useI18n` composable provided by `vue-i18n`.
+
+**Example: `MyAwesomeHome.vue`**
+```vue
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+// Use the vue-i18n composable to get the translation function `t`
+const { t } = useI18n()
+</script>
+
+<template>
+  <h1>{{ t('home.hero.welcomePrefix') }} {{ t('home.hero.highlight') }}</h1>
+  <a href="/docs">{{ t('home.nav.cta') }}</a>
+</template>
+```
+
+This approach provides a robust, scalable, and maintainable solution for internationalizing all custom components, leveraging the full power of the `vue-i18n` library.
