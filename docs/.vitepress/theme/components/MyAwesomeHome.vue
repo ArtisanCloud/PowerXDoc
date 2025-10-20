@@ -88,8 +88,8 @@ const bgCanvasStyle = computed(() => {
     '--rot': `${gradientAngle.value.toFixed(1)}deg`,
     background: isDark.value ? gradDark : gradLight,
     // 画布做得非常大，旋转时保证任何角度都能盖住视口
-    width: '320vw',
-    height: '320vh',
+    width: '480vw',
+    height: '480vw',
     transform: 'translate(-50%, -50%) rotate(var(--rot))',
   } as any
 })
@@ -144,14 +144,14 @@ onMounted(() => {
   dlog('mounted. debug=', enableDebug.value, 'isDark=', isDark.value, 'angle=', gradientAngle.value)
   floatingElements.value = generateFloating()
   particlesVisible.value = true
-  // startAngleDrift()
-  // window.addEventListener('scroll', onScroll, { passive: true })
-  // window.addEventListener('pointermove', onPointerMove, { passive: true })
+  startAngleDrift()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('pointermove', onPointerMove, { passive: true })
 })
 onUnmounted(() => {
   if (rafId) cancelAnimationFrame(rafId)
-  // window.removeEventListener('scroll', onScroll)
-  // window.removeEventListener('pointermove', onPointerMove)
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('pointermove', onPointerMove)
 })
 
 /* ---------- 导航 ---------- */
