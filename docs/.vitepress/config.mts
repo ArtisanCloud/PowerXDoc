@@ -9,6 +9,8 @@ const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
 export default defineConfig({
   title: "PowerX Documentation",
   description: "A website to introduce PowerX",
+  srcDir: 'website',
+  publicDir: path.resolve(__dirname, '../website/public'),
   locales: {
     root: {
       label: '简体中文',
