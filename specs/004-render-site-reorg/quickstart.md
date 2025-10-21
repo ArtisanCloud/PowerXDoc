@@ -30,6 +30,12 @@
 3. 确认 manifest (`docs/website/localization/manifest.json`) 以及 `en/` 目录结构镜像正确。
 
 ## 5. AI 发布建议流程
+- 2025-10-21: 发布 CLI 工具已就绪：
+  - `node scripts/publish/generate-suggestions.mjs --input approved.json` 生成建议
+  - `node scripts/publish/review-suggestions.mjs --file docs/website/_mount/publish-suggestions.json` 进行人工确认/手动编辑
+  - `node scripts/publish/apply-suggestions.mjs --session docs/website/_mount/publish-suggestions.json --dry-run` 预演复制并生成审计输出
+  - 去掉 `--dry-run` 后会实际同步文件并输出审计日志，用于复用现有 logging 管道
+
 1. 内容运营把已批准的源文件路径导出为列表（可通过自定义脚本扫描 `reviewStatus: Approved`）。
 2. 运行 `npm run publish:suggest -- --input approved.json --output docs/website/_mount/publish-suggestions.json`（脚本在 Phase 1 实现）。
 3. 打开 CLI 交互界面 `npm run publish:review`：

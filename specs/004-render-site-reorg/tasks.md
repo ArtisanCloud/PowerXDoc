@@ -70,11 +70,11 @@
 
 ### Implementation
 
-- [ ] T018 [US3] Scaffold scripts/publish/generate-suggestions.mjs to parse approved source files and emit PublishSuggestion objects per contracts/publish-api.yaml
-- [ ] T019 [P] [US3] Build interactive reviewer CLI scripts/publish/review-suggestions.mjs to confirm/dismiss/manual suggestions with confidence and risk handling
-- [ ] T020 [P] [US3] Implement scripts/publish/apply-suggestions.mjs that copies vetted files into docs/website/ and updates checksums
-- [ ] T021 [US3] Integrate existing logging/audit hooks within scripts/publish/apply-suggestions.mjs so decisions reuse current site logs (FR-010)
-- [ ] T022 [US3] Update docs/website/_mount/README.md and specs/004-render-site-reorg/quickstart.md with AI发布建议→人工确认流程 including manual override steps
+- [X] T018 [US3] Scaffold scripts/publish/generate-suggestions.mjs to parse approved source files and emit PublishSuggestion objects per contracts/publish-api.yaml
+- [X] T019 [P] [US3] Build interactive reviewer CLI scripts/publish/review-suggestions.mjs to confirm/dismiss/manual suggestions with confidence and risk handling
+- [X] T020 [P] [US3] Implement scripts/publish/apply-suggestions.mjs that copies vetted files into docs/website/ and updates checksums
+- [X] T021 [US3] Integrate existing logging/audit hooks within scripts/publish/apply-suggestions.mjs so decisions reuse current site logs (FR-010)
+- [X] T022 [US3] Update docs/website/_mount/README.md and specs/004-render-site-reorg/quickstart.md with AI发布建议→人工确认流程 including manual override steps
 
 **Checkpoint**: AI-assisted publish pipeline ready with human-in-the-loop confirmation and audit coverage.
 
