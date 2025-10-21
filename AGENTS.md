@@ -24,4 +24,5 @@ TypeScript 5.9 with Node.js 18+ runtime for VitePress toolchain: Follow standard
 - 002-i18n-strategy-md: Added TypeScript 5.9 with Node.js 18+ runtime for VitePress toolchain + VitePress 1.6, TailwindCSS 3.4, PostCSS/Autoprefixer pipeline
 
 <!-- MANUAL ADDITIONS START -->
+- 004-render-site-reorg: 渲染入口统一改为 `docs/website/`，并引入 AI 白名单发布 CLI (`scripts/publish/*.mjs`) 供生成、审核、应用建议。
 <!-- MANUAL ADDITIONS END -->

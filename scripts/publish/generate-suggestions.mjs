@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { promises as fs } from 'node:fs'
+import crypto from 'node:crypto'
 import path from 'node:path'
 
 const REPO_ROOT = path.resolve(new URL('.', import.meta.url).pathname, '../../')

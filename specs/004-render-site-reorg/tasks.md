@@ -84,9 +84,9 @@
 
 **Purpose**: Final documentation, visualization, and quality sweeps spanning all stories.
 
-- [ ] T023 [P] Update docs/design/render-site-reorg.md mermaid diagrams to show source → AI suggestion → publish → docs/website flow (constitution IV)
-- [ ] T024 [P] Refresh AGENTS.md and related onboarding notes with new tooling references post-implementation
-- [ ] T025 Run scripts/qa/verify-links.mjs, localization scripts, and `npm run docs:build` as a release gate; capture summary in specs/004-render-site-reorg/quickstart.md
+- [X] T023 [P] Update docs/design/render-site-reorg.md mermaid diagrams to show source → AI suggestion → publish → docs/website flow (constitution IV)
+- [X] T024 [P] Refresh AGENTS.md and related onboarding notes with new tooling references post-implementation
+- [X] T025 Run scripts/qa/verify-links.mjs, localization scripts, and `npm run docs:build` as a release gate; capture summary in specs/004-render-site-reorg/quickstart.md
 
 ---
 

@@ -152,7 +152,7 @@ export default defineConfig({
 | --------------------------------- | --------------------------------------------- |
 | `docs/index.md`                   | `docs/website/index.md`                       |
 | `docs/core-concepts/**`           | `docs/website/core-concepts/**`               |
-| `docs/developer-guides/**`        | `docs/website/guides/**`                      |
+| `docs/developer-guides` 整目录          | `docs/website/guides` 整目录                         |
 | `docs/api-and-specifications/**`  | `docs/website/api-and-specifications/**`      |
 | `docs/security-and-governance/**` | `docs/website/security-and-governance/**`     |
 | `docs/pxip/**`                    | `docs/website/pxip/**`                        |
@@ -211,3 +211,25 @@ export default defineConfig({
 * 规范/用例/分析的**源**与下发逻辑，统一留在 `website` 平级，**不直接参与渲染**。
 
 ——这能把“展示层”和“资料源”彻底分离，构建干净、发布可控，与你的 **Only Push 中心治理** 完整对齐。
+
+---
+
+## 8. 渲染与 AI 发布流程一览
+
+```mermaid
+flowchart TD
+    A[源内容目录
+(docs/standards、docs/scenarios 等)] --> B[内容审核与批准]
+    B -->|输出 Approved 列表| C[AI 建议生成
+(scripts/publish/generate-suggestions.mjs)]
+    C --> D[建议文件 docs/website/_mount/publish-suggestions.json]
+    D --> E[运营人工确认
+(scripts/publish/review-suggestions.mjs)]
+    E -->|confirm/manual| F[应用建议
+(scripts/publish/apply-suggestions.mjs)]
+    F --> G[docs/website/ 渲染树更新]
+    G --> H[VitePress Build / Deploy]
+    E -->|dismiss| C
+```
+
+> 提醒：高风险或低信心建议会默认进入手动模式，需人工指定目标后再应用。

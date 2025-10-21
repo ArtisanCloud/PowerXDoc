@@ -45,6 +45,7 @@
 5. 所有条目确认后执行 `npm run publish:apply -- --session <id>`，将文件复制到 `docs/website/` 对应目录，并更新校验和。
 
 ## 6. 构建与验证
+- 2025-10-21: 发布前验证 —— `node scripts/qa/verify-links.mjs` ✅、`node scripts/localization/sync-locales.mjs` ✅、`node scripts/localization/check-parity.mjs` ✅、`node scripts/localization/review-guard.mjs` ❌（待批准内容仍为 Placeholder/InReview）、`npm run docs:build` ✅。
 - 2025-10-21: Phase 3 迁移完成，`npm run docs:build` 与 `npm run lint` 均通过。
 
 1. `npm run lint` 确保主题及脚本通过。

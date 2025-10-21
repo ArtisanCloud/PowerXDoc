@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { promises as fs } from 'node:fs'
+import crypto from 'node:crypto'
 import { createInterface } from 'node:readline/promises'
 import path from 'node:path'
 import process from 'node:process'
