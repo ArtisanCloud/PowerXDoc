@@ -1,5 +1,5 @@
 import { inBrowser } from 'vitepress'
-import manifest from '../../../localization/manifest.json'
+import manifest from '../../../website/localization/manifest.json'
 
 export type LocaleKey = string
 

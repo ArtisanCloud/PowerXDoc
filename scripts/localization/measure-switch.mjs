@@ -3,7 +3,7 @@ import { URL } from 'node:url'
 import http from 'node:http'
 
 const DEFAULT_BASE = process.env.POWERX_DOCS_BASE ?? 'http://localhost:4173'
-const TARGET_ROUTES = ['/core-concepts/', '/developer-guides/', '/api-and-specifications/']
+const TARGET_ROUTES = ['/core-concepts/', '/guides/', '/api-and-specifications/']
 const THRESHOLD_MS = 2000
 
 function httpGet(url) {

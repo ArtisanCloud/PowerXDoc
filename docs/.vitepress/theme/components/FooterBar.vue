@@ -33,7 +33,7 @@ const dictionary = {
     tagline: '文档与产品概览',
     links: {
       concepts: { label: '核心概念', href: '/core-concepts/' },
-      guides: { label: '开发者指南', href: '/developer-guides/' },
+      guides: { label: '开发者指南', href: '/guides/' },
       api: { label: 'API', href: '/api-and-specifications/' },
       security: { label: '安全治理', href: '/security-and-governance/' },
     },
@@ -42,7 +42,7 @@ const dictionary = {
     tagline: 'Documentation & product overview',
     links: {
       concepts: { label: 'Core Concepts', href: '/en/core-concepts/' },
-      guides: { label: 'Developer Guides', href: '/en/developer-guides/' },
+      guides: { label: 'Developer Guides', href: '/en/guides/' },
       api: { label: 'API', href: '/en/api-and-specifications/' },
       security: { label: 'Security & Governance', href: '/en/security-and-governance/' },
     },

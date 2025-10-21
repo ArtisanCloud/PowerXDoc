@@ -34,6 +34,8 @@
 5. 所有条目确认后执行 `npm run publish:apply -- --session <id>`，将文件复制到 `docs/website/` 对应目录，并更新校验和。
 
 ## 6. 构建与验证
+- 2025-10-21: Phase 3 迁移完成，`npm run docs:build` 与 `npm run lint` 均通过。
+
 1. `npm run lint` 确保主题及脚本通过。
 2. `npm run docs:build` 构建静态站点。
 3. 使用自定义脚本 `node scripts/qa/verify-links.mjs`（Phase 1 交付）检查旧路径引用。

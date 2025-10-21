@@ -33,11 +33,11 @@ export default defineConfig({
           {
             text: '开发者指南',
             items: [
-              { text: '介绍', link: '/developer-guides/README.md' },
-              { text: '插件 SDK 指南', link: '/developer-guides/PowerX_Plugin_SDK_Guide.md' },
-              { text: '插件运行时指南', link: '/developer-guides/Plugin_Runtime_Guide.md' },
-              { text: '插件测试与调试', link: '/developer-guides/Plugin_Test_and_Debug_Guide.md' },
-              { text: '智能体开发指南', link: '/developer-guides/Agent_Developer_Guide.md' }
+              { text: '介绍', link: '/guides/README.md' },
+              { text: '插件 SDK 指南', link: '/guides/PowerX_Plugin_SDK_Guide.md' },
+              { text: '插件运行时指南', link: '/guides/Plugin_Runtime_Guide.md' },
+              { text: '插件测试与调试', link: '/guides/Plugin_Test_and_Debug_Guide.md' },
+              { text: '智能体开发指南', link: '/guides/Agent_Developer_Guide.md' }
             ]
           },
           {
@@ -85,11 +85,11 @@ export default defineConfig({
           {
             text: 'Developer Guides',
             items: [
-              { text: 'Overview', link: '/en/developer-guides/README.md' },
-              { text: 'Plugin SDK Guide', link: '/en/developer-guides/PowerX_Plugin_SDK_Guide.md' },
-              { text: 'Runtime Guide', link: '/en/developer-guides/Plugin_Runtime_Guide.md' },
-              { text: 'Testing & Debugging', link: '/en/developer-guides/Plugin_Test_and_Debug_Guide.md' },
-              { text: 'Agent Developer Guide', link: '/en/developer-guides/Agent_Developer_Guide.md' }
+              { text: 'Overview', link: '/en/guides/README.md' },
+              { text: 'Plugin SDK Guide', link: '/en/guides/PowerX_Plugin_SDK_Guide.md' },
+              { text: 'Runtime Guide', link: '/en/guides/Plugin_Runtime_Guide.md' },
+              { text: 'Testing & Debugging', link: '/en/guides/Plugin_Test_and_Debug_Guide.md' },
+              { text: 'Agent Developer Guide', link: '/en/guides/Agent_Developer_Guide.md' }
             ]
           },
           {

@@ -33,12 +33,12 @@
 
 ### Implementation
 
-- [ ] T007 [US1] Relocate renderable directories (core-concepts, guides, api-and-specifications, security-and-governance, localization, en, public, index.md) into docs/website/ following the mapping in docs/design/render-site-reorg.md
-- [ ] T008 [P] [US1] Update docs/.vitepress/theme/components/FooterBar.vue links to the new `/guides/` and related routes
-- [ ] T009 [P] [US1] Update docs/.vitepress/theme/components/MyAwesomeHome.vue CTA routes to the `/guides/` paths
-- [ ] T010 [US1] Implement FR-007 by adding scripts/qa/verify-links.mjs to detect residual `/developer-guides/` or root docs references
-- [ ] T011 [US1] Document the final layout and before/after diff in docs/design/render-site-reorg.md after migration
-- [ ] T012 [US1] Validate restructure via `npm run docs:build` and `npm run lint`, recording outcomes in specs/004-render-site-reorg/quickstart.md
+- [X] T007 [US1] Relocate renderable directories (core-concepts, guides, api-and-specifications, security-and-governance, localization, en, public, index.md) into docs/website/ following the mapping in docs/design/render-site-reorg.md
+- [X] T008 [P] [US1] Update docs/.vitepress/theme/components/FooterBar.vue links to the new `/guides/` and related routes
+- [X] T009 [P] [US1] Update docs/.vitepress/theme/components/MyAwesomeHome.vue CTA routes to the `/guides/` paths
+- [X] T010 [US1] Implement FR-007 by adding scripts/qa/verify-links.mjs to detect residual `/developer-guides/` or root docs references
+- [X] T011 [US1] Document the final layout and before/after diff in docs/design/render-site-reorg.md after migration
+- [X] T012 [US1] Validate restructure via `npm run docs:build` and `npm run lint`, recording outcomes in specs/004-render-site-reorg/quickstart.md
 
 **Checkpoint**: Render tree isolated to docs/website/, navigation updated, link verifier in place.
 

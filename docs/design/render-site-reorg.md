@@ -36,6 +36,31 @@ docs/
 
 ---
 
+
+## 1.1 迁移完成快照（2025-10-21）
+
+迁移后 `docs/` 保留源材料与设计文档，渲染树统一下沉至 `docs/website/`：
+
+```
+docs/
+├─ .vitepress/
+├─ design/
+└─ website/
+   ├─ index.md
+   ├─ core-concepts/
+   ├─ guides/
+   ├─ api-and-specifications/
+   ├─ security-and-governance/
+   ├─ localization/
+   ├─ en/
+   ├─ public/
+   ├─ pxip/
+   ├─ markdown-examples.md
+   └─ api-examples.md
+```
+
+发布白名单入口（AI 发布流程）使用 `docs/website/_mount/`; 静态资源统一归档到 `docs/website/public/`。
+
 ## 1. 新目录布局（结果）
 
 ```

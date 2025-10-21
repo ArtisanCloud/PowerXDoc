@@ -12,7 +12,7 @@
       "slug": "core-concepts/index",
       "title": "核心概念"
     },
-    "/developer-guides/": {
+    "/guides/": {
       "slug": "developer-guides/index",
       "title": "开发者指南"
     },
@@ -113,29 +113,29 @@
       "partnerSlug": "/core-concepts/README.md",
       "title": "README"
     },
-    "/developer-guides/Agent_Developer_Guide.md": {
+    "/guides/Agent_Developer_Guide.md": {
       "slug": "developer-guides/Agent_Developer_Guide",
-      "partnerSlug": "/developer-guides/Agent_Developer_Guide.md",
+      "partnerSlug": "/guides/Agent_Developer_Guide.md",
       "title": "Agent_Developer_Guide"
     },
-    "/developer-guides/Plugin_Runtime_Guide.md": {
+    "/guides/Plugin_Runtime_Guide.md": {
       "slug": "developer-guides/Plugin_Runtime_Guide",
-      "partnerSlug": "/developer-guides/Plugin_Runtime_Guide.md",
+      "partnerSlug": "/guides/Plugin_Runtime_Guide.md",
       "title": "Plugin_Runtime_Guide"
     },
-    "/developer-guides/Plugin_Test_and_Debug_Guide.md": {
+    "/guides/Plugin_Test_and_Debug_Guide.md": {
       "slug": "developer-guides/Plugin_Test_and_Debug_Guide",
-      "partnerSlug": "/developer-guides/Plugin_Test_and_Debug_Guide.md",
+      "partnerSlug": "/guides/Plugin_Test_and_Debug_Guide.md",
       "title": "Plugin_Test_and_Debug_Guide"
     },
-    "/developer-guides/PowerX_Plugin_SDK_Guide.md": {
+    "/guides/PowerX_Plugin_SDK_Guide.md": {
       "slug": "developer-guides/PowerX_Plugin_SDK_Guide",
-      "partnerSlug": "/developer-guides/PowerX_Plugin_SDK_Guide.md",
+      "partnerSlug": "/guides/PowerX_Plugin_SDK_Guide.md",
       "title": "PowerX_Plugin_SDK_Guide"
     },
-    "/developer-guides/README.md": {
+    "/guides/README.md": {
       "slug": "developer-guides/README",
-      "partnerSlug": "/developer-guides/README.md",
+      "partnerSlug": "/guides/README.md",
       "title": "README"
     },
     "/markdown-examples.md": {
