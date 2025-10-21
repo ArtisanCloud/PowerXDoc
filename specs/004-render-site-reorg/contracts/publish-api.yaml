@@ -1,0 +1,208 @@
+openapi: 3.1.0
+info:
+  title: PowerX Docs Publish Suggestion API
+  version: 0.1.0
+  description: >
+    Internal API for managing AI-driven whitelist suggestions when promoting
+    approved source content into `docs/website/`. Operators retrieve AI
+    suggestions, confirm or override them, and trigger application steps that
+    copy files into the render tree.
+servers:
+  - url: https://docs-internal.powerx.ai
+    description: Internal operations endpoint
+paths:
+  /publish/sessions:
+    post:
+      summary: Create a new publish session and request AI suggestions
+      operationId: createPublishSession
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourcePaths:
+                  type: array
+                  items:
+                    type: string
+                  description: Approved source file paths to evaluate
+                aiConfig:
+                  type: object
+                  properties:
+                    model:
+                      type: string
+                    maxSuggestions:
+                      type: integer
+                      minimum: 1
+                      default: 50
+                  additionalProperties: false
+              required:
+                - sourcePaths
+      responses:
+        '201':
+          description: Session created with initial suggestions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishSession'
+  /publish/sessions/{sessionId}:
+    get:
+      summary: Retrieve session details and outstanding suggestions
+      operationId: getPublishSession
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '200':
+          description: Publish session detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishSession'
+  /publish/sessions/{sessionId}/suggestions/{suggestionId}/decision:
+    post:
+      summary: Record the human decision for a suggestion
+      operationId: decideSuggestion
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+        - $ref: '#/components/parameters/SuggestionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                decision:
+                  type: string
+                  enum: [confirm, dismiss, manual]
+                note:
+                  type: string
+                  description: Optional justification or manual override notes
+              required:
+                - decision
+      responses:
+        '204':
+          description: Decision recorded
+  /publish/sessions/{sessionId}/apply:
+    post:
+      summary: Apply all confirmed/manual suggestions to the render tree
+      operationId: applyPublishSession
+      parameters:
+        - $ref: '#/components/parameters/SessionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dryRun:
+                  type: boolean
+                  default: false
+                actor:
+                  type: string
+                  description: Human operator executing the publish
+              required:
+                - actor
+      responses:
+        '202':
+          description: Application initiated; progress tracked via audit log
+components:
+  parameters:
+    SessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    SuggestionId:
+      name: suggestionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    PublishSession:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        aiVersion:
+          type: string
+        suggestions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublishSuggestion'
+        decisionLog:
+          type: array
+          items:
+            $ref: '#/components/schemas/DecisionLogEntry'
+        auditTrailRef:
+          type: string
+      required:
+        - sessionId
+        - createdAt
+        - createdBy
+        - aiVersion
+        - suggestions
+    PublishSuggestion:
+      type: object
+      properties:
+        suggestionId:
+          type: string
+          format: uuid
+        sourcePath:
+          type: string
+        targetPath:
+          type: string
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+        riskLevel:
+          type: string
+          enum: [normal, elevated, high]
+        status:
+          type: string
+          enum: [suggested, confirmed, manual, dismissed, applied]
+        diffPreview:
+          type: string
+          nullable: true
+      required:
+        - suggestionId
+        - sourcePath
+        - targetPath
+        - confidence
+        - riskLevel
+        - status
+    DecisionLogEntry:
+      type: object
+      properties:
+        suggestionId:
+          type: string
+          format: uuid
+        actor:
+          type: string
+        decision:
+          type: string
+          enum: [confirm, dismiss, manual, applied]
+        note:
+          type: string
+          nullable: true
+        decidedAt:
+          type: string
+          format: date-time
+      required:
+        - suggestionId
+        - actor
+        - decision
+        - decidedAt

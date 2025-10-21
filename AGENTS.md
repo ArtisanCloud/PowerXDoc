@@ -4,6 +4,8 @@ Auto-generated from all feature plans. Last updated: 2025-10-19
 
 ## Active Technologies
 - TypeScript 5.9 with Node.js 18+ runtime for VitePress toolchain + VitePress 1.6, TailwindCSS 3.4, PostCSS/Autoprefixer pipeline (002-i18n-strategy-md)
+- TypeScript 5.9, Node.js 18 LTS + VitePress 1.6, TailwindCSS 3.4, PostCSS/Autoprefixer, internal localization scripts (`scripts/localization/*.mjs`) (004-render-site-reorg)
+- Git-tracked filesystem within `docs/` (004-render-site-reorg)
 
 ## Project Structure
 ```
@@ -18,6 +20,7 @@ npm test [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNO
 TypeScript 5.9 with Node.js 18+ runtime for VitePress toolchain: Follow standard conventions
 
 ## Recent Changes
+- 004-render-site-reorg: Added TypeScript 5.9, Node.js 18 LTS + VitePress 1.6, TailwindCSS 3.4, PostCSS/Autoprefixer, internal localization scripts (`scripts/localization/*.mjs`)
 - 002-i18n-strategy-md: Added TypeScript 5.9 with Node.js 18+ runtime for VitePress toolchain + VitePress 1.6, TailwindCSS 3.4, PostCSS/Autoprefixer pipeline
 
 <!-- MANUAL ADDITIONS START -->

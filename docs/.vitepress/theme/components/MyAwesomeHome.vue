@@ -37,7 +37,7 @@ const dlog = (...a:any[]) => { if (enableDebug.value) console.log('%c[PowerX]', 
 /* ---------- 角度与动效：大幅摆动 + 顶部可见 ---------- */
 const gradientAngle = ref(120)     // 初始角度
 const angleBase     = 20          // 基准（水平）
-const angleAmp      = 60           // 摆动幅度（更大！建议 60~100）
+const angleAmp      = 320           // 摆动幅度（更大！建议 60~100）
 const autoDrift     = ref(true)
 const followPointer = ref(false)   // 需要时打开
 let rafId: number | null = null
