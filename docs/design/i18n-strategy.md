@@ -209,12 +209,14 @@ export default {
 Update the custom component to use the `useI18n` composable provided by `vue-i18n`.
 
 **Example: `MyAwesomeHome.vue`**
-```vue
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 
-// Use the vue-i18n composable to get the translation function `t`
-const { t } = useI18n()
+```vue
+
+<script setup lang="ts">
+  import {useI18n} from 'vue-i18n'
+
+  // Use the vue-i18n composable to get the translation function `t`
+  const {t} = useI18n()
 </script>
 
 <template>
