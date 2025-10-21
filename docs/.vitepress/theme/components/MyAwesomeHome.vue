@@ -37,7 +37,7 @@ const dlog = (...a:any[]) => { if (enableDebug.value) console.log('%c[PowerX]', 
 /* ---------- 角度与动效：大幅摆动 + 顶部可见 ---------- */
 const gradientAngle = ref(120)     // 初始角度
 const angleBase     = 20          // 基准（水平）
-const angleAmp      = 60           // 摆动幅度（更大！建议 60~100）
+const angleAmp      = 320           // 摆动幅度（更大！建议 60~100）
 const autoDrift     = ref(true)
 const followPointer = ref(false)   // 需要时打开
 let rafId: number | null = null
@@ -219,7 +219,7 @@ const navigateTo = (p: string) => {
             <VPNavBarTranslations class="hidden md:flex" />
             <VPSwitchAppearance class="flex rounded-full bg-white p-1 text-slate-600 shadow-sm transition hover:bg-white hover:text-emerald-500 hover:scale-110 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-800" />
             <VPNavBarSocialLinks class="hidden md:flex" />
-            <button class="btn-primary" type="button" @click="navigateTo('/developer-guides/')">
+            <button class="btn-primary" type="button" @click="navigateTo('/guides/')">
               {{ copy.nav.cta }}
             </button>
           </div>
@@ -236,7 +236,7 @@ const navigateTo = (p: string) => {
           <p class="mx-auto mb-8 max-w-2xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.hero.description }}</p>
           <div class="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-up delay-300">
             <button class="btn-ghost" type="button" @click="navigateTo('/core-concepts/')">{{ copy.hero.primaryCta }}</button>
-            <button class="btn-outline" type="button" @click="navigateTo('/developer-guides/PowerX_Plugin_SDK_Guide')">{{ copy.hero.secondaryCta }}</button>
+            <button class="btn-outline" type="button" @click="navigateTo('/guides/PowerX_Plugin_SDK_Guide')">{{ copy.hero.secondaryCta }}</button>
           </div>
         </div>
       </section>
@@ -278,7 +278,7 @@ const navigateTo = (p: string) => {
                     <span class="mr-2 h-2 w-2 rounded-full bg-emerald-400"></span>{{ ft }}
                   </li>
                 </ul>
-                <button class="btn-primary mt-auto" type="button" @click="navigateTo('/developer-guides/')">{{ copy.products.ctaLabel }}</button>
+                <button class="btn-primary mt-auto" type="button" @click="navigateTo('/guides/')">{{ copy.products.ctaLabel }}</button>
               </div>
             </article>
           </div>
@@ -325,7 +325,7 @@ const navigateTo = (p: string) => {
           <h2 class="mb-6 text-3xl font-bold md:text-4xl animate-fade-up">{{ copy.finalCta.title }}</h2>
           <p class="mx-auto mb-10 max-w-2xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.finalCta.description }}</p>
           <div class="flex flex-col justify-center gap-4 sm:flex-row animate-pop-in">
-            <button class="btn-ghost" type="button" @click="navigateTo('/developer-guides/Agent_Developer_Guide')">{{ copy.finalCta.primary }}</button>
+            <button class="btn-ghost" type="button" @click="navigateTo('/guides/Agent_Developer_Guide')">{{ copy.finalCta.primary }}</button>
             <button class="btn-outline" type="button" @click="navigateTo('/markdown-examples')">{{ copy.finalCta.secondary }}</button>
           </div>
         </div>

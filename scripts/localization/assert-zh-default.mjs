@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename)
 const DEFAULT_BASE = process.env.POWERX_DOCS_BASE ?? 'http://localhost:4173'
 const MANIFEST_PATH = path.resolve(
   __dirname,
-  '../../docs/localization/manifest.json',
+  '../../docs/website/localization/manifest.json',
 )
 
 async function loadManifest() {

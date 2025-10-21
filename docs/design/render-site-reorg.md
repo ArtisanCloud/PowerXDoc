@@ -10,6 +10,57 @@
 
 ---
 
+# 0. 迁移前基线记录（2025-10-21）
+
+- 技术栈核对：package.json 中 `typescript@5.9.3`、`vitepress@1.6.4`、`tailwindcss@3.4.14`、`postcss@8.4.47`、`autoprefixer@10.4.20` 均与迁移方案预期一致。
+- 现有渲染目录仍位于 `docs/` 根目录，包含以下一级内容（迁移前快照）：
+
+```
+docs/
+├─ .vitepress/
+├─ api-and-specifications/
+├─ api-examples.md
+├─ core-concepts/
+├─ design/
+├─ developer-guides/
+├─ en/
+├─ index.md
+├─ localization/
+├─ markdown-examples.md
+├─ public/
+├─ pxip/
+└─ security-and-governance/
+```
+
+> 后续迁移将以此快照为基准，定位需要下沉到 `docs/website/` 的目录与文件。
+
+---
+
+
+## 1.1 迁移完成快照（2025-10-21）
+
+迁移后 `docs/` 保留源材料与设计文档，渲染树统一下沉至 `docs/website/`：
+
+```
+docs/
+├─ .vitepress/
+├─ design/
+└─ website/
+   ├─ index.md
+   ├─ core-concepts/
+   ├─ guides/
+   ├─ api-and-specifications/
+   ├─ security-and-governance/
+   ├─ localization/
+   ├─ en/
+   ├─ public/
+   ├─ pxip/
+   ├─ markdown-examples.md
+   └─ api-examples.md
+```
+
+发布白名单入口（AI 发布流程）使用 `docs/website/_mount/`; 静态资源统一归档到 `docs/website/public/`。
+
 ## 1. 新目录布局（结果）
 
 ```
@@ -101,7 +152,7 @@ export default defineConfig({
 | --------------------------------- | --------------------------------------------- |
 | `docs/index.md`                   | `docs/website/index.md`                       |
 | `docs/core-concepts/**`           | `docs/website/core-concepts/**`               |
-| `docs/developer-guides/**`        | `docs/website/guides/**`                      |
+| `docs/developer-guides` 整目录          | `docs/website/guides` 整目录                         |
 | `docs/api-and-specifications/**`  | `docs/website/api-and-specifications/**`      |
 | `docs/security-and-governance/**` | `docs/website/security-and-governance/**`     |
 | `docs/pxip/**`                    | `docs/website/pxip/**`                        |
@@ -160,3 +211,25 @@ export default defineConfig({
 * 规范/用例/分析的**源**与下发逻辑，统一留在 `website` 平级，**不直接参与渲染**。
 
 ——这能把“展示层”和“资料源”彻底分离，构建干净、发布可控，与你的 **Only Push 中心治理** 完整对齐。
+
+---
+
+## 8. 渲染与 AI 发布流程一览
+
+```mermaid
+flowchart TD
+    A[源内容目录
+(docs/standards、docs/scenarios 等)] --> B[内容审核与批准]
+    B -->|输出 Approved 列表| C[AI 建议生成
+(scripts/publish/generate-suggestions.mjs)]
+    C --> D[建议文件 docs/website/_mount/publish-suggestions.json]
+    D --> E[运营人工确认
+(scripts/publish/review-suggestions.mjs)]
+    E -->|confirm/manual| F[应用建议
+(scripts/publish/apply-suggestions.mjs)]
+    F --> G[docs/website/ 渲染树更新]
+    G --> H[VitePress Build / Deploy]
+    E -->|dismiss| C
+```
+
+> 提醒：高风险或低信心建议会默认进入手动模式，需人工指定目标后再应用。

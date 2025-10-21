@@ -1,6 +1,6 @@
 import type { Router } from 'vitepress'
 import { inBrowser } from 'vitepress'
-import manifest from '../../../localization/manifest.json'
+import manifest from '../../../website/localization/manifest.json'
 import {
   DEFAULT_LOCALE,
   ensureLocalePreference,
