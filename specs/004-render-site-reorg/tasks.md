@@ -7,9 +7,9 @@
 
 **Purpose**: Align team on scope, tooling, and baseline artifacts.
 
-- [ ] T001 Review feature scope and acceptance criteria in specs/004-render-site-reorg/spec.md and plan.md
-- [ ] T002 [P] Verify Node.js/Tailwind/VitePress dependencies in package.json and package-lock.json match plan assumptions
-- [ ] T003 [P] Capture baseline docs tree snapshot notes in docs/design/render-site-reorg.md before migration
+- [X] T001 Review feature scope and acceptance criteria in specs/004-render-site-reorg/spec.md and plan.md
+- [X] T002 [P] Verify Node.js/Tailwind/VitePress dependencies in package.json and package-lock.json match plan assumptions
+- [X] T003 [P] Capture baseline docs tree snapshot notes in docs/design/render-site-reorg.md before migration
 
 ---
 

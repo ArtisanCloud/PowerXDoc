@@ -10,6 +10,32 @@
 
 ---
 
+# 0. 迁移前基线记录（2025-10-21）
+
+- 技术栈核对：package.json 中 `typescript@5.9.3`、`vitepress@1.6.4`、`tailwindcss@3.4.14`、`postcss@8.4.47`、`autoprefixer@10.4.20` 均与迁移方案预期一致。
+- 现有渲染目录仍位于 `docs/` 根目录，包含以下一级内容（迁移前快照）：
+
+```
+docs/
+├─ .vitepress/
+├─ api-and-specifications/
+├─ api-examples.md
+├─ core-concepts/
+├─ design/
+├─ developer-guides/
+├─ en/
+├─ index.md
+├─ localization/
+├─ markdown-examples.md
+├─ public/
+├─ pxip/
+└─ security-and-governance/
+```
+
+> 后续迁移将以此快照为基准，定位需要下沉到 `docs/website/` 的目录与文件。
+
+---
+
 ## 1. 新目录布局（结果）
 
 ```
