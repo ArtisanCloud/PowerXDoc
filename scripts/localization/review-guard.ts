@@ -6,9 +6,9 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const DOCS_ROOT = path.resolve(__dirname, '../../docs')
+const DOCS_ROOT = path.resolve(__dirname, '../../docs/website')
 const EN_ROOT = path.join(DOCS_ROOT, 'en')
-const EXCLUDE_DIRS = ['.vitepress', 'localization', 'assets']
+const EXCLUDE_DIRS = ['.vitepress', 'localization', 'assets', '_mount', 'public']
 
 type ReviewStatus = 'Placeholder' | 'InReview' | 'Approved'
 

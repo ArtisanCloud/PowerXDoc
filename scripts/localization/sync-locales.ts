@@ -7,7 +7,7 @@ import type { LocaleManifest } from './types'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const DOCS_ROOT = path.resolve(__dirname, '../../docs')
+const DOCS_ROOT = path.resolve(__dirname, '../../docs/website')
 const TARGET_LOCALE = 'en-US'
 const TARGET_ROOT = path.join(DOCS_ROOT, 'en')
 const MANIFEST_PATH = path.join(DOCS_ROOT, 'localization', 'manifest.json')
@@ -22,7 +22,7 @@ async function ensureDir(dir: string) {
 }
 
 function isLocalizableMarkdown(file: string) {
-  const excludeDirs = ['.vitepress', 'en', 'localization', 'assets']
+  const excludeDirs = ['.vitepress', 'en', 'localization', 'assets', '_mount', 'public']
   const segments = file.split(path.sep)
   if (segments.some((segment) => excludeDirs.includes(segment))) {
     return false

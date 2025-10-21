@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 import http from 'node:http'
 import { URL } from 'node:url'
-import manifest from '../../docs/localization/manifest.json'
+import manifest from '../../docs/website/localization/manifest.json'
 
 const DEFAULT_BASE = process.env.POWERX_DOCS_BASE ?? 'http://localhost:4173'
 const DEFAULT_LOCALE = manifest.sourceLocale

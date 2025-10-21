@@ -52,11 +52,11 @@
 
 ### Implementation
 
-- [ ] T013 [US2] Rewrite docs/website/localization/manifest.json slugs and partnerSlug entries to match new docs/website/ routes
-- [ ] T014 [P] [US2] Point scripts/localization/sync-locales.mjs and scripts/localization/sync-locales.ts to the docs/website root paths
-- [ ] T015 [P] [US2] Update scripts/localization/check-parity.mjs and scripts/localization/check-parity.ts for docs/website/
-- [ ] T016 [P] [US2] Update scripts/localization/review-guard.mjs, review-guard.ts, assert-zh-default.mjs, assert-zh-default.ts, and measure-switch.* to respect the new directories
-- [ ] T017 [US2] Execute localization sync/parity/review guard and log results plus troubleshooting steps in specs/004-render-site-reorg/quickstart.md
+- [X] T013 [US2] Rewrite docs/website/localization/manifest.json slugs and partnerSlug entries to match new docs/website/ routes
+- [X] T014 [P] [US2] Point scripts/localization/sync-locales.mjs and scripts/localization/sync-locales.ts to the docs/website root paths
+- [X] T015 [P] [US2] Update scripts/localization/check-parity.mjs and scripts/localization/check-parity.ts for docs/website/
+- [X] T016 [P] [US2] Update scripts/localization/review-guard.mjs, review-guard.ts, assert-zh-default.mjs, assert-zh-default.ts, and measure-switch.* to respect the new directories
+- [X] T017 [US2] Execute localization sync/parity/review guard and log results plus troubleshooting steps in specs/004-render-site-reorg/quickstart.md
 
 **Checkpoint**: Localization automation succeeds end-to-end with the new render root.
 

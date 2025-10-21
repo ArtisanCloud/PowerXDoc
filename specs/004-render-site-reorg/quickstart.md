@@ -17,6 +17,11 @@
 4. 运行 `npm run docs:dev` 手动验证导航、页脚、首页 CTA。
 
 ## 4. 本地化脚本校验
+- 2025-10-21: 已在 docs/website 根运行本地化脚本：
+  - `node scripts/localization/sync-locales.mjs` ✅
+  - `node scripts/localization/check-parity.mjs` ✅（提示占位状态，暂无 Approved 页面属预期）
+  - `node scripts/localization/review-guard.mjs` ❌（因多页面仍为 Placeholder/InReview，发布前需人工审批）
+
 1. 更新 `scripts/localization/*.mjs`、`.ts` 中的根路径为 `docs/website`。
 2. 依次执行：
    - `node scripts/localization/sync-locales.mjs`

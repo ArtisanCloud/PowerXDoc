@@ -1,7 +1,7 @@
 ---
 title: "Developer Guides"
 reviewStatus: InReview
-partnerSlug: "/developer-guides/README.md"
+partnerSlug: "/guides/README.md"
 ---
 
 # Developer Guides
