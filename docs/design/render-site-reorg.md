@@ -1,5 +1,4 @@
-好的！下面是一份**可直接落库**的方案文档，用来描述这次渲染目录的调整与迁移。
-你可以保存为：
+用来描述这次渲染目录的调整与迁移。保存为：
 `PowerXDoc/docs/design/render-site-reorg.md`
 
 ---
@@ -218,18 +217,15 @@ export default defineConfig({
 
 ```mermaid
 flowchart TD
-    A[源内容目录
-(docs/standards、docs/scenarios 等)] --> B[内容审核与批准]
-    B -->|输出 Approved 列表| C[AI 建议生成
-(scripts/publish/generate-suggestions.mjs)]
-    C --> D[建议文件 docs/website/_mount/publish-suggestions.json]
-    D --> E[运营人工确认
-(scripts/publish/review-suggestions.mjs)]
-    E -->|confirm/manual| F[应用建议
-(scripts/publish/apply-suggestions.mjs)]
-    F --> G[docs/website/ 渲染树更新]
-    G --> H[VitePress Build / Deploy]
-    E -->|dismiss| C
+  A["源内容目录<br/>(docs/standards、docs/scenarios 等)"] --> B["内容审核与批准"]
+  B -->|输出 Approved 列表| C["AI 建议生成<br/>(scripts/publish/generate-suggestions.mjs)"]
+  C --> D["建议文件<br/>docs/website/_mount/publish-suggestions.json"]
+  D --> E["运营人工确认<br/>(scripts/publish/review-suggestions.mjs)"]
+  E -->|confirm/manual| F["应用建议<br/>(scripts/publish/apply-suggestions.mjs)"]
+  F --> G["docs/website/ 渲染树更新"]
+  G --> H["VitePress Build / Deploy"]
+  E -->|dismiss| C
+
 ```
 
 > 提醒：高风险或低信心建议会默认进入手动模式，需人工指定目标后再应用。
