@@ -114,10 +114,10 @@
 
 **Purpose**: Final integration, documentation alignment, and validation of the full hub workflows.
 
-- [ ] T033 Implement workflow runtime telemetry and SLA verification tooling in scripts/qa/workflow-metrics.mjs
-- [ ] T034 Run linting and docs build pipelines (`npm run lint`, `npm run docs:build`) and capture results in reports/build.md
-- [ ] T035 Align quickstart instructions with final CLI signatures in specs/005-cross-repo-documentation/quickstart.md
-- [ ] T036 Update AGENTS.md with any additional tooling insights discovered during implementation
+- [x] T033 Implement workflow runtime telemetry and SLA verification tooling in scripts/qa/workflow-metrics.mjs
+- [x] T034 Run linting and docs build pipelines (`npm run lint`, `npm run docs:build`) and capture results in reports/build.md
+- [x] T035 Align quickstart instructions with final CLI signatures in specs/005-cross-repo-documentation/quickstart.md
+- [x] T036 Update AGENTS.md with any additional tooling insights discovered during implementation
 
 ---
 
