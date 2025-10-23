@@ -1,0 +1,3 @@
+# Scenario registry (scn_id keyed to child usecases)
+# Placeholder scaffold; populate during implementation.
+scenarios: []

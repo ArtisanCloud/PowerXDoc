@@ -16,9 +16,9 @@
 
 **Purpose**: Prepare the repository for new cross-repo workflows and reporting outputs.
 
-- [ ] T001 Update Node engine metadata and add npm scripts (`publish:scenarios`, `publish:usecases`, `publish:standards`, `publish:collected`, `publish:notify`, `test:workflows`) in package.json
-- [ ] T002 Create reports guidance and placeholder files in reports/README.md and reports/.gitkeep
-- [ ] T003 Document workflow testing setup with Node's test runner in tests/workflows/README.md
+- [x] T001 Update Node engine metadata and add npm scripts (`publish:scenarios`, `publish:usecases`, `publish:standards`, `publish:collected`, `publish:notify`, `test:workflows`) in package.json
+- [x] T002 Create reports guidance and placeholder files in reports/README.md and reports/.gitkeep
+- [x] T003 Document workflow testing setup with Node's test runner in tests/workflows/README.md
 
 ---
 
@@ -28,13 +28,13 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T004 Scaffold central registries in docs/_data/docmap.yaml, docs/_data/repos.yaml, and docs/_data/taxonomy.yaml
-- [ ] T005 [P] Implement docmap and taxonomy loader utilities with duplicate detection in scripts/lib/docmap-utils.mjs
-- [ ] T006 [P] Implement Git child_process wrapper for branch, commit, and push operations in scripts/lib/git-utils.mjs
-- [ ] T007 [P] Implement workflow report writer helpers for JSON emission in scripts/lib/report-writer.mjs
-- [ ] T008 [P] Implement workflow state ledger and resume-token helpers for idempotent reruns in scripts/lib/workflow-state.mjs
-- [ ] T009 [P] Write failing shared workflow state tests covering duplicate prevention in tests/workflows/workflow-state.spec.mjs
-- [ ] T010 Wire up docmap validation CLI using shared utilities in scripts/qa/validate-docmap.mjs
+- [x] T004 Scaffold central registries in docs/_data/docmap.yaml, docs/_data/repos.yaml, and docs/_data/taxonomy.yaml
+- [x] T005 [P] Implement docmap and taxonomy loader utilities with duplicate detection in scripts/lib/docmap-utils.mjs
+- [x] T006 [P] Implement Git child_process wrapper for branch, commit, and push operations in scripts/lib/git-utils.mjs
+- [x] T007 [P] Implement workflow report writer helpers for JSON emission in scripts/lib/report-writer.mjs
+- [x] T008 [P] Implement workflow state ledger and resume-token helpers for idempotent reruns in scripts/lib/workflow-state.mjs
+- [x] T009 [P] Write failing shared workflow state tests covering duplicate prevention in tests/workflows/workflow-state.spec.mjs
+- [x] T010 Wire up docmap validation CLI using shared utilities in scripts/qa/validate-docmap.mjs
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel.
 
