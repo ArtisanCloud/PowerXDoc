@@ -7,7 +7,16 @@
     "localization:check": "node scripts/localization/check-parity.mjs",
     "localization:review-guard": "node scripts/localization/review-guard.mjs",
     "docs:release": "pnpm run localization:review-guard && vitepress build docs",
-    "lint": "eslint \"docs/.vitepress/**/*.{ts,vue}\""
+    "lint": "eslint \"docs/.vitepress/**/*.{ts,vue}\"",
+    "publish:scenarios": "node scripts/publish/publish-scenarios.mjs",
+    "publish:usecases": "node scripts/publish/push-usecases.mjs",
+    "publish:standards": "node scripts/publish/push-standards.mjs",
+    "publish:collected": "node scripts/publish/generate-collected.mjs",
+    "publish:notify": "node scripts/workflows/notify-reviewers.mjs",
+    "test:workflows": "node --test tests/workflows"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "vue-i18n": "^9.14.1"
