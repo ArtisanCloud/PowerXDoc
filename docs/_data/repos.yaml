@@ -1,3 +1,47 @@
-# Downstream repository metadata scaffold
-# Replace placeholder entries with real data during implementation.
-repos: []
+# Downstream repository metadata
+# Each entry defines how distribution workflows interact with the target repository.
+repos:
+  - key: powerx-backend
+    display_name: PowerX Backend
+    slug: ArtisanCloud/PowerX
+    git_url: git@github.com:ArtisanCloud/PowerX.git
+    default_branch: main
+    scope: powerx
+    checkout: powerx-backend
+    usecase_seed_root: docs/use_cases/_from_hub
+    standards_root: docs/standards
+    default_reviewers:
+      - powerx-docs-reviewers
+  - key: powerx-admin
+    display_name: PowerX Admin
+    slug: ArtisanCloud/PowerXAdmin
+    git_url: git@github.com:ArtisanCloud/PowerXAdmin.git
+    default_branch: main
+    scope: powerx-admin
+    checkout: powerx-admin
+    usecase_seed_root: docs/use_cases/_from_hub
+    standards_root: docs/standards
+    default_reviewers:
+      - powerx-admin-docs
+  - key: powerx-plugin
+    display_name: PowerX Plugin Scaffold
+    slug: ArtisanCloud/PowerXPlugin
+    git_url: git@github.com:ArtisanCloud/PowerXPlugin.git
+    default_branch: main
+    scope: powerx-plugin
+    checkout: powerx-plugin
+    usecase_seed_root: docs/use_cases/_from_hub
+    standards_root: docs/standards
+    default_reviewers:
+      - powerx-plugin-docs
+  - key: powerx-marketplace
+    display_name: PowerX Marketplace
+    slug: ArtisanCloud/PowerXMarketplace
+    git_url: git@github.com:ArtisanCloud/PowerXMarketplace.git
+    default_branch: main
+    scope: powerx-marketplace
+    checkout: powerx-marketplace
+    usecase_seed_root: docs/use_cases/_from_hub
+    standards_root: docs/standards
+    default_reviewers:
+      - powerx-marketplace-docs

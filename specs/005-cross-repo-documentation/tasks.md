@@ -72,17 +72,17 @@
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T019 [P] [US2] Write failing workflow tests for template distribution happy/error/rerun paths in tests/workflows/push-usecases.spec.mjs
-- [ ] T020 [P] [US2] Write failing workflow tests for standards distribution behavior and rerun safety in tests/workflows/push-standards.spec.mjs
+- [x] T019 [P] [US2] Write failing workflow tests for template distribution happy/error/rerun paths in tests/workflows/push-usecases.spec.mjs
+- [x] T020 [P] [US2] Write failing workflow tests for standards distribution behavior and rerun safety in tests/workflows/push-standards.spec.mjs
 
 ### Implementation for User Story 2
 
-- [ ] T021 [US2] Implement GitHub helper for PR creation and reviewer metadata in scripts/lib/github-utils.mjs
-- [ ] T022 [US2] Implement usecase push workflow CLI with branch creation, PR opening, reporting, and rerun safeguards in scripts/publish/push-usecases.mjs
-- [ ] T023 [US2] Implement standards push workflow CLI with read-only path enforcement and rerun safeguards in scripts/publish/push-standards.mjs
-- [ ] T024 [US2] Implement reviewer reminder workflow honoring 72-hour SLA in scripts/workflows/notify-reviewers.mjs
-- [ ] T025 [P] [US2] Populate downstream repository metadata for all four targets in docs/_data/repos.yaml
-- [ ] T026 [US2] Document pure push distribution process, retry strategy, and safety constraints in docs/standards/cli-install-and-naming.md
+- [x] T021 [US2] Implement GitHub helper for PR creation and reviewer metadata in scripts/lib/github-utils.mjs
+- [x] T022 [US2] Implement usecase push workflow CLI with branch creation, PR opening, reporting, and rerun safeguards in scripts/publish/push-usecases.mjs
+- [x] T023 [US2] Implement standards push workflow CLI with read-only path enforcement and rerun safeguards in scripts/publish/push-standards.mjs
+- [x] T024 [US2] Implement reviewer reminder workflow honoring 72-hour SLA in scripts/workflows/notify-reviewers.mjs
+- [x] T025 [P] [US2] Populate downstream repository metadata for all four targets in docs/_data/repos.yaml
+- [x] T026 [US2] Document pure push distribution process, retry strategy, and safety constraints in docs/standards/cli-install-and-naming.md
 
 **Checkpoint**: Template and standards distribution workflows operate independently with retry and reporting support.
 

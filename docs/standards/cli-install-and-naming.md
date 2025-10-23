@@ -152,3 +152,30 @@ px-market completion zsh   > "${fpath[1]}/_px-market"
   用版本号后缀安装到不同路径，或使用 `asdf`/`rtx` 自定义 shim。
 
 ---
+
+## 8. Pure Push 分发流程（PowerXDocs ➜ 下游仓）
+
+PowerXDocs 提供以下自动化脚本，确保所有 CLI 与文档以 “纯 Push” 同步到各仓：
+
+| Workflow | 命令 | 说明 |
+|----------|------|------|
+| Usecase 模板分发 | `npm run publish:usecases -- --scn-id SCN-XXXX` | 读取 `docs/_data/docmap.yaml` 与 `docs/_data/repos.yaml`，将更新后的模板推送到 `_from_hub/` 目录并生成报告。 |
+| Standards 分发 | `npm run publish:standards` | 将 `docs/standards/**` 拷贝到各仓对应的 standards 目录，保持治理文案一致。 |
+| 审核提醒 | `npm run publish:notify -- --workflow usecases` | 检查超过 72 小时未合并的 PR，输出提醒信息。 |
+
+### 8.1 工作流特性
+
+- **幂等/可重跑**：每次执行都会生成 `reports/_state/**` 的运行指纹；若内容未变更，脚本会拒绝重复分发并要求使用上一次报告中的 `resumeToken` 重试。
+- **报告输出**：所有工作流在 `reports/usecases/` 与 `reports/standards/` 下生成 JSON，记录分发仓库、变更文件、PR 链接、状态与重试 token。
+- **Dry Run 支持**：通过 `--dry-run` 可仅复制文件、生成报告，不执行 git commit/push，便于预览。
+- **Read-only 约束**：Standards 分发脚本会强制拷贝到 `docs/standards/`，不允许写入其他目录。
+
+### 8.2 操作步骤
+
+1. 确保四个下游仓库已在本地 `repos/<repo-key>` 目录完成 clone，并保持干净工作区。
+2. 根据需要更新 `docs/usecases-seeds/**` 或 `docs/standards/**`。
+3. 运行对应脚本（建议搭配 `--dry-run` 预检查），确认报告无错误后再去除 `--dry-run`。
+4. 脚本会生成带前缀 `docs/hub/...` 的分发分支，创建 PR 并记录在报告中。
+5. 使用 `npm run publish:notify` 检查超时 PR，确保遵循 72 小时提醒策略。
+
+> 提示：`docs/_data/repos.yaml` 定义了每个仓的 `checkout` 目录、`usecase_seed_root`、`standards_root` 等元信息，如需调整目录结构请先更新该表。
