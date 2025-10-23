@@ -49,6 +49,36 @@ function readTitleFromMd(file: string): string {
   return path.basename(file, '.md')
 }
 
+function readFrontmatter(file: string): Record<string, any> | null {
+  try {
+    const raw = fs.readFileSync(file, 'utf8')
+    const fm = raw.match(/^---\n([\s\S]*?)\n---/)
+    if (!fm) return null
+    const lines = fm[1]
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(Boolean)
+    const data: Record<string, any> = {}
+    for (const line of lines) {
+      const idx = line.indexOf(':')
+      if (idx === -1) continue
+      const key = line.slice(0, idx).trim()
+      const value = line.slice(idx + 1).trim()
+      if (!key) continue
+      if (value === 'true' || value === 'false') {
+        data[key] = value === 'true'
+      } else if (!Number.isNaN(Number(value))) {
+        data[key] = Number(value)
+      } else {
+        data[key] = value.replace(/^['"]|['"]$/g, '')
+      }
+    }
+    return data
+  } catch {
+    return null
+  }
+}
+
 // /scenarios/ : 从 website/scenarios 下的 md 自动生成
 function buildScenariosSidebar(localePrefix = '') {
   const dir = path.join(WEBSITE_ROOT, localePrefix ? localePrefix.slice(1) : '', 'scenarios')
@@ -104,7 +134,14 @@ function buildLibrarySidebar(localePrefix = '') {
       return domains.map(domain => {
         const files = walkMd(path.join(layerDir, domain)).sort()
         const children = files.map(abs => ({
-          text: readTitleFromMd(abs),
+          text: (() => {
+            const front = readFrontmatter(abs)
+            const baseTitle = front?.title ?? readTitleFromMd(abs)
+            if (front?.optional) {
+              return `${baseTitle}（可选）`
+            }
+            return baseTitle
+          })(),
           link:
             '/' +
             path

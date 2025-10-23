@@ -96,15 +96,15 @@
 
 ### Tests for User Story 3 ⚠️
 
-- [ ] T027 [P] [US3] Write failing workflow tests for collected stub generation, error handling, and rerun safety in tests/workflows/generate-collected.spec.mjs
+- [x] T027 [P] [US3] Write failing workflow tests for collected stub generation, error handling, and rerun safety in tests/workflows/generate-collected.spec.mjs
 
 ### Implementation for User Story 3
 
-- [ ] T028 [US3] Implement collected stub generation CLI producing docs/website/_collected/**, reports, and rerun safeguards in scripts/publish/generate-collected.mjs
-- [ ] T029 [P] [US3] Extend docs/.vitepress/config.mts to surface `_collected` metadata with optionality badges
-- [ ] T030 [US3] Create leadership landing page that lists collected stubs in docs/website/library/index.md
-- [ ] T031 [P] [US3] Add `_collected` stub template and placeholder keeper in docs/website/_collected/_template.md and docs/website/_collected/.gitkeep
-- [ ] T032 [US3] Document leadership review workflow and gap analysis steps in docs/guides/Leadership-coverage.md
+- [x] T028 [US3] Implement collected stub generation CLI producing docs/website/_collected/**, reports, and rerun safeguards in scripts/publish/generate-collected.mjs
+- [x] T029 [P] [US3] Extend docs/.vitepress/config.mts to surface `_collected` metadata with optionality badges
+- [x] T030 [US3] Create leadership landing page that lists collected stubs in docs/website/library/index.md
+- [x] T031 [P] [US3] Add `_collected` stub template and placeholder keeper in docs/website/_collected/_template.md and docs/website/_collected/.gitkeep
+- [x] T032 [US3] Document leadership review workflow and gap analysis steps in docs/guides/Leadership-coverage.md
 
 **Checkpoint**: Leadership can review aggregated coverage without accessing downstream repositories.
 

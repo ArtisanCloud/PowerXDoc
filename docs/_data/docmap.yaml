@@ -1,3 +1,18 @@
-# Scenario registry (scn_id keyed to child usecases)
-# Placeholder scaffold; populate during implementation.
-scenarios: []
+scenarios:
+  - scn_id: SCN-PUBLISH-001
+    title: 插件发布后目录同步
+    children:
+      - doc_id: PX-PUBLISH-001
+        scope: powerx
+        layer: service
+        domain: publish
+        optional: false
+        repo: powerx-backend
+        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md
+      - doc_id: PX-ADMIN-PUBLISH-001
+        scope: powerx-admin
+        layer: ui
+        domain: publish
+        optional: true
+        repo: powerx-admin
+        path: docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-001.md
