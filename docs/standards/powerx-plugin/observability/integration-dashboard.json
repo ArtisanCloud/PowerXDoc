@@ -1,0 +1,40 @@
+{
+  "title": "Integration Observability",
+  "description": "Envelope throughput, webhook delivery, secret rotation freshness",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Envelope Throughput",
+      "metric": "sum(rate(powerx_integration_envelopes_total[5m]))",
+      "unit": "req/s"
+    },
+    {
+      "type": "timeseries",
+      "title": "Webhook Delivery Attempts",
+      "metric": "sum(rate(powerx_integration_webhook_attempts_total[5m])) by (status)",
+      "legend": "{{status}}"
+    },
+    {
+      "type": "gauge",
+      "title": "Secrets Due (24h)",
+      "metric": "powerx_integration_secrets_rotations_due{window=\"due_24h\"}",
+      "thresholds": [
+        { "color": "green", "value": 0 },
+        { "color": "yellow", "value": 5 },
+        { "color": "red", "value": 10 }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Idempotency Outcomes (5m)",
+      "metric": "sum(rate(powerx_integration_idempotency_events_total[5m])) by (outcome)",
+      "legend": "{{outcome}}"
+    },
+    {
+      "type": "stat",
+      "title": "Webhook DLQ Backlog",
+      "metric": "sum(rate(powerx_integration_webhook_attempts_total{status=\"dlq\"}[5m]))",
+      "unit": "events/min"
+    }
+  ]
+}
