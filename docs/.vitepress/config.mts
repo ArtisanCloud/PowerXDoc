@@ -2,12 +2,19 @@ import { defineConfig } from 'vitepress'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { loadDocmap } from '../../scripts/lib/docmap-utils.mjs'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
 
 // ---------------- helpers: filesystem -> sidebar ----------------
 const WEBSITE_ROOT = path.resolve(__dirname, '../website')
+const DOCMAP_PATH = path.resolve(__dirname, '../_data/docmap.yaml')
+
+const docmapData = await loadDocmap(DOCMAP_PATH).catch(() => ({ scenarios: [] }))
+const docmapIndex = new Map<string, any>(
+  (docmapData.scenarios ?? []).map((scenario: any) => [scenario.scn_id, scenario])
+)
 
 function safeLs(dir: string): string[] {
   try { return fs.readdirSync(dir) } catch { return [] }
@@ -42,14 +49,67 @@ function readTitleFromMd(file: string): string {
   return path.basename(file, '.md')
 }
 
+function readFrontmatter(file: string): Record<string, any> | null {
+  try {
+    const raw = fs.readFileSync(file, 'utf8')
+    const fm = raw.match(/^---\n([\s\S]*?)\n---/)
+    if (!fm) return null
+    const lines = fm[1]
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(Boolean)
+    const data: Record<string, any> = {}
+    for (const line of lines) {
+      const idx = line.indexOf(':')
+      if (idx === -1) continue
+      const key = line.slice(0, idx).trim()
+      const value = line.slice(idx + 1).trim()
+      if (!key) continue
+      if (value === 'true' || value === 'false') {
+        data[key] = value === 'true'
+      } else if (!Number.isNaN(Number(value))) {
+        data[key] = Number(value)
+      } else {
+        data[key] = value.replace(/^['"]|['"]$/g, '')
+      }
+    }
+    return data
+  } catch {
+    return null
+  }
+}
+
 // /scenarios/ : 从 website/scenarios 下的 md 自动生成
 function buildScenariosSidebar(localePrefix = '') {
   const dir = path.join(WEBSITE_ROOT, localePrefix ? localePrefix.slice(1) : '', 'scenarios')
-  const files = safeLs(dir).filter(f => f.endsWith('.md')).sort()
-  return files.map(f => ({
-    text: readTitleFromMd(path.join(dir, f)),
-    link: `${localePrefix}/scenarios/` + f.replace(/\.md$/, '')
-  }))
+  const listed = new Set<string>()
+
+  const items = (docmapData.scenarios ?? []).map((scenario: any) => {
+    const fileName = `${scenario.scn_id}.md`
+    const abs = path.join(dir, fileName)
+    listed.add(fileName)
+    const title =
+      scenario.title ??
+      readTitleFromMd(abs)
+    const childCount = Array.isArray(scenario.children) ? scenario.children.length : 0
+    const hasOptional =
+      Array.isArray(scenario.children) && scenario.children.some((child: any) => child?.optional === true)
+    const suffix =
+      childCount > 0 ? ` · ${childCount} 子用例${hasOptional ? '（含可选）' : ''}` : ''
+    return {
+      text: `${title}${suffix}`,
+      link: `${localePrefix}/scenarios/` + fileName.replace(/\.md$/, '')
+    }
+  })
+
+  const files = safeLs(dir).filter(f => f.endsWith('.md') && !listed.has(f)).sort()
+  for (const file of files) {
+    items.push({
+      text: readTitleFromMd(path.join(dir, file)),
+      link: `${localePrefix}/scenarios/` + file.replace(/\.md$/, '')
+    })
+  }
+  return items
 }
 
 // /library/ : 从 website/_collected 下按 px/mkp/plg/admin → layer → domain 分组
@@ -74,7 +134,14 @@ function buildLibrarySidebar(localePrefix = '') {
       return domains.map(domain => {
         const files = walkMd(path.join(layerDir, domain)).sort()
         const children = files.map(abs => ({
-          text: readTitleFromMd(abs),
+          text: (() => {
+            const front = readFrontmatter(abs)
+            const baseTitle = front?.title ?? readTitleFromMd(abs)
+            if (front?.optional) {
+              return `${baseTitle}（可选）`
+            }
+            return baseTitle
+          })(),
           link:
             '/' +
             path

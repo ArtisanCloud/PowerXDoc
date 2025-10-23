@@ -3,32 +3,34 @@ title: 插件离线包生成与 PowerX 手工导入
 status: Draft
 version: v0.1.0
 owners:
-  - name: Li Wei
+
+- name: Li Wei
     role: Scenario Steward
-    contact: li.wei@artisancloud.com
+    contact: <li.wei@artisancloud.com>
 domains: [publish, install, offline]
 layers: [proto, service, ui]
 repos:
-  - key: powerx-plugin
+- key: powerx-plugin
     scope: plg
     responsibility: 生成 `.pxp` 离线包、附带签名与依赖清单
-  - key: powerx-backend
+- key: powerx-backend
     scope: px
     responsibility: 校验离线包、导入插件、执行业务回调
-  - key: powerx-admin
+- key: powerx-admin
     scope: admin
     responsibility: 提供手工导入向导、展示结果与日志
 related_usecases:
-  - doc_id: PLG-PUBLISH-OFFLINE-001
+- doc_id: PLG-PUBLISH-OFFLINE-001
     layer: proto
     domain: publish
-  - doc_id: PX-INSTALL-OFFLINE-001
+- doc_id: PX-INSTALL-OFFLINE-001
     layer: service
     domain: install
-  - doc_id: PX-ADMIN-INSTALL-OFFLINE-001
+- doc_id: PX-ADMIN-INSTALL-OFFLINE-001
     layer: ui
     domain: install
 last_reviewed_at: 2025-01-15
+
 ---
 
 # Executive Summary

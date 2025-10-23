@@ -3,32 +3,34 @@ title: 插件本地开发热加载与快速验证
 status: Draft
 version: v0.1.0
 owners:
-  - name: Li Wei
+
+- name: Li Wei
     role: Scenario Steward
-    contact: li.wei@artisancloud.com
+    contact: <li.wei@artisancloud.com>
 domains: [dev, publish, install]
 layers: [proto, service, ui]
 repos:
-  - key: powerx-plugin
+- key: powerx-plugin
     scope: plg
     responsibility: 提供开发模式 build、文件监听与调试工具
-  - key: powerx-backend
+- key: powerx-backend
     scope: px
     responsibility: 支持本地热加载目录、沙盒环境和插件重载接口
-  - key: powerx-admin
+- key: powerx-admin
     scope: admin
     responsibility: 提供开发环境中的插件管理、日志查看与调试入口
 related_usecases:
-  - doc_id: PLG-DEV-HOTLOAD-001
+- doc_id: PLG-DEV-HOTLOAD-001
     layer: proto
     domain: dev
-  - doc_id: PX-DEV-HOTLOAD-001
+- doc_id: PX-DEV-HOTLOAD-001
     layer: service
     domain: dev
-  - doc_id: PX-ADMIN-DEV-HOTLOAD-001
+- doc_id: PX-ADMIN-DEV-HOTLOAD-001
     layer: ui
     domain: dev
 last_reviewed_at: 2025-01-15
+
 ---
 
 # Executive Summary
@@ -73,8 +75,9 @@ last_reviewed_at: 2025-01-15
 
 3. **Stage 3 – Admin 开发面板操作**
    - 管理员/开发者访问 Admin 的“开发者插件”面板（`plugins/admin_workflow.md` dev 模式章节），查看已注册的本地插件。
-  - 面板展示实时日志（接入 `realtime/SSE_WS_Client_Guide.md`）与健康状态。
-  - 用户可触发“重新加载”“清理缓存”，调用 Backend 对应接口。
+
+- 面板展示实时日志（接入 `realtime/SSE_WS_Client_Guide.md`）与健康状态。
+- 用户可触发“重新加载”“清理缓存”，调用 Backend 对应接口。
 
 4. **Stage 4 – 测试与回滚**
    - 完成调试后，开发者执行 `px-plugin dev --stop`，CLI 调用 `DELETE /internal/dev/plugins/register`.

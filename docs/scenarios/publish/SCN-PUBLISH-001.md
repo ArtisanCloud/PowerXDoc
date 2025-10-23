@@ -4,25 +4,27 @@ title: 插件发布后目录同步
 status: Draft
 version: v0.1.0
 owners:
-  - name: Li Wei
+
+- name: Li Wei
     role: Scenario Steward
-    contact: li.wei@artisancloud.com
+    contact: <li.wei@artisancloud.com>
 domains: [publish]
 layers: [service, ui]
 repos:
-  - key: powerx-backend
+- key: powerx-backend
     scope: px
     responsibility: 同步插件目录、刷新缓存
-  - key: powerx-admin
+- key: powerx-admin
     scope: admin
     responsibility: 展示目录并提供安装操作
 related_usecases:
-  - doc_id: PX-PUBLISH-001
+- doc_id: PX-PUBLISH-001
     layer: service
     domain: publish
-  - doc_id: PX-ADMIN-PUBLISH-001
+- doc_id: PX-ADMIN-PUBLISH-001
     layer: ui
     domain: publish
+
 ---
 
 # Executive Summary

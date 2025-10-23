@@ -1,0 +1,50 @@
+id: com.powerx.plugins.base
+name: Base template Plugin
+version: 0.2.0
+channel: beta
+min_core: 0.7.0
+runtime:
+  backend:
+    entrypoint: backend/bin/plugin
+    sha256: "<sha256-placeholder>"
+frontends:
+  - name: admin
+    path: web-admin/.output/public
+    sha256: "<sha256-placeholder>"
+    health:
+      http: /healthz
+migrations:
+  - id: 202502010101_add_columns
+    checksum: "<sha256-placeholder>"
+    reversible: true
+contracts:
+  api: contracts/api.yaml
+  rbac: contracts/rbac.yaml
+  config: contracts/config.schema.json
+rbac:
+  - role: powerx.plugin.base.admin
+    actions: [base:template:read, base:template:create, base:template:update, base:template:delete]
+config_schema:
+  type: object
+  properties:
+    enable_legacy_mode:
+      type: boolean
+  required: []
+secrets:
+  - POWERX_AUTH_JWTSECRET
+lifecycle:
+  status: deprecated
+  effective_date: 2025-12-01
+  sunset_at: 2026-03-01
+  replacement: com.powerx.plugin.base.v2
+  notes: "v1 将在 2026-03-01 退役，请升级到 v2"
+signature:
+  hashes:
+    - path: backend/bin/plugin
+      sha256: "<sha256-placeholder>"
+  algorithm: SHA256withECDSA
+  signed_by: pending
+build:
+  commit: abcdef1234567890
+  builder: powerx-ci
+  timestamp: 2025-11-30T10:00:00Z

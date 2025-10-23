@@ -87,7 +87,11 @@ test('push-standards copies standards and writes report', async () => {
   assert.match(backendShared, /Common/);
 
   const backendSpecific = await fs.readFile(
+<<<<<<< HEAD
     path.join(root, 'repos/powerx-backend/docs/standards/powerx-backend/backend.md'),
+=======
+    path.join(root, 'repos/powerx-backend/docs/standards/powerx/backend.md'),
+>>>>>>> docs/hub/standards/powerx-marketplace-b547cf7c
     'utf8',
   );
   assert.match(backendSpecific, /Backend/);
@@ -157,7 +161,11 @@ test('push-standards supports include filter', async () => {
   assert.equal(sharedExists, false);
 
   const backendSpecificExists = await fs
+<<<<<<< HEAD
     .stat(path.join(root, 'repos/powerx-backend/docs/standards/powerx-backend/backend.md'))
+=======
+    .stat(path.join(root, 'repos/powerx-backend/docs/standards/powerx/backend.md'))
+>>>>>>> docs/hub/standards/powerx-marketplace-b547cf7c
     .then(() => true)
     .catch(() => false);
   assert.equal(backendSpecificExists, false);
@@ -197,7 +205,11 @@ test('push-standards auto-detects repos from include list', async () => {
   assert.match(copied, /Market/);
 
   const backendExists = await fs
+<<<<<<< HEAD
     .stat(path.join(root, 'repos/powerx-backend/docs/standards/powerx-backend/backend.md'))
+=======
+    .stat(path.join(root, 'repos/powerx-backend/docs/standards/powerx/backend.md'))
+>>>>>>> docs/hub/standards/powerx-marketplace-b547cf7c
     .then(() => true)
     .catch(() => false);
   assert.equal(backendExists, false);
@@ -237,7 +249,11 @@ test('push-standards respects standards map by scope', async () => {
   assert.match(readme, /Standards/);
 
   const backend = await fs.readFile(
+<<<<<<< HEAD
     path.join(root, 'repos/powerx-backend/docs/standards/powerx-backend/backend.md'),
+=======
+    path.join(root, 'repos/powerx-backend/docs/standards/powerx/backend.md'),
+>>>>>>> docs/hub/standards/powerx-marketplace-b547cf7c
     'utf8',
   );
   assert.match(backend, /Backend/);

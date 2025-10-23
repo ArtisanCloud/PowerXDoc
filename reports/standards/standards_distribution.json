@@ -45,6 +45,7 @@
         }
       ],
       "timestamp": "2025-10-23T07:04:21.417Z"
+<<<<<<< HEAD
     },
     {
       "workflowId": "standards:distribution",
@@ -107,6 +108,8 @@
         }
       ],
       "timestamp": "2025-10-23T11:35:43.750Z"
+=======
+>>>>>>> docs/hub/standards/powerx-marketplace-b547cf7c
     }
   ]
 }

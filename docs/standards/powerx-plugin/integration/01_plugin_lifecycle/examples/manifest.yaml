@@ -1,0 +1,61 @@
+id: com.powerx.plugins.base
+name: Base template Plugin
+version: 0.1.0
+channel: dev
+min_core: 0.6.0
+max_core: 0.8.0
+runtime:
+  backend:
+    entrypoint: backend/bin/plugin
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+frontends:
+  - name: admin
+    path: web-admin/.output/public
+    sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+migrations:
+  - id: 202401010101_init
+    checksum: "0000000000000000000000000000000000000000000000000000000000000000"
+    reversible: true
+contracts:
+  api: contracts/api.yaml
+  rbac: contracts/rbac.yaml
+  config: contracts/config.schema.json
+rbac:
+  - role: powerx.plugin.base.admin
+    actions:
+      - base:template:read
+      - base:template:create
+      - base:template:update
+      - base:template:delete
+config_schema:
+  type: object
+  properties:
+    webhook_url:
+      type: string
+      format: uri
+    retry_policy:
+      type: integer
+      minimum: 0
+      maximum: 10
+  required: [webhook_url]
+secrets:
+  - POWERX_AUTH_JWTSECRET
+lifecycle:
+  status: active
+  effective_date: 2025-01-01
+  replacement: ""
+  notes: "Initial development build"
+signature:
+  hashes:
+    - path: backend/bin/plugin
+      sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+    - path: web-admin/.output/public/assets/index.js
+      sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+  algorithm: SHA256withECDSA
+  signed_by: powerx-dev
+  signed_at: 2025-01-01T00:00:00Z
+  certificate: "-----BEGIN CERTIFICATE-----\nMIIB...\n-----END CERTIFICATE-----"
+build:
+  commit: 0000000000000000000000000000000000000000
+  builder: powerx-ci
+  timestamp: 2025-01-01T00:00:00Z

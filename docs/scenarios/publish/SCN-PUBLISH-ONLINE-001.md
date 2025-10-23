@@ -3,38 +3,40 @@ title: 插件标准发布与 Marketplace 上架（全链路）
 status: Draft
 version: v0.1.0
 owners:
-  - name: Li Wei
+
+- name: Li Wei
     role: Scenario Steward
-    contact: li.wei@artisancloud.com
+    contact: <li.wei@artisancloud.com>
 domains: [publish, marketplace, install]
 layers: [proto, api, service, ui]
 repos:
-  - key: powerx-plugin
+- key: powerx-plugin
     scope: plg
     responsibility: 构建、签名与发布插件包
-  - key: powerx-marketplace
+- key: powerx-marketplace
     scope: mkp
     responsibility: 审核上架、目录管理、交付指令
-  - key: powerx-backend
+- key: powerx-backend
     scope: px
     responsibility: 监听上架事件、同步目录并分发安装包
-  - key: powerx-admin
+- key: powerx-admin
     scope: admin
     responsibility: 展示上架插件、提供安装与管理入口
 related_usecases:
-  - doc_id: PLG-PUBLISH-ONLINE-001
+- doc_id: PLG-PUBLISH-ONLINE-001
     layer: proto
     domain: publish
-  - doc_id: MKP-PUBLISH-ONLINE-001
+- doc_id: MKP-PUBLISH-ONLINE-001
     layer: api
     domain: marketplace
-  - doc_id: PX-PUBLISH-ONLINE-001
+- doc_id: PX-PUBLISH-ONLINE-001
     layer: service
     domain: catalog
-  - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
+- doc_id: PX-ADMIN-PUBLISH-ONLINE-001
     layer: ui
     domain: marketplace
 last_reviewed_at: 2025-01-15
+
 ---
 
 # Executive Summary

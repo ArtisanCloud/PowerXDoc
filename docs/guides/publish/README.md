@@ -23,11 +23,13 @@
 
 3. **本地 checkout 准备**
    - 在仓库根目录建立 `repos/`（已列入 `.gitignore`），并保证其中的下游仓库工作区干净：  
+
      ```
      PowerXDocs/
        repos/
          powerx-marketplace/   # 与 repos.yaml 中 checkout 字段一致
      ```
+
    - 为目标仓拉取并切换到基线分支（如 `main` 或自定义的 `dev/docs`）。
    - 分发脚本会在运行时校正 `origin` remote，使其与 `repos.yaml` 中的 `git_url` 保持一致；若目录不存在则会报错提醒先完成 clone。
    - 可通过 `node scripts/setup/downstreams.mjs` 一次性把 `docs/_data/repos.yaml` 中列出的仓库 clone 到 `repos/` 下，并切换到指定基线分支。
@@ -35,6 +37,7 @@
 
 4. **了解默认同步范围**
    - `docs/_data/standards-map.yaml` 控制默认同步目录；示例：
+
      ```yaml
      defaults:
        include:
@@ -47,6 +50,7 @@
       powerx-marketplace:
          include:
            - powerx-marketplace/**
+
      ```
    - 上例中，`powerx-marketplace` 仓库默认会收到：
      - 顶层 `*.md`（如 `README.md`）  
@@ -81,14 +85,17 @@ npm run publish:standards -- \
 ### 2.2 报告审查
 
 打开 `reports/standards/standards_distribution.json` 或运行日志，确认：
+
 - `status` 为 `Completed`
 - `filesChanged` 缩写是否符合预期
 - Dry run 会登记一次工作流指纹。若之后要在同一内容基础上执行正式分发，请使用报告中的 `resumeToken`：
+
   ```bash
   npm run publish:standards -- \
     --repo powerx-marketplace \
     --resume-token <token>
   ```
+
   Dry run 结束时，CLI 会在输出中打印 `resumeToken`，也可以在上述报告文件中查找。
 
 ### 2.3 正式推送
@@ -101,6 +108,7 @@ npm run publish:standards -- \
 - 在目标仓库创建/切换到 `docs/hub/standards-<timestamp>` 分支、复制文件、提交，并自动执行 `git push origin <branch>`。  
 - 若 `repos.yaml` 配置了 `default_reviewers`，报告会给出 compare 链接，便于创建或审批 PR。
 - 如需仅推送已生成的分支，可使用辅助命令：
+
   ```bash
   node scripts/publish/push-standards-push.mjs --repo powerx-marketplace --branch docs/hub/standards/<name>
   ```
@@ -130,6 +138,7 @@ npm run publish:standards -- \
 | **Dry run 检查过滤效果** | 建议每次组合命令先 dry-run。 | `npm run publish:standards -- --repo powerx-marketplace --dry-run --include _shared/**` |
 
 **注意事项**
+
 - CLI 参数优先级：`--include/--exclude`（命令行） > `standards-map`（repo/scope/default） > 全量（`**`）。  
 - 指定 `--include` 后将 **完全覆盖** 默认映射，需手动加入 `_shared/**` 等默认内容；若未指定 `--repo`，脚本会为包含文件的仓库自动生成同步。
 - 匹配模式使用 POSIX 风格（`/` 分隔）且相对 `docs/standards/`；如写成 `docs/standards/...` 也会被自动归一化。
