@@ -48,17 +48,17 @@
 
 ### Tests for User Story 1 ⚠️
 
-- [ ] T011 [P] [US1] Write failing workflow tests for scenario validation, publish flow, and rerun safety in tests/workflows/publish-scenarios.spec.mjs
+- [x] T011 [P] [US1] Write failing workflow tests for scenario validation, publish flow, and rerun safety in tests/workflows/publish-scenarios.spec.mjs
 
 ### Implementation for User Story 1
 
-- [ ] T012 [US1] Implement markdown section/frontmatter parser for SCN templates in scripts/lib/markdown-utils.mjs
-- [ ] T013 [US1] Implement scenario workflow CLI (validate + publish) writing reports, artifacts, and workflow-state entries in scripts/publish/publish-scenarios.mjs
-- [ ] T014 [P] [US1] Author canonical scenario template with mandated sections in docs/standards/scenarios/_template.md
-- [ ] T015 [P] [US1] Document steward workflow and required steps referencing the standards template in docs/scenarios/README.md
-- [ ] T016 [US1] Update docs/.vitepress/config.mts to surface scenario metadata from docmap and render docs/website/scenarios/**
-- [ ] T017 [US1] Refresh mermaid architecture flow to include validation, publish, and rerun stages in docs/design/cross-repo-documentation.md
-- [ ] T018 [US1] Implement rerun guardrails (duplicate detection, resume tokens) for scenario publish CLI in scripts/publish/publish-scenarios.mjs
+- [x] T012 [US1] Implement markdown section/frontmatter parser for SCN templates in scripts/lib/markdown-utils.mjs
+- [x] T013 [US1] Implement scenario workflow CLI (validate + publish) writing reports, artifacts, and workflow-state entries in scripts/publish/publish-scenarios.mjs
+- [x] T014 [P] [US1] Author canonical scenario template with mandated sections in docs/standards/scenarios/_template.md
+- [x] T015 [P] [US1] Document steward workflow and required steps referencing the standards template in docs/scenarios/README.md
+- [x] T016 [US1] Update docs/.vitepress/config.mts to surface scenario metadata from docmap and render docs/website/scenarios/**
+- [x] T017 [US1] Refresh mermaid architecture flow to include validation, publish, and rerun stages in docs/design/cross-repo-documentation.md
+- [x] T018 [US1] Implement rerun guardrails (duplicate detection, resume tokens) for scenario publish CLI in scripts/publish/publish-scenarios.mjs
 
 **Checkpoint**: Scenario lifecycle is fully automated and independently testable.
 

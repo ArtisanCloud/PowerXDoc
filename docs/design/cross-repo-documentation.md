@@ -176,16 +176,21 @@ PowerXDoc/
 ```mermaid
 flowchart TD
   subgraph Center["PowerXDoc — 唯一源头与分发"]
+    ST["standards/scenarios/_template.md"]
+    SCN["scenarios/SCN-*.md（主用例草稿）"]
+    DM["docs/_data/docmap.yaml"]
+    TAX["docs/_data/taxonomy.yaml"]
+    PS["scripts/publish/publish-scenarios.mjs"]
+    WS["reports/_state/**（workflow ledger）"]
+    REP["reports/scenarios/<workflowId>.json"]
+    W1["website/scenarios/**（渲染页）"]
     U1["usecases-seeds/powerx/<layer>/<domain>/PX-*.md"]
     U2["usecases-seeds/powerx-marketplace/<layer>/<domain>/MKP-*.md"]
     U3["usecases-seeds/powerx-plugin/<layer>/<domain>/PLG-*.md"]
     U4["usecases-seeds/powerx-admin/<layer>/<domain>/PX-ADMIN-*.md"]
     T1["standards/**"]
-    P1["push-usecases.sh"]
-    P2["push-standards.sh"]
-    S1["scenarios/SCN-*.md（主用例源）"]
-    G1["publish-ai.mjs（聚合）"]
-    W1["website/scenarios/**（展示页）"]
+    P1["scripts/publish/push-usecases.mjs"]
+    P2["scripts/publish/push-standards.mjs"]
     H1["website/index.md & en/index.md（首页）"]
     OUT["最终网站"]
   end
@@ -198,9 +203,15 @@ flowchart TD
     RS["docs/standards/** 只读"]
   end
 
+  ST --> SCN
+  DM --> PS
+  TAX --> PS
+  SCN --> PS
+  PS --> W1 --> OUT
+  PS --> REP
+  PS --> WS
   U1 & U2 & U3 & U4 --> P1 --> R1 & R2 & R3 & R4
   T1 --> P2 --> RS
-  S1 --> G1 --> W1 --> OUT
   H1 --> OUT
 ```
 
