@@ -1,0 +1,17 @@
+defaults:
+  include:
+    - '*.md'
+    - _shared/**
+scopes:
+  powerx:
+    include:
+      - powerx/**
+  powerx-admin:
+    include:
+      - powerx-admin/**
+  powerx-plugin:
+    include:
+      - powerx-plugin/**
+  powerx-marketplace:
+    include:
+      - powerx-marketplace/**

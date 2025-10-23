@@ -21,3 +21,6 @@ yarn-error.log*
 # Local environment overrides
 .env.local
 .env.*.local
+
+# Local downstream clones (distribution checkout root)
+repos/

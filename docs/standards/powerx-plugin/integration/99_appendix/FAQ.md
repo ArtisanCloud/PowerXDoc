@@ -22,7 +22,7 @@
 目前官方支持：
 
 - 后端：Golang（主）、Rust（实验性）、Python（工具层）
-- 前端：Nuxt3（推荐）、Next.js、Vue 3  
+- 前端：Nuxt4（推荐）、Next.js、Vue 3  
 宿主使用 Gin + gRPC SDK，可通过 HTTP、gRPC、MCP 或 A2A 协议与插件通信。
 
 ---

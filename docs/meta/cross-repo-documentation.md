@@ -246,6 +246,22 @@ flowchart TD
 
 ---
 
+#### `docs/standards/scenarios/` vs `docs/scenarios/` vs `docs/usecases-seeds/`
+
+- **`docs/standards/scenarios/`**：场景模板与规范，通过 `_template.md` 等文件定义 SCN 所需的 Frontmatter、章节结构与质量基线；属于治理母版，不参与渲染，也不直接分发到下游。
+- **`docs/scenarios/`**：主用例草稿/成稿目录，依据上述模板撰写具体内容（`SCN-*.md`），随后由 `publish-ai.mjs` 转换成站点页面 `docs/website/scenarios/**`。
+- **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例。
+
+#### SCN 创建流程（发布领域示例）
+
+1. **复制模板**：将 `docs/standards/scenarios/_template.md` 复制为 `docs/scenarios/<domain>/SCN-<DOMAIN>-<FLOW>-<NNN>.md`，目前发布场景统一归档于 `docs/scenarios/publish/`。
+2. **填写元数据**：补充 Frontmatter（`scn_id`、`domains`、`layers`、`repos`、`related_usecases` 等）与正文各章节（流程、契约、验收、Telemetry）。
+3. **更新 docmap**：在 `docs/_data/docmap.yaml` 注册该 `scn_id`，并为每个子用例配置 `repo`、`layer`、`domain`、`path`。如缺少模板，在 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 下创建对应 `doc_id`。
+4. **运行发布校验**：执行 `npm run publish:scenarios -- --dry-run --scn-id <ID>` 检查渲染结果与 `_collected` 占位；通过后再去除 `--dry-run`。
+5. **联动分发**：需要时配合 `npm run publish:usecases`、`npm run publish:standards` 将子用例模板与规范下发到下游仓库。
+
+---
+
 ## 5. `_data` 文件定义（多层/领域版）
 
 ### `docs/_data/repos.yaml`（示例）
@@ -647,6 +663,19 @@ for repo in $(yq -r '.repos | keys[]' "$DATA/repos.yaml"); do
 done
 ```
 
+> **Node 版本增强（`scripts/publish/push-standards.mjs`）**
+>
+> - 默认复制 `docs/standards/**`，在下游仓创建 `docs/hub/standards-*` 分支并自动发起 PR。
+> - 支持 `--include` / `--exclude` 过滤同步范围（glob 基于 `docs/standards/`），例如：
+>   ```bash
+>   npm run publish:standards -- \
+>     --repo powerx-marketplace \
+>     --include _shared/** \
+>     --include powerx-marketplace/init-ui.md \
+>     --exclude _shared/drafts/**
+>   ```
+> - `filesChanged` 会记录实际同步的文件列表，方便审计；`--dry-run` 仍可用于预览。
+
 #### D) Standards 分发颗粒度方案
 
 为支持“共用规范 + 仓库专属规范”同步，`docs/standards/` 约定以下目录分层：
@@ -677,9 +706,10 @@ docs/standards/
 ```yaml
 defaults:
   include:
+    - '*.md'
     - _shared/**
-repos:
-  powerx-backend:
+scopes:
+  powerx:
     include:
       - powerx/**
   powerx-admin:
@@ -696,7 +726,7 @@ repos:
 处理流程：
 
 - `defaults.include` 在所有仓库生效，确保共用规范始终下发。
-- 仓库级 `include`/`exclude` 在默认策略基础上叠加，可按需缩放范围。
+- `scopes` 与 `repos`（可选）在默认策略基础上叠加，可细化到仓库或 scope。
 - 未配置的仓库自动继承默认值，便于新仓快速接入。
 
 ##### CLI 扩展能力
@@ -710,6 +740,9 @@ repos:
 | `--include <glob>` | 临时追加目录/文件，同步到目标仓库。 |
 | `--exclude <glob>` | 临时排除目录/文件，优先级高于 `include`。 |
 | `--all` | 显式要求对所有仓库执行分发（默认依赖筛选条件）。 |
+| `--standards-map <path>` | 使用自定义映射文件，覆盖默认的 `docs/_data/standards-map.yaml`。 |
+
+若仅提供 `--include`/`--exclude` 而未指定 `--repo`，脚本会根据 `standards-map` 中的 scope/仓库规则自动为匹配的仓库创建同步分支；未匹配的仓库会被跳过。
 
 最终同步列表 = 默认配置 → 仓库专属配置 → 命令行覆盖；完成清单后再复制文件并执行 PR 流程。
 

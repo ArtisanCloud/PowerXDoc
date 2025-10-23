@@ -1,0 +1,29 @@
+{
+  "summary": {
+    "workflowId": "standards:distribution",
+    "status": "Completed",
+    "generatedAt": "2025-10-23T06:59:22.098Z"
+  },
+  "records": [
+    {
+      "workflowId": "standards:distribution",
+      "status": "Completed",
+      "resumeToken": "a1781539-ad6d-4fc4-b4e6-c3d15356feae",
+      "records": [
+        {
+          "repoKey": "powerx-marketplace",
+          "branchName": "docs/hub/standards/powerx-marketplace-0d4ac5d0",
+          "status": "Success",
+          "filesChanged": [
+            "docs/standards/_shared/cli-install-and-naming.md",
+            "docs/standards/powerx-marketplace/init-ui.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXMarketplace/docs/hub/standards/powerx-marketplace-0d4ac5d0",
+          "resumeToken": "a1781539-ad6d-4fc4-b4e6-c3d15356feae",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-10-23T06:59:22.099Z"
+    }
+  ]
+}

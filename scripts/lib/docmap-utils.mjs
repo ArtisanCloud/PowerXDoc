@@ -162,6 +162,38 @@ export async function loadRepos(reposPath = 'docs/_data/repos.yaml') {
   return data;
 }
 
+export async function loadStandardsMap(mapPath = 'docs/_data/standards-map.yaml') {
+  const data = await readYaml(mapPath, {});
+  const normalizeList = (value) => (Array.isArray(value) ? value : []).map(String);
+
+  const defaults = {
+    include: normalizeList(data?.defaults?.include),
+    exclude: normalizeList(data?.defaults?.exclude),
+  };
+
+  const scopes = {};
+  if (data?.scopes && typeof data.scopes === 'object') {
+    for (const [scope, config] of Object.entries(data.scopes)) {
+      scopes[scope] = {
+        include: normalizeList(config?.include),
+        exclude: normalizeList(config?.exclude),
+      };
+    }
+  }
+
+  const repos = {};
+  if (data?.repos && typeof data.repos === 'object') {
+    for (const [key, config] of Object.entries(data.repos)) {
+      repos[key] = {
+        include: normalizeList(config?.include),
+        exclude: normalizeList(config?.exclude),
+      };
+    }
+  }
+
+  return { defaults, scopes, repos };
+}
+
 function ensureChildArray(children, scnId) {
   if (!Array.isArray(children)) {
     return [

@@ -2,6 +2,21 @@
 
 本目录存放通过 PowerXDocs 发布的跨仓场景文档。场景内容的唯一模板源位于 `docs/standards/scenarios/_template.md`，请勿在此处拷贝旧模板。
 
+## 目录组织
+
+- 当前发布领域统一使用 `publish/` 子目录，集中管理与插件发布、安装相关的全部场景（包括线上流程、离线导入、开发热加载等）。
+- 如后续新增其他领域，可增设新的子目录，但需在 `docs/_data/docmap.yaml` 与模板中保持一致。
+- 示例结构：
+  ```
+  docs/scenarios/
+  ├─ README.md
+  └─ publish/
+     ├─ SCN-PUBLISH-001.md
+     ├─ SCN-PUBLISH-OFFLINE-001.md
+     ├─ SCN-PUBLISH-ONLINE-001.md
+     └─ SCN-DEV-HOTLOAD-001.md
+  ```
+
 ## 编写流程
 
 1. **复制模板**  

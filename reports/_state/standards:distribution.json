@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "standards:distribution",
+      "fingerprint": "fc6a353ef07f25980e9ce52eff7d208f24e232eb9f3d3e8c9cb2e1902e03f952",
+      "resumeToken": "a1781539-ad6d-4fc4-b4e6-c3d15356feae",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/standards/standards_distribution.json"
+      },
+      "createdAt": "2025-10-23T06:59:22.090Z",
+      "updatedAt": "2025-10-23T06:59:22.099Z"
+    }
+  ],
+  "tokens": {
+    "a1781539-ad6d-4fc4-b4e6-c3d15356feae": "fc6a353ef07f25980e9ce52eff7d208f24e232eb9f3d3e8c9cb2e1902e03f952"
+  }
+}

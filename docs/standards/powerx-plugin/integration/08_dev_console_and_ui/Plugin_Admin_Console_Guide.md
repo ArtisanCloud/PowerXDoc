@@ -254,7 +254,7 @@ const canManageLicense = usePermission('plugin.license.update')
 
 | 设计要素      | 说明                       |
 | --------- | ------------------------ |
-| **框架**    | Nuxt 3 + Tailwind CSS    |
+| **框架**    | Nuxt 4 + Tailwind CSS    |
 | **组件库**   | shadcn/ui 或 Element Plus |
 | **图标库**   | lucide-react / Iconify   |
 | **主题色**   | 继承 PowerX Admin 主色       |

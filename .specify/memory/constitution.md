@@ -64,6 +64,7 @@ For any feature involving new architecture, complex data flows, or multi-step us
 - **可视化与本地化:** 涉及复杂架构的文档必须附带 `mermaid` 图示；VitePress 构建需满足中英双语与 TailwindCSS 本地加载，禁止外部 CDN。
 - **维护与版本:** 文档更新必须同步回源仓；结构调整需团队共识；规章遵循语义化版本，重大改动按 MAJOR，所有日期需同步更新。
 - **场景规范引入:** 所有 SCN 文档必须满足 `.specify/memory/scenario-standards.md` 中定义的强制要求，该文档为场景流程与聚合的唯一权威规范。
+- **场景编写流程:** 新建场景时必须根据 `docs/standards/scenarios/_template.md` 填写 Frontmatter 与章节内容，并将 `SCN-*.md` 放入对应领域子目录（例如 `docs/scenarios/publish/`）。随后同步在 `docs/_data/docmap.yaml` 登记 `scn_id` 与子用例映射，必要时在 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 下创建模板，并通过 `npm run publish:scenarios -- --dry-run` 验证渲染。
 
 ## Referenced Standards
 
