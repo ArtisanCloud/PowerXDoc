@@ -1,0 +1,21 @@
+# Allowed scopes, layers, and domains
+scopes:
+  - powerx-backend
+  - powerx-admin
+  - powerx-plugin
+  - powerx-marketplace
+layers:
+  - domain
+  - service
+  - api
+  - ui
+  - ops
+  - repo
+  - proto
+domains:
+  - publish
+  - install
+  - license
+  - catalog
+  - billing
+  - account

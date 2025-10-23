@@ -1,10 +1,9 @@
 最新文档体系（PowerXDoc 已采用 `docs/website` 渲染结构）的**最终整合版设计文档**。
 
 可以直接保存为：
-`PowerXDoc/docs/design/cross-repo-documentation.md`
+`PowerXDoc/docs/meta/cross-repo-documentation.md`
 
 ---
-
 
 # PowerX 多仓用例文档统一与聚合方案（多层用例版）
 
@@ -36,7 +35,7 @@
 flowchart TD
   subgraph Center["PowerXDoc（唯一源头 & 分发）"]
     S1["docs/scenarios/SCN-*.md<br/>主用例 源"]
-    U1["docs/usecases-seeds/powerx/<layer>/<domain>/PX-*.md<br/>PowerX 子用例模板 源"]
+    U1["docs/usecases-seeds/powerx-backend/<layer>/<domain>/PX-*.md<br/>PowerX 子用例模板 源"]
     U2["docs/usecases-seeds/powerx-marketplace/<layer>/<domain>/MKP-*.md<br/>Marketplace 子用例模板 源"]
     U3["docs/usecases-seeds/powerx-plugin/<layer>/<domain>/PLG-*.md<br/>Plugin 子用例模板 源"]
     U4["docs/usecases-seeds/powerx-admin/<layer>/<domain>/PX-ADMIN-*.md<br/>Admin 子用例模板 源"]
@@ -128,7 +127,7 @@ status: Approved
 ```
 PowerXDoc/
 ├─ docs/
-│  ├─ design/                          # 设计体系文档（手写，不渲染）
+│  ├─ meta/                          # 设计体系文档（手写，不渲染）
 │  │  └─ cross-repo-documentation.md
 │  │
 │  ├─ website/                         # 渲染站点（srcDir）
@@ -157,7 +156,7 @@ PowerXDoc/
 │  ├─ standards/                       # 统一规范源（推送到各仓，不渲染）
 │  ├─ scenarios/                       # 主用例草稿（不渲染）
 │  ├─ usecases-seeds/                  # 子用例模板（不渲染）
-│  │  ├─ powerx/<layer>/<domain>/PX-*.md
+│  │  ├─ powerx-backend/<layer>/<domain>/PX-*.md
 │  │  ├─ powerx-marketplace/<layer>/<domain>/MKP-*.md
 │  │  ├─ powerx-plugin/<layer>/<domain>/PLG-*.md
 │  │  └─ powerx-admin/<layer>/<domain>/PX-ADMIN-*.md
@@ -176,16 +175,21 @@ PowerXDoc/
 ```mermaid
 flowchart TD
   subgraph Center["PowerXDoc — 唯一源头与分发"]
-    U1["usecases-seeds/powerx/<layer>/<domain>/PX-*.md"]
+    ST["standards/scenarios/_template.md"]
+    SCN["scenarios/SCN-*.md（主用例草稿）"]
+    DM["docs/_data/docmap.yaml"]
+    TAX["docs/_data/taxonomy.yaml"]
+    PS["scripts/publish/publish-scenarios.mjs"]
+    WS["reports/_state/**（workflow ledger）"]
+    REP["reports/scenarios/<workflowId>.json"]
+    W1["website/scenarios/**（渲染页）"]
+    U1["usecases-seeds/powerx-backend/<layer>/<domain>/PX-*.md"]
     U2["usecases-seeds/powerx-marketplace/<layer>/<domain>/MKP-*.md"]
     U3["usecases-seeds/powerx-plugin/<layer>/<domain>/PLG-*.md"]
     U4["usecases-seeds/powerx-admin/<layer>/<domain>/PX-ADMIN-*.md"]
     T1["standards/**"]
-    P1["push-usecases.sh"]
-    P2["push-standards.sh"]
-    S1["scenarios/SCN-*.md（主用例源）"]
-    G1["publish-ai.mjs（聚合）"]
-    W1["website/scenarios/**（展示页）"]
+    P1["scripts/publish/push-usecases.mjs"]
+    P2["scripts/publish/push-standards.mjs"]
     H1["website/index.md & en/index.md（首页）"]
     OUT["最终网站"]
   end
@@ -198,9 +202,15 @@ flowchart TD
     RS["docs/standards/** 只读"]
   end
 
+  ST --> SCN
+  DM --> PS
+  TAX --> PS
+  SCN --> PS
+  PS --> W1 --> OUT
+  PS --> REP
+  PS --> WS
   U1 & U2 & U3 & U4 --> P1 --> R1 & R2 & R3 & R4
   T1 --> P2 --> RS
-  S1 --> G1 --> W1 --> OUT
   H1 --> OUT
 ```
 
@@ -210,7 +220,7 @@ flowchart TD
 
 | 目录                    | 作用                            | 渲染 | 生成      |
 | --------------------- | ----------------------------- | -- | ------- |
-| `design/`             | 体系设计文档（内部参考）                  | ❌  | 手写      |
+| `meta/`             | 体系设计文档（内部参考）                  | ❌  | 手写      |
 | `website/`            | **唯一渲染目录**（首页/主用例/说明）         | ✅  | 手写 + AI |
 | `website/_collected/` | 子用例聚合缓存（按 scope/layer/domain） | ❌  | AI      |
 | `_data/`              | 仓配置/映射（AI/脚本读取）               | ❌  | 手写      |
@@ -219,6 +229,36 @@ flowchart TD
 | `usecases-seeds/`     | 子用例模板（按层/域）                   | ❌  | AI      |
 | `analysis/`           | 聚合索引/统计                       | ❌  | AI      |
 | `scripts/`            | 分发与聚合脚本                       | ❌  | 手写      |
+
+---
+
+### 目录详解（docs/**）
+
+- **`_data/`**：纯元数据目录，存放分发与聚合脚本需要的配置文件（如 `docmap.yaml`、`repos.yaml`、`taxonomy.yaml`）；所有 CLI 与自动化均以此为唯一真相源。
+- **`analysis/`**：面向后续统计/索引的缓存目录，目前预留为空，计划存放聚合报表、数据快照或 QA 结果，不参与渲染。
+- **`guides/`**：内部指南草稿区，收纳尚未发布到网站的深度文档（例如 `Leadership-coverage.md`），便于先写后迁移。
+- **`meta/`**：体系设计与架构说明汇总，包括策略文档、流程说明与配套图表（`diagrams/` 下的 Mermaid 文件）。
+- **`projects/`**：保留用于项目级文档或阶段性计划，目前为空，可按项目/计划拆分子目录后落稿。
+- **`scenarios/`**：主用例源文件（`SCN-*.md`），由内容 Steward 撰写或 AI 草拟，再通过 `publish-ai.mjs` 渲染到 `website/scenarios/`。
+- **`standards/`**：规范母库，包含 `_shared/` 与各 scope 子目录，用于向所有下游仓库同步治理/规范文档；`scenarios/_template.md` 等模板也存放于此。
+- **`usecases-seeds/`**：子用例模板仓库，按 scope/layer/domain 组织；脚本读取后推送到各仓 `_from_hub/` 目录，当前为空待补充。
+- **`website/`**：VitePress 渲染根目录；包含站点源文档、静态资源以及 `_collected/`（子用例占位缓存）、`_mount/`（AI 中继区）等中间目录。
+
+---
+
+#### `docs/standards/scenarios/` vs `docs/scenarios/` vs `docs/usecases-seeds/`
+
+- **`docs/standards/scenarios/`**：场景模板与规范，通过 `_template.md` 等文件定义 SCN 所需的 Frontmatter、章节结构与质量基线；属于治理母版，不参与渲染，也不直接分发到下游。
+- **`docs/scenarios/`**：主用例草稿/成稿目录，依据上述模板撰写具体内容（`SCN-*.md`），随后由 `publish-ai.mjs` 转换成站点页面 `docs/website/scenarios/**`。
+- **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例。
+
+#### SCN 创建流程（发布领域示例）
+
+1. **复制模板**：将 `docs/standards/scenarios/_template.md` 复制为 `docs/scenarios/<domain>/SCN-<DOMAIN>-<FLOW>-<NNN>.md`，目前发布场景统一归档于 `docs/scenarios/publish/`。
+2. **填写元数据**：补充 Frontmatter（`scn_id`、`domains`、`layers`、`repos`、`related_usecases` 等）与正文各章节（流程、契约、验收、Telemetry）。
+3. **更新 docmap**：在 `docs/_data/docmap.yaml` 注册该 `scn_id`，并为每个子用例配置 `repo`、`layer`、`domain`、`path`。如缺少模板，在 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 下创建对应 `doc_id`。
+4. **运行发布校验**：执行 `npm run publish:scenarios -- --dry-run --scn-id <ID>` 检查渲染结果与 `_collected` 占位；通过后再去除 `--dry-run`。
+5. **联动分发**：需要时配合 `npm run publish:usecases`、`npm run publish:standards` 将子用例模板与规范下发到下游仓库。
 
 ---
 
@@ -509,7 +549,7 @@ get_repo_field() {
 # scope 与 seeds 子目录映射
 scope_dir() {
   case "$1" in
-    px) echo "powerx" ;;
+    px) echo "powerx-backend" ;;
     mkp) echo "powerx-marketplace" ;;
     plg) echo "powerx-plugin" ;;
     admin) echo "powerx-admin" ;;
@@ -622,6 +662,99 @@ for repo in $(yq -r '.repos | keys[]' "$DATA/repos.yaml"); do
   push_std "$repo"
 done
 ```
+
+> **Node 版本增强（`scripts/publish/push-standards.mjs`）**
+>
+> - 默认复制 `docs/standards/**`，在下游仓创建 `docs/hub/standards-*` 分支并自动发起 PR。
+> - 支持 `--include` / `--exclude` 过滤同步范围（glob 基于 `docs/standards/`），例如：
+>   ```bash
+>   npm run publish:standards -- \
+>     --repo powerx-marketplace \
+>     --include _shared/** \
+>     --include powerx-marketplace/init-ui.md \
+>     --exclude _shared/drafts/**
+>   ```
+> - `filesChanged` 会记录实际同步的文件列表，方便审计；`--dry-run` 仍可用于预览。
+
+#### D) Standards 分发颗粒度方案
+
+为支持“共用规范 + 仓库专属规范”同步，`docs/standards/` 约定以下目录分层：
+
+```text
+docs/standards/
+├─ _shared/                 # 所有仓库共用的治理/流程
+│  ├─ governance.md
+│  ├─ taxonomy.md
+│  └─ release-checklist.md
+├─ powerx-backend/          # PowerX Backend 专属规范
+│  ├─ service-ops.md
+│  └─ data-contracts/
+├─ powerx-admin/            # PowerX Admin 专属规范
+│  └─ ui-patterns.md
+├─ powerx-plugin/           # PowerX Plugin Scaffold 专属规范
+│  └─ packaging.md
+└─ powerx-marketplace/      # PowerX Marketplace 专属规范
+   └─ review-flow.md
+```
+
+仓库 `scope` 与子目录名称保持一致，统一在 `docs/_data/repos.yaml` 中声明。默认情况下 `_shared/**` 会被推送到所有仓库，其余目录仅会同步给对应 scope。
+
+##### 配置：`docs/_data/standards-map.yaml`
+
+新增配置文件描述每个仓库的 `include/exclude` 目录（使用 glob），并可设置默认策略：
+
+```yaml
+defaults:
+  include:
+    - '*.md'
+    - _shared/**
+scopes:
+  powerx-backend:
+    include:
+      - powerx-backend/**
+  powerx-admin:
+    include:
+      - powerx-admin/**
+  powerx-plugin:
+    include:
+      - powerx-plugin/**
+  powerx-marketplace:
+    include:
+      - powerx-marketplace/**
+```
+
+处理流程：
+
+- `defaults.include` 在所有仓库生效，确保共用规范始终下发。
+- `scopes` 与 `repos`（可选）在默认策略基础上叠加，可细化到仓库或 scope。
+- 未配置的仓库自动继承默认值，便于新仓快速接入。
+
+##### CLI 扩展能力
+
+`npm run publish:standards` 读取上述配置后，新增以下参数组合：
+
+| 参数 | 作用 |
+|------|------|
+| `--repo <key>` | 仅同步某个仓库，可多次传入。 |
+| `--scope <id>` | 沿用既有筛选，结合 `standards-map` 控制目录。 |
+| `--include <glob>` | 临时追加目录/文件，同步到目标仓库。 |
+| `--exclude <glob>` | 临时排除目录/文件，优先级高于 `include`。 |
+| `--all` | 显式要求对所有仓库执行分发（默认依赖筛选条件）。 |
+| `--standards-map <path>` | 使用自定义映射文件，覆盖默认的 `docs/_data/standards-map.yaml`。 |
+
+若仅提供 `--include`/`--exclude` 而未指定 `--repo`，脚本会根据 `standards-map` 中的 scope/仓库规则自动为匹配的仓库创建同步分支；未匹配的仓库会被跳过。
+
+最终同步列表 = 默认配置 → 仓库专属配置 → 命令行覆盖；完成清单后再复制文件并执行 PR 流程。
+
+##### 常见用法示例
+
+- 全量（原行为）：`npm run publish:standards -- --all`
+- 单仓：`npm run publish:standards -- --repo powerx-backend`
+- 指定目录：`npm run publish:standards -- --repo powerx-plugin --include powerx-plugin/build/**`
+- 多仓共享安全规范：`npm run publish:standards -- --scope powerx,powerx-admin --include _shared/security/**`
+- 临时排除实验内容：`npm run publish:standards -- --exclude _shared/experimental/**`
+
+审计仍沿用既有 `reports/standards/**` 输出：dry-run 不推送、正式执行会在报告中记录实际同步的仓库与目录，便于追踪。
 
 ---
 
