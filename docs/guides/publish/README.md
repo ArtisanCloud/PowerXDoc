@@ -81,7 +81,13 @@ npm run publish:standards -- \
 打开 `reports/standards/standards_distribution.json` 或运行日志，确认：
 - `status` 为 `Completed`
 - `filesChanged` 缩写是否符合预期
-- Dry run 失败时可依据日志修复并使用 `--resume-token` 重试
+- Dry run 会登记一次工作流指纹。若之后要在同一内容基础上执行正式分发，请使用报告中的 `resumeToken`：
+  ```bash
+  npm run publish:standards -- \
+    --repo powerx-marketplace \
+    --resume-token <token>
+  ```
+  Dry run 结束时，CLI 会在输出中打印 `resumeToken`，也可以在上述报告文件中查找。
 
 ### 2.3 正式推送
 

@@ -478,6 +478,7 @@ async function main() {
 
   if (!args.quiet) {
     console.log(`[REPORT] ${reportPath}`);
+    console.log(`[WORKFLOW] resumeToken: ${resumeToken}`);
   }
 }
 
