@@ -1,0 +1,396 @@
+openapi: 3.1.0
+info:
+  title: PowerXDocs Cross-Repo Workflow API
+  version: 0.1.0
+  description: >
+    Internal API surface that backs the PowerXDocs publication and distribution
+    workflows. Exposed via CLI gateway for automation; used by stewards and
+    ops engineers to drive pure-push deliveries and reporting.
+servers:
+  - url: https://powerxdocs.internal/api
+    description: Production automation gateway
+  - url: http://localhost:4173/api
+    description: Local development proxy for CLI scripts
+paths:
+  /workflows/scenarios/validate:
+    post:
+      summary: Validate a scenario draft against standards and docmap
+      operationId: validateScenario
+      tags:
+        - Scenarios
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScenarioValidationRequest'
+      responses:
+        '200':
+          description: Scenario validation completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioValidationResult'
+        '422':
+          description: Validation failed due to structural errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /workflows/scenarios/publish:
+    post:
+      summary: Publish a validated scenario into docs/website/scenarios/**
+      operationId: publishScenario
+      tags:
+        - Scenarios
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScenarioPublishRequest'
+      responses:
+        '202':
+          description: Publication started asynchronously
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRun'
+        '409':
+          description: Scenario not registered or duplicate IDs detected
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /workflows/usecases/push:
+    post:
+      summary: Distribute updated usecase templates to downstream repositories
+      operationId: pushUsecaseTemplates
+      tags:
+        - Distribution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DistributionRequest'
+      responses:
+        '202':
+          description: Distribution dispatched; reports will capture per-repo status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRun'
+  /workflows/standards/push:
+    post:
+      summary: Distribute standards to downstream repositories
+      operationId: pushStandards
+      tags:
+        - Distribution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DistributionRequest'
+      responses:
+        '202':
+          description: Standards distribution dispatched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRun'
+  /workflows/collected/regenerate:
+    post:
+      summary: Rebuild leadership-facing collected stubs from docmap metadata
+      operationId: regenerateCollected
+      tags:
+        - Aggregation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectedRegenerationRequest'
+      responses:
+        '200':
+          description: Regeneration completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectedRegenerationResult'
+  /workflows/notifications/remind:
+    post:
+      summary: Send reminder notifications for pending downstream pull requests
+      operationId: sendReminderNotifications
+      tags:
+        - Notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReminderRequest'
+      responses:
+        '202':
+          description: Reminder dispatch enqueued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRun'
+  /reports/workflows/{workflowId}:
+    get:
+      summary: Retrieve a workflow delivery report
+      operationId: getWorkflowReport
+      tags:
+        - Reports
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow report retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowReport'
+        '404':
+          description: Workflow report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ScenarioValidationRequest:
+      type: object
+      required:
+        - scnId
+        - validateMermaid
+      properties:
+        scnId:
+          type: string
+          pattern: '^SCN-[A-Z0-9-]+-\\d{3}$'
+        dryRun:
+          type: boolean
+          default: false
+        validateMermaid:
+          type: boolean
+          description: When true, enforce presence of at least one diagram for multi-layer scenarios
+        locale:
+          type: string
+          enum: [zh-CN, en-US]
+          default: zh-CN
+    ScenarioValidationResult:
+      type: object
+      required:
+        - scnId
+        - status
+      properties:
+        scnId:
+          type: string
+        status:
+          type: string
+          enum: [Passed, Failed]
+        missingSections:
+          type: array
+          items:
+            type: string
+        duplicateIds:
+          type: array
+          items:
+            type: string
+        docmapStatus:
+          type: string
+          enum: [Registered, Missing, Conflicting]
+        warnings:
+          type: array
+          items:
+            type: string
+        reportPath:
+          type: string
+          description: Relative path to lint report in docs/reports/
+    ScenarioPublishRequest:
+      type: object
+      required:
+        - scnId
+        - localeTargets
+      properties:
+        scnId:
+          type: string
+        localeTargets:
+          type: array
+          items:
+            type: string
+            enum: [zh-CN, en-US]
+        generateCollected:
+          type: boolean
+          default: true
+        forceRefresh:
+          type: boolean
+          default: false
+    DistributionRequest:
+      type: object
+      required:
+        - runType
+        - templateSelector
+      properties:
+        runType:
+          type: string
+          enum: [usecase-seed, standards]
+        templateSelector:
+          type: object
+          properties:
+            scopes:
+              type: array
+              items:
+                type: string
+            scnIds:
+              type: array
+              items:
+                type: string
+            layers:
+              type: array
+              items:
+                type: string
+            domains:
+              type: array
+              items:
+                type: string
+        dryRun:
+          type: boolean
+          default: false
+        retryToken:
+          type: string
+          description: Retry a previously failed distribution record
+    CollectedRegenerationRequest:
+      type: object
+      required:
+        - scopes
+      properties:
+        scopes:
+          type: array
+          items:
+            type: string
+        includeOptional:
+          type: boolean
+          default: true
+    CollectedRegenerationResult:
+      type: object
+      required:
+        - generatedCount
+      properties:
+        generatedCount:
+          type: integer
+        staleEntries:
+          type: array
+          items:
+            type: string
+        failedEntries:
+          type: array
+          items:
+            type: string
+    ReminderRequest:
+      type: object
+      required:
+        - workflowId
+      properties:
+        workflowId:
+          type: string
+        escalationHours:
+          type: integer
+          default: 72
+        notifyChannels:
+          type: array
+          items:
+            type: string
+            enum: [email, slack, webhook]
+    WorkflowRun:
+      type: object
+      required:
+        - workflowId
+        - status
+      properties:
+        workflowId:
+          type: string
+        status:
+          type: string
+          enum: [Queued, Running, Completed, Failed]
+        startedAt:
+          type: string
+          format: date-time
+        triggers:
+          type: array
+          items:
+            type: string
+        reportPath:
+          type: string
+    WorkflowReport:
+      type: object
+      required:
+        - workflowId
+        - summary
+      properties:
+        workflowId:
+          type: string
+        runType:
+          type: string
+          enum: [scenario-publish, usecase-seed, standards, collected-regeneration, notification]
+        summary:
+          type: object
+          properties:
+            successCount:
+              type: integer
+            failureCount:
+              type: integer
+            deferredCount:
+              type: integer
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DistributionRecord'
+        generatedArtifacts:
+          type: array
+          items:
+            type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorResponse'
+    DistributionRecord:
+      type: object
+      required:
+        - repoKey
+        - status
+      properties:
+        repoKey:
+          type: string
+        branchName:
+          type: string
+        status:
+          type: string
+          enum: [Success, Failed, Deferred]
+        filesChanged:
+          type: array
+          items:
+            type: string
+        prUrl:
+          type: string
+        retryToken:
+          type: string
+    ErrorResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
