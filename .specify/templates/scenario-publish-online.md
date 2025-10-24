@@ -37,7 +37,7 @@ related_usecases:
   - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
     layer: ui
     domain: marketplace
-last_reviewed_at: 2025-10-24
+last_reviewed_at: {{LAST_REVIEWED_AT}}
 
 ---
 

@@ -12,6 +12,14 @@ repos:
     standards_root: docs/standards
     default_reviewers:
       - powerx-docs-reviewers
+    maintainers:
+      default:
+        - name: Michael Hu
+          role: Tech Steward
+          contact: tech@artisan-cloud.com
+        - name: Matrix-X
+          role: Docs Coordinator
+          contact: dev@artisan-cloud.com
   - key: powerx-admin
     display_name: PowerX Admin
     slug: ArtisanCloud/PowerXAdmin
@@ -23,6 +31,14 @@ repos:
     standards_root: docs/standards
     default_reviewers:
       - powerx-admin-docs
+    maintainers:
+      default:
+        - name: Michael Hu
+          role: Tech Steward
+          contact: tech@artisan-cloud.com
+        - name: Matrix-X
+          role: Docs Coordinator
+          contact: dev@artisan-cloud.com
   - key: powerx-plugin
     display_name: PowerX Plugin Scaffold
     slug: ArtisanCloud/PowerXPlugin
@@ -34,6 +50,14 @@ repos:
     standards_root: docs/standards
     default_reviewers:
       - powerx-plugin-docs
+    maintainers:
+      default:
+        - name: Michael Hu
+          role: Tech Steward
+          contact: tech@artisan-cloud.com
+        - name: Matrix-X
+          role: Docs Coordinator
+          contact: dev@artisan-cloud.com
   - key: powerx-marketplace
     display_name: PowerX Marketplace
     slug: ArtisanCloud/PowerXMarketplace
@@ -45,3 +69,11 @@ repos:
     standards_root: docs/standards
     default_reviewers:
       - powerx-marketplace-docs
+    maintainers:
+      default:
+        - name: Michael Hu
+          role: Tech Steward
+          contact: tech@artisan-cloud.com
+        - name: Matrix-X
+          role: Docs Coordinator
+          contact: dev@artisan-cloud.com

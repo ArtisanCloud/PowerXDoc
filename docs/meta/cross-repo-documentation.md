@@ -250,7 +250,7 @@ flowchart TD
 
 * **`docs/standards/scenarios/`**：场景模板与规范，通过 `_template.md` 等文件定义 SCN 所需的 Frontmatter、章节结构与质量基线；属于治理母版，不参与渲染，也不直接分发到下游。
 * **`docs/scenarios/`**：主用例草稿/成稿目录，依据上述模板撰写具体内容（`SCN-*.md`），随后由 `publish-ai.mjs` 转换成站点页面 `docs/website/scenarios/**`。
-* **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例。
+* **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例；可先运行 `.specify/scripts/bash/derive-docmap-from-scenario.sh --scn-id <ID>`（别名 `/speckit.docmap-scn @<SCN>.md`）生成 docmap 片段，再用 `.specify/scripts/bash/setup-usecase-guides.sh --scn-id <ID>`（别名 `/speckit.usecase-guides @<SCN>.md`）从 docmap 自动生成 Seed 框架。
 
 #### SCN 创建流程（发布领域示例）
 

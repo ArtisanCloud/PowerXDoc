@@ -40,18 +40,19 @@
 
      ```yaml
      defaults:
-       include:
-         - '*.md'
-         - _shared/**
-    scopes:
-      powerx-backend:
-        include:
-          - powerx-backend/**
-      powerx-marketplace:
-         include:
-           - powerx-marketplace/**
+      include:
+        - '*.md'
+        - _shared/**
+      scopes:
+        powerx-backend:
+          include:
+            - powerx-backend/**
+        powerx-marketplace:
+          include:
+            - powerx-marketplace/**
 
      ```
+
    - 上例中，`powerx-marketplace` 仓库默认会收到：
      - 顶层 `*.md`（如 `README.md`）  
      - `_shared/**` 公共规范  

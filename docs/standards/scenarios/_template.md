@@ -1,123 +1,97 @@
-scn_id: SCN-EXAMPLE-001            # 与 docmap.yaml 对齐的唯一场景 ID
-title: Example Scenario Title      # 面向读者的标题
+scn_id: SCN_ID_PLACEHOLDER         # 与 docmap.yaml 对齐的唯一场景 ID（例如 SCN-PUBLISH-ONLINE-001）
+title: TODO_UPDATE_TITLE           # 面向读者的标题
 status: Draft                      # Draft | In Review | Approved | Deprecated
 version: v0.1.0                    # 场景文档版本号
 owners:
-  - name: Steward Name
+  - name: TODO_OWNER_NAME
     role: Scenario Steward
-    contact: steward@example.com
-domains: [publish, marketplace]    # 适用领域标签（可多选）
-layers: [proto, api, service, ui]  # 涉及的体系层
+    contact: <owner@example.com>
+domains: [TODO_DOMAIN_LIST]        # 适用领域标签（可多选）
+layers: [TODO_LAYER_LIST]          # 涉及的体系层
 repos:
-  - key: powerx-plugin
-    scope: plg
-    responsibility: 构建与签名流程
-  - key: powerx-marketplace
-    scope: mkp
-    responsibility: 审核与上架
-  - key: powerx-backend
-    scope: px
-    responsibility: 目录同步与缓存
-  - key: powerx-admin
-    scope: admin
-    responsibility: 上架管理界面
+  - key: TODO_REPO_KEY
+    scope: TODO_SCOPE
+    responsibility: TODO_RESPONSIBILITY
 related_usecases:
-  - doc_id: PLG-PUBLISH-002
-    layer: proto
-    domain: publish
-  - doc_id: MKP-PUBLISH-002
-    layer: api
-    domain: publish
-  - doc_id: PX-PUBLISH-002
-    layer: service
-    domain: publish
-  - doc_id: PX-ADMIN-PUBLISH-002
-    layer: ui
-    domain: publish
-last_reviewed_at: 2025-01-01
+  - doc_id: TODO_DOC_ID
+    layer: TODO_LAYER
+    domain: TODO_DOMAIN
+last_reviewed_at: YYYY-MM-DD
+
 ---
 
 # Executive Summary
+
+> 使用说明：请将所有 `TODO_*` 或占位段落替换为实际内容。保留该说明以提醒作者填写完整。
 
 简述业务价值、关联角色（开发者/审核/运营等）以及成功判定标准。
 
 # Scope & Guardrails
 
-- **In Scope**：纳入的仓库、模块、版本假设。
-- **Out of Scope**：不覆盖的流程、仓库或边界。
-- **Environment & Flags**：前置条件、所需 Feature Flag、外部依赖。
+- **In Scope**：TODO_列出纳入的仓库、模块、版本假设。
+- **Out of Scope**：TODO_不覆盖的流程、仓库或边界。
+- **Environment & Flags**：TODO_前置条件、所需 Feature Flag、外部依赖。
 
 # Participants & Responsibilities
 
 | Scope | Repository | Layer | 责任与交付物 | Owners |
 |-------|------------|-------|--------------|--------|
-| plg   | powerx-plugin        | proto   | 构建、签名、提交插件包 | Alice (Lead) |
-| mkp   | powerx-marketplace   | api     | 审核、上架、事件触发   | Bob (Reviewer) |
-| px    | powerx-backend       | service | 目录同步、缓存刷新     | Carol (Maintainer) |
-| admin | powerx-admin         | ui      | 上架展示、运维界面     | Dave (Ops) |
+| TODO_SCOPE | TODO_REPO | TODO_LAYER | TODO_责任与交付物 | TODO_Owner |
 
-> 可根据实际情况增删行；Owners 应与 Frontmatter 中 `owners`/`repos` 元数据相呼应。
+> 提示：根据实际情况增删行；Owners 应与 Frontmatter 中 `owners`/`repos` 元数据相呼应。
 
 # End-to-End Flow
 
-1. **Stage 1 – Trigger**：描述触发者、输入、关键事件。
-2. **Stage 2 – Marketplace 审核**：列出 API 调用、状态流转、跨仓通知。
-3. **Stage 3 – Backend 同步**：说明监听事件、处理逻辑、缓存/数据库更新。
-4. **Stage 4 – Admin 展示**：描述前端刷新、权限校验、运维反馈。
+1. **Stage 1 – TODO_STAGE_NAME**：描述触发者、输入、关键事件。
+2. **Stage 2 – TODO_STAGE_NAME**：列出关键交互、状态流转、跨仓通知。
+3. **Stage 3 – TODO_STAGE_NAME**：说明需要的系统动作与验证。
+4. **Stage 4 – TODO_STAGE_NAME**：描述完成条件、用户反馈或后续步骤。
 
-如需补充时序/流程图可参考：
+如需补充时序/流程图可参考（请替换参与者和事件）：
 
 ```mermaid
 sequenceDiagram
-  participant Dev as Plugin Dev
-  participant PLG as PowerX Plugin
-  participant MKP as Marketplace
-  participant PX as PowerX Backend
-  participant ADMIN as PowerX Admin
+  participant Actor1 as TODO_Actor1
+  participant Actor2 as TODO_Actor2
+  participant Actor3 as TODO_Actor3
 
-  Dev->>PLG: px-plugin publish
-  PLG->>MKP: POST /api/v1/plugins
-  MKP-->>MKP: 审核 & 签名验证
-  MKP->>PX: mkp.plugin.published 事件
-  PX-->>PX: 刷新目录与缓存
-  PX->>ADMIN: 更新 Admin GraphQL
+  Actor1->>Actor2: TODO_事件或调用
+  Actor2-->>Actor2: TODO_处理描述
+  Actor2->>Actor3: TODO_结果或通知
 ```
 
 # Key Interactions & Contracts
 
-- **APIs / Events**：列出跨仓契约（方法、路径、payload 示意）。
-- **Configs / Schemas**：链接到 `docs/standards/**` 或下游仓库文件。
-- **Security / Compliance**：权限、审计、数据合规要点。
+- **APIs / Events**：TODO_列出跨仓契约（方法、路径、payload 示例）。
+- **Configs / Schemas**：TODO_链接到 `docs/standards/**` 或下游仓库文件。
+- **Security / Compliance**：TODO_权限、审计、数据合规要点。
 
 # Usecase Links
 
-- `PLG-PUBLISH-002` — 插件构建与签名（proto 层，自有仓：`docs/use_cases/proto/publish/PLG-PUBLISH-002.md`）
-- `MKP-PUBLISH-002` — 审核与上架流程（api 层）
-- `PX-PUBLISH-002` — 目录同步与缓存刷新（service 层）
-- `PX-ADMIN-PUBLISH-002` — 管理后台展示（ui 层，可选）
+- `TODO_DOC_ID` — TODO_说明（TODO_LAYER 层，自有仓路径）
 
-> 应与 Frontmatter 的 `related_usecases` 保持一致，便于脚本校验。
+> 提示：应与 Frontmatter 的 `related_usecases` 保持一致，便于脚本校验。
 
 # Acceptance Criteria
 
-1. 核心业务结果（如：发布后 5 分钟内可在目录搜索）。
-2. 数据/治理约束（如：审核日志完备、事件去重）。
-3. 多仓协作检查（如：分发脚本成功、PR 全部合并）。
+1. TODO_核心业务结果（可量化）。
+2. TODO_数据/治理约束（例如审计、签名校验）。
+3. TODO_多仓协作检查（例如脚本执行、PR 合入）。
 
 # Telemetry & Ops
 
-- 指标：`publish.duration`、`catalog.refresh.latency` 等。
-- 告警阈值：触发条件与通知渠道。
-- 观测来源：内部仪表板、`scripts/qa/workflow-metrics.mjs` 等。
+- 指标：TODO_指标名称（如 `xxx.duration`）。
+- 告警阈值：TODO_触发条件与通知渠道。
+- 观测来源：TODO_仪表板或脚本。
 
 # Open Issues & Follow-ups
 
 | 风险/事项 | 影响范围 | 负责人 | ETA |
 |-----------|----------|--------|-----|
-| 缺少 marketplace 回滚脚本 | MKP | Bob | 2025-02-01 |
+| TODO_风险或跟进项 | TODO_影响范围 | TODO_负责人 | YYYY-MM-DD |
 
 # Appendix
 
-- 相关 PR：跨仓 PR 列表。
-- 设计稿 / 白板：外部文档或截图链接。
-- 历史版本：记录重要版本与变更说明。
+- TODO_相关 PR：跨仓 PR 列表。
+- TODO_设计稿 / 白板：外部文档或截图链接。
+- TODO_历史版本：记录重要版本与变更说明。

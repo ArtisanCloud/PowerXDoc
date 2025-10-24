@@ -28,7 +28,7 @@ related_usecases:
   - doc_id: PX-ADMIN-DEV-HOTLOAD-001
     layer: ui
     domain: dev
-last_reviewed_at: 2025-10-24
+last_reviewed_at: {{LAST_REVIEWED_AT}}
 
 ---
 
