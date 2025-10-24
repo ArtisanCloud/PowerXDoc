@@ -33,6 +33,17 @@
 3. 按需要添加接口详述、测试计划、运维策略等条目。  
 4. 准备进入分发阶段（参见《发布 Usecase Seeds 指南》）。
 
+## 自动生成场景索引（推荐）
+
+为便于集中浏览，可在 Seed 更新后执行：
+
+```bash
+node .specify/scripts/node/generate-usecase-seed-index.mjs --scn-id SCN-PUBLISH-001
+```
+
+- 输出会写入（或更新）`docs/usecases-seeds/scenarios/<SCN_ID>.md`，按 `scope` 分类列出所有子用例及 Seed 状态。
+- 如需批量刷新全部场景索引，可改用 `--all`。
+
 ## 常见问题
 
 | 情况 | 处理方式 |

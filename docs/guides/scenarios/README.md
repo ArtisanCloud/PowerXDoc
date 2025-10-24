@@ -16,13 +16,18 @@
 ## 2. 生成场景草稿
 
 ```bash
-node .specify/scripts/node/generate-scenarios.mjs docs/meta/scenarios/plugin/publish.md --force
+node .specify/scripts/node/generate-scenarios.mjs <源文件路径或文本文件> [--force]
+
+或
+
+[speckit.scenario.md](.codex/prompts/speckit.scenario.md) <@源文件路径或文本文件>
+
+
 ```
 
-- 脚本会载入预定义模板，一次生成（或覆盖）下列文件：  
-  `docs/scenarios/publish/SCN-PUBLISH-HUB-001.md`、`SCN-DEV-HOTLOAD-001.md`、`SCN-PUBLISH-OFFLINE-001.md`、`SCN-PUBLISH-ONLINE-001.md`
-- 需要以文本作为输入时，可先保存为临时 Markdown，再执行脚本。
-- 若输出提示存在 `TODO_*`，继续执行 Clarify 补齐缺失信息。
+- `<源文件路径或文本文件>` 可以是任意设计稿 Markdown，也可以是临时保存的文本；示例：`docs/meta/scenarios/plugin/publish.md`
+- 脚本按模板写入对应场景文档（若文件存在需覆盖则添加 `--force`）。
+- 生成后如还有 `TODO_*`，继续执行 Clarify 补齐缺失信息。
 
 ## 3. Clarify（按需）
 
