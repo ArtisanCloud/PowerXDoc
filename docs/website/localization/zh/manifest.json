@@ -1,0 +1,178 @@
+{
+  "sourceLocale": "zh-CN",
+  "targetLocales": [
+    "en-US"
+  ],
+  "pages": {
+    "/": {
+      "slug": "index",
+      "title": "首页",
+      "partnerSlug": "/"
+    },
+    "/core-concepts/": {
+      "slug": "core-concepts/index",
+      "title": "核心概念"
+    },
+    "/guides/": {
+      "slug": "guides/index",
+      "title": "开发者指南"
+    },
+    "/api-and-specifications/": {
+      "slug": "api-and-specifications/index",
+      "title": "API 与规范"
+    },
+    "/security-and-governance/": {
+      "slug": "security-and-governance/index",
+      "title": "安全与治理"
+    },
+    "/pxip/": {
+      "slug": "pxip/index",
+      "title": "PXIP"
+    },
+    "/api-and-specifications/02_capability/Capability_Contract_Spec.md": {
+      "slug": "api-and-specifications/02_capability/Capability_Contract_Spec",
+      "partnerSlug": "/api-and-specifications/02_capability/Capability_Contract_Spec.md",
+      "title": "Capability_Contract_Spec"
+    },
+    "/api-and-specifications/02_capability/Transport_Adapter_Spec.md": {
+      "slug": "api-and-specifications/02_capability/Transport_Adapter_Spec",
+      "partnerSlug": "/api-and-specifications/02_capability/Transport_Adapter_Spec.md",
+      "title": "Transport_Adapter_Spec"
+    },
+    "/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md": {
+      "slug": "api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design",
+      "partnerSlug": "/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md",
+      "title": "Capability_Registry_and_Router_Design"
+    },
+    "/api-and-specifications/03_registry_router/Runtime_Endpoint_Management.md": {
+      "slug": "api-and-specifications/03_registry_router/Runtime_Endpoint_Management",
+      "partnerSlug": "/api-and-specifications/03_registry_router/Runtime_Endpoint_Management.md",
+      "title": "Runtime_Endpoint_Management"
+    },
+    "/api-and-specifications/04_orchestration/Flow_and_State_Model.md": {
+      "slug": "api-and-specifications/04_orchestration/Flow_and_State_Model",
+      "partnerSlug": "/api-and-specifications/04_orchestration/Flow_and_State_Model.md",
+      "title": "Flow_and_State_Model"
+    },
+    "/api-and-specifications/04_orchestration/Orchestrator_Service_Interface.md": {
+      "slug": "api-and-specifications/04_orchestration/Orchestrator_Service_Interface",
+      "partnerSlug": "/api-and-specifications/04_orchestration/Orchestrator_Service_Interface.md",
+      "title": "Orchestrator_Service_Interface"
+    },
+    "/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md": {
+      "slug": "api-and-specifications/04_orchestration/Realtime_Streaming_Gateway",
+      "partnerSlug": "/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md",
+      "title": "Realtime_Streaming_Gateway"
+    },
+    "/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec.md": {
+      "slug": "api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec",
+      "partnerSlug": "/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec.md",
+      "title": "Workflow_and_Agent_Orchestration_Spec"
+    },
+    "/api-and-specifications/06_gateway/EventBus_and_Message_Fabric.md": {
+      "slug": "api-and-specifications/06_gateway/EventBus_and_Message_Fabric",
+      "partnerSlug": "/api-and-specifications/06_gateway/EventBus_and_Message_Fabric.md",
+      "title": "EventBus_and_Message_Fabric"
+    },
+    "/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface.md": {
+      "slug": "api-and-specifications/06_gateway/Integration_API_and_Admin_Interface",
+      "partnerSlug": "/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface.md",
+      "title": "Integration_API_and_Admin_Interface"
+    },
+    "/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design.md": {
+      "slug": "api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design",
+      "partnerSlug": "/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design.md",
+      "title": "MCP_Server_and_Gateway_Design"
+    },
+    "/api-and-specifications/README.md": {
+      "slug": "api-and-specifications/README",
+      "partnerSlug": "/api-and-specifications/README.md",
+      "title": "README"
+    },
+    "/api-examples.md": {
+      "slug": "api-examples",
+      "partnerSlug": "/api-examples.md",
+      "title": "api-examples"
+    },
+    "/core-concepts/00_overview.md": {
+      "slug": "core-concepts/00_overview",
+      "partnerSlug": "/core-concepts/00_overview.md",
+      "title": "00_overview"
+    },
+    "/core-concepts/Agent_Manager_and_Lifecycle_Spec.md": {
+      "slug": "core-concepts/Agent_Manager_and_Lifecycle_Spec",
+      "partnerSlug": "/core-concepts/Agent_Manager_and_Lifecycle_Spec.md",
+      "title": "Agent_Manager_and_Lifecycle_Spec"
+    },
+    "/core-concepts/PowerX_Integration_Architecture.md": {
+      "slug": "core-concepts/PowerX_Integration_Architecture",
+      "partnerSlug": "/core-concepts/PowerX_Integration_Architecture.md",
+      "title": "PowerX_Integration_Architecture"
+    },
+    "/core-concepts/README.md": {
+      "slug": "core-concepts/README",
+      "partnerSlug": "/core-concepts/README.md",
+      "title": "README"
+    },
+    "/guides/Agent_Developer_Guide.md": {
+      "slug": "guides/Agent_Developer_Guide",
+      "partnerSlug": "/guides/Agent_Developer_Guide.md",
+      "title": "Agent_Developer_Guide"
+    },
+    "/guides/Plugin_Runtime_Guide.md": {
+      "slug": "guides/Plugin_Runtime_Guide",
+      "partnerSlug": "/guides/Plugin_Runtime_Guide.md",
+      "title": "Plugin_Runtime_Guide"
+    },
+    "/guides/Plugin_Test_and_Debug_Guide.md": {
+      "slug": "guides/Plugin_Test_and_Debug_Guide",
+      "partnerSlug": "/guides/Plugin_Test_and_Debug_Guide.md",
+      "title": "Plugin_Test_and_Debug_Guide"
+    },
+    "/guides/PowerX_Plugin_SDK_Guide.md": {
+      "slug": "guides/PowerX_Plugin_SDK_Guide",
+      "partnerSlug": "/guides/PowerX_Plugin_SDK_Guide.md",
+      "title": "PowerX_Plugin_SDK_Guide"
+    },
+    "/guides/README.md": {
+      "slug": "guides/README",
+      "partnerSlug": "/guides/README.md",
+      "title": "README"
+    },
+    "/markdown-examples.md": {
+      "slug": "markdown-examples",
+      "partnerSlug": "/markdown-examples.md",
+      "title": "markdown-examples"
+    },
+    "/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md": {
+      "slug": "pxip/PXIP-001_Unified_Capability_and_Transport_Proposal",
+      "partnerSlug": "/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md",
+      "title": "PXIP-001_Unified_Capability_and_Transport_Proposal"
+    },
+    "/pxip/README.md": {
+      "slug": "pxip/README",
+      "partnerSlug": "/pxip/README.md",
+      "title": "README"
+    },
+    "/security-and-governance/Agent_Security_and_Isolation_Policy.md": {
+      "slug": "security-and-governance/Agent_Security_and_Isolation_Policy",
+      "partnerSlug": "/security-and-governance/Agent_Security_and_Isolation_Policy.md",
+      "title": "Agent_Security_and_Isolation_Policy"
+    },
+    "/security-and-governance/Capability_and_Tool_Grants_Spec.md": {
+      "slug": "security-and-governance/Capability_and_Tool_Grants_Spec",
+      "partnerSlug": "/security-and-governance/Capability_and_Tool_Grants_Spec.md",
+      "title": "Capability_and_Tool_Grants_Spec"
+    },
+    "/security-and-governance/README.md": {
+      "slug": "security-and-governance/README",
+      "partnerSlug": "/security-and-governance/README.md",
+      "title": "README"
+    },
+    "/security-and-governance/Security_and_Governance.md": {
+      "slug": "security-and-governance/Security_and_Governance",
+      "partnerSlug": "/security-and-governance/Security_and_Governance.md",
+      "title": "Security_and_Governance"
+    }
+  }
+}

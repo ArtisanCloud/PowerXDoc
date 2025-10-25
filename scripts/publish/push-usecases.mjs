@@ -34,6 +34,7 @@ Options:
   --scope <value>            Filter docmap children by scope (repeatable)
   --layer <value>            Filter docmap children by layer (repeatable)
   --domain <value>           Filter docmap children by domain (repeatable)
+  --no-website-sync          Skip syncing docs/website content after publish
 `);
 }
 
@@ -55,6 +56,7 @@ function parseArgs(argv) {
     scopes: [],
     layers: [],
     domains: [],
+    syncWebsite: true,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -95,6 +97,9 @@ function parseArgs(argv) {
         break;
       case '--domain':
         args.domains = collectListArg(args.domains, argv[++i]);
+        break;
+      case '--no-website-sync':
+        args.syncWebsite = false;
         break;
       case '--help':
       case '-h':
@@ -356,6 +361,24 @@ async function main() {
     status: records.some((r) => r.status === 'Failed') ? 'failed' : 'completed',
     metadata: { reportPath },
   });
+
+  const workflowFailed = records.some((r) => r.status === 'Failed');
+  if (!args.dryRun && args.syncWebsite && !workflowFailed) {
+    try {
+      const { syncScenarioPages } = await import('../site/sync-scenario-pages.mjs');
+      await syncScenarioPages({
+        scnId: args.scnId,
+        locales: ['zh', 'en'],
+        force: true,
+        withSeeds: true,
+      });
+      if (!args.quiet) {
+        console.log(`[site] synced website pages for ${args.scnId}`);
+      }
+    } catch (error) {
+      console.error(`[site] failed to sync website pages: ${error.message}`);
+    }
+  }
 
   if (!args.quiet) {
     console.log(`[REPORT] ${reportPath}`);

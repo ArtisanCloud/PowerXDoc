@@ -157,7 +157,8 @@ onUnmounted(() => {
 /* ---------- 导航 ---------- */
 const navigateTo = (p: string) => {
   const currentLocale = locale.value as LocaleKey
-  const localizedPath = toLocalePath(p, currentLocale)
+  const normalized = p.startsWith('/') ? p : `/${p}`
+  const localizedPath = toLocalePath(normalized, currentLocale)
   router.go(localizedPath)
 }
 </script>

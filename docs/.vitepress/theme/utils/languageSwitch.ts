@@ -12,6 +12,7 @@ import {
 
 const MANIFEST_PAGES = manifest.pages
 export const LOCALE_PREFIX_MAP: Record<LocaleKey, string> = {
+  'zh-CN': '/zh',
   'en-US': '/en',
 }
 
@@ -45,9 +46,7 @@ function detectLocaleFromPath(path: string): LocaleKey {
 
 function stripLocalePrefix(path: string, locale: LocaleKey): string {
   const prefix = LOCALE_PREFIX_MAP[locale]
-  if (!prefix || locale === DEFAULT_LOCALE) {
-    return normalizePath(path)
-  }
+  if (!prefix) return normalizePath(path)
   if (path.startsWith(prefix)) {
     const stripped = path.slice(prefix.length) || '/'
     return normalizePath(stripped)
@@ -57,12 +56,8 @@ function stripLocalePrefix(path: string, locale: LocaleKey): string {
 
 function buildLocalePath(basePath: string, targetLocale: LocaleKey): string {
   const prefix = LOCALE_PREFIX_MAP[targetLocale]
-  if (!prefix || targetLocale === DEFAULT_LOCALE) {
-    return normalizePath(basePath)
-  }
-  if (basePath === '/') {
-    return `${prefix}/`
-  }
+  if (!prefix) return normalizePath(basePath)
+  if (basePath === '/') return normalizePath(prefix)
   return normalizePath(`${prefix}${basePath === '/' ? '' : basePath}`)
 }
 

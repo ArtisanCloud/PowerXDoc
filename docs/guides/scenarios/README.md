@@ -43,7 +43,7 @@ node .specify/scripts/node/generate-scenarios.mjs <源文件路径或文本文�
 - 清除场景文档中残留的 `TODO_*`。  
 - 确认 Frontmatter（`scn_id`、`owners`、`domains`、`layers`、`related_usecases` 等）准确。  
 - 将新的 `scn_id` 和子用例关系写入 `docs/_data/docmap.yaml`。  
-- 运行 `/speckit.usecase-guides <SCN_ID>` 进入 Seed 生成流程。  
+- 运行 `/speckit.usecase-seed-generate <SCN_ID>` 进入 Seed 生成流程。  
 - 使用 `npm run publish:scenarios -- --scn-id <SCN_ID> --validate-only` 快速校验 docmap 与 Seed 一致性。
 
 ## 常见问题

@@ -3,7 +3,7 @@
 场景就绪后（可先运行 `node .specify/scripts/node/generate-scenarios.mjs`），只需一个命令即可生成所有子用例 Seed：
 
 ```bash
-.codex/prompts/speckit.usecase-guides.md SCN-PUBLISH-001
+.codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-001
 ```
 
 命令会读取 `docmap.yaml`、`repos.yaml` 与场景文档，自动在 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md` 下生成或更新 Seed 模板。其余步骤与 Usecase 发布指南保持一致。
@@ -17,7 +17,7 @@
 ## 执行命令
 
 ```bash
-.codex/prompts/speckit.usecase-guides.md SCN-PUBLISH-001
+.codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-001
 ```
 
 - 默认生成或更新所有子用例。若文件已存在且未加 `--force`，输出会显示 `skipped`。  
@@ -43,6 +43,12 @@ node .specify/scripts/node/generate-usecase-seed-index.mjs --scn-id SCN-PUBLISH-
 
 - 输出会写入（或更新）`docs/usecases-seeds/scenarios/<SCN_ID>.md`，按 `scope` 分类列出所有子用例及 Seed 状态。
 - 如需批量刷新全部场景索引，可改用 `--all`。
+
+## 后续建议
+
+1. 视需要补写 Seed 正文并清理模板占位内容，确保交付完整。
+2. 更新 `docmap.yaml` 后重跑 Seed 生成命令与索引脚本，保持两者同步。
+3. 准备验收时执行 `npm run publish:usecases -- --scn-id <SCN_ID> --validate-only` 快速自检。
 
 ## 常见问题
 

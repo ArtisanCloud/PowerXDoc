@@ -16,6 +16,45 @@ const docmapIndex = new Map<string, any>(
   (docmapData.scenarios ?? []).map((scenario: any) => [scenario.scn_id, scenario])
 )
 
+function shortenTitle(title: string) {
+  if (!title) return ''
+  let result = title.replace(/^PowerX\s*/i, '')
+  result = result.replace(/[\u2013\u2014-]\s*Usecase.*$/i, '')
+  return result.trim()
+}
+
+function buildScenarioLabel({
+  scenario,
+  fallbackTitle,
+  locale,
+  childCount,
+  hasOptional,
+}: {
+  scenario: any
+  fallbackTitle: string
+  locale: string
+  childCount: number
+  hasOptional: boolean
+}) {
+  const short = shortenTitle(scenario?.title ?? fallbackTitle)
+  const alias = short ? (short.length > 14 ? `${short.slice(0, 14)}…` : short) : ''
+  const base = scenario?.scn_id ?? fallbackTitle
+  let label = base
+  if (alias) {
+    label += ` · ${alias}`
+  }
+  if (childCount > 0) {
+    if (locale === 'en') {
+      const countText = `${childCount} seed${childCount > 1 ? 's' : ''}`
+      label += ` (${countText}${hasOptional ? ', optional' : ''})`
+    } else {
+      const countText = `${childCount} 子用例${hasOptional ? '·含可选' : ''}`
+      label += ` (${countText})`
+    }
+  }
+  return label
+}
+
 function safeLs(dir: string): string[] {
   try { return fs.readdirSync(dir) } catch { return [] }
 }
@@ -80,25 +119,58 @@ function readFrontmatter(file: string): Record<string, any> | null {
 }
 
 // /scenarios/ : 从 website/scenarios 下的 md 自动生成
-function buildScenariosSidebar(localePrefix = '') {
-  const dir = path.join(WEBSITE_ROOT, localePrefix ? localePrefix.slice(1) : '', 'scenarios')
+type SidebarLocaleOptions = {
+  dirPrefix?: string
+  linkPrefix?: string
+  locale?: string
+}
+
+function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
+  const dirPrefix = options.dirPrefix ?? ''
+  const linkPrefix = options.linkPrefix ?? (dirPrefix ? `/${dirPrefix}` : '')
+  const locale = dirPrefix === 'en' ? 'en' : 'zh'
+  const dir = path.join(WEBSITE_ROOT, dirPrefix, 'scenarios')
   const listed = new Set<string>()
 
   const items = (docmapData.scenarios ?? []).map((scenario: any) => {
     const fileName = `${scenario.scn_id}.md`
     const abs = path.join(dir, fileName)
     listed.add(fileName)
-    const title =
-      scenario.title ??
-      readTitleFromMd(abs)
-    const childCount = Array.isArray(scenario.children) ? scenario.children.length : 0
+    const fallbackTitle = readTitleFromMd(abs)
+    const scenarioEntry = docmapIndex.get(scenario.scn_id)
+    const childCount = Array.isArray(scenarioEntry?.children) ? scenarioEntry.children.length : 0
     const hasOptional =
-      Array.isArray(scenario.children) && scenario.children.some((child: any) => child?.optional === true)
-    const suffix =
-      childCount > 0 ? ` · ${childCount} 子用例${hasOptional ? '（含可选）' : ''}` : ''
+      Array.isArray(scenarioEntry?.children) && scenarioEntry.children.some((child: any) => child?.optional === true)
+    const label = buildScenarioLabel({
+      scenario,
+      fallbackTitle,
+      locale,
+      childCount,
+      hasOptional,
+    })
+    const slug = fileName.replace(/\.md$/, '')
+    const seedDir = path.join(dir, scenario.scn_id)
+    const childItems: any[] = []
+
+    if (Array.isArray(scenarioEntry?.children)) {
+      for (const child of scenarioEntry.children) {
+        const seedPath = path.join(seedDir, `${child.doc_id}.md`)
+        if (!fs.existsSync(seedPath)) continue
+        const childLabel =
+          locale === 'en'
+            ? `${child.doc_id}${child.optional ? ' (optional)' : ''}`
+            : `${child.doc_id}${child.optional ? '（可选）' : ''}`
+        childItems.push({
+          text: childLabel,
+          link: `${linkPrefix}/scenarios/${scenario.scn_id}/${child.doc_id}`,
+        })
+      }
+    }
+
     return {
-      text: `${title}${suffix}`,
-      link: `${localePrefix}/scenarios/` + fileName.replace(/\.md$/, '')
+      text: label,
+      link: `${linkPrefix}/scenarios/${slug}`,
+      items: childItems.length ? childItems : undefined,
     }
   })
 
@@ -106,15 +178,14 @@ function buildScenariosSidebar(localePrefix = '') {
   for (const file of files) {
     items.push({
       text: readTitleFromMd(path.join(dir, file)),
-      link: `${localePrefix}/scenarios/` + file.replace(/\.md$/, '')
+      link: `${linkPrefix}/scenarios/` + file.replace(/\.md$/, ''),
     })
   }
   return items
 }
 
-// /library/ : 从 website/_collected 下按 px/mkp/plg/admin → layer → domain 分组
-function buildLibrarySidebar(localePrefix = '') {
-  const root = path.join(WEBSITE_ROOT, localePrefix ? localePrefix.slice(1) : '', '_collected')
+function buildCollectedSidebar(dirPrefix = '', linkPrefix = '') {
+  const root = path.join(WEBSITE_ROOT, dirPrefix, '_collected')
   const scopes = safeLs(root).filter(n => isDir(path.join(root, n)))
   const scopeLabel: Record<string, string> = {
     px: 'PX（PowerX）',
@@ -143,7 +214,7 @@ function buildLibrarySidebar(localePrefix = '') {
             return baseTitle
           })(),
           link:
-            '/' +
+            linkPrefix +
             path
               .relative(WEBSITE_ROOT, abs)
               .replace(/\\/g, '/')
@@ -157,9 +228,27 @@ function buildLibrarySidebar(localePrefix = '') {
   })
 }
 
-// 一个“用例库”着陆页（可在 website/library.md 与 website/en/library.md 放简单介绍）
-function libraryLanding(localePrefix = '') {
-  return [{ text: '用例库 / Library', link: `${localePrefix}/library/` }]
+function buildUsecaseSeedSidebar(dirPrefix = '', linkPrefix = '') {
+  const root = path.join(WEBSITE_ROOT, dirPrefix, 'usecases')
+  if (!fs.existsSync(root)) return []
+  const groups = safeLs(root)
+    .filter(folder => isDir(path.join(root, folder)))
+    .sort()
+
+  return groups.map(group => {
+    const groupDir = path.join(root, group)
+    const files = walkMd(groupDir).sort()
+    const children = files.map(abs => ({
+      text: readTitleFromMd(abs),
+      link:
+        linkPrefix +
+        path
+          .relative(WEBSITE_ROOT, abs)
+          .replace(/\\/g, '/')
+          .replace(/\.md$/, '')
+    }))
+    return { text: group, items: children }
+  })
 }
 
 // ---------------- site config ----------------
@@ -174,60 +263,112 @@ export default defineConfig({
     root: {
       label: '简体中文',
       lang: 'zh-CN',
+      link: '/zh/',
       themeConfig: {
+        siteTitle: 'PowerX 文档中心',
         nav: [
-          { text: '首页', link: '/' },
-          { text: '场景用例', link: '/scenarios/' },
-          { text: '用例库', link: '/library/' },
-          { text: '文档', link: '/core-concepts/' }
+          { text: '产品概览', link: '/zh/overview/', activeMatch: '^/zh/(overview/|core-concepts/)' },
+          { text: '使用与部署', link: '/zh/guides/', activeMatch: '^/zh/(guides/)' },
+          { text: '场景与用例', link: '/zh/scenarios/', activeMatch: '^/zh/(scenarios/|library/)' },
+          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/(developers/|api-and-specifications/|pxip/)' },
+          { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
+          { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' }
         ],
         // 根据路由前缀切换不同侧边栏（静态文档沿用你原有分组）
         sidebar: {
-          // 场景用例（自动）
-          '/scenarios/': buildScenariosSidebar(''),
-          // 用例库（自动）
-          '/library/': buildLibrarySidebar(''),
-          // 你的现有静态文档分组
-          '/core-concepts/': [
+          '/zh/overview/': [
             {
-              text: '核心概念',
+              text: '产品概览',
+              collapsed: false,
               items: [
-                { text: '介绍', link: '/core-concepts/README.md' },
-                { text: '集成架构', link: '/core-concepts/PowerX_Integration_Architecture.md' },
-                { text: '知识库', link: '/core-concepts/00_overview.md' },
-                { text: '智能体生命周期', link: '/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
+                { text: 'PowerX 一览', link: '/zh/overview/' },
+                { text: '价值案例', link: '/zh/overview/#value-cases' },
+                { text: '路线图', link: '/zh/overview/#roadmap' }
               ]
             }
           ],
-          '/guides/': [
+          '/zh/guides/': [
             {
-              text: '开发者指南',
+              text: '使用与部署',
+              collapsed: false,
               items: [
-                { text: '介绍', link: '/guides/README.md' },
-                { text: '插件 SDK 指南', link: '/guides/PowerX_Plugin_SDK_Guide.md' },
-                { text: '插件运行时指南', link: '/guides/Plugin_Runtime_Guide.md' },
-                { text: '插件测试与调试', link: '/guides/Plugin_Test_and_Debug_Guide.md' },
-                { text: '智能体开发指南', link: '/guides/Agent_Developer_Guide.md' }
+                { text: '快速开始', link: '/zh/guides/' },
+                { text: '部署指南', link: '/zh/guides/#deployment' },
+                { text: '配置与集成', link: '/zh/guides/#configuration' },
+                { text: '运维 FAQ', link: '/zh/guides/#ops-faq' }
               ]
             }
           ],
-          '/api-and-specifications/': [
-            { text: 'API 与规范', items: [{ text: '介绍', link: '/api-and-specifications/README.md' }] }
-          ],
-          '/security-and-governance/': [
-            { text: '安全与治理', items: [{ text: '介绍', link: '/security-and-governance/README.md' }] }
-          ],
-          '/pxip/': [
+          '/zh/scenarios/': [
             {
-              text: 'PXIP',
+              text: '概览',
+              collapsed: false,
               items: [
-                { text: '介绍', link: '/pxip/README.md' },
-                { text: 'PXIP-001', link: '/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md' }
+                { text: '入口说明', link: '/zh/scenarios/' },
+                { text: 'docmap 指南', link: '/zh/scenarios/#docmap' },
+                { text: 'Seed 工具', link: '/zh/scenarios/#seed-tools' }
+              ]
+            },
+            {
+              text: '场景列表',
+              collapsed: false,
+              items: buildScenariosSidebar({ dirPrefix: 'zh', linkPrefix: '/zh', locale: 'zh' })
+            },
+            {
+              text: 'Seed 索引',
+              collapsed: false,
+              items: [
+                { text: '索引说明', link: '/zh/scenarios/#seed-index' },
+                { text: '常用命令', link: '/zh/scenarios/#seed-tools' }
               ]
             }
           ],
-          // 用例库着陆页侧边栏（简单一项，避免为空）
-          '/library': libraryLanding('')
+          '/zh/library/': buildCollectedSidebar('', '/'),
+          '/zh/developers/': [
+            {
+              text: '开发与扩展',
+              collapsed: false,
+              items: [
+                { text: 'SDK / API', link: '/zh/developers/#sdk-api' },
+                { text: '插件体系', link: '/zh/developers/#plugin-ecosystem' },
+                { text: '质量与测试', link: '/zh/developers/#quality-testing' },
+                { text: '工具链', link: '/zh/developers/#tooling' }
+              ]
+            },
+            {
+              text: '核心文档',
+              collapsed: false,
+              items: [
+                { text: 'API 与规范', link: '/zh/api-and-specifications/README.md' },
+                { text: 'PXIP 提案', link: '/zh/pxip/README.md' }
+              ]
+            }
+          ],
+          '/zh/operations/': [
+            {
+              text: '运营与治理',
+              collapsed: false,
+              items: [
+                { text: '概览', link: '/zh/operations/' },
+                { text: '观测与告警', link: '/zh/operations/#observability' },
+                { text: '安全治理', link: '/zh/operations/#security' },
+                { text: '变更管理', link: '/zh/operations/#change-management' },
+                { text: '报告与审计', link: '/zh/operations/#reporting' }
+              ]
+            }
+          ],
+          '/zh/resources/': [
+            {
+              text: '资源中心',
+              collapsed: false,
+              items: [
+                { text: '下载与工具', link: '/zh/resources/#downloads' },
+                { text: '版本与公告', link: '/zh/resources/#release-notes' },
+                { text: '术语表', link: '/zh/resources/#glossary' },
+                { text: '对外链接', link: '/zh/resources/#links' }
+              ]
+            }
+          ]
         },
         footer: { message: '基于 Apache 2.0 许可发布' },
         editLink: { text: '在 GitHub 上编辑此页' }
@@ -238,58 +379,103 @@ export default defineConfig({
     en: {
       label: 'English',
       lang: 'en-US',
+      link: '/en/',
       themeConfig: {
+        siteTitle: 'PowerX Documentation',
         nav: [
-          { text: 'Home', link: '/en/' },
-          { text: 'Scenarios', link: '/en/scenarios/' },
-          { text: 'Library', link: '/en/library/' },
-          { text: 'Docs', link: '/en/core-concepts/' }
+          { text: 'Overview', link: '/en/overview/', activeMatch: '^/en/(overview/|core-concepts/)' },
+          { text: 'Guides', link: '/en/guides/', activeMatch: '^/en/(guides/)' },
+          { text: 'Scenarios', link: '/en/scenarios/', activeMatch: '^/en/(scenarios/|library/)' },
+          { text: 'Developers', link: '/en/developers/', activeMatch: '^/en/(developers/|api-and-specifications/|pxip/)' },
+          { text: 'Operations', link: '/en/operations/', activeMatch: '^/en/(operations/|security-and-governance/)' },
+          { text: 'Resources', link: '/en/resources/', activeMatch: '^/en/(resources/)' }
         ],
         sidebar: {
           // Scenarios (auto)
-          '/en/scenarios/': buildScenariosSidebar('/en'),
-          // Library (auto)
-          '/en/library/': buildLibrarySidebar('/en'),
-          // Your static groups (EN)
-          '/en/core-concepts/': [
+          '/en/overview/': [
             {
-              text: 'Core Concepts',
+              text: 'Product Overview',
+              collapsed: false,
               items: [
-                { text: 'Overview', link: '/en/core-concepts/README.md' },
-                { text: 'Integration Architecture', link: '/en/core-concepts/PowerX_Integration_Architecture.md' },
-                { text: 'Knowledge Base', link: '/en/core-concepts/00_overview.md' },
-                { text: 'Agent Lifecycle', link: '/en/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
+                { text: 'Vision & Positioning', link: '/en/overview/#vision' },
+                { text: 'Product Matrix', link: '/en/overview/#product-matrix' },
+                { text: 'Value Stories', link: '/en/overview/#value-cases' },
+                { text: 'Roadmap', link: '/en/overview/#roadmap' }
               ]
             }
           ],
           '/en/guides/': [
             {
-              text: 'Developer Guides',
+              text: 'Guides & Deployment',
+              collapsed: false,
               items: [
-                { text: 'Overview', link: '/en/guides/README.md' },
-                { text: 'Plugin SDK Guide', link: '/en/guides/PowerX_Plugin_SDK_Guide.md' },
-                { text: 'Runtime Guide', link: '/en/guides/Plugin_Runtime_Guide.md' },
-                { text: 'Testing & Debugging', link: '/en/guides/Plugin_Test_and_Debug_Guide.md' },
-                { text: 'Agent Developer Guide', link: '/en/guides/Agent_Developer_Guide.md' }
+                { text: 'Quick Start', link: '/en/guides/#quickstart' },
+                { text: 'Deployment Playbooks', link: '/en/guides/#deployment' },
+                { text: 'Configuration & Integration', link: '/en/guides/#configuration' },
+                { text: 'Operations FAQ', link: '/en/guides/#ops-faq' }
               ]
             }
           ],
-          '/en/api-and-specifications/': [
-            { text: 'API & Specifications', items: [{ text: 'Overview', link: '/en/api-and-specifications/README.md' }] }
-          ],
-          '/en/security-and-governance/': [
-            { text: 'Security & Governance', items: [{ text: 'Overview', link: '/en/security-and-governance/README.md' }] }
-          ],
-          '/en/pxip/': [
+          '/en/scenarios/': [
             {
-              text: 'PXIP',
+              text: 'Overview',
+              collapsed: false,
               items: [
-                { text: 'Overview', link: '/en/pxip/README.md' },
-                { text: 'PXIP-001', link: '/en/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md' }
+                { text: 'Intro', link: '/en/scenarios/' },
+                { text: 'Docmap Guide', link: '/en/scenarios/#docmap' },
+                { text: 'Seed Tools', link: '/en/scenarios/#seed-tools' }
+              ]
+            },
+            {
+              text: 'Scenarios',
+              collapsed: false,
+              items: buildScenariosSidebar({ dirPrefix: 'en', linkPrefix: '/en', locale: 'en' })
+            },
+            {
+              text: 'Seed Index',
+              collapsed: false,
+              items: [
+                { text: 'Summary', link: '/en/scenarios/#seed-tools' }
               ]
             }
           ],
-          '/en/library': libraryLanding('/en')
+          '/en/library/': buildCollectedSidebar('', '/'),
+          '/en/developers/': [
+            {
+              text: 'Developers',
+              collapsed: false,
+              items: [
+                { text: 'SDK / API', link: '/en/developers/#sdk-api' },
+                { text: 'Plugin Ecosystem', link: '/en/developers/#plugin-ecosystem' },
+                { text: 'Quality & Testing', link: '/en/developers/#quality-testing' },
+                { text: 'Tooling', link: '/en/developers/#tooling' }
+              ]
+            }
+          ],
+          '/en/operations/': [
+            {
+              text: 'Operations & Governance',
+              collapsed: false,
+              items: [
+                { text: 'Observability', link: '/en/operations/#observability' },
+                { text: 'Security', link: '/en/operations/#security' },
+                { text: 'Change Management', link: '/en/operations/#change-management' },
+                { text: 'Reporting', link: '/en/operations/#reporting' }
+              ]
+            }
+          ],
+          '/en/resources/': [
+            {
+              text: 'Resource Centre',
+              collapsed: false,
+              items: [
+                { text: 'Downloads & Tools', link: '/en/resources/#downloads' },
+                { text: 'Release Notes', link: '/en/resources/#release-notes' },
+                { text: 'Glossary', link: '/en/resources/#glossary' },
+                { text: 'External Links', link: '/en/resources/#links' }
+              ]
+            }
+          ]
         },
         footer: { message: 'Released under the Apache 2.0 License.' },
         editLink: { text: 'Edit this page on GitHub' }

@@ -131,23 +131,26 @@ PowerXDoc/
 │  │  └─ cross-repo-documentation.md
 │  │
 │  ├─ website/                         # 渲染站点（srcDir）
-│  │  ├─ index.md
-│  │  ├─ en/index.md
-│  │  ├─ scenarios/                    # ✅ 主用例展示区（最终渲染）
-│  │  │  ├─ SCN-PUBLISH-002.md
-│  │  │  └─ SCN-INSTALL-003.md
-│  │  ├─ _collected/                   # ❌ 子用例聚合缓存（不渲染）
-│  │  │  ├─ px/        # PX（按层/域）
-│  │  │  │  └─ service/publish/PX-PUBLISH-002.md
-│  │  │  ├─ mkp/
-│  │  │  │  └─ api/publish/MKP-PUBLISH-002.md
-│  │  │  ├─ plg/
-│  │  │  │  └─ proto/publish/PLG-PUBLISH-002.md
-│  │  │  └─ admin/
-│  │  │     └─ ui/publish/PX-ADMIN-PUBLISH-002.md
-│  │  ├─ pages/                        # 说明/索引页（AI 生成）
-│  │  ├─ public/                       # 静态资源
-│  │  └─ _mount/                       # AI 中间态（不渲染）
+│  │  ├─ index.md                      # 语言切换/入口
+│  │  ├─ zh/                           # 中文内容（默认）
+│  │  │  ├─ index.md
+│  │  │  ├─ guides/
+│  │  │  ├─ core-concepts/
+│  │  │  ├─ api-and-specifications/
+│  │  │  ├─ pxip/
+│  │  │  ├─ security-and-governance/
+│  │  │  └─ …（与 nav 设计对应的分类）
+│  │  ├─ en/                           # 英文内容
+│  │  │  ├─ index.md
+│  │  │  ├─ guides/
+│  │  │  └─ …（英文版分类，可渐进完善）
+│  │  ├─ localization/                 # 本地化配置
+│  │  │  ├─ manifest.json              # 兼容旧脚本的总入口
+│  │  │  ├─ zh/manifest.json
+│  │  │  └─ en/manifest.json
+│  │  ├─ _collected/                   # 子用例聚合缓存（不渲染）
+│  │  ├─ _mount/                       # AI 中间态（不渲染）
+│  │  └─ public/                       # 静态资源
 │  │
 │  ├─ _data/                           # 元数据（AI/脚本使用）
 │  │  ├─ repos.yaml                    # 各仓配置（已按“develop”示例）
@@ -167,6 +170,8 @@ PowerXDoc/
    ├─ push-standards.sh                # 分发统一规范
    └─ publish-ai.mjs                   # 聚合主用例 → 生成 website/scenarios/**
 ```
+
+> **多语言管理**：`docs/website/zh/**` 存放默认中文文档（与 nav 设计对应），`docs/website/en/**` 为英文内容。`localization/zh/manifest.json`、`localization/en/manifest.json` 分别描述各语言页面映射，顶层 `manifest.json` 暂保留兼容旧脚本。场景 / 用例展示页亦可按语言放入对应目录（如 `zh/scenarios/SCN-*.md`），由 VitePress `locales` 配置控制导出。
 
 ---
 
@@ -250,7 +255,7 @@ flowchart TD
 
 * **`docs/standards/scenarios/`**：场景模板与规范，通过 `_template.md` 等文件定义 SCN 所需的 Frontmatter、章节结构与质量基线；属于治理母版，不参与渲染，也不直接分发到下游。
 * **`docs/scenarios/`**：主用例草稿/成稿目录，依据上述模板撰写具体内容（`SCN-*.md`），随后由 `publish-ai.mjs` 转换成站点页面 `docs/website/scenarios/**`。
-* **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例；可先运行 `.specify/scripts/bash/derive-docmap-from-scenario.sh --scn-id <ID>`（别名 `/speckit.docmap-scn @<SCN>.md`）生成 docmap 片段，再用 `.specify/scripts/bash/setup-usecase-guides.sh --scn-id <ID>`（别名 `/speckit.usecase-guides @<SCN>.md`）从 docmap 自动生成 Seed 框架。
+* **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例；可先运行 `.specify/scripts/bash/derive-docmap-from-scenario.sh --scn-id <ID>`（别名 `/speckit.docmap-scn @<SCN>.md`）生成 docmap 片段，再用 `.specify/scripts/bash/setup-usecase-guides.sh --scn-id <ID>`（别名 `/speckit.usecase-seed-generate @<SCN>.md`）从 docmap 自动生成 Seed 框架。
 
 #### SCN 创建流程（发布领域示例）
 
