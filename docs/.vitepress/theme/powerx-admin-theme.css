@@ -1,0 +1,83 @@
+/**
+ * PowerX Admin visual tokens (vendored snapshot).
+ * Sourced from PowerXAdmin/app/assets/css/theme.css (2025-10-25).
+ * Copied locally to avoid cross-repo relative imports.
+ */
+
+:root {
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-inverse: #f8fafc;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-elevated: #ffffff;
+
+  --brand-primary: #2563eb;
+  --brand-gradient-start: #2563eb;
+  --brand-gradient-end: #14b8a6;
+
+  --border-color: #e5e7eb;
+  --shadow-soft: 0 10px 35px rgba(15, 23, 42, 0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+.dark {
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5f5;
+  --text-inverse: #0f172a;
+
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+  --bg-elevated: rgba(15, 23, 42, 0.92);
+
+  --brand-primary: #60a5fa;
+  --brand-gradient-start: #60a5fa;
+  --brand-gradient-end: #22d3ee;
+
+  --border-color: rgba(148, 163, 184, 0.24);
+  --shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.45);
+}
+
+body {
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+.dark body {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+a {
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+.vp-button,
+.btn {
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+.card,
+.vp-card {
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-color);
+}
+
+.dark .card,
+.dark .vp-card {
+  border-color: rgba(148, 163, 184, 0.16);
+}

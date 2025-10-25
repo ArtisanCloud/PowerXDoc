@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-PUBLISH-HUB-001",
+      "fingerprint": "ac85fe242fd041aa267e0dc41f61d00cf08c073420e103df83861b1dee52e53f",
+      "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-PUBLISH-HUB-001.json"
+      },
+      "createdAt": "2025-10-25T16:56:05.857Z",
+      "updatedAt": "2025-10-25T16:56:05.864Z"
+    }
+  ],
+  "tokens": {
+    "e85fc74f-8b93-47df-8a3a-9dfda3cad52d": "ac85fe242fd041aa267e0dc41f61d00cf08c073420e103df83861b1dee52e53f"
+  }
+}

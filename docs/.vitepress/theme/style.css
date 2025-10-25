@@ -1,6 +1,5 @@
 @import './tailwind.css';
-@import '../../../../PowerXAdmin/app/assets/css/theme.css';
-@import '../../../../PowerXAdmin/app/assets/css/workflow.css';
+@import './powerx-admin-theme.css';
 
 /**
  * Customize default theme styling by overriding CSS variables:

@@ -5,7 +5,7 @@
 1. **生成 Seed 骨架**
 
 ```bash
-.codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-001
+[speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md)  SCN-PUBLISH-001
 ```
 
 命令会读取 `docmap.yaml`、`repos.yaml` 与场景文档，自动在 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md` 下生成或更新 Seed 模板。其余步骤与 Usecase 发布指南保持一致。
@@ -19,7 +19,9 @@
 ## 执行命令
 
 ```bash
-.codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-HUB-001
+
+[speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md)  SCN-PUBLISH-001
+
 ```
 
 - 默认生成或更新所有子用例。若文件已存在且未加 `--force`，输出会显示 `skipped`。  
@@ -40,8 +42,30 @@
      --context docs/_data/repos.yaml
    ```
 
-1. 确认每个 Seed Frontmatter 与 `docmap.yaml` 对齐（含 `optional` 标记），正文章节已替换占位符、补齐业务/流程/接口/测试/运维等信息。  
-2. 写作完成后，可执行 `node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --with-seeds --force` 把内容同步到 `docs/website/**`，再运行 `npm run publish:usecases -- --scn-id <SCN_ID> --validate-only` 自检。
+2. **校验 Seed 源文件**  
+   - Frontmatter 中的 `doc_id/scope/layer/domain/optional` 等字段需与 `docmap.yaml` 保持一致。  
+   - 模板占位符（例如 `<层名称>`、`TODO_*`）必须被替换成正式内容，Mermaid/表格/流程均需完善。  
+   - 建议在 `git status` 中确认只包含目标 Seed 的改动。
+
+3. **同步到站点 (`docs/website/{lang}/scenarios/**`)**  
+   - 推荐使用场景级命令，一次刷新场景索引、子场景和 Seed：  
+
+     ```bash
+     node scripts/site/sync-scenario-pages.mjs \
+       --scn-id SCN-PUBLISH-HUB-001 \
+       --with-seeds \
+       --force
+     ```
+
+     - `zh` 目录会复制中文原文；`en` 目录会自动生成 “Pending Translation” 占位并附上 `partnerSlug`，方便后续翻译。  
+     - 若只需更新 Seed，可改用 `node scripts/site/sync-seed-pages.mjs --scn-id <SCN_ID> --force`。  
+     - 需要局部语言时加 `--locale zh` 或 `--locale en`。  
+   - 同步后译者可在 `docs/website/en/scenarios/<SCN_ID>/<DOC_ID>.md` 内替换正文，同时保留 frontmatter（尤其 `partnerSlug`）。  
+   - 运行 `npm run docs:build` 或 `npm run docs:dev` 预览中英文页面是否一致。
+
+4. **自检并准备分发**  
+   - 执行 `npm run publish:usecases -- --scn-id <SCN_ID> --validate-only` 检查结构与 Frontmatter。  
+   - 后续按《发布 Usecase Seeds 指南》继续 Dry Run / 正式发布。
 
 ## 自动生成场景索引（推荐）
 

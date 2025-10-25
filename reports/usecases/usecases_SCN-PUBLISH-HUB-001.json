@@ -1,0 +1,69 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-PUBLISH-HUB-001",
+    "scenario": "SCN-PUBLISH-HUB-001",
+    "status": "Completed",
+    "generatedAt": "2025-10-25T16:56:05.863Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-PUBLISH-HUB-001",
+      "status": "Completed",
+      "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
+      "records": [
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "docs/hub/scn-publish-hub-001-983f2448",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/proto/dev/PLG-DEV-HOTLOAD-001.md",
+            "docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-ONLINE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXPlugin/docs/hub/scn-publish-hub-001-983f2448",
+          "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-backend",
+          "branchName": "docs/hub/scn-publish-hub-001-a55f0c99",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/service/dev/PX-DEV-HOTLOAD-001.md",
+            "docs/use_cases/_from_hub/service/publish/PX-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/service/catalog/PX-PUBLISH-ONLINE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-publish-hub-001-a55f0c99",
+          "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-admin",
+          "branchName": "docs/hub/scn-publish-hub-001-cd483bab",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md",
+            "docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXAdmin/docs/hub/scn-publish-hub-001-cd483bab",
+          "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-marketplace",
+          "branchName": "docs/hub/scn-publish-hub-001-881ce434",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-ONLINE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXMarketplace/docs/hub/scn-publish-hub-001-881ce434",
+          "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-10-25T16:56:05.864Z"
+    }
+  ]
+}

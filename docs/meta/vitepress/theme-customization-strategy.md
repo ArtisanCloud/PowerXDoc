@@ -87,25 +87,19 @@ export default {
 }
 ```
 
-### Step 3: Localize Styling with Tailwind + PowerXAdmin Assets
+### Step 3: Vendor PowerXAdmin Tokens Locally
 
-To align the docs with the PowerXAdmin product, we import Tailwind layers locally (`tailwind.config.cjs`, `postcss.config.cjs`) and compose them with the admin CSS (`theme.css`, `workflow.css`) from the sibling repository. The build no longer depends on CDN assets and purposely shares the colour system, typography, and gradients defined for the primary application.
+文档站是独立项目，禁止通过相对路径引用 `PowerXAdmin/app/assets/**`。需要把产品的视觉变量快照复制到 `docs/.vitepress/theme/powerx-admin-theme.css`，并仅在本仓库内引用。
+
+1. 在 PowerXAdmin 仓库导出最新 `theme.css`（必要时删除与 workflow 相关、与文档无关的模块）。
+2. 将内容粘贴到 `docs/.vitepress/theme/powerx-admin-theme.css`，加注释注明来源与日期。
+3. 在 `style.css` 顶部只保留这一条导入：
 
 ```css
-/* docs/.vitepress/theme/style.css */
-@import './tailwind.css';
-@import '../../../../PowerXAdmin/app/assets/css/theme.css';
-@import '../../../../PowerXAdmin/app/assets/css/workflow.css';
-
-:root {
-  --vp-c-brand-1: #1d4ed8;
-  /* …mapped PowerXAdmin colours for light mode… */
-}
-.dark {
-  --vp-c-brand-1: #93c5fd;
-  /* …dark-mode token overrides… */
-}
+@import './powerx-admin-theme.css';
 ```
+
+这样 VitePress 主题就继承了产品用的颜色/字体，但没有跨 repo 的路径依赖，也不会加载 `workflow.css`。
 
 ### Step 4: Configure the Homepage Markdown
 
