@@ -27,17 +27,30 @@ Interpret the user input to extract 至少以下信息：
    - 打开 `docs/scenarios/**/<SCN_ID>.md`（如存在），提取场景摘要、关键交互、涉及仓库与 Feature Flag。
    - 根据 docmap 声明的 `path` 或相关标准，定位参考资料（例如 `docs/standards/**`）。
 
-3. **填充 Seed 文档**
-   - 对每个生成的 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`：
-     - 审核并完善 Frontmatter（标题、owners、feature_flags、linked_requirements 等）。
-     - 在正文各章节写入场景化内容：业务目标、上下文、实现拆解、契约接口、测试策略、可观测性、回滚方案与风险。
-     - 删除或替换模板中保留的示例段落、`TODO` 文案或无关示例代码。
-     - 如 docmap `optional: true`，在正文明确当前交付策略或风险告知。
+3. **自动撰写 Seed 正文**
+   - 依序处理 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`：
+     - 聚合上下文：主场景 `docs/scenarios/**/<SCN_ID>.md`、相关子场景（若存在）、`docs/_data/docmap.yaml` 的 child 配置、`docs/_data/repos.yaml` 中仓库职责、已登记的标准与接口说明（`docs/standards/**`）。
+     - 针对每个 Seed 调用写作流程（直接在文件内让 AI 重写或使用子 Prompt），按章节输出定制化内容，覆盖：
+       - **Usecase Overview**：该仓/层的业务价值、触发角色、关键指标。
+       - **Context & Assumptions**：Feature Flag、输入输出、依赖服务、边界条件。
+       - **Solution Blueprint**：组件拆分、构建/运行流程、关键时序（必要时写出 Mermaid sequenceDiagram）。
+       - **Contracts & Interfaces / Implementation Checklist / Testing Strategy / Observability & Ops / Rollback & Failure Handling / Follow-ups & Risks**：结合仓库职责、协作接口、测试与运维要求给出详尽描述。
+     - 避免保留 `<层名称>`、`TODO_*`、`示例` 等占位词，引用真实 API/CLI/指标，必要时补充示例命令或链接。
+     - 若 docmap 标记 `optional: true`，在正文明确当前交付策略或风险说明。
+     - 更新 Frontmatter：确保 `title`、`owners`、`linked_requirements`、`feature_flags` 等字段与撰写内容一致。
 
 4. **校验与总结**
-   - 确认 Seed 中不存在残留 `PX-EXAMPLE-001`、`示例`、`TODO` 等占位符。
-   - 检查 Frontmatter 与 docmap 字段完全一致，尤其是 `doc_id`、`scope`、`layer`、`domain`、`repo_key`。
-   - 输出最终结果：生成/更新的 Seed 路径、涵盖的仓库与层域、特殊注意事项或后续 TODO。
+   - 确保 Seed 中不再残留 `<层名称>`、`TODO`、`示例` 等占位文本。
+   - 校对 Frontmatter 与 docmap 的 `doc_id`、`scope`、`layer`、`domain`、`repo_key` 是否一致，必要时同步更新 docmap/seed。
+   - 输出最终摘要：列出改写后的 Seed（含路径、状态、scope/layer/domain、optional 与否）以及仍需补充的风险或后续动作。
+
+5. **生成 Seed 撰写任务清单**
+   - 根据 `SCN_ID` 解析 domain（ID 中间段的小写），生成/更新 `docs/scenarios/<domain>/task.md`。
+   - 任务文件需包含每个子用例的 `speckit.implement` 命令示例（含 `--context` 指向场景、docmap、repos 等资料），方便后续逐条执行。
+   - 如场景包含子场景，可在命令中引用对应 `docs/scenarios/**/<child_scn>.md` 做上下文。
+
+6. **（可选）同步站点展示**
+   - 若需要将 Seed 实时呈现在 VitePress 站点，提醒执行 `node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --with-seeds`（或相关发布命令）刷新 `docs/website/**`。
 
 ## Output
 

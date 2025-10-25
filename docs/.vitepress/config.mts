@@ -136,11 +136,19 @@ function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
     const fileName = `${scenario.scn_id}.md`
     const abs = path.join(dir, fileName)
     listed.add(fileName)
+    if (!fs.existsSync(abs)) return null
     const fallbackTitle = readTitleFromMd(abs)
     const scenarioEntry = docmapIndex.get(scenario.scn_id)
-    const childCount = Array.isArray(scenarioEntry?.children) ? scenarioEntry.children.length : 0
-    const hasOptional =
-      Array.isArray(scenarioEntry?.children) && scenarioEntry.children.some((child: any) => child?.optional === true)
+    const childSeeds = Array.isArray(scenarioEntry?.children)
+      ? [...scenarioEntry.children].sort((a: any, b: any) => a.doc_id.localeCompare(b.doc_id))
+      : []
+    const childScenarioEntries = Array.isArray(scenarioEntry?.child_scenarios)
+      ? [...scenarioEntry.child_scenarios].sort((a: any, b: any) =>
+          (a.scn_id ?? '').localeCompare(b.scn_id ?? ''),
+        )
+      : []
+    const childCount = childSeeds.length
+    const hasOptional = childSeeds.some((child: any) => child?.optional === true)
     const label = buildScenarioLabel({
       scenario,
       fallbackTitle,
@@ -150,38 +158,75 @@ function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
     })
     const slug = fileName.replace(/\.md$/, '')
     const seedDir = path.join(dir, scenario.scn_id)
-    const childItems: any[] = []
+    const childScenarioItems = childScenarioEntries
+      .map((child: any) => {
+        const childPath = path.join(seedDir, `${child.scn_id}.md`)
+        if (!fs.existsSync(childPath)) return null
+        const childTitle = readTitleFromMd(childPath)
+        const text =
+          childTitle && childTitle !== child.scn_id
+            ? `${child.scn_id} · ${childTitle}`
+            : child.scn_id
+        return {
+          text,
+          link: `${linkPrefix}/scenarios/${scenario.scn_id}/${child.scn_id}`,
+        }
+      })
+      .filter(Boolean)
 
-    if (Array.isArray(scenarioEntry?.children)) {
-      for (const child of scenarioEntry.children) {
+    const seedItems = childSeeds
+      .map((child: any) => {
         const seedPath = path.join(seedDir, `${child.doc_id}.md`)
-        if (!fs.existsSync(seedPath)) continue
+        if (!fs.existsSync(seedPath)) return null
         const childLabel =
           locale === 'en'
             ? `${child.doc_id}${child.optional ? ' (optional)' : ''}`
             : `${child.doc_id}${child.optional ? '（可选）' : ''}`
-        childItems.push({
+        return {
           text: childLabel,
           link: `${linkPrefix}/scenarios/${scenario.scn_id}/${child.doc_id}`,
-        })
-      }
-    }
+        }
+      })
+      .filter(Boolean)
+
+    const scenarioItems: any[] = [
+      {
+        text: locale === 'en' ? 'Overview' : '概览',
+        link: `${linkPrefix}/scenarios/${slug}`,
+      },
+    ]
+
+    if (childScenarioItems.length)
+      scenarioItems.push({
+        text: locale === 'en' ? 'Child Scenarios' : '子场景',
+        collapsed: true,
+        items: childScenarioItems,
+      })
+
+    if (seedItems.length)
+      scenarioItems.push({
+        text: locale === 'en' ? 'Usecase Seeds' : 'Usecase Seed',
+        collapsed: true,
+        items: seedItems,
+      })
 
     return {
       text: label,
-      link: `${linkPrefix}/scenarios/${slug}`,
-      items: childItems.length ? childItems : undefined,
+      collapsed: true,
+      items: scenarioItems,
     }
   })
 
+  const result = items.filter(Boolean) as any[]
+
   const files = safeLs(dir).filter(f => f.endsWith('.md') && !listed.has(f)).sort()
   for (const file of files) {
-    items.push({
+    result.push({
       text: readTitleFromMd(path.join(dir, file)),
       link: `${linkPrefix}/scenarios/` + file.replace(/\.md$/, ''),
     })
   }
-  return items
+  return result
 }
 
 function buildCollectedSidebar(dirPrefix = '', linkPrefix = '') {

@@ -9,121 +9,126 @@ layer: ui
 domain: marketplace
 scenario_title: "PowerX 插件开发与分发全链路"
 owners:
-  - name: Michael Hu
-    role: Tech Steward
-    contact: tech@artisan-cloud.com
   - name: Matrix-X
     role: Docs Coordinator
     contact: dev@artisan-cloud.com
+  - name: Zoe Chen
+    role: Product Owner
+    contact: zoe@artisan-cloud.com
 contributors: []
 linked_requirements: []
-code_refs: []
-feature_flags: []
-last_reviewed_at: 2025-10-24
+code_refs:
+  - path: apps/admin/src/pages/marketplace/PluginMarketplace.vue
+  - path: apps/admin/src/services/marketplaceCatalogApi.ts
+feature_flags:
+  - PX_MARKETPLACE_SYNC
+  - PX_ADMIN_MARKETPLACE
+last_reviewed_at: 2025-10-25
 
 ---
 
 # Usecase Overview
 
-- **业务目标**：说明该子用例要交付的结果、价值、触发角色。
-- **成功度量**：列出可量化指标（如延迟、吞吐、转化率）。
-- **场景关联**：本用例支持的主用例、其它相关子用例或标准。
-
-> 建议在此处补充一段简短摘要，便于 PR 或站点卡片快速传达意图。
+- **业务目标**：在 PowerX Admin 中提供插件 Marketplace 视图，支持搜索、过滤、安装、升级、卸载与指标可视化，确保 Marketplace 发布的插件能快速被租户发现和部署。
+- **触发角色**：租户管理员、运维团队、支持工程师。
+- **成功度量**：目录刷新 ≤ 1 分钟；安装向导成功率 ≥ 99%；插件详情页加载延迟 ≤ 2 秒；错误提示满意度 ≥ 90%。
+- **场景关联**：消费 `PX-PUBLISH-ONLINE-001` 的目录数据，支撑 `SCN-PUBLISH-ONLINE-001` 的展示与安装。
 
 # Context & Assumptions
 
-- **前置条件**：所需 Feature Flag、配置项、依赖服务、权限。
-- **输入/输出**：关键输入数据（事件、API、消息）、期望输出。
-- **边界**：明确不在本用例覆盖范围内的行为或组件。
+- **Feature Flags**：`PX_ADMIN_MARKETPLACE` 打开模块；依赖 Backend `PX_MARKETPLACE_SYNC`。
+- **依赖**：GraphQL `marketplacePlugins`、`admin.install` APIs、SSE 安装事件、Workflow Metrics。
+- **输入**：Catalog 数据（多语言）、Marketplace 发布事件、安装状态。
+- **输出**：插件列表、详情、安装向导、指标面板、告警通知。
+- **边界**：不处理 Marketplace 审核；不执行实际安装（交给 Backend）；离线导入另有向导。
 
 # Solution Blueprint
 
 ## 体系分解
 
-| 层 | 主要组件/模块 | 责任 | 代码入口 |
-|----|---------------|------|---------|
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-
-> 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
+| 模块 | 组件 | 责任 | 入口 |
+|------|------|------|------|
+| MarketplacePage | `PluginMarketplace.vue` | 显示目录、搜索、筛选、分页 | `apps/admin/src/pages/marketplace` |
+| PluginDetail | `PluginDetailDrawer.vue` | 展示元数据、版本、指标、操作按钮 | 同上 |
+| InstallWizard | `InstallWizard.vue` | 安装流程（确认→租户配置→执行→结果） | `apps/admin/src/components` |
+| MetricsPanel | `PluginMetrics.vue` | 展示下载量、错误率、安装情况 | `apps/admin/src/components` |
+| CatalogClient | `marketplaceCatalogApi.ts` | 调用 GraphQL/REST、处理缓存 | `apps/admin/src/services` |
 
 ## 流程与时序
 
-1. **Step 1 – Trigger**：描述触发条件、调用方、关键参数。
-2. **Step 2 – Processing**：列出核心业务逻辑、状态变化、写入位置。
-3. **Step 3 – Side Effects**：说明通知、缓存刷新、下游调用。
-4. **Step 4 – Completion**：输出结果、返回值、终端反馈。
-
-如需补充图示，可使用 Mermaid：
-
 ```mermaid
 sequenceDiagram
-  participant ActorA as <调用方/触发者>
-  participant ActorB as <被调用方/处理者>
-  participant ActorC as <下游/附加参与者>
+  participant Admin as Admin User
+  participant UI as MarketplacePage
+  participant GraphQL as Catalog API
+  participant Backend as Install API
+  participant SSE as Install Events
 
-  ActorA->>ActorB: <触发请求或事件>
-  ActorB-->>ActorC: <链路调用或副作用>
-  ActorC-->>ActorB: <响应或反馈>
-  ActorB-->>ActorA: <最终结果>
+  Admin->>UI: open marketplace
+  UI->>GraphQL: query marketplacePlugins(filters)
+  GraphQL-->>UI: plugin list + metadata
+  Admin->>UI: select plugin -> install
+  UI->>Backend: POST /internal/install (pluginId, tenantId)
+  Backend-->>UI: jobId + auditId
+  UI->>SSE: subscribe install job events
+  SSE-->>UI: progress/update
+  UI-->>Admin: show success + metrics links
 ```
 
 # Contracts & Interfaces
 
-- **Inbound APIs / Events**
-  - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
-- **Outbound 调用**
-  - `<service/component>` — 说明调用目的、超时时间、失败处理。
-- **配置与脚本**
-  - `<config or script>` — Feature Flag、阈值、调度策略。
-
-> 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
+- **GraphQL**
+  - `marketplacePlugins(filters)`：返回分页、分类、标签、评分。
+  - `marketplacePlugin(id)`：详情，含版本、变更日志、兼容性。
+- **REST**
+  - `POST /internal/install`、`DELETE /internal/install/{pluginId}`、`GET /internal/install/jobs/{id}`。
+- **SSE/WebSocket**
+  - `install.job.events`：安装进度/日志。
+- **配置**
+  - `admin.marketplace.featuredTags`、`admin.marketplace.installRetentionDays`、`admin.marketplace.metricWidgets`。
 
 # Implementation Checklist
 
 | 项目 | 描述 | 完成状态 | 负责人 |
 |------|------|----------|--------|
-| 数据模型 | 新增或调整表结构、索引、迁移脚本 | [ ] | |
-| 业务逻辑 | 实现服务/控制器逻辑、错误处理 | [ ] | |
-| 权限治理 | 更新鉴权策略、审计日志或租户隔离 | [ ] | |
-| 配置发布 | 新增配置项、Feature Flag、默认值 | [ ] | |
-| 文档同步 | 更新 `docs/standards/**`、README、变更日志 | [ ] | |
+| 列表体验 | 搜索、标签、无结果提示 | [ ] | Zoe Chen |
+| 详情抽屉 | 多语言、变更日志、依赖展示 | [ ] | Dave |
+| 安装向导 | 多租户选择、权限确认、回滚 | [ ] | Carol |
+| 指标面板 | Workflow Metrics 嵌入、阈值显示 | [ ] | Matrix-X |
+| 文档 | `docs/guides/admin/marketplace.md` | [ ] | Matrix-X |
 
 # Testing Strategy
 
-- **单元测试**：覆盖核心业务函数、边界条件、错误处理。
-- **集成测试**：模拟关键 API/Event，验证数据库、外部服务交互。
-- **端到端验证**：描述 QA/自测脚本、需要的数据准备、预期输出。
-- **非功能测试**：性能、容错、回归、容量等。
-
-> 推荐列出测试用例 ID 或链接到自动化用例仓库；如需本地命令可附上 `npm run test -- <suite>` 等指引。
-
+- **单元测试**：Vue 组件测试；GraphQL 客户端缓存逻辑、安装 API 调用。
+- **端到端**：Cypress `marketplace-install.cy.ts`（浏览→安装→回滚）；多语言验证。
+- **可靠性测试**：SSE 断线恢复；安装失败时 UI 告警；缓存过期自动刷新。
+- **性能测试**：插件列表 1000+ 条分页仍维持 FPS ≥ 50；预加载详情、懒加载图片。
 # Observability & Ops
 
-- **指标**：列出关键指标名称、聚合方式、目标阈值。
-- **日志**：说明必须记录的字段、log level、落盘/采集方式。
-- **告警**：触发条件、通知渠道、值班人或升级路径。
-- **Dashboards**：Grafana / Datadog 面板链接或路径。
+- **指标**：`admin.marketplace.page_load_ms`、`admin.marketplace.install_success_rate`、`admin.marketplace.install_duration_ms`。
+- **日志**：`admin_marketplace.log`（`pluginId`、`tenantId`、`action`、`status`）。
+- **告警**：安装失败率 > 5%；GraphQL 请求错误；SSE 超时。
+- **Dashboards**：Admin Marketplace Monitor、Sentry release health。
 
 # Rollback & Failure Handling
 
-- **回滚步骤**：如何撤销代码、配置、数据变更。
-- **补救措施**：常见故障应对方案、脚本命令。
-- **数据修复**：需要的 SQL/CLI 操作及执行人。
+- **回滚**：关闭 `PX_ADMIN_MARKETPLACE`；回滚 Admin release；恢复至旧 UI。
+- **补救措施**：提供 CLI 安装指引；显示 Backend 状态链接；失败时导出日志。
+- **数据修复**：手动刷新缓存；重新加载 Marketplace 数据；`scripts/marketplace/resync_catalog.ts`。
 
 # Follow-ups & Risks
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| <风险或跟进项> | <潜在影响> | <缓解方案或依赖> | <负责人> | <ETA> |
+| 多语言翻译缺失 | 用户体验差 | 与 i18n 团队同步翻译；默认 fallback | Zoe Chen | 2025-02-12 |
+| 安装权限控制不足 | 安全威胁 | 集成 RBAC、中台权限校验 | Matrix-X | 2025-02-05 |
+| 缓存陈旧 | 展示错误版本 | GraphQL incremental fetch、定时刷新、手动刷新按钮 | Dave | 2025-02-08 |
 
 # References & Links
 
-- 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
-- 相关规范：`docs/standards/<scope>/<topic>.md`
-- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
-- 设计材料：Figma、白板或 ADR 链接
+- 场景：`docs/scenarios/publish/SCN-PUBLISH-ONLINE-001.md`
+- 标准：`docs/standards/powerx-admin/plugins/admin_workflow.md`
+- 设计：`Figma › Admin Marketplace`
+- 代码 PR：`https://github.com/ArtisanCloud/PowerXAdmin/pulls?q=marketplace`
 
-> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。
+> 完成后请运行 `node scripts/site/sync-scenario-pages.mjs --scn-id SCN-PUBLISH-HUB-001 --with-seeds` 同步站点，并执行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`。

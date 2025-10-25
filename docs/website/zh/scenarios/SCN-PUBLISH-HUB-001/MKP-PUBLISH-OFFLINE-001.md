@@ -1,3 +1,4 @@
+---
 doc_id: MKP-PUBLISH-OFFLINE-001
 scn_id: SCN-PUBLISH-HUB-001
 title: MKP-PUBLISH-OFFLINE-001 - api/marketplace
@@ -43,9 +44,9 @@ last_reviewed_at: 2025-10-24
 
 | 层 | 主要组件/模块 | 责任 | 代码入口 |
 |----|---------------|------|---------|
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| &lt;层名称&gt; | `&lt;pkg/...&gt;` | 说明该层负责的职责 | `&lt;repo/entrypoint&gt;` |
+| &lt;层名称&gt; | `&lt;pkg/...&gt;` | 说明该层负责的职责 | `&lt;repo/entrypoint&gt;` |
+| &lt;层名称&gt; | `&lt;pkg/...&gt;` | 说明该层负责的职责 | `&lt;repo/entrypoint&gt;` |
 
 > 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
 
@@ -60,14 +61,14 @@ last_reviewed_at: 2025-10-24
 
 ```mermaid
 sequenceDiagram
-  participant ActorA as <调用方/触发者>
-  participant ActorB as <被调用方/处理者>
-  participant ActorC as <下游/附加参与者>
+  participant ActorA as &lt;调用方/触发者&gt;
+  participant ActorB as &lt;被调用方/处理者&gt;
+  participant ActorC as &lt;下游/附加参与者&gt;
 
-  ActorA->>ActorB: <触发请求或事件>
-  ActorB-->>ActorC: <链路调用或副作用>
-  ActorC-->>ActorB: <响应或反馈>
-  ActorB-->>ActorA: <最终结果>
+  ActorA->>ActorB: &lt;触发请求或事件&gt;
+  ActorB-->>ActorC: &lt;链路调用或副作用&gt;
+  ActorC-->>ActorB: &lt;响应或反馈&gt;
+  ActorB-->>ActorA: &lt;最终结果&gt;
 ```
 
 # Contracts & Interfaces
@@ -75,9 +76,9 @@ sequenceDiagram
 - **Inbound APIs / Events**
   - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
 - **Outbound 调用**
-  - `<service/component>` — 说明调用目的、超时时间、失败处理。
+  - `&lt;service/component&gt;` — 说明调用目的、超时时间、失败处理。
 - **配置与脚本**
-  - `<config or script>` — Feature Flag、阈值、调度策略。
+  - `&lt;config or script&gt;` — Feature Flag、阈值、调度策略。
 
 > 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
 
@@ -117,7 +118,7 @@ sequenceDiagram
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| <风险或跟进项> | <潜在影响> | <缓解方案或依赖> | <负责人> | <ETA> |
+| &lt;风险或跟进项&gt; | &lt;潜在影响&gt; | &lt;缓解方案或依赖&gt; | &lt;负责人&gt; | &lt;ETA&gt; |
 
 # References & Links
 

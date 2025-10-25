@@ -12,118 +12,122 @@ owners:
   - name: Michael Hu
     role: Tech Steward
     contact: tech@artisan-cloud.com
-  - name: Matrix-X
-    role: Docs Coordinator
-    contact: dev@artisan-cloud.com
+  - name: Li Wei
+    role: CLI Lead
+    contact: li.wei@artisan-cloud.com
 contributors: []
 linked_requirements: []
-code_refs: []
-feature_flags: []
-last_reviewed_at: 2025-10-24
+code_refs:
+  - path: cli/src/commands/publish.ts
+  - path: cli/src/pkg/publish/manifest-uploader.ts
+feature_flags:
+  - PX_MARKETPLACE_SYNC
+  - PX_CLI_SIGNING
+last_reviewed_at: 2025-10-25
 
 ---
 
 # Usecase Overview
 
-- **业务目标**：说明该子用例要交付的结果、价值、触发角色。
-- **成功度量**：列出可量化指标（如延迟、吞吐、转化率）。
-- **场景关联**：本用例支持的主用例、其它相关子用例或标准。
-
-> 建议在此处补充一段简短摘要，便于 PR 或站点卡片快速传达意图。
+- **业务目标**：通过 `px-plugin publish` 将插件提交至 Marketplace，实现包体上传、版本管理、合规信息收集、审核跟踪与回滚能力。
+- **触发角色**：插件研发、产品运营、CI Bot（自动触发发布）。
+- **成功度量**：发布命令成功率 ≥ 99%；上传耗时 ≤ 120s；审核提交延迟 ≤ 30s；失败重试成功率 ≥ 95%。
+- **场景关联**：连接 `MKP-PUBLISH-ONLINE-001` 审核流程、`PX-PUBLISH-ONLINE-001` 目录同步、`PX-ADMIN-PUBLISH-ONLINE-001` 安装 UI。
 
 # Context & Assumptions
 
-- **前置条件**：所需 Feature Flag、配置项、依赖服务、权限。
-- **输入/输出**：关键输入数据（事件、API、消息）、期望输出。
-- **边界**：明确不在本用例覆盖范围内的行为或组件。
+- **Feature Flags**：`PX_MARKETPLACE_SYNC` 允许 CLI 调用 Marketplace；`PX_CLI_SIGNING` 确保签名校验。
+- **依赖**：认证 `px auth login`（OAuth2 Device）；Marketplace API endpoint；KMS 或 PEM 签名；CI 凭据；Telemetry。
+- **输入**：`plugin.yaml`、`manifest.json`、变更日志、release notes、`publish-config.json`。
+- **输出**：发布请求、审核工单、`publishRequestId`、Telemetry、CLI 报告。
+- **边界**：不负责 Marketplace 审核逻辑；不直接刷新租户目录；离线流程另行处理。
 
 # Solution Blueprint
 
 ## 体系分解
 
-| 层 | 主要组件/模块 | 责任 | 代码入口 |
-|----|---------------|------|---------|
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
-
-> 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
+| 模块 | 组件 | 责任 | 入口 |
+|------|------|------|------|
+| PublishCommand | `cli/src/commands/publish.ts` | CLI 入口、参数解析、流程 orchestrator | `packages/cli/src` |
+| ArtifactUploader | `cli/src/pkg/publish/manifest-uploader.ts` | 上传包体、生成版本记录、断点续传 | `packages/cli/src/pkg/publish` |
+| ApprovalClient | `cli/src/pkg/publish/approval-client.ts` | 提交审核表单、法规信息、截图 | 同上 |
+| TelemetryReporter | `cli/src/telemetry/publish.ts` | 记录延迟、失败代码、输出报告 | `packages/cli/src/telemetry` |
 
 ## 流程与时序
 
-1. **Step 1 – Trigger**：描述触发条件、调用方、关键参数。
-2. **Step 2 – Processing**：列出核心业务逻辑、状态变化、写入位置。
-3. **Step 3 – Side Effects**：说明通知、缓存刷新、下游调用。
-4. **Step 4 – Completion**：输出结果、返回值、终端反馈。
-
-如需补充图示，可使用 Mermaid：
-
 ```mermaid
 sequenceDiagram
-  participant ActorA as <调用方/触发者>
-  participant ActorB as <被调用方/处理者>
-  participant ActorC as <下游/附加参与者>
+  participant Dev as Developer/CI
+  participant CLI as px-plugin publish
+  participant Marketplace as Publish API
+  participant Storage as ArtifactStore
+  participant Audit as AuditLog
 
-  ActorA->>ActorB: <触发请求或事件>
-  ActorB-->>ActorC: <链路调用或副作用>
-  ActorC-->>ActorB: <响应或反馈>
-  ActorB-->>ActorA: <最终结果>
+  Dev->>CLI: px-plugin publish --channel stable
+  CLI->>Storage: upload artifact (multipart)
+  Storage-->>CLI: artifactId
+  CLI->>Marketplace: POST /marketplace/plugins (metadata,artifactId)
+  Marketplace-->>CLI: publishRequestId + status=pending
+  CLI->>Audit: record publish_request
+  CLI-->>Dev: summary (links, auditId)
 ```
 
 # Contracts & Interfaces
 
-- **Inbound APIs / Events**
-  - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
-- **Outbound 调用**
-  - `<service/component>` — 说明调用目的、超时时间、失败处理。
-- **配置与脚本**
-  - `<config or script>` — Feature Flag、阈值、调度策略。
-
-> 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
+- **CLI 参数**
+  - `px-plugin publish --channel stable --notes ./CHANGELOG.md --visibility private`
+  - 支持 `--ci`（非交互）、`--retry <id>`、`--dry-run`。
+- **Marketplace API**
+  - `POST /marketplace/plugins`：字段 `pluginId`、`version`、`artifactId`、`releaseNotes`、`compliance`。
+  - `GET /marketplace/plugins/{id}/requests/{requestId}`：查询审核状态。
+- **配置**
+  - `publish-config.json`：渠道、定价、访达策略；`px-plugin.config.ts` reuse metadata。
+- **Artifacts**
+  - `publish-report.json`：CLI 输出 -> pipeline ingest。
 
 # Implementation Checklist
 
 | 项目 | 描述 | 完成状态 | 负责人 |
 |------|------|----------|--------|
-| 数据模型 | 新增或调整表结构、索引、迁移脚本 | [ ] | |
-| 业务逻辑 | 实现服务/控制器逻辑、错误处理 | [ ] | |
-| 权限治理 | 更新鉴权策略、审计日志或租户隔离 | [ ] | |
-| 配置发布 | 新增配置项、Feature Flag、默认值 | [ ] | |
-| 文档同步 | 更新 `docs/standards/**`、README、变更日志 | [ ] | |
+| 上传器 | 分片、断点续传、进度条、多渠道支持 | [ ] | Li Wei |
+| 审核表单 | 法规字段校验、模板生成 | [ ] | Michael Hu |
+| Telemetry | `publish.cli.duration_ms`、`publish.cli.error_total` | [ ] | Matrix-X |
+| 重试机制 | `--retry <id>` 复用 artifact，避免重复上传 | [ ] | Li Wei |
+| 文档 | `docs/guides/publish/online.md` 更新 | [ ] | Matrix-X |
 
 # Testing Strategy
 
-- **单元测试**：覆盖核心业务函数、边界条件、错误处理。
-- **集成测试**：模拟关键 API/Event，验证数据库、外部服务交互。
-- **端到端验证**：描述 QA/自测脚本、需要的数据准备、预期输出。
-- **非功能测试**：性能、容错、回归、容量等。
-
-> 推荐列出测试用例 ID 或链接到自动化用例仓库；如需本地命令可附上 `npm run test -- <suite>` 等指引。
+- **单元测试**：`publish.test.ts` 覆盖参数/错误；`manifest-uploader.test.ts` 覆盖断点续传；`approval-client.test.ts` 校验 payload。
+- **集成测试**：Stub Marketplace API；CI 模式下自动发布；网络抖动情况下重试。
+- **端到端**：完整走通 Marketplace 审核 → Backend 同步 → Admin 安装；记录指标。
+- **非功能**：并发发布（多渠道）、大文件上传、CI 幂等性。
 
 # Observability & Ops
 
-- **指标**：列出关键指标名称、聚合方式、目标阈值。
-- **日志**：说明必须记录的字段、log level、落盘/采集方式。
-- **告警**：触发条件、通知渠道、值班人或升级路径。
-- **Dashboards**：Grafana / Datadog 面板链接或路径。
+- **指标**：`publish.cli.duration_ms`、`publish.cli.success_rate`、`publish.cli.retry_count`。
+- **日志**：`publish.log`（`pluginId`、`version`、`channel`、`requestId`、`errorCode`）。
+- **告警**：连续失败 3 次或审核提交卡住 >30min 通知 `#powerx-plugin-cli`。
+- **Dashboards**：CLI 发布仪表板、CI 成功率趋势。
 
 # Rollback & Failure Handling
 
-- **回滚步骤**：如何撤销代码、配置、数据变更。
-- **补救措施**：常见故障应对方案、脚本命令。
-- **数据修复**：需要的 SQL/CLI 操作及执行人。
+- **回滚**：撤销 CLI 发布功能；`--rollback <requestId>` 触发 Marketplace 撤回；`px-plugin publish --cancel`。
+- **补救措施**：提供 `publish resume`；生成失败报告供支持团队；支持 Snapshot 回滚。
+- **数据修复**：更新发布记录 JSON；同步 Marketplace 请求 ID；在 GitHub Release 添加回滚说明。
 
 # Follow-ups & Risks
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| <风险或跟进项> | <潜在影响> | <缓解方案或依赖> | <负责人> | <ETA> |
+| 审核字段频繁变化 | CLI 端无法及时更新 | 引入 Schema Pull、自动更新 CLI 模板 | Michael Hu | 2025-02-18 |
+| CI 模式凭据过期 | 自动发布失败 | 提供 token 轮换提醒、故障自愈脚本 | Li Wei | 2025-02-05 |
+| Artifact 过大 | 审核延迟 | 引导差分上传、设置上限并提示优化 | Matrix-X | 2025-02-12 |
 
 # References & Links
 
-- 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
-- 相关规范：`docs/standards/<scope>/<topic>.md`
-- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
-- 设计材料：Figma、白板或 ADR 链接
+- 场景：`docs/scenarios/publish/SCN-PUBLISH-ONLINE-001.md`
+- 标准：`docs/standards/powerx-plugin/integration/01_plugin_lifecycle/Versioning_and_Publishing.md`
+- 代码仓：`https://github.com/ArtisanCloud/PowerXPlugin/tree/dev/packages/cli`
+- 设计：`ADR-2024-ONLINE-PUBLISHING.md`
 
-> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。
+> Seed 完成后，与 Marketplace/Backend 对齐接口字段，并运行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`。

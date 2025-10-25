@@ -1,6 +1,8 @@
 # 生成 Usecase Seed 指南
 
-场景就绪后（可先运行 `node .specify/scripts/node/generate-scenarios.mjs`），只需一个命令即可生成所有子用例 Seed：
+场景就绪后（可先运行 `node .specify/scripts/node/generate-scenarios.mjs`），按以下步骤生成并撰写 Seed：
+
+1. **生成 Seed 骨架**
 
 ```bash
 .codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-001
@@ -17,7 +19,7 @@
 ## 执行命令
 
 ```bash
-.codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-001
+.codex/prompts/speckit.usecase-seed-generate.md SCN-PUBLISH-HUB-001
 ```
 
 - 默认生成或更新所有子用例。若文件已存在且未加 `--force`，输出会显示 `skipped`。  
@@ -26,12 +28,20 @@
   - `--doc-id PX-PUBLISH-001`：只生成指定子用例，可重复传入。  
   - `--dry-run`：仅查看计划生成的文件。
 
-## 生成后动作
+## 生成后动作（撰写与同步）
 
-1. 打开 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`，补齐正文，清除 `TODO_*`。  
-2. 确认 Frontmatter 与 `docmap.yaml` 一致（含 `optional` 标记）。  
-3. 按需要添加接口详述、测试计划、运维策略等条目。  
-4. 准备进入分发阶段（参见《发布 Usecase Seeds 指南》）。
+1. 打开 `docs/scenarios/<domain>/task.md`（或运行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` 生成），按任务列表逐条执行写作命令，例如：  
+
+   ```
+   [speckit.implement.md](.codex/prompts/speckit.implement.md) \
+     docs/usecases-seeds/powerx-plugin/proto/dev/PLG-DEV-HOTLOAD-001.md \
+     --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
+     --context docs/_data/docmap.yaml \
+     --context docs/_data/repos.yaml
+   ```
+
+1. 确认每个 Seed Frontmatter 与 `docmap.yaml` 对齐（含 `optional` 标记），正文章节已替换占位符、补齐业务/流程/接口/测试/运维等信息。  
+2. 写作完成后，可执行 `node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --with-seeds --force` 把内容同步到 `docs/website/**`，再运行 `npm run publish:usecases -- --scn-id <SCN_ID> --validate-only` 自检。
 
 ## 自动生成场景索引（推荐）
 

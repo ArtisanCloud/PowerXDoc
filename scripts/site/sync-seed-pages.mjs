@@ -154,17 +154,56 @@ export async function syncSeedPages({ scnId, locales, force }) {
       }
 
       const partnerPath = `/zh/scenarios/${scnId}/${child.doc_id}.html`;
-      const content = await localeConfig.buildContent({
+      const rawContent = await localeConfig.buildContent({
         scnId,
         docId: child.doc_id,
         sourcePath,
         partnerPath,
       });
 
-      await fs.writeFile(targetPath, content, 'utf8');
+      const content = sanitizeDynamicPlaceholders(rawContent);
+
+      await fs.writeFile(targetPath, ensureFrontmatter(content), 'utf8');
       console.log(`${exists ? '[update]' : '[create]'} ${locale}:${targetPath}`);
     }
   }
+}
+
+function ensureFrontmatter(raw) {
+  const trimmed = raw.trimStart();
+  if (trimmed.startsWith('---')) {
+    return raw;
+  }
+  return `---\n${raw}`;
+}
+
+function sanitizeDynamicPlaceholders(raw) {
+  const TOKENS = [
+    '<层名称>',
+    '<pkg/...>',
+    '<repo/entrypoint>',
+    '<service/component>',
+    '<config or script>',
+    '<调用方/触发者>',
+    '<被调用方/处理者>',
+    '<下游/附加参与者>',
+    '<触发请求或事件>',
+    '<链路调用或副作用>',
+    '<响应或反馈>',
+    '<最终结果>',
+    '<风险或跟进项>',
+    '<潜在影响>',
+    '<缓解方案或依赖>',
+    '<负责人>',
+    '<ETA>'
+  ];
+
+  let result = raw;
+  for (const token of TOKENS) {
+    const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp(escaped, 'g'), token.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+  }
+  return result;
 }
 
 async function main() {

@@ -1,23 +1,13 @@
 scenarios:
-  - scn_id: SCN-PUBLISH-001
-    title: 插件发布后目录同步
-    children:
-      - doc_id: PX-PUBLISH-001
-        scope: powerx-backend
-        layer: service
-        domain: publish
-        optional: false
-        repo: powerx-backend
-        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md
-      - doc_id: PX-ADMIN-PUBLISH-001
-        scope: powerx-admin
-        layer: ui
-        domain: publish
-        optional: true
-        repo: powerx-admin
-        path: docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-001.md
   - scn_id: SCN-PUBLISH-HUB-001
     title: PowerX 插件开发与分发全链路
+    child_scenarios:
+      - scn_id: SCN-DEV-HOTLOAD-001
+        path: docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md
+      - scn_id: SCN-PUBLISH-OFFLINE-001
+        path: docs/scenarios/publish/SCN-PUBLISH-OFFLINE-001.md
+      - scn_id: SCN-PUBLISH-ONLINE-001
+        path: docs/scenarios/publish/SCN-PUBLISH-ONLINE-001.md
     children:
       - doc_id: PLG-DEV-HOTLOAD-001
         scope: powerx-plugin
