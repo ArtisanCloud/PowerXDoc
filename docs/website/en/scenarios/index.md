@@ -20,6 +20,7 @@ PowerX documents end-to-end customer journeys through **Scenarios (SCN)** and dr
   2. Run `setup-usecase-seeds.mjs --scn-id <SCN_ID>` to generate Seed stubs.
   3. Regenerate the Seed index with `generate-usecase-seed-index.mjs`.
   4. Distribute Seeds via `npm run publish:usecases` when ready.
+- More background: [Scenario authoring](/en/guides/scenarios/scenario-generation), [Generate Seeds](/en/guides/usecases/generate-usecase-seeds), [Publish Seeds](/en/guides/usecases/publish-usecase-seeds).
 
 ## Seed Tooling {#seed-tools}
 
@@ -31,4 +32,8 @@ PowerX documents end-to-end customer journeys through **Scenarios (SCN)** and dr
 ## Useful Links {#links}
 
 - Scenario standards and governance are tracked inside the repository (`docs/meta/**`).
-- Usecase authoring guides are located under `/en/resources/`.
+- [Scenario authoring guide](/en/guides/scenarios/scenario-generation)
+- [Generate Usecase Seeds](/en/guides/usecases/generate-usecase-seeds)
+- [Publish Usecase Seeds](/en/guides/usecases/publish-usecase-seeds)
+- [Maintain Usecase Seed Indexes](/en/guides/usecases/seed-index-maintenance)
+- [Standards distribution guide](/en/guides/publish/standards-distribution)
