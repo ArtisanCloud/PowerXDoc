@@ -1,36 +1,18 @@
 # Downstream repository metadata
 # Each entry defines how distribution workflows interact with the target repository.
 repos:
-  - key: powerx-backend
-    display_name: PowerX Backend
+  - key: powerx
+    display_name: PowerX Core (Backend + Web Admin)
     slug: ArtisanCloud/PowerX
     git_url: git@github.com:ArtisanCloud/PowerX.git
     default_branch: dev/docs
-    scope: powerx-backend
-    checkout: powerx-backend
+    scope: powerx
+    checkout: powerx
     usecase_seed_root: docs/use_cases/_from_hub
     standards_root: docs/standards
     default_reviewers:
       - powerx-docs-reviewers
-    maintainers:
-      default:
-        - name: Michael Hu
-          role: Tech Steward
-          contact: tech@artisan-cloud.com
-        - name: Matrix-X
-          role: Docs Coordinator
-          contact: dev@artisan-cloud.com
-  - key: powerx-admin
-    display_name: PowerX Admin
-    slug: ArtisanCloud/PowerXAdmin
-    git_url: git@github.com:ArtisanCloud/PowerXAdmin.git
-    default_branch: dev/docs
-    scope: powerx-admin
-    checkout: powerx-admin
-    usecase_seed_root: docs/use_cases/_from_hub
-    standards_root: docs/standards
-    default_reviewers:
-      - powerx-admin-docs
+      - powerx-web-admin-docs
     maintainers:
       default:
         - name: Michael Hu

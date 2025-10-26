@@ -41,7 +41,7 @@ For any feature involving new architecture, complex data flows, or multi-step us
 - **Structural Template:**
   - Module Overviews MUST include: 'Positioning & Goals', 'Core Capabilities', 'Architecture Diagram', and 'Related Links'.
   - Technical Specifications MUST include: 'Background', 'Design', 'API/Model Definition', and 'Usage Examples'.
-- **Theme Implementation:** Shared visual systems (Tailwind utility layers, PowerXAdmin CSS, brand assets) MUST be imported locally in the docs build; external CDNs are forbidden for core styling. Light and dark themes MUST be validated for WCAG AA contrast, and navigation MUST expose the global appearance toggle.
+- **Theme Implementation:** Shared visual systems (Tailwind utility layers, PowerX Web Admin CSS, brand assets) MUST be imported locally in the docs build; external CDNs are forbidden for core styling. Light and dark themes MUST be validated for WCAG AA contrast, and navigation MUST expose the global appearance toggle.
 
 ## Governance & Maintenance
 
@@ -55,7 +55,7 @@ For any feature involving new architecture, complex data flows, or multi-step us
 
 ## PowerXDocs 统一规章
 
-- **适用范围:** 本规章适用于 PowerXDocs 及由其向 PowerX、PowerXAdmin、PowerXPlugin、PowerXMarketplace 等仓分发的所有文档与 CLI 规范，渲染入口固定为 `docs/website/`。
+- **适用范围:** 本规章适用于 PowerXDocs 及由其向 PowerX、PowerX Web Admin、PowerXPlugin、PowerXMarketplace 等仓分发的所有文档与 CLI 规范，渲染入口固定为 `docs/website/`。
 - **核心原则:** 必须遵循本宪章中的角色驱动、概念先行、结构至上、图文并茂原则；所有内容以 `docs/standards/` 为唯一源，保持专业、精准的术语体系。
 - **结构要求:** 模块与技术文档需遵循标准模板（如 Positioning & Goals、Architecture Diagram、Background、Design 等），PXIP 级变更须先经提案流程批准。
 - **跨仓协同:** 依照 `docs/design/cross-repo-documentation.md`，PowerXDocs 作为聚合中心以纯 push 模式下发主用例、子用例模板及规范，各仓在 `docs/use_cases/<layer>/<domain>/` 下撰写自有文档，并按 Layer 与 Domain 分类。

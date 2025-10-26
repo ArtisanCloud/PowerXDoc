@@ -39,7 +39,7 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001
 - 常用参数：
   - `--scope` / `--layer` / `--domain`：缩小分发范围。
   - `--doc-id PX-DEV-HOTLOAD-001`：只处理指定 Seed，可重复传参。
-  - `--repo powerx-backend`：限定单个仓库。
+  - `--repo powerx`：限定单个仓库。
   - `--resume-token <token>`：失败后续跑。
 
 ## 3. 生成领导视图（可选）
@@ -65,10 +65,10 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 | 参数 | 示例 | 说明 |
 |------|------|------|
 | `--doc-id` | `--doc-id PX-DEV-HOTLOAD-001` | 只发布指定 Seed，可重复传多个。 |
-| `--scope` | `--scope powerx-backend` | 按业务域过滤。 |
+| `--scope` | `--scope powerx` | 按业务域过滤。 |
 | `--layer` | `--layer service` | 只发布指定层级。 |
 | `--domain` | `--domain dev` | 聚焦某个业务域。 |
-| `--repo` | `--repo powerx-backend` | 限定单个仓库。 |
+| `--repo` | `--repo powerx` | 限定单个仓库。 |
 | `--resume-token` | `--resume-token <token>` | 失败后继续，无需重建 PR。 |
 
 可组合参数，例如：
@@ -76,7 +76,7 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 ```bash
 npm run publish:usecases \
   -- --scn-id SCN-PUBLISH-HUB-001 \
-  --scope powerx-backend \
+  --scope powerx \
   --doc-id PX-DEV-HOTLOAD-001 \
   --doc-id PX-PUBLISH-OFFLINE-001
 ```

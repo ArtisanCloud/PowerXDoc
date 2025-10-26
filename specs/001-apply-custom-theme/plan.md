@@ -5,7 +5,7 @@
 
 ## Summary
 
-Extend the VitePress default theme to deliver a bespoke PowerX-branded landing page while retaining the stock documentation experience for all other routes. The plan introduces a local Tailwind/PostCSS toolchain that reuses the existing PowerXAdmin style sheets, swaps the homepage layout based on frontmatter, and exposes shared navigation elements (appearance toggle, GitHub link, logo) so the docs site mirrors the admin product identity.
+Extend the VitePress default theme to deliver a bespoke PowerX-branded landing page while retaining the stock documentation experience for all other routes. The plan introduces a local Tailwind/PostCSS toolchain that reuses the existing PowerX Web Admin style sheets, swaps the homepage layout based on frontmatter, and exposes shared navigation elements (appearance toggle, GitHub link, logo) so the docs site mirrors the admin product identity.
 
 ## Technical Context
 
@@ -52,7 +52,7 @@ docs/
 ├── .vitepress/
 │   ├── theme/
 │   │   ├── index.ts         # Theme extension entry point
-│   │   ├── style.css        # Shared Tailwind + PowerXAdmin imports
+│   │   ├── style.css        # Shared Tailwind + PowerX Web Admin imports
 │   │   ├── tailwind.css     # Tailwind layer directives
 │   │   └── components/
 │   │       ├── MyAwesomeHome.vue  # PowerX landing page

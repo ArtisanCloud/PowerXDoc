@@ -25,7 +25,7 @@
           "commitSkipped": true
         },
         {
-          "repoKey": "powerx-backend",
+          "repoKey": "powerx",
           "branchName": "docs/hub/scn-publish-hub-001-a55f0c99",
           "status": "Success",
           "filesChanged": [
@@ -38,7 +38,7 @@
           "commitSkipped": true
         },
         {
-          "repoKey": "powerx-admin",
+          "repoKey": "powerx",
           "branchName": "docs/hub/scn-publish-hub-001-cd483bab",
           "status": "Success",
           "filesChanged": [
@@ -46,7 +46,7 @@
             "docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md",
             "docs/use_cases/_from_hub/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md"
           ],
-          "prUrl": "dry-run://ArtisanCloud/PowerXAdmin/docs/hub/scn-publish-hub-001-cd483bab",
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-publish-hub-001-cd483bab",
           "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
           "commitSkipped": true
         },

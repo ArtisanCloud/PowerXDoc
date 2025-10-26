@@ -4,8 +4,8 @@ scn_id: SCN-PUBLISH-HUB-001
 title: PX-ADMIN-PUBLISH-OFFLINE-001 - ui/publish
 status: Draft
 version: v0.1.0
-repo_key: powerx-admin
-scope: powerx-admin
+repo_key: powerx
+scope: powerx
 layer: ui
 domain: publish
 scenario_title: "PowerX 插件开发与分发全链路"

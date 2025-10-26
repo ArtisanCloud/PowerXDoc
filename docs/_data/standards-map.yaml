@@ -3,12 +3,9 @@ defaults:
     - '*.md'
     - _shared/**
 scopes:
-  powerx-backend:
+  powerx:
     include:
-      - powerx-backend/**
-  powerx-admin:
-    include:
-      - powerx-admin/**
+      - powerx/**
   powerx-plugin:
     include:
       - powerx-plugin/**

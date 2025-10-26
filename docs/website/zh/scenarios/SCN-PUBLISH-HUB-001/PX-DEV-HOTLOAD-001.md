@@ -4,8 +4,8 @@ scn_id: SCN-PUBLISH-HUB-001
 title: PX-DEV-HOTLOAD-001 - service/dev
 status: Draft
 version: v0.1.0
-repo_key: powerx-backend
-scope: powerx-backend
+repo_key: powerx
+scope: powerx
 layer: service
 domain: dev
 scenario_title: "PowerX 插件开发与分发全链路"

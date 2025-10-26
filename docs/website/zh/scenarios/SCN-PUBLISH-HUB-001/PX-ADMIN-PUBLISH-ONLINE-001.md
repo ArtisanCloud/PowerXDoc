@@ -4,8 +4,8 @@ scn_id: SCN-PUBLISH-HUB-001
 title: PX-ADMIN-PUBLISH-ONLINE-001 - ui/marketplace
 status: Draft
 version: v0.1.0
-repo_key: powerx-admin
-scope: powerx-admin
+repo_key: powerx
+scope: powerx
 layer: ui
 domain: marketplace
 scenario_title: "PowerX 插件开发与分发全链路"

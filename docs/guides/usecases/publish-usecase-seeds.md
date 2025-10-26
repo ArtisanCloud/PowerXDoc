@@ -73,14 +73,14 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 | 参数 | 示例 | 作用 |
 |------|------|------|
 | `--doc-id` | `--doc-id PX-DEV-HOTLOAD-001` | 只发布指定子用例 Seed，可重复传入多个。 |
-| `--scope` | `--scope powerx-backend` | 过滤到某个业务域（与 `docmap.yaml` 中一致）。 |
+| `--scope` | `--scope powerx` | 过滤到某个业务域（与 `docmap.yaml` 中一致）。 |
 | `--layer` | `--layer service` | 只处理指定层级（proto/api/service/ui）。 |
 | `--domain` | `--domain dev` | 聚焦到某个业务域（dev/publish 等）。 |
-| `--repo` | `--repo powerx-backend` | 仅针对指定仓库运行脚本。 |
+| `--repo` | `--repo powerx` | 仅针对指定仓库运行脚本。 |
 | `--resume-token` | `--resume-token <token>` | 失败后继续，避免重新生成 PR。 |
 
 > 可以组合参数，例如一次性发布 Backend 的两个 Seed：  
-> `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --scope powerx-backend --doc-id PX-DEV-HOTLOAD-001 --doc-id PX-PUBLISH-OFFLINE-001`
+> `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --scope powerx --doc-id PX-DEV-HOTLOAD-001 --doc-id PX-PUBLISH-OFFLINE-001`
 
 ## 常见问题
 

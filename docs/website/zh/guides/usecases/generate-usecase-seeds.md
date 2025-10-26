@@ -17,7 +17,7 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
 - 默认会为 `docmap.yaml` 中的所有子用例生成或更新 Seed 模板（位于 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`）。
 - 常用参数：
   - `--doc-id PX-DEV-HOTLOAD-001`：仅生成指定子用例，可重复传入。
-  - `--scope powerx-backend` / `--layer service` / `--domain dev`：按维度筛选。
+  - `--scope powerx` / `--layer service` / `--domain dev`：按维度筛选。
   - `--force`：覆盖已有 Seed。
   - `--dry-run`：仅预览计划生成的文件。
 

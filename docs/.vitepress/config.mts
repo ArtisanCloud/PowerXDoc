@@ -6,7 +6,7 @@ import { loadDocmap } from '../../scripts/lib/docmap-utils.mjs'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
+const powerXRepoDir = path.resolve(__dirname, '../../PowerX')
 
 // ---------------- helpers: filesystem -> sidebar ----------------
 const WEBSITE_ROOT = path.resolve(__dirname, '../website')
@@ -573,7 +573,7 @@ export default withMermaid(defineConfig({
 
   vite: {
     server: {
-      fs: { allow: [powerXAdminDir] }
+      fs: { allow: [powerXRepoDir] }
     }
   }
 }))

@@ -43,7 +43,7 @@ npm run publish:standards -- --repo powerx-marketplace
 
 | 场景 | 示例 |
 |------|------|
-| 按 scope 批量同步 | `npm run publish:standards -- --scope powerx,powerx-admin` |
+| 按 scope 批量同步 | `npm run publish:standards -- --scope powerx,powerx-marketplace` |
 | 全量复制 `docs/standards/**` | `npm run publish:standards -- --repo powerx-marketplace --include '**'` |
 | 单文件同步 | `npm run publish:standards -- --repo powerx-marketplace --include powerx-marketplace/init-ui.md` |
 | 多目录组合 | `npm run publish:standards -- --include _shared/security/** --include powerx-plugin/guide.md` |

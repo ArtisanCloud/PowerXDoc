@@ -44,9 +44,9 @@
         - '*.md'
         - _shared/**
       scopes:
-        powerx-backend:
+        powerx:
           include:
-            - powerx-backend/**
+            - powerx/**
         powerx-marketplace:
           include:
             - powerx-marketplace/**
@@ -128,7 +128,7 @@ npm run publish:standards -- \
 | 场景 | 说明 | 示例命令 |
 |------|------|---------|
 | **默认同步单仓** | 使用 `standards-map` 中的 `defaults + scope + repo` 配置。仅 `_shared` + 该 scope 专属目录 + 顶层 `*.md`。 | `npm run publish:standards -- --repo powerx-marketplace` |
-| **多仓/按 scope** | 同时同步多个 scope 的仓库。 | `npm run publish:standards -- --scope powerx,powerx-admin` |
+| **多仓/按 scope** | 同时同步多个 scope 的仓库。 | `npm run publish:standards -- --scope powerx,powerx-marketplace` |
 | **全量复制整棵树** | 忽略映射，复制 `docs/standards/**` 所有文件。 | `npm run publish:standards -- --repo powerx-marketplace --include '**'` |
 | **单文件** | 只同步指定文件。路径相对 `docs/standards/`。 | `npm run publish:standards -- --repo powerx-marketplace --include powerx-marketplace/init-ui.md` |
 | **单目录（含所有子目录）** | | `npm run publish:standards -- --repo powerx-marketplace --include powerx-marketplace/**` |

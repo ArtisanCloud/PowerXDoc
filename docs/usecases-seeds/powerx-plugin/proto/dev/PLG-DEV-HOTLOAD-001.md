@@ -139,7 +139,7 @@ sequenceDiagram
 # References & Links
 
 - 场景文档：`docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md`
-- 相关规范：`docs/standards/powerx-plugin/deploy/local_debug.md`、`docs/standards/powerx-backend/plugins/dev_hotload_api.md`
+- 相关规范：`docs/standards/powerx-plugin/deploy/local_debug.md`、`docs/standards/powerx/backend/plugins/dev_hotload_api.md`
 - 代码 PR：`https://github.com/ArtisanCloud/PowerXPlugin/pulls?q=dev+hotload`
 - 设计材料：`ADR-2024-DEV-HOTLOAD-CLI.md`、`Figma › Dev Hotload CLI UX`
 

@@ -9,7 +9,7 @@
 | 角色                      | 二进制名（推荐）    | Go 包路径（示例）                                             | 仓库                            |
 | ----------------------- | ----------- | ------------------------------------------------------ | ----------------------------- |
 | PowerX（Backend，PX）      | `px`        | `github.com/ArtisanCloud/PowerX/cmd/px`                | `ArtisanCloud/PowerX`         |
-| PowerX Admin（PX-ADMIN）  | `px-admin`  | `github.com/ArtisanCloud/PowerXAdmin/cmd/px-admin`     | `ArtisanCloud/PowerXAdmin`    |
+| PowerX Web Admin（PX-ADMIN） | `px-admin`  | `github.com/ArtisanCloud/PowerX/cmd/px-admin`         | `ArtisanCloud/PowerX`         |
 | PowerX Plugin（PLG）      | `px-plugin` | `github.com/ArtisanCloud/PowerXPlugin/cmd/px-plugin`   | `ArtisanCloud/PowerXPlugin`   |
 | PowerX Marketplace（MKP） | `px-market` | `github.com/Matrix-X/PowerXPluginMarket/cmd/px-market` | `Matrix-X/PowerXPluginMarket` |
 
@@ -29,7 +29,7 @@
 # PX
 go install github.com/ArtisanCloud/PowerX/cmd/px@latest
 # PX-ADMIN
-go install github.com/ArtisanCloud/PowerXAdmin/cmd/px-admin@latest
+go install github.com/ArtisanCloud/PowerX/cmd/px-admin@latest
 # PLG
 go install github.com/ArtisanCloud/PowerXPlugin/cmd/px-plugin@latest
 # MKP
@@ -40,7 +40,7 @@ go install github.com/Matrix-X/PowerXPluginMarket/cmd/px-market@latest
 
 ```bash
 go install github.com/ArtisanCloud/PowerX/cmd/px@v1.12.0
-go install github.com/ArtisanCloud/PowerXAdmin/cmd/px-admin@v1.12.0
+go install github.com/ArtisanCloud/PowerX/cmd/px-admin@v1.12.0
 go install github.com/ArtisanCloud/PowerXPlugin/cmd/px-plugin@v1.12.0
 go install github.com/Matrix-X/PowerXPluginMarket/cmd/px-market@v1.12.0
 ```
@@ -80,7 +80,7 @@ install_px_bin() {
 
 # 示例：
 install_px_bin ArtisanCloud/PowerX px v1.12.0 $(uname -s | tr '[:upper:]' '[:lower:]') amd64
-install_px_bin ArtisanCloud/PowerXAdmin px-admin v1.12.0 $(uname -s | tr '[:upper:]' '[:lower:]') amd64
+install_px_bin ArtisanCloud/PowerX px-admin v1.12.0 $(uname -s | tr '[:upper:]' '[:lower:]') amd64
 install_px_bin ArtisanCloud/PowerXPlugin px-plugin v1.12.0 $(uname -s | tr '[:upper:]' '[:lower:]') amd64
 install_px_bin Matrix-X/PowerXPluginMarket px-market v1.12.0 $(uname -s | tr '[:upper:]' '[:lower:]') amd64
 ```
@@ -93,7 +93,7 @@ install_px_bin Matrix-X/PowerXPluginMarket px-market v1.12.0 $(uname -s | tr '[:
 
 ```bash
 go install github.com/ArtisanCloud/PowerX/cmd/px@latest
-go install github.com/ArtisanCloud/PowerXAdmin/cmd/px-admin@latest
+go install github.com/ArtisanCloud/PowerX/cmd/px-admin@latest
 go install github.com/ArtisanCloud/PowerXPlugin/cmd/px-plugin@latest
 go install github.com/Matrix-X/PowerXPluginMarket/cmd/px-market@latest
 ```

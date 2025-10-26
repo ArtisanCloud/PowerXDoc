@@ -6,7 +6,7 @@ scope: powerx
 layer: service
 domain: publish
 optional: false
-repo: powerx-backend
+repo: powerx
 repo_url: https://github.com/ArtisanCloud/PowerX/tree/main/docs/use_cases/_from_hub/service/publish/PX-SAMPLE-001.md
 generated_at: 2025-10-23T00:00:00.000Z
 ---

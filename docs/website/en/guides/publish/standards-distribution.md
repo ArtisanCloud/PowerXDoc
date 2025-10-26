@@ -49,7 +49,7 @@ npm run publish:standards -- --repo powerx-marketplace
 
 | Scenario | Command |
 |----------|---------|
-| Sync by scope | `npm run publish:standards -- --scope powerx,powerx-admin` |
+| Sync by scope | `npm run publish:standards -- --scope powerx,powerx-marketplace` |
 | Copy everything | `npm run publish:standards -- --repo powerx-marketplace --include '**'` |
 | Single file | `npm run publish:standards -- --repo powerx-marketplace --include powerx-marketplace/init-ui.md` |
 | Multiple directories | `npm run publish:standards -- --include _shared/security/** --include powerx-plugin/guide.md` |

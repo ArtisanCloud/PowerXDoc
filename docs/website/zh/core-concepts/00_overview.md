@@ -125,7 +125,7 @@ graph TD
 * **协作团队：**
 
   * CoreX 后端：领域模型与索引管道；
-  * PowerXAdmin 前端：知识空间与检索控制台；
+  * PowerX Core Web Admin 前端：知识空间与检索控制台；
   * DevOps：部署存储与批处理任务；
   * 插件团队：SDK 集成与契约兼容性测试。
 

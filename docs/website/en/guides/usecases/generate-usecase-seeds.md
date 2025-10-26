@@ -23,7 +23,7 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
 - By default the script creates or updates all Seed templates referenced in `docmap.yaml` (stored at `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`).
 - Handy flags:
   - `--doc-id PX-DEV-HOTLOAD-001` — limit to a specific Seed (repeatable).
-  - `--scope powerx-backend` / `--layer service` / `--domain dev` — filter by dimension.
+  - `--scope powerx` / `--layer service` / `--domain dev` — filter by dimension.
   - `--force` — overwrite existing files.
   - `--dry-run` — preview without writing to disk.
 

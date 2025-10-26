@@ -45,7 +45,7 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001
 - Helpful flags:
   - `--scope` / `--layer` / `--domain` — narrow the blast radius.
   - `--doc-id PX-DEV-HOTLOAD-001` — publish specific Seeds (repeatable).
-  - `--repo powerx-backend` — run against a single repository.
+  - `--repo powerx` — run against a single repository.
   - `--resume-token <token>` — resume a previous partial run.
 
 ## 3. Collected View (Optional)
@@ -71,10 +71,10 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 | Flag | Example | Purpose |
 |------|---------|---------|
 | `--doc-id` | `--doc-id PX-DEV-HOTLOAD-001` | Publish specific Seeds; repeatable. |
-| `--scope` | `--scope powerx-backend` | Target a business scope. |
+| `--scope` | `--scope powerx` | Target a business scope. |
 | `--layer` | `--layer service` | Limit to a layer. |
 | `--domain` | `--domain dev` | Focus on a domain. |
-| `--repo` | `--repo powerx-backend` | Operate on a single repository. |
+| `--repo` | `--repo powerx` | Operate on a single repository. |
 | `--resume-token` | `--resume-token <token>` | Continue after a failed attempt. |
 
 Combine filters as needed:
@@ -82,7 +82,7 @@ Combine filters as needed:
 ```bash
 npm run publish:usecases \
   -- --scn-id SCN-PUBLISH-HUB-001 \
-  --scope powerx-backend \
+  --scope powerx \
   --doc-id PX-DEV-HOTLOAD-001 \
   --doc-id PX-PUBLISH-OFFLINE-001
 ```
