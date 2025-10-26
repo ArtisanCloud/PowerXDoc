@@ -12,12 +12,26 @@ import VPNavBarSocialLinks from 'vitepress/dist/client/theme-default/components/
 type FloatingElement = {
   id: number; x: number; y: number; size: number; opacity: number; delay: number; duration: number
 }
-type ProductFeature = { name: string; description: string; image: string; features: string[] }
+type ProductFeature = {
+  name: string
+  description: string
+  image: string
+  features: string[]
+  tier?: 'core' | 'free' | 'pro'
+  tierLabel?: string
+  hidden?: boolean
+}
 type HomeCopy = {
   nav: { features: string; products: string; about: string; cta: string }
   hero: { welcomePrefix: string; highlight: string; description: string; primaryCta: string; secondaryCta: string }
   features: { title: string; lead: string; items: { icon: string; title: string; description: string }[] }
-  products: { title: string; lead: string; ctaLabel: string; list: ProductFeature[] }
+  products: {
+    title: string
+    lead: string
+    ctaLabel: string
+    badges?: { core: string; free: string }
+    list: ProductFeature[]
+  }
   about: { title: string; subtitle: string; missionTitle: string; mission: string[]; stats: { value: string; label: string }[]; pillars: { title: string; description: string }[] }
   finalCta: { title: string; description: string; primary: string; secondary: string }
 }
@@ -137,7 +151,133 @@ const generateFloating = (): FloatingElement[] => {
 /* ---------- 文案数据（来自 i18n） ---------- */
 const copy = computed<HomeCopy>(() => tm('home') as HomeCopy)
 const features = computed(() => copy.value.features.items)
-const products = computed<ProductFeature[]>(() => copy.value.products.list)
+const statsVisible = ref(false)
+const hiddenProductNames = new Set(['PowerX SCRUM', 'PowerX Wallet', 'PowerX MediaX'])
+
+const products = computed<ProductFeature[]>(() => {
+  const rawList = copy.value.products.list as ProductFeature[]
+  const badges = copy.value.products.badges ?? {
+    core: 'Core platform',
+    free: 'Free tier',
+    pro: 'Professional tier',
+  }
+  return rawList.map((item, index) => {
+    const features = Array.isArray(item.features) ? [...item.features] : []
+    let tierLabelCandidate = ''
+    if (features.length) {
+      const hint = features[features.length - 1]
+      if (typeof hint === 'string' && /(免费|Free|专业|Professional)/i.test(hint)) {
+        tierLabelCandidate = features.pop() as string
+      }
+    }
+    let tier: 'core' | 'free' | 'pro'
+    if (index < 3) tier = 'core'
+    else if (hiddenProductNames.has(item.name)) tier = 'pro'
+    else tier = 'free'
+    return {
+      ...item,
+      features,
+      tier,
+      hidden: hiddenProductNames.has(item.name),
+      tierLabel: tierLabelCandidate || badges[tier],
+    }
+  })
+})
+
+const visibleProducts = computed(() => products.value.filter(product => !product.hidden))
+
+const corePalettes = [
+  {
+    bg: 'linear-gradient(135deg, rgba(15,23,42,0.24) 0%, rgba(30,41,59,0.16) 100%)',
+    border: 'rgba(148,163,184,0.40)',
+    badgeBg: 'rgba(148,163,184,0.25)',
+    badgeColor: '#0f172a',
+    bullet: 'rgba(148,163,184,0.85)',
+    shadow: 'rgba(30,64,175,0.18)',
+  },
+  {
+    bg: 'linear-gradient(135deg, rgba(45,85,255,0.18) 0%, rgba(17,94,205,0.14) 100%)',
+    border: 'rgba(59,130,246,0.38)',
+    badgeBg: 'rgba(59,130,246,0.25)',
+    badgeColor: '#1e3a8a',
+    bullet: 'rgba(59,130,246,0.85)',
+    shadow: 'rgba(37,99,235,0.20)',
+  },
+]
+
+const freePalettes = [
+  {
+    bg: 'linear-gradient(135deg, rgba(16,185,129,0.18) 0%, rgba(13,148,136,0.10) 100%)',
+    border: 'rgba(16,185,129,0.38)',
+    badgeBg: 'rgba(16,185,129,0.20)',
+    badgeColor: '#065f46',
+    bullet: 'rgba(16,185,129,0.85)',
+    shadow: 'rgba(16,185,129,0.18)',
+  },
+  {
+    bg: 'linear-gradient(135deg, rgba(14,165,233,0.18) 0%, rgba(14,116,144,0.10) 100%)',
+    border: 'rgba(14,165,233,0.32)',
+    badgeBg: 'rgba(14,165,233,0.22)',
+    badgeColor: '#0c4a6e',
+    bullet: 'rgba(14,165,233,0.85)',
+    shadow: 'rgba(14,165,233,0.18)',
+  },
+  {
+    bg: 'linear-gradient(135deg, rgba(59,130,246,0.16) 0%, rgba(22,163,74,0.10) 100%)',
+    border: 'rgba(59,130,246,0.30)',
+    badgeBg: 'rgba(59,130,246,0.20)',
+    badgeColor: '#1d4ed8',
+    bullet: 'rgba(59,130,246,0.85)',
+    shadow: 'rgba(59,130,246,0.18)',
+  },
+]
+
+const proPalettes = [
+  {
+    bg: 'linear-gradient(135deg, rgba(225,29,72,0.20) 0%, rgba(190,24,93,0.12) 100%)',
+    border: 'rgba(225,29,72,0.38)',
+    badgeBg: 'rgba(225,29,72,0.24)',
+    badgeColor: '#7f1d1d',
+    bullet: 'rgba(225,29,72,0.85)',
+    shadow: 'rgba(225,29,72,0.20)',
+  },
+  {
+    bg: 'linear-gradient(135deg, rgba(244,114,182,0.20) 0%, rgba(249,115,22,0.12) 100%)',
+    border: 'rgba(244,114,182,0.34)',
+    badgeBg: 'rgba(244,114,182,0.26)',
+    badgeColor: '#9d174d',
+    bullet: 'rgba(244,114,182,0.85)',
+    shadow: 'rgba(244,114,182,0.20)',
+  },
+  {
+    bg: 'linear-gradient(135deg, rgba(248,113,113,0.20) 0%, rgba(190,18,60,0.12) 100%)',
+    border: 'rgba(248,113,113,0.34)',
+    badgeBg: 'rgba(248,113,113,0.24)',
+    badgeColor: '#991b1b',
+    bullet: 'rgba(248,113,113,0.85)',
+    shadow: 'rgba(248,113,113,0.20)',
+  },
+]
+
+const productStyles = computed(() => {
+  const counters: Record<'core' | 'free' | 'pro', number> = { core: 0, free: 0, pro: 0 }
+  return visibleProducts.value.map((product) => {
+    const tier = product.tier ?? 'core'
+    const paletteSet = tier === 'core' ? corePalettes : tier === 'free' ? freePalettes : proPalettes
+    const palette = paletteSet[counters[tier] % paletteSet.length]
+    counters[tier] += 1
+    return {
+      '--card-bg': palette.bg,
+      '--card-border': palette.border,
+      '--badge-bg': palette.badgeBg,
+      '--badge-color': palette.badgeColor,
+      '--bullet-color': palette.bullet,
+      '--shadow-color': palette.shadow,
+    }
+  })
+})
+
+const getProductStyle = (index: number) => productStyles.value[index] ?? {}
 
 /* ---------- 生命周期 ---------- */
 onMounted(() => {
@@ -236,8 +376,8 @@ const navigateTo = (p: string) => {
           </h1>
           <p class="mx-auto mb-8 max-w-2xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.hero.description }}</p>
           <div class="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-up delay-300">
-            <button class="btn-ghost" type="button" @click="navigateTo('/core-concepts/')">{{ copy.hero.primaryCta }}</button>
-            <button class="btn-outline" type="button" @click="navigateTo('/guides/PowerX_Plugin_SDK_Guide')">{{ copy.hero.secondaryCta }}</button>
+            <button class="btn-ghost" type="button" @click="navigateTo('/overview/')">{{ copy.hero.primaryCta }}</button>
+            <button class="btn-outline" type="button" @click="navigateTo('/guides/')">{{ copy.hero.secondaryCta }}</button>
           </div>
         </div>
       </section>
@@ -251,7 +391,7 @@ const navigateTo = (p: string) => {
           </div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <article v-for="(f, i) in features" :key="f.title" class="card" :style="{ animationDelay: (i * 90 + 200) + 'ms' }">
-              <div class="mb-4 text-4xl">{{ f.icon }}</div>
+              <div class="mb-4 text-4xl text-center leading-none">{{ f.icon }}</div>
               <h3 class="mb-2 text-xl font-semibold text-slate-900 dark:text-white">{{ f.title }}</h3>
               <p class="text-slate-700 dark:text-emerald-100">{{ f.description }}</p>
             </article>
@@ -267,19 +407,24 @@ const navigateTo = (p: string) => {
             <p class="mx-auto max-w-2xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.products.lead }}</p>
           </div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <article v-for="(p, i) in products" :key="p.name" class="card overflow-hidden" :style="{ animationDelay: (i * 90 + 260) + 'ms' }">
-              <div class="h-48 w-full bg-gradient-to-r from-slate-900/10 to-slate-900/20">
-                <img :alt="`${p.name} preview`" :src="p.image" class="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.02]" loading="lazy" />
-              </div>
-              <div class="flex flex-1 flex-col p-6">
-                <h3 class="mb-2 text-xl font-semibold text-slate-900 dark:text-white">{{ p.name }}</h3>
-                <p class="mb-4 text-slate-700 dark:text-emerald-100">{{ p.description }}</p>
-                <ul class="mb-6 space-y-2">
-                  <li v-for="ft in p.features" :key="ft" class="flex items-center text-sm text-slate-700 dark:text-emerald-200">
-                    <span class="mr-2 h-2 w-2 rounded-full bg-emerald-400"></span>{{ ft }}
+            <article
+              v-for="(p, i) in visibleProducts"
+              :key="p.name"
+              class="card product-card overflow-hidden"
+              :style="{ animationDelay: (i * 90 + 260) + 'ms', ...getProductStyle(i) }"
+            >
+              <div class="flex flex-1 flex-col gap-5 p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{{ p.name }}</h3>
+                  <span class="product-badge" :class="p.tier">{{ p.tierLabel }}</span>
+                </div>
+                <p class="text-base leading-relaxed text-slate-700 dark:text-emerald-100">{{ p.description }}</p>
+                <ul class="space-y-2">
+                  <li v-for="ft in p.features" :key="ft" class="flex items-center text-sm font-medium text-slate-700 dark:text-emerald-100">
+                    <span class="mr-2 inline-block h-1.5 w-1.5 rounded-full" :style="{ backgroundColor: 'var(--bullet-color, rgba(16,185,129,0.8))' }"></span>{{ ft }}
                   </li>
                 </ul>
-                <button class="btn-primary mt-auto" type="button" @click="navigateTo('/guides/')">{{ copy.products.ctaLabel }}</button>
+                <button class="btn-primary mt-auto self-start" type="button" @click="navigateTo('/guides/')">{{ copy.products.ctaLabel }}</button>
               </div>
             </article>
           </div>
@@ -299,7 +444,7 @@ const navigateTo = (p: string) => {
               <p v-for="paragraph in copy.about.mission" :key="paragraph" class="animate-fade-up delay-150">{{ paragraph }}</p>
             </div>
             <div class="space-y-6">
-              <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div v-if="statsVisible" class="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <div v-for="stat in copy.about.stats" :key="stat.label" class="card text-center hover:scale-[1.02]">
                   <div class="text-3xl font-bold text-emerald-500 dark:text-emerald-300">{{ stat.value }}</div>
                   <div class="text-slate-700 dark:text-emerald-100">{{ stat.label }}</div>
@@ -326,8 +471,8 @@ const navigateTo = (p: string) => {
           <h2 class="mb-6 text-3xl font-bold md:text-4xl animate-fade-up">{{ copy.finalCta.title }}</h2>
           <p class="mx-auto mb-10 max-w-2xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.finalCta.description }}</p>
           <div class="flex flex-col justify-center gap-4 sm:flex-row animate-pop-in">
-            <button class="btn-ghost" type="button" @click="navigateTo('/guides/Agent_Developer_Guide')">{{ copy.finalCta.primary }}</button>
-            <button class="btn-outline" type="button" @click="navigateTo('/markdown-examples')">{{ copy.finalCta.secondary }}</button>
+            <button class="btn-ghost" type="button" @click="navigateTo('/overview/')">{{ copy.finalCta.primary }}</button>
+            <button class="btn-outline" type="button" @click="navigateTo('/resources/')">{{ copy.finalCta.secondary }}</button>
           </div>
         </div>
       </section>
@@ -400,6 +545,45 @@ const navigateTo = (p: string) => {
   animation: fade-up .9s ease both;
 }
 .card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(16,185,129,0.14); border-color: rgba(16,185,129,0.35); }
+
+.product-card {
+  border-color: var(--card-border, rgba(148,163,184,0.25));
+  background: var(--card-bg, rgba(15,23,42,0.16));
+  backdrop-filter: blur(22px);
+  box-shadow: 0 16px 38px var(--shadow-color, rgba(15,118,110,0.16));
+}
+
+.product-card .product-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: var(--badge-bg, rgba(255,255,255,0.16));
+  color: var(--badge-color, #034d37);
+  white-space: nowrap;
+}
+
+.product-card .product-badge.free {
+  box-shadow: inset 0 0 0 1px rgba(16,185,129,0.25);
+}
+
+.product-card .product-badge.pro {
+  box-shadow: inset 0 0 0 1px rgba(225,29,72,0.25);
+}
+
+.product-card .product-badge.core {
+  box-shadow: inset 0 0 0 1px rgba(148,163,184,0.28);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px var(--shadow-color, rgba(15,118,110,0.22));
+  border-color: var(--card-border, rgba(148,163,184,0.35));
+}
 
 @keyframes fade-up { from { opacity:0; transform: translate3d(0,16px,0);} to { opacity:1; transform: translate3d(0,0,0);} }
 .animate-fade-up { animation: fade-up .9s ease both; }

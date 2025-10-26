@@ -10,7 +10,7 @@
 
 **主标题：**
 
-> **PowerX - 企业 AgentOS 引擎**
+> **PowerX - 企业 AgentOS**
 
 **副标题：**
 
