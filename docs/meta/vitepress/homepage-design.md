@@ -10,7 +10,7 @@
 
 **主标题：**
 
-> **PowerX —— 企业 AgentOS**
+> **PowerX - 企业 AgentOS**
 
 **副标题：**
 
@@ -202,6 +202,3 @@ PowerX 是一个开放的企业级操作系统，可灵活连接各类智能平�
 > 让企业像装 App 一样构建数字化系统。
 
 ---
-
-是否希望我帮你把这一版转成一个可以直接放到官网首页的结构文案（例如：`/docs/website/pages/index.content.md` 版本，带 Markdown 层级和 block 描述）？
-那样你就可以直接嵌入到 VitePress 或 landing page 模板里使用。

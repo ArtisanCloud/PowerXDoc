@@ -29,7 +29,7 @@
   - `scn_id` (string; FK to Scenario)
   - `doc_id` (string; unique child identifier for usecases)
   - `title` (string)
-  - `scope` (enum: `powerx`, `powerx-admin`, `powerx-plugin`, `powerx-marketplace`)
+  - `scope` (enum: `powerx`, `powerx-plugin`, `powerx-marketplace`)
   - `layer` (enum; e.g., `service`, `ui`, `api`, `ops`, `repo`, `proto`, `domain`)
   - `domain` (string; validated against taxonomy)
   - `repo` (string; FK to RepositoryProfile.key)
@@ -66,7 +66,7 @@
 
 ## Repository Profile (`docs/_data/repos.yaml`)
 - **Fields**
-  - `key` (string; unique identifier e.g., `powerx-backend`)
+  - `key` (string; unique identifier e.g., `powerx`)
   - `display_name` (string)
   - `git_url` (string; SSH/HTTPS remote URL)
   - `default_branch` (string; e.g., `main`)

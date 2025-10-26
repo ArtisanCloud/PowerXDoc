@@ -24,7 +24,7 @@ Documentation steward uses PowerXDocs to author a new cross-repo scenario (SCN),
 
 ### User Story 2 - Distribute usecase templates to satellite repos (Priority: P2)
 
-Documentation operations engineer triggers the pure push pipeline so that template updates from `docs/usecases-seeds/**` propagate to the `_from_hub/` directories inside PowerX, PowerXAdmin, PowerXPlugin, and PowerXMarketplace repositories without overwriting local author-owned content.
+Documentation operations engineer triggers the pure push pipeline so that template updates from `docs/usecases-seeds/**` propagate to the `_from_hub/` directories inside PowerX (Core), PowerXPlugin, and PowerXMarketplace repositories without overwriting local author-owned content.
 
 **Why this priority**: Timely distribution of updated templates keeps satellite teams aligned with the scenario structure and layer/domain taxonomy.
 
@@ -32,7 +32,7 @@ Documentation operations engineer triggers the pure push pipeline so that templa
 
 **Acceptance Scenarios**:
 
-1. **Given** a revised template exists under `docs/usecases-seeds/powerx-backend/service/publish/PX-PUBLISH-002.md`, **When** the push workflow runs, **Then** `docs/use_cases/_from_hub/service/publish/PX-PUBLISH-002.md` is updated in the PowerX repository and a delivery report lists the affected repos.
+1. **Given** a revised template exists under `docs/usecases-seeds/powerx/service/publish/PX-PUBLISH-002.md`, **When** the push workflow runs, **Then** `docs/use_cases/_from_hub/service/publish/PX-PUBLISH-002.md` is updated in the PowerX repository and a delivery report lists the affected repos.
 2. **Given** a repo is temporarily unavailable, **When** the push workflow runs, **Then** the system records the failed delivery and provides a retry path without blocking other repos.
 
 ---

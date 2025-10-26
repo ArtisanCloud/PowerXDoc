@@ -12,14 +12,14 @@
 
 # PX-DEV-HOTLOAD-001
 .codex/prompts/speckit.implement.md \
-  docs/usecases-seeds/powerx-backend/service/dev/PX-DEV-HOTLOAD-001.md \
+  docs/usecases-seeds/powerx/service/dev/PX-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
 
 # PX-ADMIN-DEV-HOTLOAD-001
 .codex/prompts/speckit.implement.md \
-  docs/usecases-seeds/powerx-admin/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md \
+  docs/usecases-seeds/powerx/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -40,14 +40,14 @@
 
 # PX-PUBLISH-OFFLINE-001
 .codex/prompts/speckit.implement.md \
-  docs/usecases-seeds/powerx-backend/service/publish/PX-PUBLISH-OFFLINE-001.md \
+  docs/usecases-seeds/powerx/service/publish/PX-PUBLISH-OFFLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
 
 # PX-ADMIN-PUBLISH-OFFLINE-001
 .codex/prompts/speckit.implement.md \
-  docs/usecases-seeds/powerx-admin/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md \
+  docs/usecases-seeds/powerx/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -68,14 +68,14 @@
 
 # PX-PUBLISH-ONLINE-001
 .codex/prompts/speckit.implement.md \
-  docs/usecases-seeds/powerx-backend/service/catalog/PX-PUBLISH-ONLINE-001.md \
+  docs/usecases-seeds/powerx/service/catalog/PX-PUBLISH-ONLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
 
 # PX-ADMIN-PUBLISH-ONLINE-001
 .codex/prompts/speckit.implement.md \
-  docs/usecases-seeds/powerx-admin/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md \
+  docs/usecases-seeds/powerx/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml

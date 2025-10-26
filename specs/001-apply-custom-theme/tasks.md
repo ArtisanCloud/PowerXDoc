@@ -56,9 +56,9 @@
 - [ ] T009 Create a `README.md` in `docs/.vitepress/theme/` to explain the theme structure and customization options.
 - [ ] T010 Create a Mermaid diagram in `design/theme-customization-strategy.md` to visualize the theme extension architecture.
 - [ ] T011 Measure and compare Lighthouse performance scores before and after theme changes to ensure impact is less than 10%.
-- [X] T012 Integrate a local Tailwind/PostCSS build that reuses the PowerXAdmin CSS stack (`tailwind.config.cjs`, `postcss.config.cjs`, `docs/.vitepress/theme/style.css`).
+- [X] T012 Integrate a local Tailwind/PostCSS build that reuses the PowerX Web Admin CSS stack (`tailwind.config.cjs`, `postcss.config.cjs`, `docs/.vitepress/theme/style.css`).
 - [X] T013 Expose theme appearance toggle and social link controls on the custom landing navigation (`docs/.vitepress/theme/components/MyAwesomeHome.vue`).
-- [X] T014 Align light/dark typography and gradients with PowerXAdmin palette, including shared logo assets (`docs/.vitepress/theme/components/MyAwesomeHome.vue`, `docs/public/images/`).
+- [X] T014 Align light/dark typography and gradients with PowerX Web Admin palette, including shared logo assets (`docs/.vitepress/theme/components/MyAwesomeHome.vue`, `docs/public/images/`).
 
 ---
 

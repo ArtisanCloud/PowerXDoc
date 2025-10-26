@@ -18,12 +18,12 @@ repos:
   - key: powerx-marketplace
     scope: mkp
     responsibility: 审核、目录管理、事件广播
-  - key: powerx-backend
+  - key: powerx
     scope: px
-    responsibility: 目录同步、缓存刷新、安装编排
-  - key: powerx-admin
+    responsibility: Backend 编排、目录同步、缓存治理
+  - key: powerx
     scope: admin
-    responsibility: 市场展示、安装流程、运维日志
+    responsibility: Web Admin 市场展示、安装流程、运维日志
 related_usecases:
   - doc_id: PLG-PUBLISH-ONLINE-001
     layer: proto
@@ -43,7 +43,7 @@ last_reviewed_at: 2025-10-24
 
 # Executive Summary
 
-本场景描述插件在 Marketplace 在线发布的端到端流程：PowerXPlugin CLI 提交发布请求，PowerXMarketplace 审核与安全扫描后写入目录并广播事件，PowerX Backend 同步目录与缓存，PowerX Admin 提供市场安装入口，实现插件从提交到可用的闭环交付。
+本场景描述插件在 Marketplace 在线发布的端到端流程：PowerXPlugin CLI 提交发布请求，PowerXMarketplace 审核与安全扫描后写入目录并广播事件，PowerX Core Backend 同步目录与缓存，PowerX Core Web Admin 提供市场安装入口，实现插件从提交到可用的闭环交付。
 
 # Scope & Guardrails
 
@@ -55,17 +55,17 @@ last_reviewed_at: 2025-10-24
 
 | Scope | Repository | Layer  | 责任与交付物                               | Owners |
 |-------|------------|--------|-------------------------------------------|--------|
-| plg   | powerx-plugin     | proto  | CLI 发布、审计日志输出、打包验证             | Michael Hu |
-| mkp   | powerx-marketplace| api    | 审核、安全扫描、目录注册、事件广播         | Matrix-X |
-| px    | powerx-backend    | service| 目录同步、缓存刷新、安装编排、License 校验  | Michael Hu |
-| admin | powerx-admin      | ui     | 市场展示、安装向导、运维日志、失败恢复       | Matrix-X |
+| plg   | powerx-plugin             | proto  | CLI 发布、审计日志输出、打包验证             | Michael Hu |
+| mkp   | powerx-marketplace        | api    | 审核、安全扫描、目录注册、事件广播         | Matrix-X |
+| px-svc| powerx（Backend Services）| service| 目录同步、缓存刷新、安装编排、License 校验  | Michael Hu |
+| px-ui | powerx（Web Admin）     | ui     | 市场展示、安装向导、运维日志、失败恢复       | Matrix-X |
 
 # End-to-End Flow
 
 1. 开发者执行 `px-plugin publish`，CLI 上传包体、manifest、签名和审计日志。
 2. Marketplace 审核与安全扫描，写入目录后广播 `mkp.plugin.published` 事件。
-3. Backend 监听事件，校验签名、刷新目录与缓存，并创建安装任务；记录审计。
-4. Admin 市场页面通过 GraphQL 展示新插件，管理员一键安装，安装结果与日志写回给运维团队。
+3. PowerX Core Backend 监听事件，校验签名、刷新目录与缓存，并创建安装任务；记录审计。
+4. Web Admin 市场页面通过 GraphQL 展示新插件，管理员一键安装，安装结果与日志写回给运维团队。
 
 # Key Interactions & Contracts
 
@@ -105,5 +105,5 @@ last_reviewed_at: 2025-10-24
 - docs/meta/scenarios/plugin/publish.md
 - docs/standards/powerx-plugin/integration/01_plugin_lifecycle/Versioning_and_Publishing.md
 - docs/standards/powerx-marketplace/发布和下载插件流程.md
-- docs/standards/powerx-backend/plugins/admin_workflow.md
-- docs/standards/powerx-admin/plugins/admin_workflow.md
+- docs/standards/powerx/backend/plugins/admin_workflow.md
+- docs/standards/powerx/web-admin/plugins/admin_workflow.md

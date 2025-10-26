@@ -1,6 +1,6 @@
 # PowerX Marketplace · 初版 UI 交付规划
 
-> 适用范围：PowerX Marketplace 前端（Nuxt 4 + Tailwind + @nuxt/ui）在“阶段 0 – 4”内需要实现的界面、组件与治理能力。目标是让支撑团队在每一阶段都可验证**权限、体验、可观测、质量**四大横切能力，同时与现有标准文档（`docs/standards/powerx-marketplace/**`、`docs/standards/powerx-plugin/**`、`docs/standards/powerx-backend/**`、`docs/standards/powerx-admin/**`）保持一致。
+> 适用范围：PowerX Marketplace 前端（Nuxt 4 + Tailwind + @nuxt/ui）在“阶段 0 – 4”内需要实现的界面、组件与治理能力。目标是让支撑团队在每一阶段都可验证**权限、体验、可观测、质量**四大横切能力，同时与现有标准文档（`docs/standards/powerx-marketplace/**`、`docs/standards/powerx-plugin/**`、`docs/standards/powerx/backend/**`、`docs/standards/powerx/web-admin/**`）保持一致。
 
 ---
 

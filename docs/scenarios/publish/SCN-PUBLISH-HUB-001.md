@@ -18,12 +18,12 @@ repos:
   - key: powerx-marketplace
     scope: mkp
     responsibility: 审核与目录管理、事件分发
-  - key: powerx-backend
+  - key: powerx
     scope: px
-    responsibility: 目录同步、安装编排、生命周期治理
-  - key: powerx-admin
+    responsibility: Backend 编排、目录治理、Lifecycle API
+  - key: powerx
     scope: admin
-    responsibility: 运维界面、离线导入、安装与调试能力
+    responsibility: Web Admin 市场、运维与离线导入能力
 related_usecases:
   - doc_id: PLG-DEV-HOTLOAD-001
     layer: proto
@@ -64,7 +64,7 @@ last_reviewed_at: 2025-10-24
 
 # Executive Summary
 
-PowerX 插件生态支持开发者从本地调试、离线分发到在线发布的完整旅程。PowerXPlugin 提供 CLI/SDK，PowerXMarketplace 负责审核与目录分发，PowerX Backend 负责安装编排与生命周期治理，PowerX Admin 提供运维界面。三个流程通过标准化工具链和事件契约协同，确保插件安全高效交付。
+PowerX 插件生态支持开发者从本地调试、离线分发到在线发布的完整旅程。PowerXPlugin 提供 CLI/SDK，PowerXMarketplace 负责审核与目录分发，PowerX Core（Backend + Web Admin）承担安装编排、生命周期治理与运维体验。三个流程通过标准化工具链和事件契约协同，确保插件安全高效交付。
 
 # Scope & Guardrails
 
@@ -76,20 +76,20 @@ PowerX 插件生态支持开发者从本地调试、离线分发到在线发布�
 
 | Scope | Repository | Layer  | 责任与交付物                               | Owners |
 |-------|------------|--------|-------------------------------------------|--------|
-| plg   | powerx-plugin     | proto  | CLI/SDK；热加载、离线打包与在线发布           | Michael Hu |
-| mkp   | powerx-marketplace| api    | 审核与安全扫描；目录管理；事件广播             | Matrix-X |
-| px    | powerx-backend    | service| 目录同步、安装编排、缓存治理、License 校验    | Michael Hu |
-| admin | powerx-admin      | ui     | 运维面板；离线导入；市场安装与日志展示          | Matrix-X |
+| plg   | powerx-plugin             | proto  | CLI/SDK；热加载、离线打包与在线发布           | Michael Hu |
+| mkp   | powerx-marketplace        | api    | 审核与安全扫描；目录管理；事件广播             | Matrix-X |
+| px-svc| powerx（Backend Services）| service| 目录同步、安装编排、缓存治理、License 校验    | Michael Hu |
+| px-ui | powerx（Web Admin）     | ui     | 控制台界面、离线导入、市场安装与日志展示        | Matrix-X |
 
 # End-to-End Flow
 
-1. **本地调试**：开发者使用 `px-plugin dev --watch`，Backend Dev API 管理沙盒，Admin 调试面板展示日志。
-2. **离线导入**：`px-plugin dist` 生成 `.pxp`，Admin 上传并触发 Backend Offline Import。
-3. **在线发布**：CLI 发布请求到 Marketplace，审核通过后广播事件，Backend 同步目录，Admin 市场提供安装入口。
+1. **本地调试**：开发者使用 `px-plugin dev --watch`，PowerX Core Backend Dev API 管理沙盒，Web Admin 调试面板展示日志。
+2. **离线导入**：`px-plugin dist` 生成 `.pxp`，Web Admin 上传触发 Backend Offline Import。
+3. **在线发布**：CLI 发布请求到 Marketplace，审核通过后广播事件，Backend 同步目录，Web Admin 市场提供安装入口。
 
 # Key Interactions & Contracts
 
-- CLI：`px-plugin dev/dist/publish`、`px-admin plugin upload`
+- CLI：`px-plugin dev/dist/publish`、Web Admin 导入向导 API
 - Backend API：Dev 注册/重载、Offline Import、Install、缓存刷新
 - Marketplace：`POST /marketplace/plugins`、事件 `mkp.plugin.published`
 - 数据契约/指标：`plugin.yaml`、`manifest.signature`、`publish_online.success_rate` 等
@@ -104,13 +104,13 @@ PowerX 插件生态支持开发者从本地调试、离线分发到在线发布�
 
 1. 三种流程提供成功/失败信号并附审计及重试指引。
 2. 关键指标（热加载响应、离线导入成功率、在线发布时延）达到阈值且可观测。
-3. Admin 市场及离线导入界面在流程结束后 5 分钟内反映最新状态。
+3. Web Admin 市场及离线导入界面在流程结束后 5 分钟内反映最新状态。
 
 # Telemetry & Ops
 
-- 指标：`dev.hotload.reload_time_ms`、`offline.import.success_rate`、`marketplace.publish.duration`、`powerx.catalog.sync.latency`、`admin.plugin.install.time_to_ready`
+- 指标：`dev.hotload.reload_time_ms`、`offline.import.success_rate`、`marketplace.publish.duration`、`powerx.catalog.sync.latency`、`web_admin.plugin.install.time_to_ready`
 - 告警：热加载连续失败、离线导入失败率 > 2%、Marketplace 审核延迟等
-- 观测：PowerXPlugin CLI、Prometheus Dashboard、Admin Sentry、Marketplace telemetry
+- 观测：PowerXPlugin CLI、Prometheus Dashboard、Web Admin Sentry、Marketplace telemetry
 
 # Open Issues & Follow-ups
 
@@ -125,5 +125,5 @@ PowerX 插件生态支持开发者从本地调试、离线分发到在线发布�
 - docs/meta/scenarios/plugin/publish.md
 - docs/standards/powerx-plugin/integration/01_plugin_lifecycle/Versioning_and_Publishing.md
 - docs/standards/powerx-marketplace/发布和下载插件流程.md
-- docs/standards/powerx-backend/plugins/admin_workflow.md
-- docs/standards/powerx-admin/plugins/admin_workflow.md
+- docs/standards/powerx/backend/plugins/admin_workflow.md
+- docs/standards/powerx/web-admin/plugins/admin_workflow.md

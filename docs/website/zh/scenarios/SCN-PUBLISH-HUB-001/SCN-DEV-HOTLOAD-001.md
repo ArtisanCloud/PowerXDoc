@@ -13,10 +13,10 @@ repos:
   - key: powerx-plugin
     scope: plg
     responsibility: CLI 热加载与构建输出
-  - key: powerx-backend
+  - key: powerx
     scope: px
     responsibility: Dev API、沙盒容器与会话治理
-  - key: powerx-admin
+  - key: powerx
     scope: admin
     responsibility: 开发者调试面板与日志反馈
 related_usecases:
@@ -35,11 +35,11 @@ last_reviewed_at: 2025-10-24
 
 # Executive Summary
 
-本场景描述开发者通过 `px-plugin dev --watch` 在本地热加载调试插件的流程，确保快速、无 Marketplace 依赖地验证功能。CLI 负责构建与 watcher，Backend Dev API 管理沙盒容器，Admin 调试面板提供实时日志与控制。
+本场景描述开发者通过 `px-plugin dev --watch` 在本地热加载调试插件的流程，确保快速、无 Marketplace 依赖地验证功能。CLI 负责构建与 watcher，PowerX Core Backend Dev API 管理沙盒容器，Web Admin 调试面板提供实时日志与控制。
 
 # Scope & Guardrails
 
-- **In Scope**：本地热加载、Dev API、Admin 调试面板。
+- **In Scope**：本地热加载、Dev API、Web Admin 调试面板。
 - **Out of Scope**：离线导入、在线发布、收费与 License 管理。
 - **Environment & Flags**：启用 `PX_DEV_PLUGIN_HOTLOAD`、Admin 打开开发者模式、配置本地 mTLS 凭据。
 
@@ -48,8 +48,8 @@ last_reviewed_at: 2025-10-24
 | Scope | Repository | Layer  | 责任与交付物                         | Owners |
 |-------|------------|--------|--------------------------------------|--------|
 | plg   | powerx-plugin   | proto  | CLI 热加载、watcher、构建输出        | Li Wei |
-| px    | powerx-backend  | service| Dev API、沙盒容器、日志与审计          | Carol |
-| admin | powerx-admin    | ui     | 调试面板、日志展示、控制操作          | Dave |
+| px    | powerx  | service| Dev API、沙盒容器、日志与审计          | Carol |
+| admin | powerx    | ui     | 调试面板、日志展示、控制操作          | Dave |
 
 # End-to-End Flow
 
@@ -61,8 +61,8 @@ last_reviewed_at: 2025-10-24
 # Key Interactions & Contracts
 
 - CLI：`px-plugin dev --watch/--stop`
-- Backend Dev API：注册、重载、删除本地插件会话
-- Admin SSE/WebSocket：推送实时日志与状态
+- PowerX Core Backend Dev API：注册、重载、删除本地插件会话
+- Web Admin SSE/WebSocket：推送实时日志与状态
 
 # Usecase Links
 
@@ -80,7 +80,7 @@ last_reviewed_at: 2025-10-24
 
 - 指标：`dev.hotload.reload_time_ms`、`dev.hotload.active_sessions`、`dev.hotload.reload_failures`
 - 告警：连续 3 次热加载失败触发 `#powerx-dev-alerts`；闲置 > 60 分钟自动清理并通知
-- 观测：CLI 日志、Backend Dev Dashboard、Admin 调试面板
+- 观测：CLI 日志、Backend Dev Dashboard、Web Admin 调试面板
 
 # Open Issues & Follow-ups
 
@@ -93,5 +93,5 @@ last_reviewed_at: 2025-10-24
 
 - docs/meta/scenarios/plugin/publish.md
 - docs/standards/powerx-plugin/deploy/local_debug.md
-- docs/standards/powerx-backend/plugins/sts_flow.md
-- docs/standards/powerx-admin/plugins/host_plugin_grpc.md
+- docs/standards/powerx/backend/plugins/sts_flow.md
+- docs/standards/powerx/web-admin/plugins/host_plugin_grpc.md

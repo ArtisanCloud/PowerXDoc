@@ -1,7 +1,6 @@
 # Allowed scopes, layers, and domains
 scopes:
-  - powerx-backend
-  - powerx-admin
+  - powerx
   - powerx-plugin
   - powerx-marketplace
 layers:

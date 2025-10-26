@@ -3,9 +3,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocmap } from '../../scripts/lib/docmap-utils.mjs'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
+const powerXRepoDir = path.resolve(__dirname, '../../PowerX')
 
 // ---------------- helpers: filesystem -> sidebar ----------------
 const WEBSITE_ROOT = path.resolve(__dirname, '../website')
@@ -297,7 +298,7 @@ function buildUsecaseSeedSidebar(dirPrefix = '', linkPrefix = '') {
 }
 
 // ---------------- site config ----------------
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: 'PowerX Documentation',
   description: 'A website to introduce PowerX',
   srcDir: 'website',
@@ -341,6 +342,23 @@ export default defineConfig({
                 { text: '部署指南', link: '/zh/guides/#deployment' },
                 { text: '配置与集成', link: '/zh/guides/#configuration' },
                 { text: '运维 FAQ', link: '/zh/guides/#ops-faq' }
+              ]
+            },
+            {
+              text: 'Usecase Seeds',
+              collapsed: false,
+              items: [
+                { text: 'Seed 生成', link: '/zh/guides/usecases/generate-usecase-seeds' },
+                { text: 'Seed 发布', link: '/zh/guides/usecases/publish-usecase-seeds' },
+                { text: '索引维护', link: '/zh/guides/usecases/seed-index-maintenance' }
+              ]
+            },
+            {
+              text: '场景与标准分发',
+              collapsed: false,
+              items: [
+                { text: '场景文档生成', link: '/zh/guides/scenarios/scenario-generation' },
+                { text: '标准文档分发', link: '/zh/guides/publish/standards-distribution' }
               ]
             }
           ],
@@ -459,6 +477,23 @@ export default defineConfig({
                 { text: 'Configuration & Integration', link: '/en/guides/#configuration' },
                 { text: 'Operations FAQ', link: '/en/guides/#ops-faq' }
               ]
+            },
+            {
+              text: 'Usecase Seeds',
+              collapsed: false,
+              items: [
+                { text: 'Generate Seeds', link: '/en/guides/usecases/generate-usecase-seeds' },
+                { text: 'Publish Seeds', link: '/en/guides/usecases/publish-usecase-seeds' },
+                { text: 'Maintain Indexes', link: '/en/guides/usecases/seed-index-maintenance' }
+              ]
+            },
+            {
+              text: 'Scenarios & Standards',
+              collapsed: false,
+              items: [
+                { text: 'Scenario Authoring', link: '/en/guides/scenarios/scenario-generation' },
+                { text: 'Standards Distribution', link: '/en/guides/publish/standards-distribution' }
+              ]
             }
           ],
           '/en/scenarios/': [
@@ -538,7 +573,7 @@ export default defineConfig({
 
   vite: {
     server: {
-      fs: { allow: [powerXAdminDir] }
+      fs: { allow: [powerXRepoDir] }
     }
   }
-})
+}))

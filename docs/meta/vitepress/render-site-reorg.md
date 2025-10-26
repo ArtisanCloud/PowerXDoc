@@ -85,7 +85,7 @@ docs/
 ├─ scenarios/                      # 源：SCN 主用例（中心维护，不直接渲染）
 │  └─ SCN-XXXX-###.md
 ├─ usecases-seeds/                 # 源：子用例骨架（中心维护，不渲染）
-│  ├─ powerx/ powerx-admin/ powerx-plugin/ powerx-marketplace/
+│  ├─ powerx/ powerx/ powerx-plugin/ powerx-marketplace/
 ├─ analysis/                       # 源：聚合分析产物（报表原始文件，不渲染）
 ├─ projects/                       # （如保留）各项目 docs 镜像（不渲染）
 ├─ api-examples.md                 # （源）如要展示→复制到 website/

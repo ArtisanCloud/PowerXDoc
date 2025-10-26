@@ -13,12 +13,11 @@
 
 ## 1. 设计目标
 
-在 PowerX 体系中，存在多个独立代码仓：
+在 PowerX 体系中，存在多个核心代码仓：
 
-* **PowerX (PowerX Backend)**
-* **PowerXAdmin (PowerX Web Admin)**
-* **PowerXPlugin (PowerX Plugin Scaffold)**
-* **PowerXMarketplace (PowerX Marketplace)**
+* **PowerX（Core：Backend + Web Admin）**
+* **PowerXPlugin（Plugin Scaffold）**
+* **PowerXMarketplace（Marketplace）**
 
 每个仓有各自的文档与上下文；而端到端场景（SCN）往往跨仓、跨层（后端/前端/插件/市场），并按**领域（Domain）**细分。
 本方案确保：
@@ -35,24 +34,22 @@
 flowchart TD
   subgraph Center["PowerXDoc（唯一源头 & 分发）"]
     S1["docs/scenarios/SCN-*.md<br/>主用例 源"]
-    U1["docs/usecases-seeds/powerx-backend/<layer>/<domain>/PX-*.md<br/>PowerX 子用例模板 源"]
+    U1["docs/usecases-seeds/powerx/<layer>/<domain>/PX-*.md<br/>PowerX 子用例模板 源"]
     U2["docs/usecases-seeds/powerx-marketplace/<layer>/<domain>/MKP-*.md<br/>Marketplace 子用例模板 源"]
     U3["docs/usecases-seeds/powerx-plugin/<layer>/<domain>/PLG-*.md<br/>Plugin 子用例模板 源"]
-    U4["docs/usecases-seeds/powerx-admin/<layer>/<domain>/PX-ADMIN-*.md<br/>Admin 子用例模板 源"]
     T1["docs/standards/**<br/>统一规范 源"]
     P1["scripts/push-usecases.sh<br/>只推子用例模板"]
     P2["scripts/push-standards.sh<br/>只推规范"]
   end
 
   subgraph Repos["各项目仓库（仅接收分发）"]
-    R1["PowerX Backend<br/>docs/use_cases/_from_hub/<layer>/<domain>/PX-*.md"]
+    R1["PowerX Core（Backend + Web Admin）<br/>docs/use_cases/_from_hub/<layer>/<domain>/PX-*.md"]
     R2["PowerX Marketplace<br/>docs/use_cases/_from_hub/<layer>/<domain>/MKP-*.md"]
     R3["PowerX Plugin Scaffold<br/>docs/use_cases/_from_hub/<layer>/<domain>/PLG-*.md"]
-    R4["PowerX Admin<br/>docs/use_cases/_from_hub/<layer>/<domain>/PX-ADMIN-*.md"]
     RS["所有项目<br/>docs/standards/**（只读）"]
   end
 
-  U1 & U2 & U3 & U4 --> P1 --> R1 & R2 & R3 & R4
+  U1 & U2 & U3 --> P1 --> R1 & R2 & R3
   T1 --> P2 --> RS
 ```
 
@@ -99,7 +96,7 @@ docs/use_cases/service/publish/PX-PUBLISH-002.md
 doc_id: PX-PUBLISH-002             # 子用例唯一ID（前缀按仓）
 scn_id: SCN-PUBLISH-002            # 关联主用例ID
 title: PX 侧 - 发布后目录同步与缓存（service 层）
-repo: powerx-backend               # 仓库标识（与 repos.yaml 对应键）
+repo: powerx               # 仓库标识（与 repos.yaml 对应键）
 layer: service                     # 层（layer）
 domain: publish                    # 领域（domain）
 version: v1.12.0
@@ -159,10 +156,10 @@ PowerXDoc/
 │  ├─ standards/                       # 统一规范源（推送到各仓，不渲染）
 │  ├─ scenarios/                       # 主用例草稿（不渲染）
 │  ├─ usecases-seeds/                  # 子用例模板（不渲染）
-│  │  ├─ powerx-backend/<layer>/<domain>/PX-*.md
+│  │  ├─ powerx/<layer>/<domain>/PX-*.md
 │  │  ├─ powerx-marketplace/<layer>/<domain>/MKP-*.md
 │  │  ├─ powerx-plugin/<layer>/<domain>/PLG-*.md
-│  │  └─ powerx-admin/<layer>/<domain>/PX-ADMIN-*.md
+│  │  └─ powerx/<layer>/<domain>/PX-ADMIN-*.md
 │  └─ analysis/                        # 聚合结果/索引（不渲染）
 │
 └─ scripts/
@@ -188,10 +185,10 @@ flowchart TD
     WS["reports/_state/**（workflow ledger）"]
     REP["reports/scenarios/<workflowId>.json"]
     W1["website/scenarios/**（渲染页）"]
-    U1["usecases-seeds/powerx-backend/<layer>/<domain>/PX-*.md"]
+    U1["usecases-seeds/powerx/<layer>/<domain>/PX-*.md"]
     U2["usecases-seeds/powerx-marketplace/<layer>/<domain>/MKP-*.md"]
     U3["usecases-seeds/powerx-plugin/<layer>/<domain>/PLG-*.md"]
-    U4["usecases-seeds/powerx-admin/<layer>/<domain>/PX-ADMIN-*.md"]
+    U4["usecases-seeds/powerx/<layer>/<domain>/PX-ADMIN-*.md"]
     T1["standards/**"]
     P1["scripts/publish/push-usecases.mjs"]
     P2["scripts/publish/push-standards.mjs"]
@@ -288,7 +285,7 @@ scenarios:
     children_order: [plg, mkp, px, admin]
     children:
       px:
-        repo: powerx-backend
+        repo: powerx
         layer: service
         domain: publish
         path: docs/use_cases/service/publish/PX-PUBLISH-002.md
@@ -306,7 +303,7 @@ scenarios:
         path: docs/use_cases/proto/publish/PLG-PUBLISH-002.md
         title: PLG（proto）：构建、签名与提交
       admin:
-        repo: powerx-admin
+        repo: powerx
         layer: ui
         domain: publish
         path: docs/use_cases/ui/publish/PX-ADMIN-PUBLISH-002.md
@@ -321,7 +318,7 @@ scenarios:
     children_order: [mkp, px, plg, admin]
     children:
       px:
-        repo: powerx-backend
+        repo: powerx
         layer: service
         domain: install
         path: docs/use_cases/service/install/PX-INSTALL-003.md
@@ -339,7 +336,7 @@ scenarios:
         path: docs/use_cases/proto/install/PLG-INSTALL-003.md
         title: PLG（proto）：安装后自检与引导
       admin:
-        repo: powerx-admin
+        repo: powerx
         layer: ui
         domain: install
         path: docs/use_cases/ui/install/PX-ADMIN-INSTALL-003.md
@@ -554,10 +551,10 @@ get_repo_field() {
 # scope 与 seeds 子目录映射
 scope_dir() {
   case "$1" in
-    px) echo "powerx-backend" ;;
+    px) echo "powerx" ;;
     mkp) echo "powerx-marketplace" ;;
     plg) echo "powerx-plugin" ;;
-    admin) echo "powerx-admin" ;;
+    admin) echo "powerx" ;;
     *) echo "unknown"; return 1 ;;
   esac
 }
@@ -693,10 +690,10 @@ docs/standards/
 │  ├─ governance.md
 │  ├─ taxonomy.md
 │  └─ release-checklist.md
-├─ powerx-backend/          # PowerX Backend 专属规范
+├─ powerx/          # PowerX Backend 专属规范
 │  ├─ service-ops.md
 │  └─ data-contracts/
-├─ powerx-admin/            # PowerX Admin 专属规范
+├─ powerx/            # PowerX Admin 专属规范
 │  └─ ui-patterns.md
 ├─ powerx-plugin/           # PowerX Plugin Scaffold 专属规范
 │  └─ packaging.md
@@ -716,12 +713,12 @@ defaults:
     - '*.md'
     - _shared/**
 scopes:
-  powerx-backend:
+  powerx:
     include:
-      - powerx-backend/**
-  powerx-admin:
+      - powerx/**
+  powerx:
     include:
-      - powerx-admin/**
+      - powerx/**
   powerx-plugin:
     include:
       - powerx-plugin/**
@@ -756,9 +753,9 @@ scopes:
 ##### 常见用法示例
 
 * 全量（原行为）：`npm run publish:standards -- --all`
-* 单仓：`npm run publish:standards -- --repo powerx-backend`
+* 单仓：`npm run publish:standards -- --repo powerx`
 * 指定目录：`npm run publish:standards -- --repo powerx-plugin --include powerx-plugin/build/**`
-* 多仓共享安全规范：`npm run publish:standards -- --scope powerx,powerx-admin --include _shared/security/**`
+* 多仓共享安全规范：`npm run publish:standards -- --scope powerx,powerx-marketplace --include _shared/security/**`
 * 临时排除实验内容：`npm run publish:standards -- --exclude _shared/experimental/**`
 
 审计仍沿用既有 `reports/standards/**` 输出：dry-run 不推送、正式执行会在报告中记录实际同步的仓库与目录，便于追踪。
@@ -1077,7 +1074,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
+const powerXRepoDir = path.resolve(__dirname, '../../PowerX')
 
 // ---------------- helpers: filesystem -> sidebar ----------------
 const WEBSITE_ROOT = path.resolve(__dirname, '../website')
@@ -1313,7 +1310,7 @@ export default defineConfig({
 
   vite: {
     server: {
-      fs: { allow: [powerXAdminDir] }
+      fs: { allow: [powerXRepoDir] }
     }
   }
 })

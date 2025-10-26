@@ -11,25 +11,25 @@ async function createTempWorkspace() {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'px-usecases-'));
   const checkoutRoot = path.join(root, 'repos');
   await fs.mkdir(checkoutRoot, { recursive: true });
-  const repos = ['powerx-backend', 'powerx-admin', 'powerx-plugin', 'powerx-marketplace'];
+  const repos = ['powerx', 'powerx-plugin', 'powerx-marketplace'];
   for (const name of repos) {
     const repoDir = path.join(checkoutRoot, name);
     await fs.mkdir(path.join(repoDir, 'docs/use_cases/_from_hub'), { recursive: true });
   }
-  await fs.mkdir(path.join(root, 'docs/usecases-seeds/powerx-backend/service/publish'), { recursive: true });
+  await fs.mkdir(path.join(root, 'docs/usecases-seeds/powerx/service/publish'), { recursive: true });
   await fs.writeFile(
-    path.join(root, 'docs/usecases-seeds/powerx-backend/service/publish/PX-PUBLISH-001.md'),
+    path.join(root, 'docs/usecases-seeds/powerx/service/publish/PX-PUBLISH-001.md'),
     '# Usecase seed\n',
   );
 
   await fs.mkdir(path.join(root, 'docs/_data'), { recursive: true });
   await fs.writeFile(
     path.join(root, 'docs/_data/docmap.yaml'),
-    `scenarios:\n  - scn_id: SCN-PUBLISH-001\n    children:\n      - doc_id: PX-PUBLISH-001\n        scope: powerx\n        layer: service\n        domain: publish\n        repo: powerx-backend\n        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md\n`,
+    `scenarios:\n  - scn_id: SCN-PUBLISH-001\n    children:\n      - doc_id: PX-PUBLISH-001\n        scope: powerx\n        layer: service\n        domain: publish\n        repo: powerx\n        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md\n`,
   );
   await fs.writeFile(
     path.join(root, 'docs/_data/repos.yaml'),
-    `repos:\n  - key: powerx-backend\n    slug: ArtisanCloud/PowerX\n    checkout: powerx-backend\n    default_branch: main\n    usecase_seed_root: docs/use_cases/_from_hub\n`,
+    `repos:\n  - key: powerx\n    slug: ArtisanCloud/PowerX\n    checkout: powerx\n    default_branch: main\n    usecase_seed_root: docs/use_cases/_from_hub\n`,
   );
 
   return root;
@@ -78,7 +78,7 @@ test('push-usecases copies seed and creates report', async () => {
 
   const target = path.join(
     root,
-    'repos/powerx-backend/docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md',
+    'repos/powerx/docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md',
   );
   const copied = await fs.readFile(target, 'utf8');
   assert.match(copied, /Usecase seed/);
@@ -86,7 +86,7 @@ test('push-usecases copies seed and creates report', async () => {
   const reportPath = path.join(root, 'reports/usecases/usecases_SCN-PUBLISH-001.json');
   const report = JSON.parse(await fs.readFile(reportPath, 'utf8'));
   assert.equal(report.summary.status, 'Completed');
-  assert.equal(report.records[0].records[0].repoKey, 'powerx-backend');
+  assert.equal(report.records[0].records[0].repoKey, 'powerx');
 
   const rerun = await runCli(root, [
     '--scn-id',

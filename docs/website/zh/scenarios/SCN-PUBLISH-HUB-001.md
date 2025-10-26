@@ -12,21 +12,16 @@ last_reviewed_at: 2025-10-24
 - 场景文档：[SCN-PUBLISH-HUB-001.md](../../scenarios/publish/SCN-PUBLISH-HUB-001.md)
 - docmap 入口：[docmap.yaml](../../_data/docmap.yaml)
 
-## Scope: powerx-admin
+## Scope: powerx
 
 | Doc ID | Layer | Domain | Optional | Seed | Status |
 |--------|-------|--------|----------|------|--------|
-| PX-ADMIN-DEV-HOTLOAD-001 | ui | dev | 否 | [PX-ADMIN-DEV-HOTLOAD-001](../powerx-admin/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md) | 已生成 |
-| PX-ADMIN-PUBLISH-OFFLINE-001 | ui | publish | 否 | [PX-ADMIN-PUBLISH-OFFLINE-001](../powerx-admin/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md) | 已生成 |
-| PX-ADMIN-PUBLISH-ONLINE-001 | ui | marketplace | 否 | [PX-ADMIN-PUBLISH-ONLINE-001](../powerx-admin/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md) | 已生成 |
-
-## Scope: powerx-backend
-
-| Doc ID | Layer | Domain | Optional | Seed | Status |
-|--------|-------|--------|----------|------|--------|
-| PX-DEV-HOTLOAD-001 | service | dev | 否 | [PX-DEV-HOTLOAD-001](../powerx-backend/service/dev/PX-DEV-HOTLOAD-001.md) | 已生成 |
-| PX-PUBLISH-OFFLINE-001 | service | publish | 否 | [PX-PUBLISH-OFFLINE-001](../powerx-backend/service/publish/PX-PUBLISH-OFFLINE-001.md) | 已生成 |
-| PX-PUBLISH-ONLINE-001 | service | catalog | 否 | [PX-PUBLISH-ONLINE-001](../powerx-backend/service/catalog/PX-PUBLISH-ONLINE-001.md) | 已生成 |
+| PX-DEV-HOTLOAD-001 | service | dev | 否 | [PX-DEV-HOTLOAD-001](../powerx/service/dev/PX-DEV-HOTLOAD-001.md) | 已生成 |
+| PX-ADMIN-DEV-HOTLOAD-001 | ui | dev | 否 | [PX-ADMIN-DEV-HOTLOAD-001](../powerx/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md) | 已生成 |
+| PX-PUBLISH-OFFLINE-001 | service | publish | 否 | [PX-PUBLISH-OFFLINE-001](../powerx/service/publish/PX-PUBLISH-OFFLINE-001.md) | 已生成 |
+| PX-ADMIN-PUBLISH-OFFLINE-001 | ui | publish | 否 | [PX-ADMIN-PUBLISH-OFFLINE-001](../powerx/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md) | 已生成 |
+| PX-PUBLISH-ONLINE-001 | service | catalog | 否 | [PX-PUBLISH-ONLINE-001](../powerx/service/catalog/PX-PUBLISH-ONLINE-001.md) | 已生成 |
+| PX-ADMIN-PUBLISH-ONLINE-001 | ui | marketplace | 否 | [PX-ADMIN-PUBLISH-ONLINE-001](../powerx/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md) | 已生成 |
 
 ## Scope: powerx-marketplace
 

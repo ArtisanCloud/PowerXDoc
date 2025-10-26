@@ -31,7 +31,7 @@ PowerX Plugin 是 PowerX 平台的插件开发与分发体系。
 **流程：**
 
 1. 在 PowerXPlugin 仓内使用 `px-plugin` 构建插件，生成编译输出目录（如 `dist/`）。
-2. 打开 **PowerXAdmin** 后台页面；
+2. 打开 **PowerX Web Admin** 后台页面（PowerX Core 仓库内模块）；
 3. 在插件管理区选择“从本地目录安装”；
 4. 系统调用 **PowerX Backend（px）** 完成插件安装与激活；
 5. 插件在本地生效，可直接调试和修改。
@@ -93,7 +93,7 @@ PowerX Plugin 是 PowerX 平台的插件开发与分发体系。
 ## 四、生态闭环
 
 * **PowerXPlugin** (px-plugin工具)负责插件构建、打包与发布。
-* **PowerXAdmin** 负责插件安装、启用与调试。
+* **PowerX Web Admin** 负责插件安装、启用与调试。
 * **PowerX**（PowerX Backend）负责插件运行与生命周期管理。
 * **PowerXMarketplace** 负责插件审核、上架与分发。
 

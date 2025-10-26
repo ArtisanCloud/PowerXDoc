@@ -1,6 +1,6 @@
 # 下游仓库 `docs/standards/**` 只读治理指引
 
-> 目的：确保由 **PowerXDocs** 分发的标准文档，在下游仓库（PowerX、PowerXAdmin、PowerXPlugin、PowerXMarketplace 等）保持只读。此指引可随 `npm run publish:standards` 一并推送，供各仓实施权限与流程约束。
+> 目的：确保由 **PowerXDocs** 分发的标准文档，在下游仓库（PowerX、PowerXPlugin、PowerXMarketplace 等）保持只读。此指引可随 `npm run publish:standards` 一并推送，供各仓实施权限与流程约束。
 
 ---
 

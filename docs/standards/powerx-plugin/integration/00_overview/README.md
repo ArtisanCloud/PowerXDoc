@@ -31,7 +31,7 @@ PowerX 体系通过「**CoreX（内核） + PluginBase（插件基座） + Plugi
 | CoreX | 内核服务 | 提供 IAM、RBAC、多租户、事件总线、媒资、Agent 等核心能力 | PowerX/Core |
 | PluginBase | 插件基座 | 定义插件生命周期、schema、runtime 与安全标准 | com.powerx.plugin.base |
 | Plugin | 业务插件 | 实现独立能力、业务逻辑或行业模块 | com.powerx.plugin.crm / com.powerx.plugin.ecommerce |
-| Admin | 前端控制台 | 提供统一 UI（Nuxt 4 + Nuxt UI）与插件管理入口 | PowerXAdmin |
+| Admin | 前端控制台 | 提供统一 UI（Nuxt 4 + Nuxt UI）与插件管理入口 | PowerX Web Admin |
 
 ---
 

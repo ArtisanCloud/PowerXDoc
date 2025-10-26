@@ -19,10 +19,10 @@ repos:
   - key: powerx-marketplace
     scope: mkp
     responsibility: 审核、目录管理、事件广播
-  - key: powerx-backend
+  - key: powerx
     scope: px
     responsibility: 目录同步、缓存刷新、安装编排
-  - key: powerx-admin
+  - key: powerx
     scope: admin
     responsibility: 市场展示、安装流程、运维日志
 related_usecases:
@@ -44,11 +44,11 @@ last_reviewed_at: 2025-10-24
 
 # Executive Summary
 
-本场景描述插件在 Marketplace 在线发布的端到端流程：PowerXPlugin CLI 提交发布请求，PowerXMarketplace 审核与安全扫描后写入目录并广播事件，PowerX Backend 同步目录与缓存，PowerX Admin 提供市场安装入口，实现插件从提交到可用的闭环交付。
+本场景描述插件在 Marketplace 在线发布的端到端流程：PowerXPlugin CLI 提交发布请求，PowerXMarketplace 审核与安全扫描后写入目录并广播事件，PowerX Core Backend 同步目录与缓存，PowerX Core Web Admin 提供市场安装入口，实现插件从提交到可用的闭环交付。
 
 # Scope & Guardrails
 
-- **In Scope**：`px-plugin publish`；Marketplace 审核与事件；Backend 目录同步与安装 API；Admin 市场 UI。
+- **In Scope**：`px-plugin publish`；Marketplace 审核与事件；Backend 目录同步与安装 API；Web Admin 市场 UI。
 - **Out of Scope**：离线导入、本地调试、收费策略。
 - **Environment & Flags**：开启 `PX_MARKETPLACE_SYNC` 与 Admin `marketplace.enabled=true`；Marketplace 配置生产签名与安全扫描。
 
@@ -56,17 +56,17 @@ last_reviewed_at: 2025-10-24
 
 | Scope | Repository | Layer  | 责任与交付物                               | Owners |
 |-------|------------|--------|-------------------------------------------|--------|
-| plg   | powerx-plugin     | proto  | CLI 发布、审计日志输出、打包验证             | Michael Hu |
-| mkp   | powerx-marketplace| api    | 审核、安全扫描、目录注册、事件广播         | Matrix-X |
-| px    | powerx-backend    | service| 目录同步、缓存刷新、安装编排、License 校验  | Michael Hu |
-| admin | powerx-admin      | ui     | 市场展示、安装向导、运维日志、失败恢复       | Matrix-X |
+| plg   | powerx-plugin             | proto  | CLI 发布、审计日志输出、打包验证             | Michael Hu |
+| mkp   | powerx-marketplace        | api    | 审核、安全扫描、目录注册、事件广播         | Matrix-X |
+| px    | powerx    | service| 目录同步、缓存刷新、安装编排、License 校验  | Michael Hu |
+| admin | powerx      | ui     | 市场展示、安装向导、运维日志、失败恢复       | Matrix-X |
 
 # End-to-End Flow
 
 1. 开发者执行 `px-plugin publish`，CLI 上传包体、manifest、签名和审计日志。
 2. Marketplace 审核与安全扫描，写入目录后广播 `mkp.plugin.published` 事件。
 3. Backend 监听事件，校验签名、刷新目录与缓存，并创建安装任务；记录审计。
-4. Admin 市场页面通过 GraphQL 展示新插件，管理员一键安装，安装结果与日志写回给运维团队。
+4. Web Admin 市场页面通过 GraphQL 展示新插件，管理员一键安装，安装结果与日志写回给运维团队。
 
 # Key Interactions & Contracts
 
@@ -84,15 +84,15 @@ last_reviewed_at: 2025-10-24
 
 # Acceptance Criteria
 
-1. 发布后 5 分钟内，Admin 市场列表可搜索到插件且元数据同步一致。
+1. 发布后 5 分钟内，Web Admin 市场列表可搜索到插件且元数据同步一致。
 2. 所有关键指标写入审计，并在告警渠道可追踪。
 3. 指标 `publish_online.success_rate` ≥ 99%，告警阈值可配置且正常生效。
 
 # Telemetry & Ops
 
-- 指标：`marketplace.publish.duration`、`powerx.catalog.sync.latency`、`admin.plugin.install.time_to_ready`
+- 指标：`marketplace.publish.duration`、`powerx.catalog.sync.latency`、`web_admin.plugin.install.time_to_ready`
 - 告警：审核失败率 > 5% 触发 PagerDuty；目录同步延迟 ≥ 2 次事件触发高优先级告警；安装失败自动通知维护人
-- 观测来源：Marketplace telemetry dashboards、Backend workflow metrics、Admin Sentry
+- 观测来源：Marketplace telemetry dashboards、Backend workflow metrics、Web Admin Sentry
 
 # Open Issues & Follow-ups
 
@@ -106,5 +106,5 @@ last_reviewed_at: 2025-10-24
 - docs/meta/scenarios/plugin/publish.md
 - docs/standards/powerx-plugin/integration/01_plugin_lifecycle/Versioning_and_Publishing.md
 - docs/standards/powerx-marketplace/发布和下载插件流程.md
-- docs/standards/powerx-backend/plugins/admin_workflow.md
-- docs/standards/powerx-admin/plugins/admin_workflow.md
+- docs/standards/powerx/backend/plugins/admin_workflow.md
+- docs/standards/powerx/web-admin/plugins/admin_workflow.md
