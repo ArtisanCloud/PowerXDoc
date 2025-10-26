@@ -230,6 +230,81 @@ function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
   return result
 }
 
+const zhOperationsSidebar = [
+  {
+    text: '运营与治理',
+    collapsed: false,
+    items: [
+      { text: '概览', link: '/zh/operations/' },
+      { text: '观测与告警', link: '/zh/operations/#observability' },
+      { text: '安全治理', link: '/zh/operations/#security' },
+      { text: '变更管理', link: '/zh/operations/#change-management' },
+      { text: '报告与审计', link: '/zh/operations/#reporting' },
+      { text: '安全治理专题', link: '/zh/security-and-governance/' },
+    ],
+  },
+]
+
+const enOperationsSidebar = [
+  {
+    text: 'Operations & Governance',
+    collapsed: false,
+    items: [
+      { text: 'Overview', link: '/en/operations/' },
+      { text: 'Observability', link: '/en/operations/#observability' },
+      { text: 'Security', link: '/en/operations/#security' },
+      { text: 'Change Management', link: '/en/operations/#change-management' },
+      { text: 'Reporting', link: '/en/operations/#reporting' },
+      { text: 'Security & Governance Hub', link: '/en/security-and-governance/' },
+    ],
+  },
+]
+
+const zhOverviewSidebar = [
+  {
+    text: '产品概览',
+    collapsed: false,
+    items: [
+      { text: 'PowerX 一览', link: '/zh/overview/' },
+      { text: '价值案例', link: '/zh/overview/#value-cases' },
+      { text: '路线图', link: '/zh/overview/#roadmap' },
+    ],
+  },
+  {
+    text: '核心概念',
+    collapsed: false,
+    items: [
+      { text: 'SDD 核心理念', link: '/zh/core-concepts/spec-driven-development' },
+      { text: '集成架构', link: '/zh/core-concepts/PowerX_Integration_Architecture' },
+      { text: '知识库基础', link: '/zh/core-concepts/00_overview' },
+      { text: '智能体生命周期', link: '/zh/core-concepts/Agent_Manager_and_Lifecycle_Spec' },
+    ],
+  },
+]
+
+const enOverviewSidebar = [
+  {
+    text: 'Product Overview',
+    collapsed: false,
+    items: [
+      { text: 'Vision & Positioning', link: '/en/overview/#vision' },
+      { text: 'Product Matrix', link: '/en/overview/#product-matrix' },
+      { text: 'Value Stories', link: '/en/overview/#value-cases' },
+      { text: 'Roadmap', link: '/en/overview/#roadmap' },
+    ],
+  },
+  {
+    text: 'Core Concepts',
+    collapsed: false,
+    items: [
+      { text: 'Specification-Driven Development', link: '/en/core-concepts/spec-driven-development' },
+      { text: 'Integration Architecture', link: '/en/core-concepts/PowerX_Integration_Architecture' },
+      { text: 'Knowledge Base Primer', link: '/en/core-concepts/00_overview' },
+      { text: 'Agent Lifecycle', link: '/en/core-concepts/Agent_Manager_and_Lifecycle_Spec' },
+    ],
+  },
+]
+
 function buildCollectedSidebar(dirPrefix = '', linkPrefix = '') {
   const root = path.join(WEBSITE_ROOT, dirPrefix, '_collected')
   const scopes = safeLs(root).filter(n => isDir(path.join(root, n)))
@@ -322,17 +397,7 @@ export default withMermaid(defineConfig({
         ],
         // 根据路由前缀切换不同侧边栏（静态文档沿用你原有分组）
         sidebar: {
-          '/zh/overview/': [
-            {
-              text: '产品概览',
-              collapsed: false,
-              items: [
-                { text: 'PowerX 一览', link: '/zh/overview/' },
-                { text: '价值案例', link: '/zh/overview/#value-cases' },
-                { text: '路线图', link: '/zh/overview/#roadmap' }
-              ]
-            }
-          ],
+          '/zh/overview/': zhOverviewSidebar,
           '/zh/guides/': [
             {
               text: '使用与部署',
@@ -362,28 +427,16 @@ export default withMermaid(defineConfig({
               ]
             }
           ],
+          '/zh/core-concepts/': zhOverviewSidebar,
           '/zh/scenarios/': [
-            {
-              text: '概览',
-              collapsed: false,
-              items: [
-                { text: '入口说明', link: '/zh/scenarios/' },
-                { text: 'docmap 指南', link: '/zh/scenarios/#docmap' },
-                { text: 'Seed 工具', link: '/zh/scenarios/#seed-tools' }
-              ]
-            },
+            { text: '概述', link: '/zh/scenarios/#overview' },
+            { text: '使用流程', link: '/zh/scenarios/usage' },
             {
               text: '场景列表',
               collapsed: false,
-              items: buildScenariosSidebar({ dirPrefix: 'zh', linkPrefix: '/zh', locale: 'zh' })
-            },
-            {
-              text: 'Seed 索引',
-              collapsed: false,
               items: [
-                { text: '索引说明', link: '/zh/scenarios/#seed-index' },
-                { text: '常用命令', link: '/zh/scenarios/#seed-tools' }
-              ]
+                { text: '总览', link: '/zh/scenarios/#catalog' },
+              ].concat(buildScenariosSidebar({ dirPrefix: 'zh', linkPrefix: '/zh', locale: 'zh' }))
             }
           ],
           '/zh/library/': buildCollectedSidebar('', '/'),
@@ -402,24 +455,59 @@ export default withMermaid(defineConfig({
               text: '核心文档',
               collapsed: false,
               items: [
-                { text: 'API 与规范', link: '/zh/api-and-specifications/README.md' },
+                { text: 'API 与规范', link: '/zh/api-and-specifications/' },
                 { text: 'PXIP 提案', link: '/zh/pxip/README.md' }
               ]
             }
           ],
-          '/zh/operations/': [
+          '/zh/api-and-specifications/': [
             {
-              text: '运营与治理',
+              text: '概览',
               collapsed: false,
               items: [
-                { text: '概览', link: '/zh/operations/' },
-                { text: '观测与告警', link: '/zh/operations/#observability' },
-                { text: '安全治理', link: '/zh/operations/#security' },
-                { text: '变更管理', link: '/zh/operations/#change-management' },
-                { text: '报告与审计', link: '/zh/operations/#reporting' }
+                { text: '栏目索引', link: '/zh/api-and-specifications/' },
+                { text: '总览', link: '/zh/api-and-specifications/README' },
+                { text: 'API 示例', link: '/zh/api-examples' }
+              ]
+            },
+            {
+              text: '能力模型与传输',
+              collapsed: false,
+              items: [
+                { text: '能力契约规范', link: '/zh/api-and-specifications/02_capability/Capability_Contract_Spec' },
+                { text: '传输适配器规范', link: '/zh/api-and-specifications/02_capability/Transport_Adapter_Spec' }
+              ]
+            },
+            {
+              text: '注册与路由',
+              collapsed: false,
+              items: [
+                { text: '能力注册与路由设计', link: '/zh/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design' },
+                { text: '运行时端点管理', link: '/zh/api-and-specifications/03_registry_router/Runtime_Endpoint_Management' }
+              ]
+            },
+            {
+              text: '编排与工作流',
+              collapsed: false,
+              items: [
+                { text: '流程与状态模型', link: '/zh/api-and-specifications/04_orchestration/Flow_and_State_Model' },
+                { text: '编排服务接口', link: '/zh/api-and-specifications/04_orchestration/Orchestrator_Service_Interface' },
+                { text: '实时流式网关', link: '/zh/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway' },
+                { text: '工作流与智能体编排规范', link: '/zh/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec' }
+              ]
+            },
+            {
+              text: '网关与消息总线',
+              collapsed: false,
+              items: [
+                { text: '事件总线与消息织网', link: '/zh/api-and-specifications/06_gateway/EventBus_and_Message_Fabric' },
+                { text: '集成 API 与管理界面', link: '/zh/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface' },
+                { text: 'MCP 服务与网关设计', link: '/zh/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design' }
               ]
             }
           ],
+          '/zh/operations/': zhOperationsSidebar,
+          '/zh/security-and-governance/': zhOperationsSidebar,
           '/zh/resources/': [
             {
               text: '资源中心',
@@ -455,18 +543,7 @@ export default withMermaid(defineConfig({
         ],
         sidebar: {
           // Scenarios (auto)
-          '/en/overview/': [
-            {
-              text: 'Product Overview',
-              collapsed: false,
-              items: [
-                { text: 'Vision & Positioning', link: '/en/overview/#vision' },
-                { text: 'Product Matrix', link: '/en/overview/#product-matrix' },
-                { text: 'Value Stories', link: '/en/overview/#value-cases' },
-                { text: 'Roadmap', link: '/en/overview/#roadmap' }
-              ]
-            }
-          ],
+          '/en/overview/': enOverviewSidebar,
           '/en/guides/': [
             {
               text: 'Guides & Deployment',
@@ -519,6 +596,7 @@ export default withMermaid(defineConfig({
               ]
             }
           ],
+          '/en/core-concepts/': enOverviewSidebar,
           '/en/library/': buildCollectedSidebar('', '/'),
           '/en/developers/': [
             {
@@ -532,18 +610,54 @@ export default withMermaid(defineConfig({
               ]
             }
           ],
-          '/en/operations/': [
+          '/en/api-and-specifications/': [
             {
-              text: 'Operations & Governance',
+              text: 'Overview',
               collapsed: false,
               items: [
-                { text: 'Observability', link: '/en/operations/#observability' },
-                { text: 'Security', link: '/en/operations/#security' },
-                { text: 'Change Management', link: '/en/operations/#change-management' },
-                { text: 'Reporting', link: '/en/operations/#reporting' }
+                { text: 'Section Hub', link: '/en/api-and-specifications/' },
+                { text: 'Summary', link: '/en/api-and-specifications/README' },
+                { text: 'API Examples', link: '/en/api-examples' }
+              ]
+            },
+            {
+              text: 'Capability & Transport',
+              collapsed: false,
+              items: [
+                { text: 'Capability Contract Spec', link: '/en/api-and-specifications/02_capability/Capability_Contract_Spec' },
+                { text: 'Transport Adapter Spec', link: '/en/api-and-specifications/02_capability/Transport_Adapter_Spec' }
+              ]
+            },
+            {
+              text: 'Registry & Router',
+              collapsed: false,
+              items: [
+                { text: 'Capability Registry & Router Design', link: '/en/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design' },
+                { text: 'Runtime Endpoint Management', link: '/en/api-and-specifications/03_registry_router/Runtime_Endpoint_Management' }
+              ]
+            },
+            {
+              text: 'Orchestration & Workflow',
+              collapsed: false,
+              items: [
+                { text: 'Flow & State Model', link: '/en/api-and-specifications/04_orchestration/Flow_and_State_Model' },
+                { text: 'Orchestrator Service Interface', link: '/en/api-and-specifications/04_orchestration/Orchestrator_Service_Interface' },
+                { text: 'Realtime Streaming Gateway', link: '/en/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway' },
+                { text: 'Workflow & Agent Orchestration Spec', link: '/en/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec' }
+              ]
+            },
+            {
+              text: 'Gateway & Event Bus',
+              collapsed: false,
+              items: [
+                { text: 'EventBus & Message Fabric', link: '/en/api-and-specifications/06_gateway/EventBus_and_Message_Fabric' },
+                { text: 'Integration API & Admin Interface', link: '/en/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface' },
+                { text: 'MCP Server & Gateway Design', link: '/en/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design' }
               ]
             }
           ],
+          '/en/operations/': enOperationsSidebar,
+          '/en/security-and-governance/': enOperationsSidebar,
           '/en/resources/': [
             {
               text: 'Resource Centre',

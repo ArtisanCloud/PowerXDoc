@@ -392,7 +392,7 @@ const navigateTo = (p: string) => {
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <article v-for="(f, i) in features" :key="f.title" class="card" :style="{ animationDelay: (i * 90 + 200) + 'ms' }">
               <div class="mb-4 text-4xl text-center leading-none">{{ f.icon }}</div>
-              <h3 class="mb-2 text-xl font-semibold text-slate-900 dark:text-white">{{ f.title }}</h3>
+              <h3 class="mb-2 text-xl font-semibold text-center text-slate-900 dark:text-white">{{ f.title }}</h3>
               <p class="text-slate-700 dark:text-emerald-100">{{ f.description }}</p>
             </article>
           </div>
