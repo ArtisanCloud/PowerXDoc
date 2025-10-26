@@ -41,19 +41,19 @@ PowerX 采用“场景（SCN）+ 子用例（Usecase Seed）”的方式描述�
 
 ```mermaid
 flowchart LR
-  A[撰写/更新场景\n`docs/scenarios/<domain>/SCN-*.md`] --> B[维护 docmap\n`docs/_data/docmap.yaml`]
-  B --> C[生成 Usecase Seeds\n`setup-usecase-seeds.mjs`]
-  C --> D[刷新 Seed 索引\n`generate-usecase-seed-index.mjs`]
-  C --> E[跨仓发布\n`npm run publish:usecases`]
-  C --> F[站点同步\n`docs/website/{en,zh}/scenarios/**`]
-  E --> G[供下游仓库开发]
-  F --> H[供网站浏览与评审]
+  A["撰写/更新场景<br/><code>docs/scenarios/&lt;domain&gt;/SCN-*.md</code>"] --> B["维护 docmap<br/><code>docs/_data/docmap.yaml</code>"]
+  B --> C["生成 Usecase Seeds<br/><code>setup-usecase-seeds.mjs</code>"]
+  C --> D["刷新 Seed 索引<br/><code>generate-usecase-seed-index.mjs</code>"]
+  C --> E["跨仓发布<br/><code>npm run publish:usecases</code>"]
+  C --> F["站点同步<br/><code>docs/website/{en,zh}/scenarios/**</code>"]
+  E --> G["供下游仓库开发"]
+  F --> H["供网站浏览与评审"]
 ```
 
 ## 常用链接 {#links}
 
-- [场景标准模版](/docs/meta/scenarios/list.md)（repo 内源文件）
-- [Docmap 维护记录](/docs/meta/cross-repo-documentation.md#docmap-流程说明)（repo 内源文件）
+- [场景标准模版](/docs/meta/scenarios/list.md)
+- [Docmap 维护记录](/docs/meta/cross-repo-documentation.md#docmap-流程说明)
 - [场景文档生成指南](/zh/guides/scenarios/scenario-generation)
 - [Usecase Seed 生成指南](/zh/guides/usecases/generate-usecase-seeds)
 - [发布 Usecase Seeds 指南](/zh/guides/usecases/publish-usecase-seeds)

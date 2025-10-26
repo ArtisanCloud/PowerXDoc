@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocmap } from '../../scripts/lib/docmap-utils.mjs'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const powerXAdminDir = path.resolve(__dirname, '../../PowerXAdmin')
@@ -297,7 +298,7 @@ function buildUsecaseSeedSidebar(dirPrefix = '', linkPrefix = '') {
 }
 
 // ---------------- site config ----------------
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: 'PowerX Documentation',
   description: 'A website to introduce PowerX',
   srcDir: 'website',
@@ -575,4 +576,4 @@ export default defineConfig({
       fs: { allow: [powerXAdminDir] }
     }
   }
-})
+}))
