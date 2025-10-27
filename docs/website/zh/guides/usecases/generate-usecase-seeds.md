@@ -23,8 +23,8 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
 
 ## 3. 生成任务清单（task.md）
 
-- 运行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`，或直接打开 `docs/scenarios/<domain>/task.md` 查看脚本写入的命令模板。
-- 清单会列出每个 Seed 的撰写 prompt，便于逐项执行，例如：
+- 执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`，脚本会根据 docmap 输出版块写入 `docs/scenarios/<domain>/task.md`（`<domain>` 为 SCN ID 中间段的小写，例如 publish）。首次产 Seed 时已生成该文件，后续若需刷新顺序或新增子用例，再次运行此命令即可。
+- 打开任务清单，按列出的命令逐项补写 Seed，例如：
 
 ```bash
 .specify/templates/usecase-generate-template.md \

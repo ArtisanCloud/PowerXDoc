@@ -32,7 +32,8 @@
 
 ## 生成后动作（撰写与同步）
 
-1. 打开 `docs/scenarios/<domain>/task.md`（或运行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` 生成），按任务列表逐条执行写作命令，例如：  
+1. 刷新任务清单：执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`。脚本会依据 `docmap.yaml` 将命令写入（或更新） `docs/scenarios/<domain>/task.md`，其中 `<domain>` 为 SCN ID 中间段的小写。例如 `SCN-PUBLISH-HUB-001` 对应 `docs/scenarios/publish/task.md`。首次运行 speckit/usecase Seed Prompt 时已生成该文件，后续如需调整顺序或新增子用例，重复执行此脚本即可。
+2. 打开任务清单，按列出的命令逐条补写 Seed，例如：  
 
    ```
    [speckit.implement.md](.codex/prompts/speckit.implement.md) \

@@ -29,8 +29,8 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
 
 ## 3. Generate the task checklist
 
-- Run `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` or open `docs/scenarios/<domain>/task.md` to review auto-generated commands.
-- Each row points to the implementation prompt for a single Seed, e.g.:
+- Run `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` to update the checklist. The script writes commands to `docs/scenarios/<domain>/task.md`, where `<domain>` equals the middle section of the SCN ID in lowercase (for example, `SCN-PUBLISH-HUB-001` → `docs/scenarios/publish/task.md`). The initial seed-generation prompt creates the file once; rerun this script whenever you add or reorder child usecases.
+- Open the refreshed checklist and execute each command in order, e.g.:
 
 ```bash
 .specify/templates/usecase-generate-template.md \

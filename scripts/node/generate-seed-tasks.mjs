@@ -60,18 +60,23 @@ function defaultScenarioContextPath(scnId) {
   return null;
 }
 
-function buildTaskSnippet({ seed, scenarioContext, extraContexts = [] }) {
-  const contexts = [scenarioContext, ...extraContexts]
-    .filter(Boolean)
-    .map((item) => `  --context ${item}`)
-    .join(' \\\n');
+function buildTaskSnippet({ seedPath, contexts }) {
+  const safeContexts = Array.isArray(contexts) ? contexts : [];
+  const lines = ['.specify/templates/usecase-generate-template.md \\'];
 
-  return [
-    `.codex/prompts/speckit.implement.md \\`,
-    `  ${seed.filePath} \\`,
-    contexts,
-    '',
-  ].join('\n');
+  if (safeContexts.length === 0) {
+    lines.push(`  ${seedPath}`);
+    return lines.join('\n');
+  }
+
+  lines.push(`  ${seedPath} \\`);
+
+  safeContexts.forEach((ctx, index) => {
+    const isLast = index === safeContexts.length - 1;
+    lines.push(`  --context ${ctx}${isLast ? '' : ' \\'}`);
+  });
+
+  return lines.join('\n');
 }
 
 async function main() {
@@ -96,9 +101,8 @@ async function main() {
   const taskLines = [
     `# ${args.scnId} Seed 撰写任务清单`,
     '',
-    '以下命令可逐一触发 `speckit.implement`，将 Seed 模板写成完整文档。',
+    '以下命令可逐一触发 `usecase-generate-template.md`，建议按顺序逐条完成。',
     '',
-    '```bash',
   ];
 
   const seeds = Array.isArray(scenario.children) ? scenario.children : [];
@@ -123,28 +127,40 @@ async function main() {
     );
 
     const contexts = [];
+    const childScenarioContext = childScenarioMap.get(child?.child_scn_id ?? '');
+    if (childScenarioContext) {
+      contexts.push(childScenarioContext);
+    }
     if (scenarioContext) {
       contexts.push(scenarioContext);
     } else {
-      contexts.push('docs/scenarios/publish/' + `${args.scnId}.md`);
+      contexts.push(path.join('docs/scenarios', domain, `${args.scnId}.md`));
     }
     contexts.push('docs/_data/docmap.yaml');
     contexts.push('docs/_data/repos.yaml');
-    const childScenarioContext = childScenarioMap.get(child?.child_scn_id ?? '');
-    if (childScenarioContext) {
-      contexts.unshift(childScenarioContext);
-    }
 
-    const snippet = buildTaskSnippet({
-      seed: { filePath },
-      scenarioContext: contexts.shift(),
-      extraContexts: contexts,
-    });
-    taskLines.push(`# ${child.doc_id}`);
-    taskLines.push(snippet);
+    const labelSegments = [child.scope, child.layer, child.domain]
+      .filter(Boolean)
+      .join('/');
+
+    taskLines.push(
+      `### ${child.doc_id}${labelSegments ? ` · ${labelSegments}` : ''}`
+    );
+    taskLines.push(
+      `完善该 Seed，覆盖 ${labelSegments || '相关'} 职责，补充流程、契约与验收细节：`,
+    );
+    taskLines.push('');
+    taskLines.push('```bash');
+    taskLines.push(
+      buildTaskSnippet({
+        seedPath: filePath,
+        contexts,
+      }),
+    );
+    taskLines.push('```');
+    taskLines.push('');
   }
 
-  taskLines.push('```');
   taskLines.push(
     '',
     `> 完成全部 Seed 撰写后，可执行 \`npm run publish:usecases -- --scn-id ${args.scnId} --validate-only\` 或 \`node scripts/site/sync-scenario-pages.mjs --scn-id ${args.scnId} --with-seeds --force\` 进行校验与同步。`,
