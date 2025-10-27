@@ -126,6 +126,8 @@ type SidebarLocaleOptions = {
   locale?: string
 }
 
+const SCENARIO_SIDEBAR_EXCLUDES = new Set(['index.md', 'usage.md'])
+
 function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
   const dirPrefix = options.dirPrefix ?? ''
   const linkPrefix = options.linkPrefix ?? (dirPrefix ? `/${dirPrefix}` : '')
@@ -220,7 +222,12 @@ function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
 
   const result = items.filter(Boolean) as any[]
 
-  const files = safeLs(dir).filter(f => f.endsWith('.md') && !listed.has(f)).sort()
+  const files = safeLs(dir)
+    .filter(
+      f =>
+        f.endsWith('.md') && !listed.has(f) && !SCENARIO_SIDEBAR_EXCLUDES.has(f)
+    )
+    .sort()
   for (const file of files) {
     result.push({
       text: readTitleFromMd(path.join(dir, file)),
@@ -414,6 +421,7 @@ export default withMermaid(defineConfig({
               collapsed: false,
               items: [
                 { text: '场景文档生成', link: '/zh/guides/scenarios/scenario-generation' },
+                { text: 'Docmap 维护记录', link: '/zh/guides/scenarios/docmap-maintenance' },
                 { text: '标准文档分发', link: '/zh/guides/publish/standards-distribution' }
               ]
             },
@@ -429,8 +437,14 @@ export default withMermaid(defineConfig({
           ],
           '/zh/core-concepts/': zhOverviewSidebar,
           '/zh/scenarios/': [
-            { text: '概述', link: '/zh/scenarios/#overview' },
-            { text: '使用流程', link: '/zh/scenarios/usage' },
+            {
+              text: '导航与流程',
+              collapsed: false,
+              items: [
+                { text: '场景与用例导航', link: '/zh/scenarios/' },
+                { text: '场景使用流程', link: '/zh/scenarios/usage' },
+              ],
+            },
             {
               text: '场景列表',
               collapsed: false,
@@ -569,6 +583,7 @@ export default withMermaid(defineConfig({
               collapsed: false,
               items: [
                 { text: 'Scenario Authoring', link: '/en/guides/scenarios/scenario-generation' },
+                { text: 'Docmap Maintenance', link: '/en/guides/scenarios/docmap-maintenance' },
                 { text: 'Standards Distribution', link: '/en/guides/publish/standards-distribution' }
               ]
             }

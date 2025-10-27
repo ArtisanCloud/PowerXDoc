@@ -30,7 +30,7 @@ flowchart LR
 
 - **真相源**：`docs/_data/docmap.yaml`
 - **内容**：记录每个场景的子用例、种子状态、可选标记与分组信息。
-- **追溯**：变更流程与示例可参考《[Docmap 维护记录](/docs/meta/cross-repo-documentation.md#docmap-流程说明)》。
+- **追溯**：变更流程与示例可参考《[Docmap 维护记录](/zh/guides/scenarios/docmap-maintenance)》。
 
 ## 3. 生成 Usecase Seeds (C)
 

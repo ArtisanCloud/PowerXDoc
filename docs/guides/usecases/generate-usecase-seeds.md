@@ -20,7 +20,7 @@
 
 ```bash
 
-[speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md)  SCN-PUBLISH-001
+❯ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-HUB-001
 
 ```
 

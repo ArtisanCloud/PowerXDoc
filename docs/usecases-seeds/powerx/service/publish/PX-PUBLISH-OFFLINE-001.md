@@ -12,123 +12,118 @@ owners:
   - name: Michael Hu
     role: Tech Steward
     contact: tech@artisan-cloud.com
-  - name: Carol
-    role: Platform Architect
-    contact: carol@artisan-cloud.com
+  - name: Matrix-X
+    role: Docs Coordinator
+    contact: dev@artisan-cloud.com
 contributors: []
 linked_requirements: []
-code_refs:
-  - path: services/offline_import/offline_import_service.go
-  - path: api/offline_plugins.go
-  - path: internal/catalog/catalog_refresher.go
-feature_flags:
-  - PX_OFFLINE_IMPORT
-  - PX_CATALOG_CACHE_REFRESH
-last_reviewed_at: 2025-10-25
+code_refs: []
+feature_flags: []
+last_reviewed_at: 2025-10-27
 
 ---
 
 # Usecase Overview
 
-- **业务目标**：在无 Marketplace 环境中，通过 Backend 导入离线包，完成签名校验、资源解压、目录注册、缓存刷新及审计记录，保障插件可在目标租户内启用。
-- **触发角色**：平台运维工程师、Admin 离线导入向导、自动化导入脚本。
-- **成功度量**：导入完成率 ≥ 98%；平均导入时长 ≤ 3 分钟；缓存刷新延迟 ≤ 60s；失败场景 100% 生成 `auditId` 与补救指引。
-- **场景关联**：与 `PLG-PUBLISH-OFFLINE-001` CLI、`MKP-PUBLISH-OFFLINE-001` Marketplace 登记、`PX-ADMIN-PUBLISH-OFFLINE-001` UI 协同。
+- **业务目标**：说明该子用例要交付的结果、价值、触发角色。
+- **成功度量**：列出可量化指标（如延迟、吞吐、转化率）。
+- **场景关联**：本用例支持的主用例、其它相关子用例或标准。
+
+> 建议在此处补充一段简短摘要，便于 PR 或站点卡片快速传达意图。
 
 # Context & Assumptions
 
-- **Feature Flags**：`PX_OFFLINE_IMPORT`、`PX_CATALOG_CACHE_REFRESH`；如需自动回滚启用 `PX_IMPORT_ROLLBACK`。
-- **依赖服务**：Artifact 存储（OSS/S3/MinIO）、签名验证服务、Workflow Metrics、审计系统、Redis 缓存。
-- **输入**：`.pxp` 包、`manifest.signature`、导入租户配置、导入策略（覆盖/追加）。
-- **输出**：插件目录记录、安装任务、缓存刷新、`PX_PLUGIN_IMPORT` 审计、Admin 状态更新。
-- **边界**：不负责 CLI 打包；不提供 UI，但为 Admin 提供 API；与在线 Marketplace 流程区隔。
+- **前置条件**：所需 Feature Flag、配置项、依赖服务、权限。
+- **输入/输出**：关键输入数据（事件、API、消息）、期望输出。
+- **边界**：明确不在本用例覆盖范围内的行为或组件。
 
 # Solution Blueprint
 
 ## 体系分解
 
-| 模块 | 组件 | 责任 | 入口 |
-|------|------|------|------|
-| OfflineImportService | `services/offline_import/offline_import_service.go` | orchestrate 导入、验证、注册、回滚 | `cmd/backend/main.go` |
-| SignatureVerifier | `internal/security/signature.go` | 校验 manifest 签名与证书链 | `internal/security` |
-| CatalogRegistrar | `internal/catalog/catalog_refresher.go` | 写入目录、刷新缓存、推送事件 | `internal/catalog` |
-| AuditLogger | `internal/audit/offline_import.go` | 写 `PX_PLUGIN_IMPORT` 审计、Telemetry | `internal/audit` |
+| 层 | 主要组件/模块 | 责任 | 代码入口 |
+|----|---------------|------|---------|
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+
+> 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
 
 ## 流程与时序
 
+1. **Step 1 – Trigger**：描述触发条件、调用方、关键参数。
+2. **Step 2 – Processing**：列出核心业务逻辑、状态变化、写入位置。
+3. **Step 3 – Side Effects**：说明通知、缓存刷新、下游调用。
+4. **Step 4 – Completion**：输出结果、返回值、终端反馈。
+
+如需补充图示，可使用 Mermaid：
+
 ```mermaid
 sequenceDiagram
-  participant Admin as Admin UI/Script
-  participant Backend as OfflineImportService
-  participant Storage as ArtifactStore
-  participant Catalog as CatalogRegistrar
-  participant Audit as AuditLogger
+  participant ActorA as <调用方/触发者>
+  participant ActorB as <被调用方/处理者>
+  participant ActorC as <下游/附加参与者>
 
-  Admin->>Backend: POST /internal/plugins/import-offline (artifactId)
-  Backend->>Storage: fetchAndExtract(artifactId)
-  Storage-->>Backend: manifest + payload
-  Backend->>Backend: verifySignature + validateManifest
-  Backend->>Catalog: registerPlugin(manifest)
-  Catalog-->>Backend: catalogEntryId
-  Backend->>Catalog: refreshCache(tenantId)
-  Backend->>Audit: recordImport(auditPayload)
-  Backend-->>Admin: 200 {installJobId, auditId}
+  ActorA->>ActorB: <触发请求或事件>
+  ActorB-->>ActorC: <链路调用或副作用>
+  ActorC-->>ActorB: <响应或反馈>
+  ActorB-->>ActorA: <最终结果>
 ```
 
 # Contracts & Interfaces
 
-- **REST**
-  - `POST /internal/plugins/import-offline`：接受 `artifactId`、`tenantId`、`mode` (`install|upgrade|rollback`)；返回安装任务与审计号。
-  - `GET /internal/plugins/import-offline/{jobId}`：查询状态、错误列表。
-- **Events**
-  - `px.offline.import.completed`、`px.offline.import.failed` 广播给 Admin 与 Marketplace。
-- **配置**
-  - `offline.import.max_size_mb`、`offline.import.parallelism`、`catalog.refresh.strategy`。
-- **存储接口**：S3/OSS，需支持预签名读、分片。
+- **Inbound APIs / Events**
+  - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
+- **Outbound 调用**
+  - `<service/component>` — 说明调用目的、超时时间、失败处理。
+- **配置与脚本**
+  - `<config or script>` — Feature Flag、阈值、调度策略。
+
+> 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
 
 # Implementation Checklist
 
 | 项目 | 描述 | 完成状态 | 负责人 |
 |------|------|----------|--------|
-| 签名校验 | 支持 CMS、KMS、证书吊销检查 | [ ] | Michael Hu |
-| 导入流程 | 解压、manifest 校验、冲突检测 | [ ] | Carol |
-| 缓存刷新 | Redis + CDN 失效，支持租户粒度 | [ ] | Carol |
-| 审计 & 回滚 | 审计日志 + `px-import rollback` 脚本 | [ ] | Matrix-X |
-| 文档 | 更新 `docs/standards/powerx/backend/plugins/admin_workflow.md` | [ ] | Matrix-X |
+| 数据模型 | 新增或调整表结构、索引、迁移脚本 | [ ] | |
+| 业务逻辑 | 实现服务/控制器逻辑、错误处理 | [ ] | |
+| 权限治理 | 更新鉴权策略、审计日志或租户隔离 | [ ] | |
+| 配置发布 | 新增配置项、Feature Flag、默认值 | [ ] | |
+| 文档同步 | 更新 `docs/standards/**`、README、变更日志 | [ ] | |
 
 # Testing Strategy
 
-- **单元测试**：`offline_import_service_test.go`、`signature_verifier_test.go`、`catalog_refresher_test.go`。
-- **集成测试**：使用真实 S3/MinIO；模拟失败（签名错误、插件冲突、磁盘不足）。
-- **端到端**：配合 CLI/ Admin 流程复现导入→安装→回滚；验证事件与审计可追踪。
-- **非功能**：导入大包性能、并发导入下资源锁策略、故障注入（S3 延迟、Redis 不可用）。
+- **单元测试**：覆盖核心业务函数、边界条件、错误处理。
+- **集成测试**：模拟关键 API/Event，验证数据库、外部服务交互。
+- **端到端验证**：描述 QA/自测脚本、需要的数据准备、预期输出。
+- **非功能测试**：性能、容错、回归、容量等。
+
+> 推荐列出测试用例 ID 或链接到自动化用例仓库；如需本地命令可附上 `npm run test -- <suite>` 等指引。
 
 # Observability & Ops
 
-- **指标**：`offline.import.duration_ms`、`offline.import.success_rate`、`offline.import.rollback_triggered`、`catalog.refresh.latency_ms`。
-- **日志**：结构化日志 `offline_import.log`（`artifactId`、`tenantId`、`jobId`、`status`）。
-- **告警**：连续 3 次导入失败 → PagerDuty；缓存刷新失败 → SRE 通知；S3 延迟超阈 → 运维频道。
-- **Dashboards**：Offline Import Grafana、Catalog Refresh 面板、Audit drill-down。
+- **指标**：列出关键指标名称、聚合方式、目标阈值。
+- **日志**：说明必须记录的字段、log level、落盘/采集方式。
+- **告警**：触发条件、通知渠道、值班人或升级路径。
+- **Dashboards**：Grafana / Datadog 面板链接或路径。
 
 # Rollback & Failure Handling
 
-- **回滚**：关闭 `PX_OFFLINE_IMPORT`、回滚部署；恢复之前目录版本（通过 `catalog restore`）。
-- **补救措施**：`px-import rollback --job-id` 自动卸载；生成失败报告供 Admin 导出；支持重试。
-- **数据修复**：手动更新目录记录、清理缓存键、重放审计；维护 script `scripts/offline/fix_catalog_state.go`。
+- **回滚步骤**：如何撤销代码、配置、数据变更。
+- **补救措施**：常见故障应对方案、脚本命令。
+- **数据修复**：需要的 SQL/CLI 操作及执行人。
 
 # Follow-ups & Risks
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| 多租户导入并发冲突 | 目录污染 | 引入租户锁、串行化冲突插件 | Carol | 2025-02-06 |
-| S3 延迟导致超时 | 导入失败 | 异步导入 + 重试队列；增加阈值观测 | Michael Hu | 2025-02-12 |
-| Audit 不可用 | 合规漏洞 | 本地持久化重试、告警通知合规团队 | Matrix-X | 2025-01-28 |
+| <风险或跟进项> | <潜在影响> | <缓解方案或依赖> | <负责人> | <ETA> |
 
 # References & Links
 
-- 场景：`docs/scenarios/publish/SCN-PUBLISH-OFFLINE-001.md`
-- 标准：`docs/standards/powerx/backend/plugins/admin_workflow.md`
-- 代码仓：`https://github.com/ArtisanCloud/PowerX/tree/dev/services/offline-import`
-- 设计：`ADR-2024-OFFLINE-IMPORT.md`
+- 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
+- 相关规范：`docs/standards/<scope>/<topic>.md`
+- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
+- 设计材料：Figma、白板或 ADR 链接
 
-> Seed 更新后请运行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 验证 Backend 离线导入链路。
+> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。

@@ -9,127 +9,121 @@ layer: api
 domain: marketplace
 scenario_title: "PowerX 插件开发与分发全链路"
 owners:
+  - name: Michael Hu
+    role: Tech Steward
+    contact: tech@artisan-cloud.com
   - name: Matrix-X
     role: Docs Coordinator
     contact: dev@artisan-cloud.com
-  - name: Zoe Chen
-    role: Marketplace Lead
-    contact: zoe@artisan-cloud.com
 contributors: []
 linked_requirements: []
-code_refs:
-  - path: services/publish/publish_service.go
-  - path: api/plugins_publish.go
-  - path: events/publish_event_emitter.go
-feature_flags:
-  - PX_MARKETPLACE_SYNC
-  - PX_MARKETPLACE_AUDIT
-last_reviewed_at: 2025-10-25
+code_refs: []
+feature_flags: []
+last_reviewed_at: 2025-10-27
 
 ---
 
 # Usecase Overview
 
-- **业务目标**：Marketplace 接收 CLI 发布请求，执行安全扫描、人工/自动审核、目录登记、事件广播，让插件在通过审核后可供租户发现与安装。
-- **触发角色**：Marketplace 审核员、自动化审核服务、Backend 目录同步器。
-- **成功度量**：审核完成 SLA ≤ 15 分钟；安全扫描漏报率 0；事件广播延迟 ≤ 1 分钟；撤回/回滚可在 2 分钟内生效。
-- **场景关联**：核心于 `SCN-PUBLISH-ONLINE-001`；向 `PX-PUBLISH-ONLINE-001`、`PX-ADMIN-PUBLISH-ONLINE-001` 提供目录数据；与 `PLG-PUBLISH-ONLINE-001` CLI 协作。
+- **业务目标**：说明该子用例要交付的结果、价值、触发角色。
+- **成功度量**：列出可量化指标（如延迟、吞吐、转化率）。
+- **场景关联**：本用例支持的主用例、其它相关子用例或标准。
+
+> 建议在此处补充一段简短摘要，便于 PR 或站点卡片快速传达意图。
 
 # Context & Assumptions
 
-- **Feature Flags**：`PX_MARKETPLACE_SYNC` 启用目录同步；`PX_MARKETPLACE_AUDIT` 控制审核工具；选配 `PX_MARKETPLACE_PRICE`。
-- **依赖**：安全扫描（SAST/DAST）、签名验证服务、Catalog DB、Kafka Event Bus、Workflow Metrics。
-- **输入**：CLI 提交的 `pluginId`、`version`、`artifactId`、合规信息、发布渠道；审核员备注。
-- **输出**：审核状态（pending/approved/rejected）、目录条目、事件 `mkp.plugin.published`、审计记录。
-- **边界**：不处理 Admin UI 呈现；不负责具体安装；离线流程另行处理。
+- **前置条件**：所需 Feature Flag、配置项、依赖服务、权限。
+- **输入/输出**：关键输入数据（事件、API、消息）、期望输出。
+- **边界**：明确不在本用例覆盖范围内的行为或组件。
 
 # Solution Blueprint
 
 ## 体系分解
 
-| 模块 | 组件 | 责任 | 入口 |
-|------|------|------|------|
-| PublishService | `services/publish/publish_service.go` | 协调审核、扫描、目录注册 | `cmd/marketplace/main.go` |
-| ScanPipeline | `services/publish/security_scan.go` | 触发/汇总安全扫描结果 | `services/publish` |
-| AuditWorkflow | `services/publish/audit_workflow.go` | 人工审核、SLA追踪、合规存证 | 同上 |
-| EventEmitter | `events/publish_event_emitter.go` | 广播 `mkp.plugin.published` / 回滚事件 | `events` |
+| 层 | 主要组件/模块 | 责任 | 代码入口 |
+|----|---------------|------|---------|
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+
+> 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
 
 ## 流程与时序
 
+1. **Step 1 – Trigger**：描述触发条件、调用方、关键参数。
+2. **Step 2 – Processing**：列出核心业务逻辑、状态变化、写入位置。
+3. **Step 3 – Side Effects**：说明通知、缓存刷新、下游调用。
+4. **Step 4 – Completion**：输出结果、返回值、终端反馈。
+
+如需补充图示，可使用 Mermaid：
+
 ```mermaid
 sequenceDiagram
-  participant CLI as Publish API
-  participant Marketplace as PublishService
-  participant Scanner as SecurityScanner
-  participant Auditor as HumanReviewer
-  participant Backend as CatalogSync
+  participant ActorA as <调用方/触发者>
+  participant ActorB as <被调用方/处理者>
+  participant ActorC as <下游/附加参与者>
 
-  CLI->>Marketplace: POST /marketplace/plugins
-  Marketplace->>Scanner: startScan(artifactId)
-  Scanner-->>Marketplace: scanReport
-  Marketplace->>Auditor: createReviewTask(requestId)
-  Auditor-->>Marketplace: approve/reject
-  Marketplace->>Backend: emit mkp.plugin.published
-  Backend-->>Marketplace: ack sync
-  Marketplace-->>CLI: status update (webhook/poll)
+  ActorA->>ActorB: <触发请求或事件>
+  ActorB-->>ActorC: <链路调用或副作用>
+  ActorC-->>ActorB: <响应或反馈>
+  ActorB-->>ActorA: <最终结果>
 ```
 
 # Contracts & Interfaces
 
-- **REST**
-  - `POST /marketplace/plugins`：创建发布请求。
-  - `PATCH /marketplace/plugins/{requestId}`：审核员更新状态。
-  - `GET /marketplace/plugins/{pluginId}/versions`：返回版本列表、状态。
-- **Webhooks**
-  - `POST /webhooks/publish-status`：通知 CLI/CI 审核结果（可选）。
-- **Events**
-  - Kafka `mkp.plugin.published`、`mkp.plugin.rejected`、`mkp.plugin.recalled`。
-- **配置**
-  - `publish.scan.required`、`publish.audit.sla_minutes`、`publish.channels`、`publish.auto_approve_conditions`。
+- **Inbound APIs / Events**
+  - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
+- **Outbound 调用**
+  - `<service/component>` — 说明调用目的、超时时间、失败处理。
+- **配置与脚本**
+  - `<config or script>` — Feature Flag、阈值、调度策略。
+
+> 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
 
 # Implementation Checklist
 
 | 项目 | 描述 | 完成状态 | 负责人 |
 |------|------|----------|--------|
-| 审核工作流 | 审批队列、SLA 监控、自动升级 | [ ] | Zoe Chen |
-| 安全扫描 | 集成 SAST/DAST、渗透扫描白名单 | [ ] | Matrix-X |
-| 事件系统 | Kafka 事件定义、重试、死信队列 | [ ] | Carol |
-| 报表 | 审核时长、通过率 Dashboards | [ ] | Matrix-X |
-| 文档 | 更新 AsyncAPI/OpenAPI；发布政策 | [ ] | Zoe Chen |
+| 数据模型 | 新增或调整表结构、索引、迁移脚本 | [ ] | |
+| 业务逻辑 | 实现服务/控制器逻辑、错误处理 | [ ] | |
+| 权限治理 | 更新鉴权策略、审计日志或租户隔离 | [ ] | |
+| 配置发布 | 新增配置项、Feature Flag、默认值 | [ ] | |
+| 文档同步 | 更新 `docs/standards/**`、README、变更日志 | [ ] | |
 
 # Testing Strategy
 
-- **单元测试**：`publish_service_test.go`、`audit_workflow_test.go`、`event_emitter_test.go`。
-- **集成测试**：与扫描/审核 mock 交互；测试审批分支（approve/reject/rework）。
-- **端到端**：使用 CLI 发起发布 → 审核 → Backend 同步 → Admin 安装；验证事件链条。
-- **非功能**：审核队列高峰测试；事件重试；安全扫描超时处理。
+- **单元测试**：覆盖核心业务函数、边界条件、错误处理。
+- **集成测试**：模拟关键 API/Event，验证数据库、外部服务交互。
+- **端到端验证**：描述 QA/自测脚本、需要的数据准备、预期输出。
+- **非功能测试**：性能、容错、回归、容量等。
+
+> 推荐列出测试用例 ID 或链接到自动化用例仓库；如需本地命令可附上 `npm run test -- <suite>` 等指引。
 
 # Observability & Ops
 
-- **指标**：`publish.requests_created`、`publish.approval_duration_ms`、`publish.rejection_rate`、`publish.event_lag_ms`。
-- **日志**：`marketplace_publish.log` （`requestId`、`pluginId`、`decision`、`reviewer`）。
-- **告警**：审核 SLA 超时；事件堆积；扫描失败率 > 5% 通知安全组。
-- **Dashboards**：Marketplace 发布监控、SLA 面板、事件延迟图。
+- **指标**：列出关键指标名称、聚合方式、目标阈值。
+- **日志**：说明必须记录的字段、log level、落盘/采集方式。
+- **告警**：触发条件、通知渠道、值班人或升级路径。
+- **Dashboards**：Grafana / Datadog 面板链接或路径。
 
 # Rollback & Failure Handling
 
-- **回滚**：`/marketplace/plugins/{requestId}/recall` 撤回；Feature Flag 停用发布；回滚服务部署。
-- **补救措施**：人工修改状态、重放事件；提供 `mkp-publish retry` CLI；生成补偿报告。
-- **数据修复**：同步目录与审核状态；修复错误的版本标签；更新缓存。
+- **回滚步骤**：如何撤销代码、配置、数据变更。
+- **补救措施**：常见故障应对方案、脚本命令。
+- **数据修复**：需要的 SQL/CLI 操作及执行人。
 
 # Follow-ups & Risks
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| 审核积压 | 发布延迟 | SLA 告警、临时扩容审核员、自动审批低风险请求 | Zoe Chen | 2025-02-10 |
-| 安全扫描误报 | 阻塞发布 | 维护白名单、差异化策略、人工复核 | Matrix-X | 2025-02-05 |
-| 事件丢失 | Backend 状态不一致 | 使用 Kafka 幂等 key、监控 lag、重放机制 | Carol | 2025-01-30 |
+| <风险或跟进项> | <潜在影响> | <缓解方案或依赖> | <负责人> | <ETA> |
 
 # References & Links
 
-- 场景：`docs/scenarios/publish/SCN-PUBLISH-ONLINE-001.md`
-- 标准：`docs/standards/powerx-marketplace/发布和下载插件流程.md`
-- 代码仓：`https://github.com/ArtisanCloud/PowerXMarketplace/tree/dev/services/publish`
-- 设计：`ADR-2024-MARKETPLACE-PUBLISHING.md`
+- 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
+- 相关规范：`docs/standards/<scope>/<topic>.md`
+- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
+- 设计材料：Figma、白板或 ADR 链接
 
-> 完成后请同步事件契约与 Backend/Admin 团队，并执行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`。
+> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。

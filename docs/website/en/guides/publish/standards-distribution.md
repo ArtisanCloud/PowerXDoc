@@ -70,7 +70,7 @@ npm run publish:standards -- --repo powerx-marketplace
 
 ## References
 
-- `docs/meta/cross-repo-documentation.md` — Multi-repo documentation architecture  
+- `docs/meta/cross-repo-documentation.md` (repo) / [`Docmap Maintenance Playbook`](/en/guides/scenarios/docmap-maintenance) — Multi-repo documentation architecture  
 - `docs/standards/_shared/downstream-readonly-setup.md` — Downstream read-only governance  
 - `.specify/memory/constitution.md` — PowerX documentation constitution  
 - `scripts/publish/push-standards.mjs` — CLI implementation

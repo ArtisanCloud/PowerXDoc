@@ -46,8 +46,9 @@ Interpret the user input to extract 至少以下信息：
 
 5. **生成 Seed 撰写任务清单**
    - 根据 `SCN_ID` 解析 domain（ID 中间段的小写），生成/更新 `docs/scenarios/<domain>/task.md`。
-   - 任务文件需包含每个子用例的 `speckit.implement` 命令示例（含 `--context` 指向场景、docmap、repos 等资料），方便后续逐条执行。
-   - 如场景包含子场景，可在命令中引用对应 `docs/scenarios/**/<child_scn>.md` 做上下文。
+   - 任务文件需按子用例逐条展示：为每个 `doc_id` 输出单独的小节（建议使用 `### <doc_id>` 或类似格式），先给出一句话描述（可包含 scope/layer/仓库职责），随后附带单独的 fenced code block。
+   - 命令示例使用 `.specify/templates/usecase-generate-template.md` + 目标 Seed 路径，保留 `--context docs/scenarios/...`、`--context docs/_data/docmap.yaml`、`--context docs/_data/repos.yaml` 等参数；如需要额外上下文，可在描述中说明。
+   - 如场景包含子场景，可在描述或命令中引用对应 `docs/scenarios/**/<child_scn>.md`。
 
 6. **（可选）同步站点展示**
    - 若需要将 Seed 实时呈现在 VitePress 站点，提醒执行 `node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --with-seeds`（或相关发布命令）刷新 `docs/website/**`。

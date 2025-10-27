@@ -9,125 +9,121 @@ layer: api
 domain: marketplace
 scenario_title: "PowerX 插件开发与分发全链路"
 owners:
+  - name: Michael Hu
+    role: Tech Steward
+    contact: tech@artisan-cloud.com
   - name: Matrix-X
     role: Docs Coordinator
     contact: dev@artisan-cloud.com
-  - name: Zoe Chen
-    role: Marketplace Lead
-    contact: zoe@artisan-cloud.com
 contributors: []
 linked_requirements: []
-code_refs:
-  - path: services/offline_registry/offline_import_service.go
-  - path: api/offline_registry.go
-feature_flags:
-  - PX_OFFLINE_IMPORT
-  - PX_MARKETPLACE_SYNC
-last_reviewed_at: 2025-10-25
+code_refs: []
+feature_flags: []
+last_reviewed_at: 2025-10-27
 
 ---
 
 # Usecase Overview
 
-- **业务目标**：为内网或断网环境提供 Marketplace 离线插件登记与校验能力，确保 Admin 导入的 `.pxp` 包在上线前完成完整性核验、元数据录入与合规审计。
-- **触发角色**：Marketplace 审核人员、合作伙伴运营、后台服务。
-- **成功度量**：离线登记 API 成功率 ≥ 99%；校验耗时 ≤ 120s；审核结果同步 Backend 的延迟 ≤ 2 分钟；审计记录完整率 100%。
-- **场景关联**：支撑 `SCN-PUBLISH-OFFLINE-001` 的离线导入流程，与 CLI 离线打包、Backend 导入、Admin 离线 UI 联动。
+- **业务目标**：说明该子用例要交付的结果、价值、触发角色。
+- **成功度量**：列出可量化指标（如延迟、吞吐、转化率）。
+- **场景关联**：本用例支持的主用例、其它相关子用例或标准。
+
+> 建议在此处补充一段简短摘要，便于 PR 或站点卡片快速传达意图。
 
 # Context & Assumptions
 
-- **Feature Flags**：`PX_OFFLINE_IMPORT`、`PX_MARKETPLACE_SYNC`，允许 Offline Registry 生效并同步目录。
-- **依赖服务**：签名校验服务、OSS 托管离线包、Workflow Metrics、审计系统。
-- **输入**：`.pxp` 包元数据、`manifest.signature`、`integrity.txt`、导入计划（租户/环境）。
-- **输出**：离线导入记录、审核状态、`offline.registry.audit_id`、通知 Backend 的目录事件。
-- **边界**：不直接分发包体给租户；不提供 UI。侧重 API、存证与事件。
+- **前置条件**：所需 Feature Flag、配置项、依赖服务、权限。
+- **输入/输出**：关键输入数据（事件、API、消息）、期望输出。
+- **边界**：明确不在本用例覆盖范围内的行为或组件。
 
 # Solution Blueprint
 
 ## 体系分解
 
-| 模块 | 组件 | 责任 | 入口 |
-|------|------|------|------|
-| OfflineRegistryService | `services/offline_registry/offline_import_service.go` | 校验签名、登记元数据、写审计 | `cmd/marketplace-offline/main.go` |
-| ArtifactStorage | `internal/storage/offline_store.go` | 校验/存储离线包、生成下载地址 | `internal/storage` |
-| AuditEmitter | `internal/audit/offline_registry.go` | 记录 `MKP_OFFLINE_IMPORT` 审计、Push Kafka 事件 | `internal/audit` |
-| SyncPublisher | `internal/events/catalog_sync.go` | 向 Backend 分发 `mkp.offline.imported` 通知 | `internal/events` |
+| 层 | 主要组件/模块 | 责任 | 代码入口 |
+|----|---------------|------|---------|
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+| <层名称> | `<pkg/...>` | 说明该层负责的职责 | `<repo/entrypoint>` |
+
+> 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
 
 ## 流程与时序
 
+1. **Step 1 – Trigger**：描述触发条件、调用方、关键参数。
+2. **Step 2 – Processing**：列出核心业务逻辑、状态变化、写入位置。
+3. **Step 3 – Side Effects**：说明通知、缓存刷新、下游调用。
+4. **Step 4 – Completion**：输出结果、返回值、终端反馈。
+
+如需补充图示，可使用 Mermaid：
+
 ```mermaid
 sequenceDiagram
-  participant Admin as Admin Offline Wizard
-  participant Marketplace as OfflineRegistry API
-  participant Storage as ArtifactStorage
-  participant Audit as AuditEmitter
-  participant Backend as PX Catalog Sync
+  participant ActorA as <调用方/触发者>
+  participant ActorB as <被调用方/处理者>
+  participant ActorC as <下游/附加参与者>
 
-  Admin->>Marketplace: POST /offline/registrations (metadata + signatures)
-  Marketplace->>Storage: validateAndStore(pxp, signature)
-  Storage-->>Marketplace: validatedArtifact(meta)
-  Marketplace->>Audit: recordOfflineImport()
-  Audit-->>Marketplace: auditId
-  Marketplace->>Backend: emit mkp.offline.imported (artifactId)
-  Backend-->>Marketplace: ACK
-  Marketplace-->>Admin: 202 Accepted + auditId + statusUrl
+  ActorA->>ActorB: <触发请求或事件>
+  ActorB-->>ActorC: <链路调用或副作用>
+  ActorC-->>ActorB: <响应或反馈>
+  ActorB-->>ActorA: <最终结果>
 ```
 
 # Contracts & Interfaces
 
-- **REST**
-  - `POST /offline/registrations`：payload 包含 `pluginId`、`version`、`tenantScope`、`hashes`、`signature`，可异步处理。
-  - `GET /offline/registrations/{id}`：返回当前审核状态、错误原因、下载链接。
-  - `POST /offline/registrations/{id}/approve|reject`：人工或自动审核结果。
-- **Events**
-  - Kafka `mkp.offline.imported`：字段包含 `pluginId`、`artifactId`、`tenantScope`、`auditId`。
-  - 错误事件 `mkp.offline.failed` 供告警使用。
-- **配置**
-  - `offline.registry.allowed_tenants`、`offline.registry.max_artifact_size_mb`、`offline.registry.signature.algorithm`。
+- **Inbound APIs / Events**
+  - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
+- **Outbound 调用**
+  - `<service/component>` — 说明调用目的、超时时间、失败处理。
+- **配置与脚本**
+  - `<config or script>` — Feature Flag、阈值、调度策略。
+
+> 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
 
 # Implementation Checklist
 
 | 项目 | 描述 | 完成状态 | 负责人 |
 |------|------|----------|--------|
-| 校验模块 | 支持 CMS、JWS、KMS 公钥验证 | [ ] | Zoe Chen |
-| 审核流 | 支持手动/自动判定、留痕 | [ ] | Matrix-X |
-| 事件广播 | `mkp.offline.imported` 与重试策略 | [ ] | Carol |
-| API 文档 | OpenAPI/AsyncAPI 更新 | [ ] | Matrix-X |
-| 报表 | 离线导入成功率、延迟洞察 | [ ] | Zoe Chen |
+| 数据模型 | 新增或调整表结构、索引、迁移脚本 | [ ] | |
+| 业务逻辑 | 实现服务/控制器逻辑、错误处理 | [ ] | |
+| 权限治理 | 更新鉴权策略、审计日志或租户隔离 | [ ] | |
+| 配置发布 | 新增配置项、Feature Flag、默认值 | [ ] | |
+| 文档同步 | 更新 `docs/standards/**`、README、变更日志 | [ ] | |
 
 # Testing Strategy
 
-- **单元测试**：`offline_import_service_test.go` 覆盖签名验证、状态流转；`artifact_store_test.go` 覆盖大小校验；`audit_emitter_test.go` 验证审计。
-- **集成测试**：与 Backend mock 校验事件串联；OSS/S3 仿真存储。
-- **端到端**：结合 CLI 打包与 Admin 导入进行演练，确保状态回传准确。
-- **非功能**：压力测试（同时导入 20 个包）、断网重试、审计系统不可用时的补偿。
+- **单元测试**：覆盖核心业务函数、边界条件、错误处理。
+- **集成测试**：模拟关键 API/Event，验证数据库、外部服务交互。
+- **端到端验证**：描述 QA/自测脚本、需要的数据准备、预期输出。
+- **非功能测试**：性能、容错、回归、容量等。
+
+> 推荐列出测试用例 ID 或链接到自动化用例仓库；如需本地命令可附上 `npm run test -- <suite>` 等指引。
 
 # Observability & Ops
 
-- **指标**：`offline.registry.validation_time_ms`、`offline.registry.success_rate`、`offline.registry.queue_depth`。
-- **日志**：结构化日志 `mkp_offline_registry.log`（`artifactId`、`pluginId`、`status`、`errorCode`）。
-- **告警**：连续 3 次签名验证失败触发安全告警；事件广播重试超过 3 次通知平台团队。
-- **Dashboards**：Marketplace Offline Registry 面板；审计事件跟踪视图。
+- **指标**：列出关键指标名称、聚合方式、目标阈值。
+- **日志**：说明必须记录的字段、log level、落盘/采集方式。
+- **告警**：触发条件、通知渠道、值班人或升级路径。
+- **Dashboards**：Grafana / Datadog 面板链接或路径。
 
 # Rollback & Failure Handling
 
-- **回滚**：Feature Flag 降级；回滚离线服务部署至上一版本。
-- **补救措施**：提供 `mkp-offline-admin retry --id <uuid>` CLI；失败记录可手动重放事件；导出审计供线下处理。
-- **数据修复**：如状态卡住，使用 SQL 或管理脚本更新至 `FAILED` 并自动通知 Admin；同步更新 Backend 状态。
+- **回滚步骤**：如何撤销代码、配置、数据变更。
+- **补救措施**：常见故障应对方案、脚本命令。
+- **数据修复**：需要的 SQL/CLI 操作及执行人。
 
 # Follow-ups & Risks
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| 签名算法升级导致兼容问题 | 导入失败 | 提供版本协商、兼容旧签名；发布公告与迁移指南 | Zoe Chen | 2025-02-10 |
-| Artifact 存储容量压力 | 影响导入 | 定期清理过期包、分层存储、压缩 | Carol | 2025-03-01 |
-| 审计系统不可用 | 合规风险 | 缓存队列并重试，超时升级到合规团队 | Matrix-X | 2025-01-28 |
+| <风险或跟进项> | <潜在影响> | <缓解方案或依赖> | <负责人> | <ETA> |
 
 # References & Links
 
-- 场景：`docs/scenarios/publish/SCN-PUBLISH-OFFLINE-001.md`
-- 标准：`docs/standards/powerx-marketplace/离线导入流程.md`
-- 代码仓：`https://github.com/ArtisanCloud/PowerXMarketplace/tree/dev/services/offline-registry`
-- 设计：`ADR-2024-OFFLINE-REGISTRY.md`
+- 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
+- 相关规范：`docs/standards/<scope>/<topic>.md`
+- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
+- 设计材料：Figma、白板或 ADR 链接
 
-> Seed 完成后，记得在发布前运行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`，确认 Marketplace 接口文档与 Backend 一致。
+> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。
