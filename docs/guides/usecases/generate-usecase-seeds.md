@@ -1,6 +1,6 @@
 # 生成 Usecase Seed 指南
 
-场景就绪后（可先运行 `node .specify/scripts/node/generate-scenarios.mjs`），按以下步骤生成并撰写 Seed：
+场景就绪后（通过 `.codex/prompts/speckit.scenario*.md` 产出），按以下步骤生成并撰写 Seed：
 
 1. **生成 Seed 骨架**
 

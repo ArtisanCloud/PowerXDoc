@@ -410,20 +410,20 @@ export default withMermaid(defineConfig({
               ]
             },
             {
+              text: '场景与标准分发',
+              collapsed: false,
+              items: [
+                { text: '场景文档生成', link: '/zh/guides/scenarios/scenario-generation' },
+                { text: '标准文档分发', link: '/zh/guides/publish/standards-distribution' }
+              ]
+            },
+            {
               text: 'Usecase Seeds',
               collapsed: false,
               items: [
                 { text: 'Seed 生成', link: '/zh/guides/usecases/generate-usecase-seeds' },
                 { text: 'Seed 发布', link: '/zh/guides/usecases/publish-usecase-seeds' },
                 { text: '索引维护', link: '/zh/guides/usecases/seed-index-maintenance' }
-              ]
-            },
-            {
-              text: '场景与标准分发',
-              collapsed: false,
-              items: [
-                { text: '场景文档生成', link: '/zh/guides/scenarios/scenario-generation' },
-                { text: '标准文档分发', link: '/zh/guides/publish/standards-distribution' }
               ]
             }
           ],

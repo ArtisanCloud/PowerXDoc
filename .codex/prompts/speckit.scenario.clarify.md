@@ -8,9 +8,10 @@ description: 针对场景文档生成流程的 Clarify 会话，引导用户逐�
 $ARGUMENTS
 ```
 
-该 Clarify 流程通常由 `.codex/prompts/speckit.scenario.md` Prompt 调用，用于补齐场景文档必须的元信息与业务细节。所有提问必须：
+该 Clarify 流程由当前助理在会话中直接执行，用于补齐场景文档必须的元信息与业务细节。操作时请遵循：
+
 - 使用中文行文；
-- 提供一个 `AI 推荐选项` 供用户快速采纳；
+- 提供一个 `当前助理 推荐选项` 供用户快速采纳；
 - 引用 `.specify/templates/scenario-clarify-template.md` 填写问题与答复。
 支持三类输入：
 
@@ -24,6 +25,7 @@ $ARGUMENTS
 2. 若用户提供了场景 Markdown 或设计说明，解析 frontmatter 和正文，构建缺失项列表；若包含多条流程，需要为每条流程维护独立的缺口列表，并确认是否允许覆盖现有文件。占位符可参考 `.specify/templates/scenario-clarify-template.md`。**若已存在同名 `docs/scenarios/**/SCN-*.md` 文件且不涉及重命名，则默认沿用原有 SCN ID，无需重复提问。**
 3. 按影响度排序 Clarify 问题，优先确保：
    - Frontmatter 元信息完整且与标准字段相符；
+   - 若 `owners` 为空则先使用默认值 `Michael Hu / Product Manager / matrix-x@artisan-cloud.com`，仅在用户提出调整需求时再追问；
    - 参与仓库/Layer/Domain 与职责清晰；
    - 跨仓流程、关键接口、验收指标明确；
    - 子用例映射（`doc_id`）及 docmap 影响到位；
