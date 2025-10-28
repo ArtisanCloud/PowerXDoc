@@ -14,6 +14,41 @@ SYNC IMPACT REPORT
 - Follow-up TODOs:
   - TODO(RATIFICATION_DATE): Set the official date of adoption.
 -->
+
+---
+
+# ① Manifest Path（全局规范索引）
+
+manifest: .specify/memory/manifest.yaml
+
+# ② 别名启用（跨仓规范映射）
+
+use:
+
+- "@powerx"
+- "@powerx-plugin"
+- "@powerx-marketplace"
+
+# ③ 指南文件（用于 /plan 与 /tasks 语义扩展）
+
+include:
+
+- .specify/memory/powerx.md
+- .specify/memory/powerx-plugin.md
+- .specify/memory/powerx-marketplace.md
+- .specify/memory/scenario-standards.md
+- docs/guides/usecases/generate-usecase-seeds.md
+
+# ④ Ruleset Paths（显式暴露以便 Runner 能读取）
+
+rulesets:
+
+- .specify/memory/rulesets/powerx/project.yaml
+- .specify/memory/rulesets/powerx-plugin/project.yaml
+- .specify/memory/rulesets/powerx-marketplace/project.yaml
+
+---
+
 # PowerX Documentation Constitution
 
 ## Core Principles

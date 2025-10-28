@@ -1,0 +1,20 @@
+# HTTP Handler 规范
+kind: ruleset
+id: crud_handler_http
+version: 1.0.0
+checks:
+  - id: handler-slim
+    desc: Handler 仅调用 Service；禁止 SQL/事务/复杂流程
+    assert:
+      type: ban-symbol
+      target: backend/internal/transport/http/**
+      symbols:
+        - "db.Query"
+        - "BeginTx("
+  - id: handler-validate
+    desc: 所有写入接口具备参数校验
+    assert:
+      type: grep
+      target: backend/internal/transport/http/**
+      pattern:
+        - validate

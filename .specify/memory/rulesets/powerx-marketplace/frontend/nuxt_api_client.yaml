@@ -1,0 +1,29 @@
+kind: ruleset
+name: plugin/crud/frontend/nuxt_api_client
+version: 1
+
+client:
+  runtime_config:
+    public_keys:
+      apiBase: "NUXT_PUBLIC_API_BASE"
+      featureFlag: "NUXT_PUBLIC_FEATURE_SUPPORT_POLICIES"
+      telemetryDsn: "NUXT_PUBLIC_TELEMETRY_DSN"
+    defaults:
+      apiBase: "http://localhost:8080/v1"
+      featureFlag: false
+      telemetryDsn: ""
+  files:
+    - target: web-admin/app/utils/http.ts
+      template: builtin/nuxt_ofetch_client
+      params:
+        stateKey: "support-api-client"
+        headers:
+          - key: "Accept"
+            value: "application/json"
+          - key: "Content-Type"
+            value: "application/json"
+        includeCorrelationId: true
+        includeAcceptLanguage: true
+        methods: ["get", "post", "put", "patch", "delete", "head", "options"]
+
+gates.require: [PG-FE-API-001]

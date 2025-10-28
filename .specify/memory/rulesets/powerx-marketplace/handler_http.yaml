@@ -1,0 +1,35 @@
+# HTTP Handler 规范
+kind: ruleset
+id: crud_handler_http
+version: 1.0.0
+checks:
+  - id: handler-slim
+    desc: Handler 仅调用 Service；禁止 SQL/事务/复杂流程
+    assert:
+      type: ban-symbol
+      target: backend/internal/transport/http/**
+      symbols:
+        - "db.Query"
+        - "BeginTx("
+  - id: handler-validate
+    desc: 所有写入接口具备参数校验
+    assert:
+      type: grep
+      target: backend/internal/transport/http/**
+      pattern:
+        - validate
+  - id: handler-domain-structure
+    desc: HTTP handler 按照 <domain> 目录拆分，router.go 负责聚合
+    assert:
+      type: doc
+      value: |
+        backend/internal/http/router/router.go 作为 HTTP 入口，仅负责引入各 domain 模块。
+        每个 domain 放在 backend/internal/http/<domain>/ 目录，需包含 routes.go（集中注册路由）和若干 *_handler.go。
+        处理流程：router.go 初始化依赖 -> 创建 domain Module -> 调用 Module.Register*Routes。
+  - id: handler-response-wrapper
+    desc: 所有 HTTP handler 使用统一的 JSON 返回格式
+    assert:
+      type: doc
+      value: |
+        禁止直接调用 c.JSON；统一使用 backend/internal/http/handler/common.go 中的 ok/created/accepted/badRequest 等 helper。
+        标准响应结构：{"code":<int>,"message":"...","data":<payload> }，成功 code 固定为 0，错误 code 使用对应的 HTTP 状态码。

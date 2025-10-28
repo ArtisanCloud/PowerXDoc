@@ -1,0 +1,88 @@
+# CRUD over gRPC — 按「调试 vs 启动(生产/预发)」两种模式约束
+# 调试：开启 gRPC Server Reflection，便于 grpcurl / evans 本地调试
+# 启动：以 PowerX 提供的 Go SDK (api/grpc/gen/go) 为唯一协议来源，不在仓库内存放 .proto
+kind: ruleset
+id: crud_grpc
+version: 1.1.0
+summary: "gRPC 传输层契约（无本地 proto；依赖 PowerX Go SDK；调试可启用 reflection）"
+params:
+  sdk_module: "github.com/ArtisanCloud/PowerX/api/grpc/gen/go"  # 如你有自定义 module 路径，可在项目 rules.yaml 覆盖
+requires:
+  - rulesets/crud/transport_grpc.yaml
+  - rulesets/crud/service.yaml
+  - rulesets/crud/test.yaml
+  - rulesets/crud/sdk_go.yaml
+checks:
+  # 0) 禁止在仓库携带业务 .proto（测试夹带例外）
+  - id: grpc-no-local-proto
+    desc: 仓库不应包含 .proto（除 testdata/**）
+    assert:
+      type: fileban
+      target: backend/**
+      pattern:
+        - "*.proto"
+      allow:
+        - backend/testdata/**
+
+  # 1) 依赖 PowerX Go SDK（而非本地生成）
+  - id: grpc-use-powerx-sdk
+    desc: go.mod 中必须依赖 PowerX gRPC SDK；代码中引用 SDK 里的 pb 包
+    assert:
+      any:
+        - type: grep
+          target: go.mod
+          pattern:
+            - "{{sdk_module}}"
+        - type: grep
+          target: backend/**/*.go
+          pattern:
+            - "{{sdk_module}}"
+
+  # 2) 反射仅在 debug 模式启用，且仅绑定到本地回环地址
+  - id: grpc-reflection-debug-only
+    desc: config.yaml 中 reflection 开关仅在 debug=true 时生效，地址限制 127.0.0.1/::1
+    assert:
+      all:
+        - type: grep
+          target: backend/config/config.yaml
+          pattern:
+            - "grpc:" 
+            - "  reflection:"
+            - "    enabled: true|false"
+            - "  bind:"
+        - type: grep
+          target: backend/internal/grpc/server/**
+          pattern:
+            - "if cfg.Debug && cfg.GRPC.Reflection.Enabled {"
+            - "reflection.Register("
+            - "isLoopback(cfg.GRPC.Bind)"
+
+  # 3) 服务注册依旧复用 Service 层（禁止在 gRPC 层落业务）
+  - id: grpc-reuse-service
+    desc: gRPC handler 调用 Service；禁直接 DB/事务
+    assert:
+      type: ban-symbol
+      target: backend/internal/grpc/**
+      symbols:
+        - direct_db_access
+        - BeginTx(
+
+  # 4) 错误码映射与拦截器链
+  - id: grpc-interceptors
+    desc: 必含 auth/tenant/logging/recovery，错误码映射 UNAUTHENTICATED/…
+    assert:
+      all:
+        - type: grep
+          target: backend/internal/grpc/server/**
+          pattern:
+            - interceptor:auth
+            - interceptor:tenant
+            - interceptor:logging
+            - interceptor:recovery
+        - type: grep
+          target: backend/internal/grpc/**
+          pattern:
+            - UNAUTHENTICATED
+            - PERMISSION_DENIED
+            - NOT_FOUND
+            - INVALID_ARGUMENT

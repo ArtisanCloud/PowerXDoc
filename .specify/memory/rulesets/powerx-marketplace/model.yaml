@@ -1,0 +1,37 @@
+# Model（含多租户字段与审计字段）
+kind: ruleset
+id: crud_model
+version: 1.0.0
+checks:
+  - id: model-tenant-audit
+    desc: 模型包含 tenant_id 与审计字段（created_at/updated_at）
+    assert:
+      type: schema
+      target: backend/internal/domain/models/**
+      schema:
+        requires:
+          - tenant_id
+          - created_at
+          - updated_at
+  - id: model-table-name-helper
+    desc: 模型必须通过 internal/domain/models 的常量与 S() helper 定义表名，禁止硬编码
+    assert:
+      type: schema
+      target: backend/internal/domain/models/**
+      schema:
+        requires:
+          - "func TableName() string"
+  - id: model-json-tags
+    desc: Domain Model 字段必须声明 json 标签，使 gorm 实体可直接用于 transport 层
+    assert:
+      type: doc
+      value: |
+        backend/internal/domain/models 下所有使用 gorm 标签定义的结构体字段，必须同时声明 json 标签（snake_case）。
+        如需隐藏可使用 `json:"-,omitempty"`，但不得缺失 json 标签，以便同一实体在 transport 层复用。
+  - id: model-domain-subdirs
+    desc: Domain Model 按业务域分目录存放
+    assert:
+      type: doc
+      value: |
+        backend/internal/domain/models 目录必须按业务域拆分子目录（如 plugin、onboarding、capability 等）。
+        新增模型文件禁止直接放在 models 根目录（除 common.go 等共用常量外）。

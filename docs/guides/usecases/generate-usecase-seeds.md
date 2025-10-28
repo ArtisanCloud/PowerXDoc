@@ -36,8 +36,8 @@
 2. 打开任务清单，按列出的命令逐条补写 Seed，例如：  
 
    ```
-   [speckit.implement.md](.codex/prompts/speckit.implement.md) \
-     docs/usecases-seeds/powerx-plugin/proto/dev/PLG-DEV-HOTLOAD-001.md \
+   [usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+       docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
      --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
      --context docs/_data/docmap.yaml \
      --context docs/_data/repos.yaml

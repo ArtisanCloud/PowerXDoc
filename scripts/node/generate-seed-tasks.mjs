@@ -120,9 +120,7 @@ async function main() {
 
     const filePath = path.join(
       'docs/usecases-seeds',
-      child.scope ?? 'TODO-scope',
-      child.layer ?? 'TODO-layer',
-      child.domain ?? 'TODO-domain',
+      args.scnId,
       `${child.doc_id}.md`,
     );
 

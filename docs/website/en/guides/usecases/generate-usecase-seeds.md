@@ -17,7 +17,7 @@ Once a scenario (SCN) is ready, you can rely on the project script to batch-gene
 ## 2. Generate Seed Skeletons
 
 ```bash
-node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
+node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-HUB-001
 ```
 
 - Writes/updates Seed templates under `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`.
@@ -34,8 +34,8 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx-plugin/proto/dev/PLG-DEV-HOTLOAD-001.md \
-  --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
+  --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
 ```

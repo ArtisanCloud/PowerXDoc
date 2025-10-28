@@ -1,0 +1,34 @@
+# Frontend (Nuxt Admin)
+# Gates: PG-FE-API-001 / PG-FE-RBAC-001 / PG-FE-BUILD-001 / PG-FE-UI-001
+kind: ruleset
+id: frontend_admin
+version: 1.0.0
+summary: "Nuxt 4 + Nuxt UI 3.3.x 管理端规范：API 基址、RBAC 可见性、构建与目录结构"
+requires:
+  - rulesets/crud/frontend/nuxt_api_client.yaml
+  - rulesets/crud/frontend/nuxt_pages.yaml
+  - rulesets/crud/frontend/nuxt_components.yaml
+  - rulesets/crud/frontend/nuxt_stores.yaml
+  - rulesets/crud/frontend/nuxt_i18n.yaml
+  - rulesets/crud/frontend/nuxt_layout.yaml
+  - rulesets/crud/frontend/nuxt_tests.yaml
+checks:
+  - id: fe-api-base
+    desc: 使用 runtimeConfig.public.apiBaseUrl 指向 /_p/<plugin-id>/api/v1 或 http://localhost:8086/v1
+    assert:
+      type: grep
+      target: web-admin/nuxt.config.ts
+      pattern:
+        - apiBaseUrl
+  - id: fe-output
+    desc: 构建产物输出在 web-admin/.output/
+    assert:
+      type: path
+      target: web-admin/.output/**
+  - id: fe-rbac-visibility
+    desc: 导航/按钮基于 permission 字段控制可见性或禁用
+    assert:
+      type: grep
+      target: web-admin/app/**
+      pattern:
+        - permission:

@@ -1,0 +1,9 @@
+# Generated and vendor content that should not be linted
+node_modules/
+dist/
+build/
+coverage/
+.docs-temp/
+docs/.vitepress/cache
+docs/.vitepress/dist
+reports/

@@ -1,0 +1,20 @@
+# gRPC 传输层
+kind: ruleset
+id: crud_transport_grpc
+version: 1.0.0
+checks:
+  - id: grpc-register
+    desc: 统一入口注册 Register*ServiceServer
+    assert:
+      type: grep
+      target: backend/internal/grpc/server/**
+      pattern:
+        - Register
+  - id: grpc-reuse-service
+    desc: gRPC handler 复用 Service，不得含业务逻辑
+    assert:
+      type: ban-symbol
+      target: backend/internal/grpc/**
+      symbols:
+        - direct_db_access
+        - long_business_flow

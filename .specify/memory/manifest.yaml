@@ -1,0 +1,65 @@
+aliases:
+  "@powerx":
+    memory: .specify/memory/powerx.md
+    rulesets:
+      - .specify/memory/rulesets/powerx/project.yaml
+      - .specify/memory/rulesets/powerx/crud_http.yaml
+      - .specify/memory/rulesets/powerx/crud_grpc.yaml
+      - .specify/memory/rulesets/powerx/sts.yaml
+      - .specify/memory/rulesets/powerx/crud/api_rest.yaml
+      - .specify/memory/rulesets/powerx/crud/handler_http.yaml
+      - .specify/memory/rulesets/powerx/crud/dto.yaml
+      - .specify/memory/rulesets/powerx/crud/service.yaml
+      - .specify/memory/rulesets/powerx/crud/repository.yaml
+      - .specify/memory/rulesets/powerx/crud/model.yaml
+      - .specify/memory/rulesets/powerx/crud/migration.yaml
+      - .specify/memory/rulesets/powerx/crud/proto_gen.yaml
+      - .specify/memory/rulesets/powerx/crud/transport_grpc.yaml
+      - .specify/memory/rulesets/powerx/crud/di.yaml
+      - .specify/memory/rulesets/powerx/crud/test.yaml
+  "@powerx-plugin":
+    memory: .specify/memory/powerx-plugin.md
+    rulesets:
+      - .specify/memory/rulesets/powerx-plugin/project.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud_http.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud_grpc.yaml
+      - .specify/memory/rulesets/powerx-plugin/sts.yaml
+      - .specify/memory/rulesets/powerx-plugin/frontend_admin.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/api_rest.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/handler_http.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/dto.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/service.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/repository.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/model.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/migration.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/sdk_go.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/transport_grpc.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/di.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/test.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_api_client.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_pages.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_components.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_stores.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_i18n.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_layout.yaml
+      - .specify/memory/rulesets/powerx-plugin/crud/frontend/nuxt_tests.yaml
+  "@powerx-marketplace":
+    memory: .specify/memory/powerx-marketplace.md
+    rulesets:
+      - .specify/memory/rulesets/powerx-marketplace/project.yaml
+      - .specify/memory/rulesets/powerx-marketplace/api_rest.yaml
+      - .specify/memory/rulesets/powerx-marketplace/handler_http.yaml
+      - .specify/memory/rulesets/powerx-marketplace/dto.yaml
+      - .specify/memory/rulesets/powerx-marketplace/service.yaml
+      - .specify/memory/rulesets/powerx-marketplace/repository.yaml
+      - .specify/memory/rulesets/powerx-marketplace/model.yaml
+      - .specify/memory/rulesets/powerx-marketplace/migration.yaml
+      - .specify/memory/rulesets/powerx-marketplace/di.yaml
+      - .specify/memory/rulesets/powerx-marketplace/test.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_api_client.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_pages.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_components.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_stores.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_i18n.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_layout.yaml
+      - .specify/memory/rulesets/powerx-marketplace/frontend/nuxt_tests.yaml

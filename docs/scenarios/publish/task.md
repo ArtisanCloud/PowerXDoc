@@ -7,7 +7,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx-plugin/proto/dev/PLG-DEV-HOTLOAD-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -18,7 +18,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx/service/dev/PX-DEV-HOTLOAD-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -29,7 +29,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-ADMIN-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -40,7 +40,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx-plugin/proto/publish/PLG-PUBLISH-OFFLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -51,7 +51,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx-marketplace/api/marketplace/MKP-PUBLISH-OFFLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -62,7 +62,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx/service/publish/PX-PUBLISH-OFFLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -73,7 +73,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-ADMIN-PUBLISH-OFFLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -84,7 +84,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx-plugin/proto/publish/PLG-PUBLISH-ONLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -95,7 +95,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx-marketplace/api/marketplace/MKP-PUBLISH-ONLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -106,7 +106,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx/service/catalog/PX-PUBLISH-ONLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
@@ -117,7 +117,7 @@
 
 ```bash
 .specify/templates/usecase-generate-template.md \
-  docs/usecases-seeds/powerx/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-ADMIN-PUBLISH-ONLINE-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml

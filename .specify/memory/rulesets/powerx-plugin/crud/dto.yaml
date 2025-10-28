@@ -1,0 +1,17 @@
+# DTO 与校验
+kind: ruleset
+id: crud_dto
+version: 1.0.0
+checks:
+  - id: dto-exist
+    desc: Create/Update/List DTO 均存在且字段与 Model 对齐（必要字段除外）
+    assert:
+      type: path
+      target: backend/internal/dto/**
+  - id: dto-validate-tags
+    desc: DTO 字段有校验标签（binding/validate）
+    assert:
+      type: grep
+      target: backend/internal/dto/**
+      pattern:
+        - validate:

@@ -1,0 +1,26 @@
+# STS — Outbound Access
+# Gate: PG-STS-001
+kind: ruleset
+id: sts
+version: 1.0.0
+summary: "插件对宿主的出站访问必须通过短期凭证（STS）交换与使用"
+checks:
+  - id: sts-client-exists
+    desc: 存在 STS 客户端封装且只在后端使用
+    assert:
+      type: path
+      target:
+        - backend/internal/infra/sts/**
+  - id: sts-no-frontend
+    desc: 不得在前端/浏览器层发起 STS 交换
+    assert:
+      type: fileban
+      target: web-admin/**
+      pattern:
+        - "_internal/sts/exchange"
+  - id: sts-token-ttl
+    desc: Token TTL ≤ 300s，带 scope
+    assert:
+      type: config
+      target: backend/config/**
+      query: ensure_sts_ttl_le_300_and_scoped()

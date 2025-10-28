@@ -1,0 +1,12 @@
+# PowerX gRPC SDK 依赖
+kind: ruleset
+id: crud_sdk_go
+version: 1.0.0
+checks:
+  - id: sdk-module
+    desc: go.mod 中必须依赖宿主提供的 gRPC SDK
+    assert:
+      type: grep
+      target: backend/go.mod
+      pattern:
+        - "github.com/ArtisanCloud/PowerX/api/grpc/gen/go"
