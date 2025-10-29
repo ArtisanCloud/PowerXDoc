@@ -2,7 +2,7 @@
 
 /**
  * Sync scenario pages into docs/website/<locale>/scenarios.
- * - Copies usecase seed index from docs/usecases-seeds/scenarios/<SCN_ID>.md
+ * - Copies usecase seed index from docs/usecases-seeds/<SCN_ID>/index.md
  * - Copies child scenarios defined in docmap.yaml (child_scenarios)
  * - Optionally copies usecase seeds (via sync-seed-pages)
  */
@@ -13,7 +13,7 @@ import process from 'node:process';
 import { pathToFileURL } from 'node:url';
 import { loadDocmap } from '../lib/docmap-utils.mjs';
 
-const SOURCE_SEED_INDEX_ROOT = path.resolve('docs/usecases-seeds/scenarios');
+const SOURCE_SEEDS_ROOT = path.resolve('docs/usecases-seeds');
 const SOURCE_SCENARIOS_ROOT = path.resolve('docs/scenarios');
 const WEBSITE_ROOT = path.resolve('docs/website');
 
@@ -170,14 +170,40 @@ function ensureFrontmatter(content) {
   return `---\n${content}`;
 }
 
-async function readScenarioSource(scnId) {
-  const directPath = path.join(SOURCE_SEED_INDEX_ROOT, `${scnId}.md`);
-  if (await fileExists(directPath)) {
-    return directPath;
+async function findScenarioDoc(scnId, baseDir = SOURCE_SCENARIOS_ROOT) {
+  const queue = [baseDir];
+  while (queue.length) {
+    const current = queue.shift();
+    let entries = [];
+    try {
+      entries = await fs.readdir(current, { withFileTypes: true });
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        continue;
+      }
+      throw error;
+    }
+
+    for (const entry of entries) {
+      const entryPath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        queue.push(entryPath);
+      } else if (entry.isFile() && entry.name === `${scnId}.md`) {
+        return entryPath;
+      }
+    }
   }
-  const fallback = path.join(SOURCE_SCENARIOS_ROOT, `${scnId}.md`);
-  if (await fileExists(fallback)) {
-    return fallback;
+  return null;
+}
+
+async function readScenarioSource(scnId) {
+  const seedIndexPath = path.join(SOURCE_SEEDS_ROOT, scnId, 'index.md');
+  if (await fileExists(seedIndexPath)) {
+    return seedIndexPath;
+  }
+  const scenarioPath = await findScenarioDoc(scnId);
+  if (scenarioPath) {
+    return scenarioPath;
   }
   return null;
 }

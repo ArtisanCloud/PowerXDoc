@@ -16,115 +16,181 @@ owners:
   - name: Matrix-X
     role: Docs Coordinator
     contact: dev@artisan-cloud.com
-contributors: []
-linked_requirements: []
-code_refs: []
-feature_flags: []
-last_reviewed_at: 2025-10-24
+contributors:
+  - name: Zheng Ning
+    role: Ops Lead
+    contact: ops@artisan-cloud.com
+  - name: Carol Wang
+    role: Platform PM
+    contact: carol@artisan-cloud.com
+linked_requirements:
+  - type: scenario
+    ref: SCN-PUBLISH-HUB-001
+  - type: scenario
+    ref: SCN-PUBLISH-ONLINE-001
+code_refs:
+  - component: online_install_service
+    path: backend/internal/plugins/online/install_service.go
+    description: 管理远程包下载、验证与安装状态机
+  - component: upgrade_scheduler
+    path: backend/internal/plugins/online/upgrade_scheduler.go
+    description: 根据租户策略调度自动升级窗口与批次
+  - component: marketplace_catalog_sync
+    path: backend/internal/plugins/catalog/catalog_syncer.go
+    description: 同步 Marketplace 版本元数据并缓存到本地 catalog
+feature_flags:
+  - name: PX_ONLINE_INSTALL
+    description: 控制 `install/url` API 是否开放以及可访问的来源域名
+    default: true
+    environments: [staging, production]
+  - name: PX_ONLINE_AUTO_UPGRADE
+    description: 启用自动升级调度与回滚保护
+    default: false
+    environments: [staging, production]
+last_reviewed_at: 2025-10-28
 
 ---
 
 # Usecase Overview
 
-- **业务目标**：说明该子用例要交付的结果、价值、触发角色。
-- **成功度量**：列出可量化指标（如延迟、吞吐、转化率）。
-- **场景关联**：本用例支持的主用例、其它相关子用例或标准。
+- **业务目标**：为联网环境提供稳定、安全的插件远程安装与升级能力，自动拉取 Marketplace 上架版本并在租户间按策略分发。
+- **成功度量**：在线安装成功率 ≥ 98%；从发布到租户可见的延迟 ≤ 15 分钟；自动升级失败回滚率 ≤ 2%；安装 API P95 时延 ≤ 3s。
+- **场景关联**：承接 `PLG-PUBLISH-ONLINE-001` 的 publish 回执和 `MKP-PUBLISH-ONLINE-001` 审核结果，为 `PX-PUBLISH-ONLINE-UI-001` Admin 界面提供 API 与状态。
 
-> 建议在此处补充一段简短摘要，便于 PR 或站点卡片快速传达意图。
+PowerX Core 服务负责从 Marketplace 获取通过审核的插件版本，按照租户策略执行远程下载、验签、部署、自动升级与回滚，并通过 Admin/Telemetry 提供可观测性。
 
 # Context & Assumptions
 
-- **前置条件**：所需 Feature Flag、配置项、依赖服务、权限。
-- **输入/输出**：关键输入数据（事件、API、消息）、期望输出。
-- **边界**：明确不在本用例覆盖范围内的行为或组件。
+- **前置条件**
+  - Feature Flag `PX_ONLINE_INSTALL=1` 在目标环境启用，并配置允许访问的 Marketplace 域名与 CDN。
+  - Marketplace 已发布版本并提供可访问的 artefact URL、签名、完整性信息。
+  - Core 拥有对象存储或本地缓存目录，用于临时存放下载包。
+  - 已建立租户级自动升级策略（灰度批次、黑白名单、窗口期）并持久化在配置中心。
+  - 审计与监控管道可接收安装事件、指标与告警。
+- **输入**
+  - Admin/CLI 发起的 `install/url`、`upgrade/schedule` 请求（包含租户、版本、策略）。
+  - Marketplace Catalog 同步的版本元数据（版本号、依赖、兼容性标记、风险等级）。
+  - 自动升级调度器触发的定时事件。
+- **输出**
+  - 安装/升级结果（成功/失败/回滚）、运行时状态、审计日志与指标。
+  - 缓存更新后的插件 catalog 以及租户可见的版本列表。
+  - 告警/通知（Webhook、Slack、邮件）与 Telemetry 事件。
+- **边界**
+  - 不负责 Marketplace 审核或版本发布（由 Marketplace 实现）。
+  - 不覆盖 Admin UI 呈现（由 `PX-PUBLISH-ONLINE-UI-001` 管理）。
+  - 不处理离线包导入（对应 `PX-PUBLISH-OFFLINE-001`）。
 
 # Solution Blueprint
 
 ## 体系分解
 
-| 层 | 主要组件/模块 | 责任 | 代码入口 |
-|----|---------------|------|---------|
-| &lt;层名称&gt; | `&lt;pkg/...&gt;` | 说明该层负责的职责 | `&lt;repo/entrypoint&gt;` |
-| &lt;层名称&gt; | `&lt;pkg/...&gt;` | 说明该层负责的职责 | `&lt;repo/entrypoint&gt;` |
-| &lt;层名称&gt; | `&lt;pkg/...&gt;` | 说明该层负责的职责 | `&lt;repo/entrypoint&gt;` |
-
-> 按需增删行；确保表格与 Frontmatter 的 `layer`、`code_refs` 信息一致。
+| 模块 | Scope | 职责 | 代码入口 / Host |
+|------|-------|------|-----------------|
+| MarketplaceCatalogSyncer | powerx | 订阅 Marketplace 发布事件、定期同步版本元数据 | `backend/internal/plugins/catalog/catalog_syncer.go` |
+| OnlineInstallService | powerx | 拉取远程包、验签、部署、管理安装状态机 | `backend/internal/plugins/online/install_service.go` |
+| PackageFetcher | powerx | 处理 CDN/对象存储下载、断点续传、缓存淘汰 | `backend/internal/plugins/online/package_fetcher.go` |
+| UpgradeScheduler | powerx | 根据策略生成自动升级任务、灰度批次、回滚窗口 | `backend/internal/plugins/online/upgrade_scheduler.go` |
+| TenantUpgradeExecutor | powerx | 针对租户执行升级、监控结果、处理失败回滚 | `backend/internal/plugins/online/upgrade_executor.go` |
+| ObservabilityEmitter | powerx | 输出安装/升级指标、事件、审计日志 | `backend/internal/plugins/telemetry/emitter.go` |
+| AdminInstallHandler | powerx | 暴露 `POST /admin/plugins/install/url` API，校验权限并触发服务层 | `backend/cmd/app/http/handlers/plugins/install_url_handler.go` |
 
 ## 流程与时序
 
-1. **Step 1 – Trigger**：描述触发条件、调用方、关键参数。
-2. **Step 2 – Processing**：列出核心业务逻辑、状态变化、写入位置。
-3. **Step 3 – Side Effects**：说明通知、缓存刷新、下游调用。
-4. **Step 4 – Completion**：输出结果、返回值、终端反馈。
-
-如需补充图示，可使用 Mermaid：
-
 ```mermaid
 sequenceDiagram
-  participant ActorA as &lt;调用方/触发者&gt;
-  participant ActorB as &lt;被调用方/处理者&gt;
-  participant ActorC as &lt;下游/附加参与者&gt;
+  participant Market as Marketplace Catalog
+  participant Syncer as CatalogSyncer
+  participant Admin as Admin/API Client
+  participant Handler as InstallHandler
+  participant Service as OnlineInstallService
+  participant Scheduler as UpgradeScheduler
+  participant Executor as TenantUpgradeExecutor
+  participant Telemetry as ObservabilityEmitter
 
-  ActorA->>ActorB: &lt;触发请求或事件&gt;
-  ActorB-->>ActorC: &lt;链路调用或副作用&gt;
-  ActorC-->>ActorB: &lt;响应或反馈&gt;
-  ActorB-->>ActorA: &lt;最终结果&gt;
+  Market-->>Syncer: publish.approved(versionPayload)
+  Syncer->>Service: cacheVersionMetadata(versionId)
+  Admin->>Handler: POST /admin/plugins/install/url (tenant, versionId)
+  Handler->>Service: install(tenant, versionId)
+  Service->>Service: download & verify artefact
+  Service->>Executor: deploy(tenant, package)
+  Executor-->>Service: installResult
+  Service->>Telemetry: emit install.{success|failure}
+  Scheduler->>Service: triggerAutoUpgrade(batchPlan)
+  Service->>Executor: executeBatch(batchPlan)
+  alt failure detected
+    Service->>Executor: rollback(previousVersion)
+    Executor-->>Service: rollbackStatus
+    Service->>Telemetry: emit rollback.event
+  end
 ```
 
 # Contracts & Interfaces
 
-- **Inbound APIs / Events**
-  - `METHOD /path` — 请求/事件字段、鉴权与重试策略。
-- **Outbound 调用**
-  - `&lt;service/component&gt;` — 说明调用目的、超时时间、失败处理。
-- **配置与脚本**
-  - `&lt;config or script&gt;` — Feature Flag、阈值、调度策略。
-
-> 建议链接到 `docs/standards/**` 的契约文档或下游仓库的接口定义，保持来源单一。
+- **Inbound APIs**
+  - `POST /api/admin/plugins/install/url`
+    - Body：`tenantId`, `versionId`, `source`, `strategy`（immediate|scheduled）, `notes`.
+    - 权限：`admin.plugins.install`；需启用 `PX_ONLINE_INSTALL`。
+    - 响应：`installJobId`, `status`, `auditId`, `nextCheckAt`.
+  - `POST /api/admin/plugins/upgrade/schedule`
+    - 用于配置自动升级的批次、窗口、黑白名单。
+  - `GET /api/admin/plugins/versions`
+    - 返回同步后的版本列表、风险等级、可用策略。
+- **Outbound 交互**
+  - Marketplace Catalog Event（如 `publish.approved` 消息或轮询接口）——同步版本元数据。
+  - Package Storage（S3/OSS/CDN）——下载 artefact，支持预签名 URL、断点续传。
+  - Telemetry / Metrics API —— `POST /telemetry/powerx/plugins/install`，记录耗时、成功率、失败原因。
+  - Notification Service —— 触发 Ops 通知或租户消息（Webhook/Slack/Email）。
+- **配置项**
+  - `PX_ONLINE_ALLOWED_HOSTS`：允许的 Marketplace 域名列表。
+  - `PX_ONLINE_CACHE_TTL`：下载包缓存时长与大小阈值。
+  - `PX_UPGRADE_MAX_BATCH`：单批次升级的租户上限。
+  - `PX_UPGRADE_ROLLBACK_POLICY`：失败阈值与自动回滚策略。
 
 # Implementation Checklist
 
 | 项目 | 描述 | 完成状态 | 负责人 |
 |------|------|----------|--------|
-| 数据模型 | 新增或调整表结构、索引、迁移脚本 | [ ] | |
-| 业务逻辑 | 实现服务/控制器逻辑、错误处理 | [ ] | |
-| 权限治理 | 更新鉴权策略、审计日志或租户隔离 | [ ] | |
-| 配置发布 | 新增配置项、Feature Flag、默认值 | [ ] | |
-| 文档同步 | 更新 `docs/standards/**`、README、变更日志 | [ ] | |
+| 版本同步 | 接入 Marketplace 发布事件、构建本地 catalog 缓存 | [ ] | Platform Services Team |
+| 下载与缓存 | 支持 CDN/OSS 下载、断点续传、哈希校验与缓存管理 | [ ] | Platform Services Team |
+| 安装状态机 | 实现安装阶段、重试、幂等与回滚保护 | [ ] | Plugin Runtime Team |
+| 自动升级调度 | 支持灰度批次、黑白名单、窗口期与暂停/恢复 | [ ] | Ops Automation Team |
+| 审计与指标 | 输出 install/upgrade 指标、审计日志、告警钩子 | [ ] | Observability Team |
+| 文档与 SOP | 更新运行手册、常见故障、回滚流程、Admin 指南 | [ ] | Docs Steward Team |
 
 # Testing Strategy
 
-- **单元测试**：覆盖核心业务函数、边界条件、错误处理。
-- **集成测试**：模拟关键 API/Event，验证数据库、外部服务交互。
-- **端到端验证**：描述 QA/自测脚本、需要的数据准备、预期输出。
-- **非功能测试**：性能、容错、回归、容量等。
-
-> 推荐列出测试用例 ID 或链接到自动化用例仓库；如需本地命令可附上 `npm run test -- <suite>` 等指引。
+- **单元测试**：`install_service_test.go` 覆盖下载、验签、失败重试；`upgrade_scheduler_test.go` 验证批次生成与策略合规；`catalog_syncer_test.go` 检查版本同步。
+- **集成测试**：使用 Mock Marketplace/Storage/Telemetry，运行 `make test-online-install`（或等效脚本）覆盖完整安装链路。
+- **端到端测试**：与 Marketplace、Admin UI 联合演练“publish → sync → install → auto-upgrade → rollback”，记录审计 ID 与通知。
+- **非功能测试**：大包（>500MB）下载性能、弱网超时、并发安装（≥ 20 租户）、自动升级批次压力、SLA 验证。
 
 # Observability & Ops
 
-- **指标**：列出关键指标名称、聚合方式、目标阈值。
-- **日志**：说明必须记录的字段、log level、落盘/采集方式。
-- **告警**：触发条件、通知渠道、值班人或升级路径。
-- **Dashboards**：Grafana / Datadog 面板链接或路径。
+- **指标**：`plugins.online_install.success_rate`, `plugins.online_install.duration_ms`, `plugins.auto_upgrade.batch_latency`, `plugins.online_install.rollback_count`.
+- **日志**：结构化事件记录 `tenantId`, `versionId`, `installJobId`, `phase`, `duration`, `result`, `errorCode`；敏感字段脱敏。
+- **告警**：安装失败超过阈值、批次升级失败率 > 5%、下载超时、回滚频率异常时推送至 PagerDuty 与 `#powerx-ops`。
+- **Dashboards**：Grafana “Plugins Online Install” 面板、Telemetry Publish Funnel、Ops 升级批次追踪图、Audit Review Dashboard。
 
 # Rollback & Failure Handling
 
-- **回滚步骤**：如何撤销代码、配置、数据变更。
-- **补救措施**：常见故障应对方案、脚本命令。
-- **数据修复**：需要的 SQL/CLI 操作及执行人。
+- **回滚步骤**：通过 `PX_ONLINE_AUTO_UPGRADE=0` 暂停自动升级；调用 `POST /api/admin/plugins/upgrade/rollback` 回滚至上一稳定版本；清理缓存并刷新租户状态。
+- **补救措施**：提供 `px plugins install --resume <installJobId>` CLI 支援；保存失败包与日志；针对重复失败的租户触发手动干预 SOP。
+- **数据修复**：核对 catalog 与实际版本状态，重新同步 Marketplace；修复审计日志缺失；如安装过程损坏数据库，执行迁移回滚与数据修复脚本。
 
-# Follow-ups & Risks
+# Risks & Mitigations
 
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
-| &lt;风险或跟进项&gt; | &lt;潜在影响&gt; | &lt;缓解方案或依赖&gt; | &lt;负责人&gt; | &lt;ETA&gt; |
+| CDN 下载失败或延迟 | 安装超时、租户体验下降 | 引入多源下载、断点续传、重试与回退缓存 | Platform Services Team | 2025-02-10 |
+| 自动升级批次失控 | 大面积故障 | 增加批次暂停、动态阈值、失败快速回滚 | Ops Automation Team | 2025-01-28 |
+| 版本依赖不兼容 | 安装/运行失败 | 在安装前校验依赖矩阵、阻断高风险版本、通知 Marketplace | Plugin Runtime Team | 2025-02-05 |
+| 审计记录缺失 | 合规风险 | 强制写入审计流水、失败时阻断安装、提供补写脚本 | Observability Team | 2025-01-20 |
 
 # References & Links
 
-- 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
-- 相关规范：`docs/standards/<scope>/<topic>.md`
-- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
-- 设计材料：Figma、白板或 ADR 链接
+- 场景文档：`docs/scenarios/publish/SCN-PUBLISH-ONLINE-001.md`
+- Marketplace 审核：`docs/usecases-seeds/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md`
+- CLI 发布：`docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md`
+- 运维指南：`docs/guides/publish/online.md`
 
-> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。
+> Seed 更新后，请执行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并安排“发布→安装→升级”演练验证端到端链路。

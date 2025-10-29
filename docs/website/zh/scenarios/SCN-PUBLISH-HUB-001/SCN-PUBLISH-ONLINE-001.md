@@ -1,30 +1,24 @@
 ---
 scn_id: SCN-PUBLISH-ONLINE-001
-title: 插件标准发布与 Marketplace 上架
+title: 插件在线发布与Marketplace分发场景
 status: Draft
 version: v0.1.0
 owners:
   - name: Michael Hu
-    role: Scenario Steward
-    contact: <tech@artisan-cloud.com>
-  - name: Matrix-X
-    role: Docs Coordinator
-    contact: <dev@artisan-cloud.com>
-domains: ['publish', 'marketplace', 'install']
-layers: ['proto', 'api', 'service', 'ui']
+    role: Product Manager
+    contact: matrix-x@artisan-cloud.com
+domains: [publish]
+layers: [proto, service, api, ui]
 repos:
   - key: powerx-plugin
-    scope: plg
-    responsibility: CLI 发布、审计日志
+    scope: powerx-plugin
+    responsibility: 插件发布 CLI、版本元数据
   - key: powerx-marketplace
-    scope: mkp
-    responsibility: 审核、目录管理、事件广播
+    scope: powerx-marketplace
+    responsibility: 在线审核、上架、订阅推送
   - key: powerx
-    scope: px
-    responsibility: 目录同步、缓存刷新、安装编排
-  - key: powerx
-    scope: admin
-    responsibility: 市场展示、安装流程、运维日志
+    scope: powerx
+    responsibility: 安装、升级、回滚 API 以及 Web Admin 管理界面
 related_usecases:
   - doc_id: PLG-PUBLISH-ONLINE-001
     layer: proto
@@ -38,73 +32,85 @@ related_usecases:
   - doc_id: PX-PUBLISH-ONLINE-UI-001
     layer: ui
     domain: marketplace
-last_reviewed_at: 2025-10-24
+last_reviewed_at: 2025-01-01
 
 ---
 
 # Executive Summary
 
-本场景描述插件在 Marketplace 在线发布的端到端流程：PowerXPlugin CLI 提交发布请求，PowerXMarketplace 审核与安全扫描后写入目录并广播事件，PowerX Core Backend 同步目录与缓存，PowerX Core Web Admin 提供市场安装入口，实现插件从提交到可用的闭环交付。
+在线发布场景保证插件作者可以直接把版本推送到 PowerX Marketplace，由市场自动完成审核、上架、通知及多租户分发。该流程适合正式生态发布，具备标准化的版本控制、签名校验与回滚策略，帮助生态参与者快速获取最新插件能力。
 
 # Scope & Guardrails
 
-- **In Scope**：`px-plugin publish`；Marketplace 审核与事件；Backend 目录同步与安装 API；Web Admin 市场 UI。
-- **Out of Scope**：离线导入、本地调试、收费策略。
-- **Environment & Flags**：开启 `PX_MARKETPLACE_SYNC` 与 Admin `marketplace.enabled=true`；Marketplace 配置生产签名与安全扫描。
+- **In Scope**：在线构建与 publish、Marketplace 审核审批、版本签名、通知订阅、自动化安装推送。
+- **Out of Scope**：离线或私有分发、Marketplace 之外的渠道、第三方支付结算。
+- **Environment & Flags**：需启用 `PX_MARKET_PUBLISH_ENABLED`；使用 `px-plugin publish` 或 Marketplace UI 均需具备 `plugin:publish` 权限；版本签名与依赖清单必须完整。
 
 # Participants & Responsibilities
 
-| Scope | Repository | Layer  | 责任与交付物                               | Owners |
-|-------|------------|--------|-------------------------------------------|--------|
-| plg   | powerx-plugin             | proto  | CLI 发布、审计日志输出、打包验证             | Michael Hu |
-| mkp   | powerx-marketplace        | api    | 审核、安全扫描、目录注册、事件广播         | Matrix-X |
-| px    | powerx    | service| 目录同步、缓存刷新、安装编排、License 校验  | Michael Hu |
-| admin | powerx      | ui     | 市场展示、安装向导、运维日志、失败恢复       | Matrix-X |
+| Scope               | Repository         | Layer   | 责任与交付物                                       | Owners                              |
+|---------------------|--------------------|---------|----------------------------------------------------|-------------------------------------|
+| PowerXPlugin        | powerx-plugin      | proto   | 提供 `publish` 命令、版本元数据管理               | Michael Hu（Plugin Tech Lead）      |
+| PowerX Marketplace  | powerx-marketplace | api     | 审核流、自动化测试、上架与订阅推送                 | Li Zhu（Marketplace PM）            |
+| PowerX (Core+Admin) | powerx             | service | 安装/升级 API、自动化回滚、插件管理 UI 与告警展示 | Zheng Ning（Ops Lead）              |
 
 # End-to-End Flow
 
-1. 开发者执行 `px-plugin publish`，CLI 上传包体、manifest、签名和审计日志。
-2. Marketplace 审核与安全扫描，写入目录后广播 `mkp.plugin.published` 事件。
-3. Backend 监听事件，校验签名、刷新目录与缓存，并创建安装任务；记录审计。
-4. Web Admin 市场页面通过 GraphQL 展示新插件，管理员一键安装，安装结果与日志写回给运维团队。
+1. **Stage 1 – 发布准备**：开发者在本地构建并运行 `px-plugin publish`，CLI 收集 manifest、依赖、签名信息，并上传至 Marketplace。
+2. **Stage 2 – 审核与自动化验证**：Marketplace 触发安全扫描、兼容性测试和人工审核，生成审核报告。
+3. **Stage 3 – 上架与通知**：审核通过后，版本在 Marketplace 上架，并向订阅租户发送通知；可配置自动升级或人工选择。
+4. **Stage 4 – 安装与运营**：租户通过 PowerX Web Admin 或 API 选择版本安装，调用 `POST /{{api_prefix}}/admin/plugins/install/url` 拉取远程包体；安装完成后记录日志、可随时回滚。
+
+```mermaid
+sequenceDiagram
+  participant Dev as 插件开发者
+  participant CLI as px-plugin publish
+  participant Market as Marketplace
+  participant Tenant as 租户管理员
+  participant Core as PowerX Backend
+
+  Dev->>CLI: px-plugin publish
+  CLI->>Market: 上传包 + 元数据
+  Market-->>Market: 自动化测试 + 人工审核
+  Market->>Tenant: 发布通知/订阅
+  Tenant->>Core: API/GUI 触发安装
+  Core-->>Core: 安装/升级/回滚流程
+  Core->>Tenant: 反馈状态 + Telemetry
+```
 
 # Key Interactions & Contracts
 
-- CLI：`px-plugin publish`
-- Marketplace API：`POST /marketplace/plugins`；事件 `mkp.plugin.published`
-- Backend API：安装、目录刷新、缓存失效；License 校验
-- Admin GraphQL：`listMarketplacePlugins`、安装向导 API
+- **APIs / Events**：`POST /api/marketplace/plugins/publish`、`Event::plugin.publish.approved`、`POST /{{api_prefix}}/admin/plugins/install/url`。
+- **Configs / Schemas**：`manifest.json`、依赖图、签名证书、自动升级策略。
+- **Security / Compliance**：发布者身份校验；版本签名强制；所有审核结果与操作保留 180 天；支持多租户隔离策略。
 
 # Usecase Links
 
-- PLG-PUBLISH-ONLINE-001
-- MKP-PUBLISH-ONLINE-001
-- PX-PUBLISH-ONLINE-001
-- PX-PUBLISH-ONLINE-UI-001
+- `PLG-PUBLISH-ONLINE-001` — CLI 发布流程。
+- `MKP-PUBLISH-ONLINE-001` — Marketplace 审核与上架。
+- `PX-PUBLISH-ONLINE-001` — Backend 安装与升级。
+- `PX-PUBLISH-ONLINE-UI-001` — Admin 插件管理体验。
 
 # Acceptance Criteria
 
-1. 发布后 5 分钟内，Web Admin 市场列表可搜索到插件且元数据同步一致。
-2. 所有关键指标写入审计，并在告警渠道可追踪。
-3. 指标 `publish_online.success_rate` ≥ 99%，告警阈值可配置且正常生效。
+1. 发布到审核通过的平均时长 ≤ 4 小时，超出 SLA 自动告警。
+2. 插件上线后 99% 的租户可在 30 分钟内获取通知并安装。
+3. 安装失败能够在 5 分钟内自动回滚，并向发布者与租户推送告警。
 
 # Telemetry & Ops
 
-- 指标：`marketplace.publish.duration`、`powerx.catalog.sync.latency`、`web_admin.plugin.install.time_to_ready`
-- 告警：审核失败率 > 5% 触发 PagerDuty；目录同步延迟 ≥ 2 次事件触发高优先级告警；安装失败自动通知维护人
-- 观测来源：Marketplace telemetry dashboards、Backend workflow metrics、Web Admin Sentry
+- 指标：`plugin.online.publish.count`、`plugin.online.approval.duration`、`plugin.online.install.success_rate`。
+- 告警阈值：审批超 SLA、安装成功率 < 98%、回滚次数异常。
+- 观测来源：Marketplace 审核日志、PowerX Backend 指标、Admin 告警面板。
 
 # Open Issues & Follow-ups
 
-| 风险/事项 | 影响范围 | 负责人 | ETA |
-|-----------|----------|--------|-----|
-| 审核高峰时事件延迟，需要扩容队列或调整 SLA | MKP, PX | Matrix-X | 2025-02-15 |
-| Admin 安装缺少重试按钮，需要补 UI 提示 | admin | Matrix-X | 2025-02-10 |
+| 风险/事项                           | 影响范围        | 负责人            | ETA        |
+|-------------------------------------|-----------------|-------------------|------------|
+| 自动化测试覆盖率需扩展至新审核流程   | 审核效率与质量  | Li Zhu（Marketplace QA） | 2025-02-20 |
+| 租户端自动升级策略配置需完善         | 租户运营体验    | Zheng Ning（Ops Lead）   | 2025-03-10 |
 
 # Appendix
 
-- docs/meta/scenarios/plugin/publish.md
-- docs/standards/powerx-plugin/integration/01_plugin_lifecycle/Versioning_and_Publishing.md
-- docs/standards/powerx-marketplace/发布和下载插件流程.md
-- docs/standards/powerx/backend/plugins/admin_workflow.md
-- docs/standards/powerx/web-admin/plugins/admin_workflow.md
+- Marketplace 在线发布操作手册：`docs/guides/publish/online.md`
+- 审核策略与自动化测试模板：<https://docs.artisancloud.com/powerx/marketplace/review-playbook>

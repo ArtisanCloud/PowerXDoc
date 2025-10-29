@@ -16,6 +16,9 @@ const SUPPORTED_LOCALES = new Map([
       async buildContent({ sourcePath }) {
         return fs.readFile(sourcePath, 'utf8');
       },
+      async buildIndexContent({ sourcePath }) {
+        return fs.readFile(sourcePath, 'utf8');
+      },
     },
   ],
   [
@@ -30,6 +33,15 @@ const SUPPORTED_LOCALES = new Map([
         return `---\ntitle: ${JSON.stringify(title)}\nreviewStatus: Placeholder\npartnerSlug: ${JSON.stringify(
           normalizedPartner,
         )}\n---\n\n> This usecase seed still awaits translation. Refer to the Chinese version: [${normalizedPartner}](${normalizedPartner}).\n`;
+      },
+      async buildIndexContent({ scnId, partnerPath }) {
+        const title = `${scnId} Seed Index (Pending Translation)`;
+        const normalizedPartner = partnerPath.startsWith('/')
+          ? partnerPath
+          : `/${partnerPath}`;
+        return `---\ntitle: ${JSON.stringify(title)}\nreviewStatus: Placeholder\npartnerSlug: ${JSON.stringify(
+          normalizedPartner,
+        )}\n---\n\n> This index is pending translation. Refer to the Chinese page: [${normalizedPartner}](${normalizedPartner}).\n`;
       },
     },
   ],
@@ -98,14 +110,28 @@ async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
 }
 
-function buildSeedSourcePath(child) {
-  return path.join(
-    SOURCE_ROOT,
-    child.scope,
-    child.layer,
-    child.domain,
-    `${child.doc_id}.md`,
-  );
+function buildSeedSourceCandidates({ scnId, child }) {
+  const candidates = [];
+
+  if (scnId) {
+    candidates.push(path.join(SOURCE_ROOT, scnId, `${child.doc_id}.md`));
+  }
+
+  if (child.path) {
+    candidates.push(path.resolve(process.cwd(), child.path));
+  } else if (child.scope && child.layer && child.domain) {
+    candidates.push(
+      path.join(
+        SOURCE_ROOT,
+        child.scope,
+        child.layer,
+        child.domain,
+        `${child.doc_id}.md`,
+      ),
+    );
+  }
+
+  return candidates;
 }
 
 function buildTargetPath(localeConfig, scnId, docId) {
@@ -116,6 +142,14 @@ function buildTargetPath(localeConfig, scnId, docId) {
     scnId,
     `${docId}.md`,
   );
+}
+
+function buildIndexSourceCandidates({ scnId }) {
+  return [path.join(SOURCE_ROOT, scnId, 'index.md')];
+}
+
+function buildIndexTargetPath(localeConfig, scnId) {
+  return path.join(WEBSITE_ROOT, localeConfig.dir, 'scenarios', scnId, 'index.md');
 }
 
 export async function syncSeedPages({ scnId, locales, force }) {
@@ -132,11 +166,25 @@ export async function syncSeedPages({ scnId, locales, force }) {
     if (!localeConfig) continue;
 
     for (const child of children) {
-      const sourcePath = buildSeedSourcePath(child);
-      try {
-        await fs.access(sourcePath);
-      } catch (error) {
-        console.warn(`[${locale}] seed missing: ${sourcePath}`);
+      const candidates = buildSeedSourceCandidates({ scnId, child });
+      let sourcePath = null;
+
+      for (const candidate of candidates) {
+        try {
+          await fs.access(candidate);
+          sourcePath = candidate;
+          break;
+        } catch {
+          // try next candidate
+        }
+      }
+
+      if (!sourcePath) {
+        console.warn(
+          `[${locale}] seed missing for ${child.doc_id}. Checked: ${candidates.join(
+            ', ',
+          )}`,
+        );
         continue;
       }
 
@@ -165,6 +213,47 @@ export async function syncSeedPages({ scnId, locales, force }) {
 
       await fs.writeFile(targetPath, ensureFrontmatter(content), 'utf8');
       console.log(`${exists ? '[update]' : '[create]'} ${locale}:${targetPath}`);
+    }
+
+    const indexCandidates = buildIndexSourceCandidates({ scnId });
+    let indexSource = null;
+    for (const candidate of indexCandidates) {
+      try {
+        await fs.access(candidate);
+        indexSource = candidate;
+        break;
+      } catch {
+        // try next
+      }
+    }
+
+    if (!indexSource) {
+      console.warn(
+        `[${locale}] seed index missing for ${scnId}. Checked: ${indexCandidates.join(', ')}`,
+      );
+      continue;
+    }
+
+    const indexTarget = buildIndexTargetPath(localeConfig, scnId);
+    await ensureDir(path.dirname(indexTarget));
+
+    const indexExists = await fs
+      .access(indexTarget)
+      .then(() => true)
+      .catch(() => false);
+
+    if (indexExists && !force) {
+      console.log(`[skip] ${locale}:index (exists)`);
+    } else {
+      const partnerPath = `/zh/scenarios/${scnId}/index.html`;
+      const rawIndex = await localeConfig.buildIndexContent({
+        scnId,
+        sourcePath: indexSource,
+        partnerPath,
+      });
+      const content = sanitizeDynamicPlaceholders(rawIndex);
+      await fs.writeFile(indexTarget, ensureFrontmatter(content), 'utf8');
+      console.log(`${indexExists ? '[update]' : '[create]'} ${locale}:${indexTarget}`);
     }
   }
 }
