@@ -217,7 +217,7 @@ async function fileExists(filePath) {
   }
 }
 
-async function syncScenarioPages({ scnId, locales, force, withSeeds = false }) {
+export async function syncScenarioPages({ scnId, locales, force, withSeeds = false }) {
   const sourcePath = await readScenarioSource(scnId);
   if (!sourcePath) {
     throw new Error(`Source scenario not found for ${scnId}`);

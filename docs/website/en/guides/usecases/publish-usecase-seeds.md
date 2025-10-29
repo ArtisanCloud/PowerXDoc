@@ -25,6 +25,15 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --dry-run
 
 - Generates `reports/usecases/usecases_SCN-PUBLISH-HUB-001.json` without touching any repository.
 - The report lists target repos, files, and the `resumeToken`.
+- To reuse the same batch, grab the `resumeToken` from `reports/_state/usecases:SCN-PUBLISH-HUB-001.json` (or the dry-run report) and rerun with it:
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --dry-run \
+    --resume-token <token>
+  ```
+
 - Scope to a single Seed with `--doc-id`:
 
   ```bash
@@ -47,6 +56,43 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001
   - `--doc-id PX-DEV-HOTLOAD-001` — publish specific Seeds (repeatable).
   - `--repo powerx` — run against a single repository.
   - `--resume-token <token>` — resume a previous partial run.
+- To commit straight to the default branch (for example `dev/docs`) instead of opening a PR branch, add `--use-default-branch`. The script will checkout the configured `default_branch`, run `git pull --ff-only`, commit, and push directly.
+- Reuse the dry-run results by passing the same token during the real publish:
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --resume-token <token>
+  ```
+
+### Direct-commit mode
+
+- To bypass PR branches and push straight to the repository’s default branch (for example `dev/docs`), add `--use-default-branch`:
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --use-default-branch
+  ```
+
+- For each downstream repo the script runs `git fetch` → `git checkout <default_branch>` → `git pull --ff-only origin <default_branch>` → copies Seeds → `git commit` (when changes exist) → `git push origin <default_branch>`.
+- You can combine dry run and direct commit:
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --dry-run \
+    --use-default-branch \
+    --resume-token <token>
+  ```
+
+- To double-check remote state afterwards, run the helper script to issue `git push` for every checkout:
+
+  ```bash
+  node scripts/setup/push-downstreams.mjs
+  ```
+
+- If older runs left local `docs/hub/<SCN_ID>-***` branches, clean them up with `git branch -D docs/hub/<SCN_ID>-***` inside each repo.
 
 ## 3. Collected View (Optional)
 
@@ -76,6 +122,7 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 | `--domain` | `--domain dev` | Focus on a domain. |
 | `--repo` | `--repo powerx` | Operate on a single repository. |
 | `--resume-token` | `--resume-token <token>` | Continue after a failed attempt. |
+| `--use-default-branch` | `--use-default-branch` | Commit/push on the repository’s `default_branch` instead of creating a PR branch. |
 
 Combine filters as needed:
 
