@@ -98,4 +98,32 @@ scenarios:
         path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md
       - scn_id: SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
         path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
-    children: []
+    children:
+      - doc_id: UC-IAM-MULTI-TENANT-ONBOARD-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md
+      - doc_id: UC-IAM-MULTI-TENANT-ORG-MODELING-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md
+      - doc_id: UC-IAM-MULTI-TENANT-CROSS-SHARE-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md
+      - doc_id: UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx-billing
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md

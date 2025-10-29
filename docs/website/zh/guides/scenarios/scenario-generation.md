@@ -31,11 +31,22 @@
 
 ## 完成后检查
 
-- 清除所有 `TODO_*` 占位符。
-- Frontmatter 字段需完整：`scn_id`、`owners`、`domains`、`layers`、`related_usecases` 等。
-- 将新的 `scn_id` 与子用例写入 `docs/_data/docmap.yaml`。
-- 运行 `/speckit.usecase-seed-generate <SCN_ID>` 进入 Seed 生成流程。
-- 使用 `npm run publish:scenarios -- --scn-id <SCN_ID> --validate-only` 快速校验结构是否一致。
+1. **清理草稿**：移除文档中的所有 `TODO_*` 占位符，确保 Frontmatter 填写完整（`scn_id`、`owners`、`domains`、`layers`、`related_usecases` 等）。
+2. **更新映射**：将新的 `scn_id` 及其子场景写入 `docs/_data/docmap.yaml`。
+3. **生成 Seeds**：在 Codex 提示区直接运行
+
+   ```bash
+   [speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md) <SCN_ID>
+   ```
+
+   根据对话指引生成或补全 Usecase Seed 文档。
+4. **结构校验**：执行
+
+   ```bash
+   npm run publish:scenarios -- --scn-id <SCN_ID> --validate-only
+   ```
+
+   快速检查场景与 docmap/Seed 的一致性。
 
 ## 常见问题
 
