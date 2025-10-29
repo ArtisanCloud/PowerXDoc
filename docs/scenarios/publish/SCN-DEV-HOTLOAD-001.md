@@ -22,7 +22,7 @@ related_usecases:
   - doc_id: PX-DEV-HOTLOAD-001
     layer: service
     domain: dev
-  - doc_id: PX-ADMIN-DEV-HOTLOAD-001
+  - doc_id: PX-DEV-HOTLOAD-UI-001
     layer: ui
     domain: dev
 last_reviewed_at: 2025-01-01
@@ -79,7 +79,7 @@ sequenceDiagram
 
 - `PLG-DEV-HOTLOAD-001` — 插件工程生成热加载产物（proto 层）。
 - `PX-DEV-HOTLOAD-001` — Backend 注册与生命周期管理（service 层）。
-- `PX-ADMIN-DEV-HOTLOAD-001` — Admin 热加载界面与提示（ui 层）。
+- `PX-DEV-HOTLOAD-UI-001` — Admin 热加载界面与提示（ui 层）。
 
 # Acceptance Criteria
 

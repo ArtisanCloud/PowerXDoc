@@ -28,7 +28,7 @@ related_usecases:
   - doc_id: PX-PUBLISH-ONLINE-001
     layer: service
     domain: catalog
-  - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
+  - doc_id: PX-PUBLISH-ONLINE-UI-001
     layer: ui
     domain: marketplace
 last_reviewed_at: 2025-01-01
@@ -88,7 +88,7 @@ sequenceDiagram
 - `PLG-PUBLISH-ONLINE-001` — CLI 发布流程。
 - `MKP-PUBLISH-ONLINE-001` — Marketplace 审核与上架。
 - `PX-PUBLISH-ONLINE-001` — Backend 安装与升级。
-- `PX-ADMIN-PUBLISH-ONLINE-001` — Admin 插件管理体验。
+- `PX-PUBLISH-ONLINE-UI-001` — Admin 插件管理体验。
 
 # Acceptance Criteria
 

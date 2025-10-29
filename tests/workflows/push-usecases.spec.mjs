@@ -25,7 +25,7 @@ async function createTempWorkspace() {
   await fs.mkdir(path.join(root, 'docs/_data'), { recursive: true });
   await fs.writeFile(
     path.join(root, 'docs/_data/docmap.yaml'),
-    `scenarios:\n  - scn_id: SCN-PUBLISH-001\n    children:\n      - doc_id: PX-PUBLISH-001\n        scope: powerx\n        layer: service\n        domain: publish\n        repo: powerx\n        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md\n`,
+    `scenarios:\n  - scn_id: SCN-PUBLISH-001\n    children:\n      - doc_id: PX-PUBLISH-001\n        scope: powerx\n        layer: service\n        domain: publish\n        repo: powerx\n        path: docs/use_cases/_from_hub/SCN-PUBLISH-001/PX-PUBLISH-001.md\n`,
   );
   await fs.writeFile(
     path.join(root, 'docs/_data/repos.yaml'),
@@ -78,7 +78,7 @@ test('push-usecases copies seed and creates report', async () => {
 
   const target = path.join(
     root,
-    'repos/powerx/docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md',
+    'repos/powerx/docs/use_cases/_from_hub/SCN-PUBLISH-001/PX-PUBLISH-001.md',
   );
   const copied = await fs.readFile(target, 'utf8');
   assert.match(copied, /Usecase seed/);

@@ -12,7 +12,7 @@ async function createWorkspace() {
   await fs.mkdir(path.join(root, 'docs/website/_collected'), { recursive: true });
   await fs.mkdir(path.join(root, 'docs/_data'), { recursive: true });
 
-  const docmap = `scenarios:\n  - scn_id: SCN-PUBLISH-001\n    title: 插件发布后目录同步\n    children:\n      - doc_id: PX-PUBLISH-001\n        scope: powerx\n        layer: service\n        domain: publish\n        repo: powerx\n        optional: false\n        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-001.md\n      - doc_id: PX-ADMIN-PUBLISH-001\n        scope: powerx\n        layer: ui\n        domain: publish\n        repo: powerx\n        optional: true\n        path: docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-001.md\n`;
+  const docmap = `scenarios:\n  - scn_id: SCN-PUBLISH-001\n    title: 插件发布后目录同步\n    children:\n      - doc_id: PX-PUBLISH-001\n        scope: powerx\n        layer: service\n        domain: publish\n        repo: powerx\n        optional: false\n        path: docs/use_cases/_from_hub/SCN-PUBLISH-001/PX-PUBLISH-001.md\n      - doc_id: PX-ADMIN-PUBLISH-001\n        scope: powerx\n        layer: ui\n        domain: publish\n        repo: powerx\n        optional: true\n        path: docs/use_cases/_from_hub/SCN-PUBLISH-001/PX-ADMIN-PUBLISH-001.md\n`;
   await fs.writeFile(path.join(root, 'docs/_data/docmap.yaml'), docmap, 'utf8');
 
   const repos = `repos:\n  - key: powerx\n    slug: ArtisanCloud/PowerX\n    default_branch: main\n`;

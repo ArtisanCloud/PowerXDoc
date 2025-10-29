@@ -28,7 +28,7 @@ related_usecases:
   - doc_id: PX-PUBLISH-OFFLINE-001
     layer: service
     domain: publish
-  - doc_id: PX-ADMIN-PUBLISH-OFFLINE-001
+  - doc_id: PX-PUBLISH-OFFLINE-UI-001
     layer: ui
     domain: publish
 last_reviewed_at: 2025-01-01
@@ -89,7 +89,7 @@ sequenceDiagram
 - `PLG-PUBLISH-OFFLINE-001` — 插件打包与签名流程。
 - `MKP-PUBLISH-OFFLINE-001` — Marketplace 离线上传与审核。
 - `PX-PUBLISH-OFFLINE-001` — Backend 安装与回滚。
-- `PX-ADMIN-PUBLISH-OFFLINE-001` — Admin 插件管理界面。
+- `PX-PUBLISH-OFFLINE-UI-001` — Admin 插件管理界面。
 
 # Acceptance Criteria
 

@@ -15,74 +15,74 @@ scenarios:
         domain: dev
         optional: false
         repo: powerx-plugin
-        path: docs/use_cases/_from_hub/proto/dev/PLG-DEV-HOTLOAD-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md
       - doc_id: PX-DEV-HOTLOAD-001
         scope: powerx
         layer: service
         domain: dev
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/service/dev/PX-DEV-HOTLOAD-001.md
-      - doc_id: PX-ADMIN-DEV-HOTLOAD-001
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001.md
+      - doc_id: PX-DEV-HOTLOAD-UI-001
         scope: powerx
         layer: ui
         domain: dev
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-UI-001.md
       - doc_id: PLG-PUBLISH-OFFLINE-001
         scope: powerx-plugin
         layer: proto
         domain: publish
         optional: false
         repo: powerx-plugin
-        path: docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-OFFLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001.md
       - doc_id: MKP-PUBLISH-OFFLINE-001
         scope: powerx-marketplace
         layer: api
         domain: marketplace
         optional: false
         repo: powerx-marketplace
-        path: docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-OFFLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001.md
       - doc_id: PX-PUBLISH-OFFLINE-001
         scope: powerx
         layer: service
         domain: publish
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-OFFLINE-001.md
-      - doc_id: PX-ADMIN-PUBLISH-OFFLINE-001
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001.md
+      - doc_id: PX-PUBLISH-OFFLINE-UI-001
         scope: powerx
         layer: ui
         domain: publish
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-UI-001.md
       - doc_id: PLG-PUBLISH-ONLINE-001
         scope: powerx-plugin
         layer: proto
         domain: publish
         optional: false
         repo: powerx-plugin
-        path: docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-ONLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md
       - doc_id: MKP-PUBLISH-ONLINE-001
         scope: powerx-marketplace
         layer: api
         domain: marketplace
         optional: false
         repo: powerx-marketplace
-        path: docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-ONLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md
       - doc_id: PX-PUBLISH-ONLINE-001
         scope: powerx
         layer: service
         domain: catalog
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/service/catalog/PX-PUBLISH-ONLINE-001.md
-      - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md
+      - doc_id: PX-PUBLISH-ONLINE-UI-001
         scope: powerx
         layer: ui
         domain: marketplace
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md

@@ -16,9 +16,9 @@
           "branchName": "docs/hub/scn-publish-hub-001-983f2448",
           "status": "Success",
           "filesChanged": [
-            "docs/use_cases/_from_hub/proto/dev/PLG-DEV-HOTLOAD-001.md",
-            "docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-OFFLINE-001.md",
-            "docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-ONLINE-001.md"
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md"
           ],
           "prUrl": "dry-run://ArtisanCloud/PowerXPlugin/docs/hub/scn-publish-hub-001-983f2448",
           "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
@@ -29,9 +29,9 @@
           "branchName": "docs/hub/scn-publish-hub-001-a55f0c99",
           "status": "Success",
           "filesChanged": [
-            "docs/use_cases/_from_hub/service/dev/PX-DEV-HOTLOAD-001.md",
-            "docs/use_cases/_from_hub/service/publish/PX-PUBLISH-OFFLINE-001.md",
-            "docs/use_cases/_from_hub/service/catalog/PX-PUBLISH-ONLINE-001.md"
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md"
           ],
           "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-publish-hub-001-a55f0c99",
           "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
@@ -42,9 +42,9 @@
           "branchName": "docs/hub/scn-publish-hub-001-cd483bab",
           "status": "Success",
           "filesChanged": [
-            "docs/use_cases/_from_hub/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md",
-            "docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md",
-            "docs/use_cases/_from_hub/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md"
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-UI-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-UI-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md"
           ],
           "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-publish-hub-001-cd483bab",
           "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
@@ -55,8 +55,8 @@
           "branchName": "docs/hub/scn-publish-hub-001-881ce434",
           "status": "Success",
           "filesChanged": [
-            "docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-OFFLINE-001.md",
-            "docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-ONLINE-001.md"
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001.md",
+            "docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md"
           ],
           "prUrl": "dry-run://ArtisanCloud/PowerXMarketplace/docs/hub/scn-publish-hub-001-881ce434",
           "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",

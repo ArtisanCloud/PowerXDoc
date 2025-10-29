@@ -1,13 +1,13 @@
 ---
-doc_id: PX-ADMIN-PUBLISH-OFFLINE-001
+doc_id: PX-DEV-HOTLOAD-UI-001
 scn_id: SCN-PUBLISH-HUB-001
-title: PX-ADMIN-PUBLISH-OFFLINE-001 - ui/publish
+title: PX-DEV-HOTLOAD-UI-001 - ui/dev
 status: Draft
 version: v0.1.0
 repo_key: powerx
 scope: powerx
 layer: ui
-domain: publish
+domain: dev
 scenario_title: "PowerX 插件开发与分发全链路"
 owners:
   - name: Michael Hu

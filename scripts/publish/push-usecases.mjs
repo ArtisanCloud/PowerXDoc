@@ -133,13 +133,14 @@ async function copyUsecaseSeed(child, repoMeta, options) {
   );
   const checkoutRoot = path.resolve(options.checkoutRoot ?? 'repos');
   const repoDir = path.resolve(checkoutRoot, repoMeta.checkout ?? repoMeta.key);
-  const target = path.join(
-    repoDir,
-    repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub',
-    child.layer,
-    child.domain,
-    `${child.doc_id}.md`,
-  );
+  const relativeTarget =
+    child.path ??
+    path.posix.join(
+      repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub',
+      options.scnId ?? 'UNKNOWN_SCN',
+      `${child.doc_id}.md`,
+    );
+  const target = path.join(repoDir, relativeTarget);
 
   await fs.access(source);
   await fs.mkdir(path.dirname(target), { recursive: true });
@@ -281,6 +282,7 @@ async function main() {
       for (const child of children) {
         const target = await copyUsecaseSeed(child, repoMeta, {
           checkoutRoot: args.checkoutRoot,
+          scnId: args.scnId,
         });
         filesChanged.push(path.relative(repoDir, target));
       }
