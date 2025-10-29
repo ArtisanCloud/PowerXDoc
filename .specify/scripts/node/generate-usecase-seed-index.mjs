@@ -14,7 +14,7 @@ Options:
   --all                   Generate index files for every scenario in docmap.yaml
   --docmap <path>         Location of docmap.yaml (default: docs/_data/docmap.yaml)
   --seed-root <dir>       Seed root directory (default: docs/usecases-seeds)
-  --output-root <dir>     Index output directory (default: docs/usecases-seeds/scenarios)
+  --output-root <dir>     Index output directory (default: docs/usecases-seeds)
   --dry-run               Show actions without writing files
   --force                 Overwrite existing files even if content unchanged
   --help, -h              Display this help message
@@ -25,7 +25,7 @@ function parseArgs(argv) {
   const args = {
     docmap: 'docs/_data/docmap.yaml',
     seedRoot: 'docs/usecases-seeds',
-    outputRoot: 'docs/usecases-seeds/scenarios',
+    outputRoot: 'docs/usecases-seeds',
     scnIds: new Set(),
     all: false,
     dryRun: false,
@@ -158,9 +158,10 @@ function formatRelativeLink(fromPath, targetPath) {
 }
 
 async function buildScenarioIndex({ scenario, args, outputPath }) {
-  const lines = buildFrontmatter({ scnId: scenario.scn_id ?? scenario.scnId, title: scenario.title });
+  const scnId = scenario.scn_id ?? scenario.scnId;
+  const lines = buildFrontmatter({ scnId, title: scenario.title });
 
-  const scenarioDocPath = await findScenarioDoc(scenario.scn_id ?? scenario.scnId);
+  const scenarioDocPath = await findScenarioDoc(scnId);
   if (scenarioDocPath) {
     const rel = formatRelativeLink(outputPath, path.resolve(scenarioDocPath));
     lines.push(`- 场景文档：[\`${rel}\`](${rel})`);
@@ -175,6 +176,8 @@ async function buildScenarioIndex({ scenario, args, outputPath }) {
     lines.push('> docmap.yaml 中尚未登记子用例。');
     return lines.join('\n');
   }
+
+  const scenarioSeedDir = path.resolve(args.seedRoot, scnId);
 
   const groups = new Map();
   for (const child of scenario.children) {
@@ -201,17 +204,25 @@ async function buildScenarioIndex({ scenario, args, outputPath }) {
       const domain = escapePipe(child.domain ?? '—');
       const optional = child.optional === true ? '是' : '否';
 
-      const seedPath = path.resolve(
-        process.cwd(),
-        args.seedRoot,
-        child.scope ?? scope,
-        child.layer ?? 'TODO-layer',
-        child.domain ?? 'TODO-domain',
-        `${docId}.md`,
-      );
+      const candidatePaths = [
+        path.resolve(scenarioSeedDir, `${docId}.md`),
+      ];
 
-      const seedExists = await fileExists(seedPath);
-      const relSeed = formatRelativeLink(outputPath, seedPath);
+      if (child.path) {
+        candidatePaths.push(path.resolve(process.cwd(), child.path));
+      }
+
+      let resolvedPath = null;
+      for (const candidate of candidatePaths) {
+        if (await fileExists(candidate)) {
+          resolvedPath = candidate;
+          break;
+        }
+      }
+
+      const seedExists = Boolean(resolvedPath);
+      const linkTarget = resolvedPath ?? candidatePaths[0];
+      const relSeed = formatRelativeLink(outputPath, linkTarget);
       const seedLink = seedExists ? `[${docId}](${relSeed})` : `\`${docId}\``;
       const status = seedExists ? '已生成' : '缺失';
 
@@ -264,7 +275,7 @@ async function main() {
     const scnId = scenario.scn_id ?? scenario.scnId;
     if (!scnId) continue;
 
-    const outputPath = path.resolve(args.outputRoot, `${scnId}.md`);
+    const outputPath = path.resolve(args.outputRoot, scnId, 'index.md');
     const content = await buildScenarioIndex({ scenario, args, outputPath });
     const status = await writeFileIfChanged(outputPath, content, {
       dryRun: args.dryRun,
