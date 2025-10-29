@@ -87,3 +87,15 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md
+  - scn_id: SCN-IAM-MULTI-TENANT-001
+    title: PowerX 多租户与组织管理
+    child_scenarios:
+      - scn_id: SCN-IAM-MULTI-TENANT-ONBOARD-001
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ONBOARD-001.md
+      - scn_id: SCN-IAM-MULTI-TENANT-ORG-MODELING-001
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md
+      - scn_id: SCN-IAM-MULTI-TENANT-CROSS-SHARE-001
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md
+      - scn_id: SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
+    children: []
