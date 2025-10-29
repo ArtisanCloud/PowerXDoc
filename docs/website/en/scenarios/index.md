@@ -1,39 +1,28 @@
 ---
-title: Scenarios & Usecases
+title: Scenario & Usecase Navigation
 ---
 
-# Scenarios & Usecases
+# Scenario & Usecase Navigation
 
-PowerX documents end-to-end customer journeys through **Scenarios (SCN)** and drives implementation with **Usecase Seeds**. This page acts as the central hub.
+PowerX combines **Scenarios (SCN)** and **Usecase Seeds** to turn product intent into executable specifications that drive implementation, testing, and operations.
 
-## How to Navigate {#overview}
+## Overview {#overview}
 
-- Scenario markdown lives in `docs/scenarios/<domain>/SCN-*.md` and will be rendered under `en/scenarios/` after publishing.
-- Each scenario follows the standard template covering scope, participants, E2E flows and acceptance.
-- Use the list below to open a specific scenario.
+- **Specification-Driven**: We follow GitHub Spec Kit’s [Specification-Driven Development (SDD)](https://github.com/github/spec-kit/blob/main/spec-driven.md). Specs are the single source of truth; code, tests, and operational scripts are derived from them.
+- **Scenarios Tell the Story**: Scenario docs describe the end-to-end journey—participants, prerequisites, flow, and acceptance criteria are unified in one place.
+- **Usecase Seeds Deliver**: Seeds break scenarios into minimal deliverables, enabling cross-team collaboration and reuse.
+- **Docmap Orchestrates**: `docs/_data/docmap.yaml` maintains the mapping between scenarios and Seeds. It is the canonical source for generation, indexing, and publishing.
+- **Further Reading**: For step-by-step instructions see [Scenario Usage Guide](/en/scenarios/usage) together with the authoring guide and Seed generation guide referenced below.
 
-## Docmap & Seed Flow {#docmap}
+## Scenario Catalog {#catalog}
 
-- `docs/_data/docmap.yaml` is the source of truth connecting scenarios and child usecases.
-- Typical workflow:
-  1. Update `docmap.yaml` after editing scenarios.
-  2. Run `setup-usecase-seeds.mjs --scn-id <SCN_ID>` to generate Seed stubs.
-  3. Regenerate the Seed index with `generate-usecase-seed-index.mjs`.
-  4. Distribute Seeds via `npm run publish:usecases` when ready.
-- More background: [Scenario authoring](/en/guides/scenarios/scenario-generation), [Generate Seeds](/en/guides/usecases/generate-usecase-seeds), [Publish Seeds](/en/guides/usecases/publish-usecase-seeds).
+The sidebar automatically lists every scenario registered in `docmap.yaml` and groups entries by `SCN_ID`. Child scenarios and Seeds appear beneath each item for direct navigation. Maintenance tips:
 
-## Seed Tooling {#seed-tools}
-
-- Seed generation: `node .specify/scripts/node/setup-usecase-seeds.mjs`
-- Seed index: `node .specify/scripts/node/generate-usecase-seed-index.mjs`
-- Seed publishing: `npm run publish:usecases`
-- Collected view: `npm run publish:collected`
-
-## Useful Links {#links}
-
-- Scenario standards and governance are tracked inside the repository (`docs/meta/**`).
-- [Scenario authoring guide](/en/guides/scenarios/scenario-generation)
-- [Generate Usecase Seeds](/en/guides/usecases/generate-usecase-seeds)
-- [Publish Usecase Seeds](/en/guides/usecases/publish-usecase-seeds)
-- [Maintain Usecase Seed Indexes](/en/guides/usecases/seed-index-maintenance)
-- [Standards distribution guide](/en/guides/publish/standards-distribution)
+- Edit the source files in `docs/scenarios/**` first, then use the automation scripts to sync into `docs/website/**`. Avoid manual copy/paste that can drift from the source of truth.
+- When adding a new scenario, remember to update docmap, generate Seeds, and rebuild the index so the catalog stays in sync.
+- Useful references:
+  - [Scenario Usage Guide](/en/scenarios/usage)
+  - [Scenario Authoring Guide](/en/guides/scenarios/scenario-generation)
+  - [Generate Usecase Seeds](/en/guides/usecases/generate-usecase-seeds)
+  - [Usecase Seed Index Maintenance](/en/guides/usecases/seed-index-maintenance)
+  - [Standards Distribution Guide](/en/guides/publish/standards-distribution)

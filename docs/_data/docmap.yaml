@@ -1,6 +1,7 @@
 scenarios:
   - scn_id: SCN-PUBLISH-HUB-001
     title: PowerX 插件开发与分发全链路
+    title_en: PowerX Plugin Release Hub
     child_scenarios:
       - scn_id: SCN-DEV-HOTLOAD-001
         path: docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md

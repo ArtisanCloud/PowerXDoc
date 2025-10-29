@@ -37,7 +37,11 @@ function buildScenarioLabel({
   childCount: number
   hasOptional: boolean
 }) {
-  const short = shortenTitle(scenario?.title ?? fallbackTitle)
+  const rawTitle =
+    locale === 'en'
+      ? scenario?.title_en ?? scenario?.title ?? fallbackTitle
+      : scenario?.title ?? fallbackTitle
+  const short = shortenTitle(rawTitle)
   const alias = short ? (short.length > 14 ? `${short.slice(0, 14)}…` : short) : ''
   const base = scenario?.scn_id ?? fallbackTitle
   let label = base
@@ -590,25 +594,19 @@ export default withMermaid(defineConfig({
           ],
           '/en/scenarios/': [
             {
-              text: 'Overview',
+              text: 'Navigation & Flow',
               collapsed: false,
               items: [
-                { text: 'Intro', link: '/en/scenarios/' },
-                { text: 'Docmap Guide', link: '/en/scenarios/#docmap' },
-                { text: 'Seed Tools', link: '/en/scenarios/#seed-tools' }
+                { text: 'Scenario & Usecase Navigation', link: '/en/scenarios/' },
+                { text: 'Scenario Usage Flow', link: '/en/scenarios/usage' }
               ]
             },
             {
-              text: 'Scenarios',
-              collapsed: false,
-              items: buildScenariosSidebar({ dirPrefix: 'en', linkPrefix: '/en', locale: 'en' })
-            },
-            {
-              text: 'Seed Index',
+              text: 'Scenario List',
               collapsed: false,
               items: [
-                { text: 'Summary', link: '/en/scenarios/#seed-tools' }
-              ]
+                { text: 'Overview', link: '/en/scenarios/#catalog' }
+              ].concat(buildScenariosSidebar({ dirPrefix: 'en', linkPrefix: '/en', locale: 'en' }))
             }
           ],
           '/en/core-concepts/': enOverviewSidebar,
