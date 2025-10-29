@@ -20,121 +20,164 @@ flowchart LR
   F --> H["供网站浏览与评审"]
 ```
 
-## 1. 撰写 / 更新场景 (A)
+## 1. 生成 & 编辑场景草稿 (A)
 
-- **位置**：`docs/scenarios/<domain>/SCN-*.md`
-- **模板**：遵循《[场景文档生成指南](/zh/guides/scenarios/scenario-generation)》中的字段与结构。
-- **预览**：修改完成后运行：
+- **目标**：根据需求说明快速生成场景草稿，并补充为正式的 Markdown 文档。
+- **生成命令**（任选其一）：
+
+  ```bash
+  [scenario-generate-template.md](.specify/templates/scenario-generate-template.md) \
+    docs/meta/scenarios/<domain>/<需求稿>.md
+  ```
+
+  或使用 Speckit Prompt 直接读取需求文本：
+
+  ```bash
+  [speckit.scenario.md](.codex/prompts/speckit.scenario.md) <@需求稿路径或自由文本>
+  ```
+
+- **Clarify 补充**：若生成后仍有 TODO 或缺少信息，可使用 Clarify Prompt 一问一答补齐：
+
+  ```bash
+  [speckit.scenario.clarify.md](.codex/prompts/speckit.scenario.clarify.md)  docs/meta/scenarios/<domain>/<需求稿>.md
+  ```
+
+- **预览**：补齐后的 Markdown 可运行
 
   ```bash
   node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID>
   ```
 
-  在 `docs/website/{zh,en}/scenarios/` 内查看渲染效果。
+  将主场景及子场景渲染到 `docs/website/{zh,en}/scenarios/` 方便浏览器预览。
+- **输出**：`docs/scenarios/<domain>/SCN-*.md` 草稿更新完成。
+- **继续**：场景内容确定后，进入 Step 2 在 docmap 中登记结构映射。
 
 ## 2. 维护 docmap (B)
 
-- **真相源**：`docs/_data/docmap.yaml`
-- **内容**：记录每个场景的子用例、种子状态、可选标记与分组信息。
-- **追溯**：变更流程与示例可参考《[Docmap 维护记录](/zh/guides/scenarios/docmap-maintenance)》。
+- **目标**：将新撰写的场景及其子场景登记到 `docs/_data/docmap.yaml`，为 Seed 生成提供权威来源。
+- **操作**：在 docmap 中补充 `scn_id`、`child_scenarios`、`children`（Usecase Seed 声明）等字段，可参考《[Docmap 维护记录](/zh/guides/scenarios/docmap-maintenance)》示例。
+- **输出**：docmap 中对应场景节点与子节点齐全，路径指向最新 Markdown。
+- **继续**：docmap 完成后，即可运行 Seed 生成脚本（Step 3），脚本会依据这里的 `children` 列表创建模板。
 
 ## 3. 生成 Usecase Seeds (C)
 
-- **命令**：
+- **目标**：为 docmap 中的子用例生成 Seed 草稿，并准备撰写任务清单。
+- **步骤 1 – 生成任务与草稿**：运行脚本读取 docmap，输出任务清单与基础 Seed 模板。
 
   ```bash
   node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id <SCN_ID>
   ```
 
-- **输出**：在 `docs/usecases-seeds/<SCN_ID>/` 生成 Seed 草稿（每个子用例一个 `DOC_ID.md` 文件）。
-- **验收**：根据《[Usecase Seed 生成指南](/zh/guides/usecases/generate-usecase-seeds)》补充描述、验收条件与依赖。
+  或使用 Speckit Prompt：
+
+  ```bash
+  [speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md) <SCN_ID>
+  ```
+
+  脚本会：
+  1. 在 `docs/usecases-seeds/<SCN_ID>/` 生成 `DOC_ID.md` 草稿；
+  2. 在 `docs/scenarios/<domain>/task.md` 输出撰写任务，每个子用例附带生成命令。
+- **步骤 2 – 按任务撰写**：根据 `task.md` 中的命令逐条完善 Seed 内容，例如：
+
+  ```bash
+  [usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+    docs/usecases-seeds/<SCN_ID>/<DOC_ID>.md \
+    --context docs/scenarios/<domain>/<SCN_ID>.md \
+    --context docs/scenarios/<domain>/<子场景>.md \
+    --context docs/_data/docmap.yaml \
+    --context docs/_data/repos.yaml
+  ```
+
+  *可按任务表依次执行，也可继续使用 Speckit Prompt 辅助撰写。*
+- **输出**：Seed 草稿完成补录，`task.md` 任务清单帮助追踪撰写进度。
+- **继续**：全部 Seed 填写完毕后，前往 Step 4 构建索引。
 
 ## 4. 刷新 Seed 索引 (D)
 
+- **目标**：生成汇总页面，展示该场景下所有 Seeds 的状态与位置。
 - **命令**：
 
   ```bash
   node .specify/scripts/node/generate-usecase-seed-index.mjs --scn-id <SCN_ID>
   ```
 
-- **作用**：在 `docs/usecases-seeds/<SCN_ID>/index.md` 构建 Seed 总览页（含 `doc_id/status/optional` 等信息），供站点和下游仓库引用。
-- **提示**：索引脚本会优先读取 `docs/usecases-seeds/<SCN_ID>/<DOC_ID>.md`；若缺少该文件，将回落到 `docmap.yaml` 的 `path` 字段。
+- **输出**：生成/更新 `docs/usecases-seeds/<SCN_ID>/index.md`，包含 `doc_id`、层级、可选标记、状态等信息。
+- **继续**：索引完成后，可开展 Seed 发布或站点同步等后续动作。若还需跨仓协作，请执行 Step 5。
 
-## 5. 分发与汇总 (E)
+## 5. 站点同步与消费 (E)
 
-- **下游仓库准备**：首次分发或新增 scope 时运行：
+- **目标**：让最新场景与 Seeds 在站点呈现，便于评审、翻译或外部引用。
+- **步骤顺序**：
+  1. **同步场景正文**：
 
-  ```bash
-  node scripts/setup/downstreams.mjs --scope <scope1,scope2>
-  ```
+     ```bash
+     node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --force
+     ```
 
-  若只处理特定仓库，可改用：
+     将主场景及 docmap 中的 `child_scenarios` 输出到 `docs/website/{zh,en}/scenarios/`。
 
-  ```bash
-  node scripts/setup/downstreams.mjs --repo <repo-key>
-  ```
+  2. **同步 Seed 页面**：
 
--  脚本会根据 `docs/_data/repos.yaml` 在 `repos/` 目录下克隆或更新对应仓库，并尝试切换到默认分支。
-- **Dry Run 检查**：先运行以下命令确认目标仓库与文件清单：
+     ```bash
+     node scripts/site/sync-seed-pages.mjs --scn-id <SCN_ID> --force
+     ```
 
-  ```bash
-  npm run publish:usecases -- --scn-id <SCN_ID> --dry-run
-  ```
+     复制 `docs/usecases-seeds/<SCN_ID>/**` 到站点目录并生成索引页。
 
-- **继续同一批次**：需要复用 Dry Run 结果时，附加 `--resume-token <token>`：
+- **语言策略**：中文站点直接展示原文，英文站点自动生成占位提示，后续可人工或 AI 翻译。
+- **输出**：`docs/website/{zh,en}/scenarios/**` 与 Seeds 对齐，便于浏览器确认文档内容是否正确。
+- **继续**：站点确认无误后，再进入 Step 6 分发到下游仓库。
 
-  ```bash
-  npm run publish:usecases -- --scn-id <SCN_ID> --dry-run --resume-token <token>
-  ```
+## 6. 分发与汇总 (F)
 
-- **正式发布**：确认无误后执行：
+- **目标**：将完善后的 Seeds 分发到下游仓库，并生成领导层视图。
+- **步骤顺序**：
+  1. **准备仓库**（首次或新增 scope 时）：
 
-  ```bash
-  npm run publish:usecases -- --scn-id <SCN_ID>
-  ```
+     ```bash
+     node scripts/setup/downstreams.mjs --scope <scope1,scope2>
+     ```
 
-  触发跨仓分发流程并自动创建 PR。
-- **直接提交**：如需跳过 PR 分支，追加 `--use-default-branch`：
+     或仅同步指定仓库：
 
-  ```bash
-  npm run publish:usecases -- --scn-id <SCN_ID> --use-default-branch
-  ```
+     ```bash
+     node scripts/setup/downstreams.mjs --repo <repo-key>
+     ```
 
-  脚本会在每个仓库依次执行：
+  2. **Dry Run 检查**：确认即将分发的仓库与文件。
 
-  ```
-  git fetch
-  git checkout <default_branch>
-  git pull --ff-only origin <default_branch>
-  # 复制 Seed 文件
-  git commit   # 若存在内容差异
-  git push origin <default_branch>
-  ```
+     ```bash
+     npm run publish:usecases -- --scn-id <SCN_ID> --dry-run
+     ```
 
-  发布后，可运行 `node scripts/setup/push-downstreams.mjs` 一次性执行 `git push` 校验远端状态；若早期存在遗留的 `docs/hub/<SCN_ID>-***` 本地分支，也可以 `git branch -D docs/hub/<SCN_ID>-***` 清理。
-- **汇总视图**：执行 `npm run publish:collected -- --scn-id <SCN_ID>`，生成领导层汇总页面。
-- **核对**：提交前按照《[发布 Usecase Seeds 指南](/zh/guides/usecases/publish-usecase-seeds)》中的检查清单逐项确认。
+  3. **复用 Dry Run**（如需）：使用 Dry Run 产出的 `resumeToken` 继续同一批次。
 
-## 6. 站点同步与消费 (F → H)
+     ```bash
+     npm run publish:usecases -- --scn-id <SCN_ID> --dry-run --resume-token <token>
+     ```
 
-- **场景正文**：先执行：
+  4. **正式发布**（默认 PR 模式）：
 
-  ```bash
-  node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --force
-  ```
+     ```bash
+     npm run publish:usecases -- --scn-id <SCN_ID>
+     ```
 
-  将主场景与 `child_scenarios`（docmap 登记的子场景文档）同步到 `docs/website/{zh,en}/scenarios/`。
-- **Seed 页面**：随后运行：
+  5. **直接提交模式**（跳过 PR）：
 
-  ```bash
-  node scripts/site/sync-seed-pages.mjs --scn-id <SCN_ID> --force
-  ```
+     ```bash
+     npm run publish:usecases -- --scn-id <SCN_ID> --use-default-branch
+     ```
 
-  把 `docs/usecases-seeds/<SCN_ID>/**` 复制到站点目录，并生成 Seed 索引页。
-- **语言策略**：
-  - `zh`：直接复制 Seed 与场景原文。
-  - `en`：脚本生成带占位提示的英文文件，指向中文原文，等待翻译或 AI 生成内容。
-- **用途**：网站用于评审与对外展示；下游仓库可直接引用最新 Seeds 进行实现或测试。如需多语言正式稿，可在英文占位文件基础上人工或 AI 翻译后提交。
+     此模式会在各仓库执行 `git fetch → checkout <default_branch> → pull --ff-only → commit → push`。发布后可运行 `node scripts/setup/push-downstreams.mjs` 再次确认远端状态，并清理遗留的 `docs/hub/<SCN_ID>-***` 本地分支。
+
+  6. **生成领导层视图**：
+
+     ```bash
+     npm run publish:collected -- --scn-id <SCN_ID>
+     ```
+
+- **输出**：下游仓库获得最新 Seeds（PR 或直接提交），`reports/usecases/**` 写入分发报告。
+- **继续**：流程结束后可进入评审或与下游团队协调上线。
 
 ## 常见问题
 
