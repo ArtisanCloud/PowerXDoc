@@ -27,7 +27,7 @@ flowchart LR
 
   ```bash
   [scenario-generate-template.md](.specify/templates/scenario-generate-template.md) \
-    docs/meta/scenarios/<domain>/<需求稿>.md
+    根据当前文档 docs/meta/scenarios/<domain>/<需求稿>.md，实现主用例和子用例文档 
   ```
 
   或使用 Speckit Prompt 直接读取需求文本：
@@ -155,7 +155,7 @@ flowchart LR
      ```bash
      npm run publish:usecases -- --scn-id <SCN_ID> --dry-run --resume-token <token>
      ```
-     
+
      Dry Run 完成后，可在终端提示的报告路径或 `reports/_state/usecases:<SCN_ID>.json` 中找到对应的 `resumeToken`。
 
   4. **正式发布**（默认 PR 模式）：复用 Dry Run 的 `resumeToken`，脚本会在仓库中生成/切换到 `docs/hub/...` 分支，复制 Seed 文件并 `git commit`，随后推送远端并创建 PR。

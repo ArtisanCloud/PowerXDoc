@@ -127,3 +127,15 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
+  - scn_id: SCN-IAM-USER-ROLE-001
+    title: PowerX 用户与角色管理
+    child_scenarios:
+      - scn_id: SCN-IAM-USER-ROLE-IMPORT-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-IMPORT-001.md
+      - scn_id: SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md
+      - scn_id: SCN-IAM-USER-ROLE-BULK-AUTH-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-BULK-AUTH-001.md
+      - scn_id: SCN-IAM-USER-ROLE-OFFBOARD-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-OFFBOARD-001.md
+    children: []
