@@ -1,3 +1,4 @@
+---
 doc_id: UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
 scn_id: SCN-IAM-MULTI-TENANT-001
 title: 租户续约提醒、冻结与恢复治理

@@ -155,20 +155,28 @@ flowchart LR
      ```bash
      npm run publish:usecases -- --scn-id <SCN_ID> --dry-run --resume-token <token>
      ```
+     
+     Dry Run 完成后，可在终端提示的报告路径或 `reports/_state/usecases:<SCN_ID>.json` 中找到对应的 `resumeToken`。
 
-  4. **正式发布**（默认 PR 模式）：
+  4. **正式发布**（默认 PR 模式）：复用 Dry Run 的 `resumeToken`，脚本会在仓库中生成/切换到 `docs/hub/...` 分支，复制 Seed 文件并 `git commit`，随后推送远端并创建 PR。
 
      ```bash
-     npm run publish:usecases -- --scn-id <SCN_ID>
+     npm run publish:usecases -- --scn-id <SCN_ID> --resume-token <token>
      ```
 
-  5. **直接提交模式**（跳过 PR）：
+  5. **直接提交模式**（跳过 PR）：复用 Dry Run 的 `resumeToken`，脚本会 `git fetch` / `checkout <default_branch>` / 同步 Seed 文件并 `git commit`，最后直接推送到默认分支，不走 PR 流程。
 
      ```bash
-     npm run publish:usecases -- --scn-id <SCN_ID> --use-default-branch
+     npm run publish:usecases -- --scn-id <SCN_ID> --use-default-branch --resume-token <token>
      ```
 
      此模式会在各仓库执行 `git fetch → checkout <default_branch> → pull --ff-only → commit → push`。发布后可运行 `node scripts/setup/push-downstreams.mjs` 再次确认远端状态，并清理遗留的 `docs/hub/<SCN_ID>-***` 本地分支。
+
+  5.b **批量推送已提交的仓库**（确认远端全部同步）：
+
+     ```bash
+     node scripts/setup/push-downstreams.mjs
+     ```
 
   6. **生成领导层视图**：
 
@@ -178,6 +186,17 @@ flowchart LR
 
 - **输出**：下游仓库获得最新 Seeds（PR 或直接提交），`reports/usecases/**` 写入分发报告。
 - **继续**：流程结束后可进入评审或与下游团队协调上线。
+
+### Workflow 状态与 Resume Token
+
+- 发布脚本会在 `reports/_state/usecases:<SCN_ID>.json` 记录指纹（fingerprint）和 `resumeToken`，用于防止同一批内容重复执行。
+- 如果 dry-run 结果确认无误，需要立刻执行正式分发，请在命令中追加 `--resume-token <token>` 并复用上一轮输出的 token，例如：
+
+  ```bash
+  npm run publish:usecases -- --scn-id <SCN_ID> --use-default-branch --resume-token <resume_token>
+  ```
+
+- token 会写入 `_state` 与 `reports/usecases/*.json`，可从这些文件查询；若希望彻底重新开始，也可删除或重命名对应的 `_state` 文件，再重新执行命令。
 
 ## 常见问题
 

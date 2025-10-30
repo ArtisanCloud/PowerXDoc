@@ -125,5 +125,5 @@ scenarios:
         layer: service
         domain: iam
         optional: false
-        repo: powerx-billing
+        repo: powerx
         path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md

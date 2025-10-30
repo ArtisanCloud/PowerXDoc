@@ -9,8 +9,8 @@ last_reviewed_at: 2025-10-30
 
 > 本文件由 `generate-usecase-seed-index` 自动生成，请勿手工编辑。
 
-- 场景文档：[`../../scenarios/iam/SCN-IAM-MULTI-TENANT-001.md`](../../scenarios/iam/SCN-IAM-MULTI-TENANT-001.md)
-- docmap 入口：[`../../_data/docmap.yaml`](../../_data/docmap.yaml)
+- 场景文档：[SCN-IAM-MULTI-TENANT-001.md](../../scenarios/iam/SCN-IAM-MULTI-TENANT-001.md)
+- docmap 入口：[docmap.yaml](../../_data/docmap.yaml)
 
 ## Scope: powerx
 
