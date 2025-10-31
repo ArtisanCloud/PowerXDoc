@@ -113,15 +113,15 @@ last_reviewed_at: 2025-10-31
 # Testing Strategy
 
 - **单元测试**：退避算法、幂等 token、策略解析、死信入库、Runbook 调用。
-- **集成测试**：执行用例 D-1 验证延迟重试成功；执行 D-2 验证超过阈值升级工单、停止重试；模拟策略变更生效。
+- **集成测试**：执行用例 D-1 验证延迟重试成功；执行 D-2 验证超过阈值升级工单并停止重试；模拟策略变更生效。
 - **端到端验证**：在沙箱租户触发失败任务，观察重试过程、告警、工单、Ops 控制台状态；验证补偿脚本执行与审计。
-- **非功能测试**：压测延迟队列吞吐，注入 Kafka/Redis 故障验证降级；测试大批量死信回放。
+- **非功能测试**：压测延迟队列吞吐；Chaos 注入 Kafka/Redis 故障验证降级；测试大批量死信回放。
 
 # Observability & Ops
 
 - **指标**：`task.retry.scheduled_total`、`task.retry.success_total`、`task.retry.failure_total`、`task.retry.dlq_total`、`task.retry.escalated_total`。
 - **日志**：记录 `task_id`, `retry_token`, `attempt`, `reason`, `next_retry_at`, `dlq_flag`, `workorder_id`。
-- **告警**：重试失败率 >15%/10 分钟、死信队列长度 > 阈值、工单创建失败；通过 PagerDuty/Slack 通知。
+- **告警**：重试失败率 >15%/10 分钟、死信队列长度超过阈值、工单创建失败；通过 PagerDuty/Slack 通知。
 - **Dashboards**：Grafana `Runtime Ops / Retry & Recovery`、Datadog `task.retry.*`、Ops 控制台补偿面板。
 
 # Rollback & Failure Handling
@@ -135,10 +135,11 @@ last_reviewed_at: 2025-10-31
 | 风险/事项 | 影响 | 缓解方案 | 负责人 | ETA |
 |-----------|------|----------|--------|-----|
 | 死信堆积清理流程未自动化 | 工单积压、补偿延迟 | 实现 dlq-inspector 批量处理、添加提醒 | Matrix Ops | 2025-11-07 |
-| 退避策略与业务 SLA 未同步 | 重试过晚影响恢复 | 引入 SLA 感知策略、控制台提示 | Eva Zhang | 2025-11-14 |
+| 退避策略与业务 SLA 未同步 | 恢复动作可能过晚 | 引入 SLA 感知策略、控制台提示 | Eva Zhang | 2025-11-14 |
 
 # References & Links
 
 - 主场景：`docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`
+- 子场景：`docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md`
 - 背景材料：`docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`
 - Runbook：`scripts/ops/retry-inspect.mjs`、`scripts/ops/recovery-runbook.mjs`

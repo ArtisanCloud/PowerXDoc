@@ -76,7 +76,7 @@ last_reviewed_at: 2025-10-31
 | 策略评估层 | `internal/agent/strategy/matcher.go` | 匹配策略、执行条件校验、生成变量 | `services/agent/strategy` |
 | 编排构建层 | `internal/agent/orchestrator/workflow_builder.go` | 构建任务节点、依赖关系、参数注入 | `services/agent/orchestrator` |
 | 节点执行层 | `internal/agent/executor/node_runner.go` | 执行节点、处理重试、回写状态 | `services/agent/executor` |
-| 可视化层 | `pkg/ops/agent_insight_reporter.go` | 输出编排图、指标、审计事件 | `pkg/ops` |
+| 可视化层 | `pkg/ops/agent_insight_reporter.go` | 输出可视化编排、指标、审计事件 | `pkg/ops` |
 
 ## 流程与时序
 
@@ -86,19 +86,36 @@ last_reviewed_at: 2025-10-31
 4. **Step 4 – 节点执行**：Node Runner 调用插件或 API，处理成功/失败/延迟，更新状态并记录审计。
 5. **Step 5 – 反馈与人工接管**：若策略未命中或多次失败，自动生成人工审核任务，通知负责人。
 
+```mermaid
+sequenceDiagram
+  participant Event as 事件总线
+  participant Agent as Agent 编排
+  participant Strategy as 策略引擎
+  participant Runner as 节点执行
+  participant Ops as 运维/人工审核
+
+  Event->>Agent: 接收业务事件
+  Agent->>Strategy: 匹配策略
+  Strategy-->>Agent: 返回任务链定义
+  Agent->>Runner: 执行任务节点
+  Runner-->>Agent: 回传结果/状态
+  Agent->>Event: 发布任务链结果事件
+  Agent->>Ops: 未命中/失败时创建人工审核任务
+```
+
 # Contracts & Interfaces
 
 - **Inbound APIs / Events**
-  - `EVENT plugin.job.completed`、`EVENT tenant.request.pending` — 包含 `tenant_id`、`job_id`、`payload`。
-  - `POST /internal/agent/events` — 人工重放事件入口。
+  - `EVENT plugin.job.completed`、`EVENT tenant.request.pending` — 包含租户、作业 ID、上下文 payload。
+  - `POST /internal/agent/events` — 人工重放事件入口，需签名与幂等校验。
 - **Outbound 调用**
-  - `POST /plugin/runtime/{pluginId}/execute` — 调用插件自动任务。
+  - `POST /plugin/runtime/{pluginId}/execute` — 调用插件自动任务，携带策略上下文。
   - `POST /notifications/agent-task` — 通知相关角色任务生成或失败。
   - `POST /ops/manual-review` — 创建人工审核任务/工单。
 - **配置与脚本**
-  - `config/agent/strategies/*.yaml` — 策略库。
+  - `config/agent/strategies/*.yaml` — 策略库与变量模板。
   - `scripts/ops/agent-strategy-test.mjs` — 策略单测与模拟工具。
-  - `scripts/ops/agent-replay.mjs` — 事件重放脚本。
+  - `scripts/ops/agent-replay.mjs` — 事件重放与回溯脚本。
 
 # Implementation Checklist
 
@@ -113,14 +130,14 @@ last_reviewed_at: 2025-10-31
 # Testing Strategy
 
 - **单元测试**：策略匹配、条件组合、变量替换、幂等缓存、节点状态机。
-- **集成测试**：执行用例 C-1 验证事件触发生成报表任务链，检查执行、审计；执行 C-2 验证未命中策略时进入人工审核。
-- **端到端验证**：通过沙箱事件流触发多种策略，观察可视化编排图、Ops 控制台状态、通知链路；模拟失败重试、人工接管。
-- **非功能测试**：压力测试 200 TPS 事件输入，观测 Agent 延迟；Chaos 注入策略库不可用、下游 API 失败，验证降级。
+- **集成测试**：执行用例 C-1 验证事件触发生成报表任务链，检查执行与审计；执行 C-2 验证未命中策略时进入人工审核。
+- **端到端验证**：通过沙箱事件流触发多种策略，观察可视化编排图、Ops 控制台状态与通知链路；模拟失败重试、人工接管。
+- **非功能测试**：压力测试 200 TPS 事件输入；Chaos 注入策略库不可用、下游 API 失败，验证降级与告警。
 
 # Observability & Ops
 
 - **指标**：`agent.strategy.hit_rate`、`agent.workflow.generated_total`、`agent.node.success_total`、`agent.manual_escalation_total`、`agent.workflow.latency_p95`。
-- **日志**：记录 `event_id`, `strategy_id`, `workflow_id`, `node_id`, `status`, `duration`, `escalation_reason`。
+- **日志**：记录 `event_id`, `strategy_id`, `workflow_id`, `node_id`, `status`, `duration`, `escalation_reason`，敏感信息脱敏。
 - **告警**：策略未命中率 >20%/15 分钟、自动任务失败率 >10%、人工升级积压 > 20 件；通过 Slack、PagerDuty 通知。
 - **Dashboards**：Grafana `Runtime Ops / Agent Automation`、Datadog `agent.*`、Ops 控制台编排视图。
 
@@ -140,5 +157,6 @@ last_reviewed_at: 2025-10-31
 # References & Links
 
 - 主场景：`docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`
+- 子场景：`docs/scenarios/runtime-ops/SCN-OPS-AGENT-ORCHESTRATION-001.md`
 - 背景材料：`docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`
 - 工具脚本：`scripts/ops/agent-strategy-test.mjs`、`scripts/ops/agent-replay.mjs`

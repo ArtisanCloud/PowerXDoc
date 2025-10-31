@@ -156,3 +156,125 @@ sequenceDiagram
 - 主场景：`docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`
 - 背景材料：`docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`
 - 运维脚本：`scripts/ops/replay-event.mjs`、`scripts/ops/validate-webhook.mjs`
+---
+scn_id: "SCN-OPS-EVENT-TASKFLOW-001"
+scenario_name: "PowerX 事件与任务流管理"
+slug: "powerx-event-taskflow-management"
+primary_scope: "powerx"
+primary_layer: "service"
+primary_domain: "ops"
+primary_repo: "powerx"
+doc_owner: "Matrix Ops（Platform Ops Lead / ops@artisan-cloud.com）"
+last_generated_at: "2025-10-31"
+---
+
+# PowerX 事件与任务流管理 Usecase Seed 生成指南
+
+> 场景摘要：事件与任务流管理场景通过统一事件模型、调度能力与 Agent 自动化，让插件生态在秒级完成事件通知、分钟级保障任务执行，并在失败时具备可追踪的补偿闭环。
+
+本文档面向场景负责人与仓库 Stewards，说明如何把跨仓场景拆解成可交付的子用例 Seed，为分发脚本与研发落地提供基础数据。请根据实际情况补充或修订所有 `{{PLACEHOLDER}}` 字段。
+
+## Seed 的定位
+
+- 代表仓库在 `PowerX 事件与任务流管理` 场景下需要实现的职责、接口、测试与运维要求。
+- 与 `docs/_data/docmap.yaml` 中 `scn_id: SCN-OPS-EVENT-TASKFLOW-001` 的 `children` 节点一一对应，字段必须保持一致。
+- 是 `npm run publish:usecases` 分发到下游仓库、`npm run publish:collected` 生成领导力视图的唯一信息来源。
+
+## 前提条件
+
+- 场景文档（如 `docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md` 与 `docs/scenarios/runtime-ops/SCN-OPS-EVENT-NOTIFY-001.md`）已经勾勒业务故事线与交付矩阵。
+- `docs/_data/docmap.yaml` 中存在待维护场景节点，并为每个仓库预留了 `doc_id`、`scope`、`layer`、`domain`、`repo` 等字段。
+- 对应仓库在 `docs/_data/repos.yaml` 中维护了 `usecase_seed_root`、默认分支与维护者信息。
+- 事件通知链路需要启用 `event-bus-v2`、`plugin-release-webhook`、`audit-streaming` Feature Flag，并确保 Kafka 事件总线、订阅配置库、Ops 控制台事件中心、签名密钥仓库可用。
+- 相关运维脚本（`scripts/ops/replay-event.mjs`、`scripts/ops/validate-webhook.mjs`）已更新到最新版本，可用于本地验证与补偿。
+
+## 生成流程
+
+1. **登记/更新 docmap 子节点**
+
+   ```yaml
+   # docs/_data/docmap.yaml
+   - scn_id: SCN-OPS-EVENT-TASKFLOW-001
+     title: PowerX 事件与任务流管理
+     children:
+       - doc_id: UC-OPS-EVENT-NOTIFY-001
+         scope: powerx
+         layer: service
+         domain: ops
+         optional: false
+         repo: powerx
+         path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md
+       - doc_id: UC-OPS-TASK-SCHEDULE-001
+         scope: powerx
+         layer: ops
+         domain: ops
+         optional: false
+         repo: powerx
+         path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md
+       - doc_id: UC-OPS-AGENT-ORCHESTRATION-001
+         scope: powerx
+         layer: service
+         domain: ops
+         optional: false
+         repo: powerx
+         path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md
+       - doc_id: UC-OPS-RETRY-RECOVERY-001
+         scope: powerx
+         layer: ops
+         domain: ops
+         optional: false
+         repo: powerx
+         path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md
+   ```
+
+   - `doc_id` 与 `path` 要匹配 Seed 文件名与下游仓库目录。
+   - `optional: true/false` 用于领导力视图与发布脚本过滤，默认必选。
+
+2. **复制模板并放置到对应目录**
+
+   ```bash
+   mkdir -p docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001
+   cp docs/usecases-seeds/_template.md \
+     docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md
+   ```
+
+   - `doc_id` 应保持与 docmap 完全一致，避免脚本生成时找不到文件。
+   - 如果存在多仓联合投递（如插件生态仓库），需为各仓库建立独立 Seed，并在正文引用共享模块。
+
+3. **填充 Frontmatter 区域**
+
+   - `doc_id`、`scn_id`、`scope`、`layer`、`domain` 应与 docmap 完全一致。
+   - `repo_key` 使用 `docs/_data/repos.yaml` 的 `key`（本 Seed 为 `powerx`），`scenario_title` 建议使用主场景标题。
+   - 默认 Owners：Matrix Ops（Platform Ops Lead / ops@artisan-cloud.com）、Eva Zhang（Automation Steward / automation@artisan-cloud.com）；若责任人调整，需同步更新 docmap。
+   - `feature_flags` 至少包含 `event-bus-v2`、`plugin-release-webhook`、`audit-streaming`，并根据实现补充其它依赖。
+
+4. **完善正文章节**
+
+   - `Usecase Overview`：突出“5 秒内送达”、“重试后成功率 ≥99.5%”、订阅幂等等目标。
+   - `Context & Assumptions`：列出事件 schema、订阅配置存储、Webhook HMAC、幂等键策略、跨区域镜像假设。
+   - `Solution Blueprint`～`Rollback & Failure Handling`：细化事件发布、订阅匹配、投递通道、追溯与重放脚本、告警处理。
+   - `Contracts & Interfaces`：覆盖 `EVENT plugin.release.published`、`EVENT event.delivery.failed`、`POST /internal/events/publish`、Webhook 协议与重试策略。
+   - `Testing Strategy` 需涵盖成功投递、延迟重试、签名校验失败、压力与 Chaos 测试等。
+
+5. **与场景文档互相链接**
+
+   - 在 `docs/scenarios/runtime-ops/SCN-OPS-EVENT-NOTIFY-001.md` 的交付矩阵或相关章节添加 Seed 链接，便于往返。
+   - 如引用新的事件 schema 或标准，请同步更新 `docs/standards/events/event-bus-schema.md` 或相关文档，保持契约唯一来源。
+
+## 自检清单
+
+- `docmap.yaml` 与 Seed frontmatter 字段完全一致，无大小写或路径差异。
+- Seed 正文覆盖事件发布、订阅治理、幂等策略、重试机制、告警运维与补偿流程。
+- 已验证 `scripts/ops/replay-event.mjs`、`scripts/ops/validate-webhook.mjs` 在最新实现下可用，并能支撑重放与验签。
+- 运行 `npm run lint` 与 `npm run docs:build` 确认 Markdown 无语法错误、站点可构建。
+- 使用 `npm run publish:scenarios -- --scn-id SCN-OPS-EVENT-TASKFLOW-001 --validate-only` 快速验证场景配置。
+- 发布前通知下游仓库维护者，确认默认分支（`dev/docs`）可写，密钥/订阅配置在沙箱与生产环境均已就绪。
+
+## 常见问题
+
+| 问题 | 处理方式 |
+|------|----------|
+| 订阅方 Webhook 泛洪导致延迟堆积怎么办？ | 在 Seed 中补充速率限制、隔离队列和熔断策略，并列出监控指标与 Runbook。 |
+| 跨区域事件镜像延迟较大如何处理？ | 在前置条件中注明镜像 SLA，列出补偿策略（如手动重放或区域隔离），必要时扩展补偿脚本。 |
+
+完成上述步骤后，即可进入分发与发布流程，参考《发布 Usecase Seeds 指南》获取后续操作。
