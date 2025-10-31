@@ -3,7 +3,7 @@
     "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
     "scenario": "SCN-IAM-USER-ROLE-001",
     "status": "Completed",
-    "generatedAt": "2025-10-31T02:27:53.242Z"
+    "generatedAt": "2025-10-31T05:23:52.499Z"
   },
   "records": [
     {
@@ -27,6 +27,50 @@
         }
       ],
       "timestamp": "2025-10-31T02:27:53.244Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "b99c7674-1be9-4d4d-b9b8-64aa9e28d3e5",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-iam-user-role-001-4f4fdb03",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-iam-user-role-001-4f4fdb03",
+          "resumeToken": "b99c7674-1be9-4d4d-b9b8-64aa9e28d3e5",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-10-31T05:21:38.602Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "b99c7674-1be9-4d4d-b9b8-64aa9e28d3e5",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "b99c7674-1be9-4d4d-b9b8-64aa9e28d3e5",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-10-31T05:23:52.502Z"
     }
   ]
 }
