@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-IAM-LOGIN-AUTH-001",
+    "scenario": "SCN-IAM-LOGIN-AUTH-001",
+    "status": "Completed",
+    "generatedAt": "2025-10-31T09:17:42.497Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-IAM-LOGIN-AUTH-001",
+      "status": "Completed",
+      "resumeToken": "5772941c-fc2e-446a-9e8c-8b23ab79e634",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-iam-login-auth-001-bf0ceec0",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md",
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md",
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md",
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-iam-login-auth-001-bf0ceec0",
+          "resumeToken": "5772941c-fc2e-446a-9e8c-8b23ab79e634",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-10-31T09:16:29.822Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-LOGIN-AUTH-001",
+      "status": "Completed",
+      "resumeToken": "5772941c-fc2e-446a-9e8c-8b23ab79e634",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md",
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md",
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md",
+            "docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "5772941c-fc2e-446a-9e8c-8b23ab79e634",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-10-31T09:17:42.501Z"
+    }
+  ]
+}
