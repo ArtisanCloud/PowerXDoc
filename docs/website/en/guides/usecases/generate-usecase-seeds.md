@@ -29,13 +29,14 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-HUB-001
 
 ## 3. Generate the task checklist
 
-- Run `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` to update the checklist. The script writes commands to `docs/scenarios/<domain>/task.md`, where `<domain>` equals the middle section of the SCN ID in lowercase (for example, `SCN-PUBLISH-HUB-001` → `docs/scenarios/publish/task.md`). The initial seed-generation prompt creates the file once; rerun this script whenever you add or reorder child usecases.
-- Open the refreshed checklist and execute each command in order, e.g.:
+- Run `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` to update the checklist. The script stores commands in `docs/usecases-seeds/<SCN_ID>/task.md`, keeping the task list beside the generated Seed files. Re-run whenever you add or reorder child usecases.
+- Open the refreshed checklist (`docs/usecases-seeds/<SCN_ID>/task.md`) and execute each command in order, e.g.:
 
 ```bash
-.specify/templates/usecase-generate-template.md \
+[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
   docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
+  --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
 ```

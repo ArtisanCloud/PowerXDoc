@@ -76,8 +76,8 @@ flowchart LR
 
   脚本会：
   1. 在 `docs/usecases-seeds/<SCN_ID>/` 生成 `DOC_ID.md` 草稿；
-  2. 在 `docs/scenarios/<domain>/task.md` 输出撰写任务，每个子用例附带生成命令。
-- **步骤 2 – 按任务撰写**：根据 `task.md` 中的命令逐条完善 Seed 内容，例如：
+  2. 在 `docs/usecases-seeds/<SCN_ID>/task.md` 输出撰写任务，每个子用例附带生成命令。
+- **步骤 2 – 按任务撰写**：根据 `docs/usecases-seeds/<SCN_ID>/task.md` 中的命令逐条完善 Seed 内容，例如：
 
   ```bash
   [usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \

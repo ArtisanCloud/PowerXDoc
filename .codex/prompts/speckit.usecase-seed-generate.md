@@ -28,7 +28,7 @@ Interpret the user input to extract 至少以下信息：
    - 根据 docmap 声明的 `path` 或相关标准，定位参考资料（例如 `docs/standards/**`）。
 
 3. **自动撰写 Seed 正文**
-   - 依序处理 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`：
+   - 依序处理 `docs/usecases-seeds/<SCN_ID>/<doc_id>.md`：
      - 聚合上下文：主场景 `docs/scenarios/**/<SCN_ID>.md`、相关子场景（若存在）、`docs/_data/docmap.yaml` 的 child 配置、`docs/_data/repos.yaml` 中仓库职责、已登记的标准与接口说明（`docs/standards/**`）。
      - 针对每个 Seed 调用写作流程（直接在文件内让 AI 重写或使用子 Prompt），按章节输出定制化内容，覆盖：
        - **Usecase Overview**：该仓/层的业务价值、触发角色、关键指标。
@@ -45,7 +45,7 @@ Interpret the user input to extract 至少以下信息：
    - 输出最终摘要：列出改写后的 Seed（含路径、状态、scope/layer/domain、optional 与否）以及仍需补充的风险或后续动作。
 
 5. **生成 Seed 撰写任务清单**
-   - 根据 `SCN_ID` 解析 domain（ID 中间段的小写），生成/更新 `docs/scenarios/<domain>/task.md`。
+   - 将 `docs/usecases-seeds/<SCN_ID>/task.md` 作为唯一任务文件，确保与该场景 Seeds 同目录存放。
    - 任务文件需按子用例逐条展示：为每个 `doc_id` 输出单独的小节（建议使用 `### <doc_id>` 或类似格式），先给出一句话描述（可包含 scope/layer/仓库职责），随后附带单独的 fenced code block。
    - 命令示例使用 `.specify/templates/usecase-generate-template.md` + 目标 Seed 路径，保留 `--context docs/scenarios/...`、`--context docs/_data/docmap.yaml`、`--context docs/_data/repos.yaml` 等参数；如需要额外上下文，可在描述中说明。
    - 如场景包含子场景，可在描述或命令中引用对应 `docs/scenarios/**/<child_scn>.md`。

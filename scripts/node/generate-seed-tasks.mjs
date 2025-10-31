@@ -62,7 +62,7 @@ function defaultScenarioContextPath(scnId) {
 
 function buildTaskSnippet({ seedPath, contexts }) {
   const safeContexts = Array.isArray(contexts) ? contexts : [];
-  const lines = ['.specify/templates/usecase-generate-template.md \\'];
+  const lines = ['[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \\'];
 
   if (safeContexts.length === 0) {
     lines.push(`  ${seedPath}`);
@@ -90,81 +90,20 @@ async function main() {
     process.exit(1);
   }
 
+  const seedDir = path.join('docs/usecases-seeds', args.scnId);
+  await ensureDir(seedDir);
+  const taskFile = path.join(seedDir, 'task.md');
+
   const [, domainPart] = args.scnId.split('-');
   const domain = (domainPart ?? 'misc').toLowerCase();
-  const taskDir = path.join('docs/scenarios', domain);
-  await ensureDir(taskDir);
-  const taskFile = path.join(taskDir, 'task.md');
 
-  const scenarioContext = defaultScenarioContextPath(args.scnId);
+  const taskContent = buildScenarioTaskSection({
+    scenario,
+    domain,
+    docmap,
+  });
 
-  const taskLines = [
-    `# ${args.scnId} Seed 撰写任务清单`,
-    '',
-    '以下命令可逐一触发 `usecase-generate-template.md`，建议按顺序逐条完成。',
-    '',
-  ];
-
-  const seeds = Array.isArray(scenario.children) ? scenario.children : [];
-  const childScenarios = Array.isArray(scenario.child_scenarios)
-    ? scenario.child_scenarios
-    : [];
-  const childScenarioMap = new Map(
-    childScenarios
-      .filter((entry) => entry?.scn_id)
-      .map((entry) => [entry.scn_id, resolveScenarioPath(entry)])
-  );
-
-  for (const child of seeds) {
-    if (!child?.doc_id) continue;
-
-    const filePath = path.join(
-      'docs/usecases-seeds',
-      args.scnId,
-      `${child.doc_id}.md`,
-    );
-
-    const contexts = [];
-    const childScenarioContext = childScenarioMap.get(child?.child_scn_id ?? '');
-    if (childScenarioContext) {
-      contexts.push(childScenarioContext);
-    }
-    if (scenarioContext) {
-      contexts.push(scenarioContext);
-    } else {
-      contexts.push(path.join('docs/scenarios', domain, `${args.scnId}.md`));
-    }
-    contexts.push('docs/_data/docmap.yaml');
-    contexts.push('docs/_data/repos.yaml');
-
-    const labelSegments = [child.scope, child.layer, child.domain]
-      .filter(Boolean)
-      .join('/');
-
-    taskLines.push(
-      `### ${child.doc_id}${labelSegments ? ` · ${labelSegments}` : ''}`
-    );
-    taskLines.push(
-      `完善该 Seed，覆盖 ${labelSegments || '相关'} 职责，补充流程、契约与验收细节：`,
-    );
-    taskLines.push('');
-    taskLines.push('```bash');
-    taskLines.push(
-      buildTaskSnippet({
-        seedPath: filePath,
-        contexts,
-      }),
-    );
-    taskLines.push('```');
-    taskLines.push('');
-  }
-
-  taskLines.push(
-    '',
-    `> 完成全部 Seed 撰写后，可执行 \`npm run publish:usecases -- --scn-id ${args.scnId} --validate-only\` 或 \`node scripts/site/sync-scenario-pages.mjs --scn-id ${args.scnId} --with-seeds --force\` 进行校验与同步。`,
-  );
-
-  await fs.writeFile(taskFile, taskLines.join('\n'), 'utf8');
+  await fs.writeFile(taskFile, `${taskContent}\n`, 'utf8');
   console.log(`Seed tasks written to ${taskFile}`);
 }
 
@@ -181,6 +120,103 @@ function resolveScenarioPath(entry) {
     `${entry.scn_id}.md`,
   );
   return candidate;
+}
+
+function guessChildScenarioId(child) {
+  if (child?.child_scn_id) return child.child_scn_id;
+  if (!child?.doc_id) return null;
+  const parts = child.doc_id.split('-');
+  if (parts.length >= 3) {
+    return ['SCN', ...parts.slice(1)].join('-');
+  }
+  return null;
+}
+
+function uniqueContexts(contexts) {
+  const seen = new Set();
+  const ordered = [];
+  for (const ctx of contexts) {
+    if (!ctx || seen.has(ctx)) continue;
+    seen.add(ctx);
+    ordered.push(ctx);
+  }
+  return ordered;
+}
+
+function buildScenarioTaskSection({ scenario, domain, docmap }) {
+  const scenarioContext =
+    defaultScenarioContextPath(scenario.scn_id) ??
+    path.join('docs/scenarios', domain, `${scenario.scn_id}.md`);
+
+  const childScenarios = Array.isArray(scenario.child_scenarios)
+    ? scenario.child_scenarios
+    : [];
+  const childScenarioMap = new Map(
+    childScenarios
+      .filter((entry) => entry?.scn_id)
+      .map((entry) => [entry.scn_id, resolveScenarioPath(entry)]),
+  );
+
+  const seeds = Array.isArray(scenario.children) ? scenario.children : [];
+  const lines = [
+    `# ${scenario.scn_id} Seed 撰写任务`,
+    '',
+    '本任务文件按子用例列出撰写指引，所有命令均依赖 `.specify/templates/usecase-generate-template.md`，请在仓库根目录执行。',
+    '',
+  ];
+
+  const sortedSeeds = [...seeds].sort((a, b) =>
+    (a.doc_id ?? '').localeCompare(b.doc_id ?? ''),
+  );
+
+  for (const child of sortedSeeds) {
+    if (!child?.doc_id) continue;
+
+    const seedPath = path.join(
+      'docs/usecases-seeds',
+      scenario.scn_id,
+      `${child.doc_id}.md`,
+    );
+
+    const childScenarioId = guessChildScenarioId(child);
+    const childScenarioContext = childScenarioId
+      ? childScenarioMap.get(childScenarioId)
+      : null;
+
+    const contexts = uniqueContexts([
+      scenarioContext,
+      childScenarioContext,
+      'docs/_data/docmap.yaml',
+      'docs/_data/repos.yaml',
+    ]);
+
+    const labelSegments = [child.scope, child.layer, child.domain]
+      .filter(Boolean)
+      .join('/');
+
+    lines.push(
+      `### ${child.doc_id}${labelSegments ? ` · ${labelSegments}` : ''}`,
+    );
+    lines.push(
+      '完善该 Seed，补充流程、契约、验收指标与团队协作说明：',
+    );
+    lines.push('');
+    lines.push('```bash');
+    lines.push(
+      buildTaskSnippet({
+        seedPath,
+        contexts,
+      }),
+    );
+    lines.push('```');
+    lines.push('');
+  }
+
+  lines.push(
+    `> 完成撰写后，可执行 \`npm run publish:usecases -- --scn-id ${scenario.scn_id} --validate-only\` 或 \`node scripts/site/sync-scenario-pages.mjs --scn-id ${scenario.scn_id} --with-seeds --force\` 校验结构并同步站点。`,
+  );
+
+  return lines.join('\n');
 }
 
 main().catch((error) => {

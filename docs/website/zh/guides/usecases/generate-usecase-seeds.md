@@ -23,13 +23,14 @@ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-HUB-001
 
 ## 3. 生成任务清单（task.md）
 
-- 执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`，脚本会根据 docmap 输出版块写入 `docs/scenarios/<domain>/task.md`（`<domain>` 为 SCN ID 中间段的小写，例如 publish）。首次产 Seed 时已生成该文件，后续若需刷新顺序或新增子用例，再次运行此命令即可。
-- 打开任务清单，按列出的命令逐项补写 Seed，例如：
+- 执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`，脚本会根据 docmap 输出版块写入 `docs/usecases-seeds/<SCN_ID>/task.md`，与 Seed 位于同一目录，便于逐条跟踪。首次产 Seed 即会生成此文件；如需调整顺序或新增子用例，重复执行即可覆盖更新。
+- 打开任务清单（`docs/usecases-seeds/<SCN_ID>/task.md`），按列出的命令逐项补写 Seed，例如：
 
 ```bash
-.specify/templates/usecase-generate-template.md \
+[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
   docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
   --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
+  --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
   --context docs/_data/docmap.yaml \
   --context docs/_data/repos.yaml
 ```
