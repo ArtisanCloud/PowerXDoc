@@ -1,3 +1,4 @@
+---
 doc_id: UC-IAM-USER-ROLE-OFFBOARD-001
 scn_id: SCN-IAM-USER-ROLE-001
 title: 离职自动权限回收与审计
