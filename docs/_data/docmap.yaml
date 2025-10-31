@@ -168,3 +168,43 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md
+  - scn_id: SCN-IAM-LOGIN-AUTH-001
+    title: PowerX 登录与认证
+    child_scenarios:
+      - scn_id: SCN-IAM-LOGIN-SSO-001
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-SSO-001.md
+      - scn_id: SCN-IAM-LOGIN-API-TOKEN-001
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-API-TOKEN-001.md
+      - scn_id: SCN-IAM-LOGIN-MFA-001
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-MFA-001.md
+      - scn_id: SCN-IAM-LOGIN-RISK-001
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-RISK-001.md
+    children:
+      - doc_id: UC-IAM-LOGIN-SSO-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md
+      - doc_id: UC-IAM-LOGIN-API-TOKEN-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md
+      - doc_id: UC-IAM-LOGIN-MFA-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md
+      - doc_id: UC-IAM-LOGIN-RISK-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md

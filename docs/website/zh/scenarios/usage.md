@@ -62,7 +62,7 @@ flowchart LR
 ## 3. 生成 Usecase Seeds (C)
 
 - **目标**：为 docmap 中的子用例生成 Seed 草稿，并准备撰写任务清单。
-- **步骤 1 – 生成任务与草稿**：运行脚本读取 docmap，输出任务清单与基础 Seed 模板。
+- **步骤 1 – 生成 Seed 草稿**：运行脚本读取 docmap，输出基础 Seed 模板。
 
   ```bash
   node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id <SCN_ID>
@@ -74,10 +74,14 @@ flowchart LR
   [speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md) <SCN_ID>
   ```
 
-  脚本会：
-  1. 在 `docs/usecases-seeds/<SCN_ID>/` 生成 `DOC_ID.md` 草稿；
-  2. 在 `docs/usecases-seeds/<SCN_ID>/task.md` 输出撰写任务，每个子用例附带生成命令。
-- **步骤 2 – 按任务撰写**：根据 `docs/usecases-seeds/<SCN_ID>/task.md` 中的命令逐条完善 Seed 内容，例如：
+- **步骤 2 – 生成撰写任务**：若目录下尚未出现 `task.md`，请执行
+
+  ```bash
+  node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>
+  ```
+
+  命令会在 `docs/usecases-seeds/<SCN_ID>/task.md` 输出撰写清单，每个子用例附带生成命令。
+- **步骤 3 – 按任务撰写**：根据 `task.md` 中的命令逐条完善 Seed 内容，例如：
 
   ```bash
   [usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \

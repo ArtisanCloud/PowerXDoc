@@ -40,14 +40,21 @@ flowchart LR
 
 ## 3. Generate Usecase Seeds (C)
 
-- **Command**:
+- **Goal**: Produce seed drafts from docmap entries, then prepare a task checklist.
+- **Step 1 – Generate seed drafts**:
 
   ```bash
   node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id <SCN_ID>
   ```
 
 - **Output**: Draft Seeds under `docs/usecases-seeds/<SCN_ID>/` (one `DOC_ID.md` file per usecase).
-- **Next step**: Fill out each Seed following the [Usecase Seed Generation Guide](/en/guides/usecases/generate-usecase-seeds).
+- **Step 2 – Generate the task checklist**: If the directory does not yet contain `task.md`, run
+
+  ```bash
+  node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>
+  ```
+
+- **Step 3 – Fill in each seed**: Follow `docs/usecases-seeds/<SCN_ID>/task.md` to populate the drafts, referencing the [Usecase Seed Generation Guide](/en/guides/usecases/generate-usecase-seeds).
 
 ## 4. Refresh Seed Index (D)
 
