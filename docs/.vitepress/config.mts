@@ -401,7 +401,19 @@ export default withMermaid(defineConfig({
         nav: [
           { text: '产品概览', link: '/zh/overview/', activeMatch: '^/zh/(overview/|core-concepts/)' },
           { text: '使用与部署', link: '/zh/guides/', activeMatch: '^/zh/(guides/)' },
-          { text: '场景与用例', link: '/zh/scenarios/', activeMatch: '^/zh/(scenarios/|library/)' },
+          {
+            text: '场景与用例',
+            link: '/zh/scenarios/',
+            activeMatch: '^/zh/(scenarios/|library/)',
+            items: [
+              { text: '场景导航', link: '/zh/scenarios/' },
+              { text: 'PowerX 事件与任务流管理', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001' },
+              { text: 'Usecase · UC-OPS-EVENT-NOTIFY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001' },
+              { text: 'Usecase · UC-OPS-TASK-SCHEDULE-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001' },
+              { text: 'Usecase · UC-OPS-AGENT-ORCHESTRATION-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001' },
+              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' }
+            ],
+          },
           { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/(developers/|api-and-specifications/|pxip/)' },
           { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
           { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' }
@@ -554,7 +566,19 @@ export default withMermaid(defineConfig({
         nav: [
           { text: 'Overview', link: '/en/overview/', activeMatch: '^/en/(overview/|core-concepts/)' },
           { text: 'Guides', link: '/en/guides/', activeMatch: '^/en/(guides/)' },
-          { text: 'Scenarios', link: '/en/scenarios/', activeMatch: '^/en/(scenarios/|library/)' },
+          {
+            text: 'Scenarios',
+            link: '/en/scenarios/',
+            activeMatch: '^/en/(scenarios/|library/)',
+            items: [
+              { text: 'Scenario Navigation', link: '/en/scenarios/' },
+              { text: 'SCN-OPS-EVENT-TASKFLOW-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001' },
+              { text: 'Usecase · UC-OPS-EVENT-NOTIFY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001' },
+              { text: 'Usecase · UC-OPS-TASK-SCHEDULE-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001' },
+              { text: 'Usecase · UC-OPS-AGENT-ORCHESTRATION-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001' },
+              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' }
+            ],
+          },
           { text: 'Developers', link: '/en/developers/', activeMatch: '^/en/(developers/|api-and-specifications/|pxip/)' },
           { text: 'Operations', link: '/en/operations/', activeMatch: '^/en/(operations/|security-and-governance/)' },
           { text: 'Resources', link: '/en/resources/', activeMatch: '^/en/(resources/)' }
