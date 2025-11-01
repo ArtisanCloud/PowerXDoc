@@ -112,6 +112,14 @@ async function findScenarioPath(scenarioDir, scnId) {
   return path.join(scenarioDir, fileName);
 }
 
+async function findScenarioPathFromDocmap(docmap, scnId) {
+  const entry = docmap.scenarios?.find((s) => s.scn_id === scnId);
+  if (entry?.path) {
+    return path.resolve(entry.path);
+  }
+  return findScenarioPath(DEFAULT_SCENARIO_DIR, scnId);
+}
+
 function findDocmapEntry(docmap, scnId) {
   return (docmap.scenarios ?? []).find((entry) => entry.scn_id === scnId);
 }
@@ -158,7 +166,7 @@ async function main() {
     return;
   }
 
-  const scenarioPath = await findScenarioPath(args.scenarioDir, args.scnId);
+  const scenarioPath = await findScenarioPathFromDocmap(docmap, args.scnId);
   let scenario;
   try {
     scenario = await readScenario(scenarioPath);

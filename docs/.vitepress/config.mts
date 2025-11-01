@@ -16,6 +16,15 @@ const docmapData = await loadDocmap(DOCMAP_PATH).catch(() => ({ scenarios: [] })
 const docmapIndex = new Map<string, any>(
   (docmapData.scenarios ?? []).map((scenario: any) => [scenario.scn_id, scenario])
 )
+for (const scenario of docmapData.scenarios ?? []) {
+  if (Array.isArray(scenario.child_scenarios)) {
+    for (const child of scenario.child_scenarios) {
+      if (child?.scn_id) {
+        docmapIndex.set(child.scn_id, child)
+      }
+    }
+  }
+}
 
 function shortenTitle(title: string) {
   if (!title) return ''
@@ -169,10 +178,15 @@ function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
       .map((child: any) => {
         const childPath = path.join(seedDir, `${child.scn_id}.md`)
         if (!fs.existsSync(childPath)) return null
-        const childTitle = readTitleFromMd(childPath)
+        const childData = docmapIndex.get(child.scn_id) ?? child
+        const fallbackChildTitle = readTitleFromMd(childPath)
+        const localizedChildTitle =
+          locale === 'en'
+            ? childData?.title_en ?? fallbackChildTitle
+            : childData?.title ?? fallbackChildTitle
         const text =
-          childTitle && childTitle !== child.scn_id
-            ? `${child.scn_id} · ${childTitle}`
+          localizedChildTitle && localizedChildTitle !== child.scn_id
+            ? `${child.scn_id} · ${localizedChildTitle}`
             : child.scn_id
         return {
           text,
@@ -239,6 +253,37 @@ function buildScenariosSidebar(options: SidebarLocaleOptions = {}) {
     })
   }
   return result
+}
+
+function toNavItems(items: any[] = []): any[] {
+  return items.map(item => {
+    const navItem: any = { text: item.text }
+    if (item.link) navItem.link = item.link
+    if (item.items) navItem.items = toNavItems(item.items)
+    return navItem
+  })
+}
+
+function buildScenarioNavItems(locale: 'zh' | 'en') {
+  const dirPrefix = locale === 'en' ? 'en' : 'zh'
+  const linkPrefix = locale === 'en' ? '/en' : '/zh'
+  const sidebarEntries = buildScenariosSidebar({ dirPrefix, linkPrefix, locale })
+
+  return [
+    {
+      text: locale === 'en' ? 'Scenario Navigator' : '场景导航',
+      link: `${linkPrefix}/scenarios/`,
+    },
+    ...sidebarEntries.map(entry => {
+      const [overview, ...rest] = entry.items ?? []
+      const navEntry: any = {
+        text: entry.text,
+        link: overview?.link ?? `${linkPrefix}/scenarios/${entry.text}`,
+      }
+      if (rest.length) navEntry.items = toNavItems(rest)
+      return navEntry
+    }),
+  ]
 }
 
 const zhOperationsSidebar = [
@@ -410,19 +455,7 @@ export default withMermaid(defineConfig({
             text: '场景与用例',
             link: '/zh/scenarios/',
             activeMatch: '^/zh/(scenarios/|library/)',
-            items: [
-              { text: '场景导航', link: '/zh/scenarios/' },
-              { text: 'PowerX 事件与任务流管理', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001' },
-              { text: 'Usecase · UC-OPS-EVENT-NOTIFY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001' },
-              { text: 'Usecase · UC-OPS-TASK-SCHEDULE-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001' },
-              { text: 'Usecase · UC-OPS-AGENT-ORCHESTRATION-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001' },
-              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' },
-              { text: 'PowerX 插件安装与启停运营', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-AUTO-UPGRADE-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-DEV-INSTALL-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-RISK-SUSPEND-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001' }
-            ],
+            items: buildScenarioNavItems('zh'),
           },
           { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/(developers/|api-and-specifications/|pxip/)' },
           { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
@@ -580,19 +613,7 @@ export default withMermaid(defineConfig({
             text: 'Scenarios',
             link: '/en/scenarios/',
             activeMatch: '^/en/(scenarios/|library/)',
-            items: [
-              { text: 'Scenario Navigation', link: '/en/scenarios/' },
-              { text: 'SCN-OPS-EVENT-TASKFLOW-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001' },
-              { text: 'Usecase · UC-OPS-EVENT-NOTIFY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001' },
-              { text: 'Usecase · UC-OPS-TASK-SCHEDULE-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001' },
-              { text: 'Usecase · UC-OPS-AGENT-ORCHESTRATION-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001' },
-              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' },
-              { text: 'SCN-OPS-PLUGIN-LIFECYCLE-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-AUTO-UPGRADE-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-DEV-INSTALL-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001' },
-              { text: 'Usecase · UC-OPS-PLUGIN-RISK-SUSPEND-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001' }
-            ],
+            items: buildScenarioNavItems('en'),
           },
           { text: 'Developers', link: '/en/developers/', activeMatch: '^/en/(developers/|api-and-specifications/|pxip/)' },
           { text: 'Operations', link: '/en/operations/', activeMatch: '^/en/(operations/|security-and-governance/)' },

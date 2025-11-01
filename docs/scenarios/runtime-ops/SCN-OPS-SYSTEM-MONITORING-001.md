@@ -1,3 +1,4 @@
+---
 scn_id: SCN-OPS-SYSTEM-MONITORING-001
 title: PowerX 系统监控与告警
 status: Draft
@@ -35,6 +36,27 @@ last_reviewed_at: 2025-11-05
 # Executive Summary
 
 PowerX 系统监控与告警场景聚焦于统一采集插件与宿主运行指标、实时异常检测、跨通道告警通知以及自动化处置流程。监控服务需要在秒级发现 CPU、内存、响应时间与日志异常，通过限流、远程操作和协同通知缩短 MTTR，并在控制台呈现可审计、可回溯的运维上下文，确保多租户平台稳定可用。
+
+# Positioning & Goals
+
+## 业务目标
+- **持续可用性**：通过实时监控与自动限流机制，避免单个插件异常影响整租户稳定性
+- **透明可视化**：提供统一的健康仪表盘与性能分析，支持跨租户、跨插件对比
+- **主动告警**：异常日志、阈值突破和事件可触发多通道告警，降低漏报风险
+- **快速处置**：运维可在告警上下文中直接执行远程重启、限流等操作，缩短 MTTR
+
+## 核心价值
+- 将被动运维转变为主动预防
+- 将人工处置转变为自动化响应
+- 将分散监控转变为统一视图
+
+# Core Capabilities
+
+1. **多维指标采集**：CPU、内存、响应时间、错误率等核心指标实时采集
+2. **智能异常检测**：基于滑动窗口与阈值的异常检测算法
+3. **自动处置引擎**：限流、重启等自动化操作触发与执行
+4. **统一告警中心**：多通道告警通知、状态追踪、升级机制
+5. **可视化运维控制台**：仪表盘、拓扑视图、巡检报告导出
 
 # Scope & Guardrails
 
@@ -92,6 +114,114 @@ sequenceDiagram
 2. 告警事件支持 Webhook/IM/邮件多通道通知，具备去重、抑制与升级策略，并可追踪处理状态。
 3. 自动限流与远程重启操作在触发前完成权限校验，执行动作全量记录并支持回滚。
 4. 运维控制台可按租户/插件/实例维度筛选，导出巡检报告，数据延迟不超过 1 分钟。
+
+# Validation Workflow
+
+## 测试准备
+搭建沙箱租户，部署 2 个插件实例并接入指标与日志采集；配置告警 Webhook 指向沙箱告警平台；预置运维账号、租户管理员账号与插件责任人，并开启远程操作审批流程。
+
+## 测试用例
+
+### 用例 A-1：CPU 异常触发限流（正向）
+- **前置条件**：为插件实例配置 CPU > 90% 持续 30 秒触发限流策略
+- **操作步骤**：在沙箱环境模拟压测，使插件 CPU 占用达到阈值，观察监控服务的告警与限流执行记录
+- **预期结果**：限流在 30 秒内生效，告警通知发送至运维与责任人，CPU 曲线在 2 分钟内回落至 70% 以下
+
+### 用例 B-1：仪表盘巡检成功（正向）
+- **前置条件**：运维账号具备 `ops.viewer` 权限
+- **操作步骤**：登录运营控制台查看目标插件，导出过去 24 小时的性能报告
+- **预期结果**：仪表盘数据延迟 < 1 分钟，图表可切换实例、时间范围，导出的报告包含关键指标、异常事件与备注栏
+
+### 用例 C-1：异常日志触发 Webhook 告警（正向）
+- **前置条件**：配置规则"5 分钟内 ERROR 日志 ≥ 20 条触发 P2 告警"
+- **操作步骤**：在沙箱插件中批量写入 ERROR 级别日志，监听沙箱告警平台的 Webhook 接收情况
+- **预期结果**：告警在 1 分钟内创建并推送 Webhook，HTTP 状态 200，告警负载包含错误摘要、租户、插件 ID、建议操作
+
+### 用例 D-1：远程重启成功（正向）
+- **前置条件**：租户管理员已通过远程操作审批，插件支持滚动重启策略
+- **操作步骤**：在告警详情中点击"远程重启"，观察编排服务执行情况
+- **预期结果**：自动化流程依次重启实例，并验证健康探针成功，告警状态更新为"已恢复"，恢复时间 < 5 分钟
+
+# Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Plugin Layer"
+        P1[Plugin Instance 1]
+        P2[Plugin Instance 2]
+        P3[Plugin Instance N]
+    end
+
+    subgraph "Monitoring Service"
+        MA[Metrics Agent]
+        LA[Logs Agent]
+        DE[Detection Engine]
+        AE[Alert Engine]
+        AE2[Automation Engine]
+    end
+
+    subgraph "Data Storage"
+        TS[(Time Series DB)]
+        LS[(Logs Store)]
+    end
+
+    subgraph "Operations Console"
+        DC[Dashboard]
+        AC[Alert Center]
+        AR[Auto Remediation]
+    end
+
+    subgraph "External Systems"
+        WH[Webhook]
+        IM[IM/Email]
+        TG[Traffic Gateway]
+    end
+
+    P1 --> MA
+    P2 --> MA
+    P3 --> MA
+    P1 --> LA
+    P2 --> LA
+    P3 --> LA
+
+    MA --> TS
+    LA --> LS
+    TS --> DE
+    LS --> DE
+    DE --> AE
+    AE --> WH
+    AE --> IM
+    AE --> AE2
+    AE2 --> TG
+
+    DC --> TS
+    AC --> AE
+    AR --> AE2
+
+    classDef plugin fill:#e1f5fe
+    classDef monitoring fill:#f3e5f5
+    classDef storage fill:#e8f5e9
+    classDef console fill:#fff3e0
+    classDef external fill:#fce4ec
+
+    class P1,P2,P3 plugin
+    class MA,LA,DE,AE,AE2 monitoring
+    class TS,LS storage
+    class DC,AC,AR console
+    class WH,IM,TG external
+```
+
+# Related Links
+
+- Meta Scenario: `docs/meta/scenarios/powerx/core-platform/runtime-ops/system-monitoring-and-alerting/primary.md`
+- Use Cases:
+  - `docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md`
+  - `docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md`
+  - `docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md`
+  - `docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md`
+- Standards:
+  - `docs/standards/powerx-plugin/integration/03_runtime_and_ops/Logs_Metrics_and_Tracing.md`
+  - `docs/standards/powerx/backend/integration/06_gateway/EventBus_and_Message_Fabric.md`
 
 # Telemetry & Ops
 

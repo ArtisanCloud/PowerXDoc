@@ -9,8 +9,8 @@ last_reviewed_at: 2025-11-01
 
 > 本文件由 `generate-usecase-seed-index` 自动生成，请勿手工编辑。
 
-- 场景文档：[`../../scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-001.md`](../../scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-001.md)
-- docmap 入口：[`../../_data/docmap.yaml`](../../_data/docmap.yaml)
+- 场景文档：[SCN-OPS-SYSTEM-MONITORING-001.md](../../scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-001.md)
+- docmap 入口：[docmap.yaml](../../_data/docmap.yaml)
 
 ## Scope: powerx
 
