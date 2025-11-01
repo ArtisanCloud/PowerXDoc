@@ -288,3 +288,43 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md
+  - scn_id: SCN-OPS-SYSTEM-MONITORING-001
+    title: PowerX 系统监控与告警
+    child_scenarios:
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-THROTTLE-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001.md
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001.md
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001.md
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001.md
+    children:
+      - doc_id: UC-OPS-MONITORING-THROTTLE-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md
+      - doc_id: UC-OPS-MONITORING-DASHBOARD-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md
+      - doc_id: UC-OPS-MONITORING-WEBHOOK-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md
+      - doc_id: UC-OPS-MONITORING-REMOTE-RESTART-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md
