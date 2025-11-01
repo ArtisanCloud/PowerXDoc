@@ -1195,7 +1195,7 @@ export default defineConfig({
             {
               text: '核心概念',
               items: [
-                { text: '介绍', link: '/core-concepts/README.md' },
+                { text: '介绍', link: '/core-concepts/' },
                 { text: '集成架构', link: '/core-concepts/PowerX_Integration_Architecture.md' },
                 { text: '知识库', link: '/core-concepts/00_overview.md' },
                 { text: '智能体生命周期', link: '/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
@@ -1258,7 +1258,7 @@ export default defineConfig({
             {
               text: 'Core Concepts',
               items: [
-                { text: 'Overview', link: '/en/core-concepts/README.md' },
+                { text: 'Overview', link: '/en/core-concepts/' },
                 { text: 'Integration Architecture', link: '/en/core-concepts/PowerX_Integration_Architecture.md' },
                 { text: 'Knowledge Base', link: '/en/core-concepts/00_overview.md' },
                 { text: 'Agent Lifecycle', link: '/en/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }

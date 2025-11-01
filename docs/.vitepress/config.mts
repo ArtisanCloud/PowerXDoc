@@ -287,10 +287,12 @@ const zhOverviewSidebar = [
     text: '核心概念',
     collapsed: false,
     items: [
-      { text: 'SDD 核心理念', link: '/zh/core-concepts/spec-driven-development' },
+      { text: '核心概念索引', link: '/zh/core-concepts/' },
       { text: '集成架构', link: '/zh/core-concepts/PowerX_Integration_Architecture' },
+      { text: '多智能体生命周期', link: '/zh/core-concepts/Agent_Manager_and_Lifecycle_Spec' },
       { text: '知识库基础', link: '/zh/core-concepts/00_overview' },
-      { text: '智能体生命周期', link: '/zh/core-concepts/Agent_Manager_and_Lifecycle_Spec' },
+      { text: '工作流与编排概念', link: '/zh/core-concepts/workflow-overview' },
+      { text: 'SDD 核心理念', link: '/zh/core-concepts/spec-driven-development' },
     ],
   },
 ]
@@ -310,10 +312,11 @@ const enOverviewSidebar = [
     text: 'Core Concepts',
     collapsed: false,
     items: [
-      { text: 'Specification-Driven Development', link: '/en/core-concepts/spec-driven-development' },
+      { text: 'Core Concepts Index', link: '/en/core-concepts/' },
       { text: 'Integration Architecture', link: '/en/core-concepts/PowerX_Integration_Architecture' },
-      { text: 'Knowledge Base Primer', link: '/en/core-concepts/00_overview' },
       { text: 'Agent Lifecycle', link: '/en/core-concepts/Agent_Manager_and_Lifecycle_Spec' },
+      { text: 'Knowledge Base Primer', link: '/en/core-concepts/00_overview' },
+      { text: 'Specification-Driven Development', link: '/en/core-concepts/spec-driven-development' },
     ],
   },
 ]
