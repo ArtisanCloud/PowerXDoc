@@ -1,0 +1,63 @@
+# PowerXMarketplace Project Ruleset
+version: 0.2.0
+maintainers:
+  - name: Marketplace Steward Team
+    contact: marketplace@artisan-cloud.com
+
+applies_to:
+  repo: powerx-marketplace
+  scopes:
+    - api
+    - service
+    - frontend
+
+requirements:
+  directory_layout:
+    - path: backend
+      must_exist: true
+      description: 市场后端主体，包含 cmd/api/internal/migrations 等目录
+    - path: backend/cmd/px
+      must_exist: true
+      description: 市场主 CLI / 服务入口
+    - path: backend/cmd/marketd
+      must_exist: true
+      description: 市场守护进程或调度器入口
+    - path: backend/cmd/database
+      must_exist: true
+      description: 数据库工具命令
+    - path: backend/internal
+      must_exist: true
+      description: 业务实现与集成代码
+    - path: backend/migrations
+      must_exist: true
+      description: 数据库迁移脚本
+    - path: web-admin
+      must_exist: true
+      description: 审核运营前端（Nuxt），包含 app/scripts/tests 等子目录
+    - path: sdk
+      must_exist: true
+      description: 对外 SDK 或调用封装
+    - path: make-files
+      must_exist: true
+      description: makefile 片段，配合根 Makefile
+    - path: specs
+      must_exist: true
+      description: 仓内规范/ADR，与 PowerXDocs 对齐
+  cli:
+    - backend/cmd/px 与 backend/cmd/marketd 必须实现 --version（含 git commit）、--help、--ci
+    - CLI 日志在 --ci 模式下输出 JSON，默认模式兼容人类可读格式
+    - 任何新 CLI 放置在 backend/cmd/<tool>/ 并遵循 cobra/urfave 标准
+  workflows:
+    - 工作流脚本放置在 scripts/ 或 backend/scripts/，命名以 verb-<action>.sh/.mjs
+    - Pure push 产物写入 docs/use_cases/_from_hub/ 路径，禁止覆盖其他目录
+  documentation:
+    - Seeds 存放于 docs/usecases-seeds/powerx-marketplace/<layer>/<domain>/
+    - docmap repo 键值必须为 powerx-marketplace，并与 docs/_data/repos.yaml 对齐
+    - 审核/上架流程更新需同步 docs/standards/** 与 docs/website/** 页面
+  quality_gates:
+    - go test ./...、npm run lint、npm run test:workflows（或等效命令）为 CI 必跑
+    - 前端需运行 npm run test 或 vitest/playwright 阶段
+
+references:
+  - .specify/memory/powerx-marketplace.md
+  - .specify/memory/constitution.md

@@ -31,7 +31,7 @@ related_usecases:
   - doc_id: PX-PUBLISH-OFFLINE-001
     layer: service
     domain: publish
-  - doc_id: PX-ADMIN-PUBLISH-OFFLINE-001
+  - doc_id: PX-PUBLISH-OFFLINE-UI-001
     layer: ui
     domain: publish
 last_reviewed_at: {{LAST_REVIEWED_AT}}
@@ -76,7 +76,7 @@ last_reviewed_at: {{LAST_REVIEWED_AT}}
 - PLG-PUBLISH-OFFLINE-001
 - MKP-PUBLISH-OFFLINE-001
 - PX-PUBLISH-OFFLINE-001
-- PX-ADMIN-PUBLISH-OFFLINE-001
+- PX-PUBLISH-OFFLINE-UI-001
 
 # Acceptance Criteria
 

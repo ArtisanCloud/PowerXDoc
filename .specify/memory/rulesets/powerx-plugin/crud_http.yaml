@@ -1,0 +1,59 @@
+# CRUD over HTTP — Top Ruleset
+# Gates: PG-HOST-001 / PG-CTX-001 / PG-RBAC-001 / PG-SVC-001
+kind: ruleset
+id: crud_http
+version: 1.0.0
+summary: "插件后端 HTTP 约束：统一路由、响应、鉴权、RLS 与 Service 复用"
+requires:
+  - rulesets/crud/api_rest.yaml
+  - rulesets/crud/handler_http.yaml
+  - rulesets/crud/dto.yaml
+  - rulesets/crud/service.yaml
+  - rulesets/crud/repository.yaml
+  - rulesets/crud/model.yaml
+  - rulesets/crud/migration.yaml
+  - rulesets/crud/di.yaml
+  - rulesets/crud/test.yaml
+checks:
+  - id: http-prefix-configurable
+    desc: API 分组使用可配置前缀，默认 /api/v1，并统一挂载管理端点
+    assert:
+      type: grep
+      target: backend/internal/router/router.go
+      pattern:
+        - "prefix := r.cfg.Server.APIPrefix"
+        - "if strings.TrimSpace(prefix) == \"\" {"
+        - "prefix = \"/api/v1\""
+        - "gApi := r.engine.Group(prefix)"
+  - id: http-envelope
+    desc: 响应使用统一 envelope 与分页结构
+    assert:
+      type: schema
+      target: backend/internal/transport/http/**
+      schema: refs:rulesets/crud/api_rest.yaml#envelope
+  - id: http-mw-stack
+    desc: 中间件顺序：request_id→ctx_verify→rbac→tenant_ctx→recovery/logging→throttle
+    assert:
+      type: grep
+      target: backend/internal/transport/http/server.go
+      pattern:
+        - request_id
+        - ctx_verify
+        - rbac
+        - tenant_ctx
+        - recovery
+  - id: http-service-slim
+    desc: Handler 仅做校验/鉴权/调用 Service；业务逻辑不得落在 handler 中
+    assert:
+      type: ban-symbol
+      target: backend/internal/transport/http/**
+      symbols:
+        - direct_db_access
+        - business_flow_in_handler
+  - id: http-rls
+    desc: DB 会话必须注入 tenant_id（RLS）
+    assert:
+      type: grep
+      target: backend/internal/**
+      pattern:
+        - "SET LOCAL app.tenant_id"

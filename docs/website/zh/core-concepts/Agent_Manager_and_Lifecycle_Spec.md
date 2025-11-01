@@ -1,4 +1,4 @@
-# Agent Manager and Lifecycle Specification (CoreX / Integration v3 – A2A Unified Edition)
+# Agent 管理与生命周期规范（CoreX / Integration v3 – A2A 统一版）
 
 > 本规范定义 **PowerX CoreX/integration 域** 中
 > 智能体（Agent）的 **注册、生命周期、通信与调度模型**。

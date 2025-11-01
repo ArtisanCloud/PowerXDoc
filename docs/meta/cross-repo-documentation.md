@@ -43,9 +43,9 @@ flowchart TD
   end
 
   subgraph Repos["各项目仓库（仅接收分发）"]
-    R1["PowerX Core（Backend + Web Admin）<br/>docs/use_cases/_from_hub/<layer>/<domain>/PX-*.md"]
-    R2["PowerX Marketplace<br/>docs/use_cases/_from_hub/<layer>/<domain>/MKP-*.md"]
-    R3["PowerX Plugin Scaffold<br/>docs/use_cases/_from_hub/<layer>/<domain>/PLG-*.md"]
+    R1["PowerX Core（Backend + Web Admin）<br/>docs/use_cases/_from_hub/<SCN_ID>/PX-*.md"]
+    R2["PowerX Marketplace<br/>docs/use_cases/_from_hub/<SCN_ID>/MKP-*.md"]
+    R3["PowerX Plugin Scaffold<br/>docs/use_cases/_from_hub/<SCN_ID>/PLG-*.md"]
     RS["所有项目<br/>docs/standards/**（只读）"]
   end
 
@@ -109,7 +109,7 @@ status: Approved
 ```
 
 > **模板接收路径**（只读）：
-> 各仓 `docs/use_cases/_from_hub/<layer>/<domain>/<PREFIX>-*.md` 仅存放 **中心下发模板**。
+> 各仓 `docs/use_cases/_from_hub/<SCN_ID>/<PREFIX>-*.md` 仅存放 **中心下发模板**。
 
 ---
 
@@ -197,10 +197,10 @@ flowchart TD
   end
 
   subgraph Repos["各项目仓库 — 仅接收分发"]
-    R1["PowerX Backend<br/>docs/use_cases/_from_hub/<layer>/<domain>/PX-*.md"]
-    R2["PowerX Marketplace<br/>docs/use_cases/_from_hub/<layer>/<domain>/MKP-*.md"]
-    R3["PowerX Plugin Scaffold<br/>docs/use_cases/_from_hub/<layer>/<domain>/PLG-*.md"]
-    R4["PowerX Admin<br/>docs/use_cases/_from_hub/<layer>/<domain>/PX-ADMIN-*.md"]
+    R1["PowerX Backend<br/>docs/use_cases/_from_hub/<SCN_ID>/PX-*.md"]
+    R2["PowerX Marketplace<br/>docs/use_cases/_from_hub/<SCN_ID>/MKP-*.md"]
+    R3["PowerX Plugin Scaffold<br/>docs/use_cases/_from_hub/<SCN_ID>/PLG-*.md"]
+    R4["PowerX Admin<br/>docs/use_cases/_from_hub/<SCN_ID>/PX-ADMIN-*.md"]
     RS["docs/standards/** 只读"]
   end
 
@@ -531,7 +531,7 @@ bash scripts/build-collected.sh
 
 ### B) `scripts/push-usecases.sh`
 
-> 功能：把 **模板** 从 `docs/usecases-seeds/<repo-scope>/<layer>/<domain>/` 分发到各仓的 `_from_hub/<layer>/<domain>/`。只 push，不 pull。
+> 功能：把 **模板** 从 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 分发到各仓的 `_from_hub/<SCN_ID>/`。只 push，不 pull。
 
 ```bash
 #!/usr/bin/env bash
@@ -603,7 +603,7 @@ done
 > 说明：
 >
 > * 该脚本**直接复制完整的模板目录树**（含 layer/domain）。
-> * 各仓落点：`docs/use_cases/_from_hub/<layer>/<domain>/…`。
+> * 各仓落点：`docs/use_cases/_from_hub/<SCN_ID>/<doc_id>.md`。
 > * 只推送，不拉取。
 
 ---
@@ -1195,7 +1195,7 @@ export default defineConfig({
             {
               text: '核心概念',
               items: [
-                { text: '介绍', link: '/core-concepts/README.md' },
+                { text: '介绍', link: '/core-concepts/' },
                 { text: '集成架构', link: '/core-concepts/PowerX_Integration_Architecture.md' },
                 { text: '知识库', link: '/core-concepts/00_overview.md' },
                 { text: '智能体生命周期', link: '/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
@@ -1258,7 +1258,7 @@ export default defineConfig({
             {
               text: 'Core Concepts',
               items: [
-                { text: 'Overview', link: '/en/core-concepts/README.md' },
+                { text: 'Overview', link: '/en/core-concepts/' },
                 { text: 'Integration Architecture', link: '/en/core-concepts/PowerX_Integration_Architecture.md' },
                 { text: 'Knowledge Base', link: '/en/core-concepts/00_overview.md' },
                 { text: 'Agent Lifecycle', link: '/en/core-concepts/Agent_Manager_and_Lifecycle_Spec.md' }
@@ -1328,7 +1328,7 @@ export default defineConfig({
 
 | 功能              | 所在仓       | 职责与产物                                                                              |
 | --------------- | --------- | ---------------------------------------------------------------------------------- |
-| 子用例模板分发         | PowerXDoc | `scripts/push-usecases.sh` → 各仓 `docs/use_cases/_from_hub/<layer>/<domain>/`       |
+| 子用例模板分发         | PowerXDoc | `scripts/push-usecases.sh` → 各仓 `docs/use_cases/_from_hub/<SCN_ID>/`       |
 | 统一规范下发          | PowerXDoc | `scripts/push-standards.sh` → 各仓 `docs/standards/`（只读）                             |
 | 子用例（作者自有）       | 各项目仓      | 紧贴代码产文：`docs/use_cases/<layer>/<domain>/<PX\|MKP\|PLG\|PX-ADMIN>-*.md`             |
 | 主用例撰写与聚合        | PowerXDoc | `docs/scenarios/SCN-*.md` → `scripts/publish-ai.mjs` → `docs/website/scenarios/**` |

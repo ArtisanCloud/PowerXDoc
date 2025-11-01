@@ -1,0 +1,16 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-OPS-SYSTEM-MONITORING-001",
+      "fingerprint": "20a57bcf0821160f341cf1ad5c4a415a99c9ad5f08dcf16358c55ca8b1281a04",
+      "resumeToken": "69079891-0dd7-41d8-835d-62b1a1c018e2",
+      "status": "running",
+      "metadata": {},
+      "createdAt": "2025-11-01T13:41:24.259Z",
+      "updatedAt": "2025-11-01T13:41:24.260Z"
+    }
+  ],
+  "tokens": {
+    "69079891-0dd7-41d8-835d-62b1a1c018e2": "20a57bcf0821160f341cf1ad5c4a415a99c9ad5f08dcf16358c55ca8b1281a04"
+  }
+}

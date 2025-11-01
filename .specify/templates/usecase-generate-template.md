@@ -80,6 +80,7 @@ last_generated_at: "{{GENERATED_AT}}"
 
 - `docmap.yaml` 与 Seed frontmatter 字段完全一致，无大小写或路径差异。
 - Seed 正文至少覆盖业务目标、流程分解、接口契约、测试策略与运维计划。
+- 内容与结构满足 `.specify/memory/constitution.md` 的四大原则（Role-Driven / Concept-First / Structure-Oriented / Clarity through Visualization），必要时补充角色说明与 mermaid 图。
 - 运行 `npm run lint` 与 `npm run docs:build` 确认无语法错误、站点可构建。
 - 使用 `npm run publish:scenarios -- --scn-id {{SCN_ID}} --validate-only` 快速验证场景配置无误（可在正式发布前执行）。
 - {{ADDITIONAL_SELF_CHECKS}}

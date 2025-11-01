@@ -2,8 +2,8 @@
 
 场景流程与 Usecase 保持同一套命令：
 
-1. `node .specify/scripts/node/generate-scenarios.mjs <设计稿路径或文本> [--force]`
-2. 若仍有缺口，再运行 `.codex/prompts/speckit.scenario.md <同样输入>` 或 `.codex/prompts/speckit.scenario.clarify.md <同样输入>`
+1. `.codex/prompts/speckit.scenario.md <@设计稿 Markdown 或文本>`
+2. `.codex/prompts/speckit.scenario.clarify.md <同样输入>`（如需补充缺口）
 
 补完后即可进入 Seed 生成与分发步骤。
 
@@ -16,17 +16,13 @@
 ## 2. 生成场景草稿
 
 ```bash
-node .specify/scripts/node/generate-scenarios.mjs <源文件路径或文本文件> [--force]
-
-或
-
 [speckit.scenario.md](.codex/prompts/speckit.scenario.md) <@源文件路径或文本文件>
 
 
 ```
 
 - `<源文件路径或文本文件>` 可以是任意设计稿 Markdown，也可以是临时保存的文本；示例：`docs/meta/scenarios/plugin/publish.md`
-- 脚本按模板写入对应场景文档（若文件存在需覆盖则添加 `--force`）。
+- Prompt 会基于 `docs/standards/scenarios/_template.md` 直接产出草稿，并在需要时提示是否覆盖已有文件。
 - 生成后如还有 `TODO_*`，继续执行 Clarify 补齐缺失信息。
 
 ## 3. Clarify（按需）

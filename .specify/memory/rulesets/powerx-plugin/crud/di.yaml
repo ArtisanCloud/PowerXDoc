@@ -1,0 +1,10 @@
+# 依赖注入（DI）与构建
+kind: ruleset
+id: crud_di
+version: 1.0.0
+checks:
+  - id: container
+    desc: 存在容器构造，注入配置/日志/客户端/Repo/Service/Transport
+    assert:
+      type: path
+      target: backend/internal/di/**

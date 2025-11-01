@@ -1,0 +1,20 @@
+# 测试策略
+kind: ruleset
+id: crud_test
+version: 1.0.0
+checks:
+  - id: contract-tests
+    desc: HTTP/gRPC 合同测试齐备
+    assert:
+      type: path
+      target: backend/test/contract/**
+  - id: integration-rls
+    desc: 多租户读写隔离的集成测试
+    assert:
+      type: path
+      target: backend/test/integration/**
+  - id: migration-smoke
+    desc: 迁移冒烟测试存在
+    assert:
+      type: path
+      target: backend/test/migration/**

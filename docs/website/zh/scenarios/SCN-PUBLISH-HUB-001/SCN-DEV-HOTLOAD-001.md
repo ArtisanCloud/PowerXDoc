@@ -1,24 +1,21 @@
 ---
 scn_id: SCN-DEV-HOTLOAD-001
-title: 插件本地开发热加载与快速验证
+title: 插件本地调试与热加载场景
 status: Draft
 version: v0.1.0
 owners:
-  - name: Li Wei
-    role: Scenario Steward
-    contact: <li.wei@artisan-cloud.com>
-domains: ['dev', 'publish']
-layers: ['proto', 'service', 'ui']
+  - name: Michael Hu
+    role: Plugin Tech Lead
+    contact: tech@artisan-cloud.com
+domains: [dev]
+layers: [proto, service, ui]
 repos:
   - key: powerx-plugin
-    scope: plg
-    responsibility: CLI 热加载与构建输出
+    scope: powerx-plugin
+    responsibility: 插件项目模板、构建与调试 CLI
   - key: powerx
-    scope: px
-    responsibility: Dev API、沙盒容器与会话治理
-  - key: powerx
-    scope: admin
-    responsibility: 开发者调试面板与日志反馈
+    scope: powerx
+    responsibility: 插件运行时、API、日志以及 Web Admin 热加载入口
 related_usecases:
   - doc_id: PLG-DEV-HOTLOAD-001
     layer: proto
@@ -26,72 +23,85 @@ related_usecases:
   - doc_id: PX-DEV-HOTLOAD-001
     layer: service
     domain: dev
-  - doc_id: PX-ADMIN-DEV-HOTLOAD-001
+  - doc_id: PX-DEV-HOTLOAD-UI-001
     layer: ui
     domain: dev
-last_reviewed_at: 2025-10-24
+last_reviewed_at: 2025-01-01
 
 ---
 
 # Executive Summary
 
-本场景描述开发者通过 `px-plugin dev --watch` 在本地热加载调试插件的流程，确保快速、无 Marketplace 依赖地验证功能。CLI 负责构建与 watcher，PowerX Core Backend Dev API 管理沙盒容器，Web Admin 调试面板提供实时日志与控制。
+本场景覆盖插件开发者在本地环境完成构建、安装与热加载的全流程，目标是在不依赖 Marketplace 的前提下快速验证插件功能、接口与权限配置。成功执行后，开发者可在 PowerX Web Admin 中即时体验插件效果，并循环迭代。
 
 # Scope & Guardrails
 
-- **In Scope**：本地热加载、Dev API、Web Admin 调试面板。
-- **Out of Scope**：离线导入、在线发布、收费与 License 管理。
-- **Environment & Flags**：启用 `PX_DEV_PLUGIN_HOTLOAD`、Admin 打开开发者模式、配置本地 mTLS 凭据。
+- **In Scope**：插件源码构建、产物安装、后端注册、Admin 页面热加载与卸载。
+- **Out of Scope**：Marketplace 审核、版本签名、跨租户分发、线上回滚策略。
+- **Environment & Flags**：需要启用 `PX_PLUGIN_DEV_MODE`；本地 Core/Admin 与插件工程需联网或共享本地文件系统；插件仓必须通过 SDK 校验。
 
 # Participants & Responsibilities
 
-| Scope | Repository | Layer  | 责任与交付物                         | Owners |
-|-------|------------|--------|--------------------------------------|--------|
-| plg   | powerx-plugin   | proto  | CLI 热加载、watcher、构建输出        | Li Wei |
-| px    | powerx  | service| Dev API、沙盒容器、日志与审计          | Carol |
-| admin | powerx    | ui     | 调试面板、日志展示、控制操作          | Dave |
+| Scope               | Repository    | Layer   | 责任与交付物                                       | Owners                      |
+|---------------------|---------------|---------|----------------------------------------------------|-----------------------------|
+| PowerXPlugin        | powerx-plugin | proto   | 提供 CLI、开发模板、构建输出                       | Michael Hu（Plugin Tech Lead） |
+| PowerX (Core+Admin) | powerx        | service | 注册插件、暴露调试 API、记录日志、热加载界面与反馈 | Carol（Platform Lead）      |
 
 # End-to-End Flow
 
-1. 执行 `px-plugin dev --watch`，CLI 输出构建产物并启动 watcher。
-2. CLI 调用 `POST /internal/dev/plugins/register` 注册本地插件，Backend 创建沙盒容器。
-3. 文件变化时 CLI 触发 `POST /internal/dev/plugins/reload`，容器热重载并向 Admin 推送日志。
-4. 调试完成执行 `px-plugin dev --stop`，CLI 调用 `DELETE /internal/dev/plugins/register` 清理会话，Backend 记录审计。
+1. **Stage 1 – 本地构建**：开发者在插件工程执行 `px-plugin build`，生成 `dist/` 或 `.pxp` 目录。
+2. **Stage 2 – 连接 Admin**：登录 PowerX Web Admin，在插件管理页选择“本地目录安装”。
+3. **Stage 3 – 热加载执行**：Admin 调用 Backend 的 `POST /api/plugins/dev/install` 接口，复制产物并完成依赖注入。
+4. **Stage 4 – 调试迭代**：开发者在 Admin 中查看插件入口，配合 CLI `px-plugin dev --watch` 实现热更新；日志与错误通过 Backend 返回。
+
+```mermaid
+sequenceDiagram
+  participant Dev as 插件开发者
+  participant CLI as px-plugin CLI
+  participant Admin as PowerX Web Admin
+  participant Core as PowerX Backend
+
+  Dev->>CLI: px-plugin build
+  CLI-->>Dev: 生成 dist/
+  Dev->>Admin: 选择本地目录安装
+  Admin->>Core: POST /api/plugins/dev/install
+  Core-->>Core: 校验 + 注册插件清单
+  Core->>Admin: 返回安装结果 & 调试信息
+  Admin->>Dev: 展示插件入口与日志
+```
 
 # Key Interactions & Contracts
 
-- CLI：`px-plugin dev --watch/--stop`
-- PowerX Core Backend Dev API：注册、重载、删除本地插件会话
-- Web Admin SSE/WebSocket：推送实时日志与状态
+- **APIs / Events**：`POST /api/plugins/dev/install`、`DELETE /api/plugins/dev/install`、WebSocket `plugin.dev.logs`。
+- **Configs / Schemas**：本地 `manifest.json`、调试权限策略 YAML。
+- **Security / Compliance**：仅允许拥有 `plugin:dev` 权限的开发者操作；日志保留 7 天便于审计。
 
 # Usecase Links
 
-- PLG-DEV-HOTLOAD-001
-- PX-DEV-HOTLOAD-001
-- PX-ADMIN-DEV-HOTLOAD-001
+- `PLG-DEV-HOTLOAD-001` — 插件工程生成热加载产物（proto 层）。
+- `PX-DEV-HOTLOAD-001` — Backend 注册与生命周期管理（service 层）。
+- `PX-DEV-HOTLOAD-UI-001` — Admin 热加载界面与提示（ui 层）。
 
 # Acceptance Criteria
 
-1. 热重载延迟 ≤ 2 秒，日志实时刷新。
-2. 会话结束自动回收容器与端口，并生成审计记录。
-3. CLI/Dev API 错误提供明确提示与重试指引。
+1. 从构建产物到 Admin 成功加载的耗时不超过 2 分钟。
+2. 热加载失败时自动回滚到上一个稳定版本并提示原因。
+3. 调试模式下的操作日志在 CLI 与 Admin 均可实时查看。
 
 # Telemetry & Ops
 
-- 指标：`dev.hotload.reload_time_ms`、`dev.hotload.active_sessions`、`dev.hotload.reload_failures`
-- 告警：连续 3 次热加载失败触发 `#powerx-dev-alerts`；闲置 > 60 分钟自动清理并通知
-- 观测：CLI 日志、Backend Dev Dashboard、Web Admin 调试面板
+- 指标：`plugin.dev.install.duration`、`plugin.dev.install.success_rate`、`plugin.dev.rollback.count`。
+- 告警阈值：连续两次安装失败、成功率低于 95%。
+- 观测来源：Prometheus 指标、Admin 调试日志、CLI 实时输出。
 
 # Open Issues & Follow-ups
 
-| 风险/事项 | 影响范围 | 负责人 | ETA |
-|-----------|----------|--------|-----|
-| 大型资源构建耗时长，需增量编译方案 | plg | Li Wei | 2025-02-20 |
-| 沙盒缺少资源配额监控，存在滥用风险 | px  | Carol | 2025-02-12 |
+| 风险/事项                             | 影响范围        | 负责人            | ETA        |
+|---------------------------------------|-----------------|-------------------|------------|
+| CLI 与 Admin 日志对齐策略待补齐       | 调试效率        | Matrix-X（Docs Coordinator） | 2025-02-10 |
+| 插件依赖冲突自动检测能力不足         | 插件运行稳定性  | Michael Hu（Plugin Tech Lead） | 2025-03-05 |
 
 # Appendix
 
-- docs/meta/scenarios/plugin/publish.md
-- docs/standards/powerx-plugin/deploy/local_debug.md
-- docs/standards/powerx/backend/plugins/sts_flow.md
-- docs/standards/powerx/web-admin/plugins/host_plugin_grpc.md
+- Dev 热加载 API 设计稿：<https://docs.artisancloud.com/powerx/dev-hotload>
+- CLI 热加载调试指南：`docs/guides/dev/hotload-debug.md`

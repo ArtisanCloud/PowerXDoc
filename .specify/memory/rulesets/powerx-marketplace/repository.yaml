@@ -1,0 +1,20 @@
+# Repository 层
+kind: ruleset
+id: crud_repository
+version: 1.0.0
+checks:
+  - id: repo-interface
+    desc: 定义接口 + 具体实现；暴露最小读取/写入方法
+    assert:
+      type: grep
+      target: backend/internal/domain/repository/**
+      pattern:
+        - interface
+  - id: repo-tenant-tx
+    desc: 读写在 BeginTenantTx 中执行，并设置 app.tenant_id
+    assert:
+      type: grep
+      target: backend/internal/domain/repository/**
+      pattern:
+        - BeginTenantTx
+        - "SET LOCAL app.tenant_id"

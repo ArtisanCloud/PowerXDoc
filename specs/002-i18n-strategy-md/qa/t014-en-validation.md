@@ -14,7 +14,7 @@
 | Route | English Source | Key Checks |
 |-------|----------------|------------|
 | `/en/` | `docs/en/index.md` | Landing page renders `<MyAwesomeHome />` which contains a full English dictionary for hero, nav, features, and footer messaging. |
-| `/en/core-concepts/` | `docs/en/core-concepts/README.md` | Frontmatter review status + headings are English; no Chinese tokens detected. |
+| `/en/core-concepts/` | `docs/website/en/core-concepts/index.md` | Frontmatter review status + headings are English; no Chinese tokens detected. |
 | `/en/core-concepts/PowerX_Integration_Architecture.md` | same | Verified architecture narrative is translated and references in-page links using English copy. |
 | `/en/core-concepts/00_overview.md` | same | Outline and bullet content localized; `rg` scan confirms absence of Chinese characters. |
 | `/en/developer-guides/README.md` | `docs/en/developer-guides/README.md` | Page intro, bullet lists, and CTA guidance fully localized. |

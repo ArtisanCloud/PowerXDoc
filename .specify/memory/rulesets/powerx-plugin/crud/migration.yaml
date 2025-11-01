@@ -1,0 +1,18 @@
+# Migration 纪律
+kind: ruleset
+id: crud_migration
+version: 1.0.0
+checks:
+  - id: migration-exist
+    desc: 所有模型均有迁移脚本；幂等/可回滚
+    assert:
+      type: path
+      target: backend/migrations/**
+  - id: migration-rls
+    desc: RLS 策略存在且启用
+    assert:
+      type: grep
+      target: backend/migrations/**
+      pattern:
+        - "ALTER TABLE"
+        - "USING (tenant_id = current_setting('app.tenant_id')::uuid)"

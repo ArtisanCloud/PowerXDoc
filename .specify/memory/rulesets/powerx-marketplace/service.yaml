@@ -1,0 +1,17 @@
+# Service 层唯一业务源
+kind: ruleset
+id: crud_service
+version: 1.0.0
+checks:
+  - id: service-dir
+    desc: 每个资源拥有独立 service 包，供 HTTP/gRPC 复用
+    assert:
+      type: path
+      target: backend/internal/services/*/
+  - id: service-repo-only
+    desc: Service 通过 Repository 访问数据，不得直接操作 DB 客户端
+    assert:
+      type: ban-symbol
+      target: backend/internal/services/**
+      symbols:
+        - direct_db_access

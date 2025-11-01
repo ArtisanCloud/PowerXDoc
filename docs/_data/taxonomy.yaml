@@ -18,3 +18,7 @@ domains:
   - catalog
   - billing
   - account
+  - ops
+  - dev
+  - iam
+  - marketplace

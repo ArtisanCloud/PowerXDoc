@@ -32,7 +32,7 @@ Documentation operations engineer triggers the pure push pipeline so that templa
 
 **Acceptance Scenarios**:
 
-1. **Given** a revised template exists under `docs/usecases-seeds/powerx/service/publish/PX-PUBLISH-002.md`, **When** the push workflow runs, **Then** `docs/use_cases/_from_hub/service/publish/PX-PUBLISH-002.md` is updated in the PowerX repository and a delivery report lists the affected repos.
+1. **Given** a revised template exists under `docs/usecases-seeds/powerx/service/publish/PX-PUBLISH-002.md`, **When** the push workflow runs, **Then** `docs/use_cases/_from_hub/<SCN_ID>/PX-PUBLISH-002.md` is updated in the PowerX repository and a delivery report lists the affected repos.
 2. **Given** a repo is temporarily unavailable, **When** the push workflow runs, **Then** the system records the failed delivery and provides a retry path without blocking other repos.
 
 ---
@@ -65,7 +65,7 @@ Product leadership reviews the aggregated scenario library and `_collected` stub
 - **FR-002**: The system MUST require each published scenario to have a matching entry in `docs/_data/docmap.yaml` capturing scope, layer, domain, repo, path, title, ordering, and optionality.
 - **FR-003**: The publication workflow MUST generate rendered scenario pages under `docs/website/scenarios/**` from the drafts and docmap metadata without manual edits.
 - **FR-004**: `_collected` stub generation MUST produce one placeholder per docmap child that links to the authoritative external repository without performing network pulls, and MUST halt with an error report if the configured repository path or name is invalid or unavailable.
-- **FR-005**: The usecase seed distribution workflow MUST push updated templates from `docs/usecases-seeds/<scope>/<layer>/<domain>/` to each repo’s `docs/use_cases/_from_hub/<layer>/<domain>/` directory while leaving author-owned paths untouched, and MUST do so via auto-created feature branches with Pull Requests for downstream review.
+- **FR-005**: The usecase seed distribution workflow MUST push updated templates from `docs/usecases-seeds/<scope>/<layer>/<domain>/` to each repo’s `docs/use_cases/_from_hub/<SCN_ID>/<doc_id>.md` path while leaving author-owned content untouched, and MUST do so via auto-created feature branches with Pull Requests for downstream review.
 - **FR-006**: Standards distribution MUST deliver `docs/standards/**` content to downstream repos in read-only form to maintain consistent governance language, also using dedicated branches and Pull Requests rather than direct commits.
 - **FR-007**: All workflows MUST emit delivery and validation reports summarizing files touched, successes, failures, and outstanding retries so stewards can track compliance.
 - **FR-008**: The taxonomy of scopes, layers, and domains MUST be validated against an allowed list and surfaced in the rendered UI to ensure consistent navigation.

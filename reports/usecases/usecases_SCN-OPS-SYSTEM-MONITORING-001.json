@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-OPS-SYSTEM-MONITORING-001",
+    "scenario": "SCN-OPS-SYSTEM-MONITORING-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-01T14:27:58.644Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-OPS-SYSTEM-MONITORING-001",
+      "status": "Completed",
+      "resumeToken": "d5009a79-8356-49c4-8f1b-bd75fc5d3153",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-ops-system-monitoring-001-5944b5a1",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md",
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md",
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md",
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-ops-system-monitoring-001-5944b5a1",
+          "resumeToken": "d5009a79-8356-49c4-8f1b-bd75fc5d3153",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-01T14:27:04.959Z"
+    },
+    {
+      "workflowId": "usecases:SCN-OPS-SYSTEM-MONITORING-001",
+      "status": "Completed",
+      "resumeToken": "d5009a79-8356-49c4-8f1b-bd75fc5d3153",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md",
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md",
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md",
+            "docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "d5009a79-8356-49c4-8f1b-bd75fc5d3153",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-01T14:27:58.647Z"
+    }
+  ]
+}

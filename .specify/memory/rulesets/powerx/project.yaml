@@ -1,0 +1,61 @@
+# PowerX Project Ruleset
+version: 0.2.0
+maintainers:
+  - name: Docs Steward Team
+    contact: docs@artisan-cloud.com
+
+applies_to:
+  repo: powerx
+  scopes:
+    - service
+    - ui
+    - ops
+
+requirements:
+  directory_layout:
+    - path: backend
+      must_exist: true
+      description: Go 服务主体，包含 cmd/internal/pkg/config/domain 等子目录
+    - path: backend/cmd/app
+      must_exist: true
+      description: 主运行入口二进制（app）
+    - path: backend/internal
+      must_exist: true
+      description: 业务与基础设施实现层
+    - path: backend/pkg
+      must_exist: true
+      description: 可复用库，禁止放业务耦合代码
+    - path: backend/scripts
+      must_exist: true
+      description: Go/Node/Shell 自动化脚本
+    - path: backend/tests
+      must_exist: true
+      description: 集成与端到端测试目录
+    - path: web-admin
+      must_exist: true
+      description: Nuxt 4 + Nuxt UI 3.3.x 前端工程
+    - path: web-admin/tests
+      must_exist: true
+      description: 前端单元与端到端测试
+    - path: scripts
+      must_exist: true
+      description: 仓根自动化脚本入口
+    - path: specs
+      must_exist: true
+      description: 仓内规范/ADR，与 PowerXDocs 同步
+  cli:
+    - backend/cmd/app 提供 --version / --help / --ci（或 PX_CI=1）输出，包含 git commit 与构建时间
+    - 任何新增 CLI 需放置在 backend/cmd/<tool>/ 并遵循 cobra/urfave 标准，命名使用 px-<scope>
+    - CLI 日志默认支持 JSON 与人类可读双格式，并在 --ci 下固定 JSON
+  documentation:
+    - Seeds 存放于 docs/usecases-seeds/powerx/<layer>/<domain>/
+    - docmap repo 字段必须为 powerx 且与 docs/_data/repos.yaml 对齐
+    - 更新架构/流程需同步 docs/design/** 或 docs/website/** 中对应文档
+  quality_gates:
+    - gofmt 与 goimports 必须无差异（CI 检查）
+    - npm run lint 与 npm run docs:build 在 CI 中作为必跑步骤
+    - workflow 脚本需通过 npm run test:workflows 或等效测试
+
+references:
+  - .specify/memory/powerx.md
+  - .specify/memory/constitution.md

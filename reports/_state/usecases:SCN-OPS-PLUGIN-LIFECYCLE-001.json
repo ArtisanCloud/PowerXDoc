@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-OPS-PLUGIN-LIFECYCLE-001",
+      "fingerprint": "6d7ea59926af746c5ec0d7875282782d52c79cb518a7ea3c62fb573c948c5144",
+      "resumeToken": "99c66f8d-f603-480b-90a0-113d2ff1d7d1",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-OPS-PLUGIN-LIFECYCLE-001.json"
+      },
+      "createdAt": "2025-11-01T01:44:04.004Z",
+      "updatedAt": "2025-11-01T01:45:04.559Z"
+    }
+  ],
+  "tokens": {
+    "99c66f8d-f603-480b-90a0-113d2ff1d7d1": "6d7ea59926af746c5ec0d7875282782d52c79cb518a7ea3c62fb573c948c5144"
+  }
+}

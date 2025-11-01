@@ -1,4 +1,4 @@
-# 📘 PowerX Integration Architecture
+# 📘 PowerX 集成架构
 
 ## 🧭 架构定位与蓝图
 

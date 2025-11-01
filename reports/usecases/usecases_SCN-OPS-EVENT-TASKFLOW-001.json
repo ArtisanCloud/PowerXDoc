@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-OPS-EVENT-TASKFLOW-001",
+    "scenario": "SCN-OPS-EVENT-TASKFLOW-001",
+    "status": "Completed",
+    "generatedAt": "2025-10-31T14:21:00.713Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-OPS-EVENT-TASKFLOW-001",
+      "status": "Completed",
+      "resumeToken": "aa7ee244-609d-494c-807c-b09c42b077ae",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-ops-event-taskflow-001-667d9036",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md",
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md",
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md",
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-ops-event-taskflow-001-667d9036",
+          "resumeToken": "aa7ee244-609d-494c-807c-b09c42b077ae",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-10-31T14:19:27.657Z"
+    },
+    {
+      "workflowId": "usecases:SCN-OPS-EVENT-TASKFLOW-001",
+      "status": "Completed",
+      "resumeToken": "aa7ee244-609d-494c-807c-b09c42b077ae",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md",
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md",
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md",
+            "docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "aa7ee244-609d-494c-807c-b09c42b077ae",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-10-31T14:21:00.716Z"
+    }
+  ]
+}

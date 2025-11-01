@@ -34,7 +34,7 @@ related_usecases:
   - doc_id: PX-PUBLISH-ONLINE-001
     layer: service
     domain: catalog
-  - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
+  - doc_id: PX-PUBLISH-ONLINE-UI-001
     layer: ui
     domain: marketplace
 last_reviewed_at: {{LAST_REVIEWED_AT}}
@@ -79,7 +79,7 @@ last_reviewed_at: {{LAST_REVIEWED_AT}}
 - PLG-PUBLISH-ONLINE-001
 - MKP-PUBLISH-ONLINE-001
 - PX-PUBLISH-ONLINE-001
-- PX-ADMIN-PUBLISH-ONLINE-001
+- PX-PUBLISH-ONLINE-UI-001
 
 # Acceptance Criteria
 

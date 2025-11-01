@@ -1,0 +1,20 @@
+# Repository 层
+kind: ruleset
+id: crud_repository
+version: 1.0.0
+checks:
+  - id: repo-base-embed
+    desc: Repository 结构体需组合 BaseRepository 并通过构造函数返回本地实例
+    assert:
+      type: grep
+      target: backend/internal/domain/repository/**
+      pattern:
+        - BaseRepository
+  - id: repo-tenant-tx
+    desc: 读写在 BeginTenantTx 中执行，并设置 app.tenant_id
+    assert:
+      type: grep
+      target: backend/internal/domain/repository/**
+      pattern:
+        - BeginTenantTx
+        - "SET LOCAL app.tenant_id"

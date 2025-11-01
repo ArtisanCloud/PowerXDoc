@@ -6,26 +6,23 @@
 
 - 先将业务流程整理成 Markdown，可放在 `docs/meta/scenarios/`（或任意临时文本）。  
 - 若已存在历史 SCN，可直接保留于 `docs/scenarios/<domain>/`，生成脚本会覆盖同名文件（需要时使用 `--force`）。
-- 确保 `docs/_data/docmap.yaml` 与 `docs/_data/repos.yaml` 中的基础信息完善，Clarify 阶段即可引用。
+- 生成前先**查阅** `docs/_data/docmap.yaml` 与 `docs/_data/repos.yaml`：确认是否已有同名 `scn_id`、了解既有领域/仓库命名，以便后续保持一致。真正的映射更新在场景定稿后再写入 docmap；准备阶段只需掌握现有结构，避免重复或命名冲突。
 
 ## 生成场景草稿
 
-```bash
-node .specify/scripts/node/generate-scenarios.mjs <源文件路径或文本文件> [--force]
-```
-
-- 命令会根据模板输出到 `docs/scenarios/<domain>/SCN-*.md`。  
-- 当命令无法覆盖现有文件时，追加 `--force`。
-- 也可以使用 Codex Prompt：
+> 推荐通过 Codex Prompt 驱动，以便在生成前就完成 Clarify 输出。
 
 ```bash
 [speckit.scenario.md](.codex/prompts/speckit.scenario.md) <@源文件路径或文本文件>
 ```
 
+- Prompt 会读取源文档，对照 `docs/standards/scenarios/_template.md` 输出草稿。
+- 当需要覆盖已有 SCN，可在对话中显式确认；保留历史内容请先手动备份。
+
 ## Clarify（按需）
 
 ```bash
-.codex/prompts/speckit.scenario.clarify.md docs/meta/scenarios/<domain>/<file>.md
+[speckit.scenario.clarify.md](.codex/prompts/speckit.scenario.clarify.md)  docs/meta/scenarios/<domain>/<file>.md
 ```
 
 - Clarify 会针对缺口提问（最多 5 个），请用中文回答。  
@@ -34,11 +31,22 @@ node .specify/scripts/node/generate-scenarios.mjs <源文件路径或文本文�
 
 ## 完成后检查
 
-- 清除所有 `TODO_*` 占位符。
-- Frontmatter 字段需完整：`scn_id`、`owners`、`domains`、`layers`、`related_usecases` 等。
-- 将新的 `scn_id` 与子用例写入 `docs/_data/docmap.yaml`。
-- 运行 `/speckit.usecase-seed-generate <SCN_ID>` 进入 Seed 生成流程。
-- 使用 `npm run publish:scenarios -- --scn-id <SCN_ID> --validate-only` 快速校验结构是否一致。
+1. **清理草稿**：移除文档中的所有 `TODO_*` 占位符，确保 Frontmatter 填写完整（`scn_id`、`owners`、`domains`、`layers`、`related_usecases` 等）。
+2. **更新映射**：将新的 `scn_id` 及其子场景写入 `docs/_data/docmap.yaml`。
+3. **生成 Seeds**：在 Codex 提示区直接运行
+
+   ```bash
+   [speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md) <SCN_ID>
+   ```
+
+   根据对话指引生成或补全 Usecase Seed 文档。
+4. **结构校验**：执行
+
+   ```bash
+   npm run publish:scenarios -- --scn-id <SCN_ID> --validate-only
+   ```
+
+   快速检查场景与 docmap/Seed 的一致性。
 
 ## 常见问题
 

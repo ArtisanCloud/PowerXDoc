@@ -1,64 +1,77 @@
-# Usecase Seed 生成指南
+# 生成 Usecase Seed 指南
 
-场景文档（SCN）就绪后，可通过项目脚本批量生成 Usecase Seed 骨架，随后补全正文并同步到站点/下游仓库。本文梳理完整流程与常见校验点。
+场景文档（SCN）完成后，可通过仓库脚本批量生成 Usecase Seed 骨架，再逐条补齐正文并同步到站点/下游仓库。本文对齐仓库版指南，补充 task.md 与校验流程，方便日常复盘。
 
-## 前置检查
+## 1. 前置检查
 
-- `docs/scenarios/<domain>/SCN-*.md` 中的场景内容无 `TODO_*`，Frontmatter 信息准确。
-- `docs/_data/docmap.yaml` 已登记目标 `scn_id`，并为每个子用例填写 `doc_id`、`scope`、`layer`、`domain`、`optional` 等字段。
-- `docs/_data/repos.yaml` 配置了目标仓库及默认评审人，便于脚本写入 Frontmatter。
+- `docs/scenarios/<domain>/SCN-*.md` 已通过 `speckit.scenario*.md` 填写完成，无关键 `TODO_*`。
+- `docs/_data/docmap.yaml` 登记了目标 `scn_id`，每个 `child` 都包含 `doc_id`、`scope`、`layer`、`domain` 等字段。
+- `docs/_data/repos.yaml` 配置了各仓默认维护人，Frontmatter 可自动补齐。
 
-## 生成 Seed 骨架
+## 2. 生成 Seed 骨架
 
 ```bash
-node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-001
+node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-HUB-001
 ```
 
-- 默认会为 `docmap.yaml` 中的所有子用例生成或更新 Seed 模板（位于 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md`）。
+- 默认会在 `docs/usecases-seeds/<scope>/<layer>/<domain>/<doc_id>.md` 下生成或更新所有子用例模板。
 - 常用参数：
-  - `--doc-id PX-DEV-HOTLOAD-001`：仅生成指定子用例，可重复传入。
-  - `--scope powerx` / `--layer service` / `--domain dev`：按维度筛选。
+  - `--doc-id PX-DEV-HOTLOAD-001`（可多次出现）：仅生成指定 Seed。
+  - `--scope powerx` / `--layer service` / `--domain publish`：按维度过滤。
   - `--force`：覆盖已有 Seed。
   - `--dry-run`：仅预览计划生成的文件。
 
-## 补全 Seed 正文
+## 3. 生成任务清单（task.md）
 
-1. 打开模板中列出的各个任务（可执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` 获取提示），逐步补全正文。
-2. 协同 AI Prompt 时，可执行：
-   ```bash
-   [speckit.implement.md](.codex/prompts/speckit.implement.md) \
-     docs/usecases-seeds/powerx-plugin/proto/dev/PLG-DEV-HOTLOAD-001.md \
-     --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
-     --context docs/_data/docmap.yaml \
-     --context docs/_data/repos.yaml
-   ```
-3. 校验 Frontmatter 信息与 `docmap.yaml` 一致，并清理全部占位符（如 `<层名称>`、`TODO_*`）。
-
-## 同步站点内容（按需）
-
-若需要在文档站点展示最新 Seed，可执行：
+- 执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`，脚本会根据 docmap 输出版块写入 `docs/usecases-seeds/<SCN_ID>/task.md`，与 Seed 位于同一目录，便于逐条跟踪。首次产 Seed 即会生成此文件；如需调整顺序或新增子用例，重复执行即可覆盖更新。
+- 打开任务清单（`docs/usecases-seeds/<SCN_ID>/task.md`），按列出的命令逐项补写 Seed，例如：
 
 ```bash
-node scripts/site/sync-seed-pages.mjs --scn-id SCN-PUBLISH-001 --with-index --force
+[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+  docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
+  --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
+  --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
+  --context docs/_data/docmap.yaml \
+  --context docs/_data/repos.yaml
 ```
 
-- `zh` 目录会拷贝中文原稿；`en` 目录生成“Pending Translation”占位并附带 `partnerSlug`，供译者补全。
-- 仅同步 Seeds 可去掉 `--with-index`；指定语言时追加 `--locale zh` 或 `--locale en`。
-- 执行 `npm run docs:build` 或 `npm run docs:dev`，确认站点展示正常。
+> 建议按照 task.md 顺序处理，减少遗漏。
 
-## 提交前自检
+## 4. 补全 Seed 正文
 
-- 使用 `node .specify/scripts/node/generate-usecase-seed-index.mjs --scn-id <SCN_ID>` 更新 Seed 索引。
-- 运行 `npm run publish:usecases -- --scn-id <SCN_ID> --validate-only` 检查结构与 Frontmatter。
-- 查看 `git status`，确保仅包含目标场景/Seed 的改动。
+1. 打开生成的 Seed Markdown，替换所有占位符（`TODO_*`、示例表格、Mermaid 伪代码等）。
+2. 校验 Frontmatter：`doc_id`、`scope`、`layer`、`domain`、`optional` 必须与 `docmap.yaml` 一致。
+3. 若 Seed 需要引用其它上下文，请将路径纳入 `--context` 参数，便于 AI 或撰写者读取。
 
-## 常见问题
+## 5. 同步站点副本（按需）
 
-| 情况 | 处理方式 |
+若需在站点查看断面，可执行：
+
+```bash
+node scripts/site/sync-seed-pages.mjs \
+  --scn-id SCN-PUBLISH-HUB-001 \
+  --with-index \
+  --force
+```
+
+- `zh` 目录复制中文原稿；`en` 目录生成 “Pending Translation” 占位并写入 `partnerSlug`。
+- 仅同步 Seed 时可移除 `--with-index`；指定语言使用 `--locale zh` / `--locale en`。
+- 执行 `npm run docs:dev` 或 `npm run docs:build` 验证站点导航、Seed 页面是否更新。
+
+## 6. 提交前自检
+
+1. 生成索引：`node .specify/scripts/node/generate-usecase-seed-index.mjs --scn-id <SCN_ID>`。
+2. 运行 `npm run publish:usecases -- --scn-id <SCN_ID> --validate-only` 检查结构、Frontmatter、必填字段。
+3. 查看 `git status`，确保只包含目标场景及 Seed 的改动。
+
+## 7. 常见问题
+
+| 情况 | 排查方式 |
 |------|----------|
-| 提示找不到 `SCN_ID` | 检查 `docmap.yaml` 是否登记，必要时补充 `children`。 |
-| Seed 未生成或被跳过 | 默认不覆盖旧文件，需加 `--force`。 |
-| Seed 中仍有 `TODO_*` | 说明资料不足或脚本未覆盖，需要补齐场景信息或手动编辑。 |
-| 想只生成部分 Seed | 使用 `--doc-id`、`--scope`、`--layer`、`--domain` 缩小范围。 |
+| 提示 `SCN_ID` 不存在 | docmap 没有登记场景；补齐 `scenarios[].scn_id` 与 `children`。 |
+| Seed 未生成/被跳过 | 默认不覆盖旧文件，需加 `--force`；或检查过滤条件。 |
+| Seed 中仍有 `TODO_*` | 说明资料不足，补齐场景文档或手动填充细节。 |
+| 站点不显示新 Seed | 是否执行 `sync-seed-pages.mjs` 并提交 `docs/website/**`。 |
+| `_from_hub` 目录出现改动 | 需回滚并提醒下游仓维护自己的 `docs/use_cases/**`。 |
 
-完成以上步骤后，可继续按照《[发布 Usecase Seeds 指南](/zh/guides/usecases/publish-usecase-seeds)》进行 Dry Run 与跨仓发布。
+完成上述步骤后，即可进入《[发布 Usecase Seeds 指南](/zh/guides/usecases/publish-usecase-seeds)》中的 Dry Run 与分发流程。

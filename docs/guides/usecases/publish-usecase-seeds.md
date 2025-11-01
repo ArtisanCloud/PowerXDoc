@@ -19,6 +19,15 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --dry-run
 
 - 不会写入任何仓库，只生成 `reports/usecases/usecases_SCN-PUBLISH-HUB-001.json`。  
 - 报告里包含分发目标、文件清单和 `resumeToken`。
+- 若要复用同一批文件，可从 `reports/_state/usecases:SCN-PUBLISH-HUB-001.json`（或 Dry Run 报告）读取 `resumeToken` 并追加参数重跑：
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --dry-run \
+    --resume-token <token>
+  ```
+
 - 只想查看单个 Seed，可配合 `--doc-id`，例如：
 
   ```bash
@@ -40,6 +49,15 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001
 - 默认评审人来自 `docs/_data/repos.yaml` 中的 `default_reviewers`。  
 - 如需缩小范围，可追加 `--scope`、`--layer`、`--domain` 或 `--doc-id`。  
 - 如果上一次执行失败，可用 `--resume-token <token>` 继续。
+- 需要直接提交到默认分支（如 `dev/docs`）时，追加 `--use-default-branch`，脚本会切换到 `default_branch`、执行 `git pull --ff-only` 并在同一分支上提交、推送。
+- 正式发布也可以沿用 Dry Run 结果，只需重用同一个 `resumeToken`：
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --resume-token <token>
+  ```
+
 - 单个 Seed 的实发布示例：
 
   ```bash
@@ -49,6 +67,35 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001
   ```
 
   仅会推送包含 `PX-DEV-HOTLOAD-001` 的仓库与文件，其他 Seed 保持不动。
+
+### 直接提交模式
+
+- 若想跳过 PR 分支，直接推送到仓库默认分支（如 `dev/docs`），可追加 `--use-default-branch`：
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --use-default-branch
+  ```
+
+- 脚本会对每个仓库执行 `git fetch` → `git checkout <default_branch>` → `git pull --ff-only origin <default_branch>` → 复制 Seed → `git commit`（如有差异）→ `git push origin <default_branch>`。
+- Dry Run 与直接提交可以组合，例如：
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --dry-run \
+    --use-default-branch \
+    --resume-token <token>
+  ```
+
+- 若需要再次确认远端是否同步，可使用辅助脚本一次性触发全部仓库的 `git push`：
+
+  ```bash
+  node scripts/setup/push-downstreams.mjs
+  ```
+
+- 若早先使用默认模式留下了 `docs/hub/<SCN_ID>-***` 本地分支，可在对应仓库执行 `git branch -D docs/hub/<SCN_ID>-***` 清理。
 
 ## 3. 生成领导视图（可选）
 
@@ -78,6 +125,7 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 | `--domain` | `--domain dev` | 聚焦到某个业务域（dev/publish 等）。 |
 | `--repo` | `--repo powerx` | 仅针对指定仓库运行脚本。 |
 | `--resume-token` | `--resume-token <token>` | 失败后继续，避免重新生成 PR。 |
+| `--use-default-branch` | `--use-default-branch` | 直接在仓库 `default_branch` 上提交/推送，而不是生成 PR 分支。 |
 
 > 可以组合参数，例如一次性发布 Backend 的两个 Seed：  
 > `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --scope powerx --doc-id PX-DEV-HOTLOAD-001 --doc-id PX-PUBLISH-OFFLINE-001`

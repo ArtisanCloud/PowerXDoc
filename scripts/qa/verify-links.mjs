@@ -7,7 +7,7 @@ const DOCS_DIR = path.join(REPO_ROOT, 'docs')
 const WEBSITE_DIR = path.join(DOCS_DIR, 'website')
 const TARGET_PATTERNS = [
   '/developer-guides/',
-  '/core-concepts/README.md',
+  '/core-concepts/',
   '/api-and-specifications/README.md',
 ]
 

@@ -31,7 +31,7 @@ related_usecases:
   - doc_id: PX-DEV-HOTLOAD-001
     layer: service
     domain: dev
-  - doc_id: PX-ADMIN-DEV-HOTLOAD-001
+  - doc_id: PX-DEV-HOTLOAD-UI-001
     layer: ui
     domain: dev
   - doc_id: PLG-PUBLISH-OFFLINE-001
@@ -43,7 +43,7 @@ related_usecases:
   - doc_id: PX-PUBLISH-OFFLINE-001
     layer: service
     domain: publish
-  - doc_id: PX-ADMIN-PUBLISH-OFFLINE-001
+  - doc_id: PX-PUBLISH-OFFLINE-UI-001
     layer: ui
     domain: publish
   - doc_id: PLG-PUBLISH-ONLINE-001
@@ -55,7 +55,7 @@ related_usecases:
   - doc_id: PX-PUBLISH-ONLINE-001
     layer: service
     domain: catalog
-  - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
+  - doc_id: PX-PUBLISH-ONLINE-UI-001
     layer: ui
     domain: marketplace
 last_reviewed_at: {{LAST_REVIEWED_AT}}
@@ -96,9 +96,9 @@ PowerX 插件生态支持开发者从本地调试、离线分发到在线发布�
 
 # Usecase Links
 
-- PLG-DEV-HOTLOAD-001、PX-DEV-HOTLOAD-001、PX-ADMIN-DEV-HOTLOAD-001
-- PLG-PUBLISH-OFFLINE-001、MKP-PUBLISH-OFFLINE-001、PX-PUBLISH-OFFLINE-001、PX-ADMIN-PUBLISH-OFFLINE-001
-- PLG-PUBLISH-ONLINE-001、MKP-PUBLISH-ONLINE-001、PX-PUBLISH-ONLINE-001、PX-ADMIN-PUBLISH-ONLINE-001
+- PLG-DEV-HOTLOAD-001、PX-DEV-HOTLOAD-001、PX-DEV-HOTLOAD-UI-001
+- PLG-PUBLISH-OFFLINE-001、MKP-PUBLISH-OFFLINE-001、PX-PUBLISH-OFFLINE-001、PX-PUBLISH-OFFLINE-UI-001
+- PLG-PUBLISH-ONLINE-001、MKP-PUBLISH-ONLINE-001、PX-PUBLISH-ONLINE-001、PX-PUBLISH-ONLINE-UI-001
 
 # Acceptance Criteria
 

@@ -77,7 +77,10 @@ export async function commitAll(message, { cwd, env } = {}) {
   try {
     await runGit(['commit', '-m', message], { cwd, env });
   } catch (error) {
-    if (error instanceof GitCommandError && /nothing to commit/.test(error.stderr)) {
+    if (
+      error instanceof GitCommandError &&
+      /nothing to commit/.test(`${error.stderr}\n${error.stdout}`)
+    ) {
       return { skipped: true };
     }
     throw error;

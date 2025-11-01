@@ -1,12 +1,17 @@
 # Node modules
 node_modules/
 
+# Build outputs
+dist/
+build/
+
 # VitePress build outputs
 .docs-temp/
 docs/.vitepress/cache
 docs/.vitepress/dist
 
 # Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -19,8 +24,11 @@ yarn-error.log*
 .idea/
 
 # Local environment overrides
+.env
+.env.*
 .env.local
 .env.*.local
 
 
 repos/
+.claude

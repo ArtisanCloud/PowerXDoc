@@ -11,22 +11,19 @@ This page summarizes the scenario authoring workflow from `docs/guides/scenarios
 ## Prepare Source Material
 
 - Draft the business journey in Markdown (recommended under `docs/meta/scenarios/`) or provide temporary text.  
-- Existing scenarios remain under `docs/scenarios/<domain>/`; reruns overwrite the same file when `--force` is set.  
-- Ensure baseline data inside `docs/_data/docmap.yaml` and `docs/_data/repos.yaml` is populated so follow-up steps succeed.
+- Existing scenarios remain under `docs/scenarios/<domain>/`; keep predecessors for reference or branch before overriding.  
+- Review `docs/_data/docmap.yaml` and `docs/_data/repos.yaml` for naming and structure so that new scenarios align with existing IDs; update docmap only after the scenario is finalized.
 
 ## Generate the Scenario Draft
 
-```bash
-node .specify/scripts/node/generate-scenarios.mjs <source-path-or-text> [--force]
-```
-
-- Writes to `docs/scenarios/<domain>/SCN-*.md` following the standard template.  
-- Use `--force` if the target file already exists.  
-- Prompt-powered option:
+> Prefer the Codex prompt workflow so Clarify happens before the draft lands in the repo.
 
 ```bash
 [speckit.scenario.md](.codex/prompts/speckit.scenario.md) <@source-path-or-text>
 ```
+
+- The prompt follows `docs/standards/scenarios/_template.md` and will ask before overwriting existing files.  
+- Keep copies of legacy drafts if you need to diff or reuse sections.
 
 ## Clarify (Optional)
 

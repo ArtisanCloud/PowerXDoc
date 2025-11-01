@@ -1,6 +1,6 @@
 # 生成 Usecase Seed 指南
 
-场景就绪后（可先运行 `node .specify/scripts/node/generate-scenarios.mjs`），按以下步骤生成并撰写 Seed：
+场景就绪后（通过 `.codex/prompts/speckit.scenario*.md` 产出），按以下步骤生成并撰写 Seed：
 
 1. **生成 Seed 骨架**
 
@@ -20,7 +20,7 @@
 
 ```bash
 
-[speckit.usecase-seed-generate.md](.codex/prompts/speckit.usecase-seed-generate.md)  SCN-PUBLISH-001
+❯ node .specify/scripts/node/setup-usecase-seeds.mjs --scn-id SCN-PUBLISH-HUB-001
 
 ```
 
@@ -32,11 +32,13 @@
 
 ## 生成后动作（撰写与同步）
 
-1. 打开 `docs/scenarios/<domain>/task.md`（或运行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>` 生成），按任务列表逐条执行写作命令，例如：  
+1. 刷新任务清单：执行 `node scripts/node/generate-seed-tasks.mjs --scn-id <SCN_ID>`。脚本会依据 `docmap.yaml` 在 `docs/usecases-seeds/<SCN_ID>/task.md` 输出（或更新）该场景的命令清单，仅作用于当前 SCN，方便与 Seed 同目录管理。首次运行 speckit/usecase Seed Prompt 时已生成该文件，后续如需调整顺序或新增子用例，重复执行此脚本即可。
+2. 打开任务清单（`docs/usecases-seeds/<SCN_ID>/task.md`），按列出的命令逐条补写 Seed，例如：  
 
    ```
-   [speckit.implement.md](.codex/prompts/speckit.implement.md) \
-     docs/usecases-seeds/powerx-plugin/proto/dev/PLG-DEV-HOTLOAD-001.md \
+   [usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+       docs/usecases-seeds/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md \
+     --context docs/scenarios/publish/SCN-PUBLISH-HUB-001.md \
      --context docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md \
      --context docs/_data/docmap.yaml \
      --context docs/_data/repos.yaml

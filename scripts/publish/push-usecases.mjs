@@ -13,7 +13,7 @@ import {
   getRunByToken,
   updateRunStatus,
 } from '../lib/workflow-state.mjs';
-import { runGit, checkoutBranch, commitAll } from '../lib/git-utils.mjs';
+import { runGit, checkoutBranch, commitAll, pushBranch } from '../lib/git-utils.mjs';
 import { buildBranchName, createPullRequest } from '../lib/github-utils.mjs';
 
 const DEFAULT_STATE_DIR = 'reports/_state';
@@ -34,7 +34,9 @@ Options:
   --scope <value>            Filter docmap children by scope (repeatable)
   --layer <value>            Filter docmap children by layer (repeatable)
   --domain <value>           Filter docmap children by domain (repeatable)
-  --no-website-sync          Skip syncing docs/website content after publish
+  --website-sync             Also sync docs/website pages after successful publish
+  --no-website-sync          (Deprecated) Explicitly disable website sync
+  --use-default-branch       Commit directly on each repo's default branch instead of creating a PR branch
 `);
 }
 
@@ -56,7 +58,8 @@ function parseArgs(argv) {
     scopes: [],
     layers: [],
     domains: [],
-    syncWebsite: true,
+    syncWebsite: false,
+    useDefaultBranch: false,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -98,8 +101,14 @@ function parseArgs(argv) {
       case '--domain':
         args.domains = collectListArg(args.domains, argv[++i]);
         break;
+      case '--website-sync':
+        args.syncWebsite = true;
+        break;
       case '--no-website-sync':
         args.syncWebsite = false;
+        break;
+      case '--use-default-branch':
+        args.useDefaultBranch = true;
         break;
       case '--help':
       case '-h':
@@ -123,44 +132,79 @@ function filterChildren(children, filters) {
   });
 }
 
-async function copyUsecaseSeed(child, repoMeta, options) {
-  const source = path.resolve(
-    'docs/usecases-seeds',
-    child.scope,
-    child.layer,
-    child.domain,
-    `${child.doc_id}.md`,
+async function resolveSeedPath(child, options = {}) {
+  const seedsRoot = path.resolve('docs/usecases-seeds');
+  const scnId = options.scnId ?? child.scn_id ?? options.scenarioId;
+  const candidates = [];
+  const seen = new Set();
+
+  function addCandidate(candidate) {
+    if (!candidate) return;
+    const resolved = path.resolve(candidate);
+    if (seen.has(resolved)) return;
+    seen.add(resolved);
+    candidates.push(resolved);
+  }
+
+  if (scnId) {
+    addCandidate(path.join(seedsRoot, scnId, `${child.doc_id}.md`));
+    addCandidate(path.join(seedsRoot, 'scenarios', scnId, `${child.doc_id}.md`));
+  }
+
+  if (child.path) {
+    const docmapRelative = child.path
+      .replace(/^\.?\//, '')
+      .replace(/^docs\/use_cases\/_from_hub\//, '')
+      .replace(/^use_cases\/_from_hub\//, '')
+      .replace(/^docs\/usecases-seeds\//, '');
+    if (docmapRelative) {
+      addCandidate(path.join(seedsRoot, docmapRelative));
+    }
+  }
+
+  addCandidate(path.join(seedsRoot, child.scope, child.layer, child.domain, `${child.doc_id}.md`));
+
+  for (const candidate of candidates) {
+    try {
+      await fs.access(candidate);
+      return candidate;
+    } catch {
+      // continue
+    }
+  }
+
+  const relPaths = candidates.map((p) => path.relative(process.cwd(), p));
+  throw new Error(
+    `Usecase seed not found for ${child.doc_id}. Tried: ${relPaths.join(', ')}`,
   );
+}
+
+async function copyUsecaseSeed(child, repoMeta, options) {
+  const source = await resolveSeedPath(child, options);
   const checkoutRoot = path.resolve(options.checkoutRoot ?? 'repos');
   const repoDir = path.resolve(checkoutRoot, repoMeta.checkout ?? repoMeta.key);
-  const target = path.join(
-    repoDir,
-    repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub',
-    child.layer,
-    child.domain,
-    `${child.doc_id}.md`,
-  );
+  const relativeTarget =
+    child.path ??
+    path.posix.join(
+      repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub',
+      options.scnId ?? 'UNKNOWN_SCN',
+      `${child.doc_id}.md`,
+    );
+  const target = path.join(repoDir, relativeTarget);
 
-  await fs.access(source);
   await fs.mkdir(path.dirname(target), { recursive: true });
   await fs.copyFile(source, target);
   return target;
 }
 
-async function computeFingerprint(children, seedsRoot = 'docs/usecases-seeds') {
+async function computeFingerprint(children, options = {}) {
   const hash = createHash('sha256');
   const sorted = [...children].sort((a, b) => a.doc_id.localeCompare(b.doc_id));
   for (const child of sorted) {
-    const seedPath = path.join(
-      seedsRoot,
-      child.scope,
-      child.layer,
-      child.domain,
-      `${child.doc_id}.md`,
-    );
+    const seedPath = await resolveSeedPath(child, options);
     hash.update(seedPath);
     try {
-      const contents = await fs.readFile(path.resolve(seedPath));
+      const contents = await fs.readFile(seedPath);
       hash.update(contents);
     } catch (error) {
       hash.update(`missing:${seedPath}`);
@@ -217,7 +261,7 @@ async function main() {
     return;
   }
 
-  const fingerprint = await computeFingerprint(filteredChildren);
+  const fingerprint = await computeFingerprint(filteredChildren, { scnId: args.scnId });
   const workflowId = `usecases:${args.scnId}`;
 
   let run;
@@ -269,18 +313,32 @@ async function main() {
 
   for (const [repoKey, { repoMeta, children }] of grouped.entries()) {
     const repoDir = path.resolve(args.checkoutRoot, repoMeta.checkout ?? repoMeta.key);
-    const branchName = buildBranchName('docs/hub', args.scnId);
+    const defaultBranch = repoMeta.default_branch ?? 'main';
+    let branchName = args.useDefaultBranch ? defaultBranch : buildBranchName('docs/hub', args.scnId);
     const filesChanged = [];
 
     let recordStatus = 'Success';
     let errorMessage = null;
 
     try {
-      await ensureGitContext(repoDir, branchName, args.dryRun);
+      if (args.useDefaultBranch) {
+        await runGit(['fetch', 'origin'], { cwd: repoDir }).catch(() => {});
+        await runGit(['checkout', defaultBranch], { cwd: repoDir }).catch(error => {
+          throw new Error(`[${repoKey}] failed to checkout ${defaultBranch}: ${error.message}`);
+        });
+        if (!args.dryRun) {
+          await runGit(['pull', '--ff-only', 'origin', defaultBranch], { cwd: repoDir }).catch(error => {
+            throw new Error(`[${repoKey}] failed to pull ${defaultBranch}: ${error.message}`);
+          });
+        }
+      } else {
+        await ensureGitContext(repoDir, branchName, args.dryRun);
+      }
 
       for (const child of children) {
         const target = await copyUsecaseSeed(child, repoMeta, {
           checkoutRoot: args.checkoutRoot,
+          scnId: args.scnId,
         });
         filesChanged.push(path.relative(repoDir, target));
       }
@@ -291,8 +349,15 @@ async function main() {
         args.dryRun,
       );
 
+      if (!args.dryRun && !commitResult?.skipped) {
+        const remoteBranch = args.useDefaultBranch ? `${defaultBranch}` : branchName;
+        await pushBranch('origin', remoteBranch, { cwd: repoDir }).catch(error => {
+          throw new Error(`[${repoKey}] failed to push ${remoteBranch}: ${error.message}`);
+        });
+      }
+
       let prUrl = null;
-      if (!args.dryRun) {
+      if (!args.dryRun && !args.useDefaultBranch) {
         prUrl = (
           await createPullRequest({
             repo: repoMeta,
@@ -303,7 +368,7 @@ async function main() {
             reviewers: repoMeta.default_reviewers ?? [],
           })
         ).url;
-      } else {
+      } else if (args.dryRun) {
         prUrl = `dry-run://${repoMeta.slug ?? repoMeta.key}/${branchName}`;
       }
 
@@ -317,9 +382,17 @@ async function main() {
         commitSkipped: commitResult?.skipped ?? false,
       });
 
+      const modeLabel = args.useDefaultBranch
+        ? args.dryRun
+          ? 'dry-run (default branch)'
+          : 'committed on default branch'
+        : args.dryRun
+          ? 'dry-run'
+          : 'ready for PR';
+
       if (!args.quiet) {
         console.log(
-          `[${repoKey}] ${filesChanged.length} files prepared on branch ${branchName} (${args.dryRun ? 'dry-run' : 'ready for PR'})`,
+          `[${repoKey}] ${filesChanged.length} files processed on branch ${branchName} (${modeLabel})`,
         );
       }
     } catch (error) {

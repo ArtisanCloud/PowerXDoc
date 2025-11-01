@@ -64,7 +64,7 @@ npm run publish:standards -- --repo powerx-marketplace
 
 ## 参考资料
 
-- `docs/meta/cross-repo-documentation.md` — 多仓文档体系说明  
+- `docs/meta/cross-repo-documentation.md`（仓库） / [`Docmap 维护记录`](/zh/guides/scenarios/docmap-maintenance) — 多仓文档体系说明  
 - `docs/standards/_shared/downstream-readonly-setup.md` — 下游仓只读治理方案  
 - `.specify/memory/constitution.md` — PowerX 文档宪章  
 - `scripts/publish/push-standards.mjs` — 分发脚本实现

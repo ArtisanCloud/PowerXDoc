@@ -303,6 +303,7 @@ function deriveChildren({ scenarioMeta, repoIndex }) {
   const warnings = [];
   const scenarioRepos = indexScenarioRepos(scenarioMeta.repos ?? []);
   const related = scenarioMeta.related_usecases ?? scenarioMeta.relatedUsecases ?? scenarioMeta.related ?? [];
+  const scnId = scenarioMeta.scn_id ?? scenarioMeta.scnId ?? 'TODO-scn';
 
   for (const item of related) {
     if (!item) continue;
@@ -321,7 +322,7 @@ function deriveChildren({ scenarioMeta, repoIndex }) {
     const repoKey = repoMeta?.key ?? matchedScenarioRepo?.key ?? null;
     const scope = repoMeta?.scope ?? matchedScenarioRepo?.scope ?? repoKey ?? 'TODO-scope';
     const seedRoot = repoMeta?.usecase_seed_root ?? 'docs/use_cases/_from_hub';
-    const pathSuffix = [layer, domain, `${docId}.md`].join('/');
+    const pathSuffix = [scnId, `${docId}.md`].join('/');
     const targetPath = `${seedRoot.replace(/\/?$/, '')}/${pathSuffix}`;
 
     if (!repoKey) {

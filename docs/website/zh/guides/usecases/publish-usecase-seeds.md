@@ -4,6 +4,18 @@
 
 > 请在仓库根目录运行脚本，并确保 `repos/**` 与 `docs/**` 工作区干净，否则发布流程会因脏状态中止。
 
+## 前置准备
+
+- **拉取下游仓库**：根据 `docs/_data/repos.yaml` 的 `scope` 或 `key` 执行：
+
+  ```bash
+  node scripts/setup/downstreams.mjs --scope powerx,powerx-plugin,powerx-marketplace
+  # 或
+  node scripts/setup/downstreams.mjs --repo powerx --repo powerx-plugin
+  ```
+
+  脚本会在 `repos/` 下克隆或更新目标仓库，并尝试切换到 `default_branch`。发布前请确认这些仓库保持干净。
+
 ## 快速步骤
 
 1. **Dry Run**：确认将影响的仓库与文件。
@@ -19,6 +31,14 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --dry-run
 
 - 仅生成 `reports/usecases/usecases_SCN-PUBLISH-HUB-001.json`，不会写入任何仓库。
 - 报告包含分发目标、文件清单及 `resumeToken`。
+- 若需延续同一批 Seed，可从 `reports/_state/usecases:SCN-PUBLISH-HUB-001.json`（或 Dry Run 报告）读取 `resumeToken` 并复用：
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --dry-run \
+    --resume-token <token>
+  ```
 - 若只检查单个 Seed，可加 `--doc-id`：
 
   ```bash
@@ -41,6 +61,13 @@ npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001
   - `--doc-id PX-DEV-HOTLOAD-001`：只处理指定 Seed，可重复传参。
   - `--repo powerx`：限定单个仓库。
   - `--resume-token <token>`：失败后续跑。
+- 可以在正式发布时沿用 Dry Run 结果，只需传入相同的 `resumeToken`：
+
+  ```bash
+  npm run publish:usecases \
+    -- --scn-id SCN-PUBLISH-HUB-001 \
+    --resume-token <token>
+  ```
 
 ## 3. 生成领导视图（可选）
 
@@ -70,6 +97,7 @@ npm run publish:notify -- --scn-id SCN-PUBLISH-HUB-001
 | `--domain` | `--domain dev` | 聚焦某个业务域。 |
 | `--repo` | `--repo powerx` | 限定单个仓库。 |
 | `--resume-token` | `--resume-token <token>` | 失败后继续，无需重建 PR。 |
+| `--use-default-branch` | `--use-default-branch` | 直接在仓库 `default_branch` 上提交/推送，不创建 PR 分支。 |
 
 可组合参数，例如：
 

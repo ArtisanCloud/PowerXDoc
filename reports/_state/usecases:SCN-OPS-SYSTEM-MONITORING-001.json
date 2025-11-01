@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-OPS-SYSTEM-MONITORING-001",
+      "fingerprint": "7790087fb030e77b83044690bb2ed5b8bf62dfc1562fdd720753c01c8edc4702",
+      "resumeToken": "d5009a79-8356-49c4-8f1b-bd75fc5d3153",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-OPS-SYSTEM-MONITORING-001.json"
+      },
+      "createdAt": "2025-11-01T14:27:04.956Z",
+      "updatedAt": "2025-11-01T14:27:58.647Z"
+    }
+  ],
+  "tokens": {
+    "d5009a79-8356-49c4-8f1b-bd75fc5d3153": "7790087fb030e77b83044690bb2ed5b8bf62dfc1562fdd720753c01c8edc4702"
+  }
+}

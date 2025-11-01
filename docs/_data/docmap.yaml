@@ -1,6 +1,7 @@
 scenarios:
   - scn_id: SCN-PUBLISH-HUB-001
     title: PowerX 插件开发与分发全链路
+    title_en: PowerX Plugin Release Hub
     child_scenarios:
       - scn_id: SCN-DEV-HOTLOAD-001
         path: docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md
@@ -15,74 +16,361 @@ scenarios:
         domain: dev
         optional: false
         repo: powerx-plugin
-        path: docs/use_cases/_from_hub/proto/dev/PLG-DEV-HOTLOAD-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md
       - doc_id: PX-DEV-HOTLOAD-001
         scope: powerx
         layer: service
         domain: dev
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/service/dev/PX-DEV-HOTLOAD-001.md
-      - doc_id: PX-ADMIN-DEV-HOTLOAD-001
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001.md
+      - doc_id: PX-DEV-HOTLOAD-UI-001
         scope: powerx
         layer: ui
         domain: dev
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/ui/dev/PX-ADMIN-DEV-HOTLOAD-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-UI-001.md
       - doc_id: PLG-PUBLISH-OFFLINE-001
         scope: powerx-plugin
         layer: proto
         domain: publish
         optional: false
         repo: powerx-plugin
-        path: docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-OFFLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001.md
       - doc_id: MKP-PUBLISH-OFFLINE-001
         scope: powerx-marketplace
         layer: api
         domain: marketplace
         optional: false
         repo: powerx-marketplace
-        path: docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-OFFLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001.md
       - doc_id: PX-PUBLISH-OFFLINE-001
         scope: powerx
         layer: service
         domain: publish
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/service/publish/PX-PUBLISH-OFFLINE-001.md
-      - doc_id: PX-ADMIN-PUBLISH-OFFLINE-001
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001.md
+      - doc_id: PX-PUBLISH-OFFLINE-UI-001
         scope: powerx
         layer: ui
         domain: publish
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/ui/publish/PX-ADMIN-PUBLISH-OFFLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-UI-001.md
       - doc_id: PLG-PUBLISH-ONLINE-001
         scope: powerx-plugin
         layer: proto
         domain: publish
         optional: false
         repo: powerx-plugin
-        path: docs/use_cases/_from_hub/proto/publish/PLG-PUBLISH-ONLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md
       - doc_id: MKP-PUBLISH-ONLINE-001
         scope: powerx-marketplace
         layer: api
         domain: marketplace
         optional: false
         repo: powerx-marketplace
-        path: docs/use_cases/_from_hub/api/marketplace/MKP-PUBLISH-ONLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md
       - doc_id: PX-PUBLISH-ONLINE-001
         scope: powerx
         layer: service
         domain: catalog
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/service/catalog/PX-PUBLISH-ONLINE-001.md
-      - doc_id: PX-ADMIN-PUBLISH-ONLINE-001
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md
+      - doc_id: PX-PUBLISH-ONLINE-UI-001
         scope: powerx
         layer: ui
         domain: marketplace
         optional: false
         repo: powerx
-        path: docs/use_cases/_from_hub/ui/marketplace/PX-ADMIN-PUBLISH-ONLINE-001.md
+        path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md
+  - scn_id: SCN-IAM-MULTI-TENANT-001
+    title: PowerX 多租户与组织管理
+    title_en: PowerX Multi-Tenant & Organization Management
+    child_scenarios:
+      - scn_id: SCN-IAM-MULTI-TENANT-ONBOARD-001
+        title: 多租户开通与接入
+        title_en: Multi-Tenant Onboarding & Provisioning
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ONBOARD-001.md
+      - scn_id: SCN-IAM-MULTI-TENANT-ORG-MODELING-001
+        title: 组织结构建模
+        title_en: Organization Modeling
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md
+      - scn_id: SCN-IAM-MULTI-TENANT-CROSS-SHARE-001
+        title: 跨租户资源共享
+        title_en: Cross-Tenant Resource Sharing
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md
+      - scn_id: SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
+        title: 租户续费与冻结
+        title_en: Tenant Renewal & Freeze
+        path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
+    children:
+      - doc_id: UC-IAM-MULTI-TENANT-ONBOARD-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md
+      - doc_id: UC-IAM-MULTI-TENANT-ORG-MODELING-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md
+      - doc_id: UC-IAM-MULTI-TENANT-CROSS-SHARE-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md
+      - doc_id: UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
+  - scn_id: SCN-IAM-USER-ROLE-001
+    title: PowerX 用户与角色管理
+    title_en: PowerX User & Role Management
+    child_scenarios:
+      - scn_id: SCN-IAM-USER-ROLE-IMPORT-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-IMPORT-001.md
+      - scn_id: SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md
+      - scn_id: SCN-IAM-USER-ROLE-BULK-AUTH-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-BULK-AUTH-001.md
+      - scn_id: SCN-IAM-USER-ROLE-OFFBOARD-001
+        path: docs/scenarios/iam/SCN-IAM-USER-ROLE-OFFBOARD-001.md
+    children:
+      - doc_id: UC-IAM-USER-ROLE-IMPORT-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md
+      - doc_id: UC-IAM-USER-ROLE-DIRECTORY-SYNC-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md
+      - doc_id: UC-IAM-USER-ROLE-BULK-AUTH-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md
+      - doc_id: UC-IAM-USER-ROLE-OFFBOARD-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md
+  - scn_id: SCN-IAM-LOGIN-AUTH-001
+    title: PowerX 登录与认证
+    title_en: PowerX Login & Authentication
+    child_scenarios:
+      - scn_id: SCN-IAM-LOGIN-SSO-001
+        title: 单点登录集成
+        title_en: Single Sign-On Integration
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-SSO-001.md
+      - scn_id: SCN-IAM-LOGIN-API-TOKEN-001
+        title: API Token 管理
+        title_en: API Token Management
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-API-TOKEN-001.md
+      - scn_id: SCN-IAM-LOGIN-MFA-001
+        title: 多因素认证
+        title_en: Multi-Factor Authentication
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-MFA-001.md
+      - scn_id: SCN-IAM-LOGIN-RISK-001
+        title: 风险登录防护
+        title_en: Risk-Based Login Protection
+        path: docs/scenarios/iam/SCN-IAM-LOGIN-RISK-001.md
+    children:
+      - doc_id: UC-IAM-LOGIN-SSO-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md
+      - doc_id: UC-IAM-LOGIN-API-TOKEN-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md
+      - doc_id: UC-IAM-LOGIN-MFA-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md
+      - doc_id: UC-IAM-LOGIN-RISK-001
+        scope: powerx
+        layer: service
+        domain: iam
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md
+  - scn_id: SCN-OPS-EVENT-TASKFLOW-001
+    title: PowerX 事件与任务流管理
+    title_en: PowerX Event & Taskflow Management
+    child_scenarios:
+      - scn_id: SCN-OPS-EVENT-NOTIFY-001
+        title: 事件通知编排
+        title_en: Event Notification Orchestration
+        path: docs/scenarios/runtime-ops/SCN-OPS-EVENT-NOTIFY-001.md
+      - scn_id: SCN-OPS-TASK-SCHEDULE-001
+        title: 调度与计划执行
+        title_en: Task Scheduling & Execution
+        path: docs/scenarios/runtime-ops/SCN-OPS-TASK-SCHEDULE-001.md
+      - scn_id: SCN-OPS-AGENT-ORCHESTRATION-001
+        title: Agent 自动化任务链
+        title_en: Agent Automation Taskflow
+        path: docs/scenarios/runtime-ops/SCN-OPS-AGENT-ORCHESTRATION-001.md
+      - scn_id: SCN-OPS-RETRY-RECOVERY-001
+        title: 重试与补偿恢复
+        title_en: Retry & Recovery Automation
+        path: docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md
+    children:
+      - doc_id: UC-OPS-EVENT-NOTIFY-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md
+      - doc_id: UC-OPS-TASK-SCHEDULE-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md
+      - doc_id: UC-OPS-AGENT-ORCHESTRATION-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md
+      - doc_id: UC-OPS-RETRY-RECOVERY-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md
+  - scn_id: SCN-OPS-PLUGIN-LIFECYCLE-001
+    title: PowerX 插件安装与启停运营
+    title_en: PowerX Plugin Installation & Operations
+    child_scenarios:
+      - scn_id: SCN-OPS-PLUGIN-DEV-INSTALL-001
+        title: 开发态插件安装
+        title_en: Plugin Installation for Dev Tenants
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-DEV-INSTALL-001.md
+      - scn_id: SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001
+        title: Marketplace 正式安装
+        title_en: Marketplace Production Installation
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md
+      - scn_id: SCN-OPS-PLUGIN-AUTO-UPGRADE-001
+        title: 插件自动化升级
+        title_en: Plugin Automated Upgrade
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-AUTO-UPGRADE-001.md
+      - scn_id: SCN-OPS-PLUGIN-RISK-SUSPEND-001
+        title: 风险插件停用
+        title_en: Risk-Based Plugin Suspension
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-RISK-SUSPEND-001.md
+    children:
+      - doc_id: UC-OPS-PLUGIN-DEV-INSTALL-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md
+      - doc_id: UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md
+      - doc_id: UC-OPS-PLUGIN-AUTO-UPGRADE-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001.md
+      - doc_id: UC-OPS-PLUGIN-RISK-SUSPEND-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md
+  - scn_id: SCN-OPS-SYSTEM-MONITORING-001
+    title: PowerX 系统监控与告警
+    title_en: PowerX System Monitoring & Alerting
+    path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-001.md
+    child_scenarios:
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-THROTTLE-001
+        title: CPU 异常自动限流
+        title_en: CPU Anomaly Auto-Throttle
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001.md
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001
+        title: 运维仪表盘巡检与可视化
+        title_en: Ops Console Monitoring Dashboard
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001.md
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001
+        title: 日志异常 Webhook 告警
+        title_en: Log Anomaly Webhook Alerts
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001.md
+      - scn_id: SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001
+        title: 告警驱动远程重启
+        title_en: Alert-Driven Remote Restart
+        path: docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001.md
+    children:
+      - doc_id: UC-OPS-MONITORING-THROTTLE-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md
+      - doc_id: UC-OPS-MONITORING-DASHBOARD-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md
+      - doc_id: UC-OPS-MONITORING-WEBHOOK-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md
+      - doc_id: UC-OPS-MONITORING-REMOTE-RESTART-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md

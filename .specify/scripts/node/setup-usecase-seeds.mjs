@@ -254,6 +254,8 @@ async function main() {
   }
 
   const results = [];
+  const scenarioDir = path.resolve(repoRoot, args.seedRoot, args.scnId);
+
   for (const child of scenario.children) {
     if (!child?.doc_id) continue;
     if (!matchesFilters(child, args)) continue;
@@ -261,14 +263,7 @@ async function main() {
     const repoKey = child.repo ?? child.repo_key ?? child.scope;
     const repoMeta = repoIndex.get(repoKey);
 
-    const target = path.resolve(
-      repoRoot,
-      args.seedRoot,
-      child.scope ?? repoMeta?.scope ?? repoKey ?? 'TODO-scope',
-      child.layer ?? 'TODO-layer',
-      child.domain ?? 'TODO-domain',
-      `${child.doc_id}.md`,
-    );
+    const target = path.resolve(scenarioDir, `${child.doc_id}.md`);
 
     const frontmatter = buildFrontmatter({
       child,

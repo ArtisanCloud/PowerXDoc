@@ -1,0 +1,61 @@
+# PowerXPlugin Project Ruleset
+version: 0.2.0
+maintainers:
+  - name: Plugin Steward Team
+    contact: plugin@artisan-cloud.com
+
+applies_to:
+  repo: powerx-plugin
+  scopes:
+    - proto
+    - tooling
+    - docs
+
+requirements:
+  directory_layout:
+    - path: backend
+      must_exist: true
+      description: 插件后端主体，包含 cmd/internal/etc/migrations 等目录
+    - path: backend/cmd/plugin
+      must_exist: true
+      description: px-plugin CLI 主入口
+    - path: backend/cmd/database
+      must_exist: true
+      description: 数据库工具命令集合
+    - path: backend/cmd/manifestcheck
+      must_exist: true
+      description: manifest 校验脚本入口
+    - path: backend/cmd/tools
+      must_exist: true
+      description: 其他辅助 CLI，命名需明确用途
+    - path: backend/internal
+      must_exist: true
+      description: 业务实现，含 devhotload 等子包
+    - path: web-admin
+      must_exist: true
+      description: Nuxt 4 + Nuxt UI 3.3.x 插件前端模板
+    - path: config
+      must_exist: true
+      description: 仓根配置文件与默认样例
+    - path: make-files
+      must_exist: true
+      description: makefile 片段，需与根 Makefile 对齐
+    - path: specs
+      must_exist: true
+      description: 仓内规范文档，与 PowerXDocs 同步
+  cli:
+    - px-plugin dev --watch 必须支持 --tenant-id / --watch-dirs / --keep-artifacts / --ci，并输出 JSON 日志
+    - 所有 CLI 命令应支持 --version（含 git commit、build time）与 --help
+    - CLI 仅负责构建工件并调用 PowerX Core Dev API，不得在本地托管运行时
+  documentation:
+    - Seeds 存放于 docs/usecases-seeds/powerx-plugin/<layer>/<domain>/
+    - docmap repo 键值必须为 powerx-plugin，并与 docs/_data/repos.yaml 对齐
+    - plugin.yaml 更新需同步 docs/standards/** 与 seed 描述
+  quality_gates:
+    - go test ./... 与 npm run lint 必须在 CI 中通过
+    - px-plugin CLI 关键路径需有 node --test / go test 覆盖（devhotload builder/session/watch）
+    - Nuxt 前端需跑 npm run test 或等效测试
+
+references:
+  - .specify/memory/powerx-plugin.md
+  - .specify/memory/constitution.md
