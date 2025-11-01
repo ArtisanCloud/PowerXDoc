@@ -11,68 +11,71 @@
 
 ![Homepage Preview](docs/website/en/public/images/home.png)
 
-## Project Overview
+## What is PowerX?
 
-PowerXDocs serves as the documentation hub for the PowerX ecosystem, centrally managing cross-repository scenarios (SCN), use case templates, universal standards, and leadership summary views. Built on VitePress 1.6 and TailwindCSS for static site generation, it provides a suite of Node.js 18 CLI workflows that synchronize master content to downstream repositories like PowerX, PowerXPlugin, and PowerXMarketplace through a pure Push mechanism.
+**PowerX** is an enterprise-grade **Agent Operating System** that enables organizations to build, deploy, and manage AI agents at scale. Think of it as the infrastructure layer that makes AI agents production-ready, observable, and governable.
 
-## Key Features
+### Core Capabilities
 
-![Documentation Preview](docs/website/en/public/images/doc_pre.png)
+**Multi-Agent Orchestration**
+- Deploy and coordinate thousands of AI agents across your infrastructure
+- Handle complex workflows that span multiple agents and external systems
+- Automatic load balancing, scaling, and failover for agent instances
 
-- **Unified Information Source**: All scenarios, standards, and templates are maintained in `docs/**`, with rendered output generated to `docs/website/**`, eliminating the need for manual downstream repository changes.
-- **Automated Publishing Workflows**: `scripts/publish/*.mjs` provides cross-repository synchronization, report generation, and distribution auditing, ensuring consistent versioned specifications.
-- **Multi-language & Localization**: `scripts/localization/*.mjs` validates and synchronizes multi-language content, supporting Chinese, English, and other language-specific sites.
-- **Governance & Telemetry**: Workflow status is written to `reports/_state/**` and can be summarized into visual metrics through QA scripts.
+**Enterprise Integrations**
+- Connect to your existing systems: databases, APIs, message queues, cloud services
+- Secure authentication and authorization with enterprise identity providers
+- Data governance and compliance controls built-in
 
-## Directory Overview
+**Observability & Control**
+- Real-time monitoring of agent performance, resource usage, and behavior
+- Centralized logging, tracing, and metrics across all agent operations
+- Built-in alerting and automated remediation for common issues
 
-- `docs/`: Documentation source files (scenarios, standards, use case masters, website output, etc.)
-- `scripts/`: Automation scripts (localization, publishing, QA, site building, scenario scripts)
-- `reports/`: Workflow execution reports and distribution audit results
-- `specs/`: Feature specifications, implementation plans, and requirements lists
-- `tests/`: Node.js 18 `node --test` based workflow-level tests
+**Runtime Management**
+- Dynamic agent lifecycle management (deploy, scale, restart, retire)
+- Version control and rollback for agent configurations
+- A/B testing and canary deployments for agent updates
 
-## Environment Requirements
+### Architecture Overview
 
-- Node.js ≥18
-- npm (or pnpm/yarn) for dependency installation
-- Git access permissions (including downstream repositories for executing distribution scripts)
+PowerX follows a **plugin-based architecture** where agents run as isolated plugins within the PowerX runtime:
 
-## Quick Start
+- **Plugin Runtime**: Secure sandboxed execution environment for each agent
+- **Orchestration Layer**: Handles agent scheduling, communication, and coordination
+- **Service Mesh**: Provides secure, reliable communication between agents and external services
+- **Control Plane**: Manages configuration, monitoring, and governance across the entire system
 
-1. Install dependencies: `npm install`
-2. Start local documentation site: `npm run docs:dev`
-3. Build production site: `npm run docs:build`
-4. Run ESLint checks: `npm run lint`
-5. Execute workflow tests: `npm run test:workflows`
+### Why PowerX?
 
-## Key Workflows & Scripts
+- **Production-Ready**: Built for enterprise scale with high availability, security, and compliance
+- **Vendor Neutral**: Works with any AI model provider (OpenAI, Anthropic, local models, etc.)
+- **Developer Friendly**: SDKs in multiple languages with extensive documentation
+- **Future-Proof**: Designed to evolve with rapidly advancing AI capabilities
 
-- `npm run publish:scenarios -- --scn-id <id>`: Render and sync specified scenarios from `docs/scenarios/` to downstream repository `_from_hub/` areas
-- `npm run publish:usecases -- --scn-id <id>`: Distribute Use Case templates, maintaining alignment with `docmap.yaml` for hierarchy, domain, and version consistency
-- `npm run publish:standards`: Sync `docs/standards/**` as read-only specifications with distribution auditing
-- `npm run publish:collected`: Generate `_collected` summary pages for leadership-level coverage overview
-- `npm run publish:notify`: Send reminders for unmerged downstream PRs, ensuring review closure
-- `node scripts/localization/sync-locales.mjs` / `check-parity.mjs`: Maintain multi-language content consistency
-- `node scripts/qa/workflow-metrics.mjs`: Aggregate workflow telemetry data and output governance reports
+## What is PowerXDocs?
 
-## Data & Governance Constraints
+PowerXDocs is the **central documentation hub** for the PowerX ecosystem. It provides comprehensive resources to help you succeed with PowerX:
 
-- `docs/_data/docmap.yaml`: Registry for all scenario and use case metadata (scope/layer/domain, repo, path, optionality), must pass validation before publishing
-- `docs/_data/repos.yaml`: Declaration of all downstream repository sync paths and branch configurations
-- `_collected` generation logic requires valid layer and domain combinations, exceptions will be blocked in workflows and reported
-- Publishing scripts record successful files, failed items, and retry hints in `reports/**`, recommended to check before PR submission
+- **Scenarios & Use Cases**: Real-world implementation patterns from various industries
+- **Product Guides**: Detailed explanations of features, architecture, and best practices
+- **Developer Resources**: SDK documentation, API references, and integration guides
+- **Operations Playbooks**: Monitoring, troubleshooting, and maintenance procedures
 
-## Collaboration Guidelines
+## Documentation Structure
 
-- For new scenarios, please first copy `docs/standards/scenarios/_template.md`, then register in `docmap.yaml`
-- After modifying use case templates or standards, be sure to run the corresponding publishing scripts to ensure downstream repositories receive updates
-- When extending scripts, maintain TypeScript/Node 18 compatibility and add corresponding tests in `tests/workflows/`
+- **Getting Started**: Installation, setup, and your first agent
+- **Core Concepts**: Understanding agents, plugins, and orchestration
+- **Use Cases**: Industry-specific examples and solution patterns
+- **Developer Guides**: Building, deploying, and managing agents
+- **Operations**: Monitoring, troubleshooting, and optimization
+- **Reference**: Complete API documentation and configuration reference
 
-## Reference Documentation
+## Who Uses PowerX?
 
-- `docs/guides/`: Manuals and publishing guidelines
-- `docs/standards/`: Cross-repository governance standards and templates
-- `specs/**`: Feature specifications, implementation plans, and acceptance criteria
-
-PowerXDocs serves as the single entry point for PowerX documentation management, helping documentation operations, product, and technical teams collaborate within a unified framework to ensure cross-repository content consistency, traceable processes, and evidence-based governance.
+- **Startup Founders & SMB Owners** rapidly building AI-powered products without large engineering teams
+- **Software Engineers** building AI-powered applications and services
+- **Platform Engineers** creating enterprise AI infrastructure
+- **Solutions Architects** designing scalable AI systems
+- **DevOps Teams** managing AI agent operations and monitoring
+- **Product Managers** defining AI-powered product features
