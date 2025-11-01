@@ -87,6 +87,44 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md
+  - scn_id: SCN-DEV-PLUGIN-INIT-001
+    title: 插件创建与工程初始化
+    title_en: Plugin Bootstrap & Initialization
+    child_scenarios:
+      - scn_id: SCN-DEV-PLUGIN-CLI-INIT-001
+        title: CLI 模板生成标准工程
+        title_en: CLI Template Bootstrap
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-CLI-INIT-001.md
+      - scn_id: SCN-DEV-PLUGIN-TEAM-CLONE-001
+        title: 团队克隆与环境健康检查
+        title_en: Team Clone & Environment Doctor
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-TEAM-CLONE-001.md
+      - scn_id: SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001
+        title: 第三方源码导入与合规适配
+        title_en: Third-Party Source Import & Compliance
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md
+    children:
+      - doc_id: UC-DEV-PLUGIN-CLI-INIT-001
+        scope: powerx-plugin
+        layer: proto
+        domain: dev
+        optional: false
+        repo: powerx-plugin
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-CLI-INIT-001.md
+      - doc_id: UC-DEV-PLUGIN-TEAM-CLONE-001
+        scope: powerx
+        layer: service
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-TEAM-CLONE-001.md
+      - doc_id: UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001
+        scope: powerx
+        layer: security
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     title: PowerX 多租户与组织管理
     title_en: PowerX Multi-Tenant & Organization Management
