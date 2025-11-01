@@ -1,9 +1,13 @@
 # PowerXDocs
 
+<br/>
+
 <div align="center">
-  <a href="docs/website/zh/">🇨🇳 中文</a> |
-  <a href="docs/website/en/">🇺🇸 English</a>
+  <a href="README.zh-CN.md">🇨🇳 中文</a> |
+  <a href="README.md">🇺🇸 English</a>
 </div>
+
+<br/>
 
 ![首页预览](docs/website/zh/public/images/home.png)
 
