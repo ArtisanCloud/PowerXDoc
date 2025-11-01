@@ -1,5 +1,10 @@
 # PowerXDocs
 
+<div align="center">
+  <a href="docs/website/zh/">🇨🇳 中文</a> |
+  <a href="docs/website/en/">🇺🇸 English</a>
+</div>
+
 ![Homepage Preview](docs/website/en/public/images/home.png)
 
 ## Project Overview
