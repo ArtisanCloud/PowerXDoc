@@ -276,9 +276,11 @@ const zhOverviewSidebar = [
     text: '产品概览',
     collapsed: false,
     items: [
-      { text: 'PowerX 一览', link: '/zh/overview/' },
-      { text: '价值案例', link: '/zh/overview/#value-cases' },
-      { text: '路线图', link: '/zh/overview/#roadmap' },
+      { text: '愿景与定位', link: '/zh/overview/#vision' },
+      { text: '场景蓝本', link: '/zh/overview/#guiding-scenarios' },
+      { text: '产品矩阵', link: '/zh/overview/#product-matrix' },
+      { text: '市场聚焦', link: '/zh/overview/#gtm-focus' },
+      { text: '路线图', link: '/zh/overview/roadmap' },
     ],
   },
   {
@@ -299,9 +301,9 @@ const enOverviewSidebar = [
     collapsed: false,
     items: [
       { text: 'Vision & Positioning', link: '/en/overview/#vision' },
+      { text: 'Guiding Scenarios', link: '/en/overview/#guiding-scenarios' },
       { text: 'Product Matrix', link: '/en/overview/#product-matrix' },
-      { text: 'Value Stories', link: '/en/overview/#value-cases' },
-      { text: 'Roadmap', link: '/en/overview/#roadmap' },
+      { text: 'Go-To-Market Focus', link: '/en/overview/#gtm-focus' },
     ],
   },
   {
@@ -411,7 +413,12 @@ export default withMermaid(defineConfig({
               { text: 'Usecase · UC-OPS-EVENT-NOTIFY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001' },
               { text: 'Usecase · UC-OPS-TASK-SCHEDULE-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001' },
               { text: 'Usecase · UC-OPS-AGENT-ORCHESTRATION-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001' },
-              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' }
+              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' },
+              { text: 'PowerX 插件安装与启停运营', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-AUTO-UPGRADE-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-DEV-INSTALL-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-RISK-SUSPEND-001', link: '/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001' }
             ],
           },
           { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/(developers/|api-and-specifications/|pxip/)' },
@@ -576,7 +583,12 @@ export default withMermaid(defineConfig({
               { text: 'Usecase · UC-OPS-EVENT-NOTIFY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001' },
               { text: 'Usecase · UC-OPS-TASK-SCHEDULE-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001' },
               { text: 'Usecase · UC-OPS-AGENT-ORCHESTRATION-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001' },
-              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' }
+              { text: 'Usecase · UC-OPS-RETRY-RECOVERY-001', link: '/en/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001' },
+              { text: 'SCN-OPS-PLUGIN-LIFECYCLE-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-AUTO-UPGRADE-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-DEV-INSTALL-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001' },
+              { text: 'Usecase · UC-OPS-PLUGIN-RISK-SUSPEND-001', link: '/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001' }
             ],
           },
           { text: 'Developers', link: '/en/developers/', activeMatch: '^/en/(developers/|api-and-specifications/|pxip/)' },
