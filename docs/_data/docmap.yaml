@@ -248,3 +248,43 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md
+  - scn_id: SCN-OPS-PLUGIN-LIFECYCLE-001
+    title: PowerX 插件安装与启停运营
+    child_scenarios:
+      - scn_id: SCN-OPS-PLUGIN-DEV-INSTALL-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-DEV-INSTALL-001.md
+      - scn_id: SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md
+      - scn_id: SCN-OPS-PLUGIN-AUTO-UPGRADE-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-AUTO-UPGRADE-001.md
+      - scn_id: SCN-OPS-PLUGIN-RISK-SUSPEND-001
+        path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-RISK-SUSPEND-001.md
+    children:
+      - doc_id: UC-OPS-PLUGIN-DEV-INSTALL-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md
+      - doc_id: UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md
+      - doc_id: UC-OPS-PLUGIN-AUTO-UPGRADE-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001.md
+      - doc_id: UC-OPS-PLUGIN-RISK-SUSPEND-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md
