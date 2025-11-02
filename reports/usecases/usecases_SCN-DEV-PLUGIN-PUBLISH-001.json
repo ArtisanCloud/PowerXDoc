@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
+    "scenario": "SCN-DEV-PLUGIN-PUBLISH-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-02T06:36:53.926Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
+      "status": "Completed",
+      "resumeToken": "1ab4e131-7391-477d-84da-61538fb4e214",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-dev-plugin-publish-001-32929e3f",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-dev-plugin-publish-001-32929e3f",
+          "resumeToken": "1ab4e131-7391-477d-84da-61538fb4e214",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-marketplace",
+          "branchName": "docs/hub/scn-dev-plugin-publish-001-70ee7c0b",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXMarketplace/docs/hub/scn-dev-plugin-publish-001-70ee7c0b",
+          "resumeToken": "1ab4e131-7391-477d-84da-61538fb4e214",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-02T06:35:51.128Z"
+    },
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
+      "status": "Completed",
+      "resumeToken": "1ab4e131-7391-477d-84da-61538fb4e214",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "1ab4e131-7391-477d-84da-61538fb4e214",
+          "commitSkipped": false
+        },
+        {
+          "repoKey": "powerx-marketplace",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "1ab4e131-7391-477d-84da-61538fb4e214",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-02T06:36:53.929Z"
+    }
+  ]
+}

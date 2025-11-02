@@ -164,6 +164,55 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md
+  - scn_id: SCN-DEV-PLUGIN-PUBLISH-001
+    title: 插件发布与上架主场景
+    title_en: Plugin Publish & Release
+    child_scenarios:
+      - scn_id: SCN-DEV-PLUGIN-RELEASE-APPROVAL-001
+        title: 测试租户验证与发布审批
+        title_en: Test Tenant Validation & Release Approval
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md
+      - scn_id: SCN-DEV-PLUGIN-OFFLINE-IMPORT-001
+        title: 离线包导入隔离环境
+        title_en: Offline Package Import for Isolated Tenants
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md
+      - scn_id: SCN-DEV-PLUGIN-CICD-CANARY-001
+        title: CI/CD 灰度发布生产租户
+        title_en: CI/CD Canary Release to Production Tenants
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-CICD-CANARY-001.md
+      - scn_id: SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001
+        title: Marketplace 审核与上架
+        title_en: Marketplace Review & Listing
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
+    children:
+      - doc_id: UC-DEV-PLUGIN-RELEASE-APPROVAL-001
+        scope: powerx
+        layer: ops
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md
+      - doc_id: UC-DEV-PLUGIN-OFFLINE-IMPORT-001
+        scope: powerx
+        layer: ops
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md
+      - doc_id: UC-DEV-PLUGIN-CICD-CANARY-001
+        scope: powerx
+        layer: ops
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md
+      - doc_id: UC-DEV-PLUGIN-MARKETPLACE-LISTING-001
+        scope: powerx-marketplace
+        layer: marketplace
+        domain: dev
+        optional: false
+        repo: powerx-marketplace
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     title: PowerX 多租户与组织管理
     title_en: PowerX Multi-Tenant & Organization Management
