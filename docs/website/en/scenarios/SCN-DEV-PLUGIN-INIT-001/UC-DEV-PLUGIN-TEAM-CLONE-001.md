@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx
     path: internal/plugins/bootstrap/service/doctor_runner.go
-    description: `powerx plugin doctor` check orchestration, report generation
+    description: "`powerx plugin doctor` check orchestration, report generation"
   - repo: powerx
     path: internal/plugins/bootstrap/config/env_template_sync.go
     description: environment template sync, secret placeholder validation

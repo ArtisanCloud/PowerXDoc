@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/init.ts
-    description: `powerx plugin init` entry point, parameter parsing, template pulling & file generation
+    description: "`powerx plugin init` entry point, parameter parsing, template pulling & file generation"
   - repo: powerx-plugin
     path: packages/template-registry/index.yaml
     description: template metadata, version governance, dependency locking strategy

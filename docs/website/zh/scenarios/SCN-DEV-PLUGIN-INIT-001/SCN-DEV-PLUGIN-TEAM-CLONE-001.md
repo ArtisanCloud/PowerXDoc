@@ -15,10 +15,10 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: `plugin doctor` 健康检查、依赖同步、配置模板分发、CI 规则校验
+    responsibility: "`plugin doctor` 健康检查、依赖同步、配置模板分发、CI 规则校验"
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: 团队模板维护、环境示例配置、调试脚本与测试数据集
+    responsibility: "团队模板维护、环境示例配置、调试脚本与测试数据集"
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-TEAM-CLONE-001
     layer: service

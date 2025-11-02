@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx
     path: internal/plugins/bootstrap/service/doctor_runner.go
-    description: `powerx plugin doctor` 检查项编排、报告生成
+    description: "`powerx plugin doctor` 检查项编排、报告生成"
   - repo: powerx
     path: internal/plugins/bootstrap/config/env_template_sync.go
     description: 环境模板同步、密钥占位符校验

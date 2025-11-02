@@ -15,10 +15,10 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: `plugin doctor` health check, dependency sync, config template distribution, CI rule validation
+    responsibility: "`plugin doctor` health check, dependency sync, config template distribution, CI rule validation"
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: team template maintenance, environment sample configuration, debugging scripts & test dataset
+    responsibility: "team template maintenance, environment sample configuration, debugging scripts & test dataset"
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-TEAM-CLONE-001
     layer: service

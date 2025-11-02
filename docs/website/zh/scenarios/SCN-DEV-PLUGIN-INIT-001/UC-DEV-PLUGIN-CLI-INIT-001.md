@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/init.ts
-    description: `powerx plugin init` 入口、参数解析、模板拉取与文件生成
+    description: "`powerx plugin init` 入口、参数解析、模板拉取与文件生成"
   - repo: powerx-plugin
     path: packages/template-registry/index.yaml
     description: 模板元数据、版本治理、依赖锁定策略

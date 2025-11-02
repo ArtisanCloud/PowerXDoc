@@ -125,6 +125,45 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md
+
+  - scn_id: SCN-DEV-PLUGIN-DEBUG-001
+    title: 插件开发与调试主场景
+    title_en: Plugin Development & Debugging
+    child_scenarios:
+      - scn_id: SCN-DEV-PLUGIN-HOT-RELOAD-001
+        title: 本地宿主模拟热更新调试
+        title_en: Local Host Hot Reload Debugging
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-HOT-RELOAD-001.md
+      - scn_id: SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001
+        title: 沙箱数据集功能验证
+        title_en: Sandbox Dataset Validation
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001.md
+      - scn_id: SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001
+        title: 调试工具错误捕获与日志报告
+        title_en: Debug Error Capture & Reporting
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md
+    children:
+      - doc_id: UC-DEV-PLUGIN-HOT-RELOAD-001
+        scope: powerx-plugin
+        layer: proto
+        domain: dev
+        optional: false
+        repo: powerx-plugin
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md
+      - doc_id: UC-DEV-PLUGIN-SANDBOX-VALIDATION-001
+        scope: powerx
+        layer: service
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md
+      - doc_id: UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001
+        scope: powerx
+        layer: ops
+        domain: dev
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     title: PowerX 多租户与组织管理
     title_en: PowerX Multi-Tenant & Organization Management

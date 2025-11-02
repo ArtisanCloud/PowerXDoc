@@ -28,7 +28,7 @@ linked_requirements:
 code_refs:
   - component: publish_command
     path: cli/src/commands/publish.ts
-    description: `px-plugin publish` 命令入口，串联预检、打包、上传与回执展示
+    description: "`px-plugin publish` 命令入口，串联预检、打包、上传与回执展示"
   - component: publish_pipeline
     path: cli/src/lib/publish/pipeline.ts
     description: 多阶段发布流水线，负责预检、签名、上传、审核触发

@@ -9,6 +9,10 @@
       "title": "首页",
       "partnerSlug": "/"
     },
+    "/overview/": {
+      "slug": "overview/index",
+      "title": "产品概览"
+    },
     "/core-concepts/": {
       "slug": "core-concepts/index",
       "title": "核心概念"
