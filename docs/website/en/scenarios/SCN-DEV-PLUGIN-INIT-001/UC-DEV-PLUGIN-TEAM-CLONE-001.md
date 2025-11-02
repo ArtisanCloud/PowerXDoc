@@ -43,9 +43,9 @@ last_reviewed_at: 2025-11-20
 
 # Usecase Overview
 
-- **Business Goal**: enable team members to quickly complete dependency installation, environment variable configuration & health checks after cloning plugin repositories, ensuring entry into developable state within 10 minutes while following unified collaboration standards.
-- **Success Metrics**: `plugin doctor` pass rate ≥ 95%; environment configuration sync success rate ≥ 98%; first commit CI pass rate ≥ 95%; diagnostic report average generation time ≤ 60 seconds.
-- **Scenario Association**: corresponds to master scenario `SCN-DEV-PLUGIN-INIT-001` Stage 4,承接 CLI initialization后的协作准备，并为后续持续开发与交付打下基线。
+- **Business Goal**: Enable team members to finish dependency installation, environment variable setup, and health checks within 10 minutes after cloning a plugin repository, keeping collaboration standards consistent.
+- **Success Metrics**: `plugin doctor` pass rate ≥95%; environment configuration sync success rate ≥98%; first-commit CI pass rate ≥95%; average health report generation time ≤60 seconds.
+- **Scenario Association**: Aligns with master scenario `SCN-DEV-PLUGIN-INIT-001` Stage 4, extending the CLI initialization into the collaboration readiness phase and establishing the baseline for ongoing delivery.
 
 > Unified health checks & configuration synchronization ensure cross-member collaboration consistency, reducing defects & rollbacks caused by missing environment configurations.
 
@@ -127,9 +127,9 @@ sequenceDiagram
 # Testing Strategy
 
 - **Unit**: check item execution, result aggregation, report format, failure prompt coverage.
-- **Integration**: execute `scripts/workflows/team-onboard-smoke.mjs` in sandbox environment, validate dependency installation, template sync, hook enablement.
-- **End-to-end**: simulate new member onboarding, execute meta document use cases B-1/B-2, verify audit & CI blocking links.
-- **Non-functional**: execute 20 concurrent `plugin doctor` runs, ensure lock mechanism & cache strategy stability; simulate network interruption to verify retries.
+- **Integration**: Execute `scripts/workflows/team-onboard-smoke.mjs` in the sandbox to validate dependency installation, template synchronization, and hook enablement.
+- **End-to-end**: Simulate new-member onboarding, follow meta use cases B-1/B-2, verify audit logging and CI blocking.
+- **Non-functional**: Run 20 concurrent `plugin doctor` sessions to verify locking/cache stability; simulate network interruptions to exercise retry logic.
 
 # Observability & Ops
 
@@ -140,10 +140,9 @@ sequenceDiagram
 
 # Rollback & Failure Handling
 
-- **Rollback Steps**: disable `plugin-doctor-v2` Flag to return to old version check; restore default pre-commit templates.
-  - clean up failure cache, delete mistakenly written audit records.
-- **Remediation Measures**: provide `powerx plugin doctor --skip <check>` temporary exemption capability (requires approval); output manual repair guide.
-- **Data Repair**: run `scripts/workflows/doctor-reconcile.mjs` to align audit records with Git hook status.
+- **Rollback Steps**: Disable the `plugin-doctor-v2` flag to fall back to the previous checks and restore default pre-commit templates; clean failure caches and remove erroneous audit records.
+- **Remediation Measures**: Offer `powerx plugin doctor --skip <check>` as a temporary, approval-gated bypass and publish manual remediation guidance.
+- **Data Repair**: Run `scripts/workflows/doctor-reconcile.mjs` to align audit records with Git-hook status.
 
 # Follow-ups & Risks
 

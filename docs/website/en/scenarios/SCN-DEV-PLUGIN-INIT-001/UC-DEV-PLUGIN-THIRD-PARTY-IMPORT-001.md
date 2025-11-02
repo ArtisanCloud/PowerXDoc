@@ -43,26 +43,26 @@ last_reviewed_at: 2025-11-20
 
 # Usecase Overview
 
-- **Business Goal**: enable enterprise technical teams to safely import third-party plugin source packages within 15 minutes, automatically complete compliance scanning, risk assessment, template-based adaptation & Git registration, ensuring external code is纳入可治理体系。
-- **Success Metrics**: import end-to-end time ≤ 15 minutes; high-risk block timeliness 100%; compliance approval SLA ≤ 30 minutes; post-adaptation basic test pass rate ≥ 95%.
-- **Scenario Association**: corresponds to master scenario `SCN-DEV-PLUGIN-INIT-001` Stage 3-4, bridging enterprise import process and providing security baseline for subsequent development/operations.
+- **Business Goal**: Enable enterprise technical teams to import third-party plugin source packages within 15 minutes while automatically completing compliance scans, risk assessment, template-based adaptation, and Git registration so that external code stays within the governed platform.
+- **Success Metrics**: End-to-end import time ≤15 minutes; high-risk block timeliness 100%; compliance approval SLA ≤30 minutes; post-adaptation basic test pass rate ≥95%.
+- **Scenario Association**: Aligns with master scenario `SCN-DEV-PLUGIN-INIT-001` Stages 3–4 by bridging the enterprise import workflow and establishing the security baseline for downstream development and operations.
 
 > Automated import capabilities ensure external vendor code receives equal compliance constraints before entering enterprise repositories, reducing license & security risks.
 
 # Context & Assumptions
 
 - **Prerequisites**
-  - `PX_PLUGIN_IMPORT`, `plugin-import-audit`, `compliance-workflow-v2` Feature Flags enabled.
-  - Compliance scan service具备 SPDX parsing, license database, vulnerability database update mechanism.
-  - Enterprise Git platform opens import API, supports minimum privilege PAT, audit hooks.
-  - Vendor provides source package or repository address with basic description (language, dependencies, licenses).
+  - Feature flags `PX_PLUGIN_IMPORT`, `plugin-import-audit`, and `compliance-workflow-v2` are enabled.
+  - The compliance scanning service supports SPDX parsing and maintains up-to-date license and vulnerability databases.
+  - The enterprise Git platform exposes import APIs, supports least-privilege PATs, and emits audit hooks.
+  - Vendors provide the source package or repository URL plus the basic metadata (language, dependencies, licenses).
 - **Input/Output**
   - Input: source package/repository address, vendor info, expected plugin ID, target tenant, approval notes.
   - Output: risk report, approval conclusion, standardized engineering structure, Git repository URL, audit entries.
 - **Boundaries**
-  - Does not handle vendor contracting, contract management; does not cover Marketplace distribution.
-  - If high-risk is blocked, manual follow-up required (this use case records but does not automatically解除)。
-  - Binary products or packages missing source code not within processing scope.
+  - Vendor contracting and Marketplace distribution are handled elsewhere.
+  - High-risk blocks require manual follow-up (this use case records the event but does not automatically clear it).
+  - Binary-only deliverables without source code are out of scope.
 
 # Solution Blueprint
 
@@ -79,10 +79,10 @@ last_reviewed_at: 2025-11-20
 ## Process & Sequence
 
 1. **Step 1 – Upload & Pre-check**: import service validates file size, source, Hash & signature, generates import task.
-2. **Step 2 – Compliance Scan**: build SBOM, execute license/vulnerability scanning, output risk level; if high-risk命中 directly block and notify.
+2. **Step 2 – Compliance Scan**: Build an SBOM, run license and vulnerability scans, and derive risk level; high-risk findings immediately block the process and trigger notification.
 3. **Step 3 – Approval Decision**: route approval according to risk level, support dual review, exemption record, time SLA monitoring.
 4. **Step 4 – Template Adaptation**: after approval, call `import_adapter` to complete manifest, permission declarations, CI scripts, output diff suggestions.
-5. **Step 5 – Repository Registration**: create enterprise Git repository, push standardized engineering, generate `README`/adaptation清单, and write audit to disk.
+5. **Step 5 – Repository Registration**: Create the enterprise Git repository, push the standardized project, generate the `README` and adaptation checklist, and persist audit records.
 
 ```mermaid
 sequenceDiagram
@@ -152,12 +152,12 @@ sequenceDiagram
 
 | Risk/Issue | Impact | Mitigation | Owner | ETA |
 |-----------|--------|------------|-------|-----|
-| Vendor refuses to provide SPDX清单 causing scan delays | import time exceed standard | pre-configure SPDX templates, allow compliance team manual entry | Grace Lin | 2025-12-06 |
-| Template adaptation insufficient for Python+Go mixed projects | adaptation accuracy, test pass rate | extend adaptation scripts & test samples | Michael Hu | 2025-12-14 |
+| Vendor refuses to provide an SPDX bill of materials, causing scan delays | import time exceeds target | Pre-configure SPDX templates and allow compliance team to input metadata manually | Grace Lin | 2025-12-06 |
+| Template adaptation insufficient for Python+Go mixed projects | adaptation accuracy, test pass rate | Extend adaptation scripts and test samples | Michael Hu | 2025-12-14 |
 
 # References & Links
 
 - Scenario Document: `docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md`
 - Master Scenario: `docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-INIT-001.md`
 - Background Material: `docs/meta/scenarios/powerx/plugin-ecosystem/plugin-lifecycle/plugin-create-and-init/primary.md`
-- Standards Document: `docs/standards/powerx-docs/standards/powerx-plugin/lifecycle/import-checklist.md`
+- Standards Document: `docs/standards/powerx-plugin/lifecycle/import-checklist.md`

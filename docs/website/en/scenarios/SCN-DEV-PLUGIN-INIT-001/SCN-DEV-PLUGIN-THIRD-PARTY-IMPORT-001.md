@@ -29,7 +29,7 @@ last_reviewed_at: 2025-11-20
 
 # Executive Summary
 
-This sub-scenario addresses enterprises importing third-party vendor-provided plugin source packages within the intranet, requiring completion of upload, unpacking, license & security scans, compliance approval and template-based adaptation within 15 minutes. The platform must automatically complete PowerX-required manifest, permission configuration & CI script generation, and generate risk assessment reports. If high-risk licenses or malicious dependencies are detected, the process must forcefully block and notify the security team, ensuring imported projects are纳入统一治理与审计体系。
+This sub-scenario addresses enterprises importing third-party vendor–provided plugin source packages in an intranet. The process must complete upload, unpacking, license and security scans, compliance approval, and template-based adaptation within 15 minutes. The platform automatically fills in the PowerX-required manifest, permission configuration, and CI scripts, and produces a risk assessment report. Whenever high-risk licenses or malicious dependencies are detected, the flow must block the import and notify the security team so that every imported project stays within the unified governance and audit framework.
 
 # Scope & Guardrails
 
@@ -97,8 +97,8 @@ sequenceDiagram
 
 | Risk/Issue | Impact Scope | Owner | ETA |
 |-----------|--------------|-------|-----|
-| Vendor not providing SPDX清单 causing scan time too long | import efficiency | Grace Lin | 2025-12-06 |
-| Auto-adaptation insufficient support for Python+Go mixed repositories, scripts need extension | template adaptation accuracy | Michael Hu | 2025-12-14 |
+| Vendor does not provide an SPDX bill of materials, causing prolonged scan time | import efficiency | Grace Lin | 2025-12-06 |
+| Auto-adaptation has limited support for Python+Go mixed repositories; scripts need enhancements | template adaptation accuracy | Michael Hu | 2025-12-14 |
 
 # Appendix
 

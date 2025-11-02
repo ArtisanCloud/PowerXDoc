@@ -48,7 +48,7 @@ This sub-scenario focuses on team members completing dependency installation, en
 
 1. **Stage 1 – Repository Clone & Credential Validation**: Member obtains repository address, system validates permissions and synchronizes branch strategy & commit standards.
 2. **Stage 2 – Environment Template Sync**: Execute `npm install` or language-specific installation scripts, while copying `.env.example`, test data and debugging scripts.
-3. **Stage 3 – `plugin doctor` Check**: CLI scans runtime version, dependency integrity, environment variables, CLI plugins, lint/test availability and outputs reports.
+3. **Stage 3 – `plugin doctor` Check**: The CLI scans runtime versions, dependency integrity, environment variables, CLI plugins, and lint/test availability, then outputs a health report.
 4. **Stage 4 – Collaboration Baseline Integration**: Generate feature branch, enable pre-commit hooks, CI validation, and push standard/risk prompts to members.
 
 ```mermaid
@@ -63,10 +63,10 @@ sequenceDiagram
   Git-->>Member: return repository content & branch strategy
   Member->>Config: pull environment template & test data
   Member->>CLI: powerx plugin doctor
-  CLI->>Config: validate runtime & dependency清单
-  CLI-->>Member: output health report & repair suggestions
-  Member->>CI: push feature branch trigger validation
-  CI-->>Member: return execution results & defect reminders
+  CLI->>Config: Validate runtime & dependency manifest
+  CLI-->>Member: Return health report & remediation tips
+  Member->>CI: Push feature branch to trigger validation
+  CI-->>Member: Return execution results & defect alerts
 ```
 
 # Key Interactions & Contracts

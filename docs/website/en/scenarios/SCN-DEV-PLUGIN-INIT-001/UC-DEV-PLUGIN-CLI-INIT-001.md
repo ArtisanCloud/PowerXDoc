@@ -53,7 +53,7 @@ last_reviewed_at: 2025-11-20
 
 - **Prerequisites**
   - `powerx-cli` ≥ v3.2 installed, with `PX_PLUGIN_SCAFFOLD_V2` & `plugin-import-audit` Feature Flags enabled.
-  - Template registry `packages/template-registry` accessible, synchronized with latest template/dependency清单。
+  - Template registry `packages/template-registry` is accessible and synchronized with the latest template metadata and dependency lists.
   - Compliance scan service and Git registration API available, developer has `plugin:bootstrap` permission.
   - Node 18, Python 3.11 and other base runtimes pre-installed according to template requirements.
 - **Input/Output**

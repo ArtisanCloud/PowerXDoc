@@ -29,7 +29,7 @@ last_reviewed_at: 2025-11-20
 
 # Executive Summary
 
-This sub-scenario describes the end-to-end experience for developers to select templates via `powerx plugin init` on the command line, generate standard projects, complete dependency installation and Git registration. The process must complete directory structure, manifest, permission declarations, test samples and CI configuration generation within 1 minute, and simultaneously trigger license and vulnerability scans. After successful execution, developers immediately obtain a base project that can be pushed to remote repositories, with unified lint/test configurations and audit records.
+This sub-scenario covers the end-to-end flow where developers use `powerx plugin init` on the command line to select a template, scaffold a standard project, install dependencies, and register the repository with Git. The workflow must finish within one minute, producing the directory structure, manifest, permission declarations, sample tests, and CI configuration while simultaneously triggering license and vulnerability scans. Once complete, the developer receives a ready-to-push project with unified lint/test tooling and audit traces.
 
 # Scope & Guardrails
 
@@ -47,10 +47,10 @@ This sub-scenario describes the end-to-end experience for developers to select t
 
 # End-to-End Flow
 
-1. **Stage 1 – CLI Environment Validation**: Developer executes `powerx plugin init`, CLI checks local version, template index and credential validity.
-2. **Stage 2 – Template Selection & Project Generation**: CLI pulls template based on selected language and capabilities, generating directory structure, configuration files, example code and scripts.
-3. **Stage 3 – Dependency Installation & Scan**: Automatically executes dependency installation, triggers license/vulnerability scans and returns reports,提示潜在风险与修复建议。
-4. **Stage 4 – Git Registration & First Commit**: CLI initializes Git repository, creates first commit and calls platform API to register remote repository, generates CI configuration and initial branch.
+1. **Stage 1 – CLI Environment Validation**: The developer runs `powerx plugin init`; the CLI checks the local binary version, template index, and credential validity.
+2. **Stage 2 – Template Selection & Project Generation**: The CLI fetches the template for the selected language and capability, generating the directory structure, configuration files, sample code, and helper scripts.
+3. **Stage 3 – Dependency Installation & Scanning**: The CLI installs dependencies, triggers license/vulnerability scans, and surfaces the report with remediation guidance.
+4. **Stage 4 – Git Registration & First Commit**: The CLI initializes a Git repository, creates the first commit, invokes the platform API to register the remote repository, and provisions CI configuration plus the initial branches.
 
 ```mermaid
 sequenceDiagram
@@ -61,12 +61,12 @@ sequenceDiagram
   participant Git as Git Service
 
   Dev->>CLI: powerx plugin init --template react-dashboard
-  CLI->>Template: pull template & dependency清单
-  Template-->>CLI: return skeleton & scripts
-  CLI->>Scanner: submit manifest & dependency list
-  Scanner-->>CLI: return scan report
-  CLI->>Git: create repository/push initial commit
-  Git-->>Dev: return repository URL & CI status
+  CLI->>Template: Pull template & dependency manifest
+  Template-->>CLI: Return project skeleton & scripts
+  CLI->>Scanner: Submit manifest & dependency list
+  Scanner-->>CLI: Return scan report
+  CLI->>Git: Create repository / push initial commit
+  Git-->>Dev: Return repository URL & CI status
 ```
 
 # Key Interactions & Contracts
