@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+    "scenario": "SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-02T08:25:51.376Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "status": "Completed",
+      "resumeToken": "0043b972-a1c6-4e02-ad91-4b191441551f",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-dev-plugin-version-compat-001-feff9b4c",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-dev-plugin-version-compat-001-feff9b4c",
+          "resumeToken": "0043b972-a1c6-4e02-ad91-4b191441551f",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-02T08:24:40.354Z"
+    },
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "status": "Completed",
+      "resumeToken": "0043b972-a1c6-4e02-ad91-4b191441551f",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "0043b972-a1c6-4e02-ad91-4b191441551f",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-02T08:25:51.380Z"
+    }
+  ]
+}
