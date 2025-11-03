@@ -21,9 +21,9 @@
 ### 💬 沟通与协同（Communication & Collaboration）
 
 #### 全渠道沟通
-- **[全渠道沟通记录](./communication-records/omnichannel-communication-logging/primary.md)** - 通话录音、邮件同步、纪要结构化
-- **[任务与节奏协同](./communication-records/task-cadence-collaboration/primary.md)** - 任务分配、跨部门协作、提醒机制
-- **[渠道与伙伴协作](./communication-records/channel-partner-collaboration/primary.md)** - 伙伴门户、业绩报表、培训支持
+- **[全渠道沟通记录](./communication-collaboration/omnichannel-communication-logging/primary.md)** - 通话录音、邮件同步、纪要结构化
+- **[任务与节奏协同](./communication-collaboration/task-cadence-collaboration/primary.md)** - 任务分配、跨部门协作、提醒机制
+- **[渠道与伙伴协作](./communication-collaboration/channel-partner-collaboration/primary.md)** - 伙伴门户、业绩报表、培训支持
 
 ### 🎯 客户服务与成功（Customer Service & Success）
 

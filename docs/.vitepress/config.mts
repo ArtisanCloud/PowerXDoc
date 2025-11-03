@@ -506,7 +506,7 @@ export default withMermaid(defineConfig({
             },
             {
               text: '业务场景文档',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: '总览', link: '/zh/scenarios/meta/' },
                 {
@@ -558,7 +558,7 @@ export default withMermaid(defineConfig({
                     { text: '介绍', link: '/zh/scenarios/meta/crm/' },
                     { text: '客户与线索管理', link: '/zh/scenarios/meta/crm/customer-management/' },
                     { text: '销售流程与商机', link: '/zh/scenarios/meta/crm/sales-process/' },
-                    { text: '沟通与协同', link: '/zh/scenarios/meta/crm/communication-records/' },
+                    { text: '沟通与协同', link: '/zh/scenarios/meta/crm/communication-collaboration/' },
                     { text: '客户服务与成功', link: '/zh/scenarios/meta/crm/customer-success/' },
                     { text: '会员与忠诚度', link: '/zh/scenarios/meta/crm/membership-loyalty/' },
                     { text: '营销自动化', link: '/zh/scenarios/meta/crm/marketing-automation/' },
@@ -737,7 +737,7 @@ export default withMermaid(defineConfig({
             },
             {
               text: 'Business Scenarios',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: 'Overview', link: '/en/scenarios/meta/' },
                 {
@@ -786,7 +786,7 @@ export default withMermaid(defineConfig({
                     { text: 'Overview', link: '/en/scenarios/meta/crm/' },
                     { text: 'Customer & Lead Management', link: '/en/scenarios/meta/crm/customer-management/' },
                     { text: 'Sales Pipeline & Opportunity', link: '/en/scenarios/meta/crm/sales-process/' },
-                    { text: 'Communication & Collaboration', link: '/en/scenarios/meta/crm/communication-records/' },
+                    { text: 'Communication & Collaboration', link: '/en/scenarios/meta/crm/communication-collaboration/' },
                     { text: 'Customer Service & Success', link: '/en/scenarios/meta/crm/customer-success/' },
                     { text: 'Membership & Loyalty', link: '/en/scenarios/meta/crm/membership-loyalty/' },
                     { text: 'Marketing Automation', link: '/en/scenarios/meta/crm/marketing-automation/' },

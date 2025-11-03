@@ -1,12 +1,13 @@
-# 销售流程 (Sales Process)
+# Sales Pipeline & Opportunity
 
-销售流程模块管理从线索到成交的完整销售链路。
+The Sales Pipeline & Opportunity module manages the entire process from lead conversion to contract signing, ensuring precise execution of stage progression, quoting approvals, and collaboration cadences.
 
-## 子场景
+## Sub-scenarios
 
-- **[线索管理与转化](./lead-management-conversion/primary.md)** - 线索获取、转化跟进
-- **[商机跟踪与管理](./opportunity-tracking-management/primary.md)** - 商机进度、成交管理
+- **[Opportunity Creation & Progression](./opportunity-creation-progression/primary.md)** - Lead to opportunity conversion, stage progression, and stagnation alerts
+- **[Quoting & Contract Management](./quoting-contract-management/primary.md)** - Quoting strategy, contract approval, and renewal planning
+- **[Sales Activities & Cadence](./sales-activities-cadence/primary.md)** - Visit arrangements, collaboration tasks, and rhythm reminders
 
 ---
 
-**注意**：场景文档正在筹备中。
+> Return to [CRM Scenario Overview](/en/scenarios/meta/crm/) or continue exploring other business domains.

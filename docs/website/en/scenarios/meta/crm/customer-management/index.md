@@ -1,12 +1,13 @@
-# 客户管理 (Customer Management)
+# Customer & Lead Management
 
-客户管理模块处理客户档案和生命周期管理。
+The Customer & Lead Management module covers core capabilities including lead capture, customer profiling, and lifecycle operations, helping sales and operations teams build unified customer assets.
 
-## 子场景
+## Sub-scenarios
 
-- **[客户档案管理](./customer-profile-management/primary.md)** - 客户信息维护、分级标签
-- **[客户生命周期管理](./customer-lifecycle-management/primary.md)** - 客户状态跟踪、生命周期管理
+- **[Lead Capture & Deduplication](./lead-capture-deduplication/primary.md)** - Live code/social lead ingestion, deduplication, and quality assessment
+- **[Customer Profile & Segmentation](./customer-profile-segmentation/primary.md)** - Unified profile, tagging labels, segmentation, and alerts
+- **[Customer Lifecycle Management](./customer-lifecycle-management/primary.md)** - Stage identification, journey orchestration, risk alerts, and repurchase activation
 
 ---
 
-**注意**：场景文档正在筹备中。
+> Return to [CRM Scenario Overview](/en/scenarios/meta/crm/) or continue exploring other business domains.
