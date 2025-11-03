@@ -505,7 +505,76 @@ export default withMermaid(defineConfig({
               ],
             },
             {
-              text: '场景列表',
+              text: '业务场景文档',
+              collapsed: true,
+              items: [
+                { text: '总览', link: '/zh/scenarios/meta/' },
+                {
+                  text: 'PowerX 平台',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/powerx/' },
+                    { text: '智能体与自动化', link: '/zh/scenarios/meta/powerx/agent-and-automation/' },
+                    { text: '核心平台', link: '/zh/scenarios/meta/powerx/core-platform/' },
+                    { text: '市场与业务', link: '/zh/scenarios/meta/powerx/marketplace-and-business/' },
+                    { text: '插件生态', link: '/zh/scenarios/meta/powerx/plugin-ecosystem/' },
+                    { text: 'Web 管理与小程序', link: '/zh/scenarios/meta/powerx/admin-web-miniapp/' },
+                  ]
+                },
+                {
+                  text: '插件生态',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/plugin/' },
+                    { text: '本地调试模式', link: '/zh/scenarios/meta/plugin/#1️⃣-本地调试模式' },
+                    { text: '离线打包上传模式', link: '/zh/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
+                    { text: '在线发布模式', link: '/zh/scenarios/meta/plugin/#3️⃣-在线发布模式' },
+                  ]
+                },
+                {
+                  text: '电商业务',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/ecommerce/' },
+                    { text: '购物车与结算', link: '/zh/scenarios/meta/ecommerce/cart_checkout/' },
+                    { text: '订单履约', link: '/zh/scenarios/meta/ecommerce/order_fulfillment/' },
+                    { text: '定价与促销', link: '/zh/scenarios/meta/ecommerce/pricing_promotion/' },
+                    { text: '商品与内容', link: '/zh/scenarios/meta/ecommerce/catalog_and_content/' },
+                    { text: '数据分析', link: '/zh/scenarios/meta/ecommerce/data_analytics/' },
+                    { text: '渠道与门店', link: '/zh/scenarios/meta/ecommerce/channels_stores/' },
+                    { text: '会员与营销', link: '/zh/scenarios/meta/ecommerce/membership_marketing/' },
+                    { text: '支付与账单', link: '/zh/scenarios/meta/ecommerce/payment_billing/' },
+                    { text: '库存与仓储', link: '/zh/scenarios/meta/ecommerce/inventory_warehouse/' },
+                    { text: '财务结算', link: '/zh/scenarios/meta/ecommerce/finance_settlement/' },
+                    { text: '平台运营', link: '/zh/scenarios/meta/ecommerce/platform_ops/' },
+                    { text: '风险与合规', link: '/zh/scenarios/meta/ecommerce/risk_compliance/' },
+                    { text: '售后服务', link: '/zh/scenarios/meta/ecommerce/after_sales_customer_service/' },
+                  ]
+                },
+                {
+                  text: 'CRM',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/crm/' },
+                    { text: '客户管理', link: '/zh/scenarios/meta/crm/customer-management/' },
+                    { text: '销售流程', link: '/zh/scenarios/meta/crm/sales-process/' },
+                    { text: '沟通记录', link: '/zh/scenarios/meta/crm/communication-records/' },
+                  ]
+                },
+                {
+                  text: 'SCRM',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/scrm/' },
+                    { text: '社交化营销', link: '/zh/scenarios/meta/scrm/social-marketing/' },
+                    { text: '客户互动', link: '/zh/scenarios/meta/scrm/customer-engagement/' },
+                    { text: '私域运营', link: '/zh/scenarios/meta/scrm/private-domain-operation/' },
+                  ]
+                },
+              ]
+            },
+            {
+              text: '用例列表',
               collapsed: false,
               items: [
                 { text: '总览', link: '/zh/scenarios/#catalog' },
@@ -662,7 +731,71 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: 'Scenario List',
+              text: 'Business Scenarios',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/en/scenarios/meta/' },
+                {
+                  text: 'PowerX Platform',
+                  collapsed: true,
+                  items: [
+                    { text: 'Agent & Automation', link: '/en/scenarios/meta/powerx/agent-and-automation/introduction/' },
+                    { text: 'Core Platform', link: '/en/scenarios/meta/powerx/core-platform/introduction/' },
+                    { text: 'Marketplace & Business', link: '/en/scenarios/meta/powerx/marketplace-and-business/introduction/' },
+                    { text: 'Plugin Ecosystem', link: '/en/scenarios/meta/powerx/plugin-ecosystem/introduction/' },
+                    { text: 'Admin Web & MiniApp', link: '/en/scenarios/meta/powerx/admin-web-miniapp/introduction/' },
+                  ]
+                },
+                {
+                  text: 'Plugin Ecosystem',
+                  collapsed: true,
+                  items: [
+                    { text: 'Local Debug Mode', link: '/en/scenarios/meta/plugin/#1️⃣-本地调试模式' },
+                    { text: 'Offline Package Upload', link: '/en/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
+                    { text: 'Online Publishing', link: '/en/scenarios/meta/plugin/#3️⃣-在线发布模式' },
+                  ]
+                },
+                {
+                  text: 'Ecommerce',
+                  collapsed: true,
+                  items: [
+                    { text: 'Cart & Checkout', link: '/en/scenarios/meta/ecommerce/cart_checkout/introduction/' },
+                    { text: 'Order Fulfillment', link: '/en/scenarios/meta/ecommerce/order_fulfillment/introduction/' },
+                    { text: 'Pricing & Promotion', link: '/en/scenarios/meta/ecommerce/pricing_promotion/introduction/' },
+                    { text: 'Catalog & Content', link: '/en/scenarios/meta/ecommerce/catalog_and_content/introduction/' },
+                    { text: 'Data Analytics', link: '/en/scenarios/meta/ecommerce/data_analytics/introduction/' },
+                    { text: 'Channels & Stores', link: '/en/scenarios/meta/ecommerce/channels_stores/introduction/' },
+                    { text: 'Membership & Marketing', link: '/en/scenarios/meta/ecommerce/membership_marketing/introduction/' },
+                    { text: 'Payment & Billing', link: '/en/scenarios/meta/ecommerce/payment_billing/introduction/' },
+                    { text: 'Inventory & Warehouse', link: '/en/scenarios/meta/ecommerce/inventory_warehouse/introduction/' },
+                    { text: 'Finance Settlement', link: '/en/scenarios/meta/ecommerce/finance_settlement/introduction/' },
+                    { text: 'Platform Ops', link: '/en/scenarios/meta/ecommerce/platform_ops/introduction/' },
+                    { text: 'Risk & Compliance', link: '/en/scenarios/meta/ecommerce/risk_compliance/introduction/' },
+                    { text: 'After Sales', link: '/en/scenarios/meta/ecommerce/after_sales_customer_service/introduction/' },
+                  ]
+                },
+                {
+                  text: 'CRM',
+                  collapsed: true,
+                  items: [
+                    { text: 'Customer Management', link: '/en/scenarios/meta/crm/customer-management/introduction/' },
+                    { text: 'Sales Process', link: '/en/scenarios/meta/crm/sales-process/introduction/' },
+                    { text: 'Communication Records', link: '/en/scenarios/meta/crm/communication-records/introduction/' },
+                  ]
+                },
+                {
+                  text: 'SCRM',
+                  collapsed: true,
+                  items: [
+                    { text: 'Social Marketing', link: '/en/scenarios/meta/scrm/social-marketing/introduction/' },
+                    { text: 'Customer Engagement', link: '/en/scenarios/meta/scrm/customer-engagement/introduction/' },
+                    { text: 'Private Domain Operation', link: '/en/scenarios/meta/scrm/private-domain-operation/introduction/' },
+                  ]
+                },
+              ]
+            },
+            {
+              text: 'Usecase List',
               collapsed: false,
               items: [
                 { text: 'Overview', link: '/en/scenarios/#catalog' }
