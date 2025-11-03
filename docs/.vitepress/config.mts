@@ -556,9 +556,14 @@ export default withMermaid(defineConfig({
                   collapsed: true,
                   items: [
                     { text: '介绍', link: '/zh/scenarios/meta/crm/' },
-                    { text: '客户管理', link: '/zh/scenarios/meta/crm/customer-management/' },
-                    { text: '销售流程', link: '/zh/scenarios/meta/crm/sales-process/' },
-                    { text: '沟通记录', link: '/zh/scenarios/meta/crm/communication-records/' },
+                    { text: '客户与线索管理', link: '/zh/scenarios/meta/crm/customer-management/' },
+                    { text: '销售流程与商机', link: '/zh/scenarios/meta/crm/sales-process/' },
+                    { text: '沟通与协同', link: '/zh/scenarios/meta/crm/communication-records/' },
+                    { text: '客户服务与成功', link: '/zh/scenarios/meta/crm/customer-success/' },
+                    { text: '会员与忠诚度', link: '/zh/scenarios/meta/crm/membership-loyalty/' },
+                    { text: '营销自动化', link: '/zh/scenarios/meta/crm/marketing-automation/' },
+                    { text: '数据洞察与营收预测', link: '/zh/scenarios/meta/crm/analytics-revenue-intelligence/' },
+                    { text: '系统配置与生态集成', link: '/zh/scenarios/meta/crm/admin-integration/' },
                   ]
                 },
                 {
@@ -778,9 +783,15 @@ export default withMermaid(defineConfig({
                   text: 'CRM',
                   collapsed: true,
                   items: [
-                    { text: 'Customer Management', link: '/en/scenarios/meta/crm/customer-management/introduction/' },
-                    { text: 'Sales Process', link: '/en/scenarios/meta/crm/sales-process/introduction/' },
-                    { text: 'Communication Records', link: '/en/scenarios/meta/crm/communication-records/introduction/' },
+                    { text: 'Overview', link: '/en/scenarios/meta/crm/' },
+                    { text: 'Customer & Lead Management', link: '/en/scenarios/meta/crm/customer-management/' },
+                    { text: 'Sales Pipeline & Opportunity', link: '/en/scenarios/meta/crm/sales-process/' },
+                    { text: 'Communication & Collaboration', link: '/en/scenarios/meta/crm/communication-records/' },
+                    { text: 'Customer Service & Success', link: '/en/scenarios/meta/crm/customer-success/' },
+                    { text: 'Membership & Loyalty', link: '/en/scenarios/meta/crm/membership-loyalty/' },
+                    { text: 'Marketing Automation', link: '/en/scenarios/meta/crm/marketing-automation/' },
+                    { text: 'Analytics & Revenue Intelligence', link: '/en/scenarios/meta/crm/analytics-revenue-intelligence/' },
+                    { text: 'Admin & Integration', link: '/en/scenarios/meta/crm/admin-integration/' },
                   ]
                 },
                 {

@@ -1,12 +1,12 @@
-# Sales Process
+# 销售流程 (Sales Process)
 
-The Sales Process module manages the complete sales pipeline from lead to close.
+销售流程模块管理从线索到成交的完整销售链路。
 
-## Child Scenarios
+## 子场景
 
-- **[Lead Management & Conversion](./lead-management-conversion/primary.md)** - Lead acquisition and conversion tracking
-- **[Opportunity Tracking & Management](./opportunity-tracking-management/primary.md)** - Opportunity progress and deal management
+- **[线索管理与转化](./lead-management-conversion/primary.md)** - 线索获取、转化跟进
+- **[商机跟踪与管理](./opportunity-tracking-management/primary.md)** - 商机进度、成交管理
 
 ---
 
-**Note**: Scenario documentation is under preparation.
+**注意**：场景文档正在筹备中。

@@ -1,12 +1,12 @@
-# Communication Records
+# 沟通记录 (Communication Records)
 
-The Communication Records module manages the communication history between sales and customers.
+沟通记录模块管理销售与客户的沟通历史。
 
-## Child Scenarios
+## 子场景
 
-- **[Call Records Management](./call-records-management/primary.md)** - Phone communication records
-- **[Email Records Management](./email-records-management/primary.md)** - Email communication tracking
+- **[通话记录管理](./call-records-management/primary.md)** - 电话沟通记录
+- **[邮件往来记录](./email-records-management/primary.md)** - 邮件沟通跟踪
 
 ---
 
-**Note**: Scenario documentation is under preparation.
+**注意**：场景文档正在筹备中。

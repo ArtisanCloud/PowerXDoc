@@ -1,12 +1,12 @@
-# Customer Management
+# 客户管理 (Customer Management)
 
-The Customer Management module handles customer profiles and lifecycle management.
+客户管理模块处理客户档案和生命周期管理。
 
-## Child Scenarios
+## 子场景
 
-- **[Customer Profile Management](./customer-profile-management/primary.md)** - Customer information maintenance, tiering, and tagging
-- **[Customer Lifecycle Management](./customer-lifecycle-management/primary.md)** - Customer status tracking and lifecycle management
+- **[客户档案管理](./customer-profile-management/primary.md)** - 客户信息维护、分级标签
+- **[客户生命周期管理](./customer-lifecycle-management/primary.md)** - 客户状态跟踪、生命周期管理
 
 ---
 
-**Note**: Scenario documentation is under preparation.
+**注意**：场景文档正在筹备中。
