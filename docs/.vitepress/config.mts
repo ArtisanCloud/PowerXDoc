@@ -574,7 +574,7 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: '用例列表',
+              text: '开发用例列表',
               collapsed: false,
               items: [
                 { text: '总览', link: '/zh/scenarios/#catalog' },
@@ -795,7 +795,7 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: 'Usecase List',
+              text: 'Dev Usecase List',
               collapsed: false,
               items: [
                 { text: 'Overview', link: '/en/scenarios/#catalog' }
