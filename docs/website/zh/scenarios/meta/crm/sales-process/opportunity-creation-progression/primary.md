@@ -1,10 +1,10 @@
-# Opportunity Creation & Progression
+# 商机创建与推进
 
 *这是PowerX CRM插件的销售流程与商机模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Opportunity Creation & Progression 的业务场景和实现方案。
+本页面将详细介绍 商机创建与推进 的业务场景和实现方案。
 
 ## 相关资源
 

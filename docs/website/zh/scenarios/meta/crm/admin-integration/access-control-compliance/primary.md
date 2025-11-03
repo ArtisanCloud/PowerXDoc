@@ -1,10 +1,10 @@
-# Access Control & Compliance
+# 权限与合规控制
 
 *这是PowerX CRM插件的系统配置与生态集成模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Access Control & Compliance 的业务场景和实现方案。
+本页面将详细介绍 权限与合规控制 的业务场景和实现方案。
 
 ## 相关资源
 

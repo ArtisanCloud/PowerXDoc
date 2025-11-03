@@ -1,10 +1,10 @@
-# Customer Profile & Segmentation
+# 客户档案与分层
 
 *这是PowerX CRM插件的客户与线索管理模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Customer Profile & Segmentation 的业务场景和实现方案。
+本页面将详细介绍 客户档案与分层 的业务场景和实现方案。
 
 ## 相关资源
 

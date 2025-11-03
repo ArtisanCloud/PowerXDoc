@@ -1,10 +1,10 @@
-# Lead Scoring & Assignment
+# 线索评分与分配
 
 *这是PowerX CRM插件的营销自动化模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Lead Scoring & Assignment 的业务场景和实现方案。
+本页面将详细介绍 线索评分与分配 的业务场景和实现方案。
 
 ## 相关资源
 

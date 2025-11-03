@@ -1,6 +1,6 @@
 # Channel & Partner Collaboration
 
-*This is a primary use case under the Communication Records module of the PowerX CRM plugin.*
+*This is a primary use case under the Communication & Collaboration module of the PowerX CRM plugin.*
 
 ## Use Case Overview
 
@@ -8,7 +8,7 @@ This page will detail the business scenarios and implementation plans for Channe
 
 ## Related Resources
 
-- [Back to Communication Records](/en/scenarios/meta/crm/communication-records/)
+- [Back to Communication & Collaboration](/en/scenarios/meta/crm/communication-records/)
 - [CRM Scenarios Overview](/en/scenarios/meta/crm/)
 - [Business Scenarios](/en/scenarios/meta/)
 

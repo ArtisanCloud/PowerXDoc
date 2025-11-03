@@ -1,10 +1,10 @@
-# Customer Value & Churn Analysis
+# 客户价值与流失分析
 
 *这是PowerX CRM插件的数据洞察与营收预测模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Customer Value & Churn Analysis 的业务场景和实现方案。
+本页面将详细介绍 客户价值与流失分析 的业务场景和实现方案。
 
 ## 相关资源
 

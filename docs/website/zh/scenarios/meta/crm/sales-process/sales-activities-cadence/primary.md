@@ -1,10 +1,10 @@
-# Sales Activities & Cadence
+# 销售活动与节奏
 
 *这是PowerX CRM插件的销售流程与商机模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Sales Activities & Cadence 的业务场景和实现方案。
+本页面将详细介绍 销售活动与节奏 的业务场景和实现方案。
 
 ## 相关资源
 

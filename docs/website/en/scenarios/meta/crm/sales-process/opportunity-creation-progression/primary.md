@@ -1,6 +1,6 @@
 # Opportunity Creation & Progression
 
-*This is a primary use case under the Sales Process module of the PowerX CRM plugin.*
+*This is a primary use case under the Sales Pipeline & Opportunity module of the PowerX CRM plugin.*
 
 ## Use Case Overview
 
@@ -8,7 +8,7 @@ This page will detail the business scenarios and implementation plans for Opport
 
 ## Related Resources
 
-- [Back to Sales Process](/en/scenarios/meta/crm/sales-process/)
+- [Back to Sales Pipeline & Opportunity](/en/scenarios/meta/crm/sales-process/)
 - [CRM Scenarios Overview](/en/scenarios/meta/crm/)
 - [Business Scenarios](/en/scenarios/meta/)
 

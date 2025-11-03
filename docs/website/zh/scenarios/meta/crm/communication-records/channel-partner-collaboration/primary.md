@@ -1,10 +1,10 @@
-# Channel & Partner Collaboration
+# 渠道与伙伴协作
 
 *这是PowerX CRM插件的沟通与协同模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Channel & Partner Collaboration 的业务场景和实现方案。
+本页面将详细介绍 渠道与伙伴协作 的业务场景和实现方案。
 
 ## 相关资源
 

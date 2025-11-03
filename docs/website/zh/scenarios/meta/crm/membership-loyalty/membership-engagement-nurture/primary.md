@@ -1,10 +1,10 @@
-# Membership Engagement & Nurture
+# 会员营销与关怀
 
 *这是PowerX CRM插件的会员与忠诚度模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Membership Engagement & Nurture 的业务场景和实现方案。
+本页面将详细介绍 会员营销与关怀 的业务场景和实现方案。
 
 ## 相关资源
 

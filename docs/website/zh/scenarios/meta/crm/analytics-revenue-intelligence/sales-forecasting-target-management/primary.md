@@ -1,10 +1,10 @@
-# Sales Forecasting & Target Management
+# 销售预测与目标管理
 
 *这是PowerX CRM插件的数据洞察与营收预测模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Sales Forecasting & Target Management 的业务场景和实现方案。
+本页面将详细介绍 销售预测与目标管理 的业务场景和实现方案。
 
 ## 相关资源
 

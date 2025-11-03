@@ -1,10 +1,10 @@
-# Membership Tiers & Entitlements
+# 会员权益与会籍
 
 *这是PowerX CRM插件的会员与忠诚度模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Membership Tiers & Entitlements 的业务场景和实现方案。
+本页面将详细介绍 会员权益与会籍 的业务场景和实现方案。
 
 ## 相关资源
 

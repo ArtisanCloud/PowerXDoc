@@ -1,10 +1,10 @@
-# Performance & Incentive Settlement
+# 绩效与激励结算
 
 *这是PowerX CRM插件的数据洞察与营收预测模块下的主要用例。*
 
 ## 用例概述
 
-本页面将详细介绍 Performance & Incentive Settlement 的业务场景和实现方案。
+本页面将详细介绍 绩效与激励结算 的业务场景和实现方案。
 
 ## 相关资源
 
