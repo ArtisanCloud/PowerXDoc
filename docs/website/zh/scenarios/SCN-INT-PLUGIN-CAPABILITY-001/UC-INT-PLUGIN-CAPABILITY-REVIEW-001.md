@@ -32,7 +32,7 @@ code_refs:
     description: 评论、附件、整改回路与复核流程
   - repo: powerx
     path: internal/audit/capability_review_logger.go
-    description: `audit.capability.review.*` 审计记录写入与合规留存
+    description: "`audit.capability.review.*` 审计记录写入与合规留存"
 feature_flags:
   - PX_CAPABILITY_REVIEW_FLOW_V2
 optional: false
