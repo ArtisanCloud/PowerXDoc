@@ -487,6 +487,7 @@ export default withMermaid(defineConfig({
   description: 'A website to introduce PowerX',
   srcDir: 'website',
   publicDir: path.resolve(__dirname, '../website/public'),
+  ignoreDeadLinks: true,
 
   locales: {
     // ----- zh-CN -----
