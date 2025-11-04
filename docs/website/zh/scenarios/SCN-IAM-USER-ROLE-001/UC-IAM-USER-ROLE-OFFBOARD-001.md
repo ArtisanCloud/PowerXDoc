@@ -34,7 +34,7 @@ code_refs:
     description: 角色/项目绑定回收、幂等写入与审计标记
   - repo: powerx
     path: pkg/corex/audit
-    description: `iam.offboard.*` 事件记录、离职报告生成
+    description: "`iam.offboard.*` 事件记录、离职报告生成"
   - repo: powerx
     path: pkg/event_bus
     description: HR/IdP Webhook 事件消费与回收完成广播

@@ -34,7 +34,7 @@ code_refs:
     description: Role/project unbinding with idempotent writes and audit stamping
   - repo: powerx
     path: pkg/corex/audit
-    description: `iam.offboard.*` event logging and report generation
+    description: "`iam.offboard.*` event logging and report generation"
   - repo: powerx
     path: pkg/event_bus
     description: HR/IdP webhook consumption and completion broadcasts

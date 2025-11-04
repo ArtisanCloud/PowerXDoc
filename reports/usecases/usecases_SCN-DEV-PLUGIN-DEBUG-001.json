@@ -1,0 +1,72 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-DEV-PLUGIN-DEBUG-001",
+    "scenario": "SCN-DEV-PLUGIN-DEBUG-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-02T03:51:44.390Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-DEBUG-001",
+      "status": "Completed",
+      "resumeToken": "2cc556a7-363b-4365-bed0-e02314647376",
+      "records": [
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "docs/hub/scn-dev-plugin-debug-001-ac6ccda3",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXPlugin/docs/hub/scn-dev-plugin-debug-001-ac6ccda3",
+          "resumeToken": "2cc556a7-363b-4365-bed0-e02314647376",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-dev-plugin-debug-001-e574c0ba",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-dev-plugin-debug-001-e574c0ba",
+          "resumeToken": "2cc556a7-363b-4365-bed0-e02314647376",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-02T03:50:36.557Z"
+    },
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-DEBUG-001",
+      "status": "Completed",
+      "resumeToken": "2cc556a7-363b-4365-bed0-e02314647376",
+      "records": [
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "2cc556a7-363b-4365-bed0-e02314647376",
+          "commitSkipped": false
+        },
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md",
+            "docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "2cc556a7-363b-4365-bed0-e02314647376",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-02T03:51:44.393Z"
+    }
+  ]
+}

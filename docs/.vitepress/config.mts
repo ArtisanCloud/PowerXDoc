@@ -301,6 +301,54 @@ const zhOperationsSidebar = [
   },
 ]
 
+const zhDevelopersSidebar = [
+  {
+    text: '开发者中心',
+    collapsed: false,
+    items: [
+      { text: '总览', link: '/zh/developers/' },
+      { text: 'API 与规范', link: '/zh/developers/api-and-specifications/' },
+      { text: 'PXIP 提案', link: '/zh/developers/pxip/README' },
+      { text: 'API 示例', link: '/zh/developers/api-examples' },
+    ],
+  },
+  {
+    text: '能力模型与传输',
+    collapsed: false,
+    items: [
+      { text: '能力契约规范', link: '/zh/developers/api-and-specifications/02_capability/Capability_Contract_Spec' },
+      { text: '传输适配器规范', link: '/zh/developers/api-and-specifications/02_capability/Transport_Adapter_Spec' },
+    ],
+  },
+  {
+    text: '注册与路由',
+    collapsed: false,
+    items: [
+      { text: '能力注册与路由设计', link: '/zh/developers/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design' },
+      { text: '运行时端点管理', link: '/zh/developers/api-and-specifications/03_registry_router/Runtime_Endpoint_Management' },
+    ],
+  },
+  {
+    text: '编排与工作流',
+    collapsed: false,
+    items: [
+      { text: '流程与状态模型', link: '/zh/developers/api-and-specifications/04_orchestration/Flow_and_State_Model' },
+      { text: '编排服务接口', link: '/zh/developers/api-and-specifications/04_orchestration/Orchestrator_Service_Interface' },
+      { text: '实时流式网关', link: '/zh/developers/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway' },
+      { text: '工作流与智能体编排规范', link: '/zh/developers/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec' },
+    ],
+  },
+  {
+    text: '网关与消息总线',
+    collapsed: false,
+    items: [
+      { text: '事件总线与消息织网', link: '/zh/developers/api-and-specifications/06_gateway/EventBus_and_Message_Fabric' },
+      { text: '集成 API 与管理界面', link: '/zh/developers/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface' },
+      { text: 'MCP 服务与网关设计', link: '/zh/developers/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design' },
+    ],
+  },
+]
+
 const enOperationsSidebar = [
   {
     text: 'Operations & Governance',
@@ -457,7 +505,7 @@ export default withMermaid(defineConfig({
             activeMatch: '^/zh/(scenarios/|library/)',
             items: buildScenarioNavItems('zh'),
           },
-          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/(developers/|api-and-specifications/|pxip/)' },
+          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/developers/' },
           { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
           { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' }
         ],
@@ -476,21 +524,20 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: '场景与标准分发',
+              text: '插件安装与运维',
               collapsed: false,
               items: [
-                { text: '场景文档生成', link: '/zh/guides/scenarios/scenario-generation' },
-                { text: 'Docmap 维护记录', link: '/zh/guides/scenarios/docmap-maintenance' },
-                { text: '标准文档分发', link: '/zh/guides/publish/standards-distribution' }
+                { text: '插件运行态指南', link: '/zh/guides/Plugin_Runtime_Guide' },
+                { text: '插件测试与调试', link: '/zh/guides/Plugin_Test_and_Debug_Guide' }
               ]
             },
             {
-              text: 'Usecase Seeds',
+              text: '扩展与二次开发',
               collapsed: false,
               items: [
-                { text: 'Seed 生成', link: '/zh/guides/usecases/generate-usecase-seeds' },
-                { text: 'Seed 发布', link: '/zh/guides/usecases/publish-usecase-seeds' },
-                { text: '索引维护', link: '/zh/guides/usecases/seed-index-maintenance' }
+                { text: '插件 SDK 指南', link: '/zh/guides/PowerX_Plugin_SDK_Guide' },
+                { text: '智能体开发入门', link: '/zh/guides/Agent_Developer_Guide' },
+                { text: '前往开发者中心', link: '/zh/developers/' }
               ]
             }
           ],
@@ -505,7 +552,92 @@ export default withMermaid(defineConfig({
               ],
             },
             {
-              text: '场景列表',
+              text: '业务场景文档',
+              collapsed: false,
+              items: [
+                { text: '总览', link: '/zh/scenarios/meta/' },
+                {
+                  text: 'PowerX 平台',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/powerx/' },
+                    { text: '智能体与自动化', link: '/zh/scenarios/meta/powerx/agent-and-automation/' },
+                    { text: '核心平台', link: '/zh/scenarios/meta/powerx/core-platform/' },
+                    { text: '市场与业务', link: '/zh/scenarios/meta/powerx/marketplace-and-business/' },
+                    { text: '插件生态', link: '/zh/scenarios/meta/powerx/plugin-ecosystem/' },
+                    { text: 'Web 管理与小程序', link: '/zh/scenarios/meta/powerx/admin-web-miniapp/' },
+                  ]
+                },
+                {
+                  text: '插件生态',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/plugin/' },
+                    { text: '本地调试模式', link: '/zh/scenarios/meta/plugin/#1️⃣-本地调试模式' },
+                    { text: '离线打包上传模式', link: '/zh/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
+                    { text: '在线发布模式', link: '/zh/scenarios/meta/plugin/#3️⃣-在线发布模式' },
+                  ]
+                },
+                {
+                  text: '电商业务',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/ecommerce/' },
+                    { text: '购物车与结算', link: '/zh/scenarios/meta/ecommerce/cart_checkout/' },
+                    { text: '订单履约', link: '/zh/scenarios/meta/ecommerce/order_fulfillment/' },
+                    { text: '定价与促销', link: '/zh/scenarios/meta/ecommerce/pricing_promotion/' },
+                    { text: '商品与内容', link: '/zh/scenarios/meta/ecommerce/catalog_and_content/' },
+                    { text: '数据分析', link: '/zh/scenarios/meta/ecommerce/data_analytics/' },
+                    { text: '渠道与门店', link: '/zh/scenarios/meta/ecommerce/channels_stores/' },
+                    { text: '会员与营销', link: '/zh/scenarios/meta/ecommerce/membership_marketing/' },
+                    { text: '支付与账单', link: '/zh/scenarios/meta/ecommerce/payment_billing/' },
+                    { text: '库存与仓储', link: '/zh/scenarios/meta/ecommerce/inventory_warehouse/' },
+                    { text: '财务结算', link: '/zh/scenarios/meta/ecommerce/finance_settlement/' },
+                    { text: '平台运营', link: '/zh/scenarios/meta/ecommerce/platform_ops/' },
+                    { text: '风险与合规', link: '/zh/scenarios/meta/ecommerce/risk_compliance/' },
+                    { text: '售后服务', link: '/zh/scenarios/meta/ecommerce/after_sales_customer_service/' },
+                  ]
+                },
+                {
+                  text: 'CRM',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/crm/' },
+                    { text: '客户与线索管理', link: '/zh/scenarios/meta/crm/customer-management/' },
+                    { text: '销售流程与商机', link: '/zh/scenarios/meta/crm/sales-process/' },
+                    { text: '沟通与协同', link: '/zh/scenarios/meta/crm/communication-collaboration/' },
+                    { text: '客户服务与成功', link: '/zh/scenarios/meta/crm/customer-success/' },
+                    { text: '会员与忠诚度', link: '/zh/scenarios/meta/crm/membership-loyalty/' },
+                    { text: '营销自动化', link: '/zh/scenarios/meta/crm/marketing-automation/' },
+                    { text: '数据洞察与营收预测', link: '/zh/scenarios/meta/crm/analytics-revenue-intelligence/' },
+                    { text: '系统配置与生态集成', link: '/zh/scenarios/meta/crm/admin-integration/' },
+                  ]
+                },
+                {
+                  text: 'SCRM',
+                  collapsed: true,
+                  items: [
+                    { text: '介绍', link: '/zh/scenarios/meta/scrm/' },
+                    { text: '社交触点接入与账号治理', link: '/zh/scenarios/meta/scrm/social_channel_governance/' },
+                    { text: '系统集成与数据流转', link: '/zh/scenarios/meta/scrm/system_integration_data_orchestration/' },
+                    { text: '线索获取与智能分配', link: '/zh/scenarios/meta/scrm/lead_capture_smart_assignment/' },
+                    { text: '社群与客户运营', link: '/zh/scenarios/meta/scrm/community_customer_engagement/' },
+                    { text: '智能标签与客户分群', link: '/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/' },
+                    { text: '内容分发与互动自动化', link: '/zh/scenarios/meta/scrm/content_engagement_automation/' },
+                    { text: '社交交易与分销闭环', link: '/zh/scenarios/meta/scrm/social_commerce_distribution/' },
+                    { text: '社交销售助手与外勤协同', link: '/zh/scenarios/meta/scrm/social_selling_field_collab/' },
+                    { text: '客户服务与协同闭环', link: '/zh/scenarios/meta/scrm/customer_service_collaboration_loop/' },
+                    { text: '数据分析与洞察', link: '/zh/scenarios/meta/scrm/analytics_insights/' },
+                    { text: '移动前线能力', link: '/zh/scenarios/meta/scrm/mobile_frontline_capabilities/' },
+                    { text: 'AIGC 与智能化应用', link: '/zh/scenarios/meta/scrm/aigc_automation_intelligence/' },
+                    { text: '平台生态与开放能力', link: '/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/' },
+                    { text: '合规、安全与风控', link: '/zh/scenarios/meta/scrm/compliance_security_risk_control/' },
+                  ]
+                },
+              ]
+            },
+            {
+              text: '开发用例列表',
               collapsed: false,
               items: [
                 { text: '总览', link: '/zh/scenarios/#catalog' },
@@ -513,72 +645,9 @@ export default withMermaid(defineConfig({
             }
           ],
           '/zh/library/': buildCollectedSidebar('', '/'),
-          '/zh/developers/': [
-            {
-              text: '开发与扩展',
-              collapsed: false,
-              items: [
-                { text: 'SDK / API', link: '/zh/developers/#sdk-api' },
-                { text: '插件体系', link: '/zh/developers/#plugin-ecosystem' },
-                { text: '质量与测试', link: '/zh/developers/#quality-testing' },
-                { text: '工具链', link: '/zh/developers/#tooling' }
-              ]
-            },
-            {
-              text: '核心文档',
-              collapsed: false,
-              items: [
-                { text: 'API 与规范', link: '/zh/api-and-specifications/' },
-                { text: 'PXIP 提案', link: '/zh/pxip/README.md' }
-              ]
-            }
-          ],
-          '/zh/api-and-specifications/': [
-            {
-              text: '概览',
-              collapsed: false,
-              items: [
-                { text: '栏目索引', link: '/zh/api-and-specifications/' },
-                { text: '总览', link: '/zh/api-and-specifications/README' },
-                { text: 'API 示例', link: '/zh/api-examples' }
-              ]
-            },
-            {
-              text: '能力模型与传输',
-              collapsed: false,
-              items: [
-                { text: '能力契约规范', link: '/zh/api-and-specifications/02_capability/Capability_Contract_Spec' },
-                { text: '传输适配器规范', link: '/zh/api-and-specifications/02_capability/Transport_Adapter_Spec' }
-              ]
-            },
-            {
-              text: '注册与路由',
-              collapsed: false,
-              items: [
-                { text: '能力注册与路由设计', link: '/zh/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design' },
-                { text: '运行时端点管理', link: '/zh/api-and-specifications/03_registry_router/Runtime_Endpoint_Management' }
-              ]
-            },
-            {
-              text: '编排与工作流',
-              collapsed: false,
-              items: [
-                { text: '流程与状态模型', link: '/zh/api-and-specifications/04_orchestration/Flow_and_State_Model' },
-                { text: '编排服务接口', link: '/zh/api-and-specifications/04_orchestration/Orchestrator_Service_Interface' },
-                { text: '实时流式网关', link: '/zh/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway' },
-                { text: '工作流与智能体编排规范', link: '/zh/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec' }
-              ]
-            },
-            {
-              text: '网关与消息总线',
-              collapsed: false,
-              items: [
-                { text: '事件总线与消息织网', link: '/zh/api-and-specifications/06_gateway/EventBus_and_Message_Fabric' },
-                { text: '集成 API 与管理界面', link: '/zh/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface' },
-                { text: 'MCP 服务与网关设计', link: '/zh/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design' }
-              ]
-            }
-          ],
+          '/zh/developers/': zhDevelopersSidebar,
+          '/zh/developers/api-and-specifications/': zhDevelopersSidebar,
+          '/zh/developers/pxip/': zhDevelopersSidebar,
           '/zh/operations/': zhOperationsSidebar,
           '/zh/security-and-governance/': zhOperationsSidebar,
           '/zh/resources/': [
@@ -634,21 +703,20 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: 'Usecase Seeds',
+              text: 'Plugin Operations',
               collapsed: false,
               items: [
-                { text: 'Generate Seeds', link: '/en/guides/usecases/generate-usecase-seeds' },
-                { text: 'Publish Seeds', link: '/en/guides/usecases/publish-usecase-seeds' },
-                { text: 'Maintain Indexes', link: '/en/guides/usecases/seed-index-maintenance' }
+                { text: 'Plugin Runtime Guide', link: '/en/guides/Plugin_Runtime_Guide' },
+                { text: 'Plugin Test & Debug', link: '/en/guides/Plugin_Test_and_Debug_Guide' }
               ]
             },
             {
-              text: 'Scenarios & Standards',
+              text: 'Extend & Develop',
               collapsed: false,
               items: [
-                { text: 'Scenario Authoring', link: '/en/guides/scenarios/scenario-generation' },
-                { text: 'Docmap Maintenance', link: '/en/guides/scenarios/docmap-maintenance' },
-                { text: 'Standards Distribution', link: '/en/guides/publish/standards-distribution' }
+                { text: 'Plugin SDK Guide', link: '/en/guides/PowerX_Plugin_SDK_Guide' },
+                { text: 'Agent Developer Guide', link: '/en/guides/Agent_Developer_Guide' },
+                { text: 'Visit Developer Hub', link: '/en/developers/' }
               ]
             }
           ],
@@ -662,7 +730,89 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: 'Scenario List',
+              text: 'Business Scenarios',
+              collapsed: false,
+              items: [
+                { text: 'Overview', link: '/en/scenarios/meta/' },
+                {
+                  text: 'PowerX Platform',
+                  collapsed: true,
+                  items: [
+                    { text: 'Agent & Automation', link: '/en/scenarios/meta/powerx/agent-and-automation/introduction/' },
+                    { text: 'Core Platform', link: '/en/scenarios/meta/powerx/core-platform/introduction/' },
+                    { text: 'Marketplace & Business', link: '/en/scenarios/meta/powerx/marketplace-and-business/introduction/' },
+                    { text: 'Plugin Ecosystem', link: '/en/scenarios/meta/powerx/plugin-ecosystem/introduction/' },
+                    { text: 'Admin Web & MiniApp', link: '/en/scenarios/meta/powerx/admin-web-miniapp/introduction/' },
+                  ]
+                },
+                {
+                  text: 'Plugin Ecosystem',
+                  collapsed: true,
+                  items: [
+                    { text: 'Local Debug Mode', link: '/en/scenarios/meta/plugin/#1️⃣-本地调试模式' },
+                    { text: 'Offline Package Upload', link: '/en/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
+                    { text: 'Online Publishing', link: '/en/scenarios/meta/plugin/#3️⃣-在线发布模式' },
+                  ]
+                },
+                {
+                  text: 'Ecommerce',
+                  collapsed: true,
+                  items: [
+                    { text: 'Cart & Checkout', link: '/en/scenarios/meta/ecommerce/cart_checkout/introduction/' },
+                    { text: 'Order Fulfillment', link: '/en/scenarios/meta/ecommerce/order_fulfillment/introduction/' },
+                    { text: 'Pricing & Promotion', link: '/en/scenarios/meta/ecommerce/pricing_promotion/introduction/' },
+                    { text: 'Catalog & Content', link: '/en/scenarios/meta/ecommerce/catalog_and_content/introduction/' },
+                    { text: 'Data Analytics', link: '/en/scenarios/meta/ecommerce/data_analytics/introduction/' },
+                    { text: 'Channels & Stores', link: '/en/scenarios/meta/ecommerce/channels_stores/introduction/' },
+                    { text: 'Membership & Marketing', link: '/en/scenarios/meta/ecommerce/membership_marketing/introduction/' },
+                    { text: 'Payment & Billing', link: '/en/scenarios/meta/ecommerce/payment_billing/introduction/' },
+                    { text: 'Inventory & Warehouse', link: '/en/scenarios/meta/ecommerce/inventory_warehouse/introduction/' },
+                    { text: 'Finance Settlement', link: '/en/scenarios/meta/ecommerce/finance_settlement/introduction/' },
+                    { text: 'Platform Ops', link: '/en/scenarios/meta/ecommerce/platform_ops/introduction/' },
+                    { text: 'Risk & Compliance', link: '/en/scenarios/meta/ecommerce/risk_compliance/introduction/' },
+                    { text: 'After Sales', link: '/en/scenarios/meta/ecommerce/after_sales_customer_service/introduction/' },
+                  ]
+                },
+                {
+                  text: 'CRM',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/en/scenarios/meta/crm/' },
+                    { text: 'Customer & Lead Management', link: '/en/scenarios/meta/crm/customer-management/' },
+                    { text: 'Sales Pipeline & Opportunity', link: '/en/scenarios/meta/crm/sales-process/' },
+                    { text: 'Communication & Collaboration', link: '/en/scenarios/meta/crm/communication-collaboration/' },
+                    { text: 'Customer Service & Success', link: '/en/scenarios/meta/crm/customer-success/' },
+                    { text: 'Membership & Loyalty', link: '/en/scenarios/meta/crm/membership-loyalty/' },
+                    { text: 'Marketing Automation', link: '/en/scenarios/meta/crm/marketing-automation/' },
+                    { text: 'Analytics & Revenue Intelligence', link: '/en/scenarios/meta/crm/analytics-revenue-intelligence/' },
+                    { text: 'Admin & Integration', link: '/en/scenarios/meta/crm/admin-integration/' },
+                  ]
+                },
+                {
+                  text: 'SCRM',
+                  collapsed: true,
+                  items: [
+                    { text: 'Overview', link: '/en/scenarios/meta/scrm/' },
+                    { text: 'Social Channel Onboarding & Governance', link: '/en/scenarios/meta/scrm/social_channel_governance/' },
+                    { text: 'System Integration & Data Orchestration', link: '/en/scenarios/meta/scrm/system_integration_data_orchestration/' },
+                    { text: 'Lead Capture & Smart Assignment', link: '/en/scenarios/meta/scrm/lead_capture_smart_assignment/' },
+                    { text: 'Community & Customer Engagement', link: '/en/scenarios/meta/scrm/community_customer_engagement/' },
+                    { text: 'Smart Tagging & Customer Segmentation', link: '/en/scenarios/meta/scrm/smart_tagging_customer_segmentation/' },
+                    { text: 'Content Distribution & Engagement Automation', link: '/en/scenarios/meta/scrm/content_engagement_automation/' },
+                    { text: 'Social Commerce & Distribution', link: '/en/scenarios/meta/scrm/social_commerce_distribution/' },
+                    { text: 'Social Selling Assistant & Field Collaboration', link: '/en/scenarios/meta/scrm/social_selling_field_collab/' },
+                    { text: 'Customer Service & Collaboration Loop', link: '/en/scenarios/meta/scrm/customer_service_collaboration_loop/' },
+                    { text: 'Analytics & Insights', link: '/en/scenarios/meta/scrm/analytics_insights/' },
+                    { text: 'Mobile Frontline Capabilities', link: '/en/scenarios/meta/scrm/mobile_frontline_capabilities/' },
+                    { text: 'AIGC-driven Automation & Intelligence', link: '/en/scenarios/meta/scrm/aigc_automation_intelligence/' },
+                    { text: 'Platform Ecosystem & Extensibility', link: '/en/scenarios/meta/scrm/platform_ecosystem_extensibility/' },
+                    { text: 'Compliance, Security & Risk Control', link: '/en/scenarios/meta/scrm/compliance_security_risk_control/' },
+                  ]
+                },
+              ]
+            },
+            {
+              text: 'Dev Usecase List',
               collapsed: false,
               items: [
                 { text: 'Overview', link: '/en/scenarios/#catalog' }
@@ -673,13 +823,13 @@ export default withMermaid(defineConfig({
           '/en/library/': buildCollectedSidebar('', '/'),
           '/en/developers/': [
             {
-              text: 'Developers',
+              text: 'Developer Hub',
               collapsed: false,
               items: [
-                { text: 'SDK / API', link: '/en/developers/#sdk-api' },
-                { text: 'Plugin Ecosystem', link: '/en/developers/#plugin-ecosystem' },
-                { text: 'Quality & Testing', link: '/en/developers/#quality-testing' },
-                { text: 'Tooling', link: '/en/developers/#tooling' }
+                { text: 'Overview', link: '/en/developers/' },
+                { text: 'Plugin Quickstart', link: '/en/developers/quickstart' },
+                { text: 'Plugin Framework & Roadmap', link: '/en/developers/plugin-framework' },
+                { text: 'Tooling & Quality Practices', link: '/en/developers/tooling-and-quality' }
               ]
             }
           ],

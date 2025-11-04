@@ -26,6 +26,10 @@ title: 资源中心
 
 ## 对外链接 {#links}
 
-- GitHub 仓库、演示环境、Marketplace、学习社区等外部链接。
+- 官网入口：<https://powerx.artisan-cloud.com/>
+- 文档仓库：<https://github.com/ArtisanCloud/PowerXDoc>
+- 核心代码：<https://github.com/ArtisanCloud/PowerX>
+- 插件生态：<https://github.com/ArtisanCloud/PowerXPlugin>
+- Marketplace 预览：<http://powerx-marketplace.artisan-cloud.com/>
 - 客户成功、销售资料可放在受控入口，必要时设置访问权限。
 - 与合作伙伴或客户共享时，请确保内容已经通过内部合规审阅。

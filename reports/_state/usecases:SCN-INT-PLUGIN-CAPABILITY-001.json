@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-CAPABILITY-001",
+      "fingerprint": "93e116f72212e60b716522008a570268b261c0a3bda460ff0b22dfcee07d239e",
+      "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-INT-PLUGIN-CAPABILITY-001.json"
+      },
+      "createdAt": "2025-11-02T12:48:33.049Z",
+      "updatedAt": "2025-11-02T12:49:35.300Z"
+    }
+  ],
+  "tokens": {
+    "24235e85-08a0-4b5a-86d0-4ea831bce8fa": "93e116f72212e60b716522008a570268b261c0a3bda460ff0b22dfcee07d239e"
+  }
+}

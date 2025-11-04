@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "fingerprint": "8640a052fa69d4e8fe31aee4b78037e6863c7d91017e19c2290b1198d81d2dbc",
+      "resumeToken": "0043b972-a1c6-4e02-ad91-4b191441551f",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-DEV-PLUGIN-VERSION-COMPAT-001.json"
+      },
+      "createdAt": "2025-11-02T08:24:40.350Z",
+      "updatedAt": "2025-11-02T08:25:51.380Z"
+    }
+  ],
+  "tokens": {
+    "0043b972-a1c6-4e02-ad91-4b191441551f": "8640a052fa69d4e8fe31aee4b78037e6863c7d91017e19c2290b1198d81d2dbc"
+  }
+}

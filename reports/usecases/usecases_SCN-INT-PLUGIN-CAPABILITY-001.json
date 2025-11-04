@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-INT-PLUGIN-CAPABILITY-001",
+    "scenario": "SCN-INT-PLUGIN-CAPABILITY-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-02T12:49:35.297Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-CAPABILITY-001",
+      "status": "Completed",
+      "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+      "records": [
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "docs/hub/scn-int-plugin-capability-001-9d56d293",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXPlugin/docs/hub/scn-int-plugin-capability-001-9d56d293",
+          "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-plugin-capability-001-c3c42b6d",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md",
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md",
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-plugin-capability-001-c3c42b6d",
+          "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-02T12:48:33.053Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-CAPABILITY-001",
+      "status": "Completed",
+      "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+      "records": [
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+          "commitSkipped": false
+        },
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md",
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md",
+            "docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-02T12:49:35.300Z"
+    }
+  ]
+}

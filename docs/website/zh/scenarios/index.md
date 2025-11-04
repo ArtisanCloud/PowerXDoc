@@ -16,12 +16,33 @@ PowerX 采用“场景（SCN）+ Usecase Seed”的组合，将业务意图沉�
 
 ## 场景列表 {#catalog}
 
-侧边栏会自动列出 docmap 中登记的全部场景，并按 `SCN_ID` 分类；每个条目下还包含子场景与 Usecase Seeds，方便直接跳转。维护建议：
+以下是 PowerX 插件生态系统的所有场景文档，按功能分组：
 
-- 优先在 `docs/scenarios/**` 更新源文件，再由脚本同步到 `docs/website/**`，避免人工拷贝造成偏差。
-- 新增场景时，同时补充 docmap、生成 Seeds 与索引，确保列表与内容一致。
-- 常用参考：
-  - [场景使用流程](/zh/scenarios/usage)
-  - [场景标准模版](/docs/meta/scenarios/list.md)
-  - [Usecase Seed 索引维护指南](/zh/guides/usecases/seed-index-maintenance)
-  - [标准文档分发指南](/zh/guides/publish/standards-distribution)
+### DEV
+
+- [插件开发与调试主场景](./SCN-DEV-PLUGIN-DEBUG-001) - 插件开发与调试主场景
+- [插件创建与工程初始化](./SCN-DEV-PLUGIN-INIT-001) - 插件创建与工程初始化
+- [插件发布与上架主场景](./SCN-DEV-PLUGIN-PUBLISH-001) - 插件发布与上架主场景
+- [插件版本与兼容性管理主场景](./SCN-DEV-PLUGIN-VERSION-COMPAT-001) - 插件版本与兼容性管理主场景
+
+### 身份认证与权限
+
+- [PowerX 登录与认证](./SCN-IAM-LOGIN-AUTH-001) - PowerX 登录与认证
+- [PowerX 多租户与组织管理](./SCN-IAM-MULTI-TENANT-001) - PowerX 多租户与组织管理
+- [PowerX 用户与角色管理](./SCN-IAM-USER-ROLE-001) - PowerX 用户与角色管理
+
+### INT
+
+- [插件能力注册与暴露治理闭环](./SCN-INT-PLUGIN-CAPABILITY-001) - 插件能力注册与暴露治理闭环
+
+### 运维与监控
+
+- [PowerX 事件与任务流管理](./SCN-OPS-EVENT-TASKFLOW-001) - PowerX 事件与任务流管理
+- [PowerX 插件安装与启停运营](./SCN-OPS-PLUGIN-LIFECYCLE-001) - PowerX 插件安装与启停运营
+- [PowerX 系统监控与告警](./SCN-OPS-SYSTEM-MONITORING-001) - PowerX 系统监控与告警
+
+### PUBLISH
+
+- [PowerX 插件开发与分发全链路](./SCN-PUBLISH-HUB-001) - PowerX 插件开发与分发全链路
+
+> **说明**：完整的场景目录请查看 [_catalog.md](./_catalog.md)，该文件由自动生成脚本维护。
