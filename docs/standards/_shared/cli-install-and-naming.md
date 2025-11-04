@@ -18,7 +18,7 @@
 > * 二进制命名统一为 `px-<scope>`（PX 主入口简写为 `px`）。
 > * 各仓 CLI 的 `main.go` 放在 `cmd/<binary>/` 目录，便于 `go install`。
 
-## 2. 快速安装（Go ≥ 1.21）
+## 2. 快速安装（Go ≥ 1.22）
 
 > 如果网络直连 GitHub 略慢，先配置 Go 代理（可选）：
 > `export GOPROXY=https://proxy.golang.org,direct`

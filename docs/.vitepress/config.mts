@@ -301,6 +301,54 @@ const zhOperationsSidebar = [
   },
 ]
 
+const zhDevelopersSidebar = [
+  {
+    text: '开发者中心',
+    collapsed: false,
+    items: [
+      { text: '总览', link: '/zh/developers/' },
+      { text: 'API 与规范', link: '/zh/developers/api-and-specifications/' },
+      { text: 'PXIP 提案', link: '/zh/developers/pxip/README' },
+      { text: 'API 示例', link: '/zh/developers/api-examples' },
+    ],
+  },
+  {
+    text: '能力模型与传输',
+    collapsed: false,
+    items: [
+      { text: '能力契约规范', link: '/zh/developers/api-and-specifications/02_capability/Capability_Contract_Spec' },
+      { text: '传输适配器规范', link: '/zh/developers/api-and-specifications/02_capability/Transport_Adapter_Spec' },
+    ],
+  },
+  {
+    text: '注册与路由',
+    collapsed: false,
+    items: [
+      { text: '能力注册与路由设计', link: '/zh/developers/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design' },
+      { text: '运行时端点管理', link: '/zh/developers/api-and-specifications/03_registry_router/Runtime_Endpoint_Management' },
+    ],
+  },
+  {
+    text: '编排与工作流',
+    collapsed: false,
+    items: [
+      { text: '流程与状态模型', link: '/zh/developers/api-and-specifications/04_orchestration/Flow_and_State_Model' },
+      { text: '编排服务接口', link: '/zh/developers/api-and-specifications/04_orchestration/Orchestrator_Service_Interface' },
+      { text: '实时流式网关', link: '/zh/developers/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway' },
+      { text: '工作流与智能体编排规范', link: '/zh/developers/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec' },
+    ],
+  },
+  {
+    text: '网关与消息总线',
+    collapsed: false,
+    items: [
+      { text: '事件总线与消息织网', link: '/zh/developers/api-and-specifications/06_gateway/EventBus_and_Message_Fabric' },
+      { text: '集成 API 与管理界面', link: '/zh/developers/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface' },
+      { text: 'MCP 服务与网关设计', link: '/zh/developers/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design' },
+    ],
+  },
+]
+
 const enOperationsSidebar = [
   {
     text: 'Operations & Governance',
@@ -457,7 +505,7 @@ export default withMermaid(defineConfig({
             activeMatch: '^/zh/(scenarios/|library/)',
             items: buildScenarioNavItems('zh'),
           },
-          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/(developers/|api-and-specifications/|pxip/)' },
+          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/developers/' },
           { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
           { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' }
         ],
@@ -476,21 +524,20 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: '场景与标准分发',
+              text: '插件安装与运维',
               collapsed: false,
               items: [
-                { text: '场景文档生成', link: '/zh/guides/scenarios/scenario-generation' },
-                { text: 'Docmap 维护记录', link: '/zh/guides/scenarios/docmap-maintenance' },
-                { text: '标准文档分发', link: '/zh/guides/publish/standards-distribution' }
+                { text: '插件运行态指南', link: '/zh/guides/Plugin_Runtime_Guide' },
+                { text: '插件测试与调试', link: '/zh/guides/Plugin_Test_and_Debug_Guide' }
               ]
             },
             {
-              text: 'Usecase Seeds',
+              text: '扩展与二次开发',
               collapsed: false,
               items: [
-                { text: 'Seed 生成', link: '/zh/guides/usecases/generate-usecase-seeds' },
-                { text: 'Seed 发布', link: '/zh/guides/usecases/publish-usecase-seeds' },
-                { text: '索引维护', link: '/zh/guides/usecases/seed-index-maintenance' }
+                { text: '插件 SDK 指南', link: '/zh/guides/PowerX_Plugin_SDK_Guide' },
+                { text: '智能体开发入门', link: '/zh/guides/Agent_Developer_Guide' },
+                { text: '前往开发者中心', link: '/zh/developers/' }
               ]
             }
           ],
@@ -598,72 +645,9 @@ export default withMermaid(defineConfig({
             }
           ],
           '/zh/library/': buildCollectedSidebar('', '/'),
-          '/zh/developers/': [
-            {
-              text: '开发与扩展',
-              collapsed: false,
-              items: [
-                { text: 'SDK / API', link: '/zh/developers/#sdk-api' },
-                { text: '插件体系', link: '/zh/developers/#plugin-ecosystem' },
-                { text: '质量与测试', link: '/zh/developers/#quality-testing' },
-                { text: '工具链', link: '/zh/developers/#tooling' }
-              ]
-            },
-            {
-              text: '核心文档',
-              collapsed: false,
-              items: [
-                { text: 'API 与规范', link: '/zh/api-and-specifications/' },
-                { text: 'PXIP 提案', link: '/zh/pxip/README.md' }
-              ]
-            }
-          ],
-          '/zh/api-and-specifications/': [
-            {
-              text: '概览',
-              collapsed: false,
-              items: [
-                { text: '栏目索引', link: '/zh/api-and-specifications/' },
-                { text: '总览', link: '/zh/api-and-specifications/README' },
-                { text: 'API 示例', link: '/zh/api-examples' }
-              ]
-            },
-            {
-              text: '能力模型与传输',
-              collapsed: false,
-              items: [
-                { text: '能力契约规范', link: '/zh/api-and-specifications/02_capability/Capability_Contract_Spec' },
-                { text: '传输适配器规范', link: '/zh/api-and-specifications/02_capability/Transport_Adapter_Spec' }
-              ]
-            },
-            {
-              text: '注册与路由',
-              collapsed: false,
-              items: [
-                { text: '能力注册与路由设计', link: '/zh/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design' },
-                { text: '运行时端点管理', link: '/zh/api-and-specifications/03_registry_router/Runtime_Endpoint_Management' }
-              ]
-            },
-            {
-              text: '编排与工作流',
-              collapsed: false,
-              items: [
-                { text: '流程与状态模型', link: '/zh/api-and-specifications/04_orchestration/Flow_and_State_Model' },
-                { text: '编排服务接口', link: '/zh/api-and-specifications/04_orchestration/Orchestrator_Service_Interface' },
-                { text: '实时流式网关', link: '/zh/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway' },
-                { text: '工作流与智能体编排规范', link: '/zh/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec' }
-              ]
-            },
-            {
-              text: '网关与消息总线',
-              collapsed: false,
-              items: [
-                { text: '事件总线与消息织网', link: '/zh/api-and-specifications/06_gateway/EventBus_and_Message_Fabric' },
-                { text: '集成 API 与管理界面', link: '/zh/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface' },
-                { text: 'MCP 服务与网关设计', link: '/zh/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design' }
-              ]
-            }
-          ],
+          '/zh/developers/': zhDevelopersSidebar,
+          '/zh/developers/api-and-specifications/': zhDevelopersSidebar,
+          '/zh/developers/pxip/': zhDevelopersSidebar,
           '/zh/operations/': zhOperationsSidebar,
           '/zh/security-and-governance/': zhOperationsSidebar,
           '/zh/resources/': [
@@ -719,21 +703,20 @@ export default withMermaid(defineConfig({
               ]
             },
             {
-              text: 'Usecase Seeds',
+              text: 'Plugin Operations',
               collapsed: false,
               items: [
-                { text: 'Generate Seeds', link: '/en/guides/usecases/generate-usecase-seeds' },
-                { text: 'Publish Seeds', link: '/en/guides/usecases/publish-usecase-seeds' },
-                { text: 'Maintain Indexes', link: '/en/guides/usecases/seed-index-maintenance' }
+                { text: 'Plugin Runtime Guide', link: '/en/guides/Plugin_Runtime_Guide' },
+                { text: 'Plugin Test & Debug', link: '/en/guides/Plugin_Test_and_Debug_Guide' }
               ]
             },
             {
-              text: 'Scenarios & Standards',
+              text: 'Extend & Develop',
               collapsed: false,
               items: [
-                { text: 'Scenario Authoring', link: '/en/guides/scenarios/scenario-generation' },
-                { text: 'Docmap Maintenance', link: '/en/guides/scenarios/docmap-maintenance' },
-                { text: 'Standards Distribution', link: '/en/guides/publish/standards-distribution' }
+                { text: 'Plugin SDK Guide', link: '/en/guides/PowerX_Plugin_SDK_Guide' },
+                { text: 'Agent Developer Guide', link: '/en/guides/Agent_Developer_Guide' },
+                { text: 'Visit Developer Hub', link: '/en/developers/' }
               ]
             }
           ],
@@ -840,13 +823,13 @@ export default withMermaid(defineConfig({
           '/en/library/': buildCollectedSidebar('', '/'),
           '/en/developers/': [
             {
-              text: 'Developers',
+              text: 'Developer Hub',
               collapsed: false,
               items: [
-                { text: 'SDK / API', link: '/en/developers/#sdk-api' },
-                { text: 'Plugin Ecosystem', link: '/en/developers/#plugin-ecosystem' },
-                { text: 'Quality & Testing', link: '/en/developers/#quality-testing' },
-                { text: 'Tooling', link: '/en/developers/#tooling' }
+                { text: 'Overview', link: '/en/developers/' },
+                { text: 'Plugin Quickstart', link: '/en/developers/quickstart' },
+                { text: 'Plugin Framework & Roadmap', link: '/en/developers/plugin-framework' },
+                { text: 'Tooling & Quality Practices', link: '/en/developers/tooling-and-quality' }
               ]
             }
           ],

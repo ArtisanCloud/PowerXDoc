@@ -17,5 +17,5 @@ description: 统一入口，串联 PowerX 的安全策略、治理流程与配�
 ## 关联路线
 
 - 联动[运营与治理](/zh/operations/)章节的观测、告警与变更流程。
-- 在自定义插件或 API 整合前，务必配合[API 与规范](/zh/api-and-specifications/)中的约束。
+- 在自定义插件或 API 整合前，务必配合[API 与规范](/zh/developers/api-and-specifications/)中的约束。
 - 若需跨租户或跨环境治理，可参考 `docs/standards/**` 的行业规范与模板。

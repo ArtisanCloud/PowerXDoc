@@ -8,9 +8,9 @@ PowerX 对外提供完整的开发工具链，涵盖 SDK / API、插件脚手架
 
 ## SDK / API {#sdk-api}
 
-- [REST & GraphQL 规范](/zh/api-and-specifications/README.md)
-- [Webhook 与事件协议](/zh/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md)
-- [实时通道与流式接口](/zh/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md)
+- [REST & GraphQL 规范](./api-and-specifications/README.md)
+- [Webhook 与事件协议](./api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md)
+- [实时通道与流式接口](./api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md)
 - 国际化与本地化脚手架可参考 `/docs/scripts/localization/` 目录中的工具。
 
 ## 插件体系 {#plugin-ecosystem}
@@ -18,7 +18,7 @@ PowerX 对外提供完整的开发工具链，涵盖 SDK / API、插件脚手架
 - [PowerX Plugin SDK 指南](/zh/guides/PowerX_Plugin_SDK_Guide.md)
 - [插件运行时指南](/zh/guides/Plugin_Runtime_Guide.md)
 - [开发热加载/调试流程](/zh/guides/Plugin_Test_and_Debug_Guide.md)
-- PXIP-001 中描述了统一能力与传输提案，可作为扩展插件协议的基础：[PXIP-001 提案](/zh/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md)
+- PXIP-001 中描述了统一能力与传输提案，可作为扩展插件协议的基础：[PXIP-001 提案](./pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md)
 
 ## 质量与测试 {#quality-testing}
 

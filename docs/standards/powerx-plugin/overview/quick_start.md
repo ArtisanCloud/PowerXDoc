@@ -8,7 +8,7 @@
 
 ## 先决条件
 
-- **Go** ≥ 1.21（后端）
+- **Go** ≥ 1.22（后端）
 - **Postgres** ≥ 13（推荐 14/15），能创建数据库与 schema
 - **Node.js** ≥ 18（仅当需要构建/预览 `web-admin` 时）
 - （可选）**PowerX 宿主**：包含 Plugin Manager + Dynamic Router

@@ -18,5 +18,5 @@ description: 概览 PowerX 的平台基础、能力模型与关键设计原则�
 ## 推荐后续
 
 - 初次部署可继续阅读[使用与部署指南](/zh/guides/)。
-- 若需接入第三方系统，可参阅[API 与规范](/zh/api-and-specifications/)。
+- 若需接入第三方系统，可参阅[API 与规范](/zh/developers/api-and-specifications/)。
 - 关注安全策略，可跳转至[安全与治理](/zh/security-and-governance/)。

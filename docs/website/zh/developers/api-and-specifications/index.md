@@ -33,5 +33,5 @@ description: 汇总 PowerX 能力模型、编排接口与集成协议的官方�
 ## 配套资源
 
 - [栏目总览](./README.md)
-- [示例 API](/zh/api-examples.md)
-- 需要了解提案流程可参考 [PXIP](/zh/pxip/README.md)。
+- [示例 API](../api-examples.md)
+- 需要了解提案流程可参考 [PXIP](../pxip/README.md)。
