@@ -176,7 +176,25 @@ flowchart LR
 
      此模式会在各仓库执行 `git fetch → checkout <default_branch> → pull --ff-only → commit → push`。发布后可运行 `node scripts/setup/push-downstreams.mjs` 再次确认远端状态，并清理遗留的 `docs/hub/<SCN_ID>-***` 本地分支。
 
-  5.b **批量推送已提交的仓库**（确认远端全部同步）：
+  5.b **批量分发所有场景**：如需一次性同步 docmap 中的全部场景，可使用批量脚本。默认行为等同于单场景命令加 `--use-default-branch`，执行前可先加 `--dry-run` 预览。
+
+     ```
+     新脚本：scripts/publish/publish-usecases-batch.mjs
+
+     # 先预览（不会提交）
+     node scripts/publish/publish-usecases-batch.mjs --dry-run --quiet
+
+     # 正式执行一键分发并在默认分支提交
+     node scripts/publish/publish-usecases-batch.mjs
+
+     可选参数：
+     --scn-id <ID>（可重复或逗号分隔）只跑部分场景
+     --no-use-default-branch 如果你仍想走 PR Flow
+     --no-reset-state 不清除 reports/_state 里的旧记录
+     其它诸如 --docmap、--repos、--checkout-root 也与单场景脚本保持一致
+     ```
+
+  5.c **批量推送已提交的仓库**（确认远端全部同步）：
 
      ```bash
      node scripts/setup/push-downstreams.mjs

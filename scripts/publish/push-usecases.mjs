@@ -134,6 +134,7 @@ function filterChildren(children, filters) {
 
 async function resolveSeedPath(child, options = {}) {
   const seedsRoot = path.resolve('docs/usecases-seeds');
+  const hubRoot = path.resolve('docs/use_cases/_from_hub');
   const scnId = options.scnId ?? child.scn_id ?? options.scenarioId;
   const candidates = [];
   const seen = new Set();
@@ -147,6 +148,7 @@ async function resolveSeedPath(child, options = {}) {
   }
 
   if (scnId) {
+    addCandidate(path.join(hubRoot, scnId, `${child.doc_id}.md`));
     addCandidate(path.join(seedsRoot, scnId, `${child.doc_id}.md`));
     addCandidate(path.join(seedsRoot, 'scenarios', scnId, `${child.doc_id}.md`));
   }
@@ -195,6 +197,114 @@ async function copyUsecaseSeed(child, repoMeta, options) {
   await fs.mkdir(path.dirname(target), { recursive: true });
   await fs.copyFile(source, target);
   return target;
+}
+
+async function findScenarioDoc(scnId, explicitPath) {
+  if (explicitPath) {
+    const abs = path.resolve(explicitPath);
+    try {
+      await fs.access(abs);
+      return abs;
+    } catch {
+      // fall back to search
+    }
+  }
+
+  const root = path.resolve('docs/scenarios');
+  const target = `${scnId}.md`;
+  const queue = [root];
+
+  while (queue.length) {
+    const current = queue.pop();
+    let entries;
+    try {
+      entries = await fs.readdir(current, { withFileTypes: true });
+    } catch {
+      continue;
+    }
+    for (const entry of entries) {
+      const entryPath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        queue.push(entryPath);
+      } else if (entry.isFile() && entry.name === target) {
+        return entryPath;
+      }
+    }
+  }
+  return null;
+}
+
+async function copyFileTracking(source, destination, repoDir, filesChanged) {
+  if (!source) return false;
+  try {
+    await fs.access(source);
+  } catch {
+    return false;
+  }
+  await fs.mkdir(path.dirname(destination), { recursive: true });
+  await fs.copyFile(source, destination);
+  filesChanged.push(path.relative(repoDir, destination));
+  return true;
+}
+
+async function copyScenarioArtifacts({
+  repoKey,
+  repoMeta,
+  repoDir,
+  scnId,
+  scenarioEntry,
+  filesChanged,
+}) {
+  const relativeRoot = path.posix.join(
+    repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub',
+    scnId,
+  );
+  const rootDir = path.join(repoDir, relativeRoot);
+
+  const mainDoc = await findScenarioDoc(scnId, scenarioEntry?.path);
+  if (!mainDoc) {
+    console.warn(`[${repoKey}] main scenario doc not found for ${scnId}`);
+  } else {
+    await copyFileTracking(mainDoc, path.join(rootDir, `${scnId}.md`), repoDir, filesChanged);
+  }
+
+  for (const child of scenarioEntry?.child_scenarios ?? []) {
+    const childDoc = await findScenarioDoc(child.scn_id, child.path);
+    if (!childDoc) {
+      console.warn(`[${repoKey}] child scenario doc not found for ${child.scn_id}`);
+      continue;
+    }
+    await copyFileTracking(
+      childDoc,
+      path.join(rootDir, `${child.scn_id}.md`),
+      repoDir,
+      filesChanged,
+    );
+  }
+
+  const seedIndex = path.resolve('docs/usecases-seeds', scnId, 'index.md');
+  await copyFileTracking(seedIndex, path.join(rootDir, 'index.md'), repoDir, filesChanged);
+}
+
+async function cleanupLegacySeedDir(repoKey, repoMeta, repoDir, scnId, filesChanged, options = {}) {
+  const legacyRoot = repoMeta.usecase_seed_legacy_root;
+  if (!legacyRoot) return;
+  const legacyDir = path.join(repoDir, legacyRoot, scnId);
+  try {
+    await fs.access(legacyDir);
+  } catch {
+    return;
+  }
+
+  if (options.dryRun) {
+    if (!options.quiet) {
+      console.log(`[${repoKey}] skip removing legacy seeds (dry-run): ${path.relative(repoDir, legacyDir)}`);
+    }
+    return;
+  }
+
+  await fs.rm(legacyDir, { recursive: true, force: true });
+  filesChanged.push(path.relative(repoDir, legacyDir));
 }
 
 async function computeFingerprint(children, options = {}) {
@@ -342,6 +452,24 @@ async function main() {
         });
         filesChanged.push(path.relative(repoDir, target));
       }
+
+      await copyScenarioArtifacts({
+        repoKey,
+        repoMeta,
+        repoDir,
+        scnId: args.scnId,
+        scenarioEntry: scenario,
+        filesChanged,
+      });
+
+      await cleanupLegacySeedDir(
+        repoKey,
+        repoMeta,
+        repoDir,
+        args.scnId,
+        filesChanged,
+        { dryRun: args.dryRun, quiet: args.quiet },
+      );
 
       const commitResult = await finalizeGit(
         repoDir,

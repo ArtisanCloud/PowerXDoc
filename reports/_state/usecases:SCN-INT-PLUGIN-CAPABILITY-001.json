@@ -3,16 +3,16 @@
     {
       "workflowId": "usecases:SCN-INT-PLUGIN-CAPABILITY-001",
       "fingerprint": "93e116f72212e60b716522008a570268b261c0a3bda460ff0b22dfcee07d239e",
-      "resumeToken": "24235e85-08a0-4b5a-86d0-4ea831bce8fa",
+      "resumeToken": "54daf928-1f80-4355-b279-146bbc7b27d2",
       "status": "completed",
       "metadata": {
         "reportPath": "reports/usecases/usecases_SCN-INT-PLUGIN-CAPABILITY-001.json"
       },
-      "createdAt": "2025-11-02T12:48:33.049Z",
-      "updatedAt": "2025-11-02T12:49:35.300Z"
+      "createdAt": "2025-11-04T13:20:08.146Z",
+      "updatedAt": "2025-11-04T13:20:27.534Z"
     }
   ],
   "tokens": {
-    "24235e85-08a0-4b5a-86d0-4ea831bce8fa": "93e116f72212e60b716522008a570268b261c0a3bda460ff0b22dfcee07d239e"
+    "54daf928-1f80-4355-b279-146bbc7b27d2": "93e116f72212e60b716522008a570268b261c0a3bda460ff0b22dfcee07d239e"
   }
 }

@@ -2,29 +2,17 @@
   "runs": [
     {
       "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
-      "fingerprint": "530e81dcc8193454ea154909f75e4a79c2fb5de2f24da50d7153fd30938752c0",
-      "resumeToken": "ddb542d6-f609-4d3a-9516-f43747259eeb",
-      "status": "completed",
-      "metadata": {
-        "reportPath": "reports/usecases/usecases_SCN-IAM-MULTI-TENANT-001.json"
-      },
-      "createdAt": "2025-10-30T06:29:26.729Z",
-      "updatedAt": "2025-10-30T06:29:26.734Z"
-    },
-    {
-      "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
       "fingerprint": "0ff55b380ca45c4ebb31a29dcf3a448027b4faf25d9246a6913a79f951304295",
-      "resumeToken": "80e02f17-e9c7-496f-8fa9-61af2f9d00aa",
+      "resumeToken": "903c181c-27a9-45ca-b9e7-50a2622b6e72",
       "status": "completed",
       "metadata": {
         "reportPath": "reports/usecases/usecases_SCN-IAM-MULTI-TENANT-001.json"
       },
-      "createdAt": "2025-10-30T06:38:20.114Z",
-      "updatedAt": "2025-10-30T06:49:07.372Z"
+      "createdAt": "2025-11-04T13:20:27.591Z",
+      "updatedAt": "2025-11-04T13:20:36.586Z"
     }
   ],
   "tokens": {
-    "ddb542d6-f609-4d3a-9516-f43747259eeb": "530e81dcc8193454ea154909f75e4a79c2fb5de2f24da50d7153fd30938752c0",
-    "80e02f17-e9c7-496f-8fa9-61af2f9d00aa": "0ff55b380ca45c4ebb31a29dcf3a448027b4faf25d9246a6913a79f951304295"
+    "903c181c-27a9-45ca-b9e7-50a2622b6e72": "0ff55b380ca45c4ebb31a29dcf3a448027b4faf25d9246a6913a79f951304295"
   }
 }
