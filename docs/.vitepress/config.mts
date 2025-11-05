@@ -570,16 +570,6 @@ export default withMermaid(defineConfig({
                   ]
                 },
                 {
-                  text: '插件生态',
-                  collapsed: true,
-                  items: [
-                    { text: '介绍', link: '/zh/scenarios/meta/plugin/' },
-                    { text: '本地调试模式', link: '/zh/scenarios/meta/plugin/#1️⃣-本地调试模式' },
-                    { text: '离线打包上传模式', link: '/zh/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
-                    { text: '在线发布模式', link: '/zh/scenarios/meta/plugin/#3️⃣-在线发布模式' },
-                  ]
-                },
-                {
                   text: '电商业务',
                   collapsed: true,
                   items: [
@@ -744,15 +734,6 @@ export default withMermaid(defineConfig({
                     { text: 'Marketplace & Business', link: '/en/scenarios/meta/powerx/marketplace-and-business/introduction/' },
                     { text: 'Plugin Ecosystem', link: '/en/scenarios/meta/powerx/plugin-ecosystem/introduction/' },
                     { text: 'Admin Web & MiniApp', link: '/en/scenarios/meta/powerx/admin-web-miniapp/introduction/' },
-                  ]
-                },
-                {
-                  text: 'Plugin Ecosystem',
-                  collapsed: true,
-                  items: [
-                    { text: 'Local Debug Mode', link: '/en/scenarios/meta/plugin/#1️⃣-本地调试模式' },
-                    { text: 'Offline Package Upload', link: '/en/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
-                    { text: 'Online Publishing', link: '/en/scenarios/meta/plugin/#3️⃣-在线发布模式' },
                   ]
                 },
                 {

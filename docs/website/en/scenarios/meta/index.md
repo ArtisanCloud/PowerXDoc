@@ -12,10 +12,6 @@ This documentation set showcases the PowerX platform's scenario-based use case d
 - **Path**: [PowerX Scenarios](./powerx/)
 - **Coverage**: Agent orchestration, plugin ecosystem, core platform, marketplace operations, etc.
 
-### 🔌 Plugin Ecosystem
-- **Path**: [Plugin Development & Distribution](./plugin/)
-- **Coverage**: Plugin local debugging, offline packaging, online publishing, etc.
-
 ### 🛒 Ecommerce
 - **Path**: [Ecommerce Scenarios](./ecommerce/)
 - **Coverage**: Order fulfillment, payment settlement, inventory management, membership marketing, risk & compliance, etc.

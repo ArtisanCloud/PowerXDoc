@@ -28,6 +28,7 @@ Options:
   --report-dir <dir>         Directory for workflow reports (default: reports/standards)
   --state-dir <dir>          Directory for workflow state ledger (default: reports/_state)
   --dry-run                  Skip git commit/push while still copying files
+  --use-default-branch       Commit/push directly on the default branch instead of creating PR branches
   --resume-token <token>     Resume a previously failed run
   --quiet                    Suppress informational logs
   --scope <value>            Filter repositories by scope (repeatable)
@@ -50,6 +51,7 @@ function parseArgs(argv) {
     reportDir: 'reports/standards',
     stateDir: DEFAULT_STATE_DIR,
     dryRun: false,
+    useDefaultBranch: false,
     quiet: false,
     scopes: [],
     reposFilter: [],
@@ -80,6 +82,9 @@ function parseArgs(argv) {
         break;
       case '--dry-run':
         args.dryRun = true;
+        break;
+      case '--use-default-branch':
+        args.useDefaultBranch = true;
         break;
       case '--resume-token':
         args.resumeToken = argv[++i];
@@ -136,8 +141,13 @@ async function copySelectedFiles(sourceDir, targetDir, files) {
   }
 }
 
-async function ensureGitContext(repoDir, branchName, dryRun) {
+async function ensureGitContext(repoDir, branchName, dryRun, { useDefaultBranch, defaultBranch }) {
   if (dryRun) return;
+  if (useDefaultBranch) {
+    await runGit(['checkout', defaultBranch], { cwd: repoDir });
+    await runGit(['pull', '--ff-only', 'origin', defaultBranch], { cwd: repoDir });
+    return;
+  }
   await checkoutBranch(branchName, { cwd: repoDir }).catch(async () => {
     await runGit(['checkout', '-b', branchName], { cwd: repoDir });
   });
@@ -404,7 +414,10 @@ async function main() {
         repoDir,
         repoMeta.standards_root ?? 'docs/standards',
       );
-      await ensureGitContext(repoDir, branchName, args.dryRun);
+      await ensureGitContext(repoDir, branchName, args.dryRun, {
+        useDefaultBranch: args.useDefaultBranch,
+        defaultBranch: repoMeta.default_branch ?? 'main',
+      });
       await copySelectedFiles(path.resolve('docs/standards'), targetDir, filesToSync);
       filesChanged.push(
         ...filesToSync.map((file) => `docs/standards/${file}`),
@@ -416,36 +429,44 @@ async function main() {
         args.dryRun,
       );
 
-      if (!args.dryRun) {
-        await pushBranch('origin', branchName, { cwd: repoDir }).catch((error) => {
-          throw new Error(`git push failed for ${repoMeta.key}: ${error.message}`);
-        });
-      }
-
       let prUrl = null;
       if (!args.dryRun) {
-        prUrl = (
-          await createPullRequest({
-            repo: repoMeta,
-            title: 'docs: sync standards from PowerXDocs',
-            body: 'Automated distribution of standards from PowerXDocs hub.',
-            head: branchName,
-            base: repoMeta.default_branch ?? 'main',
-            reviewers: repoMeta.default_reviewers ?? [],
-          })
-        ).url;
+        const pushTarget = args.useDefaultBranch
+          ? repoMeta.default_branch ?? 'main'
+          : branchName;
+        await pushBranch('origin', pushTarget, { cwd: repoDir }).catch((error) => {
+          throw new Error(`git push failed for ${repoMeta.key}: ${error.message}`);
+        });
+
+        if (args.useDefaultBranch) {
+          if (!args.quiet) {
+            console.log(`[${repoMeta.key}] Changes committed to ${pushTarget}`);
+          }
+        } else {
+          prUrl = (
+            await createPullRequest({
+              repo: repoMeta,
+              title: 'docs: sync standards from PowerXDocs',
+              body: 'Automated distribution of standards from PowerXDocs hub.',
+              head: branchName,
+              base: repoMeta.default_branch ?? 'main',
+              reviewers: repoMeta.default_reviewers ?? [],
+            })
+          ).url;
+        }
       } else {
         prUrl = `dry-run://${repoMeta.slug ?? repoMeta.key}/${branchName}`;
       }
 
       records.push({
         repoKey: repoMeta.key,
-        branchName,
+        branchName: args.useDefaultBranch ? repoMeta.default_branch ?? 'main' : branchName,
         status,
         filesChanged,
         prUrl,
         resumeToken,
         commitSkipped: commitResult?.skipped ?? false,
+        mode: args.useDefaultBranch ? 'default-branch' : 'pr',
       });
 
       if (!args.quiet) {
