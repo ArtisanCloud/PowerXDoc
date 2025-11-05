@@ -50,4 +50,40 @@
   --context docs/_data/repos.yaml
 ```
 
+### UC-DEV-PLUGIN-LOCAL-DEBUG-001 · powerx-plugin/dev
+完善该 Seed，补充流程、契约、验收指标与团队协作说明：
+
+```bash
+[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+  docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md \
+  --context docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-PUBLISH-001.md \
+  --context docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md \
+  --context docs/_data/docmap.yaml \
+  --context docs/_data/repos.yaml
+```
+
+### UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001 · powerx-marketplace/marketplace/dev
+完善该 Seed，补充流程、契约、验收指标与团队协作说明：
+
+```bash
+[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+  docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md \
+  --context docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-PUBLISH-001.md \
+  --context docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md \
+  --context docs/_data/docmap.yaml \
+  --context docs/_data/repos.yaml
+```
+
+### UC-DEV-PLUGIN-ONLINE-PUBLISH-001 · powerx-marketplace/marketplace/dev
+完善该 Seed，补充流程、契约、验收指标与团队协作说明：
+
+```bash
+[usecase-generate-template.md](.specify/templates/usecase-generate-template.md) \
+  docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md \
+  --context docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-PUBLISH-001.md \
+  --context docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md \
+  --context docs/_data/docmap.yaml \
+  --context docs/_data/repos.yaml
+```
+
 > 完成撰写后，可执行 `npm run publish:usecases -- --scn-id SCN-DEV-PLUGIN-PUBLISH-001 --validate-only` 或 `node scripts/site/sync-scenario-pages.mjs --scn-id SCN-DEV-PLUGIN-PUBLISH-001 --with-seeds --force` 校验结构并同步站点。

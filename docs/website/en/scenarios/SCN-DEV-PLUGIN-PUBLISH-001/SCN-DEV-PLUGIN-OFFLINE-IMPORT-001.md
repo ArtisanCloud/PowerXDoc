@@ -20,7 +20,7 @@ repos:
     scope: plugin-ecosystem
     responsibility: Offline dependency packaging, verification files, import scripts & rollback strategies
 related_usecases:
-  - doc_id: UC-OPS-PLUGIN-OFFLINE-IMPORT-001
+  - doc_id: UC-DEV-PLUGIN-OFFLINE-IMPORT-001
     layer: ops
     domain: ops
 last_reviewed_at: 2025-11-20
@@ -75,7 +75,7 @@ sequenceDiagram
 
 # Usecase Links
 
-- `UC-OPS-PLUGIN-OFFLINE-IMPORT-001` — Offline package generation & isolated environment import.
+- `UC-DEV-PLUGIN-OFFLINE-IMPORT-001` — Offline package generation & isolated environment import.
 
 # Acceptance Criteria
 

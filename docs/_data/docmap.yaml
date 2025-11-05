@@ -184,6 +184,18 @@ scenarios:
         title: Marketplace 审核与上架
         title_en: Marketplace Review & Listing
         path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
+      - scn_id: SCN-DEV-PLUGIN-LOCAL-DEBUG-001
+        title: 开发者本地调试链路
+        title_en: Developer Local Debug Loop
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md
+      - scn_id: SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001
+        title: 离线包送审与 Marketplace 入库
+        title_en: Offline Package Submission to Marketplace
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md
+      - scn_id: SCN-DEV-PLUGIN-ONLINE-PUBLISH-001
+        title: 在线发布与 Marketplace 即时上架
+        title_en: Online Publish & Marketplace Listing
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md
     children:
       - doc_id: UC-DEV-PLUGIN-RELEASE-APPROVAL-001
         scope: powerx
@@ -213,6 +225,27 @@ scenarios:
         optional: false
         repo: powerx-marketplace
         path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
+      - doc_id: UC-DEV-PLUGIN-LOCAL-DEBUG-001
+        scope: powerx-plugin
+        layer: dev
+        domain: dev
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md
+      - doc_id: UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001
+        scope: powerx-marketplace
+        layer: marketplace
+        domain: dev
+        optional: false
+        repo: powerx-marketplace
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md
+      - doc_id: UC-DEV-PLUGIN-ONLINE-PUBLISH-001
+        scope: powerx-marketplace
+        layer: marketplace
+        domain: dev
+        optional: false
+        repo: powerx-marketplace
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md
   - scn_id: SCN-DEV-PLUGIN-VERSION-COMPAT-001
     title: 插件版本与兼容性管理主场景
     title_en: Plugin Version & Compatibility Management

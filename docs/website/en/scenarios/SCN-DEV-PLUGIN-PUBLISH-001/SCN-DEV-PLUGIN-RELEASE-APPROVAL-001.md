@@ -23,7 +23,7 @@ repos:
     scope: security
     responsibility: Security scan policies, certificate verification, approval compliance checks
 related_usecases:
-  - doc_id: UC-OPS-PLUGIN-RELEASE-APPROVAL-001
+  - doc_id: UC-DEV-PLUGIN-RELEASE-APPROVAL-001
     layer: ops
     domain: ops
 last_reviewed_at: 2025-11-20
@@ -77,7 +77,7 @@ sequenceDiagram
 
 # Usecase Links
 
-- `UC-OPS-PLUGIN-RELEASE-APPROVAL-001` — Test tenant verification & approval loop.
+- `UC-DEV-PLUGIN-RELEASE-APPROVAL-001` — Test tenant verification & approval loop.
 
 # Acceptance Criteria
 

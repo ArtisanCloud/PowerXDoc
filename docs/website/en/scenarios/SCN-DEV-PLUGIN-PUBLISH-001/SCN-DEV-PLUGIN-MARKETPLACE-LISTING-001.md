@@ -20,7 +20,7 @@ repos:
     scope: core-platform
     responsibility: Release record sync, signature & security report verification, review result writeback
 related_usecases:
-  - doc_id: UC-OPS-PLUGIN-MARKETPLACE-LISTING-001
+  - doc_id: UC-DEV-PLUGIN-MARKETPLACE-LISTING-001
     layer: marketplace
     domain: ops
 last_reviewed_at: 2025-11-20
@@ -76,7 +76,7 @@ sequenceDiagram
 
 # Usecase Links
 
-- `UC-OPS-PLUGIN-MARKETPLACE-LISTING-001` — Marketplace review & listing sync.
+- `UC-DEV-PLUGIN-MARKETPLACE-LISTING-001` — Marketplace review & listing sync.
 
 # Acceptance Criteria
 

@@ -3,7 +3,7 @@
     "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
     "scenario": "SCN-DEV-PLUGIN-PUBLISH-001",
     "status": "Completed",
-    "generatedAt": "2025-11-04T13:19:54.238Z"
+    "generatedAt": "2025-11-05T04:13:37.261Z"
   },
   "records": [
     {
@@ -201,6 +201,150 @@
         }
       ],
       "timestamp": "2025-11-04T13:19:54.239Z"
+    },
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
+      "status": "Completed",
+      "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-dev-plugin-publish-001-ca3f279f",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-dev-plugin-publish-001-ca3f279f",
+          "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-marketplace",
+          "branchName": "docs/hub/scn-dev-plugin-publish-001-219d60ef",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXMarketplace/docs/hub/scn-dev-plugin-publish-001-219d60ef",
+          "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "docs/hub/scn-dev-plugin-publish-001-4a71029f",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXPlugin/docs/hub/scn-dev-plugin-publish-001-4a71029f",
+          "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-05T04:12:10.534Z"
+    },
+    {
+      "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
+      "status": "Completed",
+      "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+          "commitSkipped": false
+        },
+        {
+          "repoKey": "powerx-marketplace",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+          "commitSkipped": false
+        },
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+            "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-05T04:13:37.266Z"
     }
   ]
 }
