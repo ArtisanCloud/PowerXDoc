@@ -15,10 +15,12 @@ layers: [security, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Compatibility engine, exception workflow, audit and risk reporting
+    responsibility: >
+      Compatibility engine, exception workflow, audit and risk reporting
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Compatibility matrix maintenance, manifest validation scripts, CLI feedback templates
+    responsibility: >
+      Compatibility matrix maintenance, manifest validation scripts, CLI feedback templates
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001
     layer: security

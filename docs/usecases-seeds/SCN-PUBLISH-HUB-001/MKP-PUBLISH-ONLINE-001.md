@@ -127,7 +127,7 @@ sequenceDiagram
 - **Inbound APIs**
   - `POST /api/marketplace/plugins/publish`
     - Body：`metadata`（版本、渠道、权限、依赖）、`artifacts`（urls, hash, size, storageType）、`signatures`、`telemetry`.
-    - Auth：OAuth2 Client Credentials（scope: `plugin.publish`）。
+    - Auth：OAuth2 Client Credentials（scope: "`plugin.publish`）。"
     - 返回：`publishId`, `versionId`, `reviewId`, `status`（`queued`/`rejected`）。
   - `PATCH /api/marketplace/plugins/{versionId}/review`
     - 用于人工审核结果提交，包含 `decision`, `notes`, `approvers`.
@@ -158,7 +158,7 @@ sequenceDiagram
 # Testing Strategy
 
 - **单元测试**：`backend/internal/marketplace/publish/controller_test.go` 覆盖鉴权、幂等、错误码；`backend/internal/marketplace/publish/security_scanner_test.go` 模拟扫描结果；`backend/internal/marketplace/notifications/dispatcher_test.go` 验证多渠道推送逻辑。
-- **集成测试**：使用 Mock 服务模拟扫描/测试/通知，执行 `pnpm test:integration --filter marketplace-publish-online`，验证整条流水线。
+- **集成测试**：使用 Mock 服务模拟扫描/测试/通知，执行 `pnpm test: "integration --filter marketplace-publish-online`，验证整条流水线。"
 - **端到端测试**：与 CLI、Core 仓库联动，从 `px-plugin publish` 到租户通知演练，上报完整审计链。
 - **非功能测试**：高并发发布（≥ 20 并发）、大包元数据（>500MB）、审核 SLA 压力、灾备切换场景。
 
@@ -191,4 +191,4 @@ sequenceDiagram
 - Core 安装能力：`docs/usecases-seeds/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md`
 - 审核手册：`docs/standards/powerx-marketplace/publish/review_playbook.md`
 
-> Seed 更新后，请运行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并安排一次跨仓发布演练验证端到端链路。
+> Seed 更新后，请运行 `npm run publish: "usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并安排一次跨仓发布演练验证端到端链路。"

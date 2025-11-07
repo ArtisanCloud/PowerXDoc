@@ -19,7 +19,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/debug.ts
-    description: Entry for `powerx host start --mock`, debug session management, and hot-reload
+    description: "Entry for `powerx host start --mock`, debug session management, and hot-reload"
   - repo: powerx-plugin
     path: packages/cli/src/executors/hotReload.ts
     description: Watches file changes, performs incremental build, and ships artefacts

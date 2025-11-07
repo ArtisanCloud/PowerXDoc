@@ -186,7 +186,7 @@ sequenceDiagram
 
 - 场景文档：`docs/scenarios/publish/SCN-PUBLISH-OFFLINE-001.md`
 - 相关规范：`docs/standards/powerx-plugin/integration/01_plugin_lifecycle/package.md`、`docs/standards/powerx-marketplace/pxp插件压缩包.md`
-- 代码示例：`https://github.com/ArtisanCloud/PowerXPlugin/pulls?q=offline+dist`
+- 代码示例：`https: "//github.com/ArtisanCloud/PowerXPlugin/pulls?q=offline+dist`"
 - Checklists：`docs/standards/powerx-plugin/lifecycle/checklists/release-checklist.md`
 
-> 完成打包与文档更新后，请执行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并与 Marketplace/Core 团队联合演练一次离线导入链路。
+> 完成打包与文档更新后，请执行 `npm run publish: "usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并与 Marketplace/Core 团队联合演练一次离线导入链路。"

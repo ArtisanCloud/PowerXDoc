@@ -47,7 +47,7 @@ last_reviewed_at: 2025-11-02
 
 - **Business Objective**: Implement automated process for enterprise administrators to install official plugins with one click in production tenants through Marketplace, ensuring License, dependency, configuration, permissions, billing and audit chains are complete.
 - **Success Metrics**: Installation success rate ≥ 98%; dependency blocking rate < 5%; billing sync latency < 1 minute; rollback time ≤ 2 minutes.
-- **Scenario Association**: Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 1-4, covering Marketplace version selection, automatic deployment and publishing enablement.
+- **Scenario Association**: "Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 1-4, covering Marketplace version selection, automatic deployment and publishing enablement."
 
 > Through unified Marketplace installation orchestration, production tenants can complete plugin deployment with zero manual operations, with instant rollback and notifications on anomalies.
 
@@ -59,7 +59,7 @@ last_reviewed_at: 2025-11-02
   - License service is real-time available, supporting tenant quotas, billing authorization and dependency plugin validation.
   - Billing service supports installation event synchronization and retry; notification system can reach administrators and operations.
 - **Input/Output**
-  - Input: plugin `manifest`, version number, dependency list, License terms, default configuration templates.
+  - Input: "plugin `manifest`, version number, dependency list, License terms, default configuration templates."
   - Output: installation status, permission authorization results, billing records, audit logs, rollback records.
 - **Boundaries**
   - Not responsible for Marketplace review and publishing; not handling plugin internal business logic; not covering subsequent billing settlement processes.
@@ -139,10 +139,10 @@ sequenceDiagram
 
 # Observability & Ops
 
-- **Metrics**: `plugin.install.marketplace_duration_p95`, `plugin.install.marketplace_success_rate`, `plugin.install.dependency_block_total`, `plugin.install.rollback_total`, `plugin.billing.sync_latency`.
-- **Logs**: Record `tenant_id`, `plugin_id`, `version`, `license_plan`, `dependency_status`, `install_duration_ms`, `result`.
+- **Metrics**: "`plugin.install.marketplace_duration_p95`, `plugin.install.marketplace_success_rate`, `plugin.install.dependency_block_total`, `plugin.install.rollback_total`, `plugin.billing.sync_latency`."
+- **Logs**: "Record `tenant_id`, `plugin_id`, `version`, `license_plan`, `dependency_status`, `install_duration_ms`, `result`."
 - **Alerts**: Installation failure rate >3%, dependency block rate >10%, billing sync failure 3 consecutive times, installation time >10 minutes.
-- **Dashboards**: Grafana `Runtime Ops / Plugin Marketplace`, Marketplace audit logs, billing reconciliation dashboard.
+- **Dashboards**: "Grafana `Runtime Ops / Plugin Marketplace`, Marketplace audit logs, billing reconciliation dashboard."
 
 # Rollback & Failure Handling
 

@@ -15,10 +15,12 @@ layers: [ops, security]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Offline package generation, signature & verification, import orchestration, health check scripts
+    responsibility: >
+      Offline package generation, signature & verification, import orchestration, health check scripts
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Offline dependency packaging, verification files, import scripts & rollback strategies
+    responsibility: >
+      Offline dependency packaging, verification files, import scripts & rollback strategies
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-OFFLINE-IMPORT-001
     layer: ops

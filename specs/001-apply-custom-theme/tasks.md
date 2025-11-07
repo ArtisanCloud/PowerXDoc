@@ -21,7 +21,7 @@
 
 **Goal**: A developer can make simple, site-wide style changes (e.g., colors, fonts) to the VitePress documentation site.
 
-**Independent Test**: A developer can add a CSS rule to `docs/.vitepress/theme/style.css` and see the visual change on the live development server.
+**Independent Test**: "A developer can add a CSS rule to `docs/.vitepress/theme/style.css` and see the visual change on the live development server."
 
 ### Implementation for User Story 1
 

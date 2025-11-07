@@ -12,10 +12,12 @@ layers: [proto, service]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Host simulator, hot-reload SDK, breakpoint adapters
+    responsibility: >
+      Host simulator, hot-reload SDK, breakpoint adapters
   - key: powerx
     scope: core-platform
-    responsibility: Debug tooling service, permission enforcement, telemetry pipeline
+    responsibility: >
+      Debug tooling service, permission enforcement, telemetry pipeline
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-HOT-RELOAD-001
     layer: proto

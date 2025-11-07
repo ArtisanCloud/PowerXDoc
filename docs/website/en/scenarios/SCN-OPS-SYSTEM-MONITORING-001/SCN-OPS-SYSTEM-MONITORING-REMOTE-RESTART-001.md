@@ -15,7 +15,8 @@ layers: [ops, service]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Approval and RBAC, runbook orchestration, automation execution, audit reporting
+    responsibility: >
+      Approval and RBAC, runbook orchestration, automation execution, audit reporting
 related_usecases:
   - doc_id: UC-OPS-MONITORING-REMOTE-RESTART-001
     layer: ops

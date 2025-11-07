@@ -15,13 +15,16 @@ layers: [dev, app, ops]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: `px-plugin build/dev` commands, artifact sync, local debug tooling
+    responsibility: >
+      `px-plugin build/dev` commands, artifact sync, local debug tooling
   - key: powerx
     scope: core-platform
-    responsibility: Local plugin store, install/activate APIs, permission checks & audit
+    responsibility: >
+      Local plugin store, install/activate APIs, permission checks & audit
   - key: powerx-admin
     scope: admin-web
-    responsibility: Web Admin plugin console, health checks, debug helper panels
+    responsibility: >
+      Web Admin plugin console, health checks, debug helper panels
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-LOCAL-DEBUG-001
     layer: dev

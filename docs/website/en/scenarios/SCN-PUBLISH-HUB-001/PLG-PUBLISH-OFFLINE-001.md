@@ -37,7 +37,7 @@ code_refs:
     description: Integrate with local PEM or external KMS to generate signatures and certificate chains
   - component: offline_verifier
     path: TBD (depends on implementation language and layout)
-    description: Provide `dist --verify` to validate hashes, signatures, and certificate validity
+    description: "Provide `dist --verify` to validate hashes, signatures, and certificate validity"
 feature_flags:
   - name: PX_OFFLINE_IMPORT
     description: Enable CLI offline bundle generation and metadata output

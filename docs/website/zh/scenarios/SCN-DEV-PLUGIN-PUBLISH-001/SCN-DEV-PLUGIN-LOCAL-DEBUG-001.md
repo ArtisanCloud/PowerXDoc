@@ -15,7 +15,7 @@ layers: [dev, app, ops]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: `px-plugin build/dev` 命令、产物同步、调试日志工具
+    responsibility: "`px-plugin build/dev` 命令、产物同步、调试日志工具"
   - key: powerx
     scope: core-platform
     responsibility: 本地插件仓库、安装/激活接口、权限校验与审计

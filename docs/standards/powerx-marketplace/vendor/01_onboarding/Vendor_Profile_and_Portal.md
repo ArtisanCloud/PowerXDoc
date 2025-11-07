@@ -12,7 +12,7 @@ Portal 是你管理插件、结算、账户和合规的唯一官方入口。
 
 ### 登录入口
 
-- 地址：`https://marketplace.powerx.dev/vendor`
+- 地址：`https: "//marketplace.powerx.dev/vendor`"
 - 支持登录方式：
   - 邮箱 + 密码
   - GitHub / Google OAuth

@@ -58,7 +58,7 @@ PowerXPlugin 仓的在线发布能力负责将构建产物、manifest、签名�
 # Context & Assumptions
 
 - Feature Flags `PX_PLUGIN_PUBLISH` 与 `PX_PLUGIN_PUBLISH_PRECHECK` 已按环境开启并配置正确的 Marketplace Endpoint。
-- 发布者具备 `plugin:publish` 权限，Marketplace API Token 已写入 `~/.powerx-plugin/config.json` 或环境变量。
+- 发布者具备 `plugin: "publish` 权限，Marketplace API Token 已写入 `~/.powerx-plugin/config.json` 或环境变量。"
 - 构建流水线已产出最新 artefact（后端二进制、前端 bundle、迁移脚本），CI 质量门禁通过。
 - CLI 能访问签名服务（本地 PEM 或 `PX_SIGNING_ENDPOINT`）与对象存储（`PX_ARTIFACT_STORE_*` 临时凭据）。
 
@@ -166,7 +166,7 @@ sequenceDiagram
 # Testing Strategy
 
 - **单元测试**：`publish.command.spec.ts` 覆盖参数解析、错误提示；`precheck.spec.ts` 验证版本/依赖/签名校验；`marketplaceRegistry.spec.ts` Mock API 重试与异常。
-- **集成测试**：CI 执行 `pnpm test:integration --filter publish-online`，模拟 Marketplace API、对象存储、签名服务。
+- **集成测试**：CI 执行 `pnpm test: "integration --filter publish-online`，模拟 Marketplace API、对象存储、签名服务。"
 - **端到端验证**：跨仓联合演练 “构建 → publish → 审核 → 安装”，记录 release notes 与回滚脚本。
 - **非功能测试**：大文件（>300MB）上传性能、弱网重试、并发发布冲突、Windows/macOS/Linux 兼容。
 
@@ -197,6 +197,6 @@ sequenceDiagram
 - 场景文档：`docs/scenarios/publish/SCN-PUBLISH-ONLINE-001.md`
 - 相关规范：`docs/standards/powerx-plugin/integration/online_publish.md`
 - CLI 指南：`docs/guides/publish/online.md`
-- 代码示例：`https://github.com/ArtisanCloud/PowerXPlugin/pulls?q=px-plugin+publish`
+- 代码示例：`https: "//github.com/ArtisanCloud/PowerXPlugin/pulls?q=px-plugin+publish`"
 
-> Seed 更新后，请执行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并与 Marketplace 团队演练一次在线发布链路。
+> Seed 更新后，请执行 `npm run publish: "usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only` 校验结构，并与 Marketplace 团队演练一次在线发布链路。"

@@ -47,7 +47,7 @@ last_reviewed_at: 2025-10-31
 
 - **Business Goal**: Provide configurable delayed retries, dead-letter handling, and manual recovery so that critical tasks can be restored during failures with complete visibility and auditability.
 - **Success Metrics**: Automatic retry success rate ≥ 90%; DLQ escalation produces work orders within 5 minutes; recovery work-order completion rate ≥ 95%; duplicate execution rate < 0.5%.
-- **Scenario Alignment**: Supports Stage 4 of `SCN-OPS-EVENT-TASKFLOW-001`, consuming failed jobs from scheduling/Agent flows and closing the recovery loop.
+- **Scenario Alignment**: "Supports Stage 4 of `SCN-OPS-EVENT-TASKFLOW-001`, consuming failed jobs from scheduling/Agent flows and closing the recovery loop."
 
 > Delay queues, backoff strategies, and manual runbooks form a standardized “failure → retry → escalation → work order → recovery” pipeline.
 
@@ -119,16 +119,16 @@ last_reviewed_at: 2025-10-31
 
 # Observability & Ops
 
-- **Metrics**: `task.retry.scheduled_total`, `task.retry.success_total`, `task.retry.failure_total`, `task.retry.dlq_total`, `task.retry.escalated_total`.
-- **Logging**: Capture `task_id`, `retry_token`, `attempt`, `reason`, `next_retry_at`, `dlq_flag`, `workorder_id`.
+- **Metrics**: "`task.retry.scheduled_total`, `task.retry.success_total`, `task.retry.failure_total`, `task.retry.dlq_total`, `task.retry.escalated_total`."
+- **Logging**: "Capture `task_id`, `retry_token`, `attempt`, `reason`, `next_retry_at`, `dlq_flag`, `workorder_id`."
 - **Alerts**: Retry failure rate > 15% over 10 minutes, DLQ length beyond threshold, work-order creation failures (PagerDuty/Slack).
-- **Dashboards**: Grafana `Runtime Ops / Retry & Recovery`, Datadog `task.retry.*`, Ops console recovery panel.
+- **Dashboards**: "Grafana `Runtime Ops / Retry & Recovery`, Datadog `task.retry.*`, Ops console recovery panel."
 
 # Rollback & Failure Handling
 
 - **Rollback Steps**: Revert retry service, disable new feature flags, migrate queued items to legacy pipeline.
 - **Mitigations**: Execute runbooks manually, replay DLQ batches, reconfigure policies, notify affected tenants.
-- **Data Repair**: Run consistency checks on `task_retry_queue`, remove duplicates; `retry-inspect.mjs --reconcile` to sync states.
+- **Data Repair**: "Run consistency checks on `task_retry_queue`, remove duplicates; `retry-inspect.mjs --reconcile` to sync states."
 
 # Follow-ups & Risks
 
@@ -139,7 +139,7 @@ last_reviewed_at: 2025-10-31
 
 # References & Links
 
-- Scenario: `docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`
-- Child Scenario: `docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md`
-- Background: `docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`
-- Runbooks: `scripts/ops/retry-inspect.mjs`, `scripts/ops/recovery-runbook.mjs`
+- Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`"
+- Child Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md`"
+- Background: "`docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`"
+- Runbooks: "`scripts/ops/retry-inspect.mjs`, `scripts/ops/recovery-runbook.mjs`"

@@ -48,7 +48,7 @@ last_reviewed_at: 2025-11-20
 
 - **前置条件**
   - 启用 `PX_PLUGIN_HOST_SIMULATOR` 与 `debug-observability-v2` Feature Flag。
-  - 开发者完成 CLI 登录并具备 `plugin:debug` 权限。
+  - 开发者完成 CLI 登录并具备 `plugin: "debug` 权限。"
   - 宿主模拟器镜像与插件 manifest 声明版本兼容。
   - 本地已安装所需运行时（Node 18、Python 3.11 等）。
 - **输入/输出**

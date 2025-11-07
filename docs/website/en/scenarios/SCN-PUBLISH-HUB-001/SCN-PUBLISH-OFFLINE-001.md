@@ -12,13 +12,16 @@ layers: [proto, service, ui, api]
 repos:
   - key: powerx-plugin
     scope: powerx-plugin
-    responsibility: Plugin packaging and validation tooling
+    responsibility: >
+      Plugin packaging and validation tooling
   - key: powerx-marketplace
     scope: powerx-marketplace
-    responsibility: Offline upload, metadata registration, review workflow
+    responsibility: >
+      Offline upload, metadata registration, review workflow
   - key: powerx
     scope: powerx
-    responsibility: Installation execution, rollback, logging, and Web Admin version management
+    responsibility: >
+      Installation execution, rollback, logging, and Web Admin version management
 related_usecases:
   - doc_id: PLG-PUBLISH-OFFLINE-001
     layer: proto

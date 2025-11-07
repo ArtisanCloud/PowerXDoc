@@ -15,10 +15,12 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Version scanning jobs, policy engine, notifications, and audit logging
+    responsibility: >
+      Version scanning jobs, policy engine, notifications, and audit logging
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Manifest management, changelog generation, CLI support
+    responsibility: >
+      Manifest management, changelog generation, CLI support
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-VERSION-DETECT-001
     layer: service

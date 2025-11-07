@@ -15,10 +15,12 @@ layers: [ops, security]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Debug service backend, log collection, diagnostic report generation, ticket integration
+    responsibility: >
+      Debug service backend, log collection, diagnostic report generation, ticket integration
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Local diagnostic plugins, CLI triggers, regression verification scripts
+    responsibility: >
+      Local diagnostic plugins, CLI triggers, regression verification scripts
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001
     layer: ops

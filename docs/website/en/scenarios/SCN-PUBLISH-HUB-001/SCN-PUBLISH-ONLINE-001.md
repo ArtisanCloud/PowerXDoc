@@ -12,13 +12,16 @@ layers: [proto, service, api, ui]
 repos:
   - key: powerx-plugin
     scope: powerx-plugin
-    responsibility: Plugin publish CLI and version metadata
+    responsibility: >
+      Plugin publish CLI and version metadata
   - key: powerx-marketplace
     scope: powerx-marketplace
-    responsibility: Online review, listing, subscription broadcasting
+    responsibility: >
+      Online review, listing, subscription broadcasting
   - key: powerx
     scope: powerx
-    responsibility: Installation, upgrade, rollback APIs and the Web Admin management surface
+    responsibility: >
+      Installation, upgrade, rollback APIs and the Web Admin management surface
 related_usecases:
   - doc_id: PLG-PUBLISH-ONLINE-001
     layer: proto

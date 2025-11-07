@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/pack.ts
-    description: `px-plugin pack` 命令、签名与依赖打包
+    description: "`px-plugin pack` 命令、签名与依赖打包"
   - repo: powerx-marketplace
     path: apps/market/src/modules/offline-upload/index.tsx
     description: 离线上传界面、元数据校验、补件入口

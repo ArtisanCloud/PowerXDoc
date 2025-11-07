@@ -39,7 +39,7 @@ As a content manager or translator, I want to update a piece of text on the home
 
 **Why this priority**: This validates the primary benefit of the new strategy: separation of concerns, which empowers non-developers to manage content.
 
-**Independent Test**: This can be tested by changing a string in a language pack file (e.g., `locales/en-US.ts`) and observing the change reflected on the live-reloading documentation site without touching any `.vue` files.
+**Independent Test**: "This can be tested by changing a string in a language pack file (e.g., `locales/en-US.ts`) and observing the change reflected on the live-reloading documentation site without touching any `.vue` files."
 
 **Acceptance Scenarios**:
 

@@ -15,13 +15,16 @@ layers: [ops, marketplace, security]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: `px-plugin pack` bundle generation, signing, dependency manifests
+    responsibility: >
+      `px-plugin pack` bundle generation, signing, dependency manifests
   - key: powerx-marketplace
     scope: marketplace
-    responsibility: Offline upload console, metadata registration, review workflow
+    responsibility: >
+      Offline upload console, metadata registration, review workflow
   - key: powerx
     scope: security
-    responsibility: Signature verification, license validation, audit alerts
+    responsibility: >
+      Signature verification, license validation, audit alerts
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001
     layer: marketplace

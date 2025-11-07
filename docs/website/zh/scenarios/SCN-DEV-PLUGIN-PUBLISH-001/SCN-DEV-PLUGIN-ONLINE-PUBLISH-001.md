@@ -15,7 +15,7 @@ layers: [ops, marketplace]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: `px-plugin publish` 命令、元数据校验、更新日志与通知
+    responsibility: "`px-plugin publish` 命令、元数据校验、更新日志与通知"
   - key: powerx-marketplace
     scope: marketplace
     responsibility: 审核流程、上架同步、订阅通知、运营报表

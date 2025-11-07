@@ -14,10 +14,12 @@ layers: [service, integration]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Event bus, subscription governance, retry policies
+    responsibility: >
+      Event bus, subscription governance, retry policies
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Plugin event adapters, subscription configuration management
+    responsibility: >
+      Plugin event adapters, subscription configuration management
 related_usecases:
   - doc_id: UC-OPS-EVENT-NOTIFY-001
     layer: service
@@ -34,7 +36,7 @@ When a plugin is released in a production tenant, the system must deliver `plugi
 
 - **In Scope**: Event schema standardization, tenant isolation, subscription matching, Webhook/queue delivery, delayed retries, event tracing, and auditing.
 - **Out of Scope**: Plugin release approval workflows, downstream subscriber business logic, and cross-region mirroring (covered by the global operations scenario).
-- **Environment & Flags**: `event-bus-v2`, `plugin-release-webhook`, `audit-streaming`; depends on the Kafka event bus, subscription configuration store, and the Ops console event center.
+- **Environment & Flags**: "`event-bus-v2`, `plugin-release-webhook`, `audit-streaming`; depends on the Kafka event bus, subscription configuration store, and the Ops console event center."
 
 # Participants & Responsibilities
 
@@ -46,7 +48,7 @@ When a plugin is released in a production tenant, the system must deliver `plugi
 
 # End-to-End Flow
 
-1. **Stage 1 – Event Publication**: The release pipeline emits a standardized `plugin.release.published` event to the bus and records an idempotency key.
+1. **Stage 1 – Event Publication**: "The release pipeline emits a standardized `plugin.release.published` event to the bus and records an idempotency key."
 2. **Stage 2 – Subscription Matching**: The router resolves subscriptions by tenant, tags, and rate limits to build the delivery plan.
 3. **Stage 3 – Multi-channel Delivery**: The dispatcher pushes via Webhook or message queues; failures enter delayed retry or circuit breaking.
 4. **Stage 4 – Traceability & Remediation**: Delivery results are stored in the event log so Ops can query, replay, or create manual work orders.
@@ -69,8 +71,8 @@ sequenceDiagram
 
 # Key Interactions & Contracts
 
-- **APIs / Events**: `EVENT plugin.release.published`, `EVENT event.delivery.failed`, `POST /internal/events/publish` (replay), `POST /internal/events/subscriptions`.
-- **Configs / Schemas**: `docs/standards/events/event-bus-schema.md`, `config/events/subscriptions.yaml`, `docs/standards/ops/event-retry-policy.md`.
+- **APIs / Events**: "`EVENT plugin.release.published`, `EVENT event.delivery.failed`, `POST /internal/events/publish` (replay), `POST /internal/events/subscriptions`."
+- **Configs / Schemas**: "`docs/standards/events/event-bus-schema.md`, `config/events/subscriptions.yaml`, `docs/standards/ops/event-retry-policy.md`."
 - **Security / Compliance**: HMAC signature validation, anti-replay idempotency keys, tenant isolation, audit logging, approval for escalated failures.
 
 # Usecase Links
@@ -85,9 +87,9 @@ sequenceDiagram
 
 # Telemetry & Ops
 
-- Metrics: `event.delivery.success_total`, `event.delivery.retry_total`, `event.delivery.latency_p95`, `event.delivery.duplicate_total`.
+- Metrics: "`event.delivery.success_total`, `event.delivery.retry_total`, `event.delivery.latency_p95`, `event.delivery.duplicate_total`."
 - Alert thresholds: Failure rate > 5% over 5 minutes, signature validation errors, delivery latency > 10 seconds.
-- Observability sources: Grafana `Runtime Ops / Event Delivery`, Datadog `event.delivery.*`, Ops console event center, `scripts/ops/replay-event.mjs`.
+- Observability sources: "Grafana `Runtime Ops / Event Delivery`, Datadog `event.delivery.*`, Ops console event center, `scripts/ops/replay-event.mjs`."
 
 # Open Issues & Follow-ups
 

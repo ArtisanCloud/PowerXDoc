@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/publish.ts
-    description: `px-plugin publish` command, metadata validation, notification trigger
+    description: "`px-plugin publish` command, metadata validation, notification trigger"
   - repo: powerx-marketplace
     path: apps/market/src/modules/online-publish/index.tsx
     description: Online publish UI, metadata templates, status view

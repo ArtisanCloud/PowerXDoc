@@ -14,7 +14,8 @@ layers: [ops, service]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Cron parsing, resource validation, task execution pipeline
+    responsibility: >
+      Cron parsing, resource validation, task execution pipeline
 related_usecases:
   - doc_id: UC-OPS-TASK-SCHEDULE-001
     layer: ops
@@ -31,7 +32,7 @@ The scheduling center triggers plugin workloads based on Cron expressions or eve
 
 - **In Scope**: Cron/event task registration, Cron parsing, tenant quotas and mutual exclusion, execution triggers, status tracking, SLA alerting, retry hand-offs.
 - **Out of Scope**: Plugin business logic, infrastructure scaling, and manual work-order approvals.
-- **Environment & Flags**: `task-scheduler-v3`, `task-sla-monitor`, `task-retry-queue`; depends on Redis/Etcd locks, Kafka execution queues, and Ops console dashboards.
+- **Environment & Flags**: "`task-scheduler-v3`, `task-sla-monitor`, `task-retry-queue`; depends on Redis/Etcd locks, Kafka execution queues, and Ops console dashboards."
 
 # Participants & Responsibilities
 
@@ -65,8 +66,8 @@ sequenceDiagram
 
 # Key Interactions & Contracts
 
-- **APIs / Events**: `POST /internal/tasks/register`, `PUT /internal/tasks/{id}/pause|resume`, `EVENT task.execution.updated`, `EVENT task.execution.failed`.
-- **Configs / Schemas**: `config/tasks/default_policy.yaml`, `docs/standards/ops/task-sla-matrix.md`, `docs/standards/events/task-status-schema.md`.
+- **APIs / Events**: "`POST /internal/tasks/register`, `PUT /internal/tasks/{id}/pause|resume`, `EVENT task.execution.updated`, `EVENT task.execution.failed`."
+- **Configs / Schemas**: "`config/tasks/default_policy.yaml`, `docs/standards/ops/task-sla-matrix.md`, `docs/standards/events/task-status-schema.md`."
 - **Security / Compliance**: Task operation permissions, audit logging, tenant-level quotas and isolation, SLA alert approvals.
 
 # Usecase Links
@@ -81,9 +82,9 @@ sequenceDiagram
 
 # Telemetry & Ops
 
-- Metrics: `task.scheduler.on_time_rate`, `task.scheduler.missed_total`, `task.execution.success_total`, `task.execution.retry_total`, `task.sla.breach_total`.
+- Metrics: "`task.scheduler.on_time_rate`, `task.scheduler.missed_total`, `task.execution.success_total`, `task.execution.retry_total`, `task.sla.breach_total`."
 - Alert thresholds: Scheduling failure rate > 5% over 5 minutes, three consecutive SLA breaches, lock contention > 70%.
-- Observability sources: Grafana `Runtime Ops / Scheduler Overview`, Datadog `task.scheduler.*`, Ops console timeline, `scripts/ops/task-sla-report.mjs`.
+- Observability sources: "Grafana `Runtime Ops / Scheduler Overview`, Datadog `task.scheduler.*`, Ops console timeline, `scripts/ops/task-sla-report.mjs`."
 
 # Open Issues & Follow-ups
 

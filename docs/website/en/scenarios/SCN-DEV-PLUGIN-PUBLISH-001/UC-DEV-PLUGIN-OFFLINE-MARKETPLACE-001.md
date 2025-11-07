@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/pack.ts
-    description: `px-plugin pack` command, signing, dependency bundle
+    description: "`px-plugin pack` command, signing, dependency bundle"
   - repo: powerx-marketplace
     path: apps/market/src/modules/offline-upload/index.tsx
     description: Offline upload UI, metadata validation, rework entry

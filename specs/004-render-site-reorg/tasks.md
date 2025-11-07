@@ -19,7 +19,7 @@
 
 - [X] T004 Create docs/website/ skeleton (index.md placeholders, public/, _mount/) per architecture in docs/design/render-site-reorg.md
 - [X] T005 Update docs/.vitepress/config.mts to use `srcDir: 'website'` and adjust `publicDir`/nav defaults
-- [X] T006 Ensure docs build scripts in package.json (`docs:dev`, `docs:build`, `docs:preview`) still target docs/ after srcDir change
+- [X] T006 Ensure docs build scripts in package.json (`docs: "dev`, `docs:build`, `docs:preview`) still target docs/ after srcDir change"
 
 **Checkpoint**: New render root scaffolded, VitePress aware of docs/website/.
 

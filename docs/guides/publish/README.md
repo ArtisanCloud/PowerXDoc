@@ -18,7 +18,7 @@
      - Usecase 模板：`docs/usecases-seeds/<scope>/<layer>/<domain>/`
 
 2. **质量校验**  
-   - 运行 `npm run lint`、`npm run docs:build` 或其他必要检查。  
+   - 运行 `npm run lint`、`npm run docs: "build` 或其他必要检查。"
    - 审核 Frontmatter、内链、术语是否符合 `.specify/memory/constitution.md`。
 
 3. **本地 checkout 准备**

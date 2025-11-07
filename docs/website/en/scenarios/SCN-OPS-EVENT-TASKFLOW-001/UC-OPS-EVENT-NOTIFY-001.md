@@ -45,9 +45,9 @@ last_reviewed_at: 2025-10-31
 
 # Usecase Overview
 
-- **Business Goal**: Deliver `plugin.release.published` and other critical events to every subscriber within 5 seconds after a plugin release, with traceability, compensation, and idempotency guarantees so that cross-system collaboration fires on time.
+- **Business Goal**: "Deliver `plugin.release.published` and other critical events to every subscriber within 5 seconds after a plugin release, with traceability, compensation, and idempotency guarantees so that cross-system collaboration fires on time."
 - **Success Metrics**: Initial delivery success rate ≥ 97%; cumulative success rate after retries ≥ 99.5%; duplicate delivery rate < 0.5%; subscriber ACK latency P95 ≤ 3 seconds; audit coverage 100%.
-- **Scenario Alignment**: Supports Stage 1 of `SCN-OPS-EVENT-TASKFLOW-001`, providing the trusted event source for scheduling, Agent orchestration, and recovery flows.
+- **Scenario Alignment**: "Supports Stage 1 of `SCN-OPS-EVENT-TASKFLOW-001`, providing the trusted event source for scheduling, Agent orchestration, and recovery flows."
 
 > Unified event models and delivery strategies enable a closed loop that notifies the Ops console, CI/CD, and alert platforms immediately after each plugin release.
 
@@ -58,7 +58,7 @@ last_reviewed_at: 2025-10-31
   - Kafka / event bus is available; subscriptions are stored in the `event_subscription` table and maintained through the console.
   - Subscriber Webhook/queue endpoints support HMAC signatures, idempotency tokens, and retry handling.
 - **Inputs / Outputs**
-  - Inputs: `plugin.release.published` events emitted by the release pipeline, subscription definitions, idempotency keys, tenant context.
+  - Inputs: "`plugin.release.published` events emitted by the release pipeline, subscription definitions, idempotency keys, tenant context."
   - Outputs: Delivery requests per subscriber, delivery status, event log persistence, audit events, metrics.
 - **Boundaries**
   - Does not cover release pipeline approval or signing workflows.
@@ -79,7 +79,7 @@ last_reviewed_at: 2025-10-31
 
 ## Flow & Sequence
 
-1. **Step 1 – Publish Event**: The release service calls `PublishEvent`, validating schema, tenant, and idempotency key before writing to Kafka topics.
+1. **Step 1 – Publish Event**: "The release service calls `PublishEvent`, validating schema, tenant, and idempotency key before writing to Kafka topics."
 2. **Step 2 – Match Subscriptions**: The router consumes events, filters subscribers by tenant and tags, and applies rate limits/blacklists.
 3. **Step 3 – Execute Delivery**: The dispatcher sends Webhook/queue messages, records response codes and latency, and schedules delayed retries on failures.
 4. **Step 4 – Trace & Alert**: Delivery outcomes are written to the event store and audit stream; breaches trigger PagerDuty/IM alerts and sync to the Ops console.
@@ -107,8 +107,8 @@ sequenceDiagram
   - `EVENT plugin.release.published` — Payload includes version, tenant, dependency list, actor, checksum.
   - `POST /internal/events/publish` — Manual replay endpoint requiring signatures and idempotency.
 - **Outbound Calls**
-  - Webhook: `POST https://<subscriber>/powerx/events` with `X-PowerX-Signature`, 3 retries with exponential backoff.
-  - Queue: Deliver to tenant-defined Kafka topics/AMQP exchanges with `tenant_id`, `event_id`, `attempt`.
+  - Webhook: "`POST https://<subscriber>/powerx/events` with `X-PowerX-Signature`, 3 retries with exponential backoff."
+  - Queue: "Deliver to tenant-defined Kafka topics/AMQP exchanges with `tenant_id`, `event_id`, `attempt`."
 - **Configs & Scripts**
   - `config/events/subscriptions.yaml` — Default subscription templates.
   - `scripts/ops/replay-event.mjs` — Event replay utility.
@@ -133,16 +133,16 @@ sequenceDiagram
 
 # Observability & Ops
 
-- **Metrics**: `event.delivery.success_total`, `event.delivery.retry_total`, `event.delivery.latency_p95`, `event.delivery.duplicate_total`.
-- **Logging**: Record `event_id`, `tenant_id`, `subscriber_id`, `attempt`, `status`, `latency_ms`, `signature_id`; redact sensitive data.
+- **Metrics**: "`event.delivery.success_total`, `event.delivery.retry_total`, `event.delivery.latency_p95`, `event.delivery.duplicate_total`."
+- **Logging**: "Record `event_id`, `tenant_id`, `subscriber_id`, `attempt`, `status`, `latency_ms`, `signature_id`; redact sensitive data."
 - **Alerts**: Consecutive failures > 3 or failure rate > 5% over 5 minutes trigger PagerDuty; signature validation failures notify security channel.
-- **Dashboards**: Grafana `Runtime Ops / Event Delivery`, Datadog `event.delivery.*`, Ops console event center.
+- **Dashboards**: "Grafana `Runtime Ops / Event Delivery`, Datadog `event.delivery.*`, Ops console event center."
 
 # Rollback & Failure Handling
 
 - **Rollback Steps**: Roll back publisher/dispatcher images, restore prior config, disable new feature flags, clean pending retries.
-- **Mitigations**: Use `replay-event.mjs` to resend failed events; adjust subscription settings; manually notify critical subscribers.
-- **Data Repair**: Run `scripts/audit/reconcile-event-log.mjs` to reconcile event store and audit stream; fix idempotency anomalies via SQL update.
+- **Mitigations**: "Use `replay-event.mjs` to resend failed events; adjust subscription settings; manually notify critical subscribers."
+- **Data Repair**: "Run `scripts/audit/reconcile-event-log.mjs` to reconcile event store and audit stream; fix idempotency anomalies via SQL update."
 
 # Follow-ups & Risks
 
@@ -153,9 +153,9 @@ sequenceDiagram
 
 # References & Links
 
-- Scenario: `docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`
-- Background: `docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`
-- Scripts: `scripts/ops/replay-event.mjs`, `scripts/ops/validate-webhook.mjs`
+- Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`"
+- Background: "`docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`"
+- Scripts: "`scripts/ops/replay-event.mjs`, `scripts/ops/validate-webhook.mjs`"
 
 ---
 

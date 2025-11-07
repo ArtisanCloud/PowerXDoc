@@ -14,7 +14,8 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Agent strategy library, orchestration service, visualization, and audit
+    responsibility: >
+      Agent strategy library, orchestration service, visualization, and audit
 related_usecases:
   - doc_id: UC-OPS-AGENT-ORCHESTRATION-001
     layer: service
@@ -31,7 +32,7 @@ The Agent orchestration service subscribes to the event bus, evaluates the strat
 
 - **In Scope**: Event subscription, strategy evaluation, taskflow construction, node execution, status feedback, and human escalation.
 - **Out of Scope**: Strategy authoring IDEs, external system access provisioning, and long-running manual workflows (handled by dedicated operations systems).
-- **Environment & Flags**: `agent-orchestrator`, `agent-strategy-library`, `audit-streaming`; depends on the event bus, strategy library, and the Ops console orchestration view.
+- **Environment & Flags**: "`agent-orchestrator`, `agent-strategy-library`, `audit-streaming`; depends on the event bus, strategy library, and the Ops console orchestration view."
 
 # Participants & Responsibilities
 
@@ -66,8 +67,8 @@ sequenceDiagram
 
 # Key Interactions & Contracts
 
-- **APIs / Events**: `EVENT plugin.job.completed`, `EVENT agent.workflow.generated`, `POST /internal/agent/events`, `POST /ops/manual-review`.
-- **Configs / Schemas**: `config/agent/strategies/*.yaml`, `docs/standards/agent/orchestration-contract.md`, `docs/standards/events/agent-workflow-schema.md`.
+- **APIs / Events**: "`EVENT plugin.job.completed`, `EVENT agent.workflow.generated`, `POST /internal/agent/events`, `POST /ops/manual-review`."
+- **Configs / Schemas**: "`config/agent/strategies/*.yaml`, `docs/standards/agent/orchestration-contract.md`, `docs/standards/events/agent-workflow-schema.md`."
 - **Security / Compliance**: Strategy approval and release, least-privilege access, operation audits, MFA for human takeover.
 
 # Usecase Links
@@ -82,9 +83,9 @@ sequenceDiagram
 
 # Telemetry & Ops
 
-- Metrics: `agent.strategy.hit_rate`, `agent.workflow.generated_total`, `agent.node.success_total`, `agent.manual_escalation_total`, `agent.workflow.latency_p95`.
+- Metrics: "`agent.strategy.hit_rate`, `agent.workflow.generated_total`, `agent.node.success_total`, `agent.manual_escalation_total`, `agent.workflow.latency_p95`."
 - Alert thresholds: Strategy miss rate > 20% over 15 minutes, automatic task failure rate > 10%, manual backlog > 20 items.
-- Observability sources: Grafana `Runtime Ops / Agent Automation`, Datadog `agent.*`, Ops console orchestration view, `scripts/ops/agent-replay.mjs`.
+- Observability sources: "Grafana `Runtime Ops / Agent Automation`, Datadog `agent.*`, Ops console orchestration view, `scripts/ops/agent-replay.mjs`."
 
 # Open Issues & Follow-ups
 

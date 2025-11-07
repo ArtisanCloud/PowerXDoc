@@ -31,7 +31,7 @@ linked_requirements:
 code_refs:
   - component: publish_controller
     path: backend/internal/marketplace/publish/controller.go
-    description: 处理 `POST /api/marketplace/plugins/publish` 请求并发起审核流程（具体目录遵循 backend/internal 规范落地）
+    description: "处理 `POST /api/marketplace/plugins/publish` 请求并发起审核流程（具体目录遵循 backend/internal 规范落地）"
   - component: review_pipeline_service
     path: backend/internal/marketplace/publish/review_pipeline.go
     description: 编排自动化扫描、兼容性测试与人工审核队列

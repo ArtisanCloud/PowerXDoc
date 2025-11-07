@@ -47,7 +47,7 @@ last_reviewed_at: 2025-11-02
 
 - **Business Objective**: When new plugin versions are detected, ensure business continuity through automated canary upgrades, providing closed-loop capabilities for health checks, traffic switching, automatic rollback, reporting and notifications.
 - **Success Metrics**: Upgrade success rate ≥ 95%; canary coverage ≥ 20%; rollback response < 1 minute; upgrade report generation ≤ 5 minutes.
-- **Scenario Association**: Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 2-4, supporting upgrade task execution, traffic governance and audit.
+- **Scenario Association**: "Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 2-4, supporting upgrade task execution, traffic governance and audit."
 
 > Through upgrade planning, canary deployment and metric-driven traffic switching, achieve robust automatic upgrades with second-level rollback to ensure business safety on anomalies.
 
