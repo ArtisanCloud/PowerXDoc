@@ -58,7 +58,7 @@ web-admin/
 
 | 模式 | baseURL | 接口路径 | 说明 |
 |------|----------|-----------|------|
-| **本地开发** | `/` | `http://127.0.0.1:8086/v1/...` | 直连后端，不需宿主 |
+| **本地开发** | `/` | `http://127.0.0.1:8087/v1/...` | 直连后端，不需宿主 |
 | **宿主反代** | `/_p/<plugin-id>/admin/` | `/_p/<plugin-id>/api/v1/...` | PowerX 注入反代前缀 |
 
 PowerX 在部署时自动代理：
@@ -66,7 +66,7 @@ PowerX 在部署时自动代理：
 ```
 
 /_p/com.powerx.plugins.base/admin/* → web-admin/.output/
-/_p/com.powerx.plugins.base/api/*   → backend/:8086
+/_p/com.powerx.plugins.base/api/*   → backend/:8087
 
 ````
 
@@ -86,7 +86,7 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl: process.env.POWERX_PROXY
         ? `/_p/${process.env.POWERX_PLUGIN_ID}/api/v1`
-        : 'http://127.0.0.1:8086/v1',
+        : 'http://127.0.0.1:8087/v1',
       insidePowerX: !!process.env.POWERX_PROXY,
     },
   },
@@ -242,7 +242,7 @@ npm run dev
 ```
 
 默认访问 [http://localhost:3000](http://localhost:3000)
-直连后端 `:8086/v1`。
+直连后端 `:8087/v1`。
 
 ### 构建
 

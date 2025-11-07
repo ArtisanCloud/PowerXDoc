@@ -14,6 +14,14 @@ export default {
       primaryCta: 'Explore Core Capabilities',
       secondaryCta: 'View Quick Start',
     },
+    preview: {
+      title: 'PowerX Home Preview',
+      description: 'Preview the landing page in your current locale to verify layout and messaging at a glance.',
+    },
+    marketPreview: {
+      title: 'PowerX Marketplace Preview',
+      description: 'See how the plugin marketplace landing looks per locale so you can validate navigation and storefront entry points quickly.',
+    },
     features: {
       title: 'Four Pillars of PowerX',
       lead: 'AgentOS + plugin ecosystem + open foundation: the blueprint for enterprise-grade agents.',

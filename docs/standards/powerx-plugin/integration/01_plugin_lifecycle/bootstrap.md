@@ -44,7 +44,7 @@ build/pxp/
 ## 5. Verify Backend Runtime
 
 1. Launch the backend via `make run`.
-2. Hit `http://localhost:8086/healthz` to confirm readiness.
+2. Hit `http://localhost:8087/healthz` to confirm readiness.
 3. Inspect logs for tenant context middleware and RBAC guard wiring.
 
 ## 6. Verify Admin UI

@@ -50,7 +50,7 @@ process.env.POWERX_PLUGIN_ID
 | ----------------------- | ----------------------------------- | ------------ |
 | `POWERX_PLUGIN_ID`      | `com.powerx.plugins.base`           | 插件唯一标识       |
 | `POWERX_PLUGIN_VERSION` | `0.1.0`                             | 插件版本号        |
-| `POWERX_BIND_ADDR`      | `:8086`                             | 插件监听地址       |
+| `POWERX_BIND_ADDR`      | `:8087`                             | 插件监听地址       |
 | `POWERX_ENV`            | `dev` / `prod`                      | 当前运行环境       |
 | `POWERX_DEV_MODE`       | `1` / `0`                           | 开发模式（跳过签名验证） |
 | `POWERX_LOG_LEVEL`      | `info` / `debug` / `warn` / `error` | 日志级别         |
@@ -184,7 +184,7 @@ const api = config.public.apiBaseUrl
 | `POWERX_LOG_LEVEL=debug`                   | 打印详细日志            |
 | `POWERX_DB_LOG_SQL=1`                      | 打印 SQL 查询         |
 | `POWERX_DEFAULT_TENANT_ID=1`               | 强制使用默认租户 ID       |
-| `POWERX_BIND_ADDR=:8086`                   | 启动本地 HTTP 监听      |
+| `POWERX_BIND_ADDR=:8087`                   | 启动本地 HTTP 监听      |
 | `POWERX_PLUGIN_ID=com.powerx.plugins.base` | 标识插件身份            |
 
 本地启动命令：

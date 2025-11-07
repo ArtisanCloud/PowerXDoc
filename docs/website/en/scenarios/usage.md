@@ -113,12 +113,28 @@ flowchart LR
 
 ## 6. Site Sync & Consumption (F → H)
 
+- **Scenario publish workflow**:
+  - `npm run publish:scenarios -- --scn-id <SCN_ID> --dry-run`
+  - `npm run publish:scenarios -- --scn-id <SCN_ID> --resume-token <token>`
+  - The dry run validates docmap/frontmatter links and writes a report to `reports/scenarios/<SCN_ID>.json`; reuse the printed `resumeToken` for the real run, which renders `docs/website/{zh,en}/scenarios/<SCN_ID>.md` and records state under `reports/_state/scenario:<SCN_ID>.json`.
 - **Scenario pages**: `node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --force`
   - Copies the main scenario and any `child_scenarios` into `docs/website/{zh,en}/scenarios/`.
 - **Seed pages**: `node scripts/site/sync-seed-pages.mjs --scn-id <SCN_ID> --force`
   - Copies the contents of `docs/usecases-seeds/<SCN_ID>/**` (including `index.md`) into the site directory.
   - Chinese pages keep the original content; English pages get placeholder copies that you can translate later.
 - **Usage**: The website is used for reviews and high-level sharing; downstream repos consume the latest Seeds directly.
+
+## Optional: Sync Standards
+
+- **When to run**: Whenever `docs/standards/**` (including `_shared/`) changes and needs to be propagated to downstream repositories under `repos/<repo-key>`.
+- **Recommended flow**: Dry run first, then execute the actual push with clean working trees in each downstream repo.
+
+  ```bash
+  npm run publish:standards -- --dry-run
+  npm run publish:standards
+  ```
+
+- **What it does**: Copies standards into each repo’s `docs/standards/` directory and writes reports under `reports/standards/` plus `reports/_state/standards:*.json`.
 
 ## FAQ
 

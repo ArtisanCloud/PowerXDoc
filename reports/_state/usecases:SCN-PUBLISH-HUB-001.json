@@ -2,41 +2,15 @@
   "runs": [
     {
       "workflowId": "usecases:SCN-PUBLISH-HUB-001",
-      "fingerprint": "ac85fe242fd041aa267e0dc41f61d00cf08c073420e103df83861b1dee52e53f",
-      "resumeToken": "e85fc74f-8b93-47df-8a3a-9dfda3cad52d",
-      "status": "completed",
-      "metadata": {
-        "reportPath": "reports/usecases/usecases_SCN-PUBLISH-HUB-001.json"
-      },
-      "createdAt": "2025-10-25T16:56:05.857Z",
-      "updatedAt": "2025-10-25T16:56:05.864Z"
-    },
-    {
-      "workflowId": "usecases:SCN-PUBLISH-HUB-001",
-      "fingerprint": "0e10c13016fb57c407be4dfbdb66f892d3a95e27e6bb10f49f240bceabdb601d",
-      "resumeToken": "7f73725b-cbff-423f-b011-65947de2c022",
-      "status": "failed",
-      "metadata": {
-        "reportPath": "reports/usecases/usecases_SCN-PUBLISH-HUB-001.json"
-      },
-      "createdAt": "2025-10-29T08:37:05.886Z",
-      "updatedAt": "2025-10-29T08:37:05.926Z"
-    },
-    {
-      "workflowId": "usecases:SCN-PUBLISH-HUB-001",
       "fingerprint": "21e92b0bc5424e9b564a7874348f819beff34950f390544e47ed33ee18183bf3",
-      "resumeToken": "68873cd4-bc75-4006-8fe9-8e84f2ad6219",
-      "status": "completed",
-      "metadata": {
-        "reportPath": "reports/usecases/usecases_SCN-PUBLISH-HUB-001.json"
-      },
-      "createdAt": "2025-10-29T08:48:48.698Z",
-      "updatedAt": "2025-10-29T12:07:00.502Z"
+      "resumeToken": "cd930824-ed4b-43b3-ac50-c3f68cd48585",
+      "status": "running",
+      "metadata": {},
+      "createdAt": "2025-11-06T11:37:46.800Z",
+      "updatedAt": "2025-11-06T11:37:46.800Z"
     }
   ],
   "tokens": {
-    "e85fc74f-8b93-47df-8a3a-9dfda3cad52d": "ac85fe242fd041aa267e0dc41f61d00cf08c073420e103df83861b1dee52e53f",
-    "7f73725b-cbff-423f-b011-65947de2c022": "0e10c13016fb57c407be4dfbdb66f892d3a95e27e6bb10f49f240bceabdb601d",
-    "68873cd4-bc75-4006-8fe9-8e84f2ad6219": "21e92b0bc5424e9b564a7874348f819beff34950f390544e47ed33ee18183bf3"
+    "cd930824-ed4b-43b3-ac50-c3f68cd48585": "21e92b0bc5424e9b564a7874348f819beff34950f390544e47ed33ee18183bf3"
   }
 }

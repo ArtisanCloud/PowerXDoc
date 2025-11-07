@@ -3,7 +3,7 @@
     "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
     "scenario": "SCN-IAM-MULTI-TENANT-001",
     "status": "Completed",
-    "generatedAt": "2025-10-30T06:49:07.368Z"
+    "generatedAt": "2025-11-04T13:20:36.585Z"
   },
   "records": [
     {
@@ -70,6 +70,90 @@
         }
       ],
       "timestamp": "2025-10-30T06:49:07.371Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
+      "status": "Completed",
+      "resumeToken": "62df7c86-2102-45d1-a44f-e2a25239bada",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-iam-multi-tenant-001-5a21e62c",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ONBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-iam-multi-tenant-001-5a21e62c",
+          "resumeToken": "62df7c86-2102-45d1-a44f-e2a25239bada",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T12:54:03.232Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
+      "status": "Completed",
+      "resumeToken": "ea7559b7-0585-4415-9bc9-54fde70ae68e",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ONBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/dev/docs",
+          "resumeToken": "ea7559b7-0585-4415-9bc9-54fde70ae68e",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T13:17:09.484Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
+      "status": "Completed",
+      "resumeToken": "903c181c-27a9-45ca-b9e7-50a2622b6e72",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ONBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "903c181c-27a9-45ca-b9e7-50a2622b6e72",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T13:20:36.585Z"
     }
   ]
 }

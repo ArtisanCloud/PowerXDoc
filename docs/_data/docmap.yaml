@@ -110,21 +110,21 @@ scenarios:
         domain: dev
         optional: false
         repo: powerx-plugin
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-CLI-INIT-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-CLI-INIT-001.md
       - doc_id: UC-DEV-PLUGIN-TEAM-CLONE-001
         scope: powerx
         layer: service
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-TEAM-CLONE-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-TEAM-CLONE-001.md
       - doc_id: UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001
         scope: powerx
-        layer: security
+        layer: ops
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md
 
   - scn_id: SCN-DEV-PLUGIN-DEBUG-001
     title: 插件开发与调试主场景
@@ -149,21 +149,21 @@ scenarios:
         domain: dev
         optional: false
         repo: powerx-plugin
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md
       - doc_id: UC-DEV-PLUGIN-SANDBOX-VALIDATION-001
         scope: powerx
         layer: service
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md
       - doc_id: UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001
         scope: powerx
         layer: ops
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md
   - scn_id: SCN-DEV-PLUGIN-PUBLISH-001
     title: 插件发布与上架主场景
     title_en: Plugin Publish & Release
@@ -184,6 +184,18 @@ scenarios:
         title: Marketplace 审核与上架
         title_en: Marketplace Review & Listing
         path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
+      - scn_id: SCN-DEV-PLUGIN-LOCAL-DEBUG-001
+        title: 开发者本地调试链路
+        title_en: Developer Local Debug Loop
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md
+      - scn_id: SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001
+        title: 离线包送审与 Marketplace 入库
+        title_en: Offline Package Submission to Marketplace
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md
+      - scn_id: SCN-DEV-PLUGIN-ONLINE-PUBLISH-001
+        title: 在线发布与 Marketplace 即时上架
+        title_en: Online Publish & Marketplace Listing
+        path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md
     children:
       - doc_id: UC-DEV-PLUGIN-RELEASE-APPROVAL-001
         scope: powerx
@@ -191,28 +203,49 @@ scenarios:
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md
       - doc_id: UC-DEV-PLUGIN-OFFLINE-IMPORT-001
         scope: powerx
         layer: ops
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md
       - doc_id: UC-DEV-PLUGIN-CICD-CANARY-001
         scope: powerx
         layer: ops
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md
       - doc_id: UC-DEV-PLUGIN-MARKETPLACE-LISTING-001
         scope: powerx-marketplace
         layer: marketplace
         domain: dev
         optional: false
         repo: powerx-marketplace
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md
+      - doc_id: UC-DEV-PLUGIN-LOCAL-DEBUG-001
+        scope: powerx-plugin
+        layer: dev
+        domain: dev
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md
+      - doc_id: UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001
+        scope: powerx-marketplace
+        layer: marketplace
+        domain: dev
+        optional: false
+        repo: powerx-marketplace
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md
+      - doc_id: UC-DEV-PLUGIN-ONLINE-PUBLISH-001
+        scope: powerx-marketplace
+        layer: marketplace
+        domain: dev
+        optional: false
+        repo: powerx-marketplace
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md
   - scn_id: SCN-DEV-PLUGIN-VERSION-COMPAT-001
     title: 插件版本与兼容性管理主场景
     title_en: Plugin Version & Compatibility Management
@@ -240,28 +273,28 @@ scenarios:
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md
       - doc_id: UC-DEV-PLUGIN-VERSION-GRAY-001
         scope: powerx
         layer: ops
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md
       - doc_id: UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001
         scope: powerx
         layer: security
         domain: dev
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md
       - doc_id: UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001
         scope: powerx
         layer: ops
         domain: dev
         optional: true
         repo: powerx
-        path: docs/usecases-seeds/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md
+        path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md
   - scn_id: SCN-INT-PLUGIN-CAPABILITY-001
     title: 插件能力注册与暴露治理闭环
     title_en: Plugin Capability Registration & Exposure Loop
@@ -289,28 +322,28 @@ scenarios:
         domain: integration
         optional: false
         repo: powerx-plugin
-        path: docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md
+        path: docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md
       - doc_id: UC-INT-PLUGIN-CAPABILITY-REVIEW-001
         scope: powerx
         layer: security
         domain: integration
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md
+        path: docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md
       - doc_id: UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001
         scope: powerx
         layer: service
         domain: integration
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md
+        path: docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md
       - doc_id: UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001
         scope: powerx
         layer: ops
         domain: integration
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md
+        path: docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     title: PowerX 多租户与组织管理
     title_en: PowerX Multi-Tenant & Organization Management
@@ -338,28 +371,28 @@ scenarios:
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md
       - doc_id: UC-IAM-MULTI-TENANT-ORG-MODELING-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md
       - doc_id: UC-IAM-MULTI-TENANT-CROSS-SHARE-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md
       - doc_id: UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
   - scn_id: SCN-IAM-USER-ROLE-001
     title: PowerX 用户与角色管理
     title_en: PowerX User & Role Management
@@ -379,28 +412,28 @@ scenarios:
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md
       - doc_id: UC-IAM-USER-ROLE-DIRECTORY-SYNC-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md
       - doc_id: UC-IAM-USER-ROLE-BULK-AUTH-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md
       - doc_id: UC-IAM-USER-ROLE-OFFBOARD-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md
   - scn_id: SCN-IAM-LOGIN-AUTH-001
     title: PowerX 登录与认证
     title_en: PowerX Login & Authentication
@@ -428,28 +461,28 @@ scenarios:
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md
       - doc_id: UC-IAM-LOGIN-API-TOKEN-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md
       - doc_id: UC-IAM-LOGIN-MFA-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md
       - doc_id: UC-IAM-LOGIN-RISK-001
         scope: powerx
         layer: service
         domain: iam
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md
+        path: docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md
   - scn_id: SCN-OPS-EVENT-TASKFLOW-001
     title: PowerX 事件与任务流管理
     title_en: PowerX Event & Taskflow Management
@@ -477,28 +510,28 @@ scenarios:
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md
       - doc_id: UC-OPS-TASK-SCHEDULE-001
         scope: powerx
         layer: ops
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md
       - doc_id: UC-OPS-AGENT-ORCHESTRATION-001
         scope: powerx
         layer: service
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md
       - doc_id: UC-OPS-RETRY-RECOVERY-001
         scope: powerx
         layer: ops
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md
   - scn_id: SCN-OPS-PLUGIN-LIFECYCLE-001
     title: PowerX 插件安装与启停运营
     title_en: PowerX Plugin Installation & Operations
@@ -526,28 +559,28 @@ scenarios:
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md
       - doc_id: UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001
         scope: powerx
         layer: service
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md
       - doc_id: UC-OPS-PLUGIN-AUTO-UPGRADE-001
         scope: powerx
         layer: ops
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001.md
       - doc_id: UC-OPS-PLUGIN-RISK-SUSPEND-001
         scope: powerx
         layer: ops
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md
   - scn_id: SCN-OPS-SYSTEM-MONITORING-001
     title: PowerX 系统监控与告警
     title_en: PowerX System Monitoring & Alerting
@@ -576,25 +609,25 @@ scenarios:
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md
       - doc_id: UC-OPS-MONITORING-DASHBOARD-001
         scope: powerx
         layer: ops
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md
       - doc_id: UC-OPS-MONITORING-WEBHOOK-001
         scope: powerx
         layer: service
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md
       - doc_id: UC-OPS-MONITORING-REMOTE-RESTART-001
         scope: powerx
         layer: ops
         domain: ops
         optional: false
         repo: powerx
-        path: docs/usecases-seeds/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md
+        path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md

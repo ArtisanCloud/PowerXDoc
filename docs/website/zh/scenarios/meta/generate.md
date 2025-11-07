@@ -21,7 +21,7 @@ Prompt 的输入可以是三种类型之一：
 1. **文件路径输入**
 
    * 指向一份初步设计稿或描述性文档，如：
-     `docs/meta/scenarios/plugin/publish.md`
+     `docs/meta/scenarios/powerx/plugin-ecosystem/plugin-lifecycle/plugin-publish-and-release/primary.md`
    * 可选择是否自动拆分为多个子场景。
 
 2. **现有场景文档输入**

@@ -27,7 +27,7 @@ This section curates everything engineers need to build, package, and operate Po
 
 ## Scenarios & Implementation Patterns
 
-- Plugin scaffolding and debugging scenarios: browse `/en/scenarios/meta/plugin/` and the detailed stage playbooks under `/en/scenarios/SCN-DEV-PLUGIN-*`.
+- Plugin scaffolding and debugging scenarios: browse `/en/scenarios/meta/powerx/plugin-ecosystem/` (primary narratives) and the detailed stage playbooks under `/en/scenarios/SCN-DEV-PLUGIN-*`.
 - Cross-repo automation and publishing examples live in the Operations hub, especially [`/en/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/`](../scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md).
 
 ## Looking for the Chinese source?

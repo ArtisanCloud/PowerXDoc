@@ -170,7 +170,7 @@ func New(app *App) *gin.Engine {
 | 命令             | 说明                         |
 | -------------- | -------------------------- |
 | `make build`   | 编译产物到 `backend/bin/plugin` |
-| `make run`     | 启动插件（默认端口 8086）            |
+| `make run`     | 启动插件（默认端口 8087）            |
 | `make migrate` | 执行迁移逻辑                     |
 | `make package` | 打包 plugin.zip（含前端）         |
 | `make docker`  | 构建 Docker 镜像               |
@@ -178,8 +178,8 @@ func New(app *App) *gin.Engine {
 ### 本地运行（开发模式）
 
 ```bash
-POWERX_DEV_MODE=1 POWERX_BIND_ADDR=":8086" go -C backend run ./cmd/plugin
-curl :8086/healthz
+POWERX_DEV_MODE=1 POWERX_BIND_ADDR=":8087" go -C backend run ./cmd/plugin
+curl :8087/healthz
 ```
 
 ---

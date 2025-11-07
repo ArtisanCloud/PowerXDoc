@@ -228,7 +228,7 @@ flowchart TD
 | `_data/`              | 仓配置/映射（AI/脚本读取）               | ❌  | 手写      |
 | `standards/`          | 统一规范（推送至各仓）                   | ❌  | 手写      |
 | `scenarios/`          | 主用例草稿源                        | ❌  | AI/手写   |
-| `usecases-seeds/`     | 子用例模板（按层/域）                   | ❌  | AI      |
+| `usecases-seeds/`     | 子用例模板（按层/域，母版来源）              | ❌  | AI      |
 | `analysis/`           | 聚合索引/统计                       | ❌  | AI      |
 | `scripts/`            | 分发与聚合脚本                       | ❌  | 手写      |
 
@@ -243,7 +243,7 @@ flowchart TD
 * **`projects/`**：保留用于项目级文档或阶段性计划，目前为空，可按项目/计划拆分子目录后落稿。
 * **`scenarios/`**：主用例源文件（`SCN-*.md`），由内容 Steward 撰写或 AI 草拟，再通过 `publish-ai.mjs` 渲染到 `website/scenarios/`。
 * **`standards/`**：规范母库，包含 `_shared/` 与各 scope 子目录，用于向所有下游仓库同步治理/规范文档；`scenarios/_template.md` 等模板也存放于此。
-* **`usecases-seeds/`**：子用例模板仓库，按 scope/layer/domain 组织；脚本读取后推送到各仓 `_from_hub/` 目录，当前为空待补充。
+* **`usecases-seeds/`**：子用例模板母库（仍按 scope/layer/domain 组织）。脚本会将其内容“编译”到 `docs/use_cases/_from_hub/<SCN_ID>/` 下供下游消费，避免两套孤立目录。
 * **`website/`**：VitePress 渲染根目录；包含站点源文档、静态资源以及 `_collected/`（子用例占位缓存）、`_mount/`（AI 中继区）等中间目录。
 
 ---
@@ -252,15 +252,15 @@ flowchart TD
 
 * **`docs/standards/scenarios/`**：场景模板与规范，通过 `_template.md` 等文件定义 SCN 所需的 Frontmatter、章节结构与质量基线；属于治理母版，不参与渲染，也不直接分发到下游。
 * **`docs/scenarios/`**：主用例草稿/成稿目录，依据上述模板撰写具体内容（`SCN-*.md`），随后由 `publish-ai.mjs` 转换成站点页面 `docs/website/scenarios/**`。
-* **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`），通过 `publish:usecases` 推送至各业务仓的 `_from_hub/` 目录，下游团队在本仓自有路径写正式子用例；可先运行 `.specify/scripts/bash/derive-docmap-from-scenario.sh --scn-id <ID>`（别名 `/speckit.docmap-scn @<SCN>.md`）生成 docmap 片段，再用 `.specify/scripts/bash/setup-usecase-guides.sh --scn-id <ID>`（别名 `/speckit.usecase-seed-generate @<SCN>.md`）从 docmap 自动生成 Seed 框架。
+* **`docs/usecases-seeds/`**：子用例模板库，按 scope/layer/domain 分类（例如 `powerx/service/publish/PX-...`）。生成后请运行 `npm run publish:usecases -- --scn-id <ID>`，脚本会在 `docs/use_cases/_from_hub/<SCN_ID>/` 生成“已编译”目录，并同步到各业务仓的同一路径。下游团队全部依赖 `_from_hub`，本目录仅作为源。
 
 #### SCN 创建流程（发布领域示例）
 
 1. **复制模板**：将 `docs/standards/scenarios/_template.md` 复制为 `docs/scenarios/<domain>/SCN-<DOMAIN>-<FLOW>-<NNN>.md`，目前发布场景统一归档于 `docs/scenarios/publish/`。
 2. **填写元数据**：补充 Frontmatter（`scn_id`、`domains`、`layers`、`repos`、`related_usecases` 等）与正文各章节（流程、契约、验收、Telemetry）。
-3. **更新 docmap**：在 `docs/_data/docmap.yaml` 注册该 `scn_id`，并为每个子用例配置 `repo`、`layer`、`domain`、`path`。如缺少模板，在 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 下创建对应 `doc_id`。
+3. **更新 docmap**：在 `docs/_data/docmap.yaml` 注册该 `scn_id`，并为每个子用例配置 `repo`、`layer`、`domain`、`path`。`path` 统一写成 `docs/use_cases/_from_hub/<SCN_ID>/<doc_id>.md`。
 4. **运行发布校验**：执行 `npm run publish:scenarios -- --dry-run --scn-id <ID>` 检查渲染结果与 `_collected` 占位；通过后再去除 `--dry-run`。
-5. **联动分发**：需要时配合 `npm run publish:usecases`、`npm run publish:standards` 将子用例模板与规范下发到下游仓库。
+5. **联动分发**：运行 `npm run publish:usecases -- --scn-id <ID>` 将 `docs/usecases-seeds/**` 编译并同步到 `docs/use_cases/_from_hub/<SCN_ID>/`，再由脚本推送到各业务仓；需要一键同步全部场景时，可执行 `node scripts/publish/publish-usecases-batch.mjs`（默认直接 commit 到 `dev/docs`），如需同步规范则继续执行 `npm run publish:standards`。
 
 ---
 
@@ -531,7 +531,7 @@ bash scripts/build-collected.sh
 
 ### B) `scripts/push-usecases.sh`
 
-> 功能：把 **模板** 从 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 分发到各仓的 `_from_hub/<SCN_ID>/`。只 push，不 pull。
+> 功能：先把 **模板** 从 `docs/usecases-seeds/<scope>/<layer>/<domain>/` 编译到 `docs/use_cases/_from_hub/<SCN_ID>/`，再分发到各仓的 `_from_hub/<SCN_ID>/`。只 push，不 pull。
 
 ```bash
 #!/usr/bin/env bash

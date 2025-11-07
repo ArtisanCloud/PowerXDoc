@@ -24,6 +24,8 @@ type ProductFeature = {
 type HomeCopy = {
   nav: { features: string; products: string; about: string; cta: string }
   hero: { welcomePrefix: string; highlight: string; description: string; primaryCta: string; secondaryCta: string }
+  preview: { title: string; description: string }
+  marketPreview: { title: string; description: string }
   features: { title: string; lead: string; items: { icon: string; title: string; description: string }[] }
   products: {
     title: string
@@ -153,6 +155,22 @@ const copy = computed<HomeCopy>(() => tm('home') as HomeCopy)
 const features = computed(() => copy.value.features.items)
 const statsVisible = ref(false)
 const hiddenProductNames = new Set(['PowerX SCRUM', 'PowerX Wallet', 'PowerX MediaX'])
+const previewImage = computed(() => {
+  const currentLocale = (locale.value ?? '').toLowerCase()
+  const isZh = currentLocale.startsWith('zh')
+  return {
+    src: isZh ? '/images/px-home-zh.png' : '/images/px-home-en.png',
+    alt: isZh ? 'PowerX 首页预览图' : 'PowerX home preview',
+  }
+})
+const marketPreviewImage = computed(() => {
+  const currentLocale = (locale.value ?? '').toLowerCase()
+  const isZh = currentLocale.startsWith('zh')
+  return {
+    src: isZh ? '/images/px-market-zh.png' : '/images/px-market-en.png',
+    alt: isZh ? 'PowerX 市场首页预览图' : 'PowerX marketplace preview',
+  }
+})
 
 const products = computed<ProductFeature[]>(() => {
   const rawList = copy.value.products.list as ProductFeature[]
@@ -382,6 +400,24 @@ const navigateTo = (p: string) => {
         </div>
       </section>
 
+      <!-- Home Preview -->
+      <section class="px-4 pt-4 pb-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-5xl text-center">
+          <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl animate-fade-up">{{ copy.preview.title }}</h2>
+          <p class="mx-auto max-w-3xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.preview.description }}</p>
+          <figure class="preview-figure">
+            <img
+              :src="previewImage.src"
+              :alt="previewImage.alt"
+              loading="lazy"
+              decoding="async"
+              class="w-full rounded-2xl border border-white/40 shadow-2xl ring-1 ring-black/5 dark:border-slate-800"
+            />
+            <figcaption class="sr-only">{{ previewImage.alt }}</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <!-- Features -->
       <section id="features" class="px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-6xl">
@@ -465,6 +501,24 @@ const navigateTo = (p: string) => {
         </div>
       </section>
 
+      <!-- Marketplace Preview -->
+      <section class="px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-5xl text-center">
+          <h2 class="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl animate-fade-up">{{ copy.marketPreview.title }}</h2>
+          <p class="mx-auto max-w-3xl text-lg text-slate-700 dark:text-emerald-100 animate-fade-up delay-150">{{ copy.marketPreview.description }}</p>
+          <figure class="preview-figure">
+            <img
+              :src="marketPreviewImage.src"
+              :alt="marketPreviewImage.alt"
+              loading="lazy"
+              decoding="async"
+              class="w-full rounded-2xl border border-white/40 shadow-2xl ring-1 ring-black/5 dark:border-slate-800"
+            />
+            <figcaption class="sr-only">{{ marketPreviewImage.alt }}</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <!-- Final CTA -->
       <section class="relative px-4 py-20 sm:px-6 lg:px-8">
         <div class="relative z-10 mx-auto max-w-4xl text-center text-slate-900 dark:text-white">
@@ -515,6 +569,26 @@ const navigateTo = (p: string) => {
   animation: bg-pan-soft 30s ease-in-out infinite;
   background-repeat: no-repeat;
   background-size: 140% 140%;
+}
+
+/* 主页预览框架 */
+.preview-figure {
+  margin-top: 2.5rem;
+  border-radius: 28px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.75);
+  box-shadow: 0 28px 60px rgba(15,118,110,0.18);
+  animation: fade-up .9s ease both;
+}
+:global(.dark) .preview-figure {
+  border-color: rgba(15,23,42,0.55);
+  background: rgba(15,23,42,0.75);
+  box-shadow: 0 30px 70px rgba(15,23,42,0.65);
+}
+.preview-figure img {
+  border-radius: 20px;
+  display: block;
 }
 
 /* 粒子（很克制） */

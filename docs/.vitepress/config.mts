@@ -296,6 +296,7 @@ const zhOperationsSidebar = [
       { text: '安全治理', link: '/zh/operations/#security' },
       { text: '变更管理', link: '/zh/operations/#change-management' },
       { text: '报告与审计', link: '/zh/operations/#reporting' },
+      { text: '端口矩阵', link: '/zh/operations/service-port-matrix' },
       { text: '安全治理专题', link: '/zh/security-and-governance/' },
     ],
   },
@@ -359,6 +360,7 @@ const enOperationsSidebar = [
       { text: 'Security', link: '/en/operations/#security' },
       { text: 'Change Management', link: '/en/operations/#change-management' },
       { text: 'Reporting', link: '/en/operations/#reporting' },
+      { text: 'Port Matrix', link: '/en/operations/service-port-matrix' },
       { text: 'Security & Governance Hub', link: '/en/security-and-governance/' },
     ],
   },
@@ -570,16 +572,6 @@ export default withMermaid(defineConfig({
                   ]
                 },
                 {
-                  text: '插件生态',
-                  collapsed: true,
-                  items: [
-                    { text: '介绍', link: '/zh/scenarios/meta/plugin/' },
-                    { text: '本地调试模式', link: '/zh/scenarios/meta/plugin/#1️⃣-本地调试模式' },
-                    { text: '离线打包上传模式', link: '/zh/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
-                    { text: '在线发布模式', link: '/zh/scenarios/meta/plugin/#3️⃣-在线发布模式' },
-                  ]
-                },
-                {
                   text: '电商业务',
                   collapsed: true,
                   items: [
@@ -744,15 +736,6 @@ export default withMermaid(defineConfig({
                     { text: 'Marketplace & Business', link: '/en/scenarios/meta/powerx/marketplace-and-business/introduction/' },
                     { text: 'Plugin Ecosystem', link: '/en/scenarios/meta/powerx/plugin-ecosystem/introduction/' },
                     { text: 'Admin Web & MiniApp', link: '/en/scenarios/meta/powerx/admin-web-miniapp/introduction/' },
-                  ]
-                },
-                {
-                  text: 'Plugin Ecosystem',
-                  collapsed: true,
-                  items: [
-                    { text: 'Local Debug Mode', link: '/en/scenarios/meta/plugin/#1️⃣-本地调试模式' },
-                    { text: 'Offline Package Upload', link: '/en/scenarios/meta/plugin/#2️⃣-离线打包上传模式' },
-                    { text: 'Online Publishing', link: '/en/scenarios/meta/plugin/#3️⃣-在线发布模式' },
                   ]
                 },
                 {

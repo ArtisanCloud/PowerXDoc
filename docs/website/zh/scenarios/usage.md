@@ -136,6 +136,14 @@ flowchart LR
 
 - **目标**：将完善后的 Seeds 分发到下游仓库，并生成领导层视图。
 - **步骤顺序**：
+  - **渲染场景与报告**：先运行 `npm run publish:scenarios -- --scn-id <SCN_ID> --dry-run` 校验 Frontmatter、docmap 与 `related_usecases`。确认输出日志的 `reports/scenarios/<SCN_ID>.json` 无误后，复用其中的 `resumeToken` 执行正式写入：
+
+    ```bash
+    npm run publish:scenarios -- --scn-id <SCN_ID> --dry-run
+    npm run publish:scenarios -- --scn-id <SCN_ID> --resume-token <token>
+    ```
+
+    正式运行会把渲染结果写入 `docs/website/{zh,en}/scenarios/<SCN_ID>.md`，并在 `reports/_state/scenario:<SCN_ID>.json` 记录指纹，供领导层视图与下游仓库对齐状态。
   1. **准备仓库**（首次或新增 scope 时）：
 
      ```bash
@@ -176,7 +184,25 @@ flowchart LR
 
      此模式会在各仓库执行 `git fetch → checkout <default_branch> → pull --ff-only → commit → push`。发布后可运行 `node scripts/setup/push-downstreams.mjs` 再次确认远端状态，并清理遗留的 `docs/hub/<SCN_ID>-***` 本地分支。
 
-  5.b **批量推送已提交的仓库**（确认远端全部同步）：
+  5.b **批量分发所有场景**：如需一次性同步 docmap 中的全部场景，可使用批量脚本。默认行为等同于单场景命令加 `--use-default-branch`，执行前可先加 `--dry-run` 预览。
+
+     ```
+     新脚本：scripts/publish/publish-usecases-batch.mjs
+
+     # 先预览（不会提交）
+     node scripts/publish/publish-usecases-batch.mjs --dry-run --quiet
+
+     # 正式执行一键分发并在默认分支提交
+     node scripts/publish/publish-usecases-batch.mjs
+
+     可选参数：
+     --scn-id <ID>（可重复或逗号分隔）只跑部分场景
+     --no-use-default-branch 如果你仍想走 PR Flow
+     --no-reset-state 不清除 reports/_state 里的旧记录
+     其它诸如 --docmap、--repos、--checkout-root 也与单场景脚本保持一致
+     ```
+
+  5.c **批量推送已提交的仓库**（确认远端全部同步）：
 
      ```bash
      node scripts/setup/push-downstreams.mjs
@@ -190,6 +216,18 @@ flowchart LR
 
 - **输出**：下游仓库获得最新 Seeds（PR 或直接提交），`reports/usecases/**` 写入分发报告。
 - **继续**：流程结束后可进入评审或与下游团队协调上线。
+
+## （可选）同步标准文档
+
+- **适用场景**：`docs/standards/**`（含 `_shared/`）有更新，需要推送到 `repos/<repo-key>` 中对应的标准目录。
+- **建议顺序**：先 dry run 再正式执行，确保下游仓工作区干净。
+
+  ```bash
+  npm run publish:standards -- --dry-run
+  npm run publish:standards
+  ```
+
+- **动作摘要**：脚本会将标准文档复制到各仓库的 `docs/standards/`，并在 `reports/standards/`、`reports/_state/standards:*.json` 记录分发结果。
 
 ### Workflow 状态与 Resume Token
 

@@ -3,7 +3,7 @@
     "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
     "scenario": "SCN-IAM-USER-ROLE-001",
     "status": "Completed",
-    "generatedAt": "2025-10-31T05:23:52.499Z"
+    "generatedAt": "2025-11-04T13:20:46.670Z"
   },
   "records": [
     {
@@ -71,6 +71,117 @@
         }
       ],
       "timestamp": "2025-10-31T05:23:52.502Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "a5cf7c1e-652b-4f93-8d0b-bc7fdb9f4294",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-iam-user-role-001-ed85aeff",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-iam-user-role-001-ed85aeff",
+          "resumeToken": "a5cf7c1e-652b-4f93-8d0b-bc7fdb9f4294",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T12:54:03.442Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "be78f5c9-7b9c-4435-b250-d0e0495dc166",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-iam-user-role-001-f23efd65",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-iam-user-role-001-f23efd65",
+          "resumeToken": "be78f5c9-7b9c-4435-b250-d0e0495dc166",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T12:54:59.218Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "faf2af7d-fa8b-40ce-8240-c2d27858f65f",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/dev/docs",
+          "resumeToken": "faf2af7d-fa8b-40ce-8240-c2d27858f65f",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T13:17:14.308Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "97adda00-1462-4080-86cc-37c2457084b5",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "97adda00-1462-4080-86cc-37c2457084b5",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-04T13:20:46.671Z"
     }
   ]
 }

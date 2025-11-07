@@ -9,6 +9,7 @@ repos:
     scope: powerx
     checkout: powerx
     usecase_seed_root: docs/use_cases/_from_hub
+    usecase_seed_legacy_root: docs/usecases-seeds
     standards_root: docs/standards
     default_reviewers:
       - powerx-docs-reviewers
@@ -29,6 +30,7 @@ repos:
     scope: powerx-plugin
     checkout: powerx-plugin
     usecase_seed_root: docs/use_cases/_from_hub
+    usecase_seed_legacy_root: docs/usecases-seeds
     standards_root: docs/standards
     default_reviewers:
       - powerx-plugin-docs
@@ -48,6 +50,7 @@ repos:
     scope: powerx-marketplace
     checkout: powerx-marketplace
     usecase_seed_root: docs/use_cases/_from_hub
+    usecase_seed_legacy_root: docs/usecases-seeds
     standards_root: docs/standards
     default_reviewers:
       - powerx-marketplace-docs

@@ -20,7 +20,7 @@ repos:
     scope: plugin-ecosystem
     responsibility: Runtime health check scripts, metrics instrumentation, notification templates & change logs
 related_usecases:
-  - doc_id: UC-OPS-PLUGIN-CICD-CANARY-001
+  - doc_id: UC-DEV-PLUGIN-CICD-CANARY-001
     layer: ops
     domain: ops
 last_reviewed_at: 2025-11-20
@@ -76,7 +76,7 @@ sequenceDiagram
 
 # Usecase Links
 
-- `UC-OPS-PLUGIN-CICD-CANARY-001` — Canary release and automatic rollback.
+- `UC-DEV-PLUGIN-CICD-CANARY-001` — Canary release and automatic rollback.
 
 # Acceptance Criteria
 
