@@ -14,6 +14,14 @@ export default {
       primaryCta: '了解核心能力',
       secondaryCta: '查看快速开始',
     },
+    preview: {
+      title: 'PowerX 首页预览',
+      description: '根据所选语言自动切换示意图，方便你快速确认站点信息架构与内容呈现效果。',
+    },
+    marketPreview: {
+      title: '插件市场预览',
+      description: '展示 PowerX 插件市场在不同语言下的 UI 与核心入口，便于和下游仓库或合作伙伴对焦。',
+    },
     features: {
       title: '四大产品特性',
       lead: '围绕 “AgentOS + 插件生态 + 开放底座”，PowerX 帮助企业快速落地智能体业务。',

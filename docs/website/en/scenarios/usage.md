@@ -113,6 +113,10 @@ flowchart LR
 
 ## 6. Site Sync & Consumption (F → H)
 
+- **Scenario publish workflow**:
+  - `npm run publish:scenarios -- --scn-id <SCN_ID> --dry-run`
+  - `npm run publish:scenarios -- --scn-id <SCN_ID> --resume-token <token>`
+  - The dry run validates docmap/frontmatter links and writes a report to `reports/scenarios/<SCN_ID>.json`; reuse the printed `resumeToken` for the real run, which renders `docs/website/{zh,en}/scenarios/<SCN_ID>.md` and records state under `reports/_state/scenario:<SCN_ID>.json`.
 - **Scenario pages**: `node scripts/site/sync-scenario-pages.mjs --scn-id <SCN_ID> --force`
   - Copies the main scenario and any `child_scenarios` into `docs/website/{zh,en}/scenarios/`.
 - **Seed pages**: `node scripts/site/sync-seed-pages.mjs --scn-id <SCN_ID> --force`

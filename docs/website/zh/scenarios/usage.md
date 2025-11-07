@@ -136,6 +136,14 @@ flowchart LR
 
 - **目标**：将完善后的 Seeds 分发到下游仓库，并生成领导层视图。
 - **步骤顺序**：
+  - **渲染场景与报告**：先运行 `npm run publish:scenarios -- --scn-id <SCN_ID> --dry-run` 校验 Frontmatter、docmap 与 `related_usecases`。确认输出日志的 `reports/scenarios/<SCN_ID>.json` 无误后，复用其中的 `resumeToken` 执行正式写入：
+
+    ```bash
+    npm run publish:scenarios -- --scn-id <SCN_ID> --dry-run
+    npm run publish:scenarios -- --scn-id <SCN_ID> --resume-token <token>
+    ```
+
+    正式运行会把渲染结果写入 `docs/website/{zh,en}/scenarios/<SCN_ID>.md`，并在 `reports/_state/scenario:<SCN_ID>.json` 记录指纹，供领导层视图与下游仓库对齐状态。
   1. **准备仓库**（首次或新增 scope 时）：
 
      ```bash
