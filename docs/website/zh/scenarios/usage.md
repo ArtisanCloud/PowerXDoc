@@ -209,6 +209,18 @@ flowchart LR
 - **输出**：下游仓库获得最新 Seeds（PR 或直接提交），`reports/usecases/**` 写入分发报告。
 - **继续**：流程结束后可进入评审或与下游团队协调上线。
 
+## （可选）同步标准文档
+
+- **适用场景**：`docs/standards/**`（含 `_shared/`）有更新，需要推送到 `repos/<repo-key>` 中对应的标准目录。
+- **建议顺序**：先 dry run 再正式执行，确保下游仓工作区干净。
+
+  ```bash
+  npm run publish:standards -- --dry-run
+  npm run publish:standards
+  ```
+
+- **动作摘要**：脚本会将标准文档复制到各仓库的 `docs/standards/`，并在 `reports/standards/`、`reports/_state/standards:*.json` 记录分发结果。
+
 ### Workflow 状态与 Resume Token
 
 - 发布脚本会在 `reports/_state/usecases:<SCN_ID>.json` 记录指纹（fingerprint）和 `resumeToken`，用于防止同一批内容重复执行。

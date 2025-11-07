@@ -72,11 +72,11 @@ USER powerx
 COPY --from=builder /app/plugin /app/plugin
 
 # 默认端口
-EXPOSE 8086
+EXPOSE 8087
 
 # 环境变量
 ENV POWERX_DEV_MODE=0
-ENV POWERX_BIND_ADDR=":8086"
+ENV POWERX_BIND_ADDR=":8087"
 
 CMD ["./plugin"]
 ````
@@ -114,18 +114,18 @@ docker images | grep powerx-plugin
 
 ```bash
 docker run --rm -it \
-  -e POWERX_BIND_ADDR=":8086" \
+  -e POWERX_BIND_ADDR=":8087" \
   -e POWERX_DB_DSN="postgres://user:pwd@host:5432/powerx?sslmode=disable" \
   -e POWERX_DB_SCHEMA="px_com_powerx_plugins_base" \
   -e PLUGIN_CTX_HMAC_SECRET="base64-secret" \
-  -p 8086:8086 \
+  -p 8087:8087 \
   powerx-plugin-base:0.1.0
 ```
 
 访问健康检查：
 
 ```
-curl http://localhost:8086/healthz
+curl http://localhost:8087/healthz
 ```
 
 ---
@@ -157,14 +157,14 @@ docker run -d \
   -e POWERX_CTX_JWKS_URL=http://powerx-core/_p/_internal/jwks \
   -e POWERX_CTX_ISSUER=powerx-auth \
   -e POWERX_CTX_AUDIENCE=powerx-plugin \
-  -p 8086:8086 \
+  -p 8087:8087 \
   powerx-plugin-base:0.1.0
 ```
 
 宿主反代路径示例：
 
 ```
-/_p/com.powerx.plugins.base/api/*  →  http://powerx-plugin-base:8086
+/_p/com.powerx.plugins.base/api/*  →  http://powerx-plugin-base:8087
 ```
 
 ---
@@ -198,7 +198,7 @@ services:
       POWERX_CTX_ISSUER: powerx-auth
       POWERX_CTX_AUDIENCE: powerx-plugin
     ports:
-      - "8086:8086"
+      - "8087:8087"
     depends_on:
       - powerx-core
     networks:
@@ -240,7 +240,7 @@ http://localhost:8080/_p/com.powerx.plugins.base/api/v1/ping
 | 环境变量                     | 默认值     | 说明                |
 | ------------------------ | ------- | ----------------- |
 | `POWERX_PLUGIN_ID`       | -       | 插件唯一标识            |
-| `POWERX_BIND_ADDR`       | `:8086` | 插件监听地址            |
+| `POWERX_BIND_ADDR`       | `:8087` | 插件监听地址            |
 | `POWERX_DB_DSN`          | -       | 数据库连接字符串          |
 | `POWERX_DB_SCHEMA`       | -       | 插件 schema         |
 | `POWERX_CTX_MODE`        | `jwt`   | 上下文模式（jwt / hmac） |
@@ -262,7 +262,7 @@ docker logs -f powerx-plugin-base
 ### 健康检查
 
 ```bash
-curl http://localhost:8086/healthz
+curl http://localhost:8087/healthz
 ```
 
 ### 宿主采集
@@ -307,7 +307,7 @@ docker push registry.powerx.io/powerx-plugin-base:0.1.0
 | 命令                                          | 说明        |
 | ------------------------------------------- | --------- |
 | `docker exec -it powerx-plugin-base sh`     | 进入容器      |
-| `curl -v localhost:8086/v1/ping`            | 验证服务可用性   |
+| `curl -v localhost:8087/v1/ping`            | 验证服务可用性   |
 | `docker compose logs -f powerx-plugin-base` | 查看实时日志    |
 | `docker compose restart powerx-plugin-base` | 热重启插件     |
 | `docker system prune -f`                    | 清理无用镜像与缓存 |

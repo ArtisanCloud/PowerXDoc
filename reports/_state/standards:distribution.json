@@ -10,9 +10,21 @@
       },
       "createdAt": "2025-11-04T15:38:03.022Z",
       "updatedAt": "2025-11-04T15:38:24.265Z"
+    },
+    {
+      "workflowId": "standards:distribution",
+      "fingerprint": "7431eafdf9b53d26c9ad1d7ab86a726928e20efb0d771994e2fbe462fdab32fd",
+      "resumeToken": "9e1ab3d0-15cf-4295-a024-5672df47a0e0",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/standards/standards_distribution.json"
+      },
+      "createdAt": "2025-11-06T11:37:08.100Z",
+      "updatedAt": "2025-11-06T11:37:08.228Z"
     }
   ],
   "tokens": {
-    "a77b2985-184e-42ea-9b05-f9d5e6879a9c": "74eb0875a7c856610838eb31c70b38e553471cc5a9b10db622c925ba1065290a"
+    "a77b2985-184e-42ea-9b05-f9d5e6879a9c": "74eb0875a7c856610838eb31c70b38e553471cc5a9b10db622c925ba1065290a",
+    "9e1ab3d0-15cf-4295-a024-5672df47a0e0": "7431eafdf9b53d26c9ad1d7ab86a726928e20efb0d771994e2fbe462fdab32fd"
   }
 }

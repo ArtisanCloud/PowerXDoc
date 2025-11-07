@@ -10,7 +10,7 @@ runtime:
   kind: process
   entry: backend/bin/plugin
   env:
-    POWERX_BIND_ADDR: ${POWERX_BIND_ADDR:-:8086}
+    POWERX_BIND_ADDR: ${POWERX_BIND_ADDR:-:8087}
     POWERX_PROXY: "1"                                # 被 PowerX 托管时应为 1（宿主也可注入）
     POWERX_PLUGIN_ID: "com.powerx.plugins.base"      # 也可让宿主注入
     POWERX_SECURITY_JWT_ISSUER: "powerx-auth"        # 必须与宿主一致
@@ -27,7 +27,7 @@ runtime:
 
 backend:
   entry: backend/bin/plugin
-  port: 8086
+  port: 8087
   health: /healthz
 
 endpoints:

@@ -60,7 +60,7 @@ go run ./cmd/plugin
 ### 2️⃣ 日志输出示例
 
 ```
-[INFO] Starting plugin com.powerx.plugins.base on :8086
+[INFO] Starting plugin com.powerx.plugins.base on :8087
 [DEBUG] tenant_id=1 ctx_mode=hmac
 [INFO] Health check endpoint /healthz ready
 ```
@@ -68,7 +68,7 @@ go run ./cmd/plugin
 访问：
 
 ```
-curl http://localhost:8086/healthz
+curl http://localhost:8087/healthz
 ```
 
 ---
@@ -100,7 +100,7 @@ http://localhost:3000
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:8086/v1",
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:8087/v1",
       pluginId: process.env.NUXT_PUBLIC_PLUGIN_ID || "com.powerx.plugins.base",
       powerxProxy: 0,
     },
@@ -116,7 +116,7 @@ export default defineNuxtConfig({
 ### 1️⃣ 基础请求示例
 
 ```
-GET http://localhost:8086/v1/templates
+GET http://localhost:8087/v1/templates
 ```
 
 ### 2️⃣ 模拟签名上下文（HMAC）
@@ -197,7 +197,7 @@ go run ./cmd/plugin
 宿主路由：
 
 ```
-/_p/com.powerx.plugins.base/api/* → localhost:8086
+/_p/com.powerx.plugins.base/api/* → localhost:8087
 ```
 
 访问：
@@ -226,7 +226,7 @@ curl http://localhost:8080/_p/com.powerx.plugins.base/api/v1/healthz
 ### 1️⃣ JWT 模式测试
 
 ```bash
-curl -H "X-PowerX-CTX-JWT: Bearer <jwt>" http://localhost:8086/v1/templates
+curl -H "X-PowerX-CTX-JWT: Bearer <jwt>" http://localhost:8087/v1/templates
 ```
 
 可使用 PowerX 提供的 JWT 测试签发工具：
@@ -290,9 +290,9 @@ SET search_path TO px_com_powerx_plugins_base;
 ## 十二、调试插件注册接口
 
 ```bash
-curl http://localhost:8086/api/v1/admin/manifest
-curl http://localhost:8086/api/v1/admin/rbac
-curl http://localhost:8086/api/v1/agent/register
+curl http://localhost:8087/api/v1/admin/manifest
+curl http://localhost:8087/api/v1/admin/rbac
+curl http://localhost:8087/api/v1/agent/register
 ```
 
 成功返回 JSON 即代表插件注册逻辑正常。
@@ -370,12 +370,12 @@ npm run dev
 ## 十六、完整本地联调拓扑
 
 ```
-[Nuxt Frontend:3000] → http://localhost:8086/v1/... → [Backend Plugin]
+[Nuxt Frontend:3000] → http://localhost:8087/v1/... → [Backend Plugin]
                                           ↘
                                            ↳ (PowerX反代) http://localhost:8080/_p/com.powerx.plugins.base/api/...
 ```
 
-* `NUXT_PUBLIC_API_BASE=http://localhost:8086/v1`
+* `NUXT_PUBLIC_API_BASE=http://localhost:8087/v1`
 * 或通过宿主 Proxy 联调：
   `NUXT_PUBLIC_API_BASE=http://localhost:8080/_p/com.powerx.plugins.base/api/v1`
 

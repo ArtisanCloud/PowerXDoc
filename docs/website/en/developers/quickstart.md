@@ -41,7 +41,7 @@ cd PowerX/Core/Plugins/PowerXPlugin
 ```bash
 cd skeleton/backend
 go run ./cmd/database/main.go setup   # migrate + seed demo data
-go run ./cmd/plugin                   # start HTTP on :8078
+go run ./cmd/plugin                   # start HTTP on :8087
 ```
 
 Open a new terminal for the admin frontend:
@@ -55,8 +55,8 @@ npm run dev -- --port 3031
 Validate the round trip:
 
 ```bash
-curl -s http://127.0.0.1:8078/healthz
-curl -s -H 'X-Tenant-ID: 1' http://127.0.0.1:8078/api/v1/templates | jq
+curl -s http://127.0.0.1:8087/healthz
+curl -s -H 'X-Tenant-ID: 1' http://127.0.0.1:8087/api/v1/templates | jq
 ```
 
 > Tip: Track latency with `curl -w 'time_total: %{time_total}\n' …` and record results under `docs/research` when you tune the stack.

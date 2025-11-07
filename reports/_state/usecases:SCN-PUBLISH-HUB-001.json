@@ -3,16 +3,14 @@
     {
       "workflowId": "usecases:SCN-PUBLISH-HUB-001",
       "fingerprint": "21e92b0bc5424e9b564a7874348f819beff34950f390544e47ed33ee18183bf3",
-      "resumeToken": "2cfa3b30-4a84-4546-bbff-fb8fc81d7539",
-      "status": "completed",
-      "metadata": {
-        "reportPath": "reports/usecases/usecases_SCN-PUBLISH-HUB-001.json"
-      },
-      "createdAt": "2025-11-04T13:18:03.725Z",
-      "updatedAt": "2025-11-04T13:18:50.343Z"
+      "resumeToken": "cd930824-ed4b-43b3-ac50-c3f68cd48585",
+      "status": "running",
+      "metadata": {},
+      "createdAt": "2025-11-06T11:37:46.800Z",
+      "updatedAt": "2025-11-06T11:37:46.800Z"
     }
   ],
   "tokens": {
-    "2cfa3b30-4a84-4546-bbff-fb8fc81d7539": "21e92b0bc5424e9b564a7874348f819beff34950f390544e47ed33ee18183bf3"
+    "cd930824-ed4b-43b3-ac50-c3f68cd48585": "21e92b0bc5424e9b564a7874348f819beff34950f390544e47ed33ee18183bf3"
   }
 }

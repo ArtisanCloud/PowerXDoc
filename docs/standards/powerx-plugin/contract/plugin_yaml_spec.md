@@ -61,7 +61,7 @@ homepage: https://github.com/ArtisanCloud/PowerX
 
 backend:
   entry: backend/bin/plugin
-  port: 8086
+  port: 8087
   health: /healthz
 
 routes:
@@ -140,7 +140,7 @@ PLUGIN_ID=com.powerx.plugins.base ./backend/bin/plugin
 并通过 HTTP 检查：
 
 ```
-GET http://127.0.0.1:8086/healthz
+GET http://127.0.0.1:8087/healthz
 ```
 
 ---
