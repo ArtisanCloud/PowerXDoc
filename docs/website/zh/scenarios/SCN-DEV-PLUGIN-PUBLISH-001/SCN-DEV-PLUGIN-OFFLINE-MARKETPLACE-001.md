@@ -15,7 +15,7 @@ layers: [ops, marketplace, security]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: `px-plugin pack` 离线包生成、签名、依赖与校验文件
+    responsibility: "`px-plugin pack` 离线包生成、签名、依赖与校验文件"
   - key: powerx-marketplace
     scope: marketplace
     responsibility: 离线上传入口、元数据登记、审核工单编排

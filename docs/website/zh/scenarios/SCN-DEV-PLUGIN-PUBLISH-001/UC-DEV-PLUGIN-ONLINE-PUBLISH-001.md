@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/publish.ts
-    description: `px-plugin publish` 命令、元数据校验、通知触发
+    description: "`px-plugin publish` 命令、元数据校验、通知触发"
   - repo: powerx-marketplace
     path: apps/market/src/modules/online-publish/index.tsx
     description: 在线上架界面、元数据模板、状态反馈

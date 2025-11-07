@@ -14,7 +14,8 @@ layers: [ops, service]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Delay queues, retry strategies, dead-letter handling, recovery scripts
+    responsibility: >
+      Delay queues, retry strategies, dead-letter handling, recovery scripts
 related_usecases:
   - doc_id: UC-OPS-RETRY-RECOVERY-001
     layer: ops
@@ -31,7 +32,7 @@ When a task execution fails, the platform must transition it into a delayed retr
 
 - **In Scope**: Delay queue enqueue/dequeue, retry policies, backoff algorithms, dead-letter queues, work-order escalation, runbook recovery, auditing, and alerting.
 - **Out of Scope**: Cross-repo data repair, financial compensation, and infrastructure-level disaster recovery.
-- **Environment & Flags**: `task-retry-queue`, `dlq-inspector`, `audit-streaming`; depends on Redis/Kafka, work-order tooling, and PagerDuty/Slack alerts.
+- **Environment & Flags**: "`task-retry-queue`, `dlq-inspector`, `audit-streaming`; depends on Redis/Kafka, work-order tooling, and PagerDuty/Slack alerts."
 
 # Participants & Responsibilities
 
@@ -65,8 +66,8 @@ sequenceDiagram
 
 # Key Interactions & Contracts
 
-- **APIs / Events**: `EVENT task.execution.failed`, `EVENT task.retry.scheduled`, `POST /internal/tasks/retry`, `POST /ops/workorders`.
-- **Configs / Schemas**: `config/tasks/retry-policies.yaml`, `docs/standards/ops/task-retry-governance.md`, `docs/standards/events/retry-status-schema.md`.
+- **APIs / Events**: "`EVENT task.execution.failed`, `EVENT task.retry.scheduled`, `POST /internal/tasks/retry`, `POST /ops/workorders`."
+- **Configs / Schemas**: "`config/tasks/retry-policies.yaml`, `docs/standards/ops/task-retry-governance.md`, `docs/standards/events/retry-status-schema.md`."
 - **Security / Compliance**: Retry idempotency validation, work-order approvals, audit logging, safeguards against duplicate execution and privilege escalation.
 
 # Usecase Links
@@ -81,9 +82,9 @@ sequenceDiagram
 
 # Telemetry & Ops
 
-- Metrics: `task.retry.scheduled_total`, `task.retry.success_total`, `task.retry.failure_total`, `task.retry.dlq_total`, `task.retry.escalated_total`.
+- Metrics: "`task.retry.scheduled_total`, `task.retry.success_total`, `task.retry.failure_total`, `task.retry.dlq_total`, `task.retry.escalated_total`."
 - Alert thresholds: Retry failure rate > 15% over 10 minutes, DLQ size beyond threshold, work-order creation failures.
-- Observability sources: Grafana `Runtime Ops / Retry & Recovery`, Datadog `task.retry.*`, Ops console recovery dashboard, `scripts/ops/retry-inspect.mjs`.
+- Observability sources: "Grafana `Runtime Ops / Retry & Recovery`, Datadog `task.retry.*`, Ops console recovery dashboard, `scripts/ops/retry-inspect.mjs`."
 
 # Open Issues & Follow-ups
 

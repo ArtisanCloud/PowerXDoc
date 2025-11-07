@@ -12,10 +12,12 @@ layers: [proto, service, ui]
 repos:
   - key: powerx-plugin
     scope: powerx-plugin
-    responsibility: Plugin project template, build and debugging CLI
+    responsibility: >
+      Plugin project template, build and debugging CLI
   - key: powerx
     scope: powerx
-    responsibility: Plugin runtime, APIs, logging, and the Web Admin hot reload entry
+    responsibility: >
+      Plugin runtime, APIs, logging, and the Web Admin hot reload entry
 related_usecases:
   - doc_id: PLG-DEV-HOTLOAD-001
     layer: proto

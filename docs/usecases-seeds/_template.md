@@ -128,7 +128,7 @@ sequenceDiagram
 
 - 场景文档：`docs/scenarios/<domain>/<SCN_ID>.md`
 - 相关规范：`docs/standards/<scope>/<topic>.md`
-- 代码 PR：`https://github.com/<org>/<repo>/pull/<id>`
+- 代码 PR：`https: "//github.com/<org>/<repo>/pull/<id>`"
 - 设计材料：Figma、白板或 ADR 链接
 
-> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish:usecases -- --scn-id <ID>` 分发到下游仓库。
+> 完成后请更新 `docs/_data/docmap.yaml` 映射，并通过 `npm run publish: "usecases -- --scn-id <ID>` 分发到下游仓库。"

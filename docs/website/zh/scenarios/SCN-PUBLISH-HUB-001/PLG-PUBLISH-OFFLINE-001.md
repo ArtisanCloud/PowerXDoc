@@ -37,7 +37,7 @@ code_refs:
     description: 对接本地 PEM 或外部 KMS，生成签名与证书链
   - component: offline_verifier
     path: 待落地（实现语言与目录由仓库实际方案决定）
-    description: 提供 `dist --verify` 校验 hash、签名与证书有效性
+    description: "提供 `dist --verify` 校验 hash、签名与证书有效性"
 feature_flags:
   - name: PX_OFFLINE_IMPORT
     description: 启用 CLI 离线包产出与元数据信息生成

@@ -12,7 +12,7 @@ VitePress is designed with an extensible default theme, allowing for customizati
 
 This method is ideal for simple stylistic changes like colors, fonts, and margins.
 
-1.  **Create a custom CSS file:** `docs/.vitepress/theme/style.css`
+1.  **Create a custom CSS file: "** `docs/.vitepress/theme/style.css`"
 2.  Any CSS rules in this file will be loaded after the default theme's styles, allowing them to override the defaults.
 
 **Example (`style.css`):**
@@ -28,9 +28,9 @@ This method is ideal for simple stylistic changes like colors, fonts, and margin
 
 This is the core method for customization, allowing you to replace or enhance specific parts of the theme (like the homepage, navbar, etc.) with your own Vue components using "Layout Slots".
 
-1.  **Create a theme entry file:** `docs/.vitepress/theme/index.ts` (or `.js`)
-2.  **Inherit the default theme:** Import `DefaultTheme` from `vitepress` and export an extended theme object.
-3.  **Use Slots to Replace Components:** Use the `Layout` property to tell VitePress to render your own components in specific pre-defined slots.
+1.  **Create a theme entry file: "** `docs/.vitepress/theme/index.ts` (or `.js`)"
+2.  **Inherit the default theme: "** Import `DefaultTheme` from `vitepress` and export an extended theme object."
+3.  **Use Slots to Replace Components: "** Use the `Layout` property to tell VitePress to render your own components in specific pre-defined slots."
 
 **Example (`index.ts`):**
 ```typescript

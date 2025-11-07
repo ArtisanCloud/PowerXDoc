@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/build.ts
-    description: `px-plugin build` command, artifact management, error classification
+    description: "`px-plugin build` command, artifact management, error classification"
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/dev.ts
     description: Local debug/watch command, hot reload, log streaming

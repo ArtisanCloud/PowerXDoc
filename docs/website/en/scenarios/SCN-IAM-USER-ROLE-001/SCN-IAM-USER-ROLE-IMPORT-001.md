@@ -15,7 +15,8 @@ layers: [service, ui]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: User directory, bulk import validation engine, account lifecycle APIs
+    responsibility: >
+      User directory, bulk import validation engine, account lifecycle APIs
 related_usecases: []
 last_reviewed_at: 2025-10-30
 

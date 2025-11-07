@@ -40,7 +40,7 @@ code_refs:
     description: Sync Marketplace version metadata into the local catalog cache
 feature_flags:
   - name: PX_ONLINE_INSTALL
-    description: Controls the availability of the `install/url` API and allowed source domains
+    description: "Controls the availability of the `install/url` API and allowed source domains"
     default: true
     environments: [staging, production]
   - name: PX_ONLINE_AUTO_UPGRADE

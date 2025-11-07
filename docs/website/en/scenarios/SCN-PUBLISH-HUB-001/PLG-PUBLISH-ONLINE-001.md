@@ -28,7 +28,7 @@ linked_requirements:
 code_refs:
   - component: publish_command
     path: cli/src/commands/publish.ts
-    description: Entry point for `px-plugin publish`, chaining pre-check, packaging, upload, and receipt output
+    description: "Entry point for `px-plugin publish`, chaining pre-check, packaging, upload, and receipt output"
   - component: publish_pipeline
     path: cli/src/lib/publish/pipeline.ts
     description: Multi-stage pipeline that executes validation, signing, upload, and review trigger

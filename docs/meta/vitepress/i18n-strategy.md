@@ -8,9 +8,9 @@ This document outlines the design and implementation plan for adding bilingual (
 
 The core principle is to separate content by language into distinct directories. By convention, the default language resides at the root, and other languages are placed in named subdirectories.
 
-1.  **Chinese (Default Language):** All existing Markdown files within the `docs/` directory will serve as the Chinese content. No changes are needed for these files.
+1.  **Chinese (Default Language): "** All existing Markdown files within the `docs/` directory will serve as the Chinese content. No changes are needed for these files."
 
-2.  **English (New Language):** A new `docs/en/` directory will be created. The internal structure of `docs/en/` MUST exactly mirror the structure of the `docs/` directory to ensure proper page mapping and language switching.
+2.  **English (New Language): "** A new `docs/en/` directory will be created. The internal structure of `docs/en/` MUST exactly mirror the structure of the `docs/` directory to ensure proper page mapping and language switching."
 
 **Example Directory Structure:**
 

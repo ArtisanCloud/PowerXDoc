@@ -15,7 +15,8 @@ layers: [service, ui]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Authorization center, approval workflows, least-privilege checks, and notification integration
+    responsibility: >
+      Authorization center, approval workflows, least-privilege checks, and notification integration
 related_usecases: []
 last_reviewed_at: 2025-10-30
 

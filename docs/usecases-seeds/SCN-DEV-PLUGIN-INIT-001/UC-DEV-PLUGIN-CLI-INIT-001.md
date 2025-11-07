@@ -53,7 +53,7 @@ last_reviewed_at: 2025-11-20
 - **前置条件**
   - 已安装 `powerx-cli` ≥ v3.2，启用 `PX_PLUGIN_SCAFFOLD_V2` 与 `plugin-import-audit` Feature Flag。
   - 模板仓 `packages/template-registry` 可访问，并同步最新模板/依赖清单。
-  - 合规扫描服务、Git 注册 API 可用，开发者拥有 `plugin:bootstrap` 权限。
+  - 合规扫描服务、Git 注册 API 可用，开发者拥有 `plugin: "bootstrap` 权限。"
   - Node 18、Python 3.11 等基础运行时已按模板要求预装。
 - **输入/输出**
   - 输入：模板 ID、插件名称、目标路径、租户/组织、语言与能力选项、可选第三方依赖白名单。

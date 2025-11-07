@@ -136,7 +136,7 @@ sequenceDiagram
   - `POST /api/marketplace/plugins/{id}/offline-review`：提交审批动作，参数包括 `decision`, `comments`, `riskLevel`，记录审计轨迹。
   - `GET /api/marketplace/plugins/{id}/offline-versions`：查询已审核版本，返回下载地址与合规状态。
 - **Outbound 集成**
-  - `POST PublishHub::/events/offline-version`：推送版本状态，用于租户同步。
+  - `POST PublishHub: ":/events/offline-version`：推送版本状态，用于租户同步。"
   - 通知渠道：Slack/邮件/Webhook（配置于 `PX_MARKET_NOTIFICATION_ENDPOINTS`）。
 - **配置**
   - 存储：`PX_OFFLINE_STORAGE_BUCKET`, `PX_OFFLINE_STORAGE_PREFIX`, `PX_OFFLINE_STORAGE_REGION`。
@@ -188,6 +188,6 @@ sequenceDiagram
 - 场景文档：`docs/scenarios/publish/SCN-PUBLISH-OFFLINE-001.md`
 - 相关规范：`docs/standards/powerx-marketplace/pxp插件压缩包.md`、`docs/standards/powerx-marketplace/vendor/02_plugin_development/Testing_and_Sandbox.md`
 - 操作指南：`docs/guides/usecases/publish-usecase-seeds.md`
-- 校验命令：`npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`
+- 校验命令：`npm run publish: "usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`"
 
 > 完成上述实现与文档后，请同步 Publish Hub、PowerX Core 团队共同演练离线包发布，确保审批、分发、回滚流程闭环。

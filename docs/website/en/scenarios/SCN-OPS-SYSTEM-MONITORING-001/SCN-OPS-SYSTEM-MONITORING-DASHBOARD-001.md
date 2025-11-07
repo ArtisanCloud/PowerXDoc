@@ -15,7 +15,8 @@ layers: [ops, service]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Metrics query APIs, topology data, export pipeline, access auditing
+    responsibility: >
+      Metrics query APIs, topology data, export pipeline, access auditing
 related_usecases:
   - doc_id: UC-OPS-MONITORING-DASHBOARD-001
     layer: ops

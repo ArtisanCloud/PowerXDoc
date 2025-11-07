@@ -47,7 +47,7 @@ last_reviewed_at: 2025-11-02
 
 - **Business Objective**: Enable plugin developers to quickly and controllably deploy locally built packages in test tenants, complete feature validation and debugging, while ensuring resource isolation, signature security and rollback capabilities.
 - **Success Metrics**: Installation time ≤ 2 minutes; sandbox installation success rate ≥ 95%; signature validation false rejection rate < 1%; rollback time ≤ 30 seconds.
-- **Scenario Association**: Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 1-3, supporting developers to complete sandbox validation before production release.
+- **Scenario Association**: "Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 1-3, supporting developers to complete sandbox validation before production release."
 
 > Through unified sandbox installation wizard and validation process, achieve rapid plugin iteration and security isolation, avoiding debugging blocks due to signature, dependency or quota issues.
 
@@ -56,10 +56,10 @@ last_reviewed_at: 2025-11-02
 - **Prerequisites**
   - Feature Flags `px-plugin-runtime-v2`, `plugin-sandbox-mode`, `plugin-dev-logs` are enabled.
   - Test tenants have independent resource quotas, log storage and audit space.
-  - Developer accounts have `plugin:dev`, `tenant:sandbox:write` permissions.
+  - Developer accounts have `plugin: "dev`, `tenant:sandbox:write` permissions."
   - Package management service can access offline packages, signature certificates and dependency indexes.
 - **Input/Output**
-  - Input: `.pxp` plugin package, `manifest.json`, dependency declarations, signature digest, environment variable templates.
+  - Input: "`.pxp` plugin package, `manifest.json`, dependency declarations, signature digest, environment variable templates."
   - Output: plugin running instance, debug logs, audit records, installation receipt, sandbox test entry point.
 - **Boundaries**
   - Not handling plugin code building and packaging; not covering production tenant installation and billing; not responsible for Marketplace publishing and approval.
@@ -139,15 +139,15 @@ sequenceDiagram
 
 # Observability & Ops
 
-- **Metrics**: `plugin.install.sandbox_duration_p95`, `plugin.install.sandbox_success_rate`, `plugin.install.rollback_total`, `plugin.install.signature_failure_total`.
-- **Logs**: Record `tenant_id`, `plugin_id`, `version`, `install_mode`, `duration_ms`, `status`, `failure_reason`.
+- **Metrics**: "`plugin.install.sandbox_duration_p95`, `plugin.install.sandbox_success_rate`, `plugin.install.rollback_total`, `plugin.install.signature_failure_total`."
+- **Logs**: "Record `tenant_id`, `plugin_id`, `version`, `install_mode`, `duration_ms`, `status`, `failure_reason`."
 - **Alerts**: Consecutive signature validation failures, resource quota exceeded, installation time >120 seconds trigger PagerDuty; notify developers when debug log channel is abnormal.
-- **Dashboards**: Grafana `Runtime Ops / Plugin Sandbox`, internal audit panel, console debug page.
+- **Dashboards**: "Grafana `Runtime Ops / Plugin Sandbox`, internal audit panel, console debug page."
 
 # Rollback & Failure Handling
 
 - **Rollback Steps**: One-click rollback releases resources, revokes configuration, closes log channels; notify developers and provide error reports.
-- **Remediation**: Guide developers to execute `plugin-sandbox-dryrun.mjs`, fix package signature or dependencies; provide resource quota expansion suggestions.
+- **Remediation**: "Guide developers to execute `plugin-sandbox-dryrun.mjs`, fix package signature or dependencies; provide resource quota expansion suggestions."
 - **Data Repair**: Allow re-triggering installation, clean up semi-installed states, sync audit status to failed.
 
 - **数据修复**：允许重新触发安装、清理半安装状态、同步审计状态为失败。

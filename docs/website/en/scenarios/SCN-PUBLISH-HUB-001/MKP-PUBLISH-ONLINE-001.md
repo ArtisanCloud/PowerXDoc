@@ -31,7 +31,7 @@ linked_requirements:
 code_refs:
   - component: publish_controller
     path: backend/internal/marketplace/publish/controller.go
-    description: Handles `POST /api/marketplace/plugins/publish` requests and kicks off the review pipeline
+    description: "Handles `POST /api/marketplace/plugins/publish` requests and kicks off the review pipeline"
   - component: review_pipeline_service
     path: backend/internal/marketplace/publish/review_pipeline.go
     description: Orchestrates automated scanning, compatibility testing, and manual review queueing

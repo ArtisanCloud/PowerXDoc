@@ -15,7 +15,8 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Metrics ingestion, anomaly detection, throttling orchestration, alert updates
+    responsibility: >
+      Metrics ingestion, anomaly detection, throttling orchestration, alert updates
 related_usecases:
   - doc_id: UC-OPS-MONITORING-THROTTLE-001
     layer: service

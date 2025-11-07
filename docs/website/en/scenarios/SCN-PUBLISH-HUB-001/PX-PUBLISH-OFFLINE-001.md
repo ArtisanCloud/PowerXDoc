@@ -31,7 +31,7 @@ code_refs:
     description: Manages local/object-storage staging directories, validation, and extraction
   - component: offline_api_handler
     path: backend/cmd/app/http/handlers/offline_install_handler.go
-    description: Admin `install/local` API handler that drives the install pipeline
+    description: "Admin `install/local` API handler that drives the install pipeline"
 feature_flags:
   - name: PX_OFFLINE_INSTALL
     description: Controls availability of the offline install API; enabled primarily in intranet environments

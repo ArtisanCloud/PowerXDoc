@@ -15,7 +15,8 @@ layers: [ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Upgrade policy engine, grey rollout orchestration, monitoring integration, automated rollback
+    responsibility: >
+      Upgrade policy engine, grey rollout orchestration, monitoring integration, automated rollback
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-VERSION-GRAY-001
     layer: ops

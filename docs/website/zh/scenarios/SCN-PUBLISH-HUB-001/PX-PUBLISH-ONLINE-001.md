@@ -40,7 +40,7 @@ code_refs:
     description: 同步 Marketplace 版本元数据并缓存到本地 catalog
 feature_flags:
   - name: PX_ONLINE_INSTALL
-    description: 控制 `install/url` API 是否开放以及可访问的来源域名
+    description: "控制 `install/url` API 是否开放以及可访问的来源域名"
     default: true
     environments: [staging, production]
   - name: PX_ONLINE_AUTO_UPGRADE

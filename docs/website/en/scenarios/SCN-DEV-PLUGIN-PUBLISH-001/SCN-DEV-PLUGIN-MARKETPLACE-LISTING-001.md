@@ -15,10 +15,12 @@ layers: [marketplace, security]
 repos:
   - key: powerx-marketplace
     scope: marketplace
-    responsibility: Listing review workflow, metadata management, subscription notifications & operational reports
+    responsibility: >
+      Listing review workflow, metadata management, subscription notifications & operational reports
   - key: powerx
     scope: core-platform
-    responsibility: Release record sync, signature & security report verification, review result writeback
+    responsibility: >
+      Release record sync, signature & security report verification, review result writeback
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-MARKETPLACE-LISTING-001
     layer: marketplace

@@ -42,15 +42,15 @@
 **反代路径（宿主统一挂载）：**
 
 - 前端管理页：`/_p/<plugin-id>/admin/*  → web-admin/.output/`
-- 业务接口：`/_p/<plugin-id>/api/*    → backend : /v1/...`
+- 业务接口：`/_p/<plugin-id>/api/*    → backend : "/v1/...`"
 - 管理接口：`/_p/<plugin-id>/api/v1/admin/{manifest|rbac}`
 
 ### 1.2 安全上下文（入站）
 
 PowerX 调用插件时注入**签名上下文**（二选一）：
 
-- `X-PowerX-CTX-JWT: Bearer <jwt>`（**生产推荐**，公钥校验，JWKS 轮换）
-- `X-PowerX-CTX: <payload>.<sig>`（HMAC，对称密钥，适合本地开发）
+- `X-PowerX-CTX-JWT: "Bearer <jwt>`（**生产推荐**，公钥校验，JWKS 轮换）"
+- `X-PowerX-CTX: "<payload>.<sig>`（HMAC，对称密钥，适合本地开发）"
 
 上下文包含：`tenant_id, user_id, permissions, request_id, exp, iat, iss, aud`。  
 插件的 **Middleware** 负责验证并注入 `TenantContext` 用于 RLS。
@@ -60,7 +60,7 @@ PowerX 调用插件时注入**签名上下文**（二选一）：
 插件访问宿主能力（如 Core API、文件、Agent Hub 注册）使用 **STS 短期凭证**：
 
 - `POST /_p/_internal/sts/exchange` → 返回 `access_token`
-- 后续请求添加：`Authorization: Bearer STS.***`（有效期 ~ 5 分钟，最小权限 Scope）
+- 后续请求添加：`Authorization: "Bearer STS.***`（有效期 ~ 5 分钟，最小权限 Scope）"
 
 ---
 

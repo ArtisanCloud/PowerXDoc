@@ -47,7 +47,7 @@ last_reviewed_at: 2025-11-02
 
 - **Business Objective**: When plugins have security or compliance risks, provide approvable, fast, and auditable suspension capabilities, while retaining complete evidence chains to support subsequent investigation and recovery.
 - **Success Metrics**: Suspension response time ≤ 60 seconds; forced suspension success rate ≥ 99%; evidence snapshot generation < 2 minutes; recovery approval closure ≤ 24 hours.
-- **Scenario Association**: Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 4, covering risk identification, suspension execution, notifications, evidence and recovery.
+- **Scenario Association**: "Corresponds to main scenario `SCN-OPS-PLUGIN-LIFECYCLE-001` Stage 4, covering risk identification, suspension execution, notifications, evidence and recovery."
 
 > Through suspension orchestration, forced execution and evidence archiving, ensure risk plugins can be controlled within one minute, while retaining chains for compliance review and supporting approved recovery.
 
@@ -141,10 +141,10 @@ sequenceDiagram
 
 # Observability & Ops
 
-- **Metrics**: `plugin.suspend.response_time`, `plugin.suspend.success_rate`, `plugin.suspend.force_total`, `plugin.resume.approval_duration`.
-- **Logs**: Record `plugin_id`, `tenant_id`, `mode`, `requester`, `approver`, `status`, `evidence_id`, `elapsed_ms`.
+- **Metrics**: "`plugin.suspend.response_time`, `plugin.suspend.success_rate`, `plugin.suspend.force_total`, `plugin.resume.approval_duration`."
+- **Logs**: "Record `plugin_id`, `tenant_id`, `mode`, `requester`, `approver`, `status`, `evidence_id`, `elapsed_ms`."
 - **Alerts**: Suspension response >60 seconds, forced suspension failures, evidence upload failures, recovery approval timeouts.
-- **Dashboards**: Grafana `Runtime Ops / Plugin Safety`, audit panel, ticketing system dashboard, notification delivery monitoring.
+- **Dashboards**: "Grafana `Runtime Ops / Plugin Safety`, audit panel, ticketing system dashboard, notification delivery monitoring."
 
 # Rollback & Failure Handling
 
@@ -161,7 +161,7 @@ sequenceDiagram
 
 # References & Links
 
-- Main Scenario: `docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-LIFECYCLE-001.md`
-- Sub-Scenario: `docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-RISK-SUSPEND-001.md`
-- Background Materials: `docs/meta/scenarios/powerx/core-platform/runtime-ops/plugin-install-and-ops/primary.md`
-- Standards: `docs/standards/powerx-plugin/security/vulnerability-response.md`
+- Main Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-LIFECYCLE-001.md`"
+- Sub-Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-RISK-SUSPEND-001.md`"
+- Background Materials: "`docs/meta/scenarios/powerx/core-platform/runtime-ops/plugin-install-and-ops/primary.md`"
+- Standards: "`docs/standards/powerx-plugin/security/vulnerability-response.md`"

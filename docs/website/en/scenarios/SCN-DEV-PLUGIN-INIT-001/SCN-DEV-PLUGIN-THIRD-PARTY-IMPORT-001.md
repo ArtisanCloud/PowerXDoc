@@ -15,10 +15,12 @@ layers: [service, security]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: source package upload, unpacking, license/vulnerability scanning, adaptation wizard & audit
+    responsibility: >
+      source package upload, unpacking, license/vulnerability scanning, adaptation wizard & audit
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: template refactoring rules, missing manifest completion, compatibility validation scripts
+    responsibility: >
+      template refactoring rules, missing manifest completion, compatibility validation scripts
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001
     layer: security

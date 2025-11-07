@@ -15,10 +15,12 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Release pipeline, canary strategy orchestration, rolling expansion, rollback automation
+    responsibility: >
+      Release pipeline, canary strategy orchestration, rolling expansion, rollback automation
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Runtime health check scripts, metrics instrumentation, notification templates & change logs
+    responsibility: >
+      Runtime health check scripts, metrics instrumentation, notification templates & change logs
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-CICD-CANARY-001
     layer: ops

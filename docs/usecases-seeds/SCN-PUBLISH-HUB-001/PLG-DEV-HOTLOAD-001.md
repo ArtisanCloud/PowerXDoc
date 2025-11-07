@@ -53,7 +53,7 @@ last_reviewed_at: 2025-10-25
 | proto | powerx-plugin | BundleBuilder | 调用 esbuild/tsc、生成差异产物、校验大小与签名 | `packages/cli/src/build` |
 | proto | powerx-plugin | SessionClient | 负责 Dev API register/reload/delete 调用、重试与 mTLS | `packages/cli/src/runtime` |
 | proto | powerx-plugin | TelemetryEmitter | 采集构建与 API 延迟，写入 Workflow Metrics/Kafka | `packages/cli/src/telemetry` |
-| service | powerx | PowerX Dev API (`register/reload/delete`) | 托管热加载会话、沙盒调度与回滚 | `https://dev-api.powerx.local/internal/dev/plugins/*` |
+| service | powerx | PowerX Dev API (`register/reload/delete`) | 托管热加载会话、沙盒调度与回滚 | `https: "//dev-api.powerx.local/internal/dev/plugins/*` |"
 | service | powerx | `specs/005-cross-repo-documentation/contracts/powerxdoc-workflows.openapi.yaml` | 约束 CLI 与 Core 的字段与鉴权策略 | `specs/005-cross-repo-documentation/contracts/powerxdoc-workflows.openapi.yaml` |
 
 ## 流程与时序
@@ -91,8 +91,8 @@ sequenceDiagram
     - 支持 `--max-bundle-size`、`--no-telemetry` 等安全参数。
   - `px-plugin dev --stop`：根据缓存的 sessionId 调用 DELETE。
 - **Dev API 调用**（由 SessionClient 发起）
-  - `POST https://dev-api.powerx.local/internal/dev/plugins/register`：携带 manifest、bundleMeta、cliVersion、traceId；Host 可通过 `PX_DEV_API_BASE_URL` 覆盖。
-  - `POST https://dev-api.powerx.local/internal/dev/plugins/reload`：携带 sessionId、reloadToken、`changedFiles`、`diagnostics`；支持 `x-reload-id` 幂等头。
+  - `POST https: "//dev-api.powerx.local/internal/dev/plugins/register`：携带 manifest、bundleMeta、cliVersion、traceId；Host 可通过 `PX_DEV_API_BASE_URL` 覆盖。"
+  - `POST https: "//dev-api.powerx.local/internal/dev/plugins/reload`：携带 sessionId、reloadToken、`changedFiles`、`diagnostics`；支持 `x-reload-id` 幂等头。"
 - **配置文件**
   - `px-plugin.config.ts`：声明 entry、assets、env、watch 忽略列表。
   - `plugin.yaml`：保证 `id/version/runtime` 与后台一致。
@@ -114,7 +114,7 @@ sequenceDiagram
 
 - **单元测试**：`watch.test.ts` 验证事件去抖/重试；`session.test.ts` 覆盖 register/reload token 更新；`bundle.test.ts` 检查差异计算与压缩。
 - **集成测试**：在 CI 使用 mock Dev API（`dev-api-stub`) 通信；构建真实插件样例，断言 CLI 输出与 API payload。
-- **端到端**：`npm run e2e:dev-hotload` 启动本地 sandbox，执行 `px-plugin dev --watch`，验证 Admin SSE 是否收到事件；结合 `node scripts/qa/workflow-metrics.mjs --scope dev-hotload` 校验指标是否写入。
+- **端到端**：`npm run e2e: "dev-hotload` 启动本地 sandbox，执行 `px-plugin dev --watch`，验证 Admin SSE 是否收到事件；结合 `node scripts/qa/workflow-metrics.mjs --scope dev-hotload` 校验指标是否写入。"
 - **非功能**：容量测试 10 并发 watcher；大文件（>100MB）跳过策略；失败重试 + 断网恢复。
 
 # Observability & Ops
@@ -143,7 +143,7 @@ sequenceDiagram
 
 - 场景文档：`docs/scenarios/publish/SCN-DEV-HOTLOAD-001.md`
 - 相关规范：`docs/standards/powerx-plugin/deploy/local_debug.md`、`docs/standards/powerx/backend/plugins/dev_hotload_api.md`
-- 代码 PR：`https://github.com/ArtisanCloud/PowerXPlugin/pulls?q=dev+hotload`
+- 代码 PR：`https: "//github.com/ArtisanCloud/PowerXPlugin/pulls?q=dev+hotload`"
 - 设计材料：`ADR-2024-DEV-HOTLOAD-CLI.md`、`Figma › Dev Hotload CLI UX`
 
-> 完成后请同步 `docmap.yaml`（若新增字段）并运行 `npm run publish:usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`。
+> 完成后请同步 `docmap.yaml`（若新增字段）并运行 `npm run publish: "usecases -- --scn-id SCN-PUBLISH-HUB-001 --validate-only`。"

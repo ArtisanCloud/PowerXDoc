@@ -15,7 +15,8 @@ layers: [service, ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Log rule engine, alert construction, webhook delivery and downgrade policy
+    responsibility: >
+      Log rule engine, alert construction, webhook delivery and downgrade policy
 related_usecases:
   - doc_id: UC-OPS-MONITORING-WEBHOOK-001
     layer: service

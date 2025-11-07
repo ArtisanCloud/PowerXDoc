@@ -15,13 +15,16 @@ layers: [service, ops, security]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Release pipeline orchestration, test triggering, approval & rollback plan generation
+    responsibility: >
+      Release pipeline orchestration, test triggering, approval & rollback plan generation
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Release artifact upload, test data preparation, version description maintenance
+    responsibility: >
+      Release artifact upload, test data preparation, version description maintenance
   - key: powerx
     scope: security
-    responsibility: Security scan policies, certificate verification, approval compliance checks
+    responsibility: >
+      Security scan policies, certificate verification, approval compliance checks
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-RELEASE-APPROVAL-001
     layer: ops

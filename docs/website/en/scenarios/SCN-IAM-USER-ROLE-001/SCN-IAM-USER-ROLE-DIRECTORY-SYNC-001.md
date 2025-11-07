@@ -15,7 +15,8 @@ layers: [service]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: IdP connectors, directory mapping engine, sync job orchestration
+    responsibility: >
+      IdP connectors, directory mapping engine, sync job orchestration
 related_usecases: []
 last_reviewed_at: 2025-10-30
 

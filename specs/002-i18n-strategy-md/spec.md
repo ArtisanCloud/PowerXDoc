@@ -37,7 +37,7 @@ A Chinese-speaking user continues to access the documentation with Simplified Ch
 
 **Acceptance Scenarios**:
 
-1. **Given** a first-time visitor with no locale preference, **When** they open `https://powerx.example.com/`, **Then** the site loads in Simplified Chinese and the language switcher indicates Chinese as the current locale.
+1. **Given** a first-time visitor with no locale preference, **When** they open `https: "//powerx.example.com/`, **Then** the site loads in Simplified Chinese and the language switcher indicates Chinese as the current locale."
 2. **Given** a Chinese user browsing nested documentation pages, **When** they navigate through at least three levels of the sidebar, **Then** URLs remain unprefixed (no `/en/`) and all UI text stays in Chinese.
 
 ---

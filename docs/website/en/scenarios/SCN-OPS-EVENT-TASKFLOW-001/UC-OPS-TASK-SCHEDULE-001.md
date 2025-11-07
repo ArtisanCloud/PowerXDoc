@@ -47,7 +47,7 @@ last_reviewed_at: 2025-10-31
 
 - **Business Goal**: Provide unified Cron and event-driven scheduling for plugins so tasks fire on schedule, stay traceable, and can be compensated, while flagging resource conflicts early.
 - **Success Metrics**: On-time rate ≥ 98%; execution success rate ≥ 97%; trigger latency < 1 minute; resource conflict warning hit rate ≥ 90%.
-- **Scenario Alignment**: Supports Stage 2 of `SCN-OPS-EVENT-TASKFLOW-001`, consuming event notifications and supplying task instances for recovery flows.
+- **Scenario Alignment**: "Supports Stage 2 of `SCN-OPS-EVENT-TASKFLOW-001`, consuming event notifications and supplying task instances for recovery flows."
 
 > A central scheduler links Cron plans, event triggers, resource pre-checks, execution callbacks, and SLA alerts into a measurable loop.
 
@@ -80,7 +80,7 @@ last_reviewed_at: 2025-10-31
 
 ## Flow & Sequence
 
-1. **Step 1 – Task Registration**: Admin or API calls `registerTask` to store Cron/event rules and metadata.
+1. **Step 1 – Task Registration**: "Admin or API calls `registerTask` to store Cron/event rules and metadata."
 2. **Step 2 – Pre-flight Planning**: Before trigger time, perform resource checks, mutual-exclusion validation, and jitter control; queue or warn as needed.
 3. **Step 3 – Task Execution**: When triggered, invoke plugin runtime/Agent, attach trace info, and capture heartbeats.
 4. **Step 4 – Status Tracking**: Execution results flow into the task store and metrics pipeline; failures hand off to retries or compensation.
@@ -120,16 +120,16 @@ last_reviewed_at: 2025-10-31
 
 # Observability & Ops
 
-- **Metrics**: `task.scheduler.on_time_rate`, `task.scheduler.missed_total`, `task.execution.success_total`, `task.execution.retry_total`, `task.sla.breach_total`.
-- **Logging**: Capture `task_id`, `tenant_id`, `trigger_time`, `actual_start`, `duration_ms`, `status`, `retry_count`, `error_code`.
+- **Metrics**: "`task.scheduler.on_time_rate`, `task.scheduler.missed_total`, `task.execution.success_total`, `task.execution.retry_total`, `task.sla.breach_total`."
+- **Logging**: "Capture `task_id`, `tenant_id`, `trigger_time`, `actual_start`, `duration_ms`, `status`, `retry_count`, `error_code`."
 - **Alerts**: Scheduling failure rate > 5% over 5 minutes, three consecutive SLA breaches, lock contention > 70%.
-- **Dashboards**: Grafana `Runtime Ops / Scheduler Overview`, Datadog `task.scheduler.*`, Ops console timeline.
+- **Dashboards**: "Grafana `Runtime Ops / Scheduler Overview`, Datadog `task.scheduler.*`, Ops console timeline."
 
 # Rollback & Failure Handling
 
 - **Rollback Steps**: Restore previous Scheduler/Planner build, revert configs, disable new flags, redeploy Cron tables.
-- **Mitigations**: Run `task-dryrun.mjs` to inspect pending tasks, manually trigger critical workloads or notify tenants, adjust quotas/mutual-exclusion rules.
-- **Data Repair**: Update statuses via SQL, recompute next run times; run `task-sla-report.mjs --rebuild` to fix metrics.
+- **Mitigations**: "Run `task-dryrun.mjs` to inspect pending tasks, manually trigger critical workloads or notify tenants, adjust quotas/mutual-exclusion rules."
+- **Data Repair**: "Update statuses via SQL, recompute next run times; run `task-sla-report.mjs --rebuild` to fix metrics."
 
 # Follow-ups & Risks
 
@@ -140,7 +140,7 @@ last_reviewed_at: 2025-10-31
 
 # References & Links
 
-- Scenario: `docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`
-- Child Scenario: `docs/scenarios/runtime-ops/SCN-OPS-TASK-SCHEDULE-001.md`
-- Background: `docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`
-- Tooling: `scripts/ops/task-dryrun.mjs`, `scripts/ops/task-sla-report.mjs`
+- Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md`"
+- Child Scenario: "`docs/scenarios/runtime-ops/SCN-OPS-TASK-SCHEDULE-001.md`"
+- Background: "`docs/meta/scenarios/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md`"
+- Tooling: "`scripts/ops/task-dryrun.mjs`, `scripts/ops/task-sla-report.mjs`"

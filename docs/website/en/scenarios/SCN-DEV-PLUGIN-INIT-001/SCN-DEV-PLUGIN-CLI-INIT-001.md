@@ -15,10 +15,12 @@ layers: [proto, service, security]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: CLI parameter wizard, template management, dependency locking & example code
+    responsibility: >
+      CLI parameter wizard, template management, dependency locking & example code
   - key: powerx
     scope: core-platform
-    responsibility: initialization validation, compliance scan API, Git registration & CI guidance
+    responsibility: >
+      initialization validation, compliance scan API, Git registration & CI guidance
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-CLI-INIT-001
     layer: proto

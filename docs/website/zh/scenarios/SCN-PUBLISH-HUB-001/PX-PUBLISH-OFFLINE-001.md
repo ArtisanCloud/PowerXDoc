@@ -31,7 +31,7 @@ code_refs:
     description: 管理本地/对象存储临时目录，提供文件校验与解压
   - component: offline_api_handler
     path: backend/cmd/app/http/handlers/offline_install_handler.go
-    description: Admin `install/local` API 对接层，触发安装流程
+    description: "Admin `install/local` API 对接层，触发安装流程"
 feature_flags:
   - name: PX_OFFLINE_INSTALL
     description: 控制离线安装 API 是否可用，默认仅在内网环境开启

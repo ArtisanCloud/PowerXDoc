@@ -15,13 +15,16 @@ layers: [ops, marketplace]
 repos:
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: `px-plugin publish` command, metadata validation, change log & notifications
+    responsibility: >
+      `px-plugin publish` command, metadata validation, change log & notifications
   - key: powerx-marketplace
     scope: marketplace
-    responsibility: Review orchestration, listing sync, subscriber notifications, analytics
+    responsibility: >
+      Review orchestration, listing sync, subscriber notifications, analytics
   - key: powerx
     scope: ops
-    responsibility: Release records, version diff, audit logging, alerting
+    responsibility: >
+      Release records, version diff, audit logging, alerting
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-ONLINE-PUBLISH-001
     layer: marketplace

@@ -15,7 +15,8 @@ layers: [service]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Offboarding event ingestion, entitlement revocation workflow, audit & alerting
+    responsibility: >
+      Offboarding event ingestion, entitlement revocation workflow, audit & alerting
 related_usecases: []
 last_reviewed_at: 2025-10-30
 

@@ -15,10 +15,12 @@ layers: [service, ops, security]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Sandbox deployment orchestration, dataset management, performance collection, report generation
+    responsibility: >
+      Sandbox deployment orchestration, dataset management, performance collection, report generation
   - key: powerx-plugin
     scope: plugin-ecosystem
-    responsibility: Test scripts, data adapters, CLI debug commands
+    responsibility: >
+      Test scripts, data adapters, CLI debug commands
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-SANDBOX-VALIDATION-001
     layer: service

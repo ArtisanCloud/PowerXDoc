@@ -16,7 +16,8 @@ layers: [ops]
 repos:
   - key: powerx
     scope: core-platform
-    responsibility: Multi-tenant version views, policy engine, task orchestration, compliance reporting
+    responsibility: >
+      Multi-tenant version views, policy engine, task orchestration, compliance reporting
 related_usecases:
   - doc_id: UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001
     layer: ops

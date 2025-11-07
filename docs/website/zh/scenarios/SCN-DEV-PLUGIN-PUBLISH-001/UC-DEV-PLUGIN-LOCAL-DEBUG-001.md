@@ -22,7 +22,7 @@ linked_requirements:
 code_refs:
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/build.ts
-    description: `px-plugin build` 构建命令、产物管理、错误分类
+    description: "`px-plugin build` 构建命令、产物管理、错误分类"
   - repo: powerx-plugin
     path: packages/cli/src/commands/plugin/dev.ts
     description: 本地调试/热更新命令、watcher 与日志输出

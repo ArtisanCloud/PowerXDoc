@@ -47,14 +47,14 @@ This phase establishes the core `vue-i18n` integration, which is a prerequisite 
 
 ## Dependencies & Parallel Execution
 
-- **Dependency Graph**: `Phase 1` → `Phase 2` → (`Phase 3 (US1)` | `Phase 4 (US2)`) → `Phase 5`
+- **Dependency Graph**: "`Phase 1` → `Phase 2` → (`Phase 3 (US1)` | `Phase 4 (US2)`) → `Phase 5`"
   - Phase 2 is blocked by Phase 1.
   - Phases 3 and 4 are blocked by Phase 2.
   - Phases 3 and 4 can be worked on in parallel after Phase 2 is complete.
 
 - **Parallel Opportunities**:
-  - **Phase 1**: `T003` and `T004` can be done in parallel.
-  - **Phase 3**: `T006` and `T007` can be done in parallel.
+  - **Phase 1**: "`T003` and `T004` can be done in parallel."
+  - **Phase 3**: "`T006` and `T007` can be done in parallel."
 
 ## Implementation Strategy
 
