@@ -1,0 +1,37 @@
+{
+  "summary": {
+    "scnId": "SCN-OPS-RETRY-RECOVERY-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T05:14:32.726Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-OPS-RETRY-RECOVERY-001",
+      "status": "completed",
+      "resumeToken": "546cc9e7-a2a0-44f5-85e3-e4db8428604d",
+      "fingerprint": "ae8382c60dadc7de8a16ad337ebb4b7788f221f75e630dbf18f727ab6a6ee657",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-RETRY-RECOVERY-001",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md",
+        "title": "任务重试与补偿闭环",
+        "title_en": "Retry & Recovery Automation"
+      },
+      "timestamp": "2025-11-08T05:13:07.587Z"
+    },
+    {
+      "workflowId": "scenario:SCN-OPS-RETRY-RECOVERY-001",
+      "status": "completed",
+      "resumeToken": "546cc9e7-a2a0-44f5-85e3-e4db8428604d",
+      "fingerprint": "ae8382c60dadc7de8a16ad337ebb4b7788f221f75e630dbf18f727ab6a6ee657",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-RETRY-RECOVERY-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-RETRY-RECOVERY-001",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md",
+        "title": "任务重试与补偿闭环",
+        "title_en": "Retry & Recovery Automation"
+      },
+      "timestamp": "2025-11-08T05:14:32.726Z"
+    }
+  ]
+}

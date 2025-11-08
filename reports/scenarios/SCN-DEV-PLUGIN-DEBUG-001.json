@@ -1,0 +1,135 @@
+{
+  "summary": {
+    "scnId": "SCN-DEV-PLUGIN-DEBUG-001",
+    "status": "completed",
+    "generatedAt": "2025-11-07T13:49:56.025Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-DEV-PLUGIN-DEBUG-001",
+      "status": "completed",
+      "resumeToken": "5555ba77-62d9-414c-89cf-cb53cb980a42",
+      "fingerprint": "6a63ddc692cb6be466a929ba207664539309c4cb03d07bce05a29688ffe7a316",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-DEV-PLUGIN-DEBUG-001",
+        "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-DEBUG-001.md",
+        "title": "插件开发与调试主场景",
+        "title_en": "Plugin Development & Debugging",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-DEV-PLUGIN-HOT-RELOAD-001",
+            "title": "本地宿主模拟热更新调试",
+            "title_en": "Local Host Hot Reload Debugging",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-HOT-RELOAD-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001",
+            "title": "沙箱数据集功能验证",
+            "title_en": "Sandbox Dataset Validation",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001",
+            "title": "调试工具错误捕获与日志报告",
+            "title_en": "Debug Error Capture & Reporting",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-DEV-PLUGIN-HOT-RELOAD-001",
+            "scope": "powerx-plugin",
+            "layer": "proto",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-SANDBOX-VALIDATION-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-07T13:46:29.772Z"
+    },
+    {
+      "workflowId": "scenario:SCN-DEV-PLUGIN-DEBUG-001",
+      "status": "completed",
+      "resumeToken": "5555ba77-62d9-414c-89cf-cb53cb980a42",
+      "fingerprint": "6a63ddc692cb6be466a929ba207664539309c4cb03d07bce05a29688ffe7a316",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-DEV-PLUGIN-DEBUG-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-DEV-PLUGIN-DEBUG-001",
+        "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-DEBUG-001.md",
+        "title": "插件开发与调试主场景",
+        "title_en": "Plugin Development & Debugging",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-DEV-PLUGIN-HOT-RELOAD-001",
+            "title": "本地宿主模拟热更新调试",
+            "title_en": "Local Host Hot Reload Debugging",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-HOT-RELOAD-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001",
+            "title": "沙箱数据集功能验证",
+            "title_en": "Sandbox Dataset Validation",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001",
+            "title": "调试工具错误捕获与日志报告",
+            "title_en": "Debug Error Capture & Reporting",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-DEV-PLUGIN-HOT-RELOAD-001",
+            "scope": "powerx-plugin",
+            "layer": "proto",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-SANDBOX-VALIDATION-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-07T13:49:56.025Z"
+    }
+  ]
+}

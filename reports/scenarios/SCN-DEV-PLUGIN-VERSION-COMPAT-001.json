@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T04:57:10.203Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "status": "completed",
+      "resumeToken": "dcad83d7-efbc-4c76-869c-36a2269a2765",
+      "fingerprint": "396f781ce993ce6c6ec61f2db1b30b0a3082bfd48807cf09e471091f3a0cccd0",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+        "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md",
+        "title": "插件版本与兼容性管理主场景",
+        "title_en": "Plugin Version & Compatibility Management",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-DETECT-001",
+            "title": "自动检测并提示可升级版本",
+            "title_en": "Automated Version Detection & Recommendations",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-DETECT-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-GRAY-001",
+            "title": "策略化灰度升级与快速回滚",
+            "title_en": "Policy-Driven Upgrade & Rapid Rollback",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-GRAY-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001",
+            "title": "兼容性校验与阻断机制",
+            "title_en": "Compatibility Guard & Blocker",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001",
+            "title": "跨租户版本一致性治理",
+            "title_en": "Cross-Tenant Version Governance",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-DETECT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-GRAY-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001",
+            "scope": "powerx",
+            "layer": "security",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "dev",
+            "optional": true,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T04:55:46.303Z"
+    },
+    {
+      "workflowId": "scenario:SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "status": "completed",
+      "resumeToken": "dcad83d7-efbc-4c76-869c-36a2269a2765",
+      "fingerprint": "396f781ce993ce6c6ec61f2db1b30b0a3082bfd48807cf09e471091f3a0cccd0",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+        "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md",
+        "title": "插件版本与兼容性管理主场景",
+        "title_en": "Plugin Version & Compatibility Management",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-DETECT-001",
+            "title": "自动检测并提示可升级版本",
+            "title_en": "Automated Version Detection & Recommendations",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-DETECT-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-GRAY-001",
+            "title": "策略化灰度升级与快速回滚",
+            "title_en": "Policy-Driven Upgrade & Rapid Rollback",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-GRAY-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001",
+            "title": "兼容性校验与阻断机制",
+            "title_en": "Compatibility Guard & Blocker",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md"
+          },
+          {
+            "scn_id": "SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001",
+            "title": "跨租户版本一致性治理",
+            "title_en": "Cross-Tenant Version Governance",
+            "path": "docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-DETECT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-GRAY-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001",
+            "scope": "powerx",
+            "layer": "security",
+            "domain": "dev",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md"
+          },
+          {
+            "doc_id": "UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "dev",
+            "optional": true,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T04:57:10.204Z"
+    }
+  ]
+}

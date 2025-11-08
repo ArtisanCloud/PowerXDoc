@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-IAM-LOGIN-AUTH-001",
+      "fingerprint": "9a8ae36699f018d81ec59115284ffdf6bb319ea622994929d8d725a38ee5f842",
+      "resumeToken": "4dad3252-70db-4be3-a9fa-d0ed911a8625",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-IAM-LOGIN-AUTH-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-IAM-LOGIN-AUTH-001.md"
+      },
+      "createdAt": "2025-11-08T04:59:17.538Z",
+      "updatedAt": "2025-11-08T04:59:54.396Z"
+    }
+  ],
+  "tokens": {
+    "4dad3252-70db-4be3-a9fa-d0ed911a8625": "9a8ae36699f018d81ec59115284ffdf6bb319ea622994929d8d725a38ee5f842"
+  }
+}

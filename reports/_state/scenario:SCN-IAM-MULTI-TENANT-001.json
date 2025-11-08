@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-IAM-MULTI-TENANT-001",
+      "fingerprint": "22d5a5939f148d7b926db89ef46b3d44643c331482fb3147997a0d52d654986a",
+      "resumeToken": "2fcbe31f-426f-4643-bf6a-c9833adf9faf",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-IAM-MULTI-TENANT-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-IAM-MULTI-TENANT-001.md"
+      },
+      "createdAt": "2025-11-08T05:02:59.709Z",
+      "updatedAt": "2025-11-08T05:05:59.701Z"
+    }
+  ],
+  "tokens": {
+    "2fcbe31f-426f-4643-bf6a-c9833adf9faf": "22d5a5939f148d7b926db89ef46b3d44643c331482fb3147997a0d52d654986a"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-INT-PLUGIN-CAPABILITY-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T05:09:57.712Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-INT-PLUGIN-CAPABILITY-001",
+      "status": "completed",
+      "resumeToken": "ab183820-f1f6-45d6-995b-f100099ea0ca",
+      "fingerprint": "c9020c5b668833d4f5bbe2589390b5bc518ab889e0c45f5ba55e7db24290fc38",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-INT-PLUGIN-CAPABILITY-001",
+        "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-001.md",
+        "title": "插件能力注册与暴露治理闭环",
+        "title_en": "Plugin Capability Registration & Exposure Loop",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-MODELING-001",
+            "title": "能力建模与注册提交治理",
+            "title_en": "Capability Modeling & Submission Governance",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-MODELING-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-REVIEW-001",
+            "title": "插件能力多角色审核与合规把关",
+            "title_en": "Multi-Role Review & Compliance Guardrail",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-REVIEW-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001",
+            "title": "插件能力暴露与消费配置",
+            "title_en": "Capability Exposure & Consumption Configuration",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001",
+            "title": "插件能力版本变更与下线通知",
+            "title_en": "Capability Lifecycle Change & Retirement Notice",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-MODELING-001",
+            "scope": "powerx-plugin",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-REVIEW-001",
+            "scope": "powerx",
+            "layer": "security",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:08:01.593Z"
+    },
+    {
+      "workflowId": "scenario:SCN-INT-PLUGIN-CAPABILITY-001",
+      "status": "completed",
+      "resumeToken": "ab183820-f1f6-45d6-995b-f100099ea0ca",
+      "fingerprint": "c9020c5b668833d4f5bbe2589390b5bc518ab889e0c45f5ba55e7db24290fc38",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-INT-PLUGIN-CAPABILITY-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-INT-PLUGIN-CAPABILITY-001",
+        "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-001.md",
+        "title": "插件能力注册与暴露治理闭环",
+        "title_en": "Plugin Capability Registration & Exposure Loop",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-MODELING-001",
+            "title": "能力建模与注册提交治理",
+            "title_en": "Capability Modeling & Submission Governance",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-MODELING-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-REVIEW-001",
+            "title": "插件能力多角色审核与合规把关",
+            "title_en": "Multi-Role Review & Compliance Guardrail",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-REVIEW-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001",
+            "title": "插件能力暴露与消费配置",
+            "title_en": "Capability Exposure & Consumption Configuration",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001",
+            "title": "插件能力版本变更与下线通知",
+            "title_en": "Capability Lifecycle Change & Retirement Notice",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-MODELING-001",
+            "scope": "powerx-plugin",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-REVIEW-001",
+            "scope": "powerx",
+            "layer": "security",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:09:57.713Z"
+    }
+  ]
+}

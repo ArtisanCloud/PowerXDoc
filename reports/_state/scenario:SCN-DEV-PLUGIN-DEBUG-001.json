@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-DEV-PLUGIN-DEBUG-001",
+      "fingerprint": "6a63ddc692cb6be466a929ba207664539309c4cb03d07bce05a29688ffe7a316",
+      "resumeToken": "5555ba77-62d9-414c-89cf-cb53cb980a42",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-DEV-PLUGIN-DEBUG-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-DEV-PLUGIN-DEBUG-001.md"
+      },
+      "createdAt": "2025-11-07T13:46:29.770Z",
+      "updatedAt": "2025-11-07T13:49:56.026Z"
+    }
+  ],
+  "tokens": {
+    "5555ba77-62d9-414c-89cf-cb53cb980a42": "6a63ddc692cb6be466a929ba207664539309c4cb03d07bce05a29688ffe7a316"
+  }
+}

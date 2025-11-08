@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-IAM-MULTI-TENANT-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T05:05:59.700Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-IAM-MULTI-TENANT-001",
+      "status": "completed",
+      "resumeToken": "2fcbe31f-426f-4643-bf6a-c9833adf9faf",
+      "fingerprint": "22d5a5939f148d7b926db89ef46b3d44643c331482fb3147997a0d52d654986a",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-IAM-MULTI-TENANT-001",
+        "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-001.md",
+        "title": "PowerX 多租户与组织管理",
+        "title_en": "PowerX Multi-Tenant & Organization Management",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-ONBOARD-001",
+            "title": "多租户开通与接入",
+            "title_en": "Multi-Tenant Onboarding & Provisioning",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ONBOARD-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-ORG-MODELING-001",
+            "title": "组织结构建模",
+            "title_en": "Organization Modeling",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-CROSS-SHARE-001",
+            "title": "跨租户资源共享",
+            "title_en": "Cross-Tenant Resource Sharing",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001",
+            "title": "租户续费与冻结",
+            "title_en": "Tenant Renewal & Freeze",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-ONBOARD-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-ORG-MODELING-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-CROSS-SHARE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:02:59.711Z"
+    },
+    {
+      "workflowId": "scenario:SCN-IAM-MULTI-TENANT-001",
+      "status": "completed",
+      "resumeToken": "2fcbe31f-426f-4643-bf6a-c9833adf9faf",
+      "fingerprint": "22d5a5939f148d7b926db89ef46b3d44643c331482fb3147997a0d52d654986a",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-IAM-MULTI-TENANT-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-IAM-MULTI-TENANT-001",
+        "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-001.md",
+        "title": "PowerX 多租户与组织管理",
+        "title_en": "PowerX Multi-Tenant & Organization Management",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-ONBOARD-001",
+            "title": "多租户开通与接入",
+            "title_en": "Multi-Tenant Onboarding & Provisioning",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ONBOARD-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-ORG-MODELING-001",
+            "title": "组织结构建模",
+            "title_en": "Organization Modeling",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-CROSS-SHARE-001",
+            "title": "跨租户资源共享",
+            "title_en": "Cross-Tenant Resource Sharing",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001",
+            "title": "租户续费与冻结",
+            "title_en": "Tenant Renewal & Freeze",
+            "path": "docs/scenarios/iam/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-ONBOARD-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-ORG-MODELING-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-CROSS-SHARE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:05:59.701Z"
+    }
+  ]
+}

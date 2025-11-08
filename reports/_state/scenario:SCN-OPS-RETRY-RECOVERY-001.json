@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-OPS-RETRY-RECOVERY-001",
+      "fingerprint": "ae8382c60dadc7de8a16ad337ebb4b7788f221f75e630dbf18f727ab6a6ee657",
+      "resumeToken": "546cc9e7-a2a0-44f5-85e3-e4db8428604d",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-OPS-RETRY-RECOVERY-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-RETRY-RECOVERY-001.md"
+      },
+      "createdAt": "2025-11-08T05:13:07.585Z",
+      "updatedAt": "2025-11-08T05:14:32.726Z"
+    }
+  ],
+  "tokens": {
+    "546cc9e7-a2a0-44f5-85e3-e4db8428604d": "ae8382c60dadc7de8a16ad337ebb4b7788f221f75e630dbf18f727ab6a6ee657"
+  }
+}

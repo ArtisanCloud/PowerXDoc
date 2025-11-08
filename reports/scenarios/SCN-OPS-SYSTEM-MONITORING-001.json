@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-OPS-SYSTEM-MONITORING-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T05:14:06.657Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-OPS-SYSTEM-MONITORING-001",
+      "status": "completed",
+      "resumeToken": "1cd0fa14-3130-4a24-b6eb-318cec5aa1a8",
+      "fingerprint": "9e9db37a5eb802c0cc26a6c1a5fb6af685a6dc281ed151f503e69ee504cc6794",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-SYSTEM-MONITORING-001",
+        "title": "PowerX 系统监控与告警",
+        "title_en": "PowerX System Monitoring & Alerting",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-001.md",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-THROTTLE-001",
+            "title": "CPU 异常自动限流",
+            "title_en": "CPU Anomaly Auto-Throttle",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001",
+            "title": "运维仪表盘巡检与可视化",
+            "title_en": "Ops Console Monitoring Dashboard",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001",
+            "title": "日志异常 Webhook 告警",
+            "title_en": "Log Anomaly Webhook Alerts",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001",
+            "title": "告警驱动远程重启",
+            "title_en": "Alert-Driven Remote Restart",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-OPS-MONITORING-THROTTLE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-MONITORING-DASHBOARD-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-MONITORING-WEBHOOK-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-MONITORING-REMOTE-RESTART-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:10:33.243Z"
+    },
+    {
+      "workflowId": "scenario:SCN-OPS-SYSTEM-MONITORING-001",
+      "status": "completed",
+      "resumeToken": "1cd0fa14-3130-4a24-b6eb-318cec5aa1a8",
+      "fingerprint": "9e9db37a5eb802c0cc26a6c1a5fb6af685a6dc281ed151f503e69ee504cc6794",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-SYSTEM-MONITORING-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-SYSTEM-MONITORING-001",
+        "title": "PowerX 系统监控与告警",
+        "title_en": "PowerX System Monitoring & Alerting",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-001.md",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-THROTTLE-001",
+            "title": "CPU 异常自动限流",
+            "title_en": "CPU Anomaly Auto-Throttle",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001",
+            "title": "运维仪表盘巡检与可视化",
+            "title_en": "Ops Console Monitoring Dashboard",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001",
+            "title": "日志异常 Webhook 告警",
+            "title_en": "Log Anomaly Webhook Alerts",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001",
+            "title": "告警驱动远程重启",
+            "title_en": "Alert-Driven Remote Restart",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-OPS-MONITORING-THROTTLE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-MONITORING-DASHBOARD-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-MONITORING-WEBHOOK-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-MONITORING-REMOTE-RESTART-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:14:06.658Z"
+    }
+  ]
+}

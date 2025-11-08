@@ -3,7 +3,7 @@
     "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
     "scenario": "SCN-IAM-USER-ROLE-001",
     "status": "Completed",
-    "generatedAt": "2025-11-04T13:20:46.670Z"
+    "generatedAt": "2025-11-08T05:20:50.359Z"
   },
   "records": [
     {
@@ -182,6 +182,34 @@
         }
       ],
       "timestamp": "2025-11-04T13:20:46.671Z"
+    },
+    {
+      "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
+      "status": "Completed",
+      "resumeToken": "7ba30fd3-de89-4e17-b8ff-3cd4fd8e54b0",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "7ba30fd3-de89-4e17-b8ff-3cd4fd8e54b0",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-08T05:20:50.362Z"
     }
   ]
 }

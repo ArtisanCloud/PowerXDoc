@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-DEV-PLUGIN-PUBLISH-001",
+      "fingerprint": "5d4a8bf8e56f6e695809d55440962534d598082ec15bd821773a8027aa8aa008",
+      "resumeToken": "1012a376-72d1-4499-9303-b07146033008",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-DEV-PLUGIN-PUBLISH-001.json"
+      },
+      "createdAt": "2025-11-07T14:13:13.852Z",
+      "updatedAt": "2025-11-07T14:13:13.854Z"
+    }
+  ],
+  "tokens": {
+    "1012a376-72d1-4499-9303-b07146033008": "5d4a8bf8e56f6e695809d55440962534d598082ec15bd821773a8027aa8aa008"
+  }
+}

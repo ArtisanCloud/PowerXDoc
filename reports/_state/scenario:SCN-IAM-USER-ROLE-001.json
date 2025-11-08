@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-IAM-USER-ROLE-001",
+      "fingerprint": "178535df05fee9e79da37a8db36cd608968963ddaf0c2f8e3f5f9438621d3249",
+      "resumeToken": "aa8a96de-b601-4688-94fc-e218fee5ea7d",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-IAM-USER-ROLE-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-IAM-USER-ROLE-001.md"
+      },
+      "createdAt": "2025-11-08T05:03:08.818Z",
+      "updatedAt": "2025-11-08T05:05:12.850Z"
+    }
+  ],
+  "tokens": {
+    "aa8a96de-b601-4688-94fc-e218fee5ea7d": "178535df05fee9e79da37a8db36cd608968963ddaf0c2f8e3f5f9438621d3249"
+  }
+}

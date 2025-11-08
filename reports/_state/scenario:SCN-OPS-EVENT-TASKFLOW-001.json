@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-OPS-EVENT-TASKFLOW-001",
+      "fingerprint": "05d5548a2c5a4e0f7fccbbbf047e80905e25a25ef05d20d2352deff8c22073e1",
+      "resumeToken": "e0e8b432-6d2a-43f2-905c-51c521359feb",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-OPS-EVENT-TASKFLOW-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-EVENT-TASKFLOW-001.md"
+      },
+      "createdAt": "2025-11-08T05:08:13.358Z",
+      "updatedAt": "2025-11-08T05:09:28.370Z"
+    }
+  ],
+  "tokens": {
+    "e0e8b432-6d2a-43f2-905c-51c521359feb": "05d5548a2c5a4e0f7fccbbbf047e80905e25a25ef05d20d2352deff8c22073e1"
+  }
+}
