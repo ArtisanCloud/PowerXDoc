@@ -1,3 +1,4 @@
+---
 doc_id: UC-AGENT-EXEC-CLOSURE-001
 scn_id: SCN-AGENT-TASK-EXEC-001
 title: 插件工作流闭环验证

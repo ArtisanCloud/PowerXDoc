@@ -1,3 +1,4 @@
+---
 doc_id: UC-AGENT-EXEC-RECOVERY-001
 scn_id: SCN-AGENT-TASK-EXEC-001
 title: 失败恢复与 Copilot 协同
