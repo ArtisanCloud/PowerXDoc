@@ -6,6 +6,7 @@ scopes:
 layers:
   - domain
   - service
+  - integration
   - api
   - ui
   - ops
@@ -26,3 +27,4 @@ domains:
   - iam
   - marketplace
   - integration
+  - agent-orchestration

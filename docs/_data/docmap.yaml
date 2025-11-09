@@ -733,11 +733,11 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001.md
       - doc_id: UC-AGENT-PLATFORM-COZE-001
-        scope: powerx
+        scope: powerx-plugin
         layer: integration
         domain: agent-orchestration
         optional: false
-        repo: powerx
+        repo: powerx-plugin
         path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.md
       - doc_id: UC-AGENT-MODEL-GOV-001
         scope: powerx

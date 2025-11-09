@@ -1,10 +1,10 @@
 doc_id: UC-AGENT-PLATFORM-COZE-001
 scn_id: SCN-AGENT-MODEL-HUB-001
-title: PowerX (integration) - 外部智能体平台接入（Coze / n8n）
+title: PowerX Plugin (integration) - 外部智能体平台接入（Coze / n8n）
 status: Draft
 version: v0.2.0
-repo_key: powerx
-scope: powerx
+repo_key: powerx-plugin
+scope: powerx-plugin
 layer: integration
 domain: agent-orchestration
 scenario_title: "智能体模型与平台接入"
@@ -12,10 +12,10 @@ owners:
   - name: Plugin Guild
     role: Platform Connector Lead
     contact: plugin-guild@artisan-cloud.com
+contributors:
   - name: Ops Reliability Center
     role: Automation Co-owner
     contact: ops-center@artisan-cloud.com
-contributors:
   - name: Agent Platform Guild
     role: Identity & Security Partner
     contact: agent-platform@artisan-cloud.com

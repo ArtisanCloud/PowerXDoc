@@ -1,40 +1,38 @@
 ---
-scn_id: SCN-AGENT-MODEL-HUB-001
-title: 智能体模型与平台接入
-status: Draft
-version: v0.1.0
-owners:
-  - name: Agent Platform Guild
-    role: Scenario Steward
-    contact: agent-platform@artisan-cloud.com
-  - name: Ops Reliability Center
-    role: Automation Co-owner
-    contact: ops-center@artisan-cloud.com
-domains: [agent-orchestration]
-layers: [service, integration, ops]
-repos:
-  - key: powerx
-    scope: core-platform
-    responsibility: Provider Registry、模型路由、密钥与配额治理、审计
-  - key: powerx-plugin
-    scope: plugin-ecosystem
-    responsibility: 外部平台连接器、Webhook 签名、上下文映射
-related_usecases:
-  - doc_id: UC-AGENT-MODEL-PROVIDER-001
-    layer: service
-    domain: agent-orchestration
-  - doc_id: UC-AGENT-MODEL-ROUTING-001
-    layer: integration
-    domain: agent-orchestration
-  - doc_id: UC-AGENT-PLATFORM-COZE-001
-    layer: integration
-    domain: agent-orchestration
-  - doc_id: UC-AGENT-MODEL-GOV-001
-    layer: ops
-    domain: agent-orchestration
-last_reviewed_at: 2025-02-18
+title: "智能体模型与平台接入"
+scn_id: "SCN-AGENT-MODEL-HUB-001"
+status: "Draft"
+children:
+  - doc_id: "UC-AGENT-MODEL-PROVIDER-001"
+    scope: "powerx"
+    layer: "service"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-PROVIDER-001.md"
+  - doc_id: "UC-AGENT-MODEL-ROUTING-001"
+    scope: "powerx"
+    layer: "integration"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001.md"
+  - doc_id: "UC-AGENT-PLATFORM-COZE-001"
+    scope: "powerx"
+    layer: "integration"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.md"
+  - doc_id: "UC-AGENT-MODEL-GOV-001"
+    scope: "powerx"
+    layer: "ops"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-GOV-001.md"
+generated_at: "2025-11-09T10:30:09.103Z"
 ---
-
 # Executive Summary
 
 PowerX 需要统一管理 LLM、VLM、TTS、Embeddings 等基础模型，同时打通 Coze、n8n 等外部智能体平台，为主 Agent 提供安全、可控、可观测的推理与自动化能力。本场景覆盖 provider 注册、密钥治理、策略路由、平台连接器以及成本/配额与审计闭环，目标是“新增 provider 24 小时上线、模型路由命中率 ≥90%、外部平台回调全链可追溯、异常 5 分钟内可降级”。

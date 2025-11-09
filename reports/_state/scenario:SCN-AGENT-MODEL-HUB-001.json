@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-AGENT-MODEL-HUB-001",
+      "fingerprint": "b3b6cf8a9764ccea3717c0bf376cd4cf16736d089f2448514e41085c8f3cd529",
+      "resumeToken": "2d0fca1c-2b2a-42f1-8a1e-4425b586f6ab",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-AGENT-MODEL-HUB-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-AGENT-MODEL-HUB-001.md"
+      },
+      "createdAt": "2025-11-09T10:29:05.269Z",
+      "updatedAt": "2025-11-09T10:30:09.107Z"
+    }
+  ],
+  "tokens": {
+    "2d0fca1c-2b2a-42f1-8a1e-4425b586f6ab": "b3b6cf8a9764ccea3717c0bf376cd4cf16736d089f2448514e41085c8f3cd529"
+  }
+}

@@ -3,16 +3,16 @@
     {
       "workflowId": "usecases:SCN-IAM-USER-ROLE-001",
       "fingerprint": "936d94a60fee06ddf2a099682901e90bebcde26209605d473c0c1ebad015ff30",
-      "resumeToken": "7ba30fd3-de89-4e17-b8ff-3cd4fd8e54b0",
+      "resumeToken": "6d757dd5-2325-4294-b385-d7b0434d46f5",
       "status": "completed",
       "metadata": {
         "reportPath": "reports/usecases/usecases_SCN-IAM-USER-ROLE-001.json"
       },
-      "createdAt": "2025-11-08T05:20:35.775Z",
-      "updatedAt": "2025-11-08T05:20:50.363Z"
+      "createdAt": "2025-11-09T10:38:04.963Z",
+      "updatedAt": "2025-11-09T10:38:14.250Z"
     }
   ],
   "tokens": {
-    "7ba30fd3-de89-4e17-b8ff-3cd4fd8e54b0": "936d94a60fee06ddf2a099682901e90bebcde26209605d473c0c1ebad015ff30"
+    "6d757dd5-2325-4294-b385-d7b0434d46f5": "936d94a60fee06ddf2a099682901e90bebcde26209605d473c0c1ebad015ff30"
   }
 }
