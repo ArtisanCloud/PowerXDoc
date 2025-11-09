@@ -696,3 +696,53 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md
+  - scn_id: SCN-AGENT-MODEL-HUB-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-HUB-001.md
+    title: 智能体模型与平台接入
+    title_en: Agent Model & Platform Hub
+    child_scenarios:
+      - scn_id: SCN-AGENT-MODEL-PROVIDER-001
+        title: 基础模型 Provider 接入与治理
+        title_en: Provider Onboarding & Governance
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-PROVIDER-001.md
+      - scn_id: SCN-AGENT-MODEL-ROUTING-001
+        title: 多模型路由与策略编排
+        title_en: Multi-Model Routing
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-ROUTING-001.md
+      - scn_id: SCN-AGENT-PLATFORM-COZE-001
+        title: 外部智能体平台接入
+        title_en: External Agent Platform Integration
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-PLATFORM-COZE-001.md
+      - scn_id: SCN-AGENT-MODEL-GOV-001
+        title: 模型成本与配额治理
+        title_en: Model Cost & Quota Governance
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-GOV-001.md
+    children:
+      - doc_id: UC-AGENT-MODEL-PROVIDER-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-PROVIDER-001.md
+      - doc_id: UC-AGENT-MODEL-ROUTING-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001.md
+      - doc_id: UC-AGENT-PLATFORM-COZE-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.md
+      - doc_id: UC-AGENT-MODEL-GOV-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-GOV-001.md
