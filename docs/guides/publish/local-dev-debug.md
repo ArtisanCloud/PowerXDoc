@@ -62,32 +62,58 @@ npm run sync:templates -- --verbose # 写入模板
 > 对应 `SCN-DEV-PLUGIN-INIT-001` 的 UC-STEP-01/02。
 
 ```bash
-px-plugin init com.powerx.demo \
-  --template react-dashboard \
-  --org artisan \
-  --lang go-nuxt \
-  --enable-license-scan
+# 默认组合（等价于显式指定）
+px-plugin init com.powerx.helloworld
+# = px-plugin init --backend go-gin --admin nuxt com.powerx.helloworld
+
+# 指定管理端 + 预留应用前端（未来扩展）
+px-plugin init --backend go-gin --admin nuxt --app vue com.powerx.helloworld
+
+# 高级参数示例
+px-plugin init \
+  --module github.com/example/acme-plugin \
+  --directory ./plugins/acme \
+  --version 1.0.0 \
+  --go-version 1.24 \
+  --install-deps \
+  --sbom-path ./reports/sbom.json \
+  --publish-manifest-path ./deploy/publish.yml \
+  --force \
+  com.powerx.helloworld
 ```
 
-- CLI 会在 60 秒内生成目录并写入 `plugin.yaml`, `manifest.yaml`, `publish.yml`。
-- 执行完成后自动触发 `POST /internal/plugins/bootstrap/validate`（详见 `../Plugins/PowerXPlugin/specs/004-publish-hub-spec/spec.md#user-story-0`）。
-- 团队成员克隆后请立即执行 `pnpm install && go mod tidy`，并手动记录当前 Go/Node 版本，待 `px-plugin doctor` 合入后再改用 CLI 健康检查。
+- `--backend`（默认 `go-gin`）与 `--admin`（默认 `nuxt`）来自 `tools/cli/internal/templates/constants.go`，CLI 会验证输入是否在支持列表中（`px-plugin init --help` 可查看当前支持的框架）。
+- `--module` 会写入 `backend/go.mod`，`--directory` 可把输出定向到自定义位置。
+- `--install-deps` 会在生成后自动执行 `go mod tidy` 与 `npm install`；若未开启，请在团队仓库克隆后手动执行。
+- CLI 会在 60 秒内渲染模板、写入 `plugin.yaml`、`manifest.yaml`、`publish.yml`、`reports/sbom.json`，并调用 `POST /internal/plugins/bootstrap/validate`（详见 `../Plugins/PowerXPlugin/specs/004-publish-hub-spec/spec.md#user-story-0`）。
+- 团队成员克隆后仍需执行 `pnpm install && go mod tidy`（或使用 `--install-deps` 生成脚手架），记录当前 Go/Node 版本以便审计。
 
 ---
 
-## 3. 校准 plugin.yaml
+## 3. 校准 `plugin.yaml`
 
-1. 打开 `plugin.yaml` 并确认以下字段：
-   - `id` 与 Git 仓库路径一致（推荐命名：`com.<org>.<domain>.<name>`）。
-   - `version` 遵循 semver，首个版本建议 `0.1.0`。
-   - `backend.entry` 指向 `backend/bin/<binary>`。
-   - `assets.webAdminPath`（如果有前端）指向 `web-admin/.output`。
-2. 如果需要示例，请参考 `docs/standards/powerx-plugin/lifecycle/examples/plugin.yaml`。
-3. 手动校验元数据：
-   - 对照 `docs/standards/powerx-plugin/contract/plugin_yaml_spec.md` 确认必填字段。
-   - 使用 `diff` 或 IDE 对比 `manifest.yaml` 与 `plugin.yaml` 中的 `menus`/`permissions` 是否一致。
-   - 执行 `pnpm lint`（或项目内 lint/test 脚本）确保 CI 规则通过。
-   - 需要更严格检查时可运行 `node docs/standards/powerx-plugin/lifecycle/examples/manifest-mapping-check.mjs <plugin-root>`（如无脚本则按文档清单逐项核对）。
+> 规范来源：`docs/standards/powerx-plugin/contract/plugin_yaml_spec.md`  
+> 示例文件：`docs/standards/powerx-plugin/lifecycle/examples/plugin.yaml`
+
+1. **基础元信息**  
+   - `id`: `com.<org>.<domain>.<name>`，需与仓库路径一致（`plugins/com.powerx.helloworld`）。  
+   - `name` / `version` / `description`: 版本遵循 SemVer；新增的 `corex_version`、`security_baseline_version`、`data_usage` 等字段应与示例一致。  
+   - `metadata` 段统一维护作者、标签、类目等信息，避免在顶层重复。
+
+2. **运行入口与前端**  
+   - `runtime.entry`、`backend.entry` 均指向 `backend/bin/plugin`（或你的自定义二进制）；`health` 路径需可访问。  
+   - `frontend.admin`（Nuxt/Nitro）应包含 `process.entry`、`static_dir`、`i18n`、`menus`，`assets.webAdminPath` 指向 `web-admin/.output`。  
+   - 若你启用了应用前端（`--app`），请同步维护对应的 `frontend.app` 段。
+
+3. **路由、权限与能力**  
+   - `routes.basePath/adminManifest/rbac/...` 与 `manifest.yaml` 的路由保持一致。  
+   - `permissions`、`rbac.resources`、`menus` 的 ID、路径、所需策略要与 `manifest.yaml` 中的 `admin.permissions/menus` 完全对齐。  
+   - `agents/capabilities/tools/events/migrations/assets/checksums/signature` 等段落如在模板中生成，请逐项确认字段语义是否符合实际实现。
+
+4. **手动校验**  
+   - 使用 `diff` 或 IDE 同步对比 `plugin.yaml` 与 `manifest.yaml` 中的菜单、权限、版本号、端点。  
+   - 运行 `pnpm lint` / `pnpm test`（或项目内脚本）确保模板 lint 通过。  
+   - 如需更严格的一致性检查，可运行 `node docs/standards/powerx-plugin/lifecycle/examples/manifest-mapping-check.mjs <plugin-root>`（若脚本不可用，则按规范清单逐项核对）。
 
 ---
 
@@ -97,8 +123,8 @@ px-plugin init com.powerx.demo \
 
 1. **挂载插件到 PowerX**  
    ```bash
-   ln -sf <workspace>/PowerX/Core/Plugins/com.powerx.demo \
-          <workspace>/PowerX/backend/plugins/installed/com.powerx.demo
+   ln -sf <workspace>/PowerX/Core/Plugins/com.powerx.helloworld \
+          <workspace>/PowerX/backend/plugins/installed/com.powerx.helloworld
    ```
 2. **启动 Dev API / Admin**（参考 `../PowerX/docs/guide/dev-environment.md`）：  
    ```bash

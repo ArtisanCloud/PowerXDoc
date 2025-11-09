@@ -646,3 +646,53 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md
+  - scn_id: SCN-AGENT-TASK-EXEC-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-TASK-EXEC-001.md
+    title: 智能体任务执行
+    title_en: Agent Task Execution
+    child_scenarios:
+      - scn_id: SCN-AGENT-EXEC-PLAN-001
+        title: 自然语言任务解析与插件匹配
+        title_en: Intent Parsing & Plugin Matching
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-PLAN-001.md
+      - scn_id: SCN-AGENT-EXEC-COORD-001
+        title: 多 Agent 并行执行与状态协调
+        title_en: Parallel Execution & Coordination
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-COORD-001.md
+      - scn_id: SCN-AGENT-EXEC-RECOVERY-001
+        title: 失败恢复与 Copilot 协同
+        title_en: Failure Recovery & Copilot Collaboration
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-RECOVERY-001.md
+      - scn_id: SCN-AGENT-EXEC-CLOSURE-001
+        title: 插件工作流闭环验证
+        title_en: Workflow Closure & Validation
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-CLOSURE-001.md
+    children:
+      - doc_id: UC-AGENT-EXEC-PLAN-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md
+      - doc_id: UC-AGENT-EXEC-COORD-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md
+      - doc_id: UC-AGENT-EXEC-RECOVERY-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md
+      - doc_id: UC-AGENT-EXEC-CLOSURE-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md
