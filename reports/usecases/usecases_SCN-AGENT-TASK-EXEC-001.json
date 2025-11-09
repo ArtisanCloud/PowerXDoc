@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-AGENT-TASK-EXEC-001",
+    "scenario": "SCN-AGENT-TASK-EXEC-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-09T12:12:03.126Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-AGENT-TASK-EXEC-001",
+      "status": "Completed",
+      "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-agent-task-exec-001-ea4a8519",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-TASK-EXEC-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-PLAN-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-COORD-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-RECOVERY-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-CLOSURE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-agent-task-exec-001-ea4a8519",
+          "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-09T12:10:25.511Z"
+    },
+    {
+      "workflowId": "usecases:SCN-AGENT-TASK-EXEC-001",
+      "status": "Completed",
+      "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-agent-task-exec-001-46c88d76",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-TASK-EXEC-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-PLAN-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-COORD-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-RECOVERY-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-CLOSURE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/index.md"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-agent-task-exec-001-46c88d76",
+          "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-09T12:10:58.421Z"
+    },
+    {
+      "workflowId": "usecases:SCN-AGENT-TASK-EXEC-001",
+      "status": "Completed",
+      "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-TASK-EXEC-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-PLAN-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-COORD-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-RECOVERY-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-CLOSURE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-09T12:12:03.130Z"
+    }
+  ]
+}

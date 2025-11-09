@@ -1,40 +1,38 @@
 ---
-scn_id: SCN-AGENT-TASK-EXEC-001
-title: 智能体任务执行
-status: Draft
-version: v0.1.0
-owners:
-  - name: Agent Platform Guild
-    role: Scenario Steward
-    contact: agent-platform@artisan-cloud.com
-  - name: Ops Reliability Center
-    role: Automation Co-owner
-    contact: ops-center@artisan-cloud.com
-domains: [agent-orchestration]
-layers: [service, ops, integration]
-repos:
-  - key: powerx
-    scope: core-platform
-    responsibility: 主 Agent 编排引擎、任务 DAG、状态协调与审计面板
-  - key: powerx-plugin
-    scope: plugin-ecosystem
-    responsibility: 插件能力图谱、工具协议、工作流触发器与健康信号
-related_usecases:
-  - doc_id: UC-AGENT-EXEC-PLAN-001
-    layer: service
-    domain: agent-orchestration
-  - doc_id: UC-AGENT-EXEC-COORD-001
-    layer: integration
-    domain: agent-orchestration
-  - doc_id: UC-AGENT-EXEC-RECOVERY-001
-    layer: ops
-    domain: agent-orchestration
-  - doc_id: UC-AGENT-EXEC-CLOSURE-001
-    layer: ops
-    domain: agent-orchestration
-last_reviewed_at: 2025-02-15
+title: "智能体任务执行"
+scn_id: "SCN-AGENT-TASK-EXEC-001"
+status: "Draft"
+children:
+  - doc_id: "UC-AGENT-EXEC-PLAN-001"
+    scope: "powerx"
+    layer: "service"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md"
+  - doc_id: "UC-AGENT-EXEC-COORD-001"
+    scope: "powerx"
+    layer: "integration"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md"
+  - doc_id: "UC-AGENT-EXEC-RECOVERY-001"
+    scope: "powerx"
+    layer: "ops"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md"
+  - doc_id: "UC-AGENT-EXEC-CLOSURE-001"
+    scope: "powerx"
+    layer: "ops"
+    domain: "agent-orchestration"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md"
+generated_at: "2025-11-09T12:09:49.397Z"
 ---
-
 # Positioning & Goals
 
 PowerX 企业客户依赖主 Agent 将自然语言目标拆解为可执行的任务 DAG，并在插件生态与 Copilot 协同下完成执行、校验与汇报。该场景确保“接到指令 → 规划 → 并行执行 → 失败恢复 → 闭环验证”具备统一规范、可观测与审计能力。成功标准：2 秒内产出可执行计划、任务成功率 ≥95%、异常 5 分钟内自动闭环或被人工感知。
