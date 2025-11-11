@@ -22,7 +22,7 @@ contributors:
     contact: ops-center@artisan-cloud.com
 linked_requirements:
   - id: SCN-AGENT-REG-AUTO-001
-    description: Plugin Auto-Registration Stage: Manifest Intake → Validation → Activation
+    description: "Plugin Auto-Registration Stage: Manifest Intake → Validation → Activation"
   - id: PXIP-452
     description: Unified Agent Registry API Synchronization with Orchestration Platform
 code_refs:

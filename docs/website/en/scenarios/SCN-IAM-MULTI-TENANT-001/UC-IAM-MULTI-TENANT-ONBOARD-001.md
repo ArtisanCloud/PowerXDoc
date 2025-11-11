@@ -1,7 +1,7 @@
 ---
-title: "UC-IAM-MULTI-TENANT-ONBOARD-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.html"
+title: "租户开通与控制台初始化"
+scn_id: SCN-IAM-MULTI-TENANT-001
+status: Draft
+last_reviewed_at: 2025-10-29
 ---
 
-> This usecase seed still awaits translation. Refer to the Chinese version: [/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.html](/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.html).

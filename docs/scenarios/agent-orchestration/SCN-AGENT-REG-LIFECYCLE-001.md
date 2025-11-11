@@ -52,19 +52,23 @@ last_reviewed_at: 2025-02-20
 4. **Stage 4 – Audit & Notification**：记录操作日志、审计事件、指标，并通知责任人、租户管理员。
 5. **Stage 5 – Review & Continuous Improvement**：定期复盘策略效果、指标趋势、告警准确率，调整阈值并同步到 Policy Engine。
 
+# Architecture Diagram
+
 ```mermaid
 sequenceDiagram
-  participant Telemetry as Telemetry Pipeline
+  participant Metrics as Telemetry Pipeline
   participant Policy as Lifecycle Engine
   participant Ops as Ops Oncall
   participant Registry as Agent Registry
+  participant Audit as Audit/Notification
 
-  Telemetry->>Policy: 指标/状态事件
-  Policy-->>Policy: 僵尸/异常判定
-  Policy->>Ops: 告警/Runbook 请求
-  Ops->>Registry: 冻结/回收 API
-  Registry-->>Ops: 状态/日志回执
-  Ops->>Telemetry: 更新指标/审计
+  Metrics->>Policy: agent.metrics.emitted
+  Policy-->>Policy: evaluate(policies.yaml)
+  Policy->>Ops: alert(action=frozen/restart)
+  Ops->>Registry: POST /internal/agent/{id}/freeze
+  Registry-->>Ops: status + auditId
+  Ops->>Audit: agent.lifecycle.frozen + notification
+  Audit->>Metrics: 更新指标/记录
 ```
 
 # Key Interactions & Contracts
@@ -120,6 +124,13 @@ sequenceDiagram
 - 冻结/回收失败：自动重试并触发 P1 工单，调用 `agent-registry-cleanup.mjs` 清理半成品状态。
 - 指标延迟：Kafka/Datadog 延迟 >60 秒时进入降级，暂停自动动作，仅保留告警。
 
+# Validation Workflow
+
+1. 运行 `scripts/ops/agent-lifecycle-drill.mjs --profile zombie` 验证僵尸判定、冻结、通知链路。
+2. 执行 `npm run publish:scenarios -- --scn-id SCN-AGENT-REG-LIFECYCLE-001 --validate-only`，确保结构通过。
+3. 在 staging 环境模拟 Telemetry 中断/延迟，确认降级策略与告警。
+4. 对 `scripts/ops/agent-retire-zombie.mjs --dry-run` 的输出进行审计，确保资源回收日志完整。
+
 # Follow-ups & Risks
 
 | 风险/事项 | 影响范围 | 缓解方案 | 负责人 | ETA |
@@ -127,6 +138,13 @@ sequenceDiagram
 | 僵尸策略阈值与业务 SLA 不一致 | 误报/漏报 | 引入租户/场景级阈值与灰度，策略变更需跑 `agent-lifecycle-drill.mjs --what-if` | Ops Reliability Center | 2025-02-28 |
 | Telemetry 延迟或缺失 | 无法及时响应 | Kafka 延迟监控 + 自动降级 + 人工巡检脚本 | Agent Platform Guild | 2025-03-05 |
 | Audit/Notification 不可用 | 合规缺口 | 缓存到 S3，恢复后补写；通知失败时生成工单并追踪 | Ops Reliability Center | 2025-02-28 |
+
+# Related Links
+
+- `docs/scenarios/agent-orchestration/SCN-AGENT-REG-MGMT-001.md`
+- `docs/usecases-seeds/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md`
+- `docs/standards/powerx/backend/integration/09_agent/Agent_Metrics_and_Observability.md`
+- `config/agent/lifecycle/policies.yaml`
 
 # Appendix
 

@@ -8,10 +8,11 @@
 
 | 目标 | 适合阅读的指南 |
 |------|---------------|
-| 第一次搭插件工程、跑通热更新 | [初始化与本地调试](./local-dev-debug.md) |
-| 确认 `plugin.yaml`/`manifest` 写法 | [插件元数据说明](./plugin-metadata.md) |
-| 走在线发布 → Marketplace 审核 → 租户安装 | [在线发布与上架](./online-publish.md) |
+| 第一次搭插件工程、跑通 Skeleton UI | [插件本地初始化](./local-init.md) |
 | 给隔离环境交付 `.pxp`，处理密钥/分块上传 | [离线发布与导入](./offline-publish.md) |
+| 在宿主中热调试、连通 Dev API/SSE | [插件本地调试实践](./local-dev-debug.md) |
+| 走在线发布 → Marketplace 审核 → 租户安装 | [在线发布与上架](./online-publish.md) |
+| 确认 `plugin.yaml`/`manifest` 写法 | [插件元数据说明](./plugin-metadata.md) |
 | 检查租户兼容性、申请例外或做版本治理 | [版本兼容性与治理](./version-compatibility.md) |
 | 想确认官方要求、产出是否满足标准 | [标准分发要求](./standards-distribution.md) |
 
@@ -35,22 +36,24 @@ graph TD
 
 每一站对应的指南：
 
-1. **准备工程** → [初始化与本地调试](./local-dev-debug.md)：脚手架、`px-plugin dev --watch`、SSE 日志。  
-2. **质量门禁** → [在线发布与上架](./online-publish.md)：`px-plugin publish precheck/create`、灰度、回滚。  
-3. **离线渠道**（如有） → [离线发布与导入](./offline-publish.md)：临时密钥、50MB 分块、指纹记录。  
-4. **安装与治理** → [版本兼容性与治理](./version-compatibility.md)：`px version scan/compat`、例外审批。
+1. **准备工程** → [插件本地初始化](./local-init.md)：模板同步、`px-plugin init`、Skeleton 启动自检。  
+2. **离线交付**（可选） → [离线发布与导入](./offline-publish.md)：临时密钥、50MB 分块、指纹记录。  
+3. **宿主调试** → [插件本地调试实践](./local-dev-debug.md)：宿主挂载、`px-plugin dev --watch`、SSE 日志。  
+4. **在线发布** → [在线发布与上架](./online-publish.md)：`px-plugin publish precheck/create`、灰度、回滚。  
+5. **安装与治理** → [版本兼容性与治理](./version-compatibility.md)：`px version scan/compat`、例外审批。
 
 ---
 
 ## 第一次发布？照着做就行
 
-1. **初始化**：`px-plugin init <id>`，并按照 [初始化与本地调试](./local-dev-debug.md) 里的环境自检清单确认 Go/Node 版本与依赖。  
-2. **调试与联调**：`px-plugin dev --watch --tenant demo`，在宿主 Console 查 SSE 日志；必要时执行 `scripts/qa/workflow-metrics.mjs --scenario SCN-DEV-PLUGIN-DEBUG-001` 收集记录。  
-3. **准备元数据**：对照 [插件元数据说明](./plugin-metadata.md) 校准 `plugin.yaml`、`manifest.yaml`、`publish.yml`。  
-4. **选择渠道**：
+1. **初始化**：按照 [插件本地初始化](./local-init.md) 执行模板同步、`px-plugin init <id>` 与 Skeleton 启动自检。  
+2. **（可选）离线交付**：若需要 Demo / 空气隔离环境，先参考 [离线发布与导入](./offline-publish.md) 生成 `.pxp`、准备密钥与分块上传。  
+3. **调试与联调**：`px-plugin dev --watch --tenant demo`，并按 [插件本地调试实践](./local-dev-debug.md) 处理宿主挂载、Feature Flag、SSE 日志。  
+4. **准备元数据**：对照 [插件元数据说明](./plugin-metadata.md) 校准 `plugin.yaml`、`manifest.yaml`、`publish.yml`。  
+5. **选择渠道**：
    - 在线：`px-plugin publish precheck/create/deploy` → Marketplace 审核 → 通过租户管理面板或 API 安装。  
    - 离线：`px-plugin pack --mode release` → 临时密钥加密 → `px-plugin offline upload` 分块 → 审核通过后导入。  
-5. **上线后巡检**：`px version scan`、`px version compat check`，确认租户没有版本漂移；如需例外审批，直接使用 `px version compat exception`。
+6. **上线后巡检**：`px version scan`、`px version compat check`，确认租户没有版本漂移；如需例外审批，直接使用 `px version compat exception`。
 
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: "SCN-AGENT-MODEL-PROVIDER-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-PROVIDER-001.html"
+title: "基础模型 Provider 接入与治理"
+scn_id: SCN-AGENT-MODEL-PROVIDER-001
+status: Draft
+last_reviewed_at: 2025-02-18
 ---
 
-> This scenario document still awaits translation. Refer to the Chinese version: [/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-PROVIDER-001.html](/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-PROVIDER-001.html).

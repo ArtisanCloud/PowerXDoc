@@ -1,7 +1,8 @@
 ---
-title: "SCN-AGENT-MODEL-GOV-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-GOV-001.html"
+title: "SCN-AGENT-MODEL-GOV-001 "
+scn_id: SCN-AGENT-MODEL-GOV-001
+status: Draft
+last_reviewed_at: 2025-02-18
 ---
 
 # Model Cost & Quota Governance

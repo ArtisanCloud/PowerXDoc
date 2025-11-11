@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-AGENT-REG-MGMT-001",
+    "scenario": "SCN-AGENT-REG-MGMT-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-10T09:52:02.207Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-AGENT-REG-MGMT-001",
+      "status": "Completed",
+      "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-agent-reg-mgmt-001-a4794a42",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-MGMT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-AUTO-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-LIFECYCLE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-agent-reg-mgmt-001-a4794a42",
+          "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-10T09:46:54.879Z"
+    },
+    {
+      "workflowId": "usecases:SCN-AGENT-REG-MGMT-001",
+      "status": "Completed",
+      "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-agent-reg-mgmt-001-9e78cb9c",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-MGMT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-AUTO-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-LIFECYCLE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/index.md"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-agent-reg-mgmt-001-9e78cb9c",
+          "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-10T09:47:30.516Z"
+    },
+    {
+      "workflowId": "usecases:SCN-AGENT-REG-MGMT-001",
+      "status": "Completed",
+      "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-MGMT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-AUTO-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-LIFECYCLE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-SHARE-001.md",
+            "docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-10T09:52:02.209Z"
+    }
+  ]
+}

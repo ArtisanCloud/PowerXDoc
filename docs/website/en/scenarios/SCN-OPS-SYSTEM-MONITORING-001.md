@@ -3,6 +3,8 @@ title: SCN-OPS-SYSTEM-MONITORING-001 Usecase Seed Index
 scn_id: SCN-OPS-SYSTEM-MONITORING-001
 status: Generated
 last_reviewed_at: 2025-11-01
+partnerSlug: "/scenarios/SCN-OPS-SYSTEM-MONITORING-001.md"
+reviewStatus: Placeholder
 ---
 
 # PowerX System Monitoring & Alerting – Usecase Seed Index

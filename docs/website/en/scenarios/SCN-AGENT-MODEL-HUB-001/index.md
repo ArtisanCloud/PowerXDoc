@@ -1,7 +1,7 @@
 ---
-title: "SCN-AGENT-MODEL-HUB-001 Seed Index (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/index.html"
+title: SCN-AGENT-TASK-EXEC-001 Usecase Seed Index
+
+
 ---
 
 # Agent Model & Platform Hub – Usecase Seed Index

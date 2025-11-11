@@ -1,7 +1,8 @@
 ---
-title: "SCN-AGENT-TASK-EXEC-001 Seed Index (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/index.html"
+title: SCN-AGENT-TASK-EXEC-001 Usecase Seed Index
+scn_id: SCN-AGENT-TASK-EXEC-001
+status: Draft
+last_reviewed_at: 2025-02-15
 ---
 
 # Agent Task Execution – Usecase Seed Index

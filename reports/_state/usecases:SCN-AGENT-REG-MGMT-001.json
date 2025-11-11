@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-AGENT-REG-MGMT-001",
+      "fingerprint": "7daf85d551f54b1e36aab803425954a6ccdfd4f5decd60220e01935b95bcb5f2",
+      "resumeToken": "b6a908e4-f670-4ffb-b451-c6dbf81b50a5",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-AGENT-REG-MGMT-001.json"
+      },
+      "createdAt": "2025-11-10T09:46:54.873Z",
+      "updatedAt": "2025-11-10T09:52:02.210Z"
+    }
+  ],
+  "tokens": {
+    "b6a908e4-f670-4ffb-b451-c6dbf81b50a5": "7daf85d551f54b1e36aab803425954a6ccdfd4f5decd60220e01935b95bcb5f2"
+  }
+}

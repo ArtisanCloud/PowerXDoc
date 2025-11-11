@@ -1,7 +1,7 @@
 ---
-title: "SCN-IAM-MULTI-TENANT-CROSS-SHARE-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.html"
+title: "跨租户数据共享策略与协作"
+scn_id: SCN-IAM-MULTI-TENANT-CROSS-SHARE-001
+status: Draft
+last_reviewed_at: 2025-10-29
 ---
 
-> This scenario document still awaits translation. Refer to the Chinese version: [/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.html](/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.html).

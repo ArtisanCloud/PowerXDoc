@@ -52,19 +52,24 @@ last_reviewed_at: 2025-02-20
 4. **Stage 4 – Activation & Sandbox**：审批通过后自动绑定 IAM 策略、生成 API Key/Webhook/调度策略，调用 `agent-sandbox-validate.mjs` 在沙箱中回归并输出报告。
 5. **Stage 5 – Post-Activation Governance**：把 Agent 元数据同步给 Lifecycle、Catalog、Audit；若出现修改或撤销，将自动重新进入审批/验证。
 
+# Architecture Diagram
+
 ```mermaid
 sequenceDiagram
   participant Admin as 租户管理员
   participant Console as Agent Console
   participant Policy as IAM/Policy
-  participant Approval as 审批系统
+  participant Workflow as 审批系统
+  participant Sandbox as Sandbox Runner
 
   Admin->>Console: 填写 Agent 信息 + 配置权限
   Console->>Policy: 校验策略/速率限制
-  Policy-->>Console: 校验结果/警告
-  Console->>Approval: 提交审批请求
-  Approval-->>Console: 审批结果
-  Console->>Admin: 生成凭证 + 引导沙箱验证
+  Policy-->>Console: 冲突提示/补充参数
+  Console->>Workflow: 提交审批 + 附件
+  Workflow-->>Console: 审批结果/回退意见
+  Console->>Sandbox: 激活前验证
+  Sandbox-->>Console: 验证报告/指标
+  Console->>Admin: 凭证 + 审计 ID
 ```
 
 # Key Interactions & Contracts
@@ -119,6 +124,13 @@ sequenceDiagram
 - **Sandbox 失败**：标记 `sandbox_failed`，阻止激活，通知 Ops & 租户；修复后可重跑。
 - **表单版本回退**：`tenant-agent-center rollback --agent <id> --version <n>` 还原上一个版本配置。
 
+# Validation Workflow
+
+1. 本地运行 `npm run lint` + `npm run docs:build` 确保 Markdown 与站点通过。
+2. 在 staging 租户执行“提交 → 审批 → 激活 → 沙箱”全链路，并记录 `agent.custom.*` 指标。
+3. 执行 `scripts/ops/agent-sandbox-validate.mjs --agent <id> --profile tenant-lab`，确保沙箱回归成功。
+4. 运行 `npm run publish:scenarios -- --scn-id SCN-AGENT-REG-TENANT-001 --validate-only` 及 `npm run publish:usecases -- --scn-id SCN-AGENT-REG-MGMT-001 --validate-only`，验证结构与 usecase 对齐。
+
 # Follow-ups & Risks
 
 | 风险/事项 | 影响范围 | 缓解方案 | 负责人 | ETA |
@@ -128,7 +140,9 @@ sequenceDiagram
 | 权限策略与租户条款不一致 | 越权或误杀 | 引入租户级 policy 模板 diff，审批前强制校验 | IAM Platform Team | 2025-03-05 |
 | 审批人缺席导致 SLA 超时 | Agent 激活阻塞 | 启用多级代理、审批超时自动升级 | Ops Reliability Center | 2025-02-28 |
 
-# Appendix
+# Related Links
 
-- `docs/meta/scenarios/powerx/agent-and-automation/agent-orchestration/agent-registration-and-management/primary.md`
 - `docs/scenarios/agent-orchestration/SCN-AGENT-REG-MGMT-001.md`
+- `docs/usecases-seeds/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md`
+- `docs/standards/powerx/backend/integration/09_agent/Agent_Manager_and_Lifecycle_Spec.md`
+- `config/workflows/agent_approval.yaml`

@@ -52,17 +52,22 @@ last_reviewed_at: 2025-02-20
 4. **Stage 4 – Sandbox & Security Checks**：根据风险策略自动触发沙箱验证、自动审核或人工复核，沉淀沙箱报告与 Audit Trail。
 5. **Stage 5 – Activation, Broadcast & Telemetry**：将 Agent 信息同步到编排平台、Catalog、监控指标，发布 `agent.registry.state.changed` 事件，并向 Vendor 返回可追踪的审计 ID。
 
+# Architecture Diagram
+
 ```mermaid
 sequenceDiagram
   participant Plugin as 插件实例
   participant Registry as Agent Registry
   participant Security as 安全策略
+  participant IAM as IAM / Policy
   participant Orchestrator as Agent Orchestrator
 
   Plugin->>Registry: POST /agent/registry (manifest + signature)
   Registry-->>Registry: Schema & Signature Validate
-  Registry->>Security: 触发风控策略/审批
+  Registry->>Security: 风控/审批策略
   Security-->>Registry: 审批结果/策略
+  Registry->>IAM: 发布权限/速率策略
+  IAM-->>Registry: 返回凭证/策略 ID
   Registry->>Orchestrator: 发布 Agent ID + 元数据
   Registry->>Plugin: 返回注册结果 + 审计 ID
 ```
@@ -114,6 +119,13 @@ sequenceDiagram
 - Sandbox 失败：标记 Agent 为 `pending_fix`，阻止编排平台引用，通知 Vendor 并允许 `POST /internal/agent/registry/{id}/validate` 重跑。
 - Audit/Telemetry 不可用：暂存事件到本地队列，恢复后批量回放；若超时则触发人工 runbook。
 
+# Validation Workflow
+
+1. 在 CI 中运行 `node scripts/qa/manifest-lint.mjs --plugin <name>` 校验 manifest。
+2. 使用沙箱插件执行 `scripts/qa/plugin-autoreg.mjs --plugin <name>@<version>` 并验证 `agent.registry.*` 指标。
+3. 运行 `npm run publish:scenarios -- --scn-id SCN-AGENT-REG-AUTO-001 --validate-only` 确保结构通过。
+4. 如需发布，执行 `npm run publish:usecases -- --scn-id SCN-AGENT-REG-MGMT-001 --validate-only`，确保 Usecase Seeds 与 docmap 对齐。
+
 # Follow-ups & Risks
 
 | 风险/事项 | 影响范围 | 缓解方案 | 负责人 | ETA |
@@ -122,7 +134,9 @@ sequenceDiagram
 | 签名证书轮换不及时 | 安全风险/拒绝注册 | 构建证书到期告警，强制 Vendor 在 T-7 天前上传 | Agent Platform Guild | 2025-02-28 |
 | Sandbox 资源瓶颈 | 注册排队 | 扩容资源池，引入优先级队列与离线批量模式 | Ops Reliability Center | 2025-03-05 |
 
-# Appendix
+# Related Links
 
-- `docs/meta/scenarios/powerx/agent-and-automation/agent-orchestration/agent-registration-and-management/primary.md`
 - `docs/scenarios/agent-orchestration/SCN-AGENT-REG-MGMT-001.md`
+- `docs/usecases-seeds/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md`
+- `docs/standards/powerx/backend/integration/09_agent/Agent_Manager_and_Lifecycle_Spec.md`
+- `config/agent/registry/schema.yaml`

@@ -1,7 +1,7 @@
 ---
-title: "SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.html"
+title: "插件能力版本变更与下线通知"
+scn_id: SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001
+status: Draft
+last_reviewed_at: 2025-01-20
 ---
 
-> This scenario document still awaits translation. Refer to the Chinese version: [/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.html](/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.html).

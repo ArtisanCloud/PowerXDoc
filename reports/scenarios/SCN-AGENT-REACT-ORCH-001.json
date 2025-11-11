@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-AGENT-REACT-ORCH-001",
+    "status": "completed",
+    "generatedAt": "2025-11-11T05:54:52.435Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-AGENT-REACT-ORCH-001",
+      "status": "completed",
+      "resumeToken": "7772a735-7335-4877-879f-0f2ff95431db",
+      "fingerprint": "98db01be5c3f8749aa49d0e6e6cb3a61b8a4f83670fd106537a8354fb9776011",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-AGENT-REACT-ORCH-001",
+        "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ORCH-001.md",
+        "title": "ReAct 智能体编排",
+        "title_en": "ReAct Agent Orchestration",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-AGENT-REACT-THOUGHT-001",
+            "title": "思考链生成与知识检索启动",
+            "title_en": "Thought & Retrieval Bootstrap",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-THOUGHT-001.md"
+          },
+          {
+            "scn_id": "SCN-AGENT-REACT-ACTION-001",
+            "title": "行动计划与插件调用",
+            "title_en": "Action Planning & Tool Execution",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ACTION-001.md"
+          },
+          {
+            "scn_id": "SCN-AGENT-REACT-MEMORY-001",
+            "title": "观察反馈与记忆更新",
+            "title_en": "Observation Feedback & Memory Update",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-MEMORY-001.md"
+          },
+          {
+            "scn_id": "SCN-AGENT-REACT-AUDIT-001",
+            "title": "闭环交付与审计回放",
+            "title_en": "Closure Delivery & Audit Playback",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-AUDIT-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-AGENT-REACT-THOUGHT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001.md"
+          },
+          {
+            "doc_id": "UC-AGENT-REACT-ACTION-001",
+            "scope": "powerx",
+            "layer": "integration",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001.md"
+          },
+          {
+            "doc_id": "UC-AGENT-REACT-MEMORY-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001.md"
+          },
+          {
+            "doc_id": "UC-AGENT-REACT-AUDIT-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-11T05:54:23.689Z"
+    },
+    {
+      "workflowId": "scenario:SCN-AGENT-REACT-ORCH-001",
+      "status": "completed",
+      "resumeToken": "7772a735-7335-4877-879f-0f2ff95431db",
+      "fingerprint": "98db01be5c3f8749aa49d0e6e6cb3a61b8a4f83670fd106537a8354fb9776011",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-AGENT-REACT-ORCH-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-AGENT-REACT-ORCH-001",
+        "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ORCH-001.md",
+        "title": "ReAct 智能体编排",
+        "title_en": "ReAct Agent Orchestration",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-AGENT-REACT-THOUGHT-001",
+            "title": "思考链生成与知识检索启动",
+            "title_en": "Thought & Retrieval Bootstrap",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-THOUGHT-001.md"
+          },
+          {
+            "scn_id": "SCN-AGENT-REACT-ACTION-001",
+            "title": "行动计划与插件调用",
+            "title_en": "Action Planning & Tool Execution",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ACTION-001.md"
+          },
+          {
+            "scn_id": "SCN-AGENT-REACT-MEMORY-001",
+            "title": "观察反馈与记忆更新",
+            "title_en": "Observation Feedback & Memory Update",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-MEMORY-001.md"
+          },
+          {
+            "scn_id": "SCN-AGENT-REACT-AUDIT-001",
+            "title": "闭环交付与审计回放",
+            "title_en": "Closure Delivery & Audit Playback",
+            "path": "docs/scenarios/agent-orchestration/SCN-AGENT-REACT-AUDIT-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-AGENT-REACT-THOUGHT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001.md"
+          },
+          {
+            "doc_id": "UC-AGENT-REACT-ACTION-001",
+            "scope": "powerx",
+            "layer": "integration",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001.md"
+          },
+          {
+            "doc_id": "UC-AGENT-REACT-MEMORY-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001.md"
+          },
+          {
+            "doc_id": "UC-AGENT-REACT-AUDIT-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "agent-orchestration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-11T05:54:52.435Z"
+    }
+  ]
+}

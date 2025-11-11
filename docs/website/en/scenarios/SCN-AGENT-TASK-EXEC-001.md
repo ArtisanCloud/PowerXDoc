@@ -1,18 +1,14 @@
 ---
-title: "SCN-AGENT-TASK-EXEC-001 Usecase Seed Index (Pending Translation)"
+title: SCN-AGENT-EXEC-CLOSURE-001
+partnerSlug: "/scenarios/SCN-AGENT-TASK-EXEC-001.md"
 reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-TASK-EXEC-001.html"
 ---
 
 # Agent Task Execution – Usecase Seed Index
-
 > This index is used to track Usecase Seed delivery under the `SCN-AGENT-TASK-EXEC-001` scenario. After updating Seeds, please verify docmap and site copies synchronously.
-
 - Scenario Documentation: [SCN-AGENT-TASK-EXEC-001.md](../../scenarios/agent-orchestration/SCN-AGENT-TASK-EXEC-001.md)
 - Docmap Entry: [docmap.yaml](../../_data/docmap.yaml)
-
 ## Scope: powerx
-
 | Doc ID | Layer | Domain | Optional | Seed | Status |
 |--------|-------|--------|----------|------|--------|
 | UC-AGENT-EXEC-PLAN-001 | service | agent-orchestration | No | [UC-AGENT-EXEC-PLAN-001](SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md) | Draft |

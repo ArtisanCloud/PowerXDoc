@@ -52,19 +52,24 @@ last_reviewed_at: 2025-02-20
 4. **Stage 4 – Review & Compliance**：Compliance Review Engine 定期核查（到期、异常、审计稽核），必要时创建复核任务。
 5. **Stage 5 – Revoke & Notify**：共享到期或违规触发 `POST /internal/agent/catalog/revoke`，释放配额、失效凭证、发送通知与审计记录。
 
+# Architecture Diagram
+
 ```mermaid
 sequenceDiagram
   participant Admin as 集团管理员
   participant Catalog as Agent Catalog
-  participant Tenant as 目标租户
   participant IAM as IAM/Quota
+  participant Tenant as 目标租户
+  participant Compliance as Review Engine
 
   Admin->>Catalog: 配置共享标签 + 白名单
-  Catalog->>IAM: 复制配额/凭证
-  IAM-->>Catalog: 凭证/配额结果
-  Catalog->>Tenant: 通知 & 配置下发
-  Tenant->>Catalog: 验证结果 / 反馈
-  Catalog->>Admin: 共享状态 & 审计
+  Catalog->>IAM: provisionCredentials(agentId, tenant)
+  IAM-->>Catalog: credentialRef + quota
+  Catalog->>Tenant: shareNotification + configDelta
+  Tenant-->>Catalog: validationResult
+  Compliance->>Catalog: scheduleReview/revoke
+  Catalog->>IAM: revokeShare(agentId, tenant)
+  Catalog->>Admin: emit agent.share.issued/revoked + audit
 ```
 
 # Key Interactions & Contracts
@@ -119,6 +124,13 @@ sequenceDiagram
 - 撤销失败：重试三次后上报 P1，锁定凭证并阻断调用，人工执行 `agent-share-revoke.mjs --force`。
 - 白名单误配置：使用 `agent-catalog-whitelist-sync.mjs --rollback` 恢复上一版本。
 
+# Validation Workflow
+
+1. 在 CI 中运行 `npm run publish:scenarios -- --scn-id SCN-AGENT-REG-SHARE-001 --validate-only`。
+2. 使用 `scripts/ops/agent-share-drill.mjs --agent <id> --tenant tenant-b --dry-run` 验证申请→验证→撤销闭环。
+3. 在 staging 中执行 `agent-share-revoke.mjs`，确保配额释放与通知落地。
+4. 审核 `agent.share.*` 指标与 Audit 事件，确认共享/撤销记录完整。
+
 # Follow-ups & Risks
 
 | 风险/事项 | 影响范围 | 缓解方案 | 负责人 | ETA |
@@ -126,6 +138,13 @@ sequenceDiagram
 | 白名单数据源与 IAM 标签不同步 | 共享失败或越权 | 建立同步脚本与差异告警，策略变更需审批 | Agent Platform Guild & IAM Team | 2025-03-05 |
 | 配额/凭证复制失败 | 共享不可用或数据泄露 | 在 Catalog 中启用事务日志 + 回滚脚本，失败即撤销 | Agent Platform Guild | 2025-03-02 |
 | 撤销通知缺失 | 租户继续调用、产生错误 | `agent.share.revoked` 事件强制带通知结果并做二次校验 | Ops Reliability Center | 2025-02-28 |
+
+# Related Links
+
+- `docs/scenarios/agent-orchestration/SCN-AGENT-REG-MGMT-001.md`
+- `docs/usecases-seeds/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md`
+- `docs/standards/powerx/backend/integration/09_agent/Agent_Manager_and_Lifecycle_Spec.md`
+- `config/agent/sharing/policies.yaml`
 
 # Appendix
 

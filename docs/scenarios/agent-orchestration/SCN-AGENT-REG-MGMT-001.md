@@ -80,6 +80,8 @@ PowerX 插件生态、租户管理员与平台运维需要统一的智能体（A
 3. **Stage 3 – Activation & Observability**：审批通过后生成运行凭证、Webhook/调度策略并在沙箱验证，监控面收集调用量、延迟、错误率。
 4. **Stage 4 – Lifecycle Governance & Sharing**：根据使用情况触发僵尸判定、冻结/回收；如需跨租户共享则设置共享白名单、复制配额并支持一键撤销。
 
+# Architecture Diagram
+
 ```mermaid
 sequenceDiagram
   participant Vendor as 插件/Vendor
@@ -164,8 +166,9 @@ sequenceDiagram
 | Tenant Policy 模板未版本化 | 审批冲突、越权风险 | 为每个租户生成版本化策略文件，审批前执行 diff 校验 | IAM Platform Team | 2025-03-08 |
 | Sandbox 资源不足导致注册/激活排队 | SLA 违约 | 扩容容器池、引入优先级队列与“沙箱后置”审批策略 | Ops Reliability Center | 2025-03-01 |
 
-# Appendix
+# Related Links
 
 - `docs/meta/scenarios/powerx/agent-and-automation/agent-orchestration/agent-registration-and-management/primary.md`
 - `docs/meta/scenarios/powerx/list.md`
 - `docs/standards/powerx/backend/integration/09_agent/Agent_Manager_and_Lifecycle_Spec.md`
+- `docs/usecases-seeds/SCN-AGENT-REG-MGMT-001/`

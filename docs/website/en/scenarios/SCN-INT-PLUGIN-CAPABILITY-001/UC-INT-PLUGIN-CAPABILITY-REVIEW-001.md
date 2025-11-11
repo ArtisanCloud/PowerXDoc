@@ -1,7 +1,7 @@
 ---
-title: "UC-INT-PLUGIN-CAPABILITY-REVIEW-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.html"
+title: "能力多角色审核与合规把关"
+scn_id: SCN-INT-PLUGIN-CAPABILITY-001
+status: Draft
+last_reviewed_at: 2025-01-20
 ---
 
-> This usecase seed still awaits translation. Refer to the Chinese version: [/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.html](/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.html).

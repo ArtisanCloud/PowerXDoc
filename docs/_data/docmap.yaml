@@ -796,3 +796,53 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md
+  - scn_id: SCN-AGENT-REACT-ORCH-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ORCH-001.md
+    title: ReAct 智能体编排
+    title_en: ReAct Agent Orchestration
+    child_scenarios:
+      - scn_id: SCN-AGENT-REACT-THOUGHT-001
+        title: 思考链生成与知识检索启动
+        title_en: Thought & Retrieval Bootstrap
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-THOUGHT-001.md
+      - scn_id: SCN-AGENT-REACT-ACTION-001
+        title: 行动计划与插件调用
+        title_en: Action Planning & Tool Execution
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ACTION-001.md
+      - scn_id: SCN-AGENT-REACT-MEMORY-001
+        title: 观察反馈与记忆更新
+        title_en: Observation Feedback & Memory Update
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-MEMORY-001.md
+      - scn_id: SCN-AGENT-REACT-AUDIT-001
+        title: 闭环交付与审计回放
+        title_en: Closure Delivery & Audit Playback
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-AUDIT-001.md
+    children:
+      - doc_id: UC-AGENT-REACT-THOUGHT-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001.md
+      - doc_id: UC-AGENT-REACT-ACTION-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001.md
+      - doc_id: UC-AGENT-REACT-MEMORY-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001.md
+      - doc_id: UC-AGENT-REACT-AUDIT-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md

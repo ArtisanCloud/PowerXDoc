@@ -3,7 +3,8 @@ title: SCN-IAM-LOGIN-AUTH-001 Usecase Seed Index
 scn_id: SCN-IAM-LOGIN-AUTH-001
 status: Generated
 last_reviewed_at: 2025-10-31
-partnerSlug: "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001.html"
+partnerSlug: "/scenarios/SCN-IAM-LOGIN-AUTH-001.md"
+reviewStatus: Placeholder
 ---
 
 # PowerX Login & Authentication – Usecase Seed Index

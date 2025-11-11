@@ -1,7 +1,8 @@
 ---
-title: "UC-AGENT-PLATFORM-COZE-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.html"
+title: "UC-AGENT-PLATFORM-COZE-001 "
+scn_id: SCN-AGENT-MODEL-HUB-001
+status: Draft
+last_reviewed_at: 2025-02-18
 ---
 
 # PowerX (integration) - External Agent Platform Integration (Coze / n8n)

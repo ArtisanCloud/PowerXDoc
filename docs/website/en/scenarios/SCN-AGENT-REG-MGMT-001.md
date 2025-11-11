@@ -36,6 +36,8 @@ related_usecases:
     layer: integration
     domain: agent-orchestration
 last_reviewed_at: 2025-02-20
+partnerSlug: "/scenarios/SCN-AGENT-REG-MGMT-001.md"
+reviewStatus: Placeholder
 ---
 
 # Executive Summary

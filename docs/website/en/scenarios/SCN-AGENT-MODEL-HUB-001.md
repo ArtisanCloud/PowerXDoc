@@ -1,7 +1,10 @@
 ---
-title: "SCN-AGENT-MODEL-HUB-001 Usecase Seed Index (Pending Translation)"
+title: "SCN-AGENT-MODEL-HUB-001 Usecase Seed Index "
+scn_id: SCN-AGENT-MODEL-HUB-001
+status: Generated
+last_reviewed_at: 2025-11-09
+partnerSlug: "/scenarios/SCN-AGENT-MODEL-HUB-001.md"
 reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-AGENT-MODEL-HUB-001.html"
 ---
 
 # Agent Model & Platform Hub – Usecase Seed Index
