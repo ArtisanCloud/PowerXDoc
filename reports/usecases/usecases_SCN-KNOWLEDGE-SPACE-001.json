@@ -1,0 +1,325 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+    "scenario": "SCN-KNOWLEDGE-SPACE-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-12T08:41:38.325Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "47a9906d-042b-4337-8318-ba1398b65559",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-d152aabd",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-knowledge-space-001-d152aabd",
+          "resumeToken": "47a9906d-042b-4337-8318-ba1398b65559",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-12T06:31:54.359Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "d2fef143-c657-4c75-bfd2-b9c4a0c3b7db",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-76eb9571",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-knowledge-space-001-76eb9571",
+          "resumeToken": "d2fef143-c657-4c75-bfd2-b9c4a0c3b7db",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-12T07:31:52.183Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-9390507b",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-knowledge-space-001-9390507b",
+          "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-12T07:57:45.460Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-f6d3b870",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-knowledge-space-001-f6d3b870",
+          "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-12T08:05:20.338Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": null,
+          "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-12T08:06:02.610Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-937afb28",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-knowledge-space-001-937afb28",
+          "resumeToken": "24c4c2a3-558e-4f09-816f-206a73a549ea",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-12T08:06:41.126Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-e4f9250d",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-knowledge-space-001-e4f9250d",
+          "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-12T08:13:55.083Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-78bb4ffd",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-knowledge-space-001-78bb4ffd",
+          "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-12T08:26:51.075Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-space-001-263bb017",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-knowledge-space-001-263bb017",
+          "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-12T08:27:59.347Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "status": "Completed",
+      "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-SPACE-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-LONGDOC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-TABLE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-MULTISRC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-SPACE-001/index.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001"
+          ],
+          "prUrl": null,
+          "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-12T08:41:38.329Z"
+    }
+  ]
+}

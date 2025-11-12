@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-SPACE-001",
+      "fingerprint": "edf092fe8fa47d8afb4bee3bd978fb5228104c3b92967674a12f2c2867dd9f27",
+      "resumeToken": "6dab8478-654b-4147-a8e3-2180ce94ff70",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-KNOWLEDGE-SPACE-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-KNOWLEDGE-SPACE-001.md"
+      },
+      "createdAt": "2025-11-12T07:44:00.047Z",
+      "updatedAt": "2025-11-12T07:52:06.211Z"
+    }
+  ],
+  "tokens": {
+    "6dab8478-654b-4147-a8e3-2180ce94ff70": "edf092fe8fa47d8afb4bee3bd978fb5228104c3b92967674a12f2c2867dd9f27"
+  }
+}

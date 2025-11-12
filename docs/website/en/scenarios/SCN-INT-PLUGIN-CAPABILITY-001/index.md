@@ -1,7 +1,6 @@
 ---
-title: SCN-AGENT-TASK-EXEC-001 Usecase Seed Index
-
-
+title: SCN-INT-PLUGIN-CAPABILITY-001 Usecase Seed Index
+scn_id: SCN-INT-PLUGIN-CAPABILITY-001
+status: Generated
+last_reviewed_at: 2025-11-02
 ---
-
-> This index is pending translation. Refer to the Chinese page: [/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/index.html](/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/index.html).

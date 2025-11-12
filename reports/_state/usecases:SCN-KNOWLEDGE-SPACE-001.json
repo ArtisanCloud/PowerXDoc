@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-SPACE-001",
+      "fingerprint": "a773e3fa649cc382c582ce688c8432ac381513efc622824432c181037de06a20",
+      "resumeToken": "692668f2-a54c-487b-8255-c960dd80cbda",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-KNOWLEDGE-SPACE-001.json"
+      },
+      "createdAt": "2025-11-12T08:13:54.998Z",
+      "updatedAt": "2025-11-12T08:41:38.330Z"
+    }
+  ],
+  "tokens": {
+    "692668f2-a54c-487b-8255-c960dd80cbda": "a773e3fa649cc382c582ce688c8432ac381513efc622824432c181037de06a20"
+  }
+}
