@@ -26,7 +26,7 @@ flowchart LR
 - **生成命令**（任选其一）：
 
   ```bash
-  [scenario-generate-template.md](.specify/templates/scenario-generate-template.md) \
+  [speckit.scenario.md](.codex/prompts/speckit.scenario.md) \
     根据当前文档 docs/meta/scenarios/<domain>/<需求稿>.md，实现主用例和子用例文档 
   ```
 

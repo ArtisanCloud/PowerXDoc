@@ -2,29 +2,17 @@
   "runs": [
     {
       "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
-      "fingerprint": "db5d54aae8240697452aa457cb67deaa6847cfae72dc3f51d2e93c8cbb472b70",
-      "resumeToken": "1b2b4648-77b5-4875-96eb-eaf8f7e92393",
-      "status": "completed",
-      "metadata": {
-        "reportPath": "reports/usecases/usecases_SCN-DEV-PLUGIN-PUBLISH-001.json"
-      },
-      "createdAt": "2025-11-04T13:19:32.099Z",
-      "updatedAt": "2025-11-04T13:19:54.239Z"
-    },
-    {
-      "workflowId": "usecases:SCN-DEV-PLUGIN-PUBLISH-001",
       "fingerprint": "22945d6255bbe66ad384cfc0291edafa36696c2f42eb42755d6f22b4725335f4",
-      "resumeToken": "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd",
+      "resumeToken": "91a7958c-fd7a-439b-ba37-a79232f6fe49",
       "status": "completed",
       "metadata": {
         "reportPath": "reports/usecases/usecases_SCN-DEV-PLUGIN-PUBLISH-001.json"
       },
-      "createdAt": "2025-11-05T04:12:10.518Z",
-      "updatedAt": "2025-11-05T04:13:37.268Z"
+      "createdAt": "2025-11-09T10:36:58.980Z",
+      "updatedAt": "2025-11-09T10:37:28.047Z"
     }
   ],
   "tokens": {
-    "1b2b4648-77b5-4875-96eb-eaf8f7e92393": "db5d54aae8240697452aa457cb67deaa6847cfae72dc3f51d2e93c8cbb472b70",
-    "ae6d50de-55c9-4c63-aa5c-fd8e4c5d14dd": "22945d6255bbe66ad384cfc0291edafa36696c2f42eb42755d6f22b4725335f4"
+    "91a7958c-fd7a-439b-ba37-a79232f6fe49": "22945d6255bbe66ad384cfc0291edafa36696c2f42eb42755d6f22b4725335f4"
   }
 }

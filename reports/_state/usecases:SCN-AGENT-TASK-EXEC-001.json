@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-AGENT-TASK-EXEC-001",
+      "fingerprint": "7fdc9efeecce402e68eb1107aab817ec7900eb3c9ee27f8a1b4e541dc1e7e0b8",
+      "resumeToken": "5efbdda1-381f-41c0-8267-0195aeaeadb6",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-AGENT-TASK-EXEC-001.json"
+      },
+      "createdAt": "2025-11-09T12:10:25.504Z",
+      "updatedAt": "2025-11-09T12:12:03.131Z"
+    }
+  ],
+  "tokens": {
+    "5efbdda1-381f-41c0-8267-0195aeaeadb6": "7fdc9efeecce402e68eb1107aab817ec7900eb3c9ee27f8a1b4e541dc1e7e0b8"
+  }
+}

@@ -1,7 +1,6 @@
 ---
-title: "SCN-IAM-MULTI-TENANT-001 Seed Index (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/index.html"
+title: SCN-IAM-MULTI-TENANT-001 Usecase Seed Index
+scn_id: SCN-IAM-MULTI-TENANT-001
+status: Generated
+last_reviewed_at: 2025-10-30
 ---
-
-> This index is pending translation. Refer to the Chinese page: [/zh/scenarios/SCN-IAM-MULTI-TENANT-001/index.html](/zh/scenarios/SCN-IAM-MULTI-TENANT-001/index.html).

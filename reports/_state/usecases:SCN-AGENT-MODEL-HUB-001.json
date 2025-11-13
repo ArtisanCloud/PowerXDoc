@@ -1,0 +1,30 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-AGENT-MODEL-HUB-001",
+      "fingerprint": "e8006ae0da238e9fd9e42b043b086e61f0440184fdb32ac279f480dcc438797f",
+      "resumeToken": "9640811e-7e2d-44b6-949a-05f1e5d5bea8",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-AGENT-MODEL-HUB-001.json"
+      },
+      "createdAt": "2025-11-09T10:32:12.488Z",
+      "updatedAt": "2025-11-09T12:14:58.361Z"
+    },
+    {
+      "workflowId": "usecases:SCN-AGENT-MODEL-HUB-001",
+      "fingerprint": "e30ce151cdae3f89549dab03f32a19781a7032fe31bfd3ddc969d9a275fa587a",
+      "resumeToken": "3f45ae93-f4ca-4c85-810a-d6c9d230ccfb",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-AGENT-MODEL-HUB-001.json"
+      },
+      "createdAt": "2025-11-09T10:52:30.065Z",
+      "updatedAt": "2025-11-09T10:52:40.764Z"
+    }
+  ],
+  "tokens": {
+    "9640811e-7e2d-44b6-949a-05f1e5d5bea8": "e8006ae0da238e9fd9e42b043b086e61f0440184fdb32ac279f480dcc438797f",
+    "3f45ae93-f4ca-4c85-810a-d6c9d230ccfb": "e30ce151cdae3f89549dab03f32a19781a7032fe31bfd3ddc969d9a275fa587a"
+  }
+}

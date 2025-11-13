@@ -1,7 +1,6 @@
 ---
-title: "SCN-OPS-SYSTEM-MONITORING-001 Seed Index (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/index.html"
+title: SCN-OPS-SYSTEM-MONITORING-001 Usecase Seed Index
+scn_id: SCN-OPS-SYSTEM-MONITORING-001
+status: Generated
+last_reviewed_at: 2025-11-01
 ---
-
-> This index is pending translation. Refer to the Chinese page: [/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/index.html](/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/index.html).

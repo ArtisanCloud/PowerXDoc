@@ -14,7 +14,7 @@ Build your first PowerX plugin experience in under an hour. This guide adapts th
 
 ## Prerequisites
 
-- Go 1.21+ with `GOWORK=on`.
+- Go 1.24+ with `GOWORK=on`.
 - Node.js 18+ with npm (or pnpm), plus Git and Make.
 - SQLite (bundled with macOS/Linux) or PostgreSQL if you prefer the full stack.
 - Optional: Docker for auxiliary services; `curl` and `jq` for quick checks.

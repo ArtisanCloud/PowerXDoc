@@ -2,17 +2,17 @@
   "runs": [
     {
       "workflowId": "usecases:SCN-DEV-PLUGIN-DEBUG-001",
-      "fingerprint": "47ce64fcd69019d18f661991b8b69531500bcfaa4b98e4fd23b877984215f931",
-      "resumeToken": "b10cd7ff-1e80-487f-b9d3-57cd251671b2",
+      "fingerprint": "c019bafeec2e357d05051d1ba876be35439240f8ecbafc45632464deb8c5b099",
+      "resumeToken": "1ae28846-38ff-47be-ae0c-da0729688778",
       "status": "completed",
       "metadata": {
         "reportPath": "reports/usecases/usecases_SCN-DEV-PLUGIN-DEBUG-001.json"
       },
-      "createdAt": "2025-11-04T13:19:09.580Z",
-      "updatedAt": "2025-11-04T13:19:32.040Z"
+      "createdAt": "2025-11-09T10:36:40.960Z",
+      "updatedAt": "2025-11-09T10:36:58.920Z"
     }
   ],
   "tokens": {
-    "b10cd7ff-1e80-487f-b9d3-57cd251671b2": "47ce64fcd69019d18f661991b8b69531500bcfaa4b98e4fd23b877984215f931"
+    "1ae28846-38ff-47be-ae0c-da0729688778": "c019bafeec2e357d05051d1ba876be35439240f8ecbafc45632464deb8c5b099"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-AGENT-REG-MGMT-001",
+      "fingerprint": "3d3faacba2e2c156ff3d5d5b3f7b67751be2284d6a0185246190ab721a1c3d68",
+      "resumeToken": "5319e0db-350f-40e7-8a28-1d63e402db76",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-AGENT-REG-MGMT-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-AGENT-REG-MGMT-001.md"
+      },
+      "createdAt": "2025-11-10T09:38:44.693Z",
+      "updatedAt": "2025-11-10T09:46:27.334Z"
+    }
+  ],
+  "tokens": {
+    "5319e0db-350f-40e7-8a28-1d63e402db76": "3d3faacba2e2c156ff3d5d5b3f7b67751be2284d6a0185246190ab721a1c3d68"
+  }
+}

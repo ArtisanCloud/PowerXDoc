@@ -1,7 +1,7 @@
 ---
-title: "SCN-IAM-MULTI-TENANT-ORG-MODELING-001 (Pending Translation)"
-reviewStatus: Placeholder
-partnerSlug: "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.html"
+title: "Tenant Organization Hierarchy Modeling and Collaboration Configuration"
+scn_id: SCN-IAM-MULTI-TENANT-ORG-MODELING-001
+status: Draft
+last_reviewed_at: 2025-10-29
 ---
 
-> This scenario document still awaits translation. Refer to the Chinese version: [/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.html](/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.html).

@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-AGENT-REACT-ORCH-001",
+      "fingerprint": "966580a39396f44f848711b70d8f02701e2a9382d4e42075bdf3c6698045e0df",
+      "resumeToken": "34f77ef6-cfd4-408f-a5e5-d31d46929b31",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-AGENT-REACT-ORCH-001.json"
+      },
+      "createdAt": "2025-11-11T04:55:47.127Z",
+      "updatedAt": "2025-11-11T06:00:37.270Z"
+    }
+  ],
+  "tokens": {
+    "34f77ef6-cfd4-408f-a5e5-d31d46929b31": "966580a39396f44f848711b70d8f02701e2a9382d4e42075bdf3c6698045e0df"
+  }
+}

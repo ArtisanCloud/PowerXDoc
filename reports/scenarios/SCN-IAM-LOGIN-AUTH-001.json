@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-IAM-LOGIN-AUTH-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T04:59:54.395Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-IAM-LOGIN-AUTH-001",
+      "status": "completed",
+      "resumeToken": "4dad3252-70db-4be3-a9fa-d0ed911a8625",
+      "fingerprint": "9a8ae36699f018d81ec59115284ffdf6bb319ea622994929d8d725a38ee5f842",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-IAM-LOGIN-AUTH-001",
+        "path": "docs/scenarios/iam/SCN-IAM-LOGIN-AUTH-001.md",
+        "title": "PowerX 登录与认证",
+        "title_en": "PowerX Login & Authentication",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-IAM-LOGIN-SSO-001",
+            "title": "单点登录集成",
+            "title_en": "Single Sign-On Integration",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-SSO-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-LOGIN-API-TOKEN-001",
+            "title": "API Token 管理",
+            "title_en": "API Token Management",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-API-TOKEN-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-LOGIN-MFA-001",
+            "title": "多因素认证",
+            "title_en": "Multi-Factor Authentication",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-MFA-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-LOGIN-RISK-001",
+            "title": "风险登录防护",
+            "title_en": "Risk-Based Login Protection",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-RISK-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-IAM-LOGIN-SSO-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-LOGIN-API-TOKEN-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-LOGIN-MFA-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-LOGIN-RISK-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T04:59:17.540Z"
+    },
+    {
+      "workflowId": "scenario:SCN-IAM-LOGIN-AUTH-001",
+      "status": "completed",
+      "resumeToken": "4dad3252-70db-4be3-a9fa-d0ed911a8625",
+      "fingerprint": "9a8ae36699f018d81ec59115284ffdf6bb319ea622994929d8d725a38ee5f842",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-IAM-LOGIN-AUTH-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-IAM-LOGIN-AUTH-001",
+        "path": "docs/scenarios/iam/SCN-IAM-LOGIN-AUTH-001.md",
+        "title": "PowerX 登录与认证",
+        "title_en": "PowerX Login & Authentication",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-IAM-LOGIN-SSO-001",
+            "title": "单点登录集成",
+            "title_en": "Single Sign-On Integration",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-SSO-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-LOGIN-API-TOKEN-001",
+            "title": "API Token 管理",
+            "title_en": "API Token Management",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-API-TOKEN-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-LOGIN-MFA-001",
+            "title": "多因素认证",
+            "title_en": "Multi-Factor Authentication",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-MFA-001.md"
+          },
+          {
+            "scn_id": "SCN-IAM-LOGIN-RISK-001",
+            "title": "风险登录防护",
+            "title_en": "Risk-Based Login Protection",
+            "path": "docs/scenarios/iam/SCN-IAM-LOGIN-RISK-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-IAM-LOGIN-SSO-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-LOGIN-API-TOKEN-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-LOGIN-MFA-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md"
+          },
+          {
+            "doc_id": "UC-IAM-LOGIN-RISK-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "iam",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T04:59:54.396Z"
+    }
+  ]
+}

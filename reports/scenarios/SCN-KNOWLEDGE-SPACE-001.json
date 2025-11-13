@@ -1,0 +1,193 @@
+{
+  "summary": {
+    "scnId": "SCN-KNOWLEDGE-SPACE-001",
+    "status": "completed",
+    "generatedAt": "2025-11-12T07:52:06.210Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-SPACE-001",
+      "status": "completed",
+      "resumeToken": "6dab8478-654b-4147-a8e3-2180ce94ff70",
+      "fingerprint": "edf092fe8fa47d8afb4bee3bd978fb5228104c3b92967674a12f2c2867dd9f27",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-KNOWLEDGE-SPACE-001",
+        "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md",
+        "title": "知识空间构建",
+        "title_en": "Knowledge Space Build",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-KNOWLEDGE-SPACE-GOV-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-GOV-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-LONGDOC-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-LONGDOC-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-TABLE-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-TABLE-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-MULTISRC-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-MULTISRC-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-RAG-FEEDBACK-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-KNOWLEDGE-SPACE-BUILD-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-SPACE-GOV-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-LONGDOC-001",
+            "scope": "powerx",
+            "layer": "data",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-TABLE-001",
+            "scope": "powerx",
+            "layer": "data",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-MULTISRC-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-RAG-FEEDBACK-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-12T07:44:00.048Z"
+    },
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-SPACE-001",
+      "status": "completed",
+      "resumeToken": "6dab8478-654b-4147-a8e3-2180ce94ff70",
+      "fingerprint": "edf092fe8fa47d8afb4bee3bd978fb5228104c3b92967674a12f2c2867dd9f27",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-KNOWLEDGE-SPACE-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-KNOWLEDGE-SPACE-001",
+        "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md",
+        "title": "知识空间构建",
+        "title_en": "Knowledge Space Build",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-KNOWLEDGE-SPACE-GOV-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-GOV-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-LONGDOC-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-LONGDOC-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-TABLE-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-TABLE-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-MULTISRC-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-MULTISRC-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-RAG-FEEDBACK-001",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-KNOWLEDGE-SPACE-BUILD-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-SPACE-GOV-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-LONGDOC-001",
+            "scope": "powerx",
+            "layer": "data",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-TABLE-001",
+            "scope": "powerx",
+            "layer": "data",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-MULTISRC-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-RAG-FEEDBACK-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-12T07:52:06.210Z"
+    }
+  ]
+}

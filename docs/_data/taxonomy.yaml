@@ -6,11 +6,16 @@ scopes:
 layers:
   - domain
   - service
+  - data
+  - integration
   - api
   - ui
   - ops
   - repo
   - proto
+  - dev
+  - marketplace
+  - security
 domains:
   - publish
   - install
@@ -22,3 +27,6 @@ domains:
   - dev
   - iam
   - marketplace
+  - integration
+  - agent-orchestration
+  - knowledge

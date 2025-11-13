@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "scnId": "SCN-OPS-EVENT-TASKFLOW-001",
+    "status": "completed",
+    "generatedAt": "2025-11-08T05:09:28.369Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-OPS-EVENT-TASKFLOW-001",
+      "status": "completed",
+      "resumeToken": "e0e8b432-6d2a-43f2-905c-51c521359feb",
+      "fingerprint": "05d5548a2c5a4e0f7fccbbbf047e80905e25a25ef05d20d2352deff8c22073e1",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-EVENT-TASKFLOW-001",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md",
+        "title": "PowerX 事件与任务流管理",
+        "title_en": "PowerX Event & Taskflow Management",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-OPS-EVENT-NOTIFY-001",
+            "title": "事件通知编排",
+            "title_en": "Event Notification Orchestration",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-EVENT-NOTIFY-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-TASK-SCHEDULE-001",
+            "title": "调度与计划执行",
+            "title_en": "Task Scheduling & Execution",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-TASK-SCHEDULE-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-AGENT-ORCHESTRATION-001",
+            "title": "Agent 自动化任务链",
+            "title_en": "Agent Automation Taskflow",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-AGENT-ORCHESTRATION-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-RETRY-RECOVERY-001",
+            "title": "重试与补偿恢复",
+            "title_en": "Retry & Recovery Automation",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-OPS-EVENT-NOTIFY-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-TASK-SCHEDULE-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-AGENT-ORCHESTRATION-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-RETRY-RECOVERY-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:08:13.360Z"
+    },
+    {
+      "workflowId": "scenario:SCN-OPS-EVENT-TASKFLOW-001",
+      "status": "completed",
+      "resumeToken": "e0e8b432-6d2a-43f2-905c-51c521359feb",
+      "fingerprint": "05d5548a2c5a4e0f7fccbbbf047e80905e25a25ef05d20d2352deff8c22073e1",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-EVENT-TASKFLOW-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-EVENT-TASKFLOW-001",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md",
+        "title": "PowerX 事件与任务流管理",
+        "title_en": "PowerX Event & Taskflow Management",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-OPS-EVENT-NOTIFY-001",
+            "title": "事件通知编排",
+            "title_en": "Event Notification Orchestration",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-EVENT-NOTIFY-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-TASK-SCHEDULE-001",
+            "title": "调度与计划执行",
+            "title_en": "Task Scheduling & Execution",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-TASK-SCHEDULE-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-AGENT-ORCHESTRATION-001",
+            "title": "Agent 自动化任务链",
+            "title_en": "Agent Automation Taskflow",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-AGENT-ORCHESTRATION-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-RETRY-RECOVERY-001",
+            "title": "重试与补偿恢复",
+            "title_en": "Retry & Recovery Automation",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-OPS-EVENT-NOTIFY-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-TASK-SCHEDULE-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-AGENT-ORCHESTRATION-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-RETRY-RECOVERY-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-08T05:09:28.369Z"
+    }
+  ]
+}

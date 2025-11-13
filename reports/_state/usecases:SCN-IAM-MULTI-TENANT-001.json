@@ -2,17 +2,17 @@
   "runs": [
     {
       "workflowId": "usecases:SCN-IAM-MULTI-TENANT-001",
-      "fingerprint": "0ff55b380ca45c4ebb31a29dcf3a448027b4faf25d9246a6913a79f951304295",
-      "resumeToken": "903c181c-27a9-45ca-b9e7-50a2622b6e72",
+      "fingerprint": "ce591c8f010cb598874baf755a8f12509bbda614a8cd462eaa69a0053ebff404",
+      "resumeToken": "08f6c834-1c7a-44f2-acd4-7bbe50a07bc0",
       "status": "completed",
       "metadata": {
         "reportPath": "reports/usecases/usecases_SCN-IAM-MULTI-TENANT-001.json"
       },
-      "createdAt": "2025-11-04T13:20:27.591Z",
-      "updatedAt": "2025-11-04T13:20:36.586Z"
+      "createdAt": "2025-11-09T10:37:55.997Z",
+      "updatedAt": "2025-11-09T10:38:04.901Z"
     }
   ],
   "tokens": {
-    "903c181c-27a9-45ca-b9e7-50a2622b6e72": "0ff55b380ca45c4ebb31a29dcf3a448027b4faf25d9246a6913a79f951304295"
+    "08f6c834-1c7a-44f2-acd4-7bbe50a07bc0": "ce591c8f010cb598874baf755a8f12509bbda614a8cd462eaa69a0053ebff404"
   }
 }

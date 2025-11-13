@@ -1,5 +1,6 @@
 scenarios:
   - scn_id: SCN-PUBLISH-HUB-001
+    path: docs/scenarios/publish/SCN-PUBLISH-HUB-001.md
     title: PowerX 插件开发与分发全链路
     title_en: PowerX Plugin Release Hub
     child_scenarios:
@@ -88,6 +89,7 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md
   - scn_id: SCN-DEV-PLUGIN-INIT-001
+    path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-INIT-001.md
     title: 插件创建与工程初始化
     title_en: Plugin Bootstrap & Initialization
     child_scenarios:
@@ -127,6 +129,7 @@ scenarios:
         path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md
 
   - scn_id: SCN-DEV-PLUGIN-DEBUG-001
+    path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-DEBUG-001.md
     title: 插件开发与调试主场景
     title_en: Plugin Development & Debugging
     child_scenarios:
@@ -165,6 +168,7 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md
   - scn_id: SCN-DEV-PLUGIN-PUBLISH-001
+    path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-PUBLISH-001.md
     title: 插件发布与上架主场景
     title_en: Plugin Publish & Release
     child_scenarios:
@@ -247,6 +251,7 @@ scenarios:
         repo: powerx-marketplace
         path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md
   - scn_id: SCN-DEV-PLUGIN-VERSION-COMPAT-001
+    path: docs/scenarios/plugin-lifecycle/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md
     title: 插件版本与兼容性管理主场景
     title_en: Plugin Version & Compatibility Management
     child_scenarios:
@@ -296,6 +301,7 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md
   - scn_id: SCN-INT-PLUGIN-CAPABILITY-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-CAPABILITY-001.md
     title: 插件能力注册与暴露治理闭环
     title_en: Plugin Capability Registration & Exposure Loop
     child_scenarios:
@@ -344,7 +350,66 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md
+  - scn_id: SCN-KNOWLEDGE-SPACE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md
+    title: 知识空间构建
+    title_en: Knowledge Space Build
+    child_scenarios:
+      - scn_id: SCN-KNOWLEDGE-SPACE-GOV-001
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-GOV-001.md
+      - scn_id: SCN-KNOWLEDGE-LONGDOC-001
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-LONGDOC-001.md
+      - scn_id: SCN-KNOWLEDGE-TABLE-001
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-TABLE-001.md
+      - scn_id: SCN-KNOWLEDGE-MULTISRC-001
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-MULTISRC-001.md
+      - scn_id: SCN-KNOWLEDGE-RAG-FEEDBACK-001
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-RAG-FEEDBACK-001.md
+    children:
+      - doc_id: UC-KNOWLEDGE-SPACE-BUILD-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-BUILD-001.md
+      - doc_id: UC-KNOWLEDGE-SPACE-GOV-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-SPACE-GOV-001.md
+      - doc_id: UC-KNOWLEDGE-LONGDOC-001
+        scope: powerx
+        layer: data
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-LONGDOC-001.md
+      - doc_id: UC-KNOWLEDGE-TABLE-001
+        scope: powerx
+        layer: data
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-TABLE-001.md
+      - doc_id: UC-KNOWLEDGE-MULTISRC-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-MULTISRC-001.md
+      - doc_id: UC-KNOWLEDGE-RAG-FEEDBACK-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
+    path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-001.md
     title: PowerX 多租户与组织管理
     title_en: PowerX Multi-Tenant & Organization Management
     child_scenarios:
@@ -394,6 +459,7 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md
   - scn_id: SCN-IAM-USER-ROLE-001
+    path: docs/scenarios/iam/SCN-IAM-USER-ROLE-001.md
     title: PowerX 用户与角色管理
     title_en: PowerX User & Role Management
     child_scenarios:
@@ -435,6 +501,7 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md
   - scn_id: SCN-IAM-LOGIN-AUTH-001
+    path: docs/scenarios/iam/SCN-IAM-LOGIN-AUTH-001.md
     title: PowerX 登录与认证
     title_en: PowerX Login & Authentication
     child_scenarios:
@@ -484,6 +551,7 @@ scenarios:
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md
   - scn_id: SCN-OPS-EVENT-TASKFLOW-001
+    path: docs/scenarios/runtime-ops/SCN-OPS-EVENT-TASKFLOW-001.md
     title: PowerX 事件与任务流管理
     title_en: PowerX Event & Taskflow Management
     child_scenarios:
@@ -532,7 +600,12 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md
+  - scn_id: SCN-OPS-RETRY-RECOVERY-001
+    path: docs/scenarios/runtime-ops/SCN-OPS-RETRY-RECOVERY-001.md
+    title: 任务重试与补偿闭环
+    title_en: Retry & Recovery Automation
   - scn_id: SCN-OPS-PLUGIN-LIFECYCLE-001
+    path: docs/scenarios/runtime-ops/SCN-OPS-PLUGIN-LIFECYCLE-001.md
     title: PowerX 插件安装与启停运营
     title_en: PowerX Plugin Installation & Operations
     child_scenarios:
@@ -631,3 +704,203 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md
+  - scn_id: SCN-AGENT-TASK-EXEC-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-TASK-EXEC-001.md
+    title: 智能体任务执行
+    title_en: Agent Task Execution
+    child_scenarios:
+      - scn_id: SCN-AGENT-EXEC-PLAN-001
+        title: 自然语言任务解析与插件匹配
+        title_en: Intent Parsing & Plugin Matching
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-PLAN-001.md
+      - scn_id: SCN-AGENT-EXEC-COORD-001
+        title: 多 Agent 并行执行与状态协调
+        title_en: Parallel Execution & Coordination
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-COORD-001.md
+      - scn_id: SCN-AGENT-EXEC-RECOVERY-001
+        title: 失败恢复与 Copilot 协同
+        title_en: Failure Recovery & Copilot Collaboration
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-RECOVERY-001.md
+      - scn_id: SCN-AGENT-EXEC-CLOSURE-001
+        title: 插件工作流闭环验证
+        title_en: Workflow Closure & Validation
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-EXEC-CLOSURE-001.md
+    children:
+      - doc_id: UC-AGENT-EXEC-PLAN-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md
+      - doc_id: UC-AGENT-EXEC-COORD-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md
+      - doc_id: UC-AGENT-EXEC-RECOVERY-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md
+      - doc_id: UC-AGENT-EXEC-CLOSURE-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md
+  - scn_id: SCN-AGENT-MODEL-HUB-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-HUB-001.md
+    title: 智能体模型与平台接入
+    title_en: Agent Model & Platform Hub
+    child_scenarios:
+      - scn_id: SCN-AGENT-MODEL-PROVIDER-001
+        title: 基础模型 Provider 接入与治理
+        title_en: Provider Onboarding & Governance
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-PROVIDER-001.md
+      - scn_id: SCN-AGENT-MODEL-ROUTING-001
+        title: 多模型路由与策略编排
+        title_en: Multi-Model Routing
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-ROUTING-001.md
+      - scn_id: SCN-AGENT-PLATFORM-COZE-001
+        title: 外部智能体平台接入
+        title_en: External Agent Platform Integration
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-PLATFORM-COZE-001.md
+      - scn_id: SCN-AGENT-MODEL-GOV-001
+        title: 模型成本与配额治理
+        title_en: Model Cost & Quota Governance
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-MODEL-GOV-001.md
+    children:
+      - doc_id: UC-AGENT-MODEL-PROVIDER-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-PROVIDER-001.md
+      - doc_id: UC-AGENT-MODEL-ROUTING-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001.md
+      - doc_id: UC-AGENT-PLATFORM-COZE-001
+        scope: powerx-plugin
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.md
+      - doc_id: UC-AGENT-MODEL-GOV-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-GOV-001.md
+  - scn_id: SCN-AGENT-REG-MGMT-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-REG-MGMT-001.md
+    title: 智能体注册与管理
+    title_en: Agent Registration & Lifecycle Governance
+    child_scenarios:
+      - scn_id: SCN-AGENT-REG-AUTO-001
+        title: 插件内置 Agent 自动注册
+        title_en: Plugin-Bundled Agent Auto-Registration
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REG-AUTO-001.md
+      - scn_id: SCN-AGENT-REG-TENANT-001
+        title: 租户自定义 Agent 创建与审批
+        title_en: Tenant-Defined Agent Creation & Approval
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REG-TENANT-001.md
+      - scn_id: SCN-AGENT-REG-LIFECYCLE-001
+        title: 运行状态监控与生命周期管理
+        title_en: Agent Runtime Monitoring & Lifecycle
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REG-LIFECYCLE-001.md
+      - scn_id: SCN-AGENT-REG-SHARE-001
+        title: 多租户 Agent 目录与共享策略
+        title_en: Multi-Tenant Agent Catalog & Sharing
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REG-SHARE-001.md
+    children:
+      - doc_id: UC-AGENT-REG-AUTO-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md
+      - doc_id: UC-AGENT-REG-TENANT-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md
+      - doc_id: UC-AGENT-REG-LIFECYCLE-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md
+      - doc_id: UC-AGENT-REG-SHARE-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md
+  - scn_id: SCN-AGENT-REACT-ORCH-001
+    path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ORCH-001.md
+    title: ReAct 智能体编排
+    title_en: ReAct Agent Orchestration
+    child_scenarios:
+      - scn_id: SCN-AGENT-REACT-THOUGHT-001
+        title: 思考链生成与知识检索启动
+        title_en: Thought & Retrieval Bootstrap
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-THOUGHT-001.md
+      - scn_id: SCN-AGENT-REACT-ACTION-001
+        title: 行动计划与插件调用
+        title_en: Action Planning & Tool Execution
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-ACTION-001.md
+      - scn_id: SCN-AGENT-REACT-MEMORY-001
+        title: 观察反馈与记忆更新
+        title_en: Observation Feedback & Memory Update
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-MEMORY-001.md
+      - scn_id: SCN-AGENT-REACT-AUDIT-001
+        title: 闭环交付与审计回放
+        title_en: Closure Delivery & Audit Playback
+        path: docs/scenarios/agent-orchestration/SCN-AGENT-REACT-AUDIT-001.md
+    children:
+      - doc_id: UC-AGENT-REACT-THOUGHT-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001.md
+      - doc_id: UC-AGENT-REACT-ACTION-001
+        scope: powerx
+        layer: integration
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001.md
+      - doc_id: UC-AGENT-REACT-MEMORY-001
+        scope: powerx
+        layer: service
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001.md
+      - doc_id: UC-AGENT-REACT-AUDIT-001
+        scope: powerx
+        layer: ops
+        domain: agent-orchestration
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md

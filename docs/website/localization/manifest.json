@@ -172,6 +172,2101 @@
       "slug": "security-and-governance/Security_and_Governance",
       "partnerSlug": "/security-and-governance/Security_and_Governance.md",
       "title": "Security_and_Governance"
+    },
+    "/_collected/_template.md": {
+      "slug": "_collected/_template",
+      "partnerSlug": "/_collected/_template.md",
+      "title": "_template"
+    },
+    "/scenarios/SCN-AGENT-MODEL-HUB-001.md": {
+      "slug": "scenarios/SCN-AGENT-MODEL-HUB-001",
+      "partnerSlug": "/scenarios/SCN-AGENT-MODEL-HUB-001.md",
+      "title": "SCN-AGENT-MODEL-HUB-001"
+    },
+    "/scenarios/SCN-AGENT-REACT-ORCH-001.md": {
+      "slug": "scenarios/SCN-AGENT-REACT-ORCH-001",
+      "partnerSlug": "/scenarios/SCN-AGENT-REACT-ORCH-001.md",
+      "title": "SCN-AGENT-REACT-ORCH-001"
+    },
+    "/scenarios/SCN-AGENT-REG-MGMT-001.md": {
+      "slug": "scenarios/SCN-AGENT-REG-MGMT-001",
+      "partnerSlug": "/scenarios/SCN-AGENT-REG-MGMT-001.md",
+      "title": "SCN-AGENT-REG-MGMT-001"
+    },
+    "/scenarios/SCN-AGENT-TASK-EXEC-001.md": {
+      "slug": "scenarios/SCN-AGENT-TASK-EXEC-001",
+      "partnerSlug": "/scenarios/SCN-AGENT-TASK-EXEC-001.md",
+      "title": "SCN-AGENT-TASK-EXEC-001"
+    },
+    "/scenarios/SCN-DEV-PLUGIN-DEBUG-001.md": {
+      "slug": "scenarios/SCN-DEV-PLUGIN-DEBUG-001",
+      "partnerSlug": "/scenarios/SCN-DEV-PLUGIN-DEBUG-001.md",
+      "title": "SCN-DEV-PLUGIN-DEBUG-001"
+    },
+    "/scenarios/SCN-DEV-PLUGIN-INIT-001.md": {
+      "slug": "scenarios/SCN-DEV-PLUGIN-INIT-001",
+      "partnerSlug": "/scenarios/SCN-DEV-PLUGIN-INIT-001.md",
+      "title": "SCN-DEV-PLUGIN-INIT-001"
+    },
+    "/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md": {
+      "slug": "scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "partnerSlug": "/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md",
+      "title": "SCN-DEV-PLUGIN-VERSION-COMPAT-001"
+    },
+    "/scenarios/SCN-IAM-LOGIN-AUTH-001.md": {
+      "slug": "scenarios/SCN-IAM-LOGIN-AUTH-001",
+      "partnerSlug": "/scenarios/SCN-IAM-LOGIN-AUTH-001.md",
+      "title": "SCN-IAM-LOGIN-AUTH-001"
+    },
+    "/scenarios/SCN-IAM-MULTI-TENANT-001.md": {
+      "slug": "scenarios/SCN-IAM-MULTI-TENANT-001",
+      "partnerSlug": "/scenarios/SCN-IAM-MULTI-TENANT-001.md",
+      "title": "SCN-IAM-MULTI-TENANT-001"
+    },
+    "/scenarios/SCN-IAM-USER-ROLE-001.md": {
+      "slug": "scenarios/SCN-IAM-USER-ROLE-001",
+      "partnerSlug": "/scenarios/SCN-IAM-USER-ROLE-001.md",
+      "title": "SCN-IAM-USER-ROLE-001"
+    },
+    "/scenarios/SCN-INT-PLUGIN-CAPABILITY-001.md": {
+      "slug": "scenarios/SCN-INT-PLUGIN-CAPABILITY-001",
+      "partnerSlug": "/scenarios/SCN-INT-PLUGIN-CAPABILITY-001.md",
+      "title": "SCN-INT-PLUGIN-CAPABILITY-001"
+    },
+    "/scenarios/SCN-OPS-EVENT-TASKFLOW-001.md": {
+      "slug": "scenarios/SCN-OPS-EVENT-TASKFLOW-001",
+      "partnerSlug": "/scenarios/SCN-OPS-EVENT-TASKFLOW-001.md",
+      "title": "SCN-OPS-EVENT-TASKFLOW-001"
+    },
+    "/scenarios/SCN-OPS-RETRY-RECOVERY-001.md": {
+      "slug": "scenarios/SCN-OPS-RETRY-RECOVERY-001",
+      "partnerSlug": "/scenarios/SCN-OPS-RETRY-RECOVERY-001.md",
+      "title": "SCN-OPS-RETRY-RECOVERY-001"
+    },
+    "/scenarios/SCN-OPS-SYSTEM-MONITORING-001.md": {
+      "slug": "scenarios/SCN-OPS-SYSTEM-MONITORING-001",
+      "partnerSlug": "/scenarios/SCN-OPS-SYSTEM-MONITORING-001.md",
+      "title": "SCN-OPS-SYSTEM-MONITORING-001"
+    },
+    "/zh/core-concepts/00_overview.md": {
+      "slug": "zh/core-concepts/00_overview",
+      "partnerSlug": "/zh/core-concepts/00_overview.md",
+      "title": "00_overview"
+    },
+    "/zh/core-concepts/Agent_Manager_and_Lifecycle_Spec.md": {
+      "slug": "zh/core-concepts/Agent_Manager_and_Lifecycle_Spec",
+      "partnerSlug": "/zh/core-concepts/Agent_Manager_and_Lifecycle_Spec.md",
+      "title": "Agent_Manager_and_Lifecycle_Spec"
+    },
+    "/zh/core-concepts/PowerX_Integration_Architecture.md": {
+      "slug": "zh/core-concepts/PowerX_Integration_Architecture",
+      "partnerSlug": "/zh/core-concepts/PowerX_Integration_Architecture.md",
+      "title": "PowerX_Integration_Architecture"
+    },
+    "/zh/core-concepts/": {
+      "slug": "zh/core-concepts/index",
+      "partnerSlug": "/zh/core-concepts/",
+      "title": "index"
+    },
+    "/zh/core-concepts/spec-driven-development.md": {
+      "slug": "zh/core-concepts/spec-driven-development",
+      "partnerSlug": "/zh/core-concepts/spec-driven-development.md",
+      "title": "spec-driven-development"
+    },
+    "/zh/core-concepts/workflow-overview.md": {
+      "slug": "zh/core-concepts/workflow-overview",
+      "partnerSlug": "/zh/core-concepts/workflow-overview.md",
+      "title": "workflow-overview"
+    },
+    "/zh/developers/api-and-specifications/02_capability/Capability_Contract_Spec.md": {
+      "slug": "zh/developers/api-and-specifications/02_capability/Capability_Contract_Spec",
+      "partnerSlug": "/zh/developers/api-and-specifications/02_capability/Capability_Contract_Spec.md",
+      "title": "Capability_Contract_Spec"
+    },
+    "/zh/developers/api-and-specifications/02_capability/Transport_Adapter_Spec.md": {
+      "slug": "zh/developers/api-and-specifications/02_capability/Transport_Adapter_Spec",
+      "partnerSlug": "/zh/developers/api-and-specifications/02_capability/Transport_Adapter_Spec.md",
+      "title": "Transport_Adapter_Spec"
+    },
+    "/zh/developers/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md": {
+      "slug": "zh/developers/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design",
+      "partnerSlug": "/zh/developers/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md",
+      "title": "Capability_Registry_and_Router_Design"
+    },
+    "/zh/developers/api-and-specifications/03_registry_router/Runtime_Endpoint_Management.md": {
+      "slug": "zh/developers/api-and-specifications/03_registry_router/Runtime_Endpoint_Management",
+      "partnerSlug": "/zh/developers/api-and-specifications/03_registry_router/Runtime_Endpoint_Management.md",
+      "title": "Runtime_Endpoint_Management"
+    },
+    "/zh/developers/api-and-specifications/04_orchestration/Flow_and_State_Model.md": {
+      "slug": "zh/developers/api-and-specifications/04_orchestration/Flow_and_State_Model",
+      "partnerSlug": "/zh/developers/api-and-specifications/04_orchestration/Flow_and_State_Model.md",
+      "title": "Flow_and_State_Model"
+    },
+    "/zh/developers/api-and-specifications/04_orchestration/Orchestrator_Service_Interface.md": {
+      "slug": "zh/developers/api-and-specifications/04_orchestration/Orchestrator_Service_Interface",
+      "partnerSlug": "/zh/developers/api-and-specifications/04_orchestration/Orchestrator_Service_Interface.md",
+      "title": "Orchestrator_Service_Interface"
+    },
+    "/zh/developers/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md": {
+      "slug": "zh/developers/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway",
+      "partnerSlug": "/zh/developers/api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md",
+      "title": "Realtime_Streaming_Gateway"
+    },
+    "/zh/developers/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec.md": {
+      "slug": "zh/developers/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec",
+      "partnerSlug": "/zh/developers/api-and-specifications/04_orchestration/Workflow_and_Agent_Orchestration_Spec.md",
+      "title": "Workflow_and_Agent_Orchestration_Spec"
+    },
+    "/zh/developers/api-and-specifications/06_gateway/EventBus_and_Message_Fabric.md": {
+      "slug": "zh/developers/api-and-specifications/06_gateway/EventBus_and_Message_Fabric",
+      "partnerSlug": "/zh/developers/api-and-specifications/06_gateway/EventBus_and_Message_Fabric.md",
+      "title": "EventBus_and_Message_Fabric"
+    },
+    "/zh/developers/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface.md": {
+      "slug": "zh/developers/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface",
+      "partnerSlug": "/zh/developers/api-and-specifications/06_gateway/Integration_API_and_Admin_Interface.md",
+      "title": "Integration_API_and_Admin_Interface"
+    },
+    "/zh/developers/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design.md": {
+      "slug": "zh/developers/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design",
+      "partnerSlug": "/zh/developers/api-and-specifications/06_gateway/MCP_Server_and_Gateway_Design.md",
+      "title": "MCP_Server_and_Gateway_Design"
+    },
+    "/zh/developers/api-and-specifications/README.md": {
+      "slug": "zh/developers/api-and-specifications/README",
+      "partnerSlug": "/zh/developers/api-and-specifications/README.md",
+      "title": "README"
+    },
+    "/zh/developers/api-and-specifications/": {
+      "slug": "zh/developers/api-and-specifications/index",
+      "partnerSlug": "/zh/developers/api-and-specifications/",
+      "title": "index"
+    },
+    "/zh/developers/api-examples.md": {
+      "slug": "zh/developers/api-examples",
+      "partnerSlug": "/zh/developers/api-examples.md",
+      "title": "api-examples"
+    },
+    "/zh/developers/": {
+      "slug": "zh/developers/index",
+      "partnerSlug": "/zh/developers/",
+      "title": "index"
+    },
+    "/zh/developers/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md": {
+      "slug": "zh/developers/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal",
+      "partnerSlug": "/zh/developers/pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md",
+      "title": "PXIP-001_Unified_Capability_and_Transport_Proposal"
+    },
+    "/zh/developers/pxip/README.md": {
+      "slug": "zh/developers/pxip/README",
+      "partnerSlug": "/zh/developers/pxip/README.md",
+      "title": "README"
+    },
+    "/zh/guides/Agent_Developer_Guide.md": {
+      "slug": "zh/guides/Agent_Developer_Guide",
+      "partnerSlug": "/zh/guides/Agent_Developer_Guide.md",
+      "title": "Agent_Developer_Guide"
+    },
+    "/zh/guides/Plugin_Runtime_Guide.md": {
+      "slug": "zh/guides/Plugin_Runtime_Guide",
+      "partnerSlug": "/zh/guides/Plugin_Runtime_Guide.md",
+      "title": "Plugin_Runtime_Guide"
+    },
+    "/zh/guides/Plugin_Test_and_Debug_Guide.md": {
+      "slug": "zh/guides/Plugin_Test_and_Debug_Guide",
+      "partnerSlug": "/zh/guides/Plugin_Test_and_Debug_Guide.md",
+      "title": "Plugin_Test_and_Debug_Guide"
+    },
+    "/zh/guides/PowerX_Plugin_SDK_Guide.md": {
+      "slug": "zh/guides/PowerX_Plugin_SDK_Guide",
+      "partnerSlug": "/zh/guides/PowerX_Plugin_SDK_Guide.md",
+      "title": "PowerX_Plugin_SDK_Guide"
+    },
+    "/zh/guides/": {
+      "slug": "zh/guides/index",
+      "partnerSlug": "/zh/guides/",
+      "title": "index"
+    },
+    "/zh/guides/publish/": {
+      "slug": "zh/guides/publish/index",
+      "partnerSlug": "/zh/guides/publish/",
+      "title": "index"
+    },
+    "/zh/guides/publish/local-dev-debug.md": {
+      "slug": "zh/guides/publish/local-dev-debug",
+      "partnerSlug": "/zh/guides/publish/local-dev-debug.md",
+      "title": "local-dev-debug"
+    },
+    "/zh/guides/publish/offline-publish.md": {
+      "slug": "zh/guides/publish/offline-publish",
+      "partnerSlug": "/zh/guides/publish/offline-publish.md",
+      "title": "offline-publish"
+    },
+    "/zh/guides/publish/online-publish.md": {
+      "slug": "zh/guides/publish/online-publish",
+      "partnerSlug": "/zh/guides/publish/online-publish.md",
+      "title": "online-publish"
+    },
+    "/zh/guides/publish/plugin-metadata.md": {
+      "slug": "zh/guides/publish/plugin-metadata",
+      "partnerSlug": "/zh/guides/publish/plugin-metadata.md",
+      "title": "plugin-metadata"
+    },
+    "/zh/guides/publish/standards-distribution.md": {
+      "slug": "zh/guides/publish/standards-distribution",
+      "partnerSlug": "/zh/guides/publish/standards-distribution.md",
+      "title": "standards-distribution"
+    },
+    "/zh/guides/publish/version-compatibility.md": {
+      "slug": "zh/guides/publish/version-compatibility",
+      "partnerSlug": "/zh/guides/publish/version-compatibility.md",
+      "title": "version-compatibility"
+    },
+    "/zh/guides/scenarios/docmap-maintenance.md": {
+      "slug": "zh/guides/scenarios/docmap-maintenance",
+      "partnerSlug": "/zh/guides/scenarios/docmap-maintenance.md",
+      "title": "docmap-maintenance"
+    },
+    "/zh/guides/scenarios/scenario-generation.md": {
+      "slug": "zh/guides/scenarios/scenario-generation",
+      "partnerSlug": "/zh/guides/scenarios/scenario-generation.md",
+      "title": "scenario-generation"
+    },
+    "/zh/guides/usecases/generate-usecase-seeds.md": {
+      "slug": "zh/guides/usecases/generate-usecase-seeds",
+      "partnerSlug": "/zh/guides/usecases/generate-usecase-seeds.md",
+      "title": "generate-usecase-seeds"
+    },
+    "/zh/guides/usecases/publish-usecase-seeds.md": {
+      "slug": "zh/guides/usecases/publish-usecase-seeds",
+      "partnerSlug": "/zh/guides/usecases/publish-usecase-seeds.md",
+      "title": "publish-usecase-seeds"
+    },
+    "/zh/guides/usecases/seed-index-maintenance.md": {
+      "slug": "zh/guides/usecases/seed-index-maintenance",
+      "partnerSlug": "/zh/guides/usecases/seed-index-maintenance.md",
+      "title": "seed-index-maintenance"
+    },
+    "/zh/": {
+      "slug": "zh/index",
+      "partnerSlug": "/zh/",
+      "title": "index"
+    },
+    "/zh/library/": {
+      "slug": "zh/library/index",
+      "partnerSlug": "/zh/library/",
+      "title": "index"
+    },
+    "/zh/markdown-examples.md": {
+      "slug": "zh/markdown-examples",
+      "partnerSlug": "/zh/markdown-examples.md",
+      "title": "markdown-examples"
+    },
+    "/zh/operations/": {
+      "slug": "zh/operations/index",
+      "partnerSlug": "/zh/operations/",
+      "title": "index"
+    },
+    "/zh/operations/service-port-matrix.md": {
+      "slug": "zh/operations/service-port-matrix",
+      "partnerSlug": "/zh/operations/service-port-matrix.md",
+      "title": "service-port-matrix"
+    },
+    "/zh/overview/": {
+      "slug": "zh/overview/index",
+      "partnerSlug": "/zh/overview/",
+      "title": "index"
+    },
+    "/zh/overview/roadmap.md": {
+      "slug": "zh/overview/roadmap",
+      "partnerSlug": "/zh/overview/roadmap.md",
+      "title": "roadmap"
+    },
+    "/zh/resources/": {
+      "slug": "zh/resources/index",
+      "partnerSlug": "/zh/resources/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-GOV-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-GOV-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-GOV-001.md",
+      "title": "SCN-AGENT-MODEL-GOV-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-PROVIDER-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-PROVIDER-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-PROVIDER-001.md",
+      "title": "SCN-AGENT-MODEL-PROVIDER-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-ROUTING-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-ROUTING-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-MODEL-ROUTING-001.md",
+      "title": "SCN-AGENT-MODEL-ROUTING-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-PLATFORM-COZE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-PLATFORM-COZE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/SCN-AGENT-PLATFORM-COZE-001.md",
+      "title": "SCN-AGENT-PLATFORM-COZE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-GOV-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-GOV-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-GOV-001.md",
+      "title": "UC-AGENT-MODEL-GOV-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-PROVIDER-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-PROVIDER-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-PROVIDER-001.md",
+      "title": "UC-AGENT-MODEL-PROVIDER-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-MODEL-ROUTING-001.md",
+      "title": "UC-AGENT-MODEL-ROUTING-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/UC-AGENT-PLATFORM-COZE-001.md",
+      "title": "UC-AGENT-PLATFORM-COZE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-AGENT-MODEL-HUB-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-MODEL-HUB-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-MODEL-HUB-001.md",
+      "title": "SCN-AGENT-MODEL-HUB-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-ACTION-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-ACTION-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-ACTION-001.md",
+      "title": "SCN-AGENT-REACT-ACTION-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-AUDIT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-AUDIT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-AUDIT-001.md",
+      "title": "SCN-AGENT-REACT-AUDIT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-MEMORY-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-MEMORY-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-MEMORY-001.md",
+      "title": "SCN-AGENT-REACT-MEMORY-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-THOUGHT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-THOUGHT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/SCN-AGENT-REACT-THOUGHT-001.md",
+      "title": "SCN-AGENT-REACT-THOUGHT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-ACTION-001.md",
+      "title": "UC-AGENT-REACT-ACTION-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md",
+      "title": "UC-AGENT-REACT-AUDIT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-MEMORY-001.md",
+      "title": "UC-AGENT-REACT-MEMORY-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-THOUGHT-001.md",
+      "title": "UC-AGENT-REACT-THOUGHT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-AGENT-REACT-ORCH-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REACT-ORCH-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REACT-ORCH-001.md",
+      "title": "SCN-AGENT-REACT-ORCH-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-AUTO-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-AUTO-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-AUTO-001.md",
+      "title": "SCN-AGENT-REG-AUTO-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-LIFECYCLE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-LIFECYCLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-LIFECYCLE-001.md",
+      "title": "SCN-AGENT-REG-LIFECYCLE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-SHARE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-SHARE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-SHARE-001.md",
+      "title": "SCN-AGENT-REG-SHARE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-TENANT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-TENANT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/SCN-AGENT-REG-TENANT-001.md",
+      "title": "SCN-AGENT-REG-TENANT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-AUTO-001.md",
+      "title": "UC-AGENT-REG-AUTO-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-LIFECYCLE-001.md",
+      "title": "UC-AGENT-REG-LIFECYCLE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-SHARE-001.md",
+      "title": "UC-AGENT-REG-SHARE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/UC-AGENT-REG-TENANT-001.md",
+      "title": "UC-AGENT-REG-TENANT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001/": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-AGENT-REG-MGMT-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-REG-MGMT-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-REG-MGMT-001.md",
+      "title": "SCN-AGENT-REG-MGMT-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-CLOSURE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-CLOSURE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-CLOSURE-001.md",
+      "title": "SCN-AGENT-EXEC-CLOSURE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-COORD-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-COORD-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-COORD-001.md",
+      "title": "SCN-AGENT-EXEC-COORD-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-PLAN-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-PLAN-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-PLAN-001.md",
+      "title": "SCN-AGENT-EXEC-PLAN-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-RECOVERY-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-RECOVERY-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/SCN-AGENT-EXEC-RECOVERY-001.md",
+      "title": "SCN-AGENT-EXEC-RECOVERY-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-CLOSURE-001.md",
+      "title": "UC-AGENT-EXEC-CLOSURE-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-COORD-001.md",
+      "title": "UC-AGENT-EXEC-COORD-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-PLAN-001.md",
+      "title": "UC-AGENT-EXEC-PLAN-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/UC-AGENT-EXEC-RECOVERY-001.md",
+      "title": "UC-AGENT-EXEC-RECOVERY-001"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-AGENT-TASK-EXEC-001.md": {
+      "slug": "zh/scenarios/SCN-AGENT-TASK-EXEC-001",
+      "partnerSlug": "/zh/scenarios/SCN-AGENT-TASK-EXEC-001.md",
+      "title": "SCN-AGENT-TASK-EXEC-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md",
+      "title": "SCN-DEV-PLUGIN-ERROR-DIAGNOSTICS-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-HOT-RELOAD-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-HOT-RELOAD-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-HOT-RELOAD-001.md",
+      "title": "SCN-DEV-PLUGIN-HOT-RELOAD-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001.md",
+      "title": "SCN-DEV-PLUGIN-SANDBOX-VALIDATION-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001.md",
+      "title": "UC-DEV-PLUGIN-ERROR-DIAGNOSTICS-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-HOT-RELOAD-001.md",
+      "title": "UC-DEV-PLUGIN-HOT-RELOAD-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/UC-DEV-PLUGIN-SANDBOX-VALIDATION-001.md",
+      "title": "UC-DEV-PLUGIN-SANDBOX-VALIDATION-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-DEBUG-001.md",
+      "title": "SCN-DEV-PLUGIN-DEBUG-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-CLI-INIT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-CLI-INIT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-CLI-INIT-001.md",
+      "title": "SCN-DEV-PLUGIN-CLI-INIT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-TEAM-CLONE-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-TEAM-CLONE-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-TEAM-CLONE-001.md",
+      "title": "SCN-DEV-PLUGIN-TEAM-CLONE-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md",
+      "title": "SCN-DEV-PLUGIN-THIRD-PARTY-IMPORT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-CLI-INIT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-CLI-INIT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-CLI-INIT-001.md",
+      "title": "UC-DEV-PLUGIN-CLI-INIT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-TEAM-CLONE-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-TEAM-CLONE-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-TEAM-CLONE-001.md",
+      "title": "UC-DEV-PLUGIN-TEAM-CLONE-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001.md",
+      "title": "UC-DEV-PLUGIN-THIRD-PARTY-IMPORT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-INIT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-INIT-001.md",
+      "title": "SCN-DEV-PLUGIN-INIT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-CICD-CANARY-001.md",
+      "title": "SCN-DEV-PLUGIN-CICD-CANARY-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+      "title": "SCN-DEV-PLUGIN-LOCAL-DEBUG-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+      "title": "SCN-DEV-PLUGIN-MARKETPLACE-LISTING-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+      "title": "SCN-DEV-PLUGIN-OFFLINE-IMPORT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+      "title": "SCN-DEV-PLUGIN-OFFLINE-MARKETPLACE-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+      "title": "SCN-DEV-PLUGIN-ONLINE-PUBLISH-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/SCN-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+      "title": "SCN-DEV-PLUGIN-RELEASE-APPROVAL-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-CICD-CANARY-001.md",
+      "title": "UC-DEV-PLUGIN-CICD-CANARY-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-LOCAL-DEBUG-001.md",
+      "title": "UC-DEV-PLUGIN-LOCAL-DEBUG-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-MARKETPLACE-LISTING-001.md",
+      "title": "UC-DEV-PLUGIN-MARKETPLACE-LISTING-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-IMPORT-001.md",
+      "title": "UC-DEV-PLUGIN-OFFLINE-IMPORT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001.md",
+      "title": "UC-DEV-PLUGIN-OFFLINE-MARKETPLACE-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-ONLINE-PUBLISH-001.md",
+      "title": "UC-DEV-PLUGIN-ONLINE-PUBLISH-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/UC-DEV-PLUGIN-RELEASE-APPROVAL-001.md",
+      "title": "UC-DEV-PLUGIN-RELEASE-APPROVAL-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-PUBLISH-001.md",
+      "title": "SCN-DEV-PLUGIN-PUBLISH-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md",
+      "title": "SCN-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-DETECT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-DETECT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-DETECT-001.md",
+      "title": "SCN-DEV-PLUGIN-VERSION-DETECT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-GRAY-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-GRAY-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-GRAY-001.md",
+      "title": "SCN-DEV-PLUGIN-VERSION-GRAY-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md",
+      "title": "SCN-DEV-PLUGIN-VERSION-MULTI-TENANT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001.md",
+      "title": "UC-DEV-PLUGIN-VERSION-COMPAT-BLOCK-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-DETECT-001.md",
+      "title": "UC-DEV-PLUGIN-VERSION-DETECT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-GRAY-001.md",
+      "title": "UC-DEV-PLUGIN-VERSION-GRAY-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001.md",
+      "title": "UC-DEV-PLUGIN-VERSION-MULTI-TENANT-001"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md": {
+      "slug": "zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001",
+      "partnerSlug": "/zh/scenarios/SCN-DEV-PLUGIN-VERSION-COMPAT-001.md",
+      "title": "SCN-DEV-PLUGIN-VERSION-COMPAT-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-API-TOKEN-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-API-TOKEN-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-API-TOKEN-001.md",
+      "title": "SCN-IAM-LOGIN-API-TOKEN-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-MFA-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-MFA-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-MFA-001.md",
+      "title": "SCN-IAM-LOGIN-MFA-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-RISK-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-RISK-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-RISK-001.md",
+      "title": "SCN-IAM-LOGIN-RISK-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-SSO-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-SSO-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/SCN-IAM-LOGIN-SSO-001.md",
+      "title": "SCN-IAM-LOGIN-SSO-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-API-TOKEN-001.md",
+      "title": "UC-IAM-LOGIN-API-TOKEN-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-MFA-001.md",
+      "title": "UC-IAM-LOGIN-MFA-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-RISK-001.md",
+      "title": "UC-IAM-LOGIN-RISK-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/UC-IAM-LOGIN-SSO-001.md",
+      "title": "UC-IAM-LOGIN-SSO-001"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-LOGIN-AUTH-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-LOGIN-AUTH-001.md",
+      "title": "SCN-IAM-LOGIN-AUTH-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+      "title": "SCN-IAM-MULTI-TENANT-CROSS-SHARE-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ONBOARD-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ONBOARD-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ONBOARD-001.md",
+      "title": "SCN-IAM-MULTI-TENANT-ONBOARD-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+      "title": "SCN-IAM-MULTI-TENANT-ORG-MODELING-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+      "title": "SCN-IAM-MULTI-TENANT-RENEWAL-FREEZE-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-CROSS-SHARE-001.md",
+      "title": "UC-IAM-MULTI-TENANT-CROSS-SHARE-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ONBOARD-001.md",
+      "title": "UC-IAM-MULTI-TENANT-ONBOARD-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-ORG-MODELING-001.md",
+      "title": "UC-IAM-MULTI-TENANT-ORG-MODELING-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001.md",
+      "title": "UC-IAM-MULTI-TENANT-RENEWAL-FREEZE-001"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-IAM-MULTI-TENANT-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-MULTI-TENANT-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-MULTI-TENANT-001.md",
+      "title": "SCN-IAM-MULTI-TENANT-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-BULK-AUTH-001.md",
+      "title": "SCN-IAM-USER-ROLE-BULK-AUTH-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+      "title": "SCN-IAM-USER-ROLE-DIRECTORY-SYNC-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-IMPORT-001.md",
+      "title": "SCN-IAM-USER-ROLE-IMPORT-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/SCN-IAM-USER-ROLE-OFFBOARD-001.md",
+      "title": "SCN-IAM-USER-ROLE-OFFBOARD-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-BULK-AUTH-001.md",
+      "title": "UC-IAM-USER-ROLE-BULK-AUTH-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-DIRECTORY-SYNC-001.md",
+      "title": "UC-IAM-USER-ROLE-DIRECTORY-SYNC-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-IMPORT-001.md",
+      "title": "UC-IAM-USER-ROLE-IMPORT-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001/UC-IAM-USER-ROLE-OFFBOARD-001.md",
+      "title": "UC-IAM-USER-ROLE-OFFBOARD-001"
+    },
+    "/zh/scenarios/SCN-IAM-USER-ROLE-001.md": {
+      "slug": "zh/scenarios/SCN-IAM-USER-ROLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-IAM-USER-ROLE-001.md",
+      "title": "SCN-IAM-USER-ROLE-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md",
+      "title": "SCN-INT-PLUGIN-CAPABILITY-EXPOSURE-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md",
+      "title": "SCN-INT-PLUGIN-CAPABILITY-LIFECYCLE-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-MODELING-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-MODELING-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-MODELING-001.md",
+      "title": "SCN-INT-PLUGIN-CAPABILITY-MODELING-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-REVIEW-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-REVIEW-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/SCN-INT-PLUGIN-CAPABILITY-REVIEW-001.md",
+      "title": "SCN-INT-PLUGIN-CAPABILITY-REVIEW-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001.md",
+      "title": "UC-INT-PLUGIN-CAPABILITY-EXPOSURE-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md",
+      "title": "UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-MODELING-001.md",
+      "title": "UC-INT-PLUGIN-CAPABILITY-MODELING-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-REVIEW-001.md",
+      "title": "UC-INT-PLUGIN-CAPABILITY-REVIEW-001"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001.md": {
+      "slug": "zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001",
+      "partnerSlug": "/zh/scenarios/SCN-INT-PLUGIN-CAPABILITY-001.md",
+      "title": "SCN-INT-PLUGIN-CAPABILITY-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-AGENT-ORCHESTRATION-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-AGENT-ORCHESTRATION-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-AGENT-ORCHESTRATION-001.md",
+      "title": "SCN-OPS-AGENT-ORCHESTRATION-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-EVENT-NOTIFY-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-EVENT-NOTIFY-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-EVENT-NOTIFY-001.md",
+      "title": "SCN-OPS-EVENT-NOTIFY-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-RETRY-RECOVERY-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-RETRY-RECOVERY-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-RETRY-RECOVERY-001.md",
+      "title": "SCN-OPS-RETRY-RECOVERY-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-TASK-SCHEDULE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-TASK-SCHEDULE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/SCN-OPS-TASK-SCHEDULE-001.md",
+      "title": "SCN-OPS-TASK-SCHEDULE-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-AGENT-ORCHESTRATION-001.md",
+      "title": "UC-OPS-AGENT-ORCHESTRATION-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-EVENT-NOTIFY-001.md",
+      "title": "UC-OPS-EVENT-NOTIFY-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-RETRY-RECOVERY-001.md",
+      "title": "UC-OPS-RETRY-RECOVERY-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/UC-OPS-TASK-SCHEDULE-001.md",
+      "title": "UC-OPS-TASK-SCHEDULE-001"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-EVENT-TASKFLOW-001.md",
+      "title": "SCN-OPS-EVENT-TASKFLOW-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-AUTO-UPGRADE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-AUTO-UPGRADE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-AUTO-UPGRADE-001.md",
+      "title": "SCN-OPS-PLUGIN-AUTO-UPGRADE-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-DEV-INSTALL-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-DEV-INSTALL-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-DEV-INSTALL-001.md",
+      "title": "SCN-OPS-PLUGIN-DEV-INSTALL-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md",
+      "title": "SCN-OPS-PLUGIN-MARKETPLACE-INSTALL-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-RISK-SUSPEND-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-RISK-SUSPEND-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/SCN-OPS-PLUGIN-RISK-SUSPEND-001.md",
+      "title": "SCN-OPS-PLUGIN-RISK-SUSPEND-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-AUTO-UPGRADE-001.md",
+      "title": "UC-OPS-PLUGIN-AUTO-UPGRADE-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-DEV-INSTALL-001.md",
+      "title": "UC-OPS-PLUGIN-DEV-INSTALL-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001.md",
+      "title": "UC-OPS-PLUGIN-MARKETPLACE-INSTALL-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001/UC-OPS-PLUGIN-RISK-SUSPEND-001.md",
+      "title": "UC-OPS-PLUGIN-RISK-SUSPEND-001"
+    },
+    "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-PLUGIN-LIFECYCLE-001.md",
+      "title": "SCN-OPS-PLUGIN-LIFECYCLE-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001.md",
+      "title": "SCN-OPS-SYSTEM-MONITORING-DASHBOARD-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001.md",
+      "title": "SCN-OPS-SYSTEM-MONITORING-REMOTE-RESTART-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-THROTTLE-001.md",
+      "title": "SCN-OPS-SYSTEM-MONITORING-THROTTLE-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001.md",
+      "title": "SCN-OPS-SYSTEM-MONITORING-WEBHOOK-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-DASHBOARD-001.md",
+      "title": "UC-OPS-MONITORING-DASHBOARD-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md",
+      "title": "UC-OPS-MONITORING-REMOTE-RESTART-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-THROTTLE-001.md",
+      "title": "UC-OPS-MONITORING-THROTTLE-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-WEBHOOK-001.md",
+      "title": "UC-OPS-MONITORING-WEBHOOK-001"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001.md": {
+      "slug": "zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001",
+      "partnerSlug": "/zh/scenarios/SCN-OPS-SYSTEM-MONITORING-001.md",
+      "title": "SCN-OPS-SYSTEM-MONITORING-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/MKP-PUBLISH-OFFLINE-001.md",
+      "title": "MKP-PUBLISH-OFFLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/MKP-PUBLISH-ONLINE-001.md",
+      "title": "MKP-PUBLISH-ONLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PLG-DEV-HOTLOAD-001.md",
+      "title": "PLG-DEV-HOTLOAD-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PLG-PUBLISH-OFFLINE-001.md",
+      "title": "PLG-PUBLISH-OFFLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PLG-PUBLISH-ONLINE-001.md",
+      "title": "PLG-PUBLISH-ONLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-001.md",
+      "title": "PX-DEV-HOTLOAD-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-UI-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-UI-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-DEV-HOTLOAD-UI-001.md",
+      "title": "PX-DEV-HOTLOAD-UI-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-001.md",
+      "title": "PX-PUBLISH-OFFLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-UI-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-UI-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-OFFLINE-UI-001.md",
+      "title": "PX-PUBLISH-OFFLINE-UI-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-001.md",
+      "title": "PX-PUBLISH-ONLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/PX-PUBLISH-ONLINE-UI-001.md",
+      "title": "PX-PUBLISH-ONLINE-UI-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/SCN-DEV-HOTLOAD-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/SCN-DEV-HOTLOAD-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/SCN-DEV-HOTLOAD-001.md",
+      "title": "SCN-DEV-HOTLOAD-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/SCN-PUBLISH-OFFLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/SCN-PUBLISH-OFFLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/SCN-PUBLISH-OFFLINE-001.md",
+      "title": "SCN-PUBLISH-OFFLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/SCN-PUBLISH-ONLINE-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/SCN-PUBLISH-ONLINE-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/SCN-PUBLISH-ONLINE-001.md",
+      "title": "SCN-PUBLISH-ONLINE-001"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001/": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001/index",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001/",
+      "title": "index"
+    },
+    "/zh/scenarios/SCN-PUBLISH-HUB-001.md": {
+      "slug": "zh/scenarios/SCN-PUBLISH-HUB-001",
+      "partnerSlug": "/zh/scenarios/SCN-PUBLISH-HUB-001.md",
+      "title": "SCN-PUBLISH-HUB-001"
+    },
+    "/zh/scenarios/_catalog.md": {
+      "slug": "zh/scenarios/_catalog",
+      "partnerSlug": "/zh/scenarios/_catalog.md",
+      "title": "_catalog"
+    },
+    "/zh/scenarios/": {
+      "slug": "zh/scenarios/index",
+      "partnerSlug": "/zh/scenarios/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/admin-integration/access-control-compliance/primary.md": {
+      "slug": "zh/scenarios/meta/crm/admin-integration/access-control-compliance/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/admin-integration/access-control-compliance/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/admin-integration/ecosystem-data-synchronization/primary.md": {
+      "slug": "zh/scenarios/meta/crm/admin-integration/ecosystem-data-synchronization/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/admin-integration/ecosystem-data-synchronization/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/admin-integration/": {
+      "slug": "zh/scenarios/meta/crm/admin-integration/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/admin-integration/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/admin-integration/workflow-automation-orchestration/primary.md": {
+      "slug": "zh/scenarios/meta/crm/admin-integration/workflow-automation-orchestration/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/admin-integration/workflow-automation-orchestration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/analytics-revenue-intelligence/customer-value-churn-analysis/primary.md": {
+      "slug": "zh/scenarios/meta/crm/analytics-revenue-intelligence/customer-value-churn-analysis/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/analytics-revenue-intelligence/customer-value-churn-analysis/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/analytics-revenue-intelligence/": {
+      "slug": "zh/scenarios/meta/crm/analytics-revenue-intelligence/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/analytics-revenue-intelligence/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/analytics-revenue-intelligence/performance-incentive-settlement/primary.md": {
+      "slug": "zh/scenarios/meta/crm/analytics-revenue-intelligence/performance-incentive-settlement/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/analytics-revenue-intelligence/performance-incentive-settlement/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/analytics-revenue-intelligence/sales-forecasting-target-management/primary.md": {
+      "slug": "zh/scenarios/meta/crm/analytics-revenue-intelligence/sales-forecasting-target-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/analytics-revenue-intelligence/sales-forecasting-target-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/communication-collaboration/channel-partner-collaboration/primary.md": {
+      "slug": "zh/scenarios/meta/crm/communication-collaboration/channel-partner-collaboration/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/communication-collaboration/channel-partner-collaboration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/communication-collaboration/": {
+      "slug": "zh/scenarios/meta/crm/communication-collaboration/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/communication-collaboration/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/communication-collaboration/omnichannel-communication-logging/primary.md": {
+      "slug": "zh/scenarios/meta/crm/communication-collaboration/omnichannel-communication-logging/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/communication-collaboration/omnichannel-communication-logging/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/communication-collaboration/task-cadence-collaboration/primary.md": {
+      "slug": "zh/scenarios/meta/crm/communication-collaboration/task-cadence-collaboration/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/communication-collaboration/task-cadence-collaboration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/customer-management/customer-lifecycle-management/primary.md": {
+      "slug": "zh/scenarios/meta/crm/customer-management/customer-lifecycle-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-management/customer-lifecycle-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/customer-management/customer-profile-segmentation/primary.md": {
+      "slug": "zh/scenarios/meta/crm/customer-management/customer-profile-segmentation/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-management/customer-profile-segmentation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/customer-management/": {
+      "slug": "zh/scenarios/meta/crm/customer-management/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-management/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/customer-management/lead-capture-deduplication/primary.md": {
+      "slug": "zh/scenarios/meta/crm/customer-management/lead-capture-deduplication/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-management/lead-capture-deduplication/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/customer-success/case-management-sla/primary.md": {
+      "slug": "zh/scenarios/meta/crm/customer-success/case-management-sla/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-success/case-management-sla/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/customer-success/customer-success-renewal/primary.md": {
+      "slug": "zh/scenarios/meta/crm/customer-success/customer-success-renewal/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-success/customer-success-renewal/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/customer-success/": {
+      "slug": "zh/scenarios/meta/crm/customer-success/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-success/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/customer-success/service-delivery-project-coordination/primary.md": {
+      "slug": "zh/scenarios/meta/crm/customer-success/service-delivery-project-coordination/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/customer-success/service-delivery-project-coordination/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/": {
+      "slug": "zh/scenarios/meta/crm/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/marketing-automation/campaign-orchestration-management/primary.md": {
+      "slug": "zh/scenarios/meta/crm/marketing-automation/campaign-orchestration-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/marketing-automation/campaign-orchestration-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/marketing-automation/content-channel-outreach/primary.md": {
+      "slug": "zh/scenarios/meta/crm/marketing-automation/content-channel-outreach/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/marketing-automation/content-channel-outreach/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/marketing-automation/": {
+      "slug": "zh/scenarios/meta/crm/marketing-automation/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/marketing-automation/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/marketing-automation/lead-nurturing/primary.md": {
+      "slug": "zh/scenarios/meta/crm/marketing-automation/lead-nurturing/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/marketing-automation/lead-nurturing/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/marketing-automation/lead-scoring-assignment/primary.md": {
+      "slug": "zh/scenarios/meta/crm/marketing-automation/lead-scoring-assignment/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/marketing-automation/lead-scoring-assignment/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/marketing-automation/testing-conversion-optimization/primary.md": {
+      "slug": "zh/scenarios/meta/crm/marketing-automation/testing-conversion-optimization/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/marketing-automation/testing-conversion-optimization/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/membership-loyalty/": {
+      "slug": "zh/scenarios/meta/crm/membership-loyalty/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/membership-loyalty/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/membership-loyalty/loyalty-points-incentives/primary.md": {
+      "slug": "zh/scenarios/meta/crm/membership-loyalty/loyalty-points-incentives/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/membership-loyalty/loyalty-points-incentives/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/membership-loyalty/membership-engagement-nurture/primary.md": {
+      "slug": "zh/scenarios/meta/crm/membership-loyalty/membership-engagement-nurture/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/membership-loyalty/membership-engagement-nurture/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/membership-loyalty/membership-tiers-entitlements/primary.md": {
+      "slug": "zh/scenarios/meta/crm/membership-loyalty/membership-tiers-entitlements/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/membership-loyalty/membership-tiers-entitlements/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/sales-process/": {
+      "slug": "zh/scenarios/meta/crm/sales-process/index",
+      "partnerSlug": "/zh/scenarios/meta/crm/sales-process/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/crm/sales-process/opportunity-creation-progression/primary.md": {
+      "slug": "zh/scenarios/meta/crm/sales-process/opportunity-creation-progression/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/sales-process/opportunity-creation-progression/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/sales-process/quoting-contract-management/primary.md": {
+      "slug": "zh/scenarios/meta/crm/sales-process/quoting-contract-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/sales-process/quoting-contract-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/crm/sales-process/sales-activities-cadence/primary.md": {
+      "slug": "zh/scenarios/meta/crm/sales-process/sales-activities-cadence/primary",
+      "partnerSlug": "/zh/scenarios/meta/crm/sales-process/sales-activities-cadence/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/after_sales_customer_service/digital_unsubscribe_rights_recovery/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/after_sales_customer_service/digital_unsubscribe_rights_recovery/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/after_sales_customer_service/digital_unsubscribe_rights_recovery/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/after_sales_customer_service/": {
+      "slug": "zh/scenarios/meta/ecommerce/after_sales_customer_service/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/after_sales_customer_service/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/after_sales_customer_service/rma_returns_refunds/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/after_sales_customer_service/rma_returns_refunds/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/after_sales_customer_service/rma_returns_refunds/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/after_sales_customer_service/support_ticket_handling/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/after_sales_customer_service/support_ticket_handling/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/after_sales_customer_service/support_ticket_handling/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/cart_checkout/cart_management/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/cart_checkout/cart_management/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/cart_checkout/cart_management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/cart_checkout/checkout_payment_preparation/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/cart_checkout/checkout_payment_preparation/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/cart_checkout/checkout_payment_preparation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/cart_checkout/": {
+      "slug": "zh/scenarios/meta/ecommerce/cart_checkout/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/cart_checkout/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/catalog_and_content/bundled_goods/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/catalog_and_content/bundled_goods/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/catalog_and_content/bundled_goods/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/catalog_and_content/content_assets_management/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/catalog_and_content/content_assets_management/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/catalog_and_content/content_assets_management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/catalog_and_content/digital_subscription_goods/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/catalog_and_content/digital_subscription_goods/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/catalog_and_content/digital_subscription_goods/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/catalog_and_content/": {
+      "slug": "zh/scenarios/meta/ecommerce/catalog_and_content/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/catalog_and_content/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/catalog_and_content/physical_goods/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/catalog_and_content/physical_goods/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/catalog_and_content/physical_goods/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/channels_stores/": {
+      "slug": "zh/scenarios/meta/ecommerce/channels_stores/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/channels_stores/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/channels_stores/multi_channel_sync/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/channels_stores/multi_channel_sync/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/channels_stores/multi_channel_sync/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/channels_stores/omni_channel_experience/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/channels_stores/omni_channel_experience/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/channels_stores/omni_channel_experience/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/channels_stores/store_fulfillment_pickup/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/channels_stores/store_fulfillment_pickup/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/channels_stores/store_fulfillment_pickup/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/data_analytics/": {
+      "slug": "zh/scenarios/meta/ecommerce/data_analytics/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/data_analytics/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/data_analytics/operational_dashboard/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/data_analytics/operational_dashboard/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/data_analytics/operational_dashboard/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/data_analytics/user_product_analytics/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/data_analytics/user_product_analytics/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/data_analytics/user_product_analytics/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/finance_settlement/": {
+      "slug": "zh/scenarios/meta/ecommerce/finance_settlement/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/finance_settlement/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/finance_settlement/invoicing_tax/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/finance_settlement/invoicing_tax/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/finance_settlement/invoicing_tax/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/finance_settlement/reconciliation/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/finance_settlement/reconciliation/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/finance_settlement/reconciliation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/": {
+      "slug": "zh/scenarios/meta/ecommerce/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/inventory_warehouse/": {
+      "slug": "zh/scenarios/meta/ecommerce/inventory_warehouse/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/inventory_warehouse/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/inventory_warehouse/inventory_management/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/inventory_warehouse/inventory_management/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/inventory_warehouse/inventory_management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/inventory_warehouse/stocktaking_transfer/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/inventory_warehouse/stocktaking_transfer/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/inventory_warehouse/stocktaking_transfer/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/list.md": {
+      "slug": "zh/scenarios/meta/ecommerce/list",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/list.md",
+      "title": "list"
+    },
+    "/zh/scenarios/meta/ecommerce/membership_marketing/": {
+      "slug": "zh/scenarios/meta/ecommerce/membership_marketing/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/membership_marketing/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/membership_marketing/marketing_automation/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/membership_marketing/marketing_automation/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/membership_marketing/marketing_automation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/membership_marketing/membership_growth_benefits/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/membership_marketing/membership_growth_benefits/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/membership_marketing/membership_growth_benefits/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/membership_marketing/points_store_value/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/membership_marketing/points_store_value/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/membership_marketing/points_store_value/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/order_fulfillment/": {
+      "slug": "zh/scenarios/meta/ecommerce/order_fulfillment/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/order_fulfillment/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/order_fulfillment/order_creation_tracking/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/order_fulfillment/order_creation_tracking/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/order_fulfillment/order_creation_tracking/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/order_fulfillment/shipping_logistics/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/order_fulfillment/shipping_logistics/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/order_fulfillment/shipping_logistics/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/order_fulfillment/store_pickup_local_delivery/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/order_fulfillment/store_pickup_local_delivery/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/order_fulfillment/store_pickup_local_delivery/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/payment_billing/": {
+      "slug": "zh/scenarios/meta/ecommerce/payment_billing/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/payment_billing/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/payment_billing/subscription_billing_invoices/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/payment_billing/subscription_billing_invoices/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/payment_billing/subscription_billing_invoices/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/platform_ops/config_permissions/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/platform_ops/config_permissions/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/platform_ops/config_permissions/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/platform_ops/": {
+      "slug": "zh/scenarios/meta/ecommerce/platform_ops/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/platform_ops/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/platform_ops/logging_scheduling/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/platform_ops/logging_scheduling/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/platform_ops/logging_scheduling/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/pricing_promotion/campaign_discount/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/pricing_promotion/campaign_discount/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/pricing_promotion/campaign_discount/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/pricing_promotion/": {
+      "slug": "zh/scenarios/meta/ecommerce/pricing_promotion/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/pricing_promotion/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/pricing_promotion/price_strategy/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/pricing_promotion/price_strategy/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/pricing_promotion/price_strategy/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/pricing_promotion/subscription_billing/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/pricing_promotion/subscription_billing/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/pricing_promotion/subscription_billing/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/risk_compliance/": {
+      "slug": "zh/scenarios/meta/ecommerce/risk_compliance/index",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/risk_compliance/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/ecommerce/risk_compliance/privacy_compliance/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/risk_compliance/privacy_compliance/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/risk_compliance/privacy_compliance/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/ecommerce/risk_compliance/transaction_risk/primary.md": {
+      "slug": "zh/scenarios/meta/ecommerce/risk_compliance/transaction_risk/primary",
+      "partnerSlug": "/zh/scenarios/meta/ecommerce/risk_compliance/transaction_risk/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/generate.md": {
+      "slug": "zh/scenarios/meta/generate",
+      "partnerSlug": "/zh/scenarios/meta/generate.md",
+      "title": "generate"
+    },
+    "/zh/scenarios/meta/": {
+      "slug": "zh/scenarios/meta/index",
+      "partnerSlug": "/zh/scenarios/meta/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/admin-web-miniapp/": {
+      "slug": "zh/scenarios/meta/powerx/admin-web-miniapp/index",
+      "partnerSlug": "/zh/scenarios/meta/powerx/admin-web-miniapp/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/admin-web-miniapp/web-admin/admin-navigation-and-permission-control/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/admin-web-miniapp/web-admin/admin-navigation-and-permission-control/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/admin-web-miniapp/web-admin/admin-navigation-and-permission-control/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/admin-web-miniapp/web-admin/developer-debugging-and-tools/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/admin-web-miniapp/web-admin/developer-debugging-and-tools/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/admin-web-miniapp/web-admin/developer-debugging-and-tools/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/agent-interaction-interface/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/agent-interaction-interface/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/agent-interaction-interface/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/business-plugin-frontend-interaction/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/business-plugin-frontend-interaction/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/business-plugin-frontend-interaction/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/user-and-session-center/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/user-and-session-center/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/admin-web-miniapp/web-miniapp/user-and-session-center/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/agent-registration-and-management/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/agent-registration-and-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/agent-registration-and-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/agent-task-execution/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/agent-task-execution/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/agent-task-execution/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/react-agent-orchestration/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/react-agent-orchestration/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/react-agent-orchestration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/workflow-orchestration/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/workflow-orchestration/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/agent-orchestration/workflow-orchestration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/index",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/intelligent-qa-and-reasoning/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/intelligent-qa-and-reasoning/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/intelligent-qa-and-reasoning/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/knowledge-space-build/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/knowledge-space-build/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/knowledge-space-build/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/knowledge-update-and-feedback/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/knowledge-update-and-feedback/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/agent-and-automation/knowledge-and-reasoning/knowledge-update-and-feedback/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/iam-rbac/login-and-auth/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/iam-rbac/login-and-auth/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/iam-rbac/login-and-auth/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/iam-rbac/mul-tenant-and-org/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/iam-rbac/mul-tenant-and-org/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/iam-rbac/mul-tenant-and-org/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/iam-rbac/user-and-role/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/iam-rbac/user-and-role/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/iam-rbac/user-and-role/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/index",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/runtime-ops/event-and-taskflow-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/runtime-ops/plugin-install-and-ops/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/runtime-ops/plugin-install-and-ops/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/runtime-ops/plugin-install-and-ops/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/core-platform/runtime-ops/system-monitoring-and-alerting/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/core-platform/runtime-ops/system-monitoring-and-alerting/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/core-platform/runtime-ops/system-monitoring-and-alerting/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/": {
+      "slug": "zh/scenarios/meta/powerx/index",
+      "partnerSlug": "/zh/scenarios/meta/powerx/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/list.md": {
+      "slug": "zh/scenarios/meta/powerx/list",
+      "partnerSlug": "/zh/scenarios/meta/powerx/list.md",
+      "title": "list"
+    },
+    "/zh/scenarios/meta/powerx/marketplace-and-business/": {
+      "slug": "zh/scenarios/meta/powerx/marketplace-and-business/index",
+      "partnerSlug": "/zh/scenarios/meta/powerx/marketplace-and-business/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/billing-and-settlement/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/billing-and-settlement/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/billing-and-settlement/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/plugin-listing-and-sales/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/plugin-listing-and-sales/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/plugin-listing-and-sales/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/vendor-onboarding-and-review/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/vendor-onboarding-and-review/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/marketplace-and-business/marketplace-operations/vendor-onboarding-and-review/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/index",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/host-call-plugin/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/host-call-plugin/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/host-call-plugin/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-call-host/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-call-host/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-call-host/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-capability-registration-and-exposure/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-capability-registration-and-exposure/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-capability-registration-and-exposure/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-to-plugin-communication/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-to-plugin-communication/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/integration-and-connectivity/plugin-to-plugin-communication/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-create-and-init/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-create-and-init/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-create-and-init/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-dev-and-debug/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-dev-and-debug/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-dev-and-debug/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-publish-and-release/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-publish-and-release/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-publish-and-release/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-version-and-compatibility/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-version-and-compatibility/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/plugin-lifecycle/plugin-version-and-compatibility/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/license-management/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/license-management/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/license-management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/permission-and-access-control/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/permission-and-access-control/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/permission-and-access-control/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/plugin-signing-and-verification/primary.md": {
+      "slug": "zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/plugin-signing-and-verification/primary",
+      "partnerSlug": "/zh/scenarios/meta/powerx/plugin-ecosystem/security-and-compliance/plugin-signing-and-verification/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_coaching_playbook_enhancement/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_coaching_playbook_enhancement/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_coaching_playbook_enhancement/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_conversation_quality_assurance/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_conversation_quality_assurance/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_conversation_quality_assurance/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_driven_outreach_recommendation/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_driven_outreach_recommendation/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/aigc_automation_intelligence/ai_driven_outreach_recommendation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/aigc_automation_intelligence/generative_content_acceleration/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/aigc_automation_intelligence/generative_content_acceleration/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/aigc_automation_intelligence/generative_content_acceleration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/aigc_automation_intelligence/": {
+      "slug": "zh/scenarios/meta/scrm/aigc_automation_intelligence/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/aigc_automation_intelligence/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/analytics_insights/customer_profile_behavioral_insights/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/analytics_insights/customer_profile_behavioral_insights/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/analytics_insights/customer_profile_behavioral_insights/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/analytics_insights/": {
+      "slug": "zh/scenarios/meta/scrm/analytics_insights/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/analytics_insights/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/analytics_insights/social_touchpoint_dashboard/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/analytics_insights/social_touchpoint_dashboard/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/analytics_insights/social_touchpoint_dashboard/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/community_customer_engagement/customer_group_operations_profiling/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/community_customer_engagement/customer_group_operations_profiling/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/community_customer_engagement/customer_group_operations_profiling/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/community_customer_engagement/": {
+      "slug": "zh/scenarios/meta/scrm/community_customer_engagement/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/community_customer_engagement/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/community_customer_engagement/social_customer_lifecycle_management/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/community_customer_engagement/social_customer_lifecycle_management/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/community_customer_engagement/social_customer_lifecycle_management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/compliance_security_risk_control/account_security_risk_alerts/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/compliance_security_risk_control/account_security_risk_alerts/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/compliance_security_risk_control/account_security_risk_alerts/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/compliance_security_risk_control/conversation_compliance_archiving/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/compliance_security_risk_control/conversation_compliance_archiving/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/compliance_security_risk_control/conversation_compliance_archiving/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/compliance_security_risk_control/": {
+      "slug": "zh/scenarios/meta/scrm/compliance_security_risk_control/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/compliance_security_risk_control/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/content_engagement_automation/chatbot_interaction_messaging_automation/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/content_engagement_automation/chatbot_interaction_messaging_automation/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/content_engagement_automation/chatbot_interaction_messaging_automation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/content_engagement_automation/": {
+      "slug": "zh/scenarios/meta/scrm/content_engagement_automation/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/content_engagement_automation/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/content_engagement_automation/wecom_content_hub_campaign_orchestration/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/content_engagement_automation/wecom_content_hub_campaign_orchestration/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/content_engagement_automation/wecom_content_hub_campaign_orchestration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/customer-engagement/": {
+      "slug": "zh/scenarios/meta/scrm/customer-engagement/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/customer-engagement/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/customer_service_collaboration_loop/cs_ops_collaboration/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/customer_service_collaboration_loop/cs_ops_collaboration/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/customer_service_collaboration_loop/cs_ops_collaboration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/customer_service_collaboration_loop/": {
+      "slug": "zh/scenarios/meta/scrm/customer_service_collaboration_loop/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/customer_service_collaboration_loop/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/customer_service_collaboration_loop/wecom_service_desk_ticket_sync/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/customer_service_collaboration_loop/wecom_service_desk_ticket_sync/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/customer_service_collaboration_loop/wecom_service_desk_ticket_sync/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/": {
+      "slug": "zh/scenarios/meta/scrm/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/lead_capture_smart_assignment/": {
+      "slug": "zh/scenarios/meta/scrm/lead_capture_smart_assignment/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/lead_capture_smart_assignment/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/lead_capture_smart_assignment/lead_routing_reception_strategy/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/lead_capture_smart_assignment/lead_routing_reception_strategy/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/lead_capture_smart_assignment/lead_routing_reception_strategy/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/lead_capture_smart_assignment/social_lead_capture_deduplication/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/lead_capture_smart_assignment/social_lead_capture_deduplication/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/lead_capture_smart_assignment/social_lead_capture_deduplication/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/list.md": {
+      "slug": "zh/scenarios/meta/scrm/list",
+      "partnerSlug": "/zh/scenarios/meta/scrm/list.md",
+      "title": "list"
+    },
+    "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/": {
+      "slug": "zh/scenarios/meta/scrm/mobile_frontline_capabilities/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/location_checkin_visit_tracking/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/mobile_frontline_capabilities/location_checkin_visit_tracking/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/location_checkin_visit_tracking/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/mobile_approval_code_operations/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/mobile_frontline_capabilities/mobile_approval_code_operations/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/mobile_approval_code_operations/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/offline_messaging_alerts/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/mobile_frontline_capabilities/offline_messaging_alerts/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/offline_messaging_alerts/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/voice_to_text_insight_extraction/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/mobile_frontline_capabilities/voice_to_text_insight_extraction/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/mobile_frontline_capabilities/voice_to_text_insight_extraction/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/data_hub_external_apis/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/platform_ecosystem_extensibility/data_hub_external_apis/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/data_hub_external_apis/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/": {
+      "slug": "zh/scenarios/meta/scrm/platform_ecosystem_extensibility/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/open_platform_plugin_marketplace/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/platform_ecosystem_extensibility/open_platform_plugin_marketplace/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/open_platform_plugin_marketplace/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/unified_sso_private_deployment/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/platform_ecosystem_extensibility/unified_sso_private_deployment/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/unified_sso_private_deployment/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/workflow_orchestration_automation/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/platform_ecosystem_extensibility/workflow_orchestration_automation/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/platform_ecosystem_extensibility/workflow_orchestration_automation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/private-domain-operation/": {
+      "slug": "zh/scenarios/meta/scrm/private-domain-operation/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/private-domain-operation/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/automated_tagging_scoring/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/automated_tagging_scoring/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/automated_tagging_scoring/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/dynamic_segmentation_rfm_insights/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/dynamic_segmentation_rfm_insights/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/dynamic_segmentation_rfm_insights/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/": {
+      "slug": "zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/tag_conflict_weight_governance/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/tag_conflict_weight_governance/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/tag_conflict_weight_governance/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/tag_driven_activation/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/tag_driven_activation/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/smart_tagging_customer_segmentation/tag_driven_activation/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social-marketing/": {
+      "slug": "zh/scenarios/meta/scrm/social-marketing/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social-marketing/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/social_channel_governance/": {
+      "slug": "zh/scenarios/meta/scrm/social_channel_governance/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_channel_governance/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/social_channel_governance/unified_social_channel_access/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_channel_governance/unified_social_channel_access/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_channel_governance/unified_social_channel_access/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_channel_governance/wecom_account_permission_management/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_channel_governance/wecom_account_permission_management/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_channel_governance/wecom_account_permission_management/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_commerce_distribution/group_payment_coupon_redemption/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_commerce_distribution/group_payment_coupon_redemption/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_commerce_distribution/group_payment_coupon_redemption/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_commerce_distribution/": {
+      "slug": "zh/scenarios/meta/scrm/social_commerce_distribution/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_commerce_distribution/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/social_commerce_distribution/personalized_social_commerce_recommendations/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_commerce_distribution/personalized_social_commerce_recommendations/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_commerce_distribution/personalized_social_commerce_recommendations/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_commerce_distribution/social_affiliate_partner_selling/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_commerce_distribution/social_affiliate_partner_selling/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_commerce_distribution/social_affiliate_partner_selling/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_commerce_distribution/wecom_mini_program_commerce/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_commerce_distribution/wecom_mini_program_commerce/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_commerce_distribution/wecom_mini_program_commerce/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_selling_field_collab/": {
+      "slug": "zh/scenarios/meta/scrm/social_selling_field_collab/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_selling_field_collab/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/social_selling_field_collab/social_referral_campaign_execution/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_selling_field_collab/social_referral_campaign_execution/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_selling_field_collab/social_referral_campaign_execution/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/social_selling_field_collab/social_selling_cadence/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/social_selling_field_collab/social_selling_cadence/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/social_selling_field_collab/social_selling_cadence/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/system_integration_data_orchestration/crm_scrm_bidirectional_sync/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/system_integration_data_orchestration/crm_scrm_bidirectional_sync/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/system_integration_data_orchestration/crm_scrm_bidirectional_sync/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/system_integration_data_orchestration/": {
+      "slug": "zh/scenarios/meta/scrm/system_integration_data_orchestration/index",
+      "partnerSlug": "/zh/scenarios/meta/scrm/system_integration_data_orchestration/",
+      "title": "index"
+    },
+    "/zh/scenarios/meta/scrm/system_integration_data_orchestration/inventory_recommendation_orchestration/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/system_integration_data_orchestration/inventory_recommendation_orchestration/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/system_integration_data_orchestration/inventory_recommendation_orchestration/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/system_integration_data_orchestration/membership_entitlement_sync/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/system_integration_data_orchestration/membership_entitlement_sync/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/system_integration_data_orchestration/membership_entitlement_sync/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/meta/scrm/system_integration_data_orchestration/order_fulfillment_event_relay/primary.md": {
+      "slug": "zh/scenarios/meta/scrm/system_integration_data_orchestration/order_fulfillment_event_relay/primary",
+      "partnerSlug": "/zh/scenarios/meta/scrm/system_integration_data_orchestration/order_fulfillment_event_relay/primary.md",
+      "title": "primary"
+    },
+    "/zh/scenarios/usage.md": {
+      "slug": "zh/scenarios/usage",
+      "partnerSlug": "/zh/scenarios/usage.md",
+      "title": "usage"
+    },
+    "/zh/security-and-governance/Agent_Security_and_Isolation_Policy.md": {
+      "slug": "zh/security-and-governance/Agent_Security_and_Isolation_Policy",
+      "partnerSlug": "/zh/security-and-governance/Agent_Security_and_Isolation_Policy.md",
+      "title": "Agent_Security_and_Isolation_Policy"
+    },
+    "/zh/security-and-governance/Capability_and_Tool_Grants_Spec.md": {
+      "slug": "zh/security-and-governance/Capability_and_Tool_Grants_Spec",
+      "partnerSlug": "/zh/security-and-governance/Capability_and_Tool_Grants_Spec.md",
+      "title": "Capability_and_Tool_Grants_Spec"
+    },
+    "/zh/security-and-governance/README.md": {
+      "slug": "zh/security-and-governance/README",
+      "partnerSlug": "/zh/security-and-governance/README.md",
+      "title": "README"
+    },
+    "/zh/security-and-governance/Security_and_Governance.md": {
+      "slug": "zh/security-and-governance/Security_and_Governance",
+      "partnerSlug": "/zh/security-and-governance/Security_and_Governance.md",
+      "title": "Security_and_Governance"
+    },
+    "/zh/security-and-governance/": {
+      "slug": "zh/security-and-governance/index",
+      "partnerSlug": "/zh/security-and-governance/",
+      "title": "index"
     }
   }
 }

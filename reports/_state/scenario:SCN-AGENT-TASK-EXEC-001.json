@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-AGENT-TASK-EXEC-001",
+      "fingerprint": "4216c39025b3372bb03ab30847b60d2da4a88ba341f6715204c13178b172839c",
+      "resumeToken": "56985b71-b443-4e75-87c9-801a5ff6f5cd",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-AGENT-TASK-EXEC-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-AGENT-TASK-EXEC-001.md"
+      },
+      "createdAt": "2025-11-09T12:09:16.285Z",
+      "updatedAt": "2025-11-09T12:09:49.399Z"
+    }
+  ],
+  "tokens": {
+    "56985b71-b443-4e75-87c9-801a5ff6f5cd": "4216c39025b3372bb03ab30847b60d2da4a88ba341f6715204c13178b172839c"
+  }
+}
