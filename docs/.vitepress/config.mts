@@ -532,6 +532,7 @@ export default withMermaid(defineConfig({
               items: [
                 { text: '发布机制索引', link: '/zh/guides/publish/' },
                 { text: '插件本地初始化', link: '/zh/guides/publish/local-init' },
+                { text: '插件直接 Local Install', link: '/zh/guides/publish/local-install' },
                 { text: '离线发布与导入', link: '/zh/guides/publish/offline-publish' },
                 { text: '插件本地调试实践', link: '/zh/guides/publish/local-dev-debug' },
                 { text: '在线发布与上架', link: '/zh/guides/publish/online-publish' },
