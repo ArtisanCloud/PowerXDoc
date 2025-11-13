@@ -408,6 +408,141 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-REASON-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-REASON-001.md
+    title: 智能问答与推理
+    title_en: Intelligent QA & Reasoning
+    child_scenarios:
+      - scn_id: SCN-KNOWLEDGE-QA-RETRIEVE-001
+        title: 问题理解与跨知识空间检索编排
+        title_en: Multi-space Retrieval Orchestration
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-RETRIEVE-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-CONTEXT-001
+        title: 多轮对话上下文管理与记忆
+        title_en: Multi-turn Context & Memory
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-CONTEXT-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-TOOL-001
+        title: 复杂推理链与工具协同
+        title_en: Tool-chained Reasoning
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-TOOL-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-FEEDBACK-001
+        title: 回答质量评估与反馈闭环
+        title_en: QA Feedback & Remediation Loop
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-FEEDBACK-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-COMPLIANCE-001
+        title: 安全合规与审计追踪
+        title_en: QA Security & Audit
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-E2E-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md
+      - doc_id: UC-KNOWLEDGE-QA-GOV-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-RETRIEVE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-RETRIEVE-001.md
+    title: 问题理解与跨知识空间检索编排
+    title_en: Multi-space Retrieval Orchestration
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-RETRIEVE-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-RETRIEVE-001.md
+      - doc_id: UC-KNOWLEDGE-QA-DEGRADE-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-DEGRADE-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-CONTEXT-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-CONTEXT-001.md
+    title: 多轮对话上下文管理与记忆
+    title_en: Multi-turn Context & Memory
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-CONTEXT-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-CONTEXT-001.md
+      - doc_id: UC-KNOWLEDGE-QA-SUMMARY-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-SUMMARY-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-TOOL-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-TOOL-001.md
+    title: 复杂推理链与工具协同
+    title_en: Tool-chained Reasoning
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-TOOL-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-TOOL-001.md
+      - doc_id: UC-KNOWLEDGE-QA-TOOL-FAILOVER-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-TOOL-FAILOVER-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-FEEDBACK-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-FEEDBACK-001.md
+    title: 回答质量评估与反馈闭环
+    title_en: QA Feedback & Remediation Loop
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-FEEDBACK-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-FEEDBACK-001.md
+      - doc_id: UC-KNOWLEDGE-QA-FEEDBACK-ALERT-001
+        scope: powerx
+        layer: data
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-FEEDBACK-ALERT-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-COMPLIANCE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md
+    title: 安全合规与审计追踪
+    title_en: QA Security & Audit
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-MASKING-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-MASKING-001.md
+      - doc_id: UC-KNOWLEDGE-QA-AUTHZ-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-AUTHZ-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-001.md
     title: PowerX 多租户与组织管理
