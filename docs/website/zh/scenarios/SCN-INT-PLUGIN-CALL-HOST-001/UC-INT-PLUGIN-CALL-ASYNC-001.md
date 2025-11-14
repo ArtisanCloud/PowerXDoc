@@ -29,16 +29,16 @@ linked_requirements:
 code_refs:
   - repo: powerx
     path: services/plugin/eventmesh/publish_controller.ts
-    description: `POST /events/publish`/`bulk` 接口、签名校验、幂等键生成
+    description: "`POST /events/publish`/`bulk` 接口、签名校验、幂等键生成"
   - repo: powerx
     path: services/plugin/eventmesh/callback_handler.ts
-    description: 宿主回调签名校验、ACK、重试/死信写入
+    description: "宿主回调签名校验、ACK、重试/死信写入"
   - repo: powerx
     path: services/plugin/eventmesh/deadletter_service.ts
-    description: 死信持久化、查询、重放、告警
+    description: "死信持久化、查询、重放、告警"
   - repo: powerx-plugin
     path: packages/sdk/src/eventChannel.ts
-    description: 插件侧事件 SDK、幂等 ID、回调端点、确认与重放
+    description: "插件侧事件 SDK、幂等 ID、回调端点、确认与重放"
 feature_flags:
   - PX_PLUGIN_EVENT_PIPELINE
   - PX_PLUGIN_WEBHOOK_GUARD
