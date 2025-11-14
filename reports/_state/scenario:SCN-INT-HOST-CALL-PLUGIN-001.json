@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-INT-HOST-CALL-PLUGIN-001",
+      "fingerprint": "c2a51aecafb1c770edf245d05c4059fe5733bef506ff9a780b8413ce8dec1940",
+      "resumeToken": "29e0caf3-42d6-4e4d-bbd8-8cece8de192b",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-INT-HOST-CALL-PLUGIN-001.json"
+      },
+      "createdAt": "2025-11-14T08:01:01.037Z",
+      "updatedAt": "2025-11-14T08:01:01.039Z"
+    }
+  ],
+  "tokens": {
+    "29e0caf3-42d6-4e4d-bbd8-8cece8de192b": "c2a51aecafb1c770edf245d05c4059fe5733bef506ff9a780b8413ce8dec1940"
+  }
+}

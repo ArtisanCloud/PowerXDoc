@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-INT-HOST-CALL-PLUGIN-001",
+    "scenario": "SCN-INT-HOST-CALL-PLUGIN-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-14T08:04:33.707Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-INT-HOST-CALL-PLUGIN-001",
+      "status": "Completed",
+      "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-host-call-plugin-001-fcd2d599",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-PLUGIN-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-host-call-plugin-001-fcd2d599",
+          "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-14T08:02:06.751Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-HOST-CALL-PLUGIN-001",
+      "status": "Completed",
+      "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-host-call-plugin-001-1faf2b3e",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-PLUGIN-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-host-call-plugin-001-1faf2b3e",
+          "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-14T08:02:36.962Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-HOST-CALL-PLUGIN-001",
+      "status": "Completed",
+      "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-host-call-plugin-001-64e5aa8b",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-PLUGIN-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-host-call-plugin-001-64e5aa8b",
+          "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-14T08:03:53.302Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-HOST-CALL-PLUGIN-001",
+      "status": "Completed",
+      "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-PLUGIN-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ENTRY-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-RESILIENCE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/SCN-INT-HOST-CALL-ASYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-HOST-CALL-PLUGIN-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "b42daa81-7c77-42f5-b37a-b136b3336f13",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-14T08:04:33.709Z"
+    }
+  ]
+}
