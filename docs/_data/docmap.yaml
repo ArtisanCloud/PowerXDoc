@@ -450,6 +450,56 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ASYNC-001.md
+  - scn_id: SCN-INT-PLUGIN-COMM-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-001.md
+    title: 插件间通信
+    title_en: Plugin-to-Plugin Communication
+    child_scenarios:
+      - scn_id: SCN-INT-PLUGIN-COMM-CHANNEL-001
+        title: 通信通道注册与拓扑编排
+        title_en: Channel Registration & Topology
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-CHANNEL-001.md
+      - scn_id: SCN-INT-PLUGIN-COMM-IDEMPOTENT-001
+        title: 事件联动与幂等治理
+        title_en: Event Orchestration & Idempotency
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-IDEMPOTENT-001.md
+      - scn_id: SCN-INT-PLUGIN-COMM-ACL-001
+        title: 共享 Topic 访问控制
+        title_en: Shared Topic Access Control
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-ACL-001.md
+      - scn_id: SCN-INT-PLUGIN-COMM-FLOW-001
+        title: 数据流链路监控与回放补偿
+        title_en: Flow Monitoring & Replay
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-FLOW-001.md
+    children:
+      - doc_id: UC-INT-PLUGIN-COMM-CHANNEL-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-CHANNEL-001.md
+      - doc_id: UC-INT-PLUGIN-COMM-IDEMPOTENT-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-IDEMPOTENT-001.md
+      - doc_id: UC-INT-PLUGIN-COMM-ACL-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-ACL-001.md
+      - doc_id: UC-INT-PLUGIN-COMM-FLOW-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-FLOW-001.md
   - scn_id: SCN-KNOWLEDGE-SPACE-001
     path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md
     title: 知识空间构建
