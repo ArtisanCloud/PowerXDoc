@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "scnId": "SCN-INT-PLUGIN-COMM-001",
+    "status": "completed",
+    "generatedAt": "2025-11-14T11:25:23.118Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-INT-PLUGIN-COMM-001",
+      "status": "completed",
+      "resumeToken": "5b226fa1-ae3a-44c2-a030-834b88a93265",
+      "fingerprint": "b86784ed4d933ce5af3db02fdb071b0d0e937219997941b8353030a5cb3651a7",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-INT-PLUGIN-COMM-001",
+        "path": "docs/scenarios/integration/SCN-INT-PLUGIN-COMM-001.md",
+        "title": "插件间通信",
+        "title_en": "Plugin-to-Plugin Communication",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-INT-PLUGIN-COMM-CHANNEL-001",
+            "title": "通信通道注册与拓扑编排",
+            "title_en": "Channel Registration & Topology",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-COMM-CHANNEL-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-COMM-IDEMPOTENT-001",
+            "title": "事件联动与幂等治理",
+            "title_en": "Event Orchestration & Idempotency",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-COMM-IDEMPOTENT-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-COMM-ACL-001",
+            "title": "共享 Topic 访问控制",
+            "title_en": "Shared Topic Access Control",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-COMM-ACL-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-COMM-FLOW-001",
+            "title": "数据流链路监控与回放补偿",
+            "title_en": "Flow Monitoring & Replay",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-COMM-FLOW-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-INT-PLUGIN-COMM-CHANNEL-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-CHANNEL-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-COMM-IDEMPOTENT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-IDEMPOTENT-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-COMM-ACL-001",
+            "scope": "powerx",
+            "layer": "security",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-ACL-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-COMM-FLOW-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-FLOW-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-14T11:25:23.119Z"
+    }
+  ]
+}
