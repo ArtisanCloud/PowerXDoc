@@ -1,0 +1,38 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-INT-PLUGIN-SIGN-001",
+    "scenario": "SCN-INT-PLUGIN-SIGN-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-14T13:29:39.623Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-SIGN-001",
+      "status": "Completed",
+      "resumeToken": "3e951a48-c07a-49e1-b29e-51178600e20b",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-plugin-sign-001-97869a97",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-CERT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-BUILD-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-RUNTIME-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-RESPONSE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/SCN-INT-PLUGIN-SIGN-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/SCN-INT-PLUGIN-SIGN-CERT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/SCN-INT-PLUGIN-SIGN-BUILD-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/SCN-INT-PLUGIN-SIGN-RUNTIME-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/SCN-INT-PLUGIN-SIGN-RESPONSE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-SIGN-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-plugin-sign-001-97869a97",
+          "resumeToken": "3e951a48-c07a-49e1-b29e-51178600e20b",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-14T13:29:39.624Z"
+    }
+  ]
+}

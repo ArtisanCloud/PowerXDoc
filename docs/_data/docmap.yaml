@@ -500,6 +500,56 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-FLOW-001.md
+  - scn_id: SCN-INT-PLUGIN-SIGN-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-SIGN-001.md
+    title: 插件签名与验证
+    title_en: Plugin Signing & Verification
+    child_scenarios:
+      - scn_id: SCN-INT-PLUGIN-SIGN-CERT-001
+        title: 签名证书申请与治理
+        title_en: Certificate Provisioning & Governance
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-SIGN-CERT-001.md
+      - scn_id: SCN-INT-PLUGIN-SIGN-BUILD-001
+        title: 构建产物签名与上传校验
+        title_en: Build Artifact Signing & Upload Validation
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-SIGN-BUILD-001.md
+      - scn_id: SCN-INT-PLUGIN-SIGN-RUNTIME-001
+        title: 安装与运行时签名验证
+        title_en: Install & Runtime Verification
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-SIGN-RUNTIME-001.md
+      - scn_id: SCN-INT-PLUGIN-SIGN-RESPONSE-001
+        title: 签名事件监控与应急响应
+        title_en: Signing Incident Monitoring & Response
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-SIGN-RESPONSE-001.md
+    children:
+      - doc_id: UC-INT-PLUGIN-SIGN-CERT-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-CERT-001.md
+      - doc_id: UC-INT-PLUGIN-SIGN-BUILD-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-BUILD-001.md
+      - doc_id: UC-INT-PLUGIN-SIGN-RUNTIME-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-RUNTIME-001.md
+      - doc_id: UC-INT-PLUGIN-SIGN-RESPONSE-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-RESPONSE-001.md
   - scn_id: SCN-KNOWLEDGE-SPACE-001
     path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md
     title: 知识空间构建
