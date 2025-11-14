@@ -1,0 +1,195 @@
+{
+  "summary": {
+    "scnId": "SCN-KNOWLEDGE-UPDATE-001",
+    "status": "completed",
+    "generatedAt": "2025-11-14T06:10:24.084Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-UPDATE-001",
+      "status": "completed",
+      "resumeToken": "66b3d841-6745-4dbd-8c3b-dae5ed336192",
+      "fingerprint": "e19ef286ae92cc6b77f482cd7966c3562bbe7eb31bfe66817ce2baac03979abd",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-KNOWLEDGE-UPDATE-001",
+        "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-001.md",
+        "title": "知识更新与反馈",
+        "title_en": "Knowledge Update & Feedback",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-SYNC-001",
+            "title": "增量同步与版本管理",
+            "title_en": "Delta Sync & Versioning",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-SYNC-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-FEEDBACK-001",
+            "title": "反馈驱动的知识再加工",
+            "title_en": "Feedback-driven Reprocessing",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-FEEDBACK-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-EVENT-001",
+            "title": "实时事件驱动的知识刷新",
+            "title_en": "Event-driven Hot Refresh",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-EVENT-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-DECAY-001",
+            "title": "知识衰减与空白检测",
+            "title_en": "Knowledge Decay & Gap Detection",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-DECAY-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-TENANT-001",
+            "title": "租户灰度发布与治理",
+            "title_en": "Tenant-aware Release & Governance",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-TENANT-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-SYNC-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-SYNC-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-FEEDBACK-001",
+            "scope": "powerx",
+            "layer": "data",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-FEEDBACK-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-EVENT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-EVENT-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-DECAY-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-DECAY-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-TENANT-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-TENANT-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-14T06:09:07.808Z"
+    },
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-UPDATE-001",
+      "status": "completed",
+      "resumeToken": "66b3d841-6745-4dbd-8c3b-dae5ed336192",
+      "fingerprint": "e19ef286ae92cc6b77f482cd7966c3562bbe7eb31bfe66817ce2baac03979abd",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-KNOWLEDGE-UPDATE-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-KNOWLEDGE-UPDATE-001",
+        "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-001.md",
+        "title": "知识更新与反馈",
+        "title_en": "Knowledge Update & Feedback",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-SYNC-001",
+            "title": "增量同步与版本管理",
+            "title_en": "Delta Sync & Versioning",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-SYNC-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-FEEDBACK-001",
+            "title": "反馈驱动的知识再加工",
+            "title_en": "Feedback-driven Reprocessing",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-FEEDBACK-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-EVENT-001",
+            "title": "实时事件驱动的知识刷新",
+            "title_en": "Event-driven Hot Refresh",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-EVENT-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-DECAY-001",
+            "title": "知识衰减与空白检测",
+            "title_en": "Knowledge Decay & Gap Detection",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-DECAY-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-UPDATE-TENANT-001",
+            "title": "租户灰度发布与治理",
+            "title_en": "Tenant-aware Release & Governance",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-TENANT-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-SYNC-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-SYNC-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-FEEDBACK-001",
+            "scope": "powerx",
+            "layer": "data",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-FEEDBACK-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-EVENT-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-EVENT-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-DECAY-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-DECAY-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-UPDATE-TENANT-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-TENANT-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-14T06:10:24.085Z"
+    }
+  ]
+}

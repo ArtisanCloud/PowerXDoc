@@ -543,6 +543,67 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-AUTHZ-001.md
+  - scn_id: SCN-KNOWLEDGE-UPDATE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-001.md
+    title: 知识更新与反馈
+    title_en: Knowledge Update & Feedback
+    child_scenarios:
+      - scn_id: SCN-KNOWLEDGE-UPDATE-SYNC-001
+        title: 增量同步与版本管理
+        title_en: Delta Sync & Versioning
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-SYNC-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-FEEDBACK-001
+        title: 反馈驱动的知识再加工
+        title_en: Feedback-driven Reprocessing
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-FEEDBACK-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-EVENT-001
+        title: 实时事件驱动的知识刷新
+        title_en: Event-driven Hot Refresh
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-EVENT-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-DECAY-001
+        title: 知识衰减与空白检测
+        title_en: Knowledge Decay & Gap Detection
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-DECAY-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-TENANT-001
+        title: 租户灰度发布与治理
+        title_en: Tenant-aware Release & Governance
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-TENANT-001.md
+    children:
+      - doc_id: UC-KNOWLEDGE-UPDATE-SYNC-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-SYNC-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-FEEDBACK-001
+        scope: powerx
+        layer: data
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-FEEDBACK-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-EVENT-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-EVENT-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-DECAY-001
+        scope: powerx
+        layer: ops
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-DECAY-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-TENANT-001
+        scope: powerx
+        layer: ops
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-TENANT-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-001.md
     title: PowerX 多租户与组织管理
