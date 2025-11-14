@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-INT-PLUGIN-COMM-001",
+      "fingerprint": "b86784ed4d933ce5af3db02fdb071b0d0e937219997941b8353030a5cb3651a7",
+      "resumeToken": "5b226fa1-ae3a-44c2-a030-834b88a93265",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-INT-PLUGIN-COMM-001.json"
+      },
+      "createdAt": "2025-11-14T11:25:23.117Z",
+      "updatedAt": "2025-11-14T11:25:23.119Z"
+    }
+  ],
+  "tokens": {
+    "5b226fa1-ae3a-44c2-a030-834b88a93265": "b86784ed4d933ce5af3db02fdb071b0d0e937219997941b8353030a5cb3651a7"
+  }
+}

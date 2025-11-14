@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "scnId": "SCN-INT-PLUGIN-CALL-HOST-001",
+    "status": "completed",
+    "generatedAt": "2025-11-14T07:15:54.100Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-INT-PLUGIN-CALL-HOST-001",
+      "status": "completed",
+      "resumeToken": "0ae35c6d-aa12-496f-806e-30bed462261c",
+      "fingerprint": "04354962fbaaed9937235eaf9fb62dc027e429c001a8f1ff72a5549894e0b713",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-INT-PLUGIN-CALL-HOST-001",
+        "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CALL-HOST-001.md",
+        "title": "插件调用宿主",
+        "title_en": "Plugin-to-Host Invocation",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-INT-PLUGIN-CALL-AUTH-001",
+            "title": "调用通道注册与鉴权",
+            "title_en": "Invocation Channel & Authentication",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CALL-AUTH-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CALL-CONTEXT-001",
+            "title": "上下文传递与数据治理",
+            "title_en": "Context Propagation & Data Governance",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CALL-CONTEXT-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CALL-RESILIENCE-001",
+            "title": "调用韧性与回退策略",
+            "title_en": "Invocation Resilience & Recovery",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CALL-RESILIENCE-001.md"
+          },
+          {
+            "scn_id": "SCN-INT-PLUGIN-CALL-ASYNC-001",
+            "title": "异步事件与回调处理",
+            "title_en": "Async Events & Callback Handling",
+            "path": "docs/scenarios/integration/SCN-INT-PLUGIN-CALL-ASYNC-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-INT-PLUGIN-CALL-AUTH-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-AUTH-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CALL-CONTEXT-001",
+            "scope": "powerx",
+            "layer": "security",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-CONTEXT-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CALL-RESILIENCE-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-RESILIENCE-001.md"
+          },
+          {
+            "doc_id": "UC-INT-PLUGIN-CALL-ASYNC-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "integration",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-ASYNC-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-14T07:15:54.100Z"
+    }
+  ]
+}

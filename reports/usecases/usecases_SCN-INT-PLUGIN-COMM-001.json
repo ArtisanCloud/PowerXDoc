@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-INT-PLUGIN-COMM-001",
+    "scenario": "SCN-INT-PLUGIN-COMM-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-14T11:27:23.246Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-COMM-001",
+      "status": "Completed",
+      "resumeToken": "32aec0f9-9634-47e6-841e-41c46ee10175",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-plugin-comm-001-8300f409",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-CHANNEL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-IDEMPOTENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-ACL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-FLOW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-CHANNEL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-IDEMPOTENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-ACL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-FLOW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-plugin-comm-001-8300f409",
+          "resumeToken": "32aec0f9-9634-47e6-841e-41c46ee10175",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-14T11:26:20.240Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-COMM-001",
+      "status": "Completed",
+      "resumeToken": "32aec0f9-9634-47e6-841e-41c46ee10175",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-CHANNEL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-IDEMPOTENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-ACL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-FLOW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-CHANNEL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-IDEMPOTENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-ACL-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/SCN-INT-PLUGIN-COMM-FLOW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-COMM-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "32aec0f9-9634-47e6-841e-41c46ee10175",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-14T11:27:23.248Z"
+    }
+  ]
+}

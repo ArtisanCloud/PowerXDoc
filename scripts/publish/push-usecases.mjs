@@ -185,13 +185,38 @@ async function copyUsecaseSeed(child, repoMeta, options) {
   const source = await resolveSeedPath(child, options);
   const checkoutRoot = path.resolve(options.checkoutRoot ?? 'repos');
   const repoDir = path.resolve(checkoutRoot, repoMeta.checkout ?? repoMeta.key);
+
+  const usecaseRoot = repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub';
+  const scnSegment = options.scnId ?? 'UNKNOWN_SCN';
+
+  const normalizeDocmapTarget = (docmapPath) => {
+    if (!docmapPath) return null;
+    const cleaned = docmapPath.replace(/^\.\//, '');
+    if (!cleaned) return null;
+    if (cleaned.startsWith('docs/usecases-seeds/')) {
+      return path.posix.join(
+        usecaseRoot,
+        cleaned.replace(/^docs\/usecases-seeds\//, ''),
+      );
+    }
+    if (cleaned.startsWith('usecases-seeds/')) {
+      return path.posix.join(
+        usecaseRoot,
+        cleaned.replace(/^usecases-seeds\//, ''),
+      );
+    }
+    if (cleaned.startsWith('docs/use_cases/_from_hub/')) {
+      return cleaned;
+    }
+    if (cleaned.startsWith('use_cases/_from_hub/')) {
+      return path.posix.join('docs', cleaned);
+    }
+    return cleaned;
+  };
+
   const relativeTarget =
-    child.path ??
-    path.posix.join(
-      repoMeta.usecase_seed_root ?? 'docs/use_cases/_from_hub',
-      options.scnId ?? 'UNKNOWN_SCN',
-      `${child.doc_id}.md`,
-    );
+    normalizeDocmapTarget(child.path) ??
+    path.posix.join(usecaseRoot, scnSegment, `${child.doc_id}.md`);
   const target = path.join(repoDir, relativeTarget);
 
   await fs.mkdir(path.dirname(target), { recursive: true });

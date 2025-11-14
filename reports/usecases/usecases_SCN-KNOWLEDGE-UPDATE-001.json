@@ -1,0 +1,70 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-KNOWLEDGE-UPDATE-001",
+    "scenario": "SCN-KNOWLEDGE-UPDATE-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-14T06:12:20.875Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-UPDATE-001",
+      "status": "Completed",
+      "resumeToken": "81a83b16-6f09-4829-b6c2-1352c6cbceb4",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-update-001-2c04539e",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-EVENT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-DECAY-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-EVENT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-DECAY-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-knowledge-update-001-2c04539e",
+          "resumeToken": "81a83b16-6f09-4829-b6c2-1352c6cbceb4",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-14T06:11:13.399Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-UPDATE-001",
+      "status": "Completed",
+      "resumeToken": "81a83b16-6f09-4829-b6c2-1352c6cbceb4",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-EVENT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-DECAY-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-SYNC-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-EVENT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-DECAY-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/SCN-KNOWLEDGE-UPDATE-TENANT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-UPDATE-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "81a83b16-6f09-4829-b6c2-1352c6cbceb4",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-14T06:12:20.878Z"
+    }
+  ]
+}

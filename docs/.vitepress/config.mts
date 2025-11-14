@@ -510,7 +510,8 @@ export default withMermaid(defineConfig({
           },
           { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/developers/' },
           { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
-          { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' }
+          { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' },
+          { text: '联系我们&QA', link: '/zh/qa-contact/', activeMatch: '^/zh/(qa-contact/)' }
         ],
         // 根据路由前缀切换不同侧边栏（静态文档沿用你原有分组）
         sidebar: {
@@ -669,6 +670,16 @@ export default withMermaid(defineConfig({
                 { text: '对外链接', link: '/zh/resources/#links' }
               ]
             }
+          ],
+          '/zh/qa-contact/': [
+            {
+              text: '联系我们 & QA',
+              collapsed: false,
+              items: [
+                { text: '联系通道', link: '/zh/qa-contact/contact' },
+                { text: '文档支持 QA', link: '/zh/qa-contact/qa' }
+              ]
+            }
           ]
         },
         footer: { message: '基于 Apache 2.0 许可发布' },
@@ -694,7 +705,8 @@ export default withMermaid(defineConfig({
           },
           { text: 'Developers', link: '/en/developers/', activeMatch: '^/en/(developers/|api-and-specifications/|pxip/)' },
           { text: 'Operations', link: '/en/operations/', activeMatch: '^/en/(operations/|security-and-governance/)' },
-          { text: 'Resources', link: '/en/resources/', activeMatch: '^/en/(resources/)' }
+          { text: 'Resources', link: '/en/resources/', activeMatch: '^/en/(resources/)' },
+          { text: 'Contact & QA', link: '/en/qa-contact/', activeMatch: '^/en/(qa-contact/)' }
         ],
         sidebar: {
           // Scenarios (auto)
@@ -889,6 +901,16 @@ export default withMermaid(defineConfig({
                 { text: 'Release Notes', link: '/en/resources/#release-notes' },
                 { text: 'Glossary', link: '/en/resources/#glossary' },
                 { text: 'External Links', link: '/en/resources/#links' }
+              ]
+            }
+          ],
+          '/en/qa-contact/': [
+            {
+              text: 'Contact & QA',
+              collapsed: false,
+              items: [
+                { text: 'Contact Channel', link: '/en/qa-contact/contact' },
+                { text: 'Support FAQ', link: '/en/qa-contact/qa' }
               ]
             }
           ]

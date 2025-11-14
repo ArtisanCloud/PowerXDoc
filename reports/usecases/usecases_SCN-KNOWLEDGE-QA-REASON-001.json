@@ -1,0 +1,88 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-KNOWLEDGE-QA-REASON-001",
+    "scenario": "SCN-KNOWLEDGE-QA-REASON-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-13T16:15:44.677Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-QA-REASON-001",
+      "status": "Completed",
+      "resumeToken": "42dccb2b-d5dc-4e7c-b409-14357f28d534",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-qa-reason-001-0caad88a",
+          "status": "Success",
+          "filesChanged": [
+            "docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md",
+            "docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-REASON-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-RETRIEVE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-CONTEXT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-TOOL-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-knowledge-qa-reason-001-0caad88a",
+          "resumeToken": "42dccb2b-d5dc-4e7c-b409-14357f28d534",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-13T16:01:46.382Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-QA-REASON-001",
+      "status": "Completed",
+      "resumeToken": "59625caa-db15-407b-a0ea-b69d9150753b",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-knowledge-qa-reason-001-05876fe5",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-REASON-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-RETRIEVE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-CONTEXT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-TOOL-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-knowledge-qa-reason-001-05876fe5",
+          "resumeToken": "59625caa-db15-407b-a0ea-b69d9150753b",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-13T16:14:05.685Z"
+    },
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-QA-REASON-001",
+      "status": "Completed",
+      "resumeToken": "59625caa-db15-407b-a0ea-b69d9150753b",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-REASON-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-RETRIEVE-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-CONTEXT-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-TOOL-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-FEEDBACK-001.md",
+            "docs/use_cases/_from_hub/SCN-KNOWLEDGE-QA-REASON-001/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "59625caa-db15-407b-a0ea-b69d9150753b",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-13T16:15:44.680Z"
+    }
+  ]
+}

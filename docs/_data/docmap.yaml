@@ -350,6 +350,156 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-INT-PLUGIN-CAPABILITY-001/UC-INT-PLUGIN-CAPABILITY-LIFECYCLE-001.md
+  - scn_id: SCN-INT-PLUGIN-CALL-HOST-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-CALL-HOST-001.md
+    title: 插件调用宿主
+    title_en: Plugin-to-Host Invocation
+    child_scenarios:
+      - scn_id: SCN-INT-PLUGIN-CALL-AUTH-001
+        title: 调用通道注册与鉴权
+        title_en: Invocation Channel & Authentication
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-CALL-AUTH-001.md
+      - scn_id: SCN-INT-PLUGIN-CALL-CONTEXT-001
+        title: 上下文传递与数据治理
+        title_en: Context Propagation & Data Governance
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-CALL-CONTEXT-001.md
+      - scn_id: SCN-INT-PLUGIN-CALL-RESILIENCE-001
+        title: 调用韧性与回退策略
+        title_en: Invocation Resilience & Recovery
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-CALL-RESILIENCE-001.md
+      - scn_id: SCN-INT-PLUGIN-CALL-ASYNC-001
+        title: 异步事件与回调处理
+        title_en: Async Events & Callback Handling
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-CALL-ASYNC-001.md
+    children:
+      - doc_id: UC-INT-PLUGIN-CALL-AUTH-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-AUTH-001.md
+      - doc_id: UC-INT-PLUGIN-CALL-CONTEXT-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-CONTEXT-001.md
+      - doc_id: UC-INT-PLUGIN-CALL-RESILIENCE-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-RESILIENCE-001.md
+      - doc_id: UC-INT-PLUGIN-CALL-ASYNC-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-CALL-HOST-001/UC-INT-PLUGIN-CALL-ASYNC-001.md
+  - scn_id: SCN-INT-HOST-CALL-PLUGIN-001
+    path: docs/scenarios/integration/SCN-INT-HOST-CALL-PLUGIN-001.md
+    title: 宿主调用插件
+    title_en: Host-to-Plugin Invocation
+    child_scenarios:
+      - scn_id: SCN-INT-HOST-CALL-ENTRY-001
+        title: 调用入口统一与协议编排
+        title_en: Unified Entry & Protocol Orchestration
+        path: docs/scenarios/integration/SCN-INT-HOST-CALL-ENTRY-001.md
+      - scn_id: SCN-INT-HOST-CALL-TENANT-001
+        title: 多租户策略路由与隔离
+        title_en: Tenant Policy Routing & Isolation
+        path: docs/scenarios/integration/SCN-INT-HOST-CALL-TENANT-001.md
+      - scn_id: SCN-INT-HOST-CALL-RESILIENCE-001
+        title: 调用链路可观测与重试熔断
+        title_en: Call Observability & Resilience
+        path: docs/scenarios/integration/SCN-INT-HOST-CALL-RESILIENCE-001.md
+      - scn_id: SCN-INT-HOST-CALL-ASYNC-001
+        title: 异步任务与批量调用编排
+        title_en: Async & Batch Orchestration
+        path: docs/scenarios/integration/SCN-INT-HOST-CALL-ASYNC-001.md
+    children:
+      - doc_id: UC-INT-HOST-CALL-ENTRY-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ENTRY-001.md
+      - doc_id: UC-INT-HOST-CALL-TENANT-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-TENANT-001.md
+      - doc_id: UC-INT-HOST-CALL-RESILIENCE-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-RESILIENCE-001.md
+      - doc_id: UC-INT-HOST-CALL-ASYNC-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-HOST-CALL-PLUGIN-001/UC-INT-HOST-CALL-ASYNC-001.md
+  - scn_id: SCN-INT-PLUGIN-COMM-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-001.md
+    title: 插件间通信
+    title_en: Plugin-to-Plugin Communication
+    child_scenarios:
+      - scn_id: SCN-INT-PLUGIN-COMM-CHANNEL-001
+        title: 通信通道注册与拓扑编排
+        title_en: Channel Registration & Topology
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-CHANNEL-001.md
+      - scn_id: SCN-INT-PLUGIN-COMM-IDEMPOTENT-001
+        title: 事件联动与幂等治理
+        title_en: Event Orchestration & Idempotency
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-IDEMPOTENT-001.md
+      - scn_id: SCN-INT-PLUGIN-COMM-ACL-001
+        title: 共享 Topic 访问控制
+        title_en: Shared Topic Access Control
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-ACL-001.md
+      - scn_id: SCN-INT-PLUGIN-COMM-FLOW-001
+        title: 数据流链路监控与回放补偿
+        title_en: Flow Monitoring & Replay
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-COMM-FLOW-001.md
+    children:
+      - doc_id: UC-INT-PLUGIN-COMM-CHANNEL-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-CHANNEL-001.md
+      - doc_id: UC-INT-PLUGIN-COMM-IDEMPOTENT-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-IDEMPOTENT-001.md
+      - doc_id: UC-INT-PLUGIN-COMM-ACL-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-ACL-001.md
+      - doc_id: UC-INT-PLUGIN-COMM-FLOW-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-COMM-001/UC-INT-PLUGIN-COMM-FLOW-001.md
   - scn_id: SCN-KNOWLEDGE-SPACE-001
     path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md
     title: 知识空间构建
@@ -408,6 +558,202 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-KNOWLEDGE-SPACE-001/UC-KNOWLEDGE-RAG-FEEDBACK-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-REASON-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-REASON-001.md
+    title: 智能问答与推理
+    title_en: Intelligent QA & Reasoning
+    child_scenarios:
+      - scn_id: SCN-KNOWLEDGE-QA-RETRIEVE-001
+        title: 问题理解与跨知识空间检索编排
+        title_en: Multi-space Retrieval Orchestration
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-RETRIEVE-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-CONTEXT-001
+        title: 多轮对话上下文管理与记忆
+        title_en: Multi-turn Context & Memory
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-CONTEXT-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-TOOL-001
+        title: 复杂推理链与工具协同
+        title_en: Tool-chained Reasoning
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-TOOL-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-FEEDBACK-001
+        title: 回答质量评估与反馈闭环
+        title_en: QA Feedback & Remediation Loop
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-FEEDBACK-001.md
+      - scn_id: SCN-KNOWLEDGE-QA-COMPLIANCE-001
+        title: 安全合规与审计追踪
+        title_en: QA Security & Audit
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-E2E-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md
+      - doc_id: UC-KNOWLEDGE-QA-GOV-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-RETRIEVE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-RETRIEVE-001.md
+    title: 问题理解与跨知识空间检索编排
+    title_en: Multi-space Retrieval Orchestration
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-RETRIEVE-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-RETRIEVE-001.md
+      - doc_id: UC-KNOWLEDGE-QA-DEGRADE-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-DEGRADE-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-CONTEXT-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-CONTEXT-001.md
+    title: 多轮对话上下文管理与记忆
+    title_en: Multi-turn Context & Memory
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-CONTEXT-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-CONTEXT-001.md
+      - doc_id: UC-KNOWLEDGE-QA-SUMMARY-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-SUMMARY-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-TOOL-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-TOOL-001.md
+    title: 复杂推理链与工具协同
+    title_en: Tool-chained Reasoning
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-TOOL-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-TOOL-001.md
+      - doc_id: UC-KNOWLEDGE-QA-TOOL-FAILOVER-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-TOOL-FAILOVER-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-FEEDBACK-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-FEEDBACK-001.md
+    title: 回答质量评估与反馈闭环
+    title_en: QA Feedback & Remediation Loop
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-FEEDBACK-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-FEEDBACK-001.md
+      - doc_id: UC-KNOWLEDGE-QA-FEEDBACK-ALERT-001
+        scope: powerx
+        layer: data
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-FEEDBACK-ALERT-001.md
+  - scn_id: SCN-KNOWLEDGE-QA-COMPLIANCE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md
+    title: 安全合规与审计追踪
+    title_en: QA Security & Audit
+    children:
+      - doc_id: UC-KNOWLEDGE-QA-MASKING-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-MASKING-001.md
+      - doc_id: UC-KNOWLEDGE-QA-AUTHZ-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-AUTHZ-001.md
+  - scn_id: SCN-KNOWLEDGE-UPDATE-001
+    path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-001.md
+    title: 知识更新与反馈
+    title_en: Knowledge Update & Feedback
+    child_scenarios:
+      - scn_id: SCN-KNOWLEDGE-UPDATE-SYNC-001
+        title: 增量同步与版本管理
+        title_en: Delta Sync & Versioning
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-SYNC-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-FEEDBACK-001
+        title: 反馈驱动的知识再加工
+        title_en: Feedback-driven Reprocessing
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-FEEDBACK-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-EVENT-001
+        title: 实时事件驱动的知识刷新
+        title_en: Event-driven Hot Refresh
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-EVENT-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-DECAY-001
+        title: 知识衰减与空白检测
+        title_en: Knowledge Decay & Gap Detection
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-DECAY-001.md
+      - scn_id: SCN-KNOWLEDGE-UPDATE-TENANT-001
+        title: 租户灰度发布与治理
+        title_en: Tenant-aware Release & Governance
+        path: docs/scenarios/knowledge/SCN-KNOWLEDGE-UPDATE-TENANT-001.md
+    children:
+      - doc_id: UC-KNOWLEDGE-UPDATE-SYNC-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-SYNC-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-FEEDBACK-001
+        scope: powerx
+        layer: data
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-FEEDBACK-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-EVENT-001
+        scope: powerx
+        layer: service
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-EVENT-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-DECAY-001
+        scope: powerx
+        layer: ops
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-DECAY-001.md
+      - doc_id: UC-KNOWLEDGE-UPDATE-TENANT-001
+        scope: powerx
+        layer: ops
+        domain: knowledge
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-KNOWLEDGE-UPDATE-001/UC-KNOWLEDGE-UPDATE-TENANT-001.md
   - scn_id: SCN-IAM-MULTI-TENANT-001
     path: docs/scenarios/iam/SCN-IAM-MULTI-TENANT-001.md
     title: PowerX 多租户与组织管理

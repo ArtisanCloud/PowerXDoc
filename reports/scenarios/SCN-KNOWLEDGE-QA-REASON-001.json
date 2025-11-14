@@ -1,0 +1,141 @@
+{
+  "summary": {
+    "scnId": "SCN-KNOWLEDGE-QA-REASON-001",
+    "status": "completed",
+    "generatedAt": "2025-11-13T16:00:17.692Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-QA-REASON-001",
+      "status": "completed",
+      "resumeToken": "b0ad1972-9b33-4a79-b8cf-7347a158a1af",
+      "fingerprint": "218d50a770c6bf88fb9db0b814eeb4a6cc6875877ad7860462b57fbf21409e58",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-KNOWLEDGE-QA-REASON-001",
+        "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-REASON-001.md",
+        "title": "智能问答与推理",
+        "title_en": "Intelligent QA & Reasoning",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-RETRIEVE-001",
+            "title": "问题理解与跨知识空间检索编排",
+            "title_en": "Multi-space Retrieval Orchestration",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-RETRIEVE-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-CONTEXT-001",
+            "title": "多轮对话上下文管理与记忆",
+            "title_en": "Multi-turn Context & Memory",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-CONTEXT-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-TOOL-001",
+            "title": "复杂推理链与工具协同",
+            "title_en": "Tool-chained Reasoning",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-TOOL-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-FEEDBACK-001",
+            "title": "回答质量评估与反馈闭环",
+            "title_en": "QA Feedback & Remediation Loop",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-FEEDBACK-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-COMPLIANCE-001",
+            "title": "安全合规与审计追踪",
+            "title_en": "QA Security & Audit",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-KNOWLEDGE-QA-E2E-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-QA-GOV-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-13T15:57:32.468Z"
+    },
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-QA-REASON-001",
+      "status": "completed",
+      "resumeToken": "b0ad1972-9b33-4a79-b8cf-7347a158a1af",
+      "fingerprint": "218d50a770c6bf88fb9db0b814eeb4a6cc6875877ad7860462b57fbf21409e58",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-KNOWLEDGE-QA-REASON-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-KNOWLEDGE-QA-REASON-001",
+        "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-REASON-001.md",
+        "title": "智能问答与推理",
+        "title_en": "Intelligent QA & Reasoning",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-RETRIEVE-001",
+            "title": "问题理解与跨知识空间检索编排",
+            "title_en": "Multi-space Retrieval Orchestration",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-RETRIEVE-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-CONTEXT-001",
+            "title": "多轮对话上下文管理与记忆",
+            "title_en": "Multi-turn Context & Memory",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-CONTEXT-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-TOOL-001",
+            "title": "复杂推理链与工具协同",
+            "title_en": "Tool-chained Reasoning",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-TOOL-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-FEEDBACK-001",
+            "title": "回答质量评估与反馈闭环",
+            "title_en": "QA Feedback & Remediation Loop",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-FEEDBACK-001.md"
+          },
+          {
+            "scn_id": "SCN-KNOWLEDGE-QA-COMPLIANCE-001",
+            "title": "安全合规与审计追踪",
+            "title_en": "QA Security & Audit",
+            "path": "docs/scenarios/knowledge/SCN-KNOWLEDGE-QA-COMPLIANCE-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-KNOWLEDGE-QA-E2E-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-E2E-001.md"
+          },
+          {
+            "doc_id": "UC-KNOWLEDGE-QA-GOV-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "knowledge",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/usecases-seeds/SCN-KNOWLEDGE-QA-REASON-001/UC-KNOWLEDGE-QA-GOV-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-13T16:00:17.693Z"
+    }
+  ]
+}

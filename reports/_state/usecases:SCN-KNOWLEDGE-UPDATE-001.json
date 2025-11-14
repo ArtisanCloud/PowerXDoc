@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-UPDATE-001",
+      "fingerprint": "0f0cae0a56905826936a00c42a6c7ba49314e2cdc50cec4fd6dd91076860a6c0",
+      "resumeToken": "81a83b16-6f09-4829-b6c2-1352c6cbceb4",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-KNOWLEDGE-UPDATE-001.json"
+      },
+      "createdAt": "2025-11-14T06:11:13.391Z",
+      "updatedAt": "2025-11-14T06:12:20.878Z"
+    }
+  ],
+  "tokens": {
+    "81a83b16-6f09-4829-b6c2-1352c6cbceb4": "0f0cae0a56905826936a00c42a6c7ba49314e2cdc50cec4fd6dd91076860a6c0"
+  }
+}

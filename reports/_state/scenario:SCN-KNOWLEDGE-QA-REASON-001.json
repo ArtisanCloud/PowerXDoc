@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-KNOWLEDGE-QA-REASON-001",
+      "fingerprint": "218d50a770c6bf88fb9db0b814eeb4a6cc6875877ad7860462b57fbf21409e58",
+      "resumeToken": "b0ad1972-9b33-4a79-b8cf-7347a158a1af",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-KNOWLEDGE-QA-REASON-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-KNOWLEDGE-QA-REASON-001.md"
+      },
+      "createdAt": "2025-11-13T15:57:32.465Z",
+      "updatedAt": "2025-11-13T16:00:17.694Z"
+    }
+  ],
+  "tokens": {
+    "b0ad1972-9b33-4a79-b8cf-7347a158a1af": "218d50a770c6bf88fb9db0b814eeb4a6cc6875877ad7860462b57fbf21409e58"
+  }
+}

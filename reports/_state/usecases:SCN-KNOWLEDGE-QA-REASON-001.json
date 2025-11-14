@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-KNOWLEDGE-QA-REASON-001",
+      "fingerprint": "91b000ddfb32c82ba0b4332df6e541b8cf102df218031a440621394f019143b6",
+      "resumeToken": "59625caa-db15-407b-a0ea-b69d9150753b",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-KNOWLEDGE-QA-REASON-001.json"
+      },
+      "createdAt": "2025-11-13T16:14:05.678Z",
+      "updatedAt": "2025-11-13T16:15:44.681Z"
+    }
+  ],
+  "tokens": {
+    "59625caa-db15-407b-a0ea-b69d9150753b": "91b000ddfb32c82ba0b4332df6e541b8cf102df218031a440621394f019143b6"
+  }
+}

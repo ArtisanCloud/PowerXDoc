@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-CALL-HOST-001",
+      "fingerprint": "350c91ec69212cacd1a37366321d5d012856be0068fd09ad6a36acde5021e87d",
+      "resumeToken": "e34ac24e-174a-4081-859a-3ce005dd1689",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-INT-PLUGIN-CALL-HOST-001.json"
+      },
+      "createdAt": "2025-11-14T07:22:15.090Z",
+      "updatedAt": "2025-11-14T07:33:29.958Z"
+    }
+  ],
+  "tokens": {
+    "e34ac24e-174a-4081-859a-3ce005dd1689": "350c91ec69212cacd1a37366321d5d012856be0068fd09ad6a36acde5021e87d"
+  }
+}
