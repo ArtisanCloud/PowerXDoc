@@ -600,6 +600,56 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-INCIDENT-001.md
+  - scn_id: SCN-INT-PLUGIN-LICENSE-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-LICENSE-001.md
+    title: License 管理
+    title_en: License Management
+    child_scenarios:
+      - scn_id: SCN-INT-PLUGIN-LICENSE-ISSUE-001
+        title: License 策略配置与密钥发放
+        title_en: License Policy & Issuance
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-LICENSE-ISSUE-001.md
+      - scn_id: SCN-INT-PLUGIN-LICENSE-ACTIVATE-001
+        title: 租户激活与运行时校验
+        title_en: Tenant Activation & Runtime Enforcement
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-LICENSE-ACTIVATE-001.md
+      - scn_id: SCN-INT-PLUGIN-LICENSE-RENEW-001
+        title: 续费提醒与到期处理
+        title_en: Renewal Reminder & Expiration Handling
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-LICENSE-RENEW-001.md
+      - scn_id: SCN-INT-PLUGIN-LICENSE-AUDIT-001
+        title: License 变更与审计
+        title_en: License Change & Audit
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-LICENSE-AUDIT-001.md
+    children:
+      - doc_id: UC-INT-PLUGIN-LICENSE-ISSUE-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ISSUE-001.md
+      - doc_id: UC-INT-PLUGIN-LICENSE-ACTIVATE-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ACTIVATE-001.md
+      - doc_id: UC-INT-PLUGIN-LICENSE-RENEW-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-RENEW-001.md
+      - doc_id: UC-INT-PLUGIN-LICENSE-AUDIT-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-AUDIT-001.md
   - scn_id: SCN-KNOWLEDGE-SPACE-001
     path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md
     title: 知识空间构建

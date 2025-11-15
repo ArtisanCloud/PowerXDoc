@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-LICENSE-001",
+      "fingerprint": "00b4cf1cf510bc1c181674697b36b823de655b2831c604eceeb0494ae7cd1824",
+      "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-INT-PLUGIN-LICENSE-001.json"
+      },
+      "createdAt": "2025-11-15T13:14:51.222Z",
+      "updatedAt": "2025-11-15T13:23:37.407Z"
+    }
+  ],
+  "tokens": {
+    "cd1055c1-e58d-49a1-8a7a-e2f755564e6e": "00b4cf1cf510bc1c181674697b36b823de655b2831c604eceeb0494ae7cd1824"
+  }
+}

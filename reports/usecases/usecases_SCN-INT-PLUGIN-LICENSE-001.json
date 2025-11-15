@@ -1,0 +1,91 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-INT-PLUGIN-LICENSE-001",
+    "scenario": "SCN-INT-PLUGIN-LICENSE-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-15T13:23:37.402Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-LICENSE-001",
+      "status": "Completed",
+      "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-plugin-license-001-f34f101c",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ISSUE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ACTIVATE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-RENEW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-AUDIT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-ISSUE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-ACTIVATE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-RENEW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-AUDIT-001.md"
+          ],
+          "prUrl": "https://github.com/ArtisanCloud/PowerX/compare/dev/docs...docs%2Fhub%2Fscn-int-plugin-license-001-f34f101c",
+          "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-15T13:14:57.116Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-LICENSE-001",
+      "status": "Completed",
+      "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-plugin-license-001-e276d742",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ISSUE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ACTIVATE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-RENEW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-AUDIT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-ISSUE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-ACTIVATE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-RENEW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-AUDIT-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-plugin-license-001-e276d742",
+          "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-15T13:22:10.283Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-LICENSE-001",
+      "status": "Completed",
+      "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ISSUE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-ACTIVATE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-RENEW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/UC-INT-PLUGIN-LICENSE-AUDIT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-ISSUE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-ACTIVATE-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-RENEW-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-LICENSE-001/SCN-INT-PLUGIN-LICENSE-AUDIT-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "cd1055c1-e58d-49a1-8a7a-e2f755564e6e",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-15T13:23:37.406Z"
+    }
+  ]
+}
