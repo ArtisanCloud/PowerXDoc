@@ -550,6 +550,56 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/usecases-seeds/SCN-INT-PLUGIN-SIGN-001/UC-INT-PLUGIN-SIGN-RESPONSE-001.md
+  - scn_id: SCN-INT-PLUGIN-PERMISSION-001
+    path: docs/scenarios/integration/SCN-INT-PLUGIN-PERMISSION-001.md
+    title: 插件权限与访问控制
+    title_en: Plugin Permission & Access Control
+    child_scenarios:
+      - scn_id: SCN-INT-PLUGIN-PERMISSION-MANIFEST-001
+        title: 权限清单申报与安全审核
+        title_en: Permission Manifest & Review
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-PERMISSION-MANIFEST-001.md
+      - scn_id: SCN-INT-PLUGIN-PERMISSION-AUTHZ-001
+        title: 安装授权与租户策略落地
+        title_en: Tenant Authorization & Policy Enforcement
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-PERMISSION-AUTHZ-001.md
+      - scn_id: SCN-INT-PLUGIN-PERMISSION-RUNTIME-001
+        title: 运行时访问控制与动态调整
+        title_en: Runtime Access Control & Dynamic Adjustment
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-PERMISSION-RUNTIME-001.md
+      - scn_id: SCN-INT-PLUGIN-PERMISSION-INCIDENT-001
+        title: 越权检测与审计响应
+        title_en: Overprivilege Detection & Audit Response
+        path: docs/scenarios/integration/SCN-INT-PLUGIN-PERMISSION-INCIDENT-001.md
+    children:
+      - doc_id: UC-INT-PLUGIN-PERMISSION-MANIFEST-001
+        scope: powerx
+        layer: security
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-MANIFEST-001.md
+      - doc_id: UC-INT-PLUGIN-PERMISSION-AUTHZ-001
+        scope: powerx
+        layer: service
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-AUTHZ-001.md
+      - doc_id: UC-INT-PLUGIN-PERMISSION-RUNTIME-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-RUNTIME-001.md
+      - doc_id: UC-INT-PLUGIN-PERMISSION-INCIDENT-001
+        scope: powerx
+        layer: ops
+        domain: integration
+        optional: false
+        repo: powerx
+        path: docs/usecases-seeds/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-INCIDENT-001.md
   - scn_id: SCN-KNOWLEDGE-SPACE-001
     path: docs/scenarios/knowledge/SCN-KNOWLEDGE-SPACE-001.md
     title: 知识空间构建

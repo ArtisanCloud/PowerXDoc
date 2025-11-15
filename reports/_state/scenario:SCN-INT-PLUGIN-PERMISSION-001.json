@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-INT-PLUGIN-PERMISSION-001",
+      "fingerprint": "2d8f4db79d4600bbe8dc4ed93e124b811ec7baf768aa4dd1c5070236926ac494",
+      "resumeToken": "7e3f618a-2156-4a7b-b0c1-adb64a54f8c1",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-INT-PLUGIN-PERMISSION-001.json"
+      },
+      "createdAt": "2025-11-15T04:04:39.403Z",
+      "updatedAt": "2025-11-15T04:04:39.406Z"
+    }
+  ],
+  "tokens": {
+    "7e3f618a-2156-4a7b-b0c1-adb64a54f8c1": "2d8f4db79d4600bbe8dc4ed93e124b811ec7baf768aa4dd1c5070236926ac494"
+  }
+}

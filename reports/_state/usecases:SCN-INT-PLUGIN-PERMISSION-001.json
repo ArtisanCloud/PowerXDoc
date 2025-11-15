@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-PERMISSION-001",
+      "fingerprint": "a150471d98a4f6086de4ab56692f5e8110652b76e87313690b470560c63ef48d",
+      "resumeToken": "74748476-b0a8-4e7f-8535-4636d47941b9",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-INT-PLUGIN-PERMISSION-001.json"
+      },
+      "createdAt": "2025-11-15T04:04:54.400Z",
+      "updatedAt": "2025-11-15T04:05:35.230Z"
+    }
+  ],
+  "tokens": {
+    "74748476-b0a8-4e7f-8535-4636d47941b9": "a150471d98a4f6086de4ab56692f5e8110652b76e87313690b470560c63ef48d"
+  }
+}

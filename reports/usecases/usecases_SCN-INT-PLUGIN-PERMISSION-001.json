@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "workflowId": "usecases:SCN-INT-PLUGIN-PERMISSION-001",
+    "scenario": "SCN-INT-PLUGIN-PERMISSION-001",
+    "status": "Completed",
+    "generatedAt": "2025-11-15T04:05:35.226Z"
+  },
+  "records": [
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-PERMISSION-001",
+      "status": "Completed",
+      "resumeToken": "74748476-b0a8-4e7f-8535-4636d47941b9",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-int-plugin-permission-001-c90eb3a4",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-MANIFEST-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-AUTHZ-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-RUNTIME-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-INCIDENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-MANIFEST-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-AUTHZ-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-RUNTIME-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-INCIDENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/index.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-int-plugin-permission-001-c90eb3a4",
+          "resumeToken": "74748476-b0a8-4e7f-8535-4636d47941b9",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-15T04:04:54.407Z"
+    },
+    {
+      "workflowId": "usecases:SCN-INT-PLUGIN-PERMISSION-001",
+      "status": "Completed",
+      "resumeToken": "74748476-b0a8-4e7f-8535-4636d47941b9",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-MANIFEST-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-AUTHZ-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-RUNTIME-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/UC-INT-PLUGIN-PERMISSION-INCIDENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-MANIFEST-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-AUTHZ-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-RUNTIME-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/SCN-INT-PLUGIN-PERMISSION-INCIDENT-001.md",
+            "docs/use_cases/_from_hub/SCN-INT-PLUGIN-PERMISSION-001/index.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "74748476-b0a8-4e7f-8535-4636d47941b9",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-15T04:05:35.229Z"
+    }
+  ]
+}
