@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-CORE-RPA-ORCH-001",
+      "fingerprint": "1bc2f06ef41ff81ea416e53a51fdc191fa7ac33278d4786a6fd05347c4f46d4d",
+      "resumeToken": "a325df9b-a420-4060-b1e2-b9b22c12483b",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-CORE-RPA-ORCH-001.json"
+      },
+      "createdAt": "2025-11-19T08:30:14.732Z",
+      "updatedAt": "2025-11-19T08:30:14.736Z"
+    }
+  ],
+  "tokens": {
+    "a325df9b-a420-4060-b1e2-b9b22c12483b": "1bc2f06ef41ff81ea416e53a51fdc191fa7ac33278d4786a6fd05347c4f46d4d"
+  }
+}

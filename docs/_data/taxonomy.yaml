@@ -30,3 +30,4 @@ domains:
   - integration
   - agent-orchestration
   - knowledge
+  - core-platform

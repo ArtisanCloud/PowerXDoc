@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-CORE-RPA-ORCH-001",
+      "fingerprint": "e9dc134b4ddeb816c89fe522371dd5ca9378cb61a5ae90ac33058d252fdf8dcf",
+      "resumeToken": "1c002749-25b6-4aeb-8794-3301603e576b",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-CORE-RPA-ORCH-001.json"
+      },
+      "createdAt": "2025-11-19T08:31:09.685Z",
+      "updatedAt": "2025-11-19T08:32:39.405Z"
+    }
+  ],
+  "tokens": {
+    "1c002749-25b6-4aeb-8794-3301603e576b": "e9dc134b4ddeb816c89fe522371dd5ca9378cb61a5ae90ac33058d252fdf8dcf"
+  }
+}

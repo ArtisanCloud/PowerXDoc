@@ -1400,3 +1400,49 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-AGENT-REACT-ORCH-001/UC-AGENT-REACT-AUDIT-001.md
+  - scn_id: SCN-CORE-RPA-ORCH-001
+    path: docs/scenarios/core-platform/SCN-CORE-RPA-ORCH-001.md
+    title: CoreX 智能体调度 RPA 插件执行跨系统流程
+    title_en: CoreX Agent RPA Orchestration
+    child_scenarios:
+      - scn_id: SCN-CORE-RPA-BID-CAPTURE-001
+        title: RPA 自动化投标信息抓取与推送
+        title_en: RPA Automated Bid Capture & Push
+        path: docs/scenarios/core-platform/SCN-CORE-RPA-BID-CAPTURE-001.md
+      - scn_id: SCN-CORE-RPA-CRM-ERP-SYNC-001
+        title: CRM ↔ ERP 对账文件自动同步
+        title_en: CRM↔ERP Reconciliation Automation
+        path: docs/scenarios/core-platform/SCN-CORE-RPA-CRM-ERP-SYNC-001.md
+      - scn_id: SCN-CORE-RPA-OA-AUTOFLOW-001
+        title: 企业 OA 待办巡检与自动填报
+        title_en: OA Todo Sweep & Auto Filing
+        path: docs/scenarios/core-platform/SCN-CORE-RPA-OA-AUTOFLOW-001.md
+    children:
+      - doc_id: PX-RPA-ORCH-001
+        scope: powerx
+        layer: service
+        domain: core-platform
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-ORCH-001.md
+      - doc_id: PX-RPA-BID-001
+        scope: powerx
+        layer: service
+        domain: core-platform
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-BID-001.md
+      - doc_id: PX-RPA-RECON-001
+        scope: powerx
+        layer: service
+        domain: core-platform
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-RECON-001.md
+      - doc_id: PX-RPA-OA-001
+        scope: powerx
+        layer: service
+        domain: core-platform
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-OA-001.md
