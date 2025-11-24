@@ -6,6 +6,8 @@ title: Contact Channel
 
 We use a personal WeChat account as the entry point. After you add the contact, we will invite you into the official PowerX Docs group for faster collaboration.
 
+please send remark,  like：“I'm interest in PowerX”
+
 <p align="center">
   <img src="/images/wx-qr-code.jpg" alt="PowerX Docs support QR code" width="220" />
 </p>
