@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "scenario:SCN-OPS-UNIFIED-WORKER-001",
+      "fingerprint": "5c12daa9a75263034693a30e17d751bb36ca38777446126b99023f1ae8f675d8",
+      "resumeToken": "52c79b9d-602a-4f32-8441-c9c7ebbb198b",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-OPS-UNIFIED-WORKER-001.json"
+      },
+      "createdAt": "2025-11-24T07:20:46.326Z",
+      "updatedAt": "2025-11-24T07:20:46.329Z"
+    }
+  ],
+  "tokens": {
+    "52c79b9d-602a-4f32-8441-c9c7ebbb198b": "5c12daa9a75263034693a30e17d751bb36ca38777446126b99023f1ae8f675d8"
+  }
+}

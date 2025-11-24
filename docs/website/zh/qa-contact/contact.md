@@ -6,6 +6,7 @@ title: 联系通道
 
 PowerX 文档与插件生态团队使用个人微信作为统一入口，扫码后会拉你进入企业微信群进行实时沟通。无论是场景勘误、Usecase Seed 需求还是脚本使用问题，都可以通过该通道获得最快响应。
 
+申请添加好友时，请备注产品名称，比如：“我关注PowerX”
 <p align="center">
   <img src="/images/wx-qr-code.jpg" alt="PowerX 文档支持微信群二维码" width="220" />
 </p>

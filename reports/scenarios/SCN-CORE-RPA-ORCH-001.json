@@ -1,0 +1,81 @@
+{
+  "summary": {
+    "scnId": "SCN-CORE-RPA-ORCH-001",
+    "status": "completed",
+    "generatedAt": "2025-11-19T08:30:14.734Z"
+  },
+  "records": [
+    {
+      "workflowId": "scenario:SCN-CORE-RPA-ORCH-001",
+      "status": "completed",
+      "resumeToken": "a325df9b-a420-4060-b1e2-b9b22c12483b",
+      "fingerprint": "1bc2f06ef41ff81ea416e53a51fdc191fa7ac33278d4786a6fd05347c4f46d4d",
+      "renderedPath": null,
+      "docmapEntry": {
+        "scn_id": "SCN-CORE-RPA-ORCH-001",
+        "path": "docs/scenarios/core-platform/SCN-CORE-RPA-ORCH-001.md",
+        "title": "CoreX 智能体调度 RPA 插件执行跨系统流程",
+        "title_en": "CoreX Agent RPA Orchestration",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-CORE-RPA-BID-CAPTURE-001",
+            "title": "RPA 自动化投标信息抓取与推送",
+            "title_en": "RPA Automated Bid Capture & Push",
+            "path": "docs/scenarios/core-platform/SCN-CORE-RPA-BID-CAPTURE-001.md"
+          },
+          {
+            "scn_id": "SCN-CORE-RPA-CRM-ERP-SYNC-001",
+            "title": "CRM ↔ ERP 对账文件自动同步",
+            "title_en": "CRM↔ERP Reconciliation Automation",
+            "path": "docs/scenarios/core-platform/SCN-CORE-RPA-CRM-ERP-SYNC-001.md"
+          },
+          {
+            "scn_id": "SCN-CORE-RPA-OA-AUTOFLOW-001",
+            "title": "企业 OA 待办巡检与自动填报",
+            "title_en": "OA Todo Sweep & Auto Filing",
+            "path": "docs/scenarios/core-platform/SCN-CORE-RPA-OA-AUTOFLOW-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "PX-RPA-ORCH-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "core-platform",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-ORCH-001.md"
+          },
+          {
+            "doc_id": "PX-RPA-BID-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "core-platform",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-BID-001.md"
+          },
+          {
+            "doc_id": "PX-RPA-RECON-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "core-platform",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-RECON-001.md"
+          },
+          {
+            "doc_id": "PX-RPA-OA-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "core-platform",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-CORE-RPA-ORCH-001/PX-RPA-OA-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-19T08:30:14.735Z"
+    }
+  ]
+}

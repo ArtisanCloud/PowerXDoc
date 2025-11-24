@@ -1,0 +1,18 @@
+{
+  "runs": [
+    {
+      "workflowId": "usecases:SCN-OPS-UNIFIED-WORKER-001",
+      "fingerprint": "b6fd35e28ab86853a560a568fda3b72ab2604268185d8372e2a62aa494d00005",
+      "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+      "status": "completed",
+      "metadata": {
+        "reportPath": "reports/usecases/usecases_SCN-OPS-UNIFIED-WORKER-001.json"
+      },
+      "createdAt": "2025-11-24T07:18:20.439Z",
+      "updatedAt": "2025-11-24T07:22:20.004Z"
+    }
+  ],
+  "tokens": {
+    "344b4261-bab3-458b-a763-9293e25fb45b": "b6fd35e28ab86853a560a568fda3b72ab2604268185d8372e2a62aa494d00005"
+  }
+}
