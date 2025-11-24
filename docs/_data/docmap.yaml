@@ -1200,6 +1200,67 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-SYSTEM-MONITORING-001/UC-OPS-MONITORING-REMOTE-RESTART-001.md
+  - scn_id: SCN-OPS-UNIFIED-WORKER-001
+    path: docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-001.md
+    title: 统一 Worker 封装与双模式任务执行
+    title_en: Unified Worker & Dual-Mode Execution
+    child_scenarios:
+      - scn_id: SCN-OPS-UNIFIED-WORKER-STANDALONE-001
+        title: standalone 队列+池执行
+        title_en: Standalone Queue & Pool Execution
+        path: docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-STANDALONE-001.md
+      - scn_id: SCN-OPS-UNIFIED-WORKER-HOST-001
+        title: 宿主分发透传
+        title_en: Host Task Dispatch Passthrough
+        path: docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-HOST-001.md
+      - scn_id: SCN-OPS-UNIFIED-WORKER-CANCEL-001
+        title: 取消/超时与进程终止
+        title_en: Cancellation, Timeout & Process Termination
+        path: docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-CANCEL-001.md
+      - scn_id: SCN-OPS-UNIFIED-WORKER-OBS-001
+        title: 观测、告警与降级
+        title_en: Observability, Alerts & Degradation
+        path: docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-OBS-001.md
+      - scn_id: SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001
+        title: PowerX Admin 任务看板
+        title_en: PowerX Admin Task Board
+        path: docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001.md
+    children:
+      - doc_id: UC-OPS-WORKER-STANDALONE-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-001.md
+      - doc_id: UC-OPS-WORKER-HOST-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-001.md
+      - doc_id: UC-OPS-WORKER-CANCEL-001
+        scope: powerx
+        layer: service
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-001.md
+      - doc_id: UC-OPS-WORKER-OBS-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-001.md
+      - doc_id: UC-OPS-WORKER-ADMIN-BOARD-001
+        scope: powerx
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-001.md
   - scn_id: SCN-AGENT-TASK-EXEC-001
     path: docs/scenarios/agent-orchestration/SCN-AGENT-TASK-EXEC-001.md
     title: 智能体任务执行
