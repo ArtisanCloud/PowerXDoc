@@ -6,10 +6,11 @@
       "resumeToken": "52c79b9d-602a-4f32-8441-c9c7ebbb198b",
       "status": "completed",
       "metadata": {
-        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-OPS-UNIFIED-WORKER-001.json"
+        "reportPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/reports/scenarios/SCN-OPS-UNIFIED-WORKER-001.json",
+        "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-UNIFIED-WORKER-001.md"
       },
       "createdAt": "2025-11-24T07:20:46.326Z",
-      "updatedAt": "2025-11-24T07:20:46.329Z"
+      "updatedAt": "2025-11-24T09:46:10.093Z"
     }
   ],
   "tokens": {

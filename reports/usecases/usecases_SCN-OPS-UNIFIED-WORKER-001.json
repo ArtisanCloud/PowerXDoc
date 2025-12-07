@@ -3,7 +3,7 @@
     "workflowId": "usecases:SCN-OPS-UNIFIED-WORKER-001",
     "scenario": "SCN-OPS-UNIFIED-WORKER-001",
     "status": "Completed",
-    "generatedAt": "2025-11-24T07:22:20.001Z"
+    "generatedAt": "2025-11-24T09:52:31.605Z"
   },
   "records": [
     {
@@ -63,6 +63,106 @@
         }
       ],
       "timestamp": "2025-11-24T07:22:20.003Z"
+    },
+    {
+      "workflowId": "usecases:SCN-OPS-UNIFIED-WORKER-001",
+      "status": "Completed",
+      "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "docs/hub/scn-ops-unified-worker-001-43f22946",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-STANDALONE-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-HOST-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-CANCEL-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-OBS-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerX/docs/hub/scn-ops-unified-worker-001-43f22946",
+          "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+          "commitSkipped": true
+        },
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "docs/hub/scn-ops-unified-worker-001-66e61a5a",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-STANDALONE-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-HOST-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-CANCEL-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-OBS-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001.md"
+          ],
+          "prUrl": "dry-run://ArtisanCloud/PowerXPlugin/docs/hub/scn-ops-unified-worker-001-66e61a5a",
+          "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+          "commitSkipped": true
+        }
+      ],
+      "timestamp": "2025-11-24T09:46:45.626Z"
+    },
+    {
+      "workflowId": "usecases:SCN-OPS-UNIFIED-WORKER-001",
+      "status": "Completed",
+      "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+      "records": [
+        {
+          "repoKey": "powerx",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-STANDALONE-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-HOST-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-CANCEL-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-OBS-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+          "commitSkipped": false
+        },
+        {
+          "repoKey": "powerx-plugin",
+          "branchName": "dev/docs",
+          "status": "Success",
+          "filesChanged": [
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-PLG-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-STANDALONE-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-HOST-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-CANCEL-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-OBS-001.md",
+            "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001.md"
+          ],
+          "prUrl": null,
+          "resumeToken": "344b4261-bab3-458b-a763-9293e25fb45b",
+          "commitSkipped": false
+        }
+      ],
+      "timestamp": "2025-11-24T09:52:31.608Z"
     }
   ]
 }

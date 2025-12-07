@@ -1233,6 +1233,13 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-001.md
+      - doc_id: UC-OPS-WORKER-STANDALONE-PLG-001
+        scope: powerx-plugin
+        layer: integration
+        domain: ops
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-PLG-001.md
       - doc_id: UC-OPS-WORKER-HOST-001
         scope: powerx
         layer: service
@@ -1240,6 +1247,13 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-001.md
+      - doc_id: UC-OPS-WORKER-HOST-PLG-001
+        scope: powerx-plugin
+        layer: integration
+        domain: ops
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-PLG-001.md
       - doc_id: UC-OPS-WORKER-CANCEL-001
         scope: powerx
         layer: service
@@ -1247,6 +1261,13 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-001.md
+      - doc_id: UC-OPS-WORKER-CANCEL-PLG-001
+        scope: powerx-plugin
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-PLG-001.md
       - doc_id: UC-OPS-WORKER-OBS-001
         scope: powerx
         layer: ops
@@ -1254,6 +1275,13 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-001.md
+      - doc_id: UC-OPS-WORKER-OBS-PLG-001
+        scope: powerx-plugin
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-PLG-001.md
       - doc_id: UC-OPS-WORKER-ADMIN-BOARD-001
         scope: powerx
         layer: ops
@@ -1261,6 +1289,13 @@ scenarios:
         optional: false
         repo: powerx
         path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-001.md
+      - doc_id: UC-OPS-WORKER-ADMIN-BOARD-PLG-001
+        scope: powerx-plugin
+        layer: ops
+        domain: ops
+        optional: false
+        repo: powerx-plugin
+        path: docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-PLG-001.md
   - scn_id: SCN-AGENT-TASK-EXEC-001
     path: docs/scenarios/agent-orchestration/SCN-AGENT-TASK-EXEC-001.md
     title: 智能体任务执行

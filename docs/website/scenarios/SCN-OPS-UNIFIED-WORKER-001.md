@@ -1,26 +1,79 @@
 ---
-scn_id: SCN-OPS-UNIFIED-WORKER-001
-title: 统一 Worker 封装与双模式任务执行
-status: Draft
-version: v0.1.0
-owners:
-  - name: Michael Hu
-    role: Product Manager
-    contact: matrix-x@artisan-cloud.com
-domains: [ops]
-layers: [service, ops, integration]
-repos:
-  - key: powerx
-    scope: core-platform
-    responsibility: Worker 接口/调度器、宿主任务分发接入、任务看板与审计
-  - key: powerx-plugin
-    scope: plugin-ecosystem
-    responsibility: 插件 Handler/SDK、进度回写、模式切换与进程管理
-related_usecases:
-  - doc_id: UC-OPS-WORKER-UNIFIED-001
-    layer: service
-    domain: ops
-last_reviewed_at: 2025-10-19
+title: "统一 Worker 封装与双模式任务执行"
+scn_id: "SCN-OPS-UNIFIED-WORKER-001"
+status: "Draft"
+children:
+  - doc_id: "UC-OPS-WORKER-STANDALONE-001"
+    scope: "powerx"
+    layer: "service"
+    domain: "ops"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-001.md"
+  - doc_id: "UC-OPS-WORKER-STANDALONE-PLG-001"
+    scope: "powerx-plugin"
+    layer: "integration"
+    domain: "ops"
+    optional: false
+    repo: "powerx-plugin"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-PLG-001.md"
+  - doc_id: "UC-OPS-WORKER-HOST-001"
+    scope: "powerx"
+    layer: "service"
+    domain: "ops"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-001.md"
+  - doc_id: "UC-OPS-WORKER-HOST-PLG-001"
+    scope: "powerx-plugin"
+    layer: "integration"
+    domain: "ops"
+    optional: false
+    repo: "powerx-plugin"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-PLG-001.md"
+  - doc_id: "UC-OPS-WORKER-CANCEL-001"
+    scope: "powerx"
+    layer: "service"
+    domain: "ops"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-001.md"
+  - doc_id: "UC-OPS-WORKER-CANCEL-PLG-001"
+    scope: "powerx-plugin"
+    layer: "ops"
+    domain: "ops"
+    optional: false
+    repo: "powerx-plugin"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-PLG-001.md"
+  - doc_id: "UC-OPS-WORKER-OBS-001"
+    scope: "powerx"
+    layer: "ops"
+    domain: "ops"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-001.md"
+  - doc_id: "UC-OPS-WORKER-OBS-PLG-001"
+    scope: "powerx-plugin"
+    layer: "ops"
+    domain: "ops"
+    optional: false
+    repo: "powerx-plugin"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-PLG-001.md"
+  - doc_id: "UC-OPS-WORKER-ADMIN-BOARD-001"
+    scope: "powerx"
+    layer: "ops"
+    domain: "ops"
+    optional: false
+    repo: "powerx"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-001.md"
+  - doc_id: "UC-OPS-WORKER-ADMIN-BOARD-PLG-001"
+    scope: "powerx-plugin"
+    layer: "ops"
+    domain: "ops"
+    optional: false
+    repo: "powerx-plugin"
+    path: "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-PLG-001.md"
+generated_at: "2025-11-24T09:46:10.090Z"
 ---
 # Positioning & Goals
 
