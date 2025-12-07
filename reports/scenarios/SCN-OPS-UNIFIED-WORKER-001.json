@@ -2,7 +2,7 @@
   "summary": {
     "scnId": "SCN-OPS-UNIFIED-WORKER-001",
     "status": "completed",
-    "generatedAt": "2025-11-24T07:20:46.328Z"
+    "generatedAt": "2025-11-24T09:46:10.092Z"
   },
   "records": [
     {
@@ -97,6 +97,144 @@
         ]
       },
       "timestamp": "2025-11-24T07:20:46.328Z"
+    },
+    {
+      "workflowId": "scenario:SCN-OPS-UNIFIED-WORKER-001",
+      "status": "completed",
+      "resumeToken": "52c79b9d-602a-4f32-8441-c9c7ebbb198b",
+      "fingerprint": "b78d3e880c85885e35f458a7e93cbeaece1f26d4bdbf8b54ea2050b7e86cc9f7",
+      "renderedPath": "/private/var/www/html/ArtisanCloud/X/PowerX/Core/PowerXDocs/docs/website/scenarios/SCN-OPS-UNIFIED-WORKER-001.md",
+      "docmapEntry": {
+        "scn_id": "SCN-OPS-UNIFIED-WORKER-001",
+        "path": "docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-001.md",
+        "title": "统一 Worker 封装与双模式任务执行",
+        "title_en": "Unified Worker & Dual-Mode Execution",
+        "child_scenarios": [
+          {
+            "scn_id": "SCN-OPS-UNIFIED-WORKER-STANDALONE-001",
+            "title": "standalone 队列+池执行",
+            "title_en": "Standalone Queue & Pool Execution",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-STANDALONE-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-UNIFIED-WORKER-HOST-001",
+            "title": "宿主分发透传",
+            "title_en": "Host Task Dispatch Passthrough",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-HOST-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-UNIFIED-WORKER-CANCEL-001",
+            "title": "取消/超时与进程终止",
+            "title_en": "Cancellation, Timeout & Process Termination",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-CANCEL-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-UNIFIED-WORKER-OBS-001",
+            "title": "观测、告警与降级",
+            "title_en": "Observability, Alerts & Degradation",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-OBS-001.md"
+          },
+          {
+            "scn_id": "SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001",
+            "title": "PowerX Admin 任务看板",
+            "title_en": "PowerX Admin Task Board",
+            "path": "docs/scenarios/runtime-ops/SCN-OPS-UNIFIED-WORKER-ADMIN-BOARD-001.md"
+          }
+        ],
+        "children": [
+          {
+            "doc_id": "UC-OPS-WORKER-STANDALONE-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-STANDALONE-PLG-001",
+            "scope": "powerx-plugin",
+            "layer": "integration",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-STANDALONE-PLG-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-HOST-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-HOST-PLG-001",
+            "scope": "powerx-plugin",
+            "layer": "integration",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-HOST-PLG-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-CANCEL-001",
+            "scope": "powerx",
+            "layer": "service",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-CANCEL-PLG-001",
+            "scope": "powerx-plugin",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-CANCEL-PLG-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-OBS-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-OBS-PLG-001",
+            "scope": "powerx-plugin",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-OBS-PLG-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-ADMIN-BOARD-001",
+            "scope": "powerx",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-001.md"
+          },
+          {
+            "doc_id": "UC-OPS-WORKER-ADMIN-BOARD-PLG-001",
+            "scope": "powerx-plugin",
+            "layer": "ops",
+            "domain": "ops",
+            "optional": false,
+            "repo": "powerx-plugin",
+            "path": "docs/use_cases/_from_hub/SCN-OPS-UNIFIED-WORKER-001/UC-OPS-WORKER-ADMIN-BOARD-PLG-001.md"
+          }
+        ]
+      },
+      "timestamp": "2025-11-24T09:46:10.093Z"
     }
   ]
 }
