@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">营销能力阶段四象限定位图</title>
+  <desc id="desc">横轴是决策速度从慢到快，纵轴是执行协同从割裂到闭环。四个区块分别是传统、信息化、数字化、智能化。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f9fc" />
+      <stop offset="100%" stop-color="#eef3fb" />
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#bg)" />
+
+  <g transform="translate(220,120)">
+    <rect x="0" y="0" width="1160" height="660" rx="18" fill="#ffffff" stroke="#d6deea" stroke-width="3" />
+
+    <rect x="0" y="0" width="580" height="330" fill="#f4f7fb" />
+    <rect x="580" y="0" width="580" height="330" fill="#eaf6ff" />
+    <rect x="0" y="330" width="580" height="330" fill="#eef2f8" />
+    <rect x="580" y="330" width="580" height="330" fill="#e9fff2" />
+
+    <line x1="580" y1="0" x2="580" y2="660" stroke="#6b7a90" stroke-width="3" />
+    <line x1="0" y1="330" x2="1160" y2="330" stroke="#6b7a90" stroke-width="3" />
+
+    <text x="290" y="175" text-anchor="middle" font-size="72" fill="#334155" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">传统</text>
+    <text x="870" y="175" text-anchor="middle" font-size="72" fill="#1f4f7a" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">信息化</text>
+    <text x="290" y="505" text-anchor="middle" font-size="72" fill="#2e4968" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">数字化</text>
+    <text x="870" y="505" text-anchor="middle" font-size="72" fill="#166534" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">智能化</text>
+
+    <line x1="-70" y1="660" x2="1160" y2="660" stroke="#1f2937" stroke-width="4" />
+    <polygon points="1160,660 1135,647 1135,673" fill="#1f2937" />
+    <text x="500" y="730" text-anchor="middle" font-size="42" fill="#111827" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">决策速度（慢 -> 快）</text>
+
+    <line x1="-70" y1="660" x2="-70" y2="-20" stroke="#1f2937" stroke-width="4" />
+    <polygon points="-70,-20 -83,5 -57,5" fill="#1f2937" />
+    <text x="-160" y="320" transform="rotate(-90 -160,320)" text-anchor="middle" font-size="42" fill="#111827" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif">执行协同（割裂 -> 闭环）</text>
+  </g>
+</svg>
