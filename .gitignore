@@ -8,6 +8,7 @@ build/
 # VitePress build outputs
 .docs-temp/
 docs/.vitepress/cache
+docs/.vitepress/.temp/
 docs/.vitepress/dist
 
 # Logs

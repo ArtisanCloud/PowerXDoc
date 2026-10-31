@@ -1,34 +1,35 @@
 ---
 title: 开发与扩展
+description: 从本地插件开发到能力共享，了解 PowerX 的安装、调试、接口契约与运行验证。
 ---
 
 # 开发与扩展
 
-PowerX 对外提供完整的开发工具链，涵盖 SDK / API、插件脚手架、测试策略与 CI/CD 集成。本章节聚合相关资源，帮助研发团队快速上手并扩展 PowerX 能力。
+**先做一个能运行的插件，再开放可复用的业务能力。** 不需要先读完所有提案，也不必改动 PowerX 内核才能扩展业务。
 
-## SDK / API {#sdk-api}
+## 最短开发路径 {#plugin-ecosystem}
 
-- [REST & GraphQL 规范](./api-and-specifications/README.md)
-- [Webhook 与事件协议](./api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design.md)
-- [实时通道与流式接口](./api-and-specifications/04_orchestration/Realtime_Streaming_Gateway.md)
-- 国际化与本地化脚手架可参考 `/docs/scripts/localization/` 目录中的工具。
+1. **准备底座**：按[开始使用](/zh/guides/#local)运行本地 PowerX，确认后台和依赖服务正常。
+2. **创建插件**：进入[本地初始化](/zh/guides/publish/local-init)，再按[本地调试](/zh/guides/publish/local-dev-debug)联调前后端。
+3. **装到宿主验证**：按[Local Install](/zh/guides/publish/local-install)验证启用、页面、权限与一次业务调用。
+4. **准备交付**：阅读[离线发布与导入](/zh/guides/publish/offline-publish)以及[版本兼容性](/zh/guides/publish/version-compatibility)，明确依赖与升级方式。
 
-## 插件体系 {#plugin-ecosystem}
+## 把业务能力共享出去 {#sdk-api}
 
-- [PowerX Plugin SDK 指南](/zh/guides/PowerX_Plugin_SDK_Guide.md)
-- [插件运行时指南](/zh/guides/Plugin_Runtime_Guide.md)
-- [开发热加载/调试流程](/zh/guides/Plugin_Test_and_Debug_Guide.md)
-- PXIP-001 中描述了统一能力与传输提案，可作为扩展插件协议的基础：[PXIP-001 提案](./pxip/PXIP-001_Unified_Capability_and_Transport_Proposal.md)
+插件保留自己的数据和业务逻辑，通过接口、事件或能力契约供其他插件、流程与智能体调用。调用必须遵守租户与权限边界，不通过直接访问底座或其他插件的数据库来“打通”。
 
-## 质量与测试 {#quality-testing}
+- [插件 SDK 指南](/zh/guides/PowerX_Plugin_SDK_Guide)：了解插件接入方式。
+- [能力契约规范](/zh/developers/api-and-specifications/02_capability/Capability_Contract_Spec)：了解输入、输出与调用约定。
+- [能力注册与路由设计](/zh/developers/api-and-specifications/03_registry_router/Capability_Registry_and_Router_Design)：理解能力如何被发现和路由。
 
-- 建议为每个插件或服务编写单元、集成与端到端测试；当前指南见 [智能体开发者指南](/zh/guides/Agent_Developer_Guide.md)。
-- 内部工作流测试脚本位于 `scripts/qa/`，可结合 `npm run test:workflows` 统一执行。
-- Seed 文档中的“Testing Strategy”章节应覆盖关键场景与指标。
+规范说明机制，不代表每项设计已在当前版本完整实现；集成时以运行版本与实际接口验证为准。
 
-## 工具链 {#tooling}
+## 验证与运行 {#quality-testing}
 
-- CLI 工具：`px-plugin`、`px-admin`、`px-market`，以及项目内的 `scripts/publish/*.mjs`。
-- CI/CD：推荐在每个仓设置“Seed 拉取 + 用例验证 + docs 构建”流水线，确保多仓同步。
-- 发布自动化：`npm run publish:usecases`、`npm run publish:standards`、`npm run publish:collected`。
-- Tips：结合 GitHub Actions/内部流水线，实现 PR 检查与多仓分发的自动化。
+先验证正常调用，再覆盖权限拒绝、依赖不可用、重试和重复请求。确认停用、重启与升级不会破坏业务数据。
+
+[插件测试与调试](/zh/guides/Plugin_Test_and_Debug_Guide) · [插件运行时](/zh/guides/Plugin_Runtime_Guide) · [智能体开发指南](/zh/guides/Agent_Developer_Guide)
+
+## 需要深入时再查 {#tooling}
+
+[API 与规范](/zh/developers/api-and-specifications/README) · [PXIP 提案](/zh/developers/pxip/README) · [完整参考入口](/zh/reference/)

@@ -23,12 +23,6 @@ function normalizePath(path: string): string {
   if (path === '/') {
     return '/'
   }
-  if (path.endsWith('.html')) {
-    path = path.replace(/\.html$/, '/')
-  }
-  if (!path.endsWith('/')) {
-    path = `${path}/`
-  }
   return path
 }
 
@@ -37,7 +31,7 @@ function detectLocaleFromPath(path: string): LocaleKey {
   for (const [locale, prefix] of Object.entries(LOCALE_PREFIX_MAP)) {
     if (!prefix) continue
     const normalizedPrefix = normalizePath(prefix)
-    if (normalized.startsWith(normalizedPrefix)) {
+    if (normalized === normalizedPrefix || normalized.startsWith(`${normalizedPrefix}/`)) {
       return locale as LocaleKey
     }
   }
@@ -57,7 +51,7 @@ function stripLocalePrefix(path: string, locale: LocaleKey): string {
 function buildLocalePath(basePath: string, targetLocale: LocaleKey): string {
   const prefix = LOCALE_PREFIX_MAP[targetLocale]
   if (!prefix) return normalizePath(basePath)
-  if (basePath === '/') return normalizePath(prefix)
+  if (basePath === '/') return `${prefix}/`
   return normalizePath(`${prefix}${basePath === '/' ? '' : basePath}`)
 }
 
@@ -66,6 +60,7 @@ function resolveManifestSlug(path: string): string | null {
   const candidates = new Set<string>()
 
   candidates.add(normalized)
+  candidates.add(normalized.endsWith('/') ? normalized : `${normalized}/`)
 
   const trimmed = normalized !== '/' && normalized.endsWith('/')
     ? normalized.slice(0, -1)
@@ -94,7 +89,7 @@ function resolveManifestSlug(path: string): string | null {
 }
 
 function hasManifestEntry(slug: string): boolean {
-  return Boolean(resolveManifestSlug(slug))
+  return Boolean(resolveManifestSlug(slug.split(/[?#]/)[0]))
 }
 
 function recordFallback(slug: string, targetLocale: LocaleKey) {
@@ -132,11 +127,9 @@ export function installLocaleSwitch(
   onLocaleChange?: (locale: LocaleKey) => void,
 ) {
   if (!inBrowser) return
-  const originalGo = router.go.bind(router)
 
-  const currentPath = normalizePath(router.route.path)
-  const activeLocale = detectLocaleFromPath(currentPath)
-  const preferredLocale = ensureLocalePreference(activeLocale)
+  const activeLocale = detectLocaleFromPath(router.route.path)
+  ensureLocalePreference(activeLocale)
 
   const applyLocale = (locale: LocaleKey) => {
     if (isSupportedLocale(locale)) {
@@ -146,16 +139,9 @@ export function installLocaleSwitch(
     }
   }
 
-  if (preferredLocale !== activeLocale) {
-    const basePath = stripLocalePrefix(currentPath, activeLocale)
-    const { path } = resolveLocaleNavigation(basePath, preferredLocale)
-    if (path !== currentPath) {
-      applyLocale(preferredLocale)
-      void originalGo(path, true)
-    }
-  } else {
-    applyLocale(activeLocale)
-  }
+  // Explicit URLs take precedence over a saved language preference. Let
+  // VitePress preserve file suffixes, queries, anchors and history semantics.
+  applyLocale(activeLocale)
 
   router.onAfterRouteChange = async (to) => {
     const normalized = normalizePath(to)
@@ -163,19 +149,6 @@ export function installLocaleSwitch(
     applyLocale(locale)
   }
 
-  router.go = async (href: string, replace?: boolean) => {
-    const normalizedTarget = normalizePath(href ?? router.route.path)
-    const targetLocale = detectLocaleFromPath(normalizedTarget)
-    applyLocale(targetLocale)
-    const basePath = stripLocalePrefix(normalizedTarget, targetLocale)
-    const { path, fallback } = resolveLocaleNavigation(basePath, targetLocale)
-
-    if (fallback) {
-      console.info(`[PowerX][i18n] Redirecting to fallback locale path "${path}".`)
-    }
-
-    return originalGo(path, replace)
-  }
 }
 
 export function toLocalePath(rawPath: string, locale: LocaleKey) {

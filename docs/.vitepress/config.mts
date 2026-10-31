@@ -1,15 +1,19 @@
 import { defineConfig } from 'vitepress'
+import { siteProfile, pageMetadata, robotsText, sitemapEntries, hasEquivalentIndex } from './seo.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocmap } from '../../scripts/lib/docmap-utils.mjs'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 
+const profile = siteProfile()
+
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const powerXRepoDir = path.resolve(__dirname, '../../PowerX')
 
 // ---------------- helpers: filesystem -> sidebar ----------------
 const WEBSITE_ROOT = path.resolve(__dirname, '../website')
+const isIndexAlias = (relativePath: string) => hasEquivalentIndex(relativePath, WEBSITE_ROOT)
 const DOCMAP_PATH = path.resolve(__dirname, '../_data/docmap.yaml')
 
 const docmapData = await loadDocmap(DOCMAP_PATH).catch(() => ({ scenarios: [] }))
@@ -368,19 +372,19 @@ const enOperationsSidebar = [
 
 const zhOverviewSidebar = [
   {
-    text: '产品概览',
+    text: '认识 PowerX',
     collapsed: false,
     items: [
-      { text: '愿景与定位', link: '/zh/overview/#vision' },
-      { text: '场景蓝本', link: '/zh/overview/#guiding-scenarios' },
-      { text: '产品矩阵', link: '/zh/overview/#product-matrix' },
-      { text: '市场聚焦', link: '/zh/overview/#gtm-focus' },
+      { text: '解决什么问题', link: '/zh/overview/#vision' },
+      { text: '点、线、面的示例', link: '/zh/overview/#guiding-scenarios' },
+      { text: '插件与自定义', link: '/zh/overview/#product-matrix' },
+      { text: '适合谁', link: '/zh/overview/#gtm-focus' },
       { text: '路线图', link: '/zh/overview/roadmap' },
     ],
   },
   {
-    text: '核心概念',
-    collapsed: false,
+    text: '深入阅读',
+    collapsed: true,
     items: [
       { text: '核心概念索引', link: '/zh/core-concepts/' },
       { text: '集成架构', link: '/zh/core-concepts/PowerX_Integration_Architecture' },
@@ -486,7 +490,16 @@ function buildUsecaseSeedSidebar(dirPrefix = '', linkPrefix = '') {
 // ---------------- site config ----------------
 export default withMermaid(defineConfig({
   title: 'PowerX Documentation',
-  description: 'A website to introduce PowerX',
+  description: 'PowerX 文档：业务插件、部署、开发与 AI 集成。',
+  titleTemplate: ':title | PowerX',
+  transformHead: ({ pageData }) => pageMetadata(pageData, profile, { indexAlias: isIndexAlias(pageData.relativePath) }),
+  sitemap: profile.production ? {
+    hostname: profile.origin,
+    transformItems: sitemapEntries
+  } : undefined,
+  buildEnd: async ({ outDir }) => {
+    fs.writeFileSync(path.join(outDir, 'robots.txt'), robotsText(profile))
+  },
   srcDir: 'website',
   publicDir: path.resolve(__dirname, '../website/public'),
   ignoreDeadLinks: true,
@@ -500,28 +513,35 @@ export default withMermaid(defineConfig({
       themeConfig: {
         siteTitle: 'PowerX 文档中心',
         nav: [
-          { text: '产品概览', link: '/zh/overview/', activeMatch: '^/zh/(overview/|core-concepts/)' },
-          { text: '使用与部署', link: '/zh/guides/', activeMatch: '^/zh/(guides/)' },
-          {
-            text: '场景与用例',
-            link: '/zh/scenarios/',
-            activeMatch: '^/zh/(scenarios/|library/)',
-            items: buildScenarioNavItems('zh'),
-          },
-          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/developers/' },
-          { text: '运营与治理', link: '/zh/operations/', activeMatch: '^/zh/(operations/|security-and-governance/)' },
-          { text: '资源中心', link: '/zh/resources/', activeMatch: '^/zh/(resources/)' },
-          { text: '联系我们&QA', link: '/zh/qa-contact/', activeMatch: '^/zh/(qa-contact/)' }
+          { text: '认识 PowerX', link: '/zh/overview/', activeMatch: '^/zh/(overview/|core-concepts/)' },
+          { text: '开始使用', link: '/zh/guides/', activeMatch: '^/zh/guides/' },
+          { text: '插件与方案', link: '/zh/plugins/', activeMatch: '^/zh/(plugins/|scenarios/)' },
+          { text: '开发与扩展', link: '/zh/developers/', activeMatch: '^/zh/developers/' }
         ],
         // 根据路由前缀切换不同侧边栏（静态文档沿用你原有分组）
         sidebar: {
           '/zh/overview/': zhOverviewSidebar,
+          '/zh/plugins/': [{ text: '插件与方案', items: [
+            { text: '选择业务插件', link: '/zh/plugins/' },
+            { text: '开发自定义插件', link: '/zh/developers/' },
+            { text: '场景与设计参考', link: '/zh/scenarios/' }
+          ] }],
+          '/zh/reference/': [{ text: '深入阅读', items: [
+            { text: '参考资料与历史设计', link: '/zh/reference/' },
+            { text: '核心概念', link: '/zh/core-concepts/' },
+            { text: '运维与治理', link: '/zh/operations/' },
+            { text: '资源中心', link: '/zh/resources/' }
+          ] }],
           '/zh/guides/': [
             {
-              text: '使用与部署',
+              text: '开始使用',
               collapsed: false,
               items: [
-                { text: '快速开始', link: '/zh/guides/' },
+                { text: '选择运行方式', link: '/zh/guides/' },
+                { text: '本地 HelloWorld', link: '/zh/guides/#local' },
+                { text: 'XDocker（推荐）', link: '/zh/guides/#xdocker' },
+                { text: 'Linux / systemd', link: '/zh/guides/#systemd' },
+                { text: '首次运行检查', link: '/zh/guides/#checklist' },
                 { text: '部署指南', link: '/zh/guides/#deployment' },
                 { text: '配置与集成', link: '/zh/guides/#configuration' },
                 { text: '运维 FAQ', link: '/zh/guides/#ops-faq' }
@@ -529,7 +549,7 @@ export default withMermaid(defineConfig({
             },
             {
               text: '插件发布机制',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '发布机制索引', link: '/zh/guides/publish/' },
                 { text: '插件本地初始化', link: '/zh/guides/publish/local-init' },
@@ -544,7 +564,7 @@ export default withMermaid(defineConfig({
             },
             {
               text: '插件安装与运维',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '插件运行态指南', link: '/zh/guides/Plugin_Runtime_Guide' },
                 { text: '插件测试与调试', link: '/zh/guides/Plugin_Test_and_Debug_Guide' }
@@ -552,7 +572,7 @@ export default withMermaid(defineConfig({
             },
             {
               text: '扩展与二次开发',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '插件 SDK 指南', link: '/zh/guides/PowerX_Plugin_SDK_Guide' },
                 { text: '智能体开发入门', link: '/zh/guides/Agent_Developer_Guide' },
@@ -922,6 +942,24 @@ export default withMermaid(defineConfig({
   },
 
   themeConfig: {
+    companyOrigin: profile.companyOrigin,
+    i18nRouting: false,
+    search: {
+      provider: 'local',
+      options: {
+        _render: (src, env, md) => {
+          if (isIndexAlias(env.relativePath)) return ''
+          // Search the reading guides, not generated scenarios, seeds or historic PRDs.
+          if (!/^(zh|en)\/(?:index\.md|(?:overview|guides|plugins|operations)\/|developers\/index\.md|reference\/index\.md)/.test(env.relativePath)) return ''
+          const html = md.render(src, env)
+          return env.frontmatter?.search === false ? '' : html
+        },
+        locales: {
+          root: { translations: { button: { buttonText: '搜索指南', buttonAriaLabel: '搜索入门与操作指南' } } },
+          en: { translations: { button: { buttonText: 'Search guides', buttonAriaLabel: 'Search getting-started and operational guides' } } }
+        }
+      }
+    },
     logo: {
       light: '/images/logo-s.png',
       dark: '/images/logo-s.png'

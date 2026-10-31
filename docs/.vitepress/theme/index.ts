@@ -6,6 +6,8 @@ import DefaultTheme from 'vitepress/theme'
 import { createI18n } from 'vue-i18n'
 import MyAwesomeHome from './components/MyAwesomeHome.vue'
 import ReviewBanner from './components/ReviewBanner.vue'
+import CompanyLinks from './components/CompanyLinks.vue'
+import DocsUtilityLinks from './components/DocsUtilityLinks.vue'
 import './style.css'
 import { installLocaleSwitch } from './utils/languageSwitch'
 import enUS from './locales/en-US'
@@ -50,6 +52,7 @@ export default {
     }
 
     const { app, router } = ctx
+    app.component('CompanyLinks', CompanyLinks)
     if (!(app as any).__POWERX_I18N__) {
       app.use(i18n)
       ;(app as any).__POWERX_I18N__ = true
@@ -80,6 +83,7 @@ export default {
 
         return h(DefaultTheme.Layout, undefined, {
           'doc-before': () => h(ReviewBanner),
+          'doc-after': () => h(DocsUtilityLinks),
         })
       }
     },

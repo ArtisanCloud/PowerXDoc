@@ -1,173 +1,71 @@
-# 使用与部署指南
-
-本章节汇总 PowerX 的落地流程：从本地快速体验、到部署上线、再到插件生态与二次开发。按照下面的“快速开始”完成环境搭建后，可继续阅读部署、配置与运维篇章获取更深入的操作指引。
-
-## 快速开始 {#quickstart}
-
-> 目标：30 分钟内在本地启动 PowerX Core 与 PowerX Admin，并通过后台安装/启用示例插件。
-
-### 步骤 0：环境要求
-
-- **操作系统**：macOS / Linux / WSL2
-- **工具链**：Go ≥ 1.22、Node.js ≥ 20（推荐 `npm`/`pnpm`）、Git、Make
-- **基础服务**：PostgreSQL ≥ 14、Redis ≥ 6（可使用 Docker 快速拉起）
-- **可选**：MinIO 或其他对象存储（若使用文件上传）
-
-快速拉起依赖（示例，仅供开发环境）：
-
-```bash
-docker run -d --name powerx-postgres \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=powerx \
-  -p 5432:5432 postgres:15
-
-docker run -d --name powerx-redis -p 6379:6379 redis:7
-```
-
-### 步骤 1：获取 PowerX 源码
-
-```bash
-git clone https://github.com/ArtisanCloud/PowerX.git
-cd PowerX/backend
-```
-
-仓库下同时包含：
-
-- `backend/`：Go 编写的 PowerX Core（内核、插件管理器、API）
-- `web-admin/`：Nuxt 4 构建的 PowerX Admin 控制台
-- `plugins/installed/`：示例插件（如 `com.powerx.plugins.base`）
-
-### 步骤 2：初始化配置
-
-PowerX 默认读取 `backend/etc/config.yaml`。首次使用可直接复制示例并按需调整：
-
-```bash
-cp etc/config_example.yaml etc/config.yaml
-```
-
-关键项说明：
-
-- `database`: 设置 `host/port/username/password/database`（或直接填 `dsn`）
-- `cache`: Redis 连接信息
-- `plugin.installed_dir`: 插件安装目录（保持默认即可）
-- `storage`: 若暂不接入对象存储，可保持 `default_driver: local`
-
-> 生产环境务必替换 `server.secret_key`、`auth.jwt_secret` 等敏感字段。
-
-### 步骤 3：创建并迁移数据库
-
-在 `backend/` 目录执行（根据上一节的数据库账号调整环境变量）：
-
-```bash
-export PGHOST=127.0.0.1
-export PGUSER=postgres
-export PGPASSWORD=postgres
-export PGDATABASE=powerx
-
-make db-create        # 若数据库尚未创建
-make db-migrate       # 执行核心表结构迁移
-make db-seed          # 写入 root 账号、权限、示例数据
-```
-
-完成后日志会提示 root 账户信息（默认用户名/密码均为 `root`，可通过 `POWERX_ROOT_PASSWORD` 覆盖）。
-
-### 步骤 4：启动 PowerX Core
-
-```bash
-LOG_LEVEL=debug go run ./cmd/app/main.go
-```
-
-成功后可通过以下命令验证：
-
-```bash
-curl http://localhost:8077/api/v1/health
-# {"status":"ok"}
-```
-
-控制台会监听：
-
-- REST API：`http://localhost:8077/api/v1/**`
-- WebSocket：`ws://localhost:8077/ws`
-- 最小 OpenAPI：`http://localhost:8077/openapi.min.json`
-
-保持该进程运行（建议使用 `tmux`/`screen` 或后台任务）。
-
-### 步骤 5：启动 PowerX Admin
-
-另开一个终端窗口：
-
-```bash
-cd ../web-admin
-cp .env.example .env.local           # 或根据需要创建 .env
-npm install                          # 或 pnpm install
-npm run dev -- --port 3030
-```
-
-默认代理至 `http://127.0.0.1:8077/api`，如需修改可在 `.env.local` 中调整 `UPSTREAM` / `WS_UPSTREAM`。
-
-浏览器访问 `http://localhost:3030/`，使用数据库种子生成的 root 账号登录：
-
-- 用户名：`root`
-- 密码：`root`（若设置了 `POWERX_ROOT_PASSWORD`，以实际值为准）
-
-### 步骤 6：浏览示例插件
-
-快速验证插件生态链路：
-
-1. 登录 PowerX Admin → **插件市场**
-2. 你将看到已经随仓库放置的 `Base template Plugin`（ID: `com.powerx.plugins.base`）
-3. 如需重新安装，可在 `PowerX/backend/plugins/installed/com.powerx.plugins.base/` 下执行：
-
-   ```bash
-   # 以 0.1.0 版本为例
-   cd ../../plugins/installed/com.powerx.plugins.base/0.1.0
-   go run ./backend/cmd/plugin/main.go   # 单独验证插件 API
-   ```
-
-4. 在 Admin 中启用后，访问 `/_p/com.powerx.plugins.base/admin/`（Admin 会自动拼接链接）即可进入插件的前端界面。
-
-至此，本地体验环境搭建完毕。若需要开发自定义插件，可参考《插件 SDK 指南》；若要继续部署到测试/生产环境，请阅读下方的部署与运维章节。
-
+---
+title: 开始使用
+description: 先选运行方式：本地开发、推荐的 XDocker 容器部署，或 Linux systemd。
 ---
 
-## 部署指南 {#deployment}
+# 开始使用
 
-- **运行模式选择**
-  - 单体（PoC / 开发）：直接运行 `go run ./cmd/app/main.go`，Redis+Postgres 使用容器即可。
-  - Compose/K8s：将 Core、Admin、依赖组件拆分为独立服务，结合现有镜像或扩展 Makefile 中的 `docker-*` 任务。
-  - 云托管：复用 `etc/config.yaml` 中的远程 Redis / RDS / 对象存储配置。
-- **必备操作**
-  - 生成强随机的 `server.secret_key`、`auth.jwt_secret`；对外暴露端口务必配合 HTTPS 与反向代理。
-  - 使用 `make db-migrate` / `make db-seed` 在部署流水线中执行 schema 与初始数据更新。
-  - 将 `plugins/installed` 与 `plugins/registry.json` 挂载到持久卷，避免升级时丢失插件安装状态。
-- **参考文档**
-  - 《Docker 化与生产部署指南》：Nuxt Admin 的镜像与探针实践。
-  - 《运行时配置规范》：各环境变量与 YAML 字段的含义及默认值。
+**部署使用，首推 XDocker；开发调试，先从本地 HelloWorld 开始。** 不必先读完所有架构文档，选一条适合你的路径即可。
 
-## 配置与集成 {#configuration}
+## 选择运行方式 {#quickstart}
 
-- **身份认证与租户**
-  - 通过 Admin 的【系统设置 → 组织与租户】创建租户、成员、角色；配合 `make permgen.*` 自动同步 API 权限表。
-  - 外部登录集成可参考《IAM / SSO 集成指南》，通过 JWT 或 OIDC 与企业 IdP 对接。
-- **插件生态**
-  - 将插件目录放入 `backend/plugins/installed/<plugin-id>/<version>` 并更新 `plugins/registry.json`，宿主会在启动时扫描并挂载反向代理。
-  - 插件运行时与 Admin 菜单注册规范详见《PowerX Plugin Manifest》。
-- **对象存储与媒体**
-  - 如需上传文件，可启用 `storage.s3` 配置并在 MinIO/S3 上创建 `powerx-media` 桶；Admin 的媒体中心即会使用该存储。
+| 你的目标 | 建议路径 | 需要准备 |
+| --- | --- | --- |
+| 本地修改代码、理解一次请求与插件调用 | [本地 HelloWorld](#local) | 开发工具链、数据库与缓存 |
+| 在服务器上运行 PowerX，统一管理容器与配置 | [XDocker（推荐）](#xdocker) | 容器运行环境、持久化目录与服务配置 |
+| 沿用已有 Linux 服务管理体系 | [Linux / systemd](#systemd) | Linux 主机、服务账号与依赖服务 |
+| 不自行维护服务器 | SaaS 即将提供 | 暂无公开开通入口 |
 
-## 运维 FAQ {#ops-faq}
+三种自部署路径服务于不同工作阶段，不是三个不同产品。SaaS 后台目前也采用 XDocker 部署；对外服务尚未开放。
 
-- **服务无法启动 / 配置报错**  
-  查看 `backend/logs` 或控制台输出，常见原因是数据库尚未创建、Redis 未就绪或 YAML 配置缺失。
+## 1. 本地 HelloWorld：先跑通开发闭环 {#local}
 
-- **插件安装后看不到菜单**  
-  检查 `registry.json` 是否写对版本、`plugin.yaml` 中的 `frontend.admin.menus` 是否声明菜单，以及 Admin 是否缓存（可在 Admin → 插件管理中点击“刷新菜单”）。
+适合准备修改 PowerX 或开发插件的团队。“HelloWorld”在这里指最小验证目标：**启动底座 → 登录管理后台 → 接入一个示例插件 → 完成一次调用**，不是业务方案已交付。
 
-- **API 鉴权失败 / 401**  
-  确认调用方使用 Admin 登录返回的 `access_token`，并检查 `auth.audience_*`、`auth.jwt_secret` 是否在 Core 与前端保持一致。
+1. 获取 PowerX 源码，按所选版本准备 Go、Node.js、PostgreSQL、Redis；版本要求以仓库为准。
+2. 配好数据库、缓存与认证参数，完成首次安装初始化，再启动后端与管理后台。已有数据的环境不要重复执行初始化种子命令。
+3. 确认能够登录、后端正常响应，再按[插件本地初始化](/zh/guides/publish/local-init)创建插件，并按[本地调试](/zh/guides/publish/local-dev-debug)完成联调。
 
-- **如何升级 PowerX**  
-  先拉取代码并执行 `make db-migrate`，验证 Admin / 插件菜单正常后再切换生产流量；旧版本插件可通过 Admin 的灰度/回滚面板进行切换。
+进入 [本地配置与密钥初始化指南](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/docs/guides/deploy/025-powerx-docker-systemd/manual-secret-initialization.md)。它是固定版本参考；请与实际 checkout 版本配套使用。
 
-更多实践、脚本与 SOP，请继续浏览本章节下的其他文章，或前往《开发与扩展》获取二次开发资料。
+## 2. XDocker：推荐的容器部署路径 {#xdocker}
+
+XDocker 用于组织 PowerX 的容器服务、配置与持久化数据，适合测试环境与服务器部署。先跑通一套环境，再规划升级与备份。
+
+- **部署前**：确定运行版本、访问域名与 HTTPS，按方案配置数据库与缓存，准备持久化目录；媒体存储可选本地目录或按需接入对象存储。
+- **首次启动**：完成安装配置，检查后台、后端和插件运行状态，再验证登录与一次插件调用。
+- **持续运行**：备份数据库、配置及插件数据；升级前核对版本说明，保留可恢复的备份与旧版本。
+
+从 [XDocker PowerX 部署指南](https://github.com/ReDeployment/XDocker/blob/main/docs/guides/powerx/README.md)进入具体安装步骤。按所选版本使用配套配置；不要混用旧版升级命令与新版发布清单。
+
+容器运行正常不等于业务已经验收。至少完成本页的[首次运行检查](#checklist)，再把实际业务接入。
+
+## 3. Linux / systemd：融入已有运维体系 {#systemd}
+
+适合已经采用 Linux 服务账号、日志和 systemctl 管理应用的团队。PowerX 后端与管理后台由 systemd 管理，插件子进程由 PowerX 的 supervisor 管理；独立 Runner 按需启用，依赖服务独立准备。
+
+参考 [systemd 部署与启动指南](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/docs/guides/deploy/025-powerx-docker-systemd/systemd/01-deploy-config-start.md)，结合实际版本检查服务路径、账号、端口和配置。
+
+::: warning 上线前检查
+历史手册中的配置权限、提权示例和自动回滚说明需要按环境复核。含密钥的配置仅允许服务账号读取，不照搬宽松文件权限或数据库 SUPERUSER 配置；健康检查失败后应确认实际版本并按预案恢复，不默认脚本已自动回滚。
+:::
+
+## 首次运行检查 {#checklist}
+
+- 能登录管理后台，且初始账号已设置独立强密码。
+- 后端与插件运行状态正常，插件可以启用，并完成一次实际调用。
+- 数据和插件文件持久化；重启后记录仍在。
+- 外部访问使用 HTTPS，敏感配置权限收紧，数据库与缓存不直接暴露公网。
+- 备份可恢复；业务负责人确认这次接入覆盖了哪些操作。
+
+## 继续部署与配置 {#deployment}
+
+运行后再处理[插件安装](/zh/guides/publish/local-install)、[离线发布与导入](/zh/guides/publish/offline-publish)和[插件运行管理](/zh/guides/Plugin_Runtime_Guide)。安装插件到已有 PowerX，与首次部署 PowerX 是两件事。
+
+### 配置与集成 {#configuration}
+
+先对齐身份、权限和接口契约，再连接外部系统。参见[开发与扩展](/zh/developers/)和[集成架构](/zh/core-concepts/PowerX_Integration_Architecture)。
+
+### 遇到问题 {#ops-faq}
+
+无法启动先查服务日志、依赖连通性与配置；看不到插件先查启用状态、权限和插件日志。进入[运维与治理](/zh/operations/)继续排查。升级前备份并核对迁移说明，**不要把首次初始化或 seed 当作常规升级步骤**。

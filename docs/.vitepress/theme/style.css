@@ -217,3 +217,76 @@
 .VPDoc.has-aside .aside-content {
   padding-bottom: 32px;
 }
+
+/* Documentation edition of the approved company-site palette. */
+:root {
+  --vp-c-brand-1: #16734d;
+  --vp-c-brand-2: #11613f;
+  --vp-c-brand-3: #16734d;
+  --vp-c-brand-soft: rgba(22, 115, 77, .08);
+  --brand-primary: #16734d;
+  --text-primary: #263c35;
+  --text-secondary: #64756f;
+  --bg-secondary: #f7f9f6;
+  --vp-home-hero-name-color: #16734d;
+  --vp-home-hero-name-background: none;
+  --vp-c-divider: #e0e8e2;
+}
+.dark {
+  --vp-c-brand-1: #83d6b0;
+  --vp-c-brand-2: #a4e5c6;
+  --vp-c-brand-3: #16734d;
+  --brand-primary: #83d6b0;
+  --text-primary: #e2e8f0;
+  --text-secondary: #bdcdc6;
+  --bg-secondary: #182622;
+  --vp-home-hero-name-color: #83d6b0;
+  --vp-c-divider: #2d423a;
+}
+.VPHero .name, .VPHero .text, .vp-doc h1, .vp-doc h2 { font-weight: 500; }
+.VPHero .text { font-size: clamp(34px, 4.5vw, 54px); line-height: 1.25; }
+.VPHero .tagline { font-size: 18px; max-width: 700px; line-height: 1.8; }
+.VPHome { padding-bottom: 64px !important; }
+.VPHome .VPHero { background: linear-gradient(120deg, #fafcf9, #f1f5fa); margin-bottom: 48px; }
+.dark .VPHome .VPHero { background: linear-gradient(120deg, #10221b, #151e30); }
+.VPFeature { border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg); border-radius: 16px; }
+.VPFeature .title { font-weight: 500; }
+.VPNavBarTitle .logo { height: 25px; }
+.docs-home-note { max-width: 1152px; margin: 36px auto 0; padding: 0 24px; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.9; }
+.docs-home-note p + p { margin-top: 12px; }
+.docs-home-note a { text-decoration: underline; text-underline-offset: 3px; }
+.docs-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+.docs-flow > div { border: 1px solid var(--vp-c-divider); border-radius: 12px; padding: 20px; background: var(--vp-c-bg-soft); }
+.docs-flow span { display: block; color: var(--vp-c-brand-1); font-size: 12px; margin-bottom: 10px; }
+.docs-flow strong { font-weight: 500; font-size: 17px; }
+.docs-flow p { font-size: 14px; line-height: 1.8; margin-bottom: 0; }
+@media (max-width: 639px) {
+  .docs-flow { grid-template-columns: 1fr; }
+  .VPHero .text { font-size: 32px; }
+  .VPHero .tagline { font-size: 16px; }
+  .docs-home-note { padding: 0 24px; }
+}
+
+/* Explicit secondary-action contrast; the legacy default-3 token is navy. */
+:root {
+  --vp-button-alt-text: #263c35;
+  --vp-button-alt-bg: #f0f4f0;
+  --vp-button-alt-border: #d6e1d8;
+  --vp-button-alt-hover-text: #263c35;
+  --vp-button-alt-hover-bg: #e5ece6;
+  --vp-button-alt-hover-border: #bdcfc2;
+  --vp-button-alt-active-text: #263c35;
+  --vp-button-alt-active-bg: #d9e4dc;
+  --vp-button-alt-active-border: #a8c0af;
+}
+.dark {
+  --vp-button-alt-text: #dcebe3;
+  --vp-button-alt-bg: #263c35;
+  --vp-button-alt-border: #3b574a;
+  --vp-button-alt-hover-text: #dcebe3;
+  --vp-button-alt-hover-bg: #304e42;
+  --vp-button-alt-hover-border: #547361;
+  --vp-button-alt-active-text: #dcebe3;
+  --vp-button-alt-active-bg: #3b5b4d;
+  --vp-button-alt-active-border: #6b917b;
+}
