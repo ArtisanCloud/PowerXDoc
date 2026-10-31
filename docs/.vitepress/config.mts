@@ -541,11 +541,11 @@ export default withMermaid(defineConfig({
               collapsed: false,
               items: [
                 { text: '选择运行方式', link: '/zh/guides/' },
-                { text: '本地 HelloWorld', link: '/zh/guides/#local' },
-                { text: 'XDocker（推荐）', link: '/zh/guides/#xdocker' },
-                { text: 'Linux / systemd', link: '/zh/guides/#systemd' },
+                { text: '本地开发启动', link: '/zh/guides/local-dev' },
+                { text: 'XDocker 部署（推荐）', link: '/zh/guides/xdocker' },
+                { text: 'Linux / systemd 部署', link: '/zh/guides/systemd' },
                 { text: '首次运行检查', link: '/zh/guides/#checklist' },
-                { text: '部署指南', link: '/zh/guides/#deployment' },
+                { text: '安装后的运维准备', link: '/zh/guides/maintenance' },
                 { text: '配置与集成', link: '/zh/guides/#configuration' },
                 { text: '运维 FAQ', link: '/zh/guides/#ops-faq' }
               ]

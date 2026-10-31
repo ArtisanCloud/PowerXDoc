@@ -62,7 +62,7 @@ export function robotsText(profile) {
 
 export function sitemapEntries(items) {
   return items
-    .filter(item => /^zh\/(?:overview\/|guides\/|plugins\/|developers\/|reference\/)?$/.test(item.url))
+    .filter(item => /^zh\/(?:overview\/|guides\/|guides\/(?:local-dev|xdocker|systemd|maintenance)\.html|plugins\/|developers\/|reference\/)?$/.test(item.url))
     .map(item => {
       const entry = { ...item }
       // The inherited localization tree includes en/zh duplicate pages. Never

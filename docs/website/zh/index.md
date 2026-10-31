@@ -30,7 +30,7 @@ features:
 
 <div class="docs-home-note">
 
-**第一次部署？** 推荐从 [XDocker 容器部署](/zh/guides/#xdocker) 开始；开发者可先运行 [本地 HelloWorld](/zh/guides/#local)，已有 Linux 运维体系可选 [systemd](/zh/guides/#systemd)。
+**第一次部署？** 推荐从 [XDocker 容器部署](/zh/guides/xdocker) 开始；开发者可先运行 [本地开发启动](/zh/guides/local-dev)，已有 Linux 运维体系可选 [systemd](/zh/guides/systemd)。
 
 已有文档没有搬走：[参考资料与历史设计](/zh/reference/) · [运维与治理](/zh/operations/) · [文档支持](/zh/qa-contact/)
 

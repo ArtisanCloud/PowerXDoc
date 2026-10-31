@@ -290,3 +290,19 @@
   --vp-button-alt-active-bg: #3b5b4d;
   --vp-button-alt-active-border: #6b917b;
 }
+
+/* Primary tutorial actions follow the company site's quiet green palette. */
+.vp-doc a.docs-tutorial-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #16734d;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+}
+.vp-doc a.docs-tutorial-action:hover { background: #11613f; color: #fff; }
+.vp-doc a.docs-tutorial-action:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 4px; }

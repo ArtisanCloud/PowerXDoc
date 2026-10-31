@@ -9,7 +9,7 @@ description: 从本地插件开发到能力共享，了解 PowerX 的安装、�
 
 ## 最短开发路径 {#plugin-ecosystem}
 
-1. **准备底座**：按[开始使用](/zh/guides/#local)运行本地 PowerX，确认后台和依赖服务正常。
+1. **准备底座**：按[开始使用](/zh/guides/local-dev)运行本地 PowerX，确认后台和依赖服务正常。
 2. **创建插件**：进入[本地初始化](/zh/guides/publish/local-init)，再按[本地调试](/zh/guides/publish/local-dev-debug)联调前后端。
 3. **装到宿主验证**：按[Local Install](/zh/guides/publish/local-install)验证启用、页面、权限与一次业务调用。
 4. **准备交付**：阅读[离线发布与导入](/zh/guides/publish/offline-publish)以及[版本兼容性](/zh/guides/publish/version-compatibility)，明确依赖与升级方式。
