@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { externalizeVitepressBootstrap } from '../../scripts/build/externalize-vitepress-bootstrap.mjs'
 import { siteProfile, pageMetadata, robotsText, sitemapEntries, hasEquivalentIndex } from './seo.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -497,8 +498,10 @@ export default withMermaid(defineConfig({
     hostname: profile.origin,
     transformItems: sitemapEntries
   } : undefined,
-  buildEnd: async ({ outDir }) => {
+  buildEnd: async ({ outDir, site }) => {
     fs.writeFileSync(path.join(outDir, 'robots.txt'), robotsText(profile))
+    const result = await externalizeVitepressBootstrap(outDir, site.base)
+    console.log(`Shared VitePress bootstrap: ${result.rewritten} pages, ${result.sharedAssets} assets, ${result.savedBytes} bytes saved` )
   },
   srcDir: 'website',
   publicDir: path.resolve(__dirname, '../website/public'),

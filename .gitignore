@@ -33,3 +33,7 @@ yarn-error.log*
 
 repos/
 .claude
+
+# Build-time source helpers (not generated output)
+!/scripts/build/
+!/scripts/build/*.mjs

@@ -61,3 +61,11 @@ Build note: Tailwind content globs intentionally scan source only. The previous
 `docs/.vitepress/**/*.{js,ts,vue}` glob also scanned generated/minified `dist`
 assets during the server bundle and caused a CPU-bound extractor stall. Do not
 reintroduce output/cache directories into Tailwind content scanning.
+
+Packaging: `buildEnd` externalizes identical VitePress hash-map/site-data
+bootstrap blocks into content-hashed JavaScript assets. The classic synchronous
+script stays at the original HTML position, before the deferred application
+module executes. Page HTML, JSON-LD, theme initialization and all legacy routes
+are preserved. This removes repeated bootstrap data without dropping documents
+and keeps the complete static artifact below the host's 256 MiB expanded limit.
+Always include the generated `assets/vp-bootstrap-*.js` file when publishing.
