@@ -20,6 +20,9 @@ description: 已有 PostgreSQL 和 Redis 时，从最新 Release 源码直接启
 | Node.js | **22.23.2**，使用随附的 npm |
 | 数据服务 | 可连接的 PostgreSQL **16 + pgvector**、Redis **7**；可以是已有服务 |
 
+<details>
+<summary>不确定工具版本？展开检查</summary>
+
 在**本机终端 A**执行：
 
 ```bash
@@ -32,13 +35,19 @@ node --version
 python3 --version
 ```
 
-看到 Go `1.26.7`、Node `v22.23.2`，且其他工具没有报错后继续。不要用 sudo 运行整个开发项目。
+看到 Go `1.26.7`、Node `v22.23.2`，且其他工具没有报错即可。
+
+</details>
+
+以下命令在本机 Bash 终端运行；不要用 sudo 运行整个开发项目。
 
 ## 2. 获取最新 Release 的源码
 
 以下命令都在**本机终端 A**执行。`~/powerx-local` 必须是尚未使用的新目录；不要在已有业务目录重复首装。
 
 ```bash
+bash
+set -eu
 mkdir ~/powerx-local
 cd ~/powerx-local
 ```
@@ -65,6 +74,9 @@ git rev-parse HEAD
 
 需要记下：数据库主机、端口、库名、用户名、密码，以及 Redis 主机、端口、密码。以下默认用本机 PostgreSQL `127.0.0.1:5432`、数据库／账号 `powerx`，Redis `127.0.0.1:6379`。使用其他连接时，下面的检查、步骤 4 配置和 Setup 要同步替换。远程服务通过已有可信内网或隧道连接，不为本教程开放数据库公网端口。
 
+<details>
+<summary>已有连接不确定是否可用？展开检查</summary>
+
 在**本机终端 A**检查连接，按提示输入对应密码：
 
 ```bash
@@ -74,6 +86,8 @@ redis-cli -h 127.0.0.1 -p 6379 --askpass ping
 ```
 
 **通过条件**：第一条返回 `powerx` 和 vector 版本，第二条返回 `PONG`。已有本机 Redis 未设密码时，去掉 `--askpass` 再执行，并在后续配置中保持空字符串。`psql`／`redis-cli` 使用已有 PostgreSQL／Redis 附带的客户端。缺少服务或扩展时，先由自己的环境维护者补齐，不需要为了这篇教程安装 Docker。
+
+</details>
 
 本教程需要 PostgreSQL 和 Redis；MinIO、Kafka、RabbitMQ 和 NATS 不需要安装。
 
@@ -93,29 +107,27 @@ openssl rand -hex 32
 
 用编辑器打开 `backend/etc/config.yaml`，**修改已有字段，勿在文件末尾追加同名段落**：
 
-| 位置 | 填写内容 |
-| --- | --- |
-| `deployment.env` | `dev` |
-| `server.host` / `server.port` | `127.0.0.1` / `8077` |
-| `server.grpc.host` | `127.0.0.1` |
-| `database.dsn` | 保持空字符串 `""`，采用下面的分字段连接 |
-| `database.host` / `port` | `127.0.0.1` / `5432` |
-| `database.username` / `database` | 均为 `powerx` |
-| `database.password` | 步骤 3 已验证的数据库密码 |
-| `database.ssl_mode` | `disable`，仅本机连接 |
-| `cache.host` / `port` / `db` | `127.0.0.1` / `6379` / `0` |
-| `cache.password` | 步骤 3 已验证的 Redis 密码；未设密码则保持 `""` |
-| `queue.redis.addr` / `password` | `127.0.0.1:6379` / 同一个 Redis 密码 |
-| `event.fabric.redis_addr` / `redis_password` | `127.0.0.1:6379` / 同一个 Redis 密码 |
-| `event.fabric.authorization.redis_addr` / `redis_password` | `127.0.0.1:6379` / 同一个 Redis 密码 |
-| `storage.default_driver` | `local` |
-| `storage.local.base_path` | `./storage/media`，相对后端工作目录 |
-| `storage.local.public_base_url` | `http://127.0.0.1:8077/media` |
-| `storage.local.upload_token_secret` | 刚生成的上传签名密钥 |
-| `install.status` | 保持 `uninstalled` |
-| `auth.jwt_secret` / `server.secret_key` | 保持空，下一步自动生成 |
+先改这几项，其余保留开发模板默认值：
 
-再在 YAML 顶层添加 `web_admin_port: 3030`（如果已有则修改）。保留模板中允许 `http://127.0.0.1:3030` 的 `http_security.web_admin_origins`。本教程使用本地文件存储，不需要填写 S3／MinIO 示例凭据。
+| 要填的内容 | 配置位置 |
+| --- | --- |
+| 已有 PostgreSQL 连接 | `database` 下的 `host`、`port`、`username`、`password`、`database`，填写步骤 3 的实际值 |
+| 已有 Redis 连接 | `cache` 下的 `host`、`port`、`password`；`queue.redis.addr` 填同一 `主机:端口` |
+| 同一个 Redis 密码 | 同时填入 `queue.redis.password`、`event.fabric.redis_password`、`event.fabric.authorization.redis_password`；无密码则都保持空 |
+| 仅本机监听 gRPC | `server.grpc.host: 127.0.0.1` |
+| 本地文件访问地址 | `storage.local.public_base_url: http://127.0.0.1:8077/media` |
+| 刚生成的上传签名密钥 | `storage.local.upload_token_secret` |
+
+在 YAML 顶层添加 `web_admin_port: 3030`（已有则修改）。**如果 Redis 不是本机 6379**，还需把 `event.fabric.redis_addr`、`event.fabric.authorization.redis_addr` 改为同一个实际地址。
+
+<details>
+<summary>哪些默认值不用改？</summary>
+
+本次开发模板已使用 `deployment.env: dev`、后端 `127.0.0.1:8077`、`database.dsn: ""`、本机数据库 `ssl_mode: disable`、Redis DB `0`、`storage.default_driver: local`、文件目录 `./storage/media` 和 `install.status: uninstalled`。
+
+`auth.jwt_secret`、`server.secret_key` 保持空，下一步自动生成。保留允许 `http://127.0.0.1:3030` 的 `http_security.web_admin_origins`。不需要填写 S3／MinIO 示例凭据。远程数据库的 TLS 配置需按现有连接要求填写，不能照搬本机的 `disable`。
+
+</details>
 
 ## 5. 初始化密钥并迁移空数据库
 
