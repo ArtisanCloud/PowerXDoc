@@ -26,6 +26,10 @@ for (const name of names) {
   assert.ok(html.includes('data-vp-bootstrap'), `${route}: shared bootstrap preserved`)
   assert.ok(!html.includes('window.__VP_SITE_DATA__='), `${route}: no duplicated site-data payload`)
   if (name !== 'maintenance') assert.ok(html.includes('class="copy"'), `${route}: copy controls`)
+  if (name === 'local-dev') {
+    assert.ok(html.includes('正在从 GitHub 获取最新发布信息'), 'SSR shows a neutral loading state')
+    assert.ok(!html.includes('git clone --depth 1 --branch'), 'no release is frozen into static HTML')
+  }
   reports.push({ route, canonical, robots, search: true })
 }
 assert.equal(fs.readFileSync(path.join(root, 'robots.txt'), 'utf8'), robotsText(profile))

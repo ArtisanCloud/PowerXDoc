@@ -1,0 +1,395 @@
+[
+  {
+    "id": 426180661,
+    "tag_name": "docker-dev-f99333ccd80e",
+    "published_at": "2026-10-28T01:54:55Z",
+    "created_at": "2026-10-28T01:32:41Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 21200
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 425665003,
+    "tag_name": "docker-dev-2910c1a923ce",
+    "published_at": "2026-10-27T15:48:57Z",
+    "created_at": "2026-10-27T15:23:49Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 21158
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 418067897,
+    "tag_name": "docker-dev-c6f307c48e06",
+    "published_at": "2026-10-20T06:17:33Z",
+    "created_at": "2026-10-20T05:55:49Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22637
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 416873111,
+    "tag_name": "docker-dev-9ce66fe890a7",
+    "published_at": "2026-10-19T03:27:35Z",
+    "created_at": "2026-10-19T03:05:47Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22615
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 411499857,
+    "tag_name": "docker-dev-567cdd4cfb51",
+    "published_at": "2026-10-13T09:23:29Z",
+    "created_at": "2026-10-13T09:03:53Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22630
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 411520228,
+    "tag_name": "docker-dev-0e20873be2ce",
+    "published_at": "2026-10-13T09:48:25Z",
+    "created_at": "2026-10-13T09:33:04Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22629
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 410392559,
+    "tag_name": "docker-dev-cd84fc09397f",
+    "published_at": "2026-10-12T08:49:34Z",
+    "created_at": "2026-10-12T08:28:38Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22605
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 410309657,
+    "tag_name": "docker-dev-bb611b250c71",
+    "published_at": "2026-10-12T07:24:31Z",
+    "created_at": "2026-10-12T07:02:53Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22632
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 410036254,
+    "tag_name": "docker-dev-9c00b6b708e6",
+    "published_at": "2026-10-12T01:15:07Z",
+    "created_at": "2026-10-12T00:52:36Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 22634
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 409710520,
+    "tag_name": "docker-dev-03a2a58c60f4",
+    "published_at": "2026-10-11T14:12:57Z",
+    "created_at": "2026-10-11T13:59:27Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 20898
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      },
+      {
+        "name": "powerx-upgrade-manifest.json",
+        "state": "uploaded",
+        "size": 7636
+      },
+      {
+        "name": "powerx-upgrade-manifest.json.sha256",
+        "state": "uploaded",
+        "size": 95
+      }
+    ]
+  },
+  {
+    "id": 407918508,
+    "tag_name": "docker-dev-3d792fd7ea24",
+    "published_at": "2026-10-09T13:00:26Z",
+    "created_at": "2026-10-09T12:50:03Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 6581
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      }
+    ]
+  },
+  {
+    "id": 406954454,
+    "tag_name": "docker-dev-2f28c9f830e0",
+    "published_at": "2026-10-08T14:58:54Z",
+    "created_at": "2026-10-08T14:51:02Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 6517
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      }
+    ]
+  },
+  {
+    "id": 406846460,
+    "tag_name": "docker-dev-0e1c4a561b3b",
+    "published_at": "2026-10-08T13:14:14Z",
+    "created_at": "2026-10-08T13:00:46Z",
+    "draft": false,
+    "prerelease": true,
+    "assets": [
+      {
+        "name": "powerx-docker.tar.gz",
+        "state": "uploaded",
+        "size": 6397
+      },
+      {
+        "name": "powerx-docker.tar.gz.sha256",
+        "state": "uploaded",
+        "size": 87
+      }
+    ]
+  },
+  {
+    "id": 319344506,
+    "tag_name": "v1.0.2",
+    "published_at": "2026-05-08T06:20:34Z",
+    "created_at": "2026-05-08T06:19:37Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": []
+  },
+  {
+    "id": 294698736,
+    "tag_name": "v1.0.1",
+    "published_at": "2026-03-09T13:17:26Z",
+    "created_at": "2026-03-09T13:15:40Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": []
+  },
+  {
+    "id": 248519935,
+    "tag_name": "sdk-go/v0.1.0-alpha",
+    "published_at": "2025-09-19T07:56:47Z",
+    "created_at": "2025-09-19T07:55:19Z",
+    "draft": false,
+    "prerelease": false,
+    "assets": [
+      {
+        "name": "powerx-sdk-go-v0.1.0-alpha.tar.gz",
+        "state": "uploaded",
+        "size": 47003
+      }
+    ]
+  }
+]

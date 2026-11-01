@@ -96,7 +96,8 @@ test('Setup instructions match existing wizard order and local native startup', 
     assert.doesNotMatch(source, /\| 文件公开地址 \||，公开地址 `/)
   }
   const local = read('local-dev')
-  assert.match(local, /git clone --depth 1 --branch docker-dev-f99333ccd80e/)
+  assert.match(local, /<LatestPowerXRelease \/>/)
+  assert.doesNotMatch(local, /git clone[^\n]*--branch|截至 \*\*2026/)
   assert.doesNotMatch(local, /resolve-powerx-release|python3|POWERX_SOURCE_SHA/)
   assert.match(local, /POWERX_ENV=dev make dev/)
   assert.match(local, /make init-secrets CONFIG=backend\/etc\/config.yaml/)

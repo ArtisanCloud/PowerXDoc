@@ -3,6 +3,10 @@ title: 本地开发启动
 description: 已有 PostgreSQL 和 Redis 时，从最新 Release 源码直接启动 Go 后端与 Node.js 后台，不需要 Docker。
 ---
 
+<script setup>
+import LatestPowerXRelease from '../../../.vitepress/theme/components/LatestPowerXRelease.vue'
+</script>
+
 # 本地开发启动
 
 这篇教程直接在自己的电脑运行 **Go 后端和 Node.js 管理后台**，完成首次 Setup，并用自己创建的管理员登录。**不需要安装 Docker，也不使用 XDocker。**
@@ -42,16 +46,17 @@ node --version
 
 ## 2. 获取最新 Release 的源码
 
-在**本机终端 A**执行。`~/powerx-local` 必须是新目录，不覆盖已有实例：
+页面会自动获取**最新可用容器 Release（含预发布）**，显示实际版本与发布时间。点击“复制克隆命令”，在**本机终端 A**粘贴执行；`~/powerx-local` 必须是新目录，不覆盖已有实例。这里只获取源码，不下载镜像，也不需要运行版本解析脚本。
+
+<LatestPowerXRelease />
+
+克隆成功后进入目录：
 
 ```bash
-git clone --depth 1 --branch docker-dev-f99333ccd80e https://github.com/ArtisanCloud/PowerX.git ~/powerx-local
 cd ~/powerx-local
 ```
 
-截至 **2026-11-01**，最新已发布的容器 Release 是 `docker-dev-f99333ccd80e`，属于**预发布**，不是稳定版。这里仅取对应源码，不下载镜像、不执行额外版本检测脚本。固定本次 Release 是为了让后续步骤保持一致，不是让读者长期使用旧版本。
-
-维护约定：新 Release 发布后，文档应同步更新这里的标签、工具要求和验证结果；尚未同步时，不把这条命令称为实时自动获取最新版。源码核对依据见页末。
+复制时选中的版本会固定在这次源码目录中；以后打开页面或点击“重新获取”，会重新查询。获取失败时不会提供旧版命令；可以重试，或从“官方 Releases”查看发行信息。
 
 ## 3. 确认数据库与缓存可连接
 
@@ -184,6 +189,6 @@ curl -fsS http://127.0.0.1:8077/api/v1/admin/setup/status
 <details>
 <summary>版本与源码依据</summary>
 
-本页命令核对基线为 PowerX `f99333ccd80eb3c2467fe6cc9009917340556424`；步骤 2 明确使用截至核对日期最新 Release 的标签，不运行文档仓库的检测脚本。核对来源包括 [Make 迁移入口](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/make_files/database.mk)、[开发配置](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/etc/config_example.yaml)与 [Setup 实现](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/internal/transport/http/admin/system/setup_handler.go)。当前源码缓存工厂只注册 Redis，不能把 Setup 中其他缓存选项当成已实现的替代方案；核对了[缓存工厂](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/pkg/cache/factory.go)。这些链接用于查阅来源，不是完成本教程的必经步骤。本文命令经过源码静态核对，本次文档修订未重新执行全新机器安装。
+步骤 2 在浏览器中实时查询官方发布列表，按发布时间选择含完整容器包与校验文件的非草稿 Release，不限定标签前缀；预发布和未来的正式版本均可选中。查询失败或发布列表未能完整读取时不生成命令。后续工具版本、配置和启动步骤的源码核对基线仍为 PowerX `f99333ccd80eb3c2467fe6cc9009917340556424`；自动选中新版不代表本页已实测该版本，工具要求以所选源码的 `backend/go.mod` 和 `web-admin/package.json` 为准。核对来源包括 [Make 迁移入口](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/make_files/database.mk)、[开发配置](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/etc/config_example.yaml)与 [Setup 实现](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/internal/transport/http/admin/system/setup_handler.go)。当前源码缓存工厂只注册 Redis，不能把 Setup 中其他缓存选项当成已实现的替代方案；核对了[缓存工厂](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/pkg/cache/factory.go)。这些链接用于查阅来源，不是完成本教程的必经步骤。本文命令经过源码静态核对，本次文档修订未重新执行全新机器安装。
 
 </details>
