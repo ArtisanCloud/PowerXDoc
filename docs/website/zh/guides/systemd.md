@@ -209,9 +209,9 @@ sudoedit /etc/powerx/config.yaml
 | `database.ssl_mode` | `disable`，仅本机连接 |
 | `cache.host` / `port` / `db` | `127.0.0.1` / `6379` / `0` |
 | `cache.password` | 步骤 3 的 Redis 密码 |
-| `queue.redis.addr` / `password` | `127.0.0.1:6379` / 同一个 Redis 密码 |
-| `event.fabric.redis_addr` / `redis_password` | `127.0.0.1:6379` / 同一个 Redis 密码 |
-| `event.fabric.authorization.redis_addr` / `redis_password` | `127.0.0.1:6379` / 同一个 Redis 密码 |
+| `queue.redis.addr` / `password` | `127.0.0.1:6379` / 空字符串 `""`（继承 `cache.password`） |
+| `event.fabric.redis_addr` / `redis_password` | `127.0.0.1:6379` / 空字符串 `""`（继承 `cache.password`） |
+| `event.fabric.authorization.redis_addr` / `redis_password` | `127.0.0.1:6379` / 空字符串 `""`（继承 `cache.password`） |
 | `storage.default_driver` | `local` |
 | `storage.local.base_path` | `/var/lib/powerx/media` |
 | `storage.local.public_base_url` | `http://127.0.0.1:8080/media` |
@@ -227,6 +227,8 @@ sudoedit /etc/powerx/config.yaml
 | `install.status` | 保持 `uninstalled` |
 | `auth.jwt_secret` | 保持空，下面由程序生成 |
 | `server.secret_key` | 保留本次构建生成的独立随机值 |
+
+当前 Setup 不会持久化 Redis 连接，所以 `cache` 必须先正确填写；其余 Redis 密码保持空值即可继承，不必重复填写。本地存储公开地址同样在 YAML 配置，向导没有对应输入框。
 
 将 `http_security.web_admin_origins` 改为包含 `http://127.0.0.1:3000`；`frame_ancestors` 保留 `'self'` 并按需允许该入口。S3／MinIO 未启用，不填模板中的示例凭据。
 
@@ -343,8 +345,8 @@ ssh -N -L 3000:127.0.0.1:3000 -L 8080:127.0.0.1:8080 your-user@your-server
 保持隧道运行，在**自己电脑浏览器**打开 [http://127.0.0.1:3000/setup](http://127.0.0.1:3000/setup)。本机 3000 与 8080 都必须空闲；这里两条转发分别服务页面和后端／WebSocket。
 
 1. **系统检查与许可**：确认许可，部署环境选 `prod`，与实际配置一致。
-2. **域名与 HTTPS**：系统域名填 `127.0.0.1:3000`，不带协议；HTTPS 关闭（仅 SSH 隧道访问）。后端端口 `8080`，管理端端口 `3000`。
-3. **数据库与基础配置**：PostgreSQL 16，主机 `127.0.0.1`、端口 `5432`、库名和用户均为 `powerx`，使用步骤 2 的密码；Redis 主机 `127.0.0.1`、端口 `6379`、索引 `0`，使用步骤 3 的密码。两项连接测试成功后再继续。存储选 `local`，目录 `/var/lib/powerx/media`，公开地址 `http://127.0.0.1:8080/media`。
+2. **数据库与基础配置**：PostgreSQL 16，主机 `127.0.0.1`、端口 `5432`、库名和用户均为 `powerx`，使用步骤 2 的密码；Redis 主机 `127.0.0.1`、端口 `6379`、索引 `0`，使用步骤 3 的密码。两项连接测试成功后再继续。存储选 `local`，目录 `/var/lib/powerx/media`。
+3. **域名与 HTTPS**：系统域名填 `127.0.0.1:3000`，不带协议；HTTPS 关闭（仅 SSH 隧道访问）。后端端口 `8080`，管理端端口 `3000`。
 4. **管理员与租户**：设置自己的用户名、邮箱、强密码与租户信息；该管理员不是 Linux 用户或数据库账号。
 5. **插件与智能体**：先完成底座安装，具体插件另行安装与验收。
 6. **LLM**：可以跳过，点击“完成设置”。
@@ -395,7 +397,7 @@ sudo journalctl -u powerx-backend -u powerx-web-admin -n 100 --no-pager
 | --- | --- |
 | `permission denied` 读取配置 | 检查文件归 `powerx`、权限 600、`/etc/powerx` 目录归属；不要改成 644 绕过 |
 | PostgreSQL 登录失败／找不到 vector | 用步骤 2 的普通账号命令复查；确认扩展由数据库管理员建在 `powerx` 库中 |
-| Redis `NOAUTH` | 核对 cache、queue、event fabric 三处及其 authorization 配置使用同一个 Redis 密码 |
+| Redis `NOAUTH` | 核对 `cache.password`；queue、event fabric 与 authorization 密码应为空以继承，或确认没有遗留的不同密码 |
 | Web 服务执行失败 | 检查 unit 中固定 Node 路径存在，版本为 v22.23.2，构建产物完整 |
 | 浏览器页面正常但 API／WS 失败 | 确认 3000 和 8080 两条 SSH 转发都运行，私有配置与环境未混用 systemd-dev 的 3001／8081 |
 | 完成安装失败 | 保留配置和数据库，查看日志具体错误并从同一 Setup 草稿重试；不要执行 refresh、伪造 installed 或重新生成密钥 |

@@ -87,3 +87,22 @@ test('new guides get production canonicals and sitemap coverage, previews remain
     }
   }
 })
+
+test('Setup instructions match existing wizard order and local native startup', () => {
+  for (const name of names) {
+    const source = read(name)
+    assert.match(source, /2\. \*\*数据库与基础配置\*\*/)
+    assert.match(source, /3\. \*\*域名与 HTTPS\*\*/)
+    assert.doesNotMatch(source, /\| 文件公开地址 \||，公开地址 `/)
+  }
+  const local = read('local-dev')
+  assert.match(local, /git clone --depth 1 --branch docker-dev-f99333ccd80e/)
+  assert.doesNotMatch(local, /resolve-powerx-release|python3|POWERX_SOURCE_SHA/)
+  assert.match(local, /POWERX_ENV=dev make dev/)
+  assert.match(local, /make init-secrets CONFIG=backend\/etc\/config.yaml/)
+  for (const [, block] of local.matchAll(/```bash\n([\s\S]*?)\n```/g)) {
+    assert.doesNotMatch(block, /make migrate|docker(?: compose)? /)
+  }
+  assert.match(local, /继承 `cache.password`/)
+  assert.match(local, /不会把 Redis 值写回运行配置/)
+})

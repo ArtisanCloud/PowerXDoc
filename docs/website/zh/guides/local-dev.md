@@ -15,7 +15,7 @@ description: 已有 PostgreSQL 和 Redis 时，从最新 Release 源码直接启
 
 | 工具 | 本教程使用的版本／要求 |
 | --- | --- |
-| Git、Make、curl、OpenSSL、Python 3 | 系统可执行命令；Python 仅用于读取发布清单 |
+| Git、Make、curl、OpenSSL | 系统可执行命令 |
 | Go | **1.26.7**，与本次源码 `backend/go.mod` 一致 |
 | Node.js | **22.23.2**，使用随附的 npm |
 | 数据服务 | 可连接的 PostgreSQL **16 + pgvector**、Redis **7**；可以是已有服务 |
@@ -32,7 +32,6 @@ git --version
 make --version
 go version
 node --version
-python3 --version
 ```
 
 看到 Go `1.26.7`、Node `v22.23.2`，且其他工具没有报错即可。
@@ -43,36 +42,22 @@ python3 --version
 
 ## 2. 获取最新 Release 的源码
 
-以下命令都在**本机终端 A**执行。`~/powerx-local` 必须是尚未使用的新目录；不要在已有业务目录重复首装。
+在**本机终端 A**执行。`~/powerx-local` 必须是新目录，不覆盖已有实例：
 
 ```bash
-bash
-set -eu
-mkdir ~/powerx-local
+git clone --depth 1 --branch docker-dev-f99333ccd80e https://github.com/ArtisanCloud/PowerX.git ~/powerx-local
 cd ~/powerx-local
 ```
 
-从最新已发布的 PowerX 容器 Release 读取对应源码版本，三种部署路线因此使用同一发行来源。当前容器发布采用预发布标签，不把它误称为稳定版；本地运行仍然从源码编译，**不下载或运行容器**。
+截至 **2026-11-01**，最新已发布的容器 Release 是 `docker-dev-f99333ccd80e`，属于**预发布**，不是稳定版。这里仅取对应源码，不下载镜像、不执行额外版本检测脚本。固定本次 Release 是为了让后续步骤保持一致，不是让读者长期使用旧版本。
 
-<!--@include: ../../../_snippets/latest-release.md-->
-
-继续在**本机终端 A**执行：
-
-```bash
-. ./powerx-release/release.env
-git clone https://github.com/ArtisanCloud/PowerX.git source
-cd source
-git checkout --detach "$POWERX_SOURCE_SHA"
-git rev-parse HEAD
-```
-
-最后输出应与 `powerx-release/release.env` 的 `POWERX_SOURCE_SHA` 一致。首次解析最新 Release 后，本次安装沿用这个精确版本，避免前后端或后续步骤混入新的提交。
+维护约定：新 Release 发布后，文档应同步更新这里的标签、工具要求和验证结果；尚未同步时，不把这条命令称为实时自动获取最新版。源码核对依据见页末。
 
 ## 3. 确认数据库与缓存可连接
 
 **已有服务直接用，不需要另建容器。** 准备一个仅供本次开发使用的空数据库和账号，确认安装了 pgvector；再准备可使用的 Redis 连接。不要把测试迁移连到客户或正式数据库。
 
-需要记下：数据库主机、端口、库名、用户名、密码，以及 Redis 主机、端口、密码。以下默认用本机 PostgreSQL `127.0.0.1:5432`、数据库／账号 `powerx`，Redis `127.0.0.1:6379`。使用其他连接时，下面的检查、步骤 4 配置和 Setup 要同步替换。远程服务通过已有可信内网或隧道连接，不为本教程开放数据库公网端口。
+需要记下：数据库主机、端口、库名、用户名、密码，以及 Redis 主机、端口、密码。以下默认用本机 PostgreSQL `127.0.0.1:5432`、数据库／账号 `powerx`，Redis `127.0.0.1:6379`。使用其他连接时，下面的检查和 Setup 要同步替换；Redis 还需写入步骤 4 配置。远程服务通过已有可信内网或隧道连接，不为本教程开放数据库公网端口。
 
 <details>
 <summary>已有连接不确定是否可用？展开检查</summary>
@@ -96,7 +81,7 @@ redis-cli -h 127.0.0.1 -p 6379 --askpass ping
 在**本机终端 A**执行：
 
 ```bash
-cd ~/powerx-local/source
+cd ~/powerx-local
 test ! -e backend/etc/config.yaml
 cp backend/etc/config_example.yaml backend/etc/config.yaml
 chmod 600 backend/etc/config.yaml
@@ -111,14 +96,12 @@ openssl rand -hex 32
 
 | 要填的内容 | 配置位置 |
 | --- | --- |
-| 已有 PostgreSQL 连接 | `database` 下的 `host`、`port`、`username`、`password`、`database`，填写步骤 3 的实际值 |
 | 已有 Redis 连接 | `cache` 下的 `host`、`port`、`password`；`queue.redis.addr` 填同一 `主机:端口` |
-| 同一个 Redis 密码 | 同时填入 `queue.redis.password`、`event.fabric.redis_password`、`event.fabric.authorization.redis_password`；无密码则都保持空 |
 | 仅本机监听 gRPC | `server.grpc.host: 127.0.0.1` |
 | 本地文件访问地址 | `storage.local.public_base_url: http://127.0.0.1:8077/media` |
 | 刚生成的上传签名密钥 | `storage.local.upload_token_secret` |
 
-在 YAML 顶层添加 `web_admin_port: 3030`（已有则修改）。**如果 Redis 不是本机 6379**，还需把 `event.fabric.redis_addr`、`event.fabric.authorization.redis_addr` 改为同一个实际地址。
+数据库连接稍后在 Setup 填写，不必先手工写 YAML。**当前 Setup 的 Redis 连接测试不会把 Redis 值写回运行配置**，所以这里仍需填写 `cache`；不能只凭连接测试成功就跳过它。其余三处 Redis 密码保留模板空值，启动时会继承 `cache.password`，不用重复填写。**如果 Redis 不是本机 6379**，还需把 `event.fabric.redis_addr`、`event.fabric.authorization.redis_addr` 改为同一个实际地址。
 
 <details>
 <summary>哪些默认值不用改？</summary>
@@ -129,37 +112,33 @@ openssl rand -hex 32
 
 </details>
 
-## 5. 初始化密钥并迁移空数据库
+## 5. 初始化密钥并安装前端依赖
 
 仍在**本机终端 A，源码根目录**执行：
 
 ```bash
 make init-secrets CONFIG=backend/etc/config.yaml
-make migrate CONFIG=backend/etc/config.yaml
 npm --prefix web-admin ci
 ```
 
-首次会下载 Go／Node 依赖。**通过条件**：密钥初始化输出 `generated`（再次执行为 `existing`），迁移成功退出且日志出现 `migrate ok`，npm 安装成功。命令不会打印 JWT 或服务加密密钥。
+首次会下载 Go／Node 依赖。**通过条件**：密钥初始化输出 `generated`（再次执行为 `existing`），npm 安装成功。命令不会打印 JWT 或服务加密密钥。
 
-此时还没有完成安装，也没有管理员。**不要执行 `make seed`、`make db-refresh`，也不要手改为 `installed`。** 接下来由 Setup 收集管理员信息并完成初始化。
+此时还没有完成安装，也没有管理员。**不要执行 `make seed`、`make db-refresh`，也不要手改为 `installed`。** 接下来后端先进入无需连接数据库的 Setup 模式，由向导连接数据库、迁移表结构并收集管理员信息；不需要先执行 `make migrate`。
 
 ## 6. 分别启动后端和管理后台
 
 **本机终端 A**：
 
 ```bash
-cd ~/powerx-local/source
-export POWERX_CONFIG="$PWD/backend/etc/config.yaml"
-export POWERX_ENV=dev
-make dev
+cd ~/powerx-local
+POWERX_ENV=dev make dev
 ```
 
 保持它运行，看到服务就绪后，打开**本机终端 B**：
 
 ```bash
-cd ~/powerx-local/source
-POWERX_ENV=dev POWERX_BACKEND=http://127.0.0.1:8077 \
-  npm --prefix web-admin run dev -- --host 127.0.0.1 --port 3030
+cd ~/powerx-local
+POWERX_ENV=dev npm --prefix web-admin run dev -- --host 127.0.0.1 --port 3030
 ```
 
 看到 Nuxt 显示 `http://127.0.0.1:3030` 后继续。本教程显式指定 3030；不要把 Nuxt 默认端口或 systemd-dev 的 3001／8081 混进来。
@@ -169,8 +148,8 @@ POWERX_ENV=dev POWERX_BACKEND=http://127.0.0.1:8077 \
 在**本机浏览器**打开 [http://127.0.0.1:3030/setup](http://127.0.0.1:3030/setup)。按页面顺序填写：
 
 1. **系统检查与许可**：确认许可，部署环境选 `dev`。
-2. **域名与 HTTPS**：系统域名填 `127.0.0.1:3030`，不带协议；HTTPS 选关闭。后端端口 `8077`，管理端端口 `3030`。
-3. **数据库与基础配置**：数据库类型 PostgreSQL、版本 16、主机 `127.0.0.1`、端口 `5432`、库名和用户均为 `powerx`；密码使用步骤 3 已验证的 PostgreSQL 密码。Redis 主机 `127.0.0.1`、端口 `6379`、索引 `0`，填 Redis 密码。两项连接测试成功后再继续。文件存储选 `local`，目录 `./storage/media`，公开地址 `http://127.0.0.1:8077/media`。
+2. **数据库与基础配置**：数据库类型 PostgreSQL、版本 16、主机 `127.0.0.1`、端口 `5432`、库名和用户均为 `powerx`；密码使用步骤 3 已验证的 PostgreSQL 密码。Redis 主机 `127.0.0.1`、端口 `6379`、索引 `0`，填 Redis 密码。两项连接测试成功后再继续。文件存储选 `local`，目录 `./storage/media`（把默认 `/data/uploads` 改成这个开发目录）。
+3. **域名与 HTTPS**：系统域名填 `127.0.0.1:3030`，不带协议；HTTPS 选关闭。后端端口 `8077`，管理端端口 `3030`。
 4. **管理员与租户**：填写你自己的管理员用户名、邮箱、强密码和租户信息。这是以后登录使用的账号，与数据库密码无关。
 5. **插件与智能体**：首次先保留默认选择；本教程不把额外插件或真实 AI 调用作为首装前置。
 6. **LLM**：可以选择跳过，安装后再配置模型。点击“完成设置”。
@@ -196,7 +175,7 @@ curl -fsS http://127.0.0.1:8077/api/v1/admin/setup/status
 | --- | --- |
 | Go 的 Sonic／ABI 编译错误 | 确认实际使用 Go 1.26.7；不要用旧 Go 编译这个快照 |
 | 数据库／Redis 连接失败 | 重新执行步骤 3 的 `psql`／`redis-cli` 检查；核对服务是否运行、实际地址／端口和密码 |
-| 迁移成功但进不了后台 | 迁移只建表，继续步骤 6、7；不要用 seed 或改安装标志代替 Setup |
+| 打开 Setup 不代表安装完成 | 按步骤 7 完成向导；不要用 seed 或改安装标志代替 Setup |
 | Setup API 404 或页面连接失败 | 核对后端 8077、前端 3030 和 `POWERX_BACKEND`；看终端 A、B 的日志 |
 | 密钥无效／配置不可写 | 确认启动日志读取的是本次 `config.yaml`，且归当前用户所有；已有实例恢复原密钥，勿删除配置重建 |
 
@@ -205,6 +184,6 @@ curl -fsS http://127.0.0.1:8077/api/v1/admin/setup/status
 <details>
 <summary>版本与源码依据</summary>
 
-本页命令核对基线为 PowerX `f99333ccd80eb3c2467fe6cc9009917340556424`；实际安装由步骤 2 获取最新已发布容器 Release 的对应源码，并保存版本记录。核对来源包括 [Make 迁移入口](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/make_files/database.mk)、[开发配置](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/etc/config_example.yaml)与 [Setup 实现](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/internal/transport/http/admin/system/setup_handler.go)。当前源码缓存工厂只注册 Redis，不能把 Setup 中其他缓存选项当成已实现的替代方案；核对了[缓存工厂](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/pkg/cache/factory.go)。这些链接用于查阅来源，不是完成本教程的必经步骤。本文命令经过源码静态核对，本次文档修订未重新执行全新机器安装。
+本页命令核对基线为 PowerX `f99333ccd80eb3c2467fe6cc9009917340556424`；步骤 2 明确使用截至核对日期最新 Release 的标签，不运行文档仓库的检测脚本。核对来源包括 [Make 迁移入口](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/make_files/database.mk)、[开发配置](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/etc/config_example.yaml)与 [Setup 实现](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/internal/transport/http/admin/system/setup_handler.go)。当前源码缓存工厂只注册 Redis，不能把 Setup 中其他缓存选项当成已实现的替代方案；核对了[缓存工厂](https://github.com/ArtisanCloud/PowerX/blob/f99333ccd80eb3c2467fe6cc9009917340556424/backend/pkg/cache/factory.go)。这些链接用于查阅来源，不是完成本教程的必经步骤。本文命令经过源码静态核对，本次文档修订未重新执行全新机器安装。
 
 </details>
