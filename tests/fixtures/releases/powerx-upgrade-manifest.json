@@ -1,0 +1,207 @@
+{
+  "schema_version": "powerx.upgrade-manifest/v1",
+  "release_id": "sha-f99333ccd80eb3c2467fe6cc9009917340556424",
+  "channel": "development",
+  "version": "dev-f99333ccd80e",
+  "source_sha": "f99333ccd80eb3c2467fe6cc9009917340556424",
+  "executable": true,
+  "images": {
+    "backend": {
+      "repository": "ghcr.io/artisancloud/powerx-backend",
+      "index_digest": "sha256:fe7f3549d9d0c14db3462a90a71e524453b08290d711ea4d0e2dfeff2bd0ca7a",
+      "platforms": {
+        "linux/amd64": {
+          "digest": "sha256:dcc8837b814160ae72eff65c4699d74b3602d9e7676f662ec57413235a157560",
+          "source_revision": "f99333ccd80eb3c2467fe6cc9009917340556424"
+        },
+        "linux/arm64": {
+          "digest": "sha256:2e309d8d3a289182fd298ec0ddc5467445bf06d2058d064c3940f12dc8d6ac74",
+          "source_revision": "f99333ccd80eb3c2467fe6cc9009917340556424"
+        }
+      }
+    },
+    "web_admin": {
+      "repository": "ghcr.io/artisancloud/powerx-web-admin",
+      "index_digest": "sha256:d68b58e9996b390f2272495bb2e7973146e5075c1abac1cebc49f3f1fabed314",
+      "platforms": {
+        "linux/amd64": {
+          "digest": "sha256:fc47cc972250731ae4d263eed1dbbff206dd1de1be23732de2d31f573bed62cf",
+          "source_revision": "f99333ccd80eb3c2467fe6cc9009917340556424"
+        },
+        "linux/arm64": {
+          "digest": "sha256:142143c8718b8168800fa16be30168dceae0142a550f60eb3fdbac178657b171",
+          "source_revision": "f99333ccd80eb3c2467fe6cc9009917340556424"
+        }
+      }
+    }
+  },
+  "supported_from": [
+    {
+      "release_id": "sha-3d792fd7ea2426825970bceceb0d6e9db46211ef",
+      "source_sha": "3d792fd7ea2426825970bceceb0d6e9db46211ef",
+      "images": {
+        "backend": {
+          "repository": "ghcr.io/artisancloud/powerx-backend",
+          "index_digest": "sha256:1dad4db52d2dd1347f6f4fc1391ea17b991b62627bdade26ad1c1d83f4357737",
+          "platforms": {
+            "linux/amd64": {
+              "digest": "sha256:38c2954c8c7a56cd892ef53ecf0a4424691f54b952627c21cb77dcab8aae499c",
+              "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+            },
+            "linux/arm64": {
+              "digest": "sha256:16a051cb54c57d6a783ba31a61ae8bcd1a9eeb6d7eea058877d2b57a5f46df27",
+              "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+            }
+          }
+        },
+        "web_admin": {
+          "repository": "ghcr.io/artisancloud/powerx-web-admin",
+          "index_digest": "sha256:364e4c4e6a997910d1a5f3d68675ad55a8954835a966bdbfe24271354f26fa44",
+          "platforms": {
+            "linux/amd64": {
+              "digest": "sha256:e4918197a260d743c7b85827f5d3cd509a8f7a383f6d0a19044ce9c8e35019c3",
+              "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+            },
+            "linux/arm64": {
+              "digest": "sha256:2467b1a10f85cde61dfa2456df12869bab1e16592762493217fb5632c270eb68",
+              "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "database": {
+    "migration_version": "60011195e5a5c322378531edceb15847a3cfd6d5b2da30d7d825b2d2056f167b",
+    "payloads": [
+      {
+        "name": "core",
+        "checksum": "ebd0e98226681ef7f43b7dca6c1da6d8ecf1af9480c422e40438f2ec208751ac"
+      },
+      {
+        "name": "agent",
+        "checksum": "cbeff1dc07fd5a8d2255548be41caec2f1e771b7a8794be685e5d8f926221a98"
+      },
+      {
+        "name": "knowledge",
+        "checksum": "b51a96aa038da235d97875c13368053f0c2bec1d582ad841d676a6711f85ecf3"
+      },
+      {
+        "name": "catalog",
+        "checksum": "04d9c2c034c7e20e50bbd72d822d2e2036b92db27f7c0d8f812fa261987d10af"
+      }
+    ],
+    "postgres_major": [
+      16
+    ],
+    "required_extensions": [
+      "vector"
+    ],
+    "schema_changes": true,
+    "data_backfill": true,
+    "system_catalog": true,
+    "knowledge_binding_in_plan": true
+  },
+  "configuration": {
+    "changes": [],
+    "preserve_installed": true,
+    "write_configuration": false,
+    "missing_configuration": "block"
+  },
+  "compatibility": {
+    "host_bridge": 2,
+    "session_action": "relogin_if_legacy_access_token",
+    "validated_scope": {
+      "storage_drivers": [
+        "local"
+      ],
+      "vector_topologies": [
+        "same_core_database",
+        "disabled"
+      ],
+      "plugins": [
+        {
+          "id": "com.powerx.upgrade.fixture",
+          "version": "1.0.0"
+        }
+      ],
+      "other_bindings": "require_additional_acceptance"
+    },
+    "plugin_validation": "fixture_runtime_only; validate each installed plugin against declared identity/Host contracts",
+    "post_upgrade_actions": [
+      "Review new service permissions and explicitly grant required API Key/Profile permissions; existing grants and tenant version locks are preserved",
+      "Media file preservation is verified through the protected Admin JWT resource endpoint; legacy /media UUID presign links are not a validated compatibility surface. Align clients with the current Admin resource or service-actor Host transfer contract."
+    ]
+  },
+  "execution": {
+    "mode": "offline",
+    "stop_all_writers": true,
+    "strict_configuration": true,
+    "lock_timeout_seconds": 30,
+    "nontransactional_steps": [
+      "knowledge"
+    ],
+    "recovery": "restore_matching_pre_upgrade_backup"
+  },
+  "rollback": {
+    "mode": "restore_required",
+    "release_id": "sha-3d792fd7ea2426825970bceceb0d6e9db46211ef",
+    "images": {
+      "backend": {
+        "repository": "ghcr.io/artisancloud/powerx-backend",
+        "index_digest": "sha256:1dad4db52d2dd1347f6f4fc1391ea17b991b62627bdade26ad1c1d83f4357737",
+        "platforms": {
+          "linux/amd64": {
+            "digest": "sha256:38c2954c8c7a56cd892ef53ecf0a4424691f54b952627c21cb77dcab8aae499c",
+            "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+          },
+          "linux/arm64": {
+            "digest": "sha256:16a051cb54c57d6a783ba31a61ae8bcd1a9eeb6d7eea058877d2b57a5f46df27",
+            "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+          }
+        }
+      },
+      "web_admin": {
+        "repository": "ghcr.io/artisancloud/powerx-web-admin",
+        "index_digest": "sha256:364e4c4e6a997910d1a5f3d68675ad55a8954835a966bdbfe24271354f26fa44",
+        "platforms": {
+          "linux/amd64": {
+            "digest": "sha256:e4918197a260d743c7b85827f5d3cd509a8f7a383f6d0a19044ce9c8e35019c3",
+            "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+          },
+          "linux/arm64": {
+            "digest": "sha256:2467b1a10f85cde61dfa2456df12869bab1e16592762493217fb5632c270eb68",
+            "source_revision": "3d792fd7ea2426825970bceceb0d6e9db46211ef"
+          }
+        }
+      }
+    },
+    "restore": [
+      "database",
+      "configuration",
+      "runtime_files",
+      "external_vector_database_if_configured"
+    ],
+    "new_writes_after_upgrade": "must be exported or will be lost when restoring the pre-upgrade backup"
+  },
+  "verification": {
+    "status": "passed",
+    "ci_run_url": "https://github.com/ArtisanCloud/PowerX/actions/runs/40615680728",
+    "tested_upgrade_platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "reports": [
+      {
+        "platform": "linux/amd64",
+        "artifact": "upgrade-report-linux-amd64.json",
+        "sha256": "a4a0e2ae6efdf77be2d1b05530b6a984fee1772aa837c78d1488ff60471378fb"
+      },
+      {
+        "platform": "linux/arm64",
+        "artifact": "upgrade-report-linux-arm64.json",
+        "sha256": "61849e95e5f15bb3c3a22015b78a569ae62de83c4f0fae73a74b75ac332491e2"
+      }
+    ]
+  }
+}

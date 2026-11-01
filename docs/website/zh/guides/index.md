@@ -20,13 +20,13 @@ description: 选择一条完整的 PowerX 安装教程：本地开发、推荐�
 
 ## 本地开发启动 {#local}
 
-从固定源码开始，准备 PostgreSQL 16 与 Redis 7，分别启动后端 8077、管理后台 3030，创建自己的管理员。
+从最新 Release 对应源码开始，连接 PostgreSQL 16 与 Redis 7（不要求 Docker），分别启动后端 8077、管理后台 3030，创建自己的管理员。
 
 <a class="docs-tutorial-action" href="/zh/guides/local-dev.html">开始本地教程 <span aria-hidden="true">→</span></a>
 
 ## XDocker 部署（推荐） {#xdocker}
 
-从全新服务器开始，拉取配套的前后端镜像，生成独立随机凭据，通过私有网关完成 Setup。服务器不需要编译代码。
+从全新服务器开始，获取最新已发布容器 Release，拉取其成对前后端镜像，生成独立随机凭据，通过私有网关完成 Setup。服务器不需要编译代码。
 
 <a class="docs-tutorial-action" href="/zh/guides/xdocker.html">开始 XDocker 教程 <span aria-hidden="true">→</span></a>
 

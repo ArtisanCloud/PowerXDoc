@@ -9,7 +9,7 @@ description: 在全新 Ubuntu 服务器上构建 PowerX，准备 PostgreSQL 与 
 
 起点：全新 **Ubuntu 24.04 LTS、x86_64** 服务器，能 SSH 登录并使用 sudo。终点：两项 systemd 服务开机启动，通过 SSH 隧道完成首次 Setup、管理员登录和健康验证。
 
-本页固定 PowerX 源码 `f99333ccd80e`，使用 `prod` 部署身份。先完成私有安装，不需要域名或证书；这不等于已经完成公网入口与业务验收。已有 `/etc/powerx`、数据库或同名 systemd 服务的主机应走升级方案，不重复本页。
+本页获取最新已发布容器 Release 对应的源码进行构建，使用 `prod` 部署身份。先完成私有安装，不需要域名或证书；这不等于已经完成公网入口与业务验收。已有 `/etc/powerx`、数据库或同名 systemd 服务的主机应走升级方案，不重复本页。
 
 ## 1. 准备构建工具
 
@@ -19,7 +19,7 @@ description: 在全新 Ubuntu 服务器上构建 PowerX，准备 PostgreSQL 与 
 bash
 set -eu
 sudo apt-get update
-sudo apt-get install -y git make build-essential curl ca-certificates gnupg openssl
+sudo apt-get install -y git make build-essential curl python3 ca-certificates gnupg openssl
 mkdir ~/powerx-systemd
 cd ~/powerx-systemd
 mkdir tools
@@ -134,19 +134,32 @@ redis-cli --askpass ping
 
 ## 4. 获取并构建 PowerX
 
-在**服务器终端**执行：
+在**服务器终端**先回到本次新目录：
 
 ```bash
 cd ~/powerx-systemd
+```
+
+获取最新发布记录，只取其对应源码，**不会使用 Docker 运行服务**。当前最新容器 Release 属于预发布通道；命令会明确显示状态。使用同一 Release 能让源码与容器路线保持版本一致，而不是直接跟随不断变化的 develop。
+
+<!--@include: ../../../_snippets/latest-release.md-->
+
+然后在同一终端构建已选版本：
+
+```bash
+. ./powerx-release/release.env
 git clone https://github.com/ArtisanCloud/PowerX.git source
 cd source
-git checkout --detach f99333ccd80eb3c2467fe6cc9009917340556424
-git rev-parse HEAD
-make dist DIST_VERSION=f99333ccd80e
-test -x dist/systemd/f99333ccd80e/backend/powerx
-test -x dist/systemd/f99333ccd80e/backend/database
-test -f dist/systemd/f99333ccd80e/web-admin/.output/server/index.mjs
+git checkout --detach "$POWERX_SOURCE_SHA"
+test "$(git rev-parse HEAD)" = "$POWERX_SOURCE_SHA"
+export DIST_VERSION="$POWERX_SOURCE_SHA"
+make dist DIST_VERSION="$DIST_VERSION"
+test -x "dist/systemd/$DIST_VERSION/backend/powerx"
+test -x "dist/systemd/$DIST_VERSION/backend/database"
+test -f "dist/systemd/$DIST_VERSION/web-admin/.output/server/index.mjs"
 ```
+
+重新连接终端时，先执行 `. ~/powerx-systemd/powerx-release/release.env` 和 `export DIST_VERSION="$POWERX_SOURCE_SHA"` 恢复版本变量。Go／Node 要求随 Release 变化；若新源码声明更高版本，先按其要求更新工具，不能忽略版本错误继续。
 
 构建会下载依赖并编译前后端，耗时取决于机器和网络。**通过条件**：最后三条检查无报错，构建显示 `[dist] done`。不要运行 `go mod tidy` 修改锁定依赖，也不要把构建失败当作已部署。
 
@@ -161,13 +174,13 @@ sudo install -d -o powerx -g powerx -m 750 \
   /var/lib/powerx/plugins/installed /var/lib/powerx/plugins/market_cache \
   /var/lib/powerx/system-snapshots /var/log/powerx /var/log/powerx/audit
 sudo install -d -o powerx -g powerx -m 700 /etc/powerx
-sudo install -d -m 755 /opt/powerx/releases/f99333ccd80e
-sudo cp -a dist/systemd/f99333ccd80e/. /opt/powerx/releases/f99333ccd80e/
-sudo chown -R powerx:powerx /opt/powerx/releases/f99333ccd80e
-sudo ln -s /opt/powerx/releases/f99333ccd80e/backend /opt/powerx/backend
-sudo ln -s /opt/powerx/releases/f99333ccd80e/web-admin /opt/powerx/web-admin
+sudo install -d -m 755 /opt/powerx/releases/$DIST_VERSION
+sudo cp -a dist/systemd/$DIST_VERSION/. /opt/powerx/releases/$DIST_VERSION/
+sudo chown -R powerx:powerx /opt/powerx/releases/$DIST_VERSION
+sudo ln -s /opt/powerx/releases/$DIST_VERSION/backend /opt/powerx/backend
+sudo ln -s /opt/powerx/releases/$DIST_VERSION/web-admin /opt/powerx/web-admin
 sudo install -o powerx -g powerx -m 600 \
-  dist/systemd/f99333ccd80e/backend/etc/config.yaml /etc/powerx/config.yaml
+  dist/systemd/$DIST_VERSION/backend/etc/config.yaml /etc/powerx/config.yaml
 ```
 
 配置与业务数据都在 release 目录外。首次安装使用 `ln -s`，遇到“已存在”就先检查原实例，不加 `-f` 覆盖已有程序链接。
@@ -368,7 +381,7 @@ sudo stat -c '%U %a %n' /etc/powerx/config.yaml /etc/powerx/powerx.env
 | `/var/lib/redis/` | Redis 持久数据，由 Redis 服务管理 |
 | `/var/lib/powerx/` | 媒体、插件与系统快照 |
 | `/var/log/powerx/` | 审计文件；程序服务日志另在 journald |
-| `/opt/powerx/releases/f99333ccd80e/` | 本次构建程序与静态资源 |
+| `/opt/powerx/releases/实际源码SHA/` | 本次构建程序与静态资源 |
 
 ## 遇到问题
 

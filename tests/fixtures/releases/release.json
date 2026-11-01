@@ -1,0 +1,29 @@
+{
+  "id": 426180661,
+  "tag_name": "docker-dev-f99333ccd80e",
+  "published_at": "2026-10-28T01:54:55Z",
+  "prerelease": true,
+  "draft": false,
+  "assets": [
+    {
+      "name": "powerx-docker.tar.gz",
+      "browser_download_url": "https://github.com/ArtisanCloud/PowerX/releases/download/docker-dev-f99333ccd80e/powerx-docker.tar.gz",
+      "digest": "sha256:bd7b8b39db27e95432149f7be99557ab89064d8efd07c4a93e7a4576dc3dc7b3"
+    },
+    {
+      "name": "powerx-docker.tar.gz.sha256",
+      "browser_download_url": "https://github.com/ArtisanCloud/PowerX/releases/download/docker-dev-f99333ccd80e/powerx-docker.tar.gz.sha256",
+      "digest": "sha256:724ac358ce513a59400a3610cb7b407eeadb536d5b33122cc4505869fe2cc12c"
+    },
+    {
+      "name": "powerx-upgrade-manifest.json",
+      "browser_download_url": "https://github.com/ArtisanCloud/PowerX/releases/download/docker-dev-f99333ccd80e/powerx-upgrade-manifest.json",
+      "digest": "sha256:efe0ed2a0d03fd8cd2646a188d77f268fdc4345332bd2d6704c0600955ded738"
+    },
+    {
+      "name": "powerx-upgrade-manifest.json.sha256",
+      "browser_download_url": "https://github.com/ArtisanCloud/PowerX/releases/download/docker-dev-f99333ccd80e/powerx-upgrade-manifest.json.sha256",
+      "digest": "sha256:04423cb44fc255ec0647eecbee2a028b64542f09b5d0f0b9b2e51c07c26fa7e2"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 title: XDocker 部署（推荐）
-description: 在全新 Linux 服务器上用固定镜像安装 PowerX，生成独立配置和随机凭据，通过 SSH 隧道完成 Setup 与登录。
+description: 在全新 Linux 服务器上安装最新已发布的 PowerX 容器 Release，生成独立配置和随机凭据，通过 SSH 隧道完成 Setup 与登录。
 ---
 
 # XDocker 部署（推荐）
@@ -19,7 +19,7 @@ description: 在全新 Linux 服务器上用固定镜像安装 PowerX，生成�
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git curl ca-certificates docker.io docker-compose-v2
+sudo apt-get install -y git curl python3 ca-certificates docker.io docker-compose-v2
 sudo systemctl enable --now docker
 sudo docker version
 sudo docker compose version
@@ -29,7 +29,7 @@ sudo docker compose version
 
 本教程只在服务器回环地址开放 18080，PostgreSQL、Redis 和后端均不发布公网端口。不要为安装向导开放公网 18080、5432 或 6379。
 
-## 2. 下载固定版本的 XDocker
+## 2. 准备 XDocker，获取最新 Release
 
 仍在**服务器终端**执行。使用新目录，不复用服务器上已有的 XDocker 或 PowerX 实例：
 
@@ -43,7 +43,13 @@ git rev-parse HEAD
 sudo sh scripts/apps.sh init powerx-dev
 ```
 
-输出 SHA 应与上面一致，最后提示编辑 `instances/powerx-dev/.env`。`init` 只创建实例配置与登记，尚未创建数据库或管理员。此路径不启动 XDocker 的共享网站、管理面板或证书服务。
+这里固定的是已核对的 **XDocker 部署工具模板**，不是 PowerX 版本。`init` 只创建实例配置与登记，尚未创建数据库或管理员，也不启动共享网站、管理面板或证书服务。
+
+保持在 **XDocker 根目录**，展开并执行下面的命令，自动获取**按发布时间最新的容器 Release**。当前容器发布使用预发布通道（截至 2026-11-01 为 `docker-dev-f99333ccd80e`）；命令会显示实际选择，不把它称为稳定版，也不使用会漏掉预发布的 `/releases/latest` 接口。
+
+<!--@include: ../../../_snippets/latest-release.md-->
+
+最新版本只在此次准备阶段解析一次，后续步骤使用保存的清单和成对镜像 digest。以后出现新 Release，不会在你重启服务时偷偷换版。
 
 ## 3. 填写实例参数
 
@@ -58,8 +64,6 @@ sudoedit instances/powerx-dev/.env
 ```dotenv
 COMPOSE_PROJECT_NAME=powerx-dev
 DEPLOYMENT_ENV=dev
-POWERX_BACKEND_IMAGE=ghcr.io/artisancloud/powerx-backend:sha-3d792fd7ea2426825970bceceb0d6e9db46211ef
-POWERX_WEB_IMAGE=ghcr.io/artisancloud/powerx-web-admin:sha-3d792fd7ea2426825970bceceb0d6e9db46211ef
 POSTGRES_IMAGE=pgvector/pgvector:pg16
 REDIS_IMAGE=redis:7-alpine
 GATEWAY_IMAGE=nginx:alpine
@@ -72,7 +76,14 @@ ADMIN_USERNAME=admin
 ADMIN_EMAIL=you@example.com
 ```
 
-`ADMIN_EMAIL` 改为自己的邮箱；管理员密码稍后在 Setup 设置。两条应用镜像必须使用**同一个完整 SHA**。这里使用 XDocker 该版本已记录完整 Setup／登录验证的配套版本，不自动追随 `latest` 或最新 `develop`。
+`ADMIN_EMAIL` 改为自己的邮箱；管理员密码稍后在 Setup 设置。上面先填写运行参数，再把步骤 2 解析出的版本写入同一实例文件：
+
+```bash
+cat powerx-release/release.env
+sudo tee -a instances/powerx-dev/.env < powerx-release/release.env > /dev/null
+```
+
+**通过条件**：输出最新 Release 标签、源码 SHA，以及后端／管理端的两条 `@sha256:…` 镜像引用。两条镜像来自同一发布清单，不手工拼标签，不使用漂移的 `latest`。这条追加命令只执行一次；修改邮箱等参数时保留已经写入的版本行。
 
 `PUBLIC_ORIGIN` 是你的浏览器入口，`PUBLIC_WS_ORIGIN` 是同一入口的 WebSocket 地址。通过后面的 SSH 隧道访问时，保留这两个回环地址。`DEPLOYMENT_ENV` 是实例身份，完成安装后不要随意修改。
 
@@ -82,10 +93,11 @@ ADMIN_EMAIL=you@example.com
 sudo chmod 600 instances/powerx-dev/.env
 sudo install -m 644 apps/powerx/gateway.conf instances/powerx-dev/gateway.conf
 sudo sh scripts/apps.sh compose powerx-dev config --quiet
+sudo sh scripts/apps.sh compose powerx-dev config --images
 sudo sh scripts/apps.sh compose powerx-dev pull postgres redis backend web-admin init gateway
 ```
 
-**通过条件**：配置检查无报错，所有镜像拉取成功。`gateway.conf` 必须放到实例目录，因为 Compose 的相对挂载按实例目录解析。
+**通过条件**：配置检查无报错，输出的 PowerX 镜像与 `release.env` 一致，所有镜像拉取成功。`gateway.conf` 必须放到实例目录，因为 Compose 的相对挂载按实例目录解析。
 
 镜像若提示 `denied`，先确认发布者已公开对应 GHCR 包；私有包需要有 `read:packages` 的账号执行 `sudo docker login ghcr.io`，按提示输入凭据。不要把令牌写进教程命令、`.env` 或 Git。
 
@@ -184,6 +196,7 @@ sudo sh scripts/apps.sh compose powerx-dev restart backend web-admin
 
 | 目录 | 内容 |
 | --- | --- |
+| `powerx-release/` | 本次 Release 记录、校验后的清单与成对镜像版本 |
 | `instances/powerx-dev/.env` | 镜像、实例身份和浏览器入口 |
 | `instances/powerx-dev/config/` | 私有 `config.yaml`、随机凭据、密钥和 Setup 配置 |
 | `data/instances/powerx-dev/postgres/` | PostgreSQL 数据 |
@@ -196,6 +209,7 @@ sudo sh scripts/apps.sh compose powerx-dev restart backend web-admin
 
 | 现象 | 处理 |
 | --- | --- |
+| 版本工具提示 GitHub 限流 | 稍后重试；不会因此改装旧版本，不要把令牌粘贴进页面或聊天 |
 | 启动超时／容器不健康 | `sudo sh scripts/apps.sh logs powerx-dev`；数据库问题另用 `sudo sh scripts/apps.sh compose powerx-dev logs --tail 80 postgres redis` |
 | 网关启动报挂载／配置错误 | 确认步骤 3 的 `instances/powerx-dev/gateway.conf` 是文件，再查看 gateway 日志 |
 | 服务器 curl 正常，浏览器打不开 | 确认 SSH 隧道仍运行，本机 18080 未冲突，浏览器使用 `127.0.0.1:18080` |
@@ -207,6 +221,8 @@ sudo sh scripts/apps.sh compose powerx-dev restart backend web-admin
 <details>
 <summary>版本与源码依据</summary>
 
-本文核对 XDocker `13653a6c8dab6867a9745301b94242dad677415f` 的 [实例脚本](https://github.com/ReDeployment/XDocker/blob/13653a6c8dab6867a9745301b94242dad677415f/scripts/apps.sh)、[Compose 模板](https://github.com/ReDeployment/XDocker/blob/13653a6c8dab6867a9745301b94242dad677415f/apps/powerx/compose.yml)与[配套镜像记录](https://github.com/ReDeployment/XDocker/blob/13653a6c8dab6867a9745301b94242dad677415f/docs/guides/powerx/README.md)。本页没有把该旧模板的迁移命令用于新版升级；本文命令经过源码静态核对，本次文档修订未重新执行全新服务器安装。
+本文核对 XDocker `13653a6c8dab6867a9745301b94242dad677415f` 的 [实例脚本](https://github.com/ReDeployment/XDocker/blob/13653a6c8dab6867a9745301b94242dad677415f/scripts/apps.sh)、[Compose 模板](https://github.com/ReDeployment/XDocker/blob/13653a6c8dab6867a9745301b94242dad677415f/apps/powerx/compose.yml)，并核对 [PowerX 容器 Release](https://github.com/ArtisanCloud/PowerX/releases/tag/docker-dev-f99333ccd80e) 的清单、成对镜像和首装入口。最新镜像仍支持该模板使用的 `init`／`setup-values`／首次 Setup 路径；首装与升级不是同一件事。本文不会把旧 `apps.sh migrate` 用于新版升级。
+
+发布清单下载与校验已实际执行，版本选择逻辑通过自动化测试；应用启动步骤经过源码静态核对，本次文档修订未在全新服务器重新拉取镜像、完成 Setup 或验证登录，不把历史旧镜像验收算作新版实测。
 
 </details>

@@ -10,6 +10,7 @@ import { pageMetadata, siteProfile, sitemapEntries } from '../../docs/.vitepress
 const root = fileURLToPath(new URL('../../docs/website/', import.meta.url))
 const names = ['local-dev', 'xdocker', 'systemd']
 const read = name => fs.readFileSync(path.join(root, 'zh/guides', `${name}.md`), 'utf8')
+  .replace(/<!--@include: ([^>]+)-->/g, (_, relative) => fs.readFileSync(path.resolve(root, 'zh/guides', relative.trim()), 'utf8'))
 
 test('Chinese step labels and clickable Setup URLs render without literal Markdown markers', async () => {
   const md = await createMarkdownRenderer(root, { html: true, linkify: true })
@@ -54,7 +55,7 @@ test('tutorial internal links resolve within the documentation source tree', () 
       const candidates = route.endsWith('/')
         ? [route + 'index.md', route + 'README.md']
         : [route.replace(/\.html$/, '') + '.md', route + '/index.md']
-      assert.ok(candidates.some(candidate => fs.existsSync(path.join(root, candidate))), `${name}: ${href}`)
+      assert.ok(candidates.some(candidate => fs.existsSync(path.join(root, candidate))) || fs.existsSync(path.join(root, 'public', route)), `${name}: ${href}`)
     }
   }
 })
