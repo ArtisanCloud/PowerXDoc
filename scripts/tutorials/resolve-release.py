@@ -31,7 +31,9 @@ def newest_release(fetch_bytes=fetch):
         if not isinstance(batch, list):
             raise ValueError('Release 列表无效，请检查 GitHub API 限流或网络。')
         releases.extend(r for r in batch if not r.get('draft')
-                        and r.get('published_at') and r.get('tag_name', '').startswith('docker-'))
+                        and r.get('published_at') and (r.get('tag_name', '').startswith('docker-')
+                        or any(a.get('name') in ('powerx-docker.tar.gz', 'powerx-upgrade-manifest.json')
+                               for a in r.get('assets', []))))
         if len(batch) < 100:
             break
     else:
@@ -43,7 +45,7 @@ def newest_release(fetch_bytes=fetch):
 
 def resolve(release, fetch_bytes=fetch):
     tag = release['tag_name']
-    if not re.fullmatch(r'docker-[A-Za-z0-9._-]+', tag):
+    if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', tag):
         raise ValueError('Release 标签格式不受支持。')
     assets = {a['name']: a for a in release.get('assets', [])}
     name = 'powerx-upgrade-manifest.json'

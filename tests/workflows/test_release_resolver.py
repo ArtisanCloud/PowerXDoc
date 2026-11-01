@@ -23,10 +23,15 @@ def fetch_asset(url):
 class ReleaseTests(unittest.TestCase):
     def test_latest_includes_prerelease_sorted_by_publish_not_api_order(self):
         old = dict(release, id=2, published_at='2026-10-01T00:00:00Z')
-        stable = dict(release, id=3, tag_name='v1.0.2', prerelease=False)
+        stable = dict(release, id=3, tag_name='v1.0.2', prerelease=False, assets=[])
         newest = r.newest_release(lambda url: json.dumps([old, stable, release]).encode())
         self.assertEqual(newest['tag_name'], 'docker-dev-f99333ccd80e')
         self.assertTrue(newest['prerelease'])
+
+    def test_future_stable_container_release_can_be_selected(self):
+        stable = dict(release, id=999, tag_name='v2.0.0', prerelease=False, published_at='2027-01-01T00:00:00Z')
+        newest = r.newest_release(lambda url: json.dumps([release, stable]).encode())
+        self.assertEqual(newest['tag_name'], 'v2.0.0')
 
     def test_resolves_current_real_manifest(self):
         # Checksum fixture is regenerated; only its GitHub metadata digest is irrelevant here.
