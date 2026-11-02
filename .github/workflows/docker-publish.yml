@@ -1,0 +1,138 @@
+name: Verify website and container
+
+on:
+  pull_request:
+  push:
+    branches:
+      - dev/michaelhu
+      - feat/docs-clear-start
+      - 'ci/**'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish a verified SHA image to GHCR (default branch only; no deployment)'
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  IMAGE_NAME: ghcr.io/artisancloud/powerxdoc
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  verify:
+    name: Tests, production build and container smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Lint documentation theme
+        run: npm run lint
+      - name: Check workflows, tutorials, SEO and release selection
+        run: npm run test:workflows
+      - name: Build production documentation
+        run: npm run docs:build
+      - name: Verify tutorial HTML, search index and SEO
+        run: npm run test:tutorial-build
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4
+      - name: Build local AMD64 image without publishing
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        with:
+          context: .
+          platforms: linux/amd64
+          load: true
+          push: false
+          tags: site-ci:sha-${{ github.sha }}
+      - name: Verify Nginx routes and container content
+        run: bash scripts/ci/smoke-container.sh "site-ci:sha-$GITHUB_SHA"
+      - name: Save verified static artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: production-site-${{ github.sha }}
+          path: docs/.vitepress/dist/
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Manually publish verified SHA image
+    needs: verify
+    # PRs, tags, feature branches and ordinary pushes never publish.
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      inputs.publish &&
+      github.ref == 'refs/heads/dev/michaelhu'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout the verified commit
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4
+      # Smoke-test this builder's image before authenticating or pushing.
+      - name: Build the release candidate locally
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        with:
+          context: .
+          platforms: linux/amd64
+          load: true
+          push: false
+          tags: site-ci:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+      - name: Verify the release candidate
+        run: bash scripts/ci/smoke-container.sh "site-ci:sha-$GITHUB_SHA"
+      - name: Login to GHCR
+        uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish both architectures after verification
+        id: publish
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+      - name: Record immutable deployment reference
+        env:
+          DIGEST: ${{ steps.publish.outputs.digest }}
+        run: |
+          test -n "$DIGEST"
+          {
+            echo "Commit: $GITHUB_SHA"
+            echo "Image tag: $IMAGE_NAME:sha-$GITHUB_SHA"
+            echo "Deploy only after separate approval: $IMAGE_NAME@$DIGEST"
+          } >> "$GITHUB_STEP_SUMMARY"
